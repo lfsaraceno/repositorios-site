@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SetupOrion · Repositórios favoritos</title>
+<meta name="description" content="Auto instalador gratuito em Shell que instala, a partir de um menu, mais de 100 ferramentas open source (Traefik, Portainer, n8n, Chatwoot, Evolution API etc.) em um servidor.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#08-deploy-e-infra"><span aria-hidden="true">🚀</span> Deploy e infra</a>
+    </nav>
+    <h1>SetupOrion</h1>
+    <p class="lead">Auto instalador gratuito em Shell que instala, a partir de um menu, mais de 100 ferramentas open source (Traefik, Portainer, n8n, Chatwoot, Evolution API etc.) em um servidor.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/oriondesign2015/SetupOrion">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">oriondesign2015/SetupOrion</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/oriondesign2015/SetupOrion">oriondesign2015/SetupOrion</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://setuporion.sh">setuporion.sh</a></dd></div>
+<div><dt>Linguagem</dt><dd>Shell</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~770 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O SetupOrion é um instalador interativo em Shell, da OrionDesign, para colocar no ar as principais ferramentas de automação e marketing em um servidor próprio. Um comando curto atualiza o servidor, baixa o script do setup e abre um menu, onde você escolhe apenas as ferramentas que quer instalar.</p>
+<p>É gratuito e muito popular na comunidade brasileira de automação. O autor pede que, ao usar, se dê os créditos.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Catálogo com mais de 100 ferramentas, organizadas por categoria no README:
+<ul>
+<li>Infraestrutura e monitoramento (Traefik, Portainer, MinIO, RustDesk, Code Server, Grafana, Prometheus, Uptime Kuma, Ntfy, Duplicati, PgBackWeb e outros);</li>
+<li>Bancos de dados e dados (MongoDB, RabbitMQ, Qdrant e outros);</li>
+<li>WhatsApp e atendimento;</li>
+<li>CRM, marketing e agendamento (Cal.com e outros);</li>
+<li>Automação e IA (n8n e similares).</li>
+</ul>
+</li>
+<li>Instalação por menu, sem precisar montar cada stack à mão.</li>
+<li>Cada ferramenta tem link para o repositório oficial no README.</li>
+<li>Gratuito e open source (MIT).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<p>(Conforme o README.)</p>
+<ul>
+<li>Servidor VPS <strong>vazio</strong>. O autor avisa que executar o Setup em um servidor com outras ferramentas pode causar perda de dados.</li>
+<li>Recomendado: Debian 12, com no mínimo 4 GB de RAM e 2 vCPU. Cada aplicação tem seus próprios requisitos.</li>
+<li>VPS recomendadas pelo autor: Hostinger, Hetzner, Digital Ocean ou AWS. Outras VPS não são recomendadas.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Execute no terminal do servidor:</p>
+<pre><code class="language-bash">bash &lt;(curl -sSL get.setuporion.sh)
+</code></pre>
+<p>Aguarde o script iniciar e escolha no menu as ferramentas que deseja instalar.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>O uso é todo pelo menu interativo do instalador: escolha a categoria, a ferramenta e informe os dados pedidos (como domínio e e-mail). Em geral, instala-se primeiro a base (Traefik e Portainer) e depois as aplicações sobre ela. Leia a documentação em <a href="https://setuporion.sh">setuporion.sh</a> para detalhes de cada ferramenta.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Montar rapidamente uma VPS com n8n, Chatwoot, Evolution API, Typebot e outras ferramentas de automação.</li>
+<li>Quem prefere um menu guiado a escrever stacks de Docker Swarm manualmente.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O comando executa um script remoto como administrador do servidor. Leia o código no repositório antes de rodar em produção.</li>
+<li>Use apenas em servidor limpo, conforme o aviso do autor.</li>
+<li>O projeto é gratuito, mas o autor divulga um clube pago (ClubOrion) e links de afiliado da Hostinger (cupom ORION).</li>
+<li>Para um painel gráfico de deploy com mais controle, compare com o <a href="coolify.html">Coolify</a> e o <a href="caprover.html">CapRover</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/oriondesign2015/SetupOrion#readme">README</a></li>
+<li><a href="https://setuporion.sh">Site</a></li>
+<li><a href="https://hostinger.com/orion">Hostinger (link do autor)</a></li>
+<li><a href="https://orionacademy.com.br/courses/cluborion">ClubOrion</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#08-deploy-e-infra">Deploy e infra</a></h2>
+    <ul>
+<li><a href="../../repos/08-deploy-e-infra/caprover.html">CapRover</a></li>
+<li><a href="../../repos/08-deploy-e-infra/coolify.html">Coolify</a></li>
+<li><a href="../../repos/08-deploy-e-infra/floci.html">Floci</a></li>
+<li><a href="../../repos/08-deploy-e-infra/slim.html">SlimToolkit (Slim, ex-DockerSlim)</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HyperFrames · Repositórios favoritos</title>
+<meta name="description" content="Framework da HeyGen que transforma HTML, CSS e animações em vídeo MP4 determinístico. Feito para agentes de IA: você pede o vídeo ao Claude Code, ele escreve o HTML e o HyperFrames renderiza.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>HyperFrames</h1>
+    <p class="lead">Framework da HeyGen que transforma HTML, CSS e animações em vídeo MP4 determinístico. Feito para agentes de IA: você pede o vídeo ao Claude Code, ele escreve o HTML e o HyperFrames renderiza.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/heygen-com/hyperframes">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">heygen-com/hyperframes</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/heygen-com/hyperframes">heygen-com/hyperframes</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://hyperframes.heygen.com">hyperframes.heygen.com</a> · <a href="https://hyperframes.heygen.com/quickstart">Quickstart</a> · <a href="https://hyperframes.studio/">hyperframes.studio</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (Node.js)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~80k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>No HyperFrames, um vídeo é uma página HTML. Cada elemento (vídeo, título, áudio) recebe atributos <code>data-start</code>, <code>data-duration</code> e <code>data-track-index</code>, que dizem quando aparece e em qual faixa. As animações usam GSAP, CSS, Lottie, Three.js, Anime.js ou WAAPI, desde que dê para avançar quadro a quadro.</p>
+<p>Para renderizar, o HyperFrames abre a página num Chrome sem interface, avança quadro a quadro e codifica com o <a href="ffmpeg.html">FFmpeg</a>. A mesma entrada gera sempre o mesmo vídeo.</p>
+<p>É inspirado no Remotion, mas usa HTML puro em vez de componentes React. Por isso fica mais fácil para um agente escrever.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Skills para agentes</strong> (Claude Code, Codex, Cursor, Gemini CLI, OpenCode):
+<ul>
+<li><strong>núcleo:</strong> <code>/hyperframes</code>, <code>/hyperframes-cli</code>, <code>/hyperframes-registry</code> e <code>/media-use</code>;</li>
+<li><strong>sob demanda:</strong> <code>/figma</code>, <code>/slideshow</code>, <code>/remotion-to-hyperframes</code>, <code>/reverse-any-video</code> e <code>/style-sampling</code> (os dois últimos são do plano Pro).</li>
+</ul>
+</li>
+<li><strong>CLI:</strong> cria o projeto, pré-visualiza no navegador com recarga automática, valida e renderiza.</li>
+<li><strong>Catálogo</strong> com cerca de 450 blocos prontos: transições, overlays, títulos animados, legendas, gráficos, mapas e 3D.</li>
+<li><strong>Studio:</strong> editor no navegador e app desktop gratuito (macOS, Windows e Linux).</li>
+<li><strong>frame.md:</strong> adapta o design system da marca (<code>DESIGN.md</code>) para vídeo.</li>
+<li><strong>Renderização distribuída</strong> na AWS Lambda.</li>
+<li><strong>Player</strong> embutível (<code>&lt;hyperframes-player&gt;</code>).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Node.js 22+</strong>.</li>
+<li><strong>FFmpeg</strong> instalado (veja o <a href="ffmpeg.html">FFmpeg</a>).</li>
+<li>Para usar com agente: Claude Code, Codex, Cursor ou outro que aceite skills.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Plugin para o Claude Code:</strong></p>
+<pre><code class="language-bash">claude plugin marketplace add heygen-com/hyperframes
+claude plugin install hyperframes@hyperframes
+</code></pre>
+<p>Depois, use <code>/hyperframes:hyperframes</code>.</p>
+<p><strong>Skills avulsas</strong> (outros agentes, inclusive OpenCode):</p>
+<pre><code class="language-bash">npx hyperframes skills update        # instala só o núcleo, na versão da sua CLI
+npx skills add heygen-com/hyperframes   # seletor interativo
+</code></pre>
+<p><strong>Só a CLI:</strong></p>
+<pre><code class="language-bash">npx hyperframes init meu-video
+cd meu-video
+npx hyperframes preview      # pré-visualiza no navegador
+npx hyperframes render       # renderiza para MP4
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Com o agente, peça algo como:</p>
+<pre><code class="language-text">Using /hyperframes, create a 10-second product intro with a fade-in title, a background video, and subtle background music.
+</code></pre>
+<p>Blocos do catálogo:</p>
+<pre><code class="language-bash">npx hyperframes add flash-through-white   # transição com shader
+npx hyperframes add instagram-follow      # overlay de rede social
+npx hyperframes add data-chart            # gráfico animado
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Vídeos de lançamento de produto, anúncios de funcionalidade e explicações animadas.</li>
+<li>Visualizações de dados, corridas de gráficos e mapas animados.</li>
+<li>Vídeos para redes sociais com legendas animadas, overlays e música.</li>
+<li>Gerar vídeos em lote, por script ou em CI, com resultado sempre igual.</li>
+<li><strong>Comparação no catálogo:</strong>
+<ul>
+<li>o <a href="opencut.html">OpenCut</a> é um editor manual com linha do tempo;</li>
+<li>o <a href="supoclip.html">SupoClip</a> corta vídeos longos que já existem;</li>
+<li>o HyperFrames cria o vídeo do zero a partir de código.</li>
+</ul>
+</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença:</strong> Apache 2.0, sem taxa por renderização nem limite de uso comercial. O Remotion, por comparação, tem licença própria, que cobra de empresas acima de certo tamanho.</li>
+<li><strong>Plano Pro:</strong> o Studio é gratuito, mas o <a href="https://hyperframes.studio/pricing">plano Pro</a> cobra pelos modelos de vídeo, imagem, voz e música da HeyGen e pelas skills <code>/reverse-any-video</code> e <code>/style-sampling</code>.</li>
+<li><strong><code>/reverse-any-video</code></strong> recria qualquer vídeo como projeto editável. Recriar vídeos de terceiros pode violar direitos autorais.</li>
+<li><strong>Contribuir:</strong> o clone completo usa Git LFS, com cerca de 240 MB de vídeos de teste. Para só ler o código, use <code>GIT_LFS_SKIP_SMUDGE=1</code>.</li>
+<li>Projeto muito ativo, com releases quase diárias (última: v0.9.19, nov/2026). A API ainda está na série 0.x.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/heygen-com/hyperframes#readme">README</a> · <a href="https://hyperframes.heygen.com">Documentação</a> · <a href="https://hyperframes.heygen.com/quickstart">Quickstart</a></li>
+<li><a href="https://hyperframes.heygen.com/catalog/blocks/data-chart">Catálogo</a> · <a href="https://hyperframes.heygen.com/guides/hyperframes-vs-remotion">HyperFrames vs Remotion</a></li>
+<li><a href="https://hyperframes.studio/">Playground (hyperframes.studio)</a> · <a href="https://hyperframes.studio/pricing">Preços do Pro</a></li>
+<li><a href="https://github.com/heygen-com/hyperframes/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fleetbase · Repositórios favoritos</title>
+<meta name="description" content="Sistema operacional modular e open source para logística e cadeia de suprimentos: despacho, frota, rastreamento, comércio, armazém e financeiro.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Fleetbase</h1>
+    <p class="lead">Sistema operacional modular e open source para logística e cadeia de suprimentos: despacho, frota, rastreamento, comércio, armazém e financeiro.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/fleetbase/fleetbase">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">fleetbase/fleetbase</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/fleetbase/fleetbase">fleetbase/fleetbase</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://fleetbase.io">fleetbase.io</a> · <a href="https://www.fleetbase.io/docs">fleetbase.io/docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (console em Ember) e PHP (API)</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~4,4k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Fleetbase é um sistema operacional de logística (LSOS) modular. Reúne despacho, gestão de frota, rastreamento ao vivo, comércio, armazenagem e finanças em uma plataforma, com API REST, webhooks e um sistema de extensões. Você pode rodá-lo na própria infraestrutura ou usar o Fleetbase Cloud.</p>
+<p>Atende operações de transporte rodoviário, courier, entrega de comida, e-commerce, saúde, coleta de resíduos e outras. Como cada fluxo, campo e status é configurável, a mesma base se adapta a operações bem diferentes.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Fleet-Ops: pedidos, motoristas, veículos, rastreamento ao vivo, otimização de rotas, fluxos configuráveis e manutenção.</li>
+<li>Storefront: comércio headless para negócios on-demand e marketplaces multi-lojista.</li>
+<li>Pallet: gestão de armazém (inventário, picking, contagem cíclica). O README o lista como em desenvolvimento.</li>
+<li>Ledger: faturas, pagamentos, carteiras e contabilidade para operadores logísticos.</li>
+<li>Customer Portal: área de autoatendimento para clientes pedirem, acompanharem e pagarem.</li>
+<li>API REST, webhooks, chaves de API e marketplace de extensões.</li>
+<li>CLI própria (<code>@fleetbase/cli</code>) para instalar e gerenciar extensões.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<p>(Conforme o Quickstart do README.)</p>
+<ul>
+<li>Docker com Docker Compose v2.</li>
+<li>Git.</li>
+<li>Node.js 18 ou superior.</li>
+<li>Pelo menos 4 GB de RAM alocados ao Docker.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Instalação local self-hosted com a CLI interativa:</p>
+<pre><code class="language-bash">npm install -g @fleetbase/cli
+flb install-fleetbase
+</code></pre>
+<p>Ao terminar, abra o console em <code>http://localhost:4200</code> e crie a primeira conta de administrador e a organização. A API fica em <code>http://localhost:8000</code>.</p>
+<p>O guia <a href="https://www.fleetbase.io/docs/platform/quickstart/running-locally">Running locally</a> também cobre a instalação com Docker Compose ou script, a configuração de e-mail, mapas e SMS, e a resolução de problemas. Para produção em nuvem (AWS, GCP, Azure etc.), veja <a href="https://www.fleetbase.io/docs/platform/quickstart/deploy-in-cloud">Deploy in your cloud</a>. Para desenvolver o próprio Fleetbase, use o <a href="https://www.fleetbase.io/docs/platform/quickstart/development-setup">guia de desenvolvimento</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">flb install-fleetbase   # instala o Fleetbase de forma interativa
+</code></pre>
+<p>A CLI também instala e publica extensões; veja a <a href="https://www.fleetbase.io/docs/cli">documentação da CLI</a>. No console, o fluxo típico é cadastrar motoristas e veículos, criar pedidos, despachar e acompanhar o rastreamento. A integração por código usa a <a href="https://www.fleetbase.io/docs/api">API</a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Operar entregas, frota e rotas com um sistema próprio no lugar de um TMS legado.</li>
+<li>Construir um produto de logística personalizado sobre a API e as extensões.</li>
+<li>Ter soberania de dados com auto-hospedagem (por exemplo, em órgãos públicos).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A licença é AGPL-3.0: se você modificar e oferecer o sistema como serviço em rede, precisa disponibilizar o código das modificações.</li>
+<li>Há também a opção paga Fleetbase Cloud, sem instalação.</li>
+<li>Alguns módulos citados no README (como o Pallet) aparecem no roadmap como em desenvolvimento.</li>
+<li>Para recursos como mapas, e-mail e SMS é preciso configurar serviços externos.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/fleetbase/fleetbase#readme">README</a></li>
+<li><a href="https://www.fleetbase.io/docs">Documentação</a></li>
+<li><a href="https://www.fleetbase.io/docs/api">Referência da API</a></li>
+<li><a href="https://discord.gg/V7RVWRQ2Wm">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

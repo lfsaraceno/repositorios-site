@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SupoClip · Repositórios favoritos</title>
+<meta name="description" content="Alternativa open source ao OpusClip: transforma vídeos longos (podcast, palestra, live) em cortes verticais 9:16 com IA, com rosto centralizado, legendas sincronizadas por palavra, título de gancho e nota de viralidade.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>SupoClip</h1>
+    <p class="lead">Alternativa open source ao OpusClip: transforma vídeos longos (podcast, palestra, live) em cortes verticais 9:16 com IA, com rosto centralizado, legendas sincronizadas por palavra, título de gancho e nota de viralidade.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/FujiwaraChoki/supoclip">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">FujiwaraChoki/supoclip</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/FujiwaraChoki/supoclip">FujiwaraChoki/supoclip</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.supoclip.com/">supoclip.com</a> · <a href="https://github.com/FujiwaraChoki/supoclip/blob/main/docs/README.md">Documentação (docs/)</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (backend FastAPI) e TypeScript (frontend Next.js)</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~2,5k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Você dá um vídeo longo ao SupoClip, e ele:</p>
+<ol>
+<li>transcreve o áudio;</li>
+<li>pede a um LLM os trechos com mais potencial de viralizar;</li>
+<li>dá uma nota a cada trecho;</li>
+<li>renderiza cada trecho como corte vertical, com o rosto de quem fala centralizado, legendas sincronizadas por palavra e um título de gancho no início.</li>
+</ol>
+<p>É uma alternativa ao OpusClip: dá para hospedar no seu servidor, sem marca d'água e sem limite de uso além do seu hardware. Também existe a versão hospedada paga em <a href="https://www.supoclip.com/">supoclip.com</a> e um app para iOS.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Entradas:</strong> vídeo do YouTube, VOD ou clipe da Twitch e do Kick, ou upload de arquivo. Não aceita lives em andamento.</li>
+<li><strong>Seleção por IA:</strong> um LLM (Gemini, GPT, Claude, OpenRouter ou Ollama local) escolhe os melhores trechos. Cada corte recebe notas de gancho, engajamento, valor e compartilhamento.</li>
+<li><strong>Corte vertical inteligente:</strong> detecção de rosto mantém quem fala no centro do quadro 9:16.</li>
+<li><strong>Legendas sincronizadas por palavra</strong> (AssemblyAI). Há fontes próprias e modelos de legenda animada, como <code>hormozi</code> e <code>mrbeast</code>.</li>
+<li><strong>Título de gancho</strong> escrito pela IA e gravado nos primeiros segundos do corte.</li>
+<li><strong>B-roll e transições opcionais:</strong> imagens de banco do Pexels e efeitos de transição.</li>
+<li><strong>Editor embutido:</strong> cortar, dividir e juntar clipes. Exporta com presets para TikTok, Reels e Shorts.</li>
+<li><strong>Publicação direta:</strong> conecte suas contas do YouTube, TikTok e Instagram para postar ou agendar. As métricas de cada post voltam e ajustam a escolha dos próximos cortes.</li>
+<li><strong>Progresso em tempo real</strong> no navegador.</li>
+<li><strong>API REST</strong> com chaves de API e <strong>servidor MCP</strong> (pasta <code>mcp/</code>), para usar no Claude, no Cursor e em outros clientes MCP.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Docker</strong> e Docker Compose.</li>
+<li><strong>Chave da <a href="https://www.assemblyai.com/">AssemblyAI</a></strong> para a transcrição (obrigatória no fluxo padrão, e paga).</li>
+<li><strong>Uma chave de LLM</strong> (Google, OpenAI, Anthropic ou OpenRouter) <strong>ou</strong> um Ollama local.</li>
+<li>Opcionais:
+<ul>
+<li>Pexels, para B-roll;</li>
+<li>apps OAuth próprios do YouTube, do TikTok e do Instagram, para publicar;</li>
+<li>proxy residencial ou Apify, para baixar do YouTube a partir de um servidor em datacenter.</li>
+</ul>
+</li>
+<li>Para rodar tudo local com Whisper e Ollama, veja o <a href="https://www.supoclip.com/blog/self-host-supoclip-docker#local">tutorial de self-hosting</a>.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">git clone https://github.com/FujiwaraChoki/supoclip.git
+cd supoclip
+</code></pre>
+<p>Crie um <code>.env</code> na raiz com as chaves:</p>
+<pre><code class="language-env">ASSEMBLY_AI_API_KEY=your_assemblyai_api_key
+LLM=google-gla:gemini-3-flash-preview
+GOOGLE_API_KEY=your_google_api_key
+</code></pre>
+<p>O <code>LLM</code> segue o formato <code>provedor:modelo</code>, por exemplo <code>openai:...</code>, <code>anthropic:...</code>, <code>openrouter:...</code> ou <code>ollama:gpt-oss:20b</code>. Para o Ollama, defina também <code>OLLAMA_BASE_URL</code>.</p>
+<pre><code class="language-bash">docker-compose up -d        # sobe frontend, backend, PostgreSQL e Redis
+docker-compose logs -f      # a primeira subida leva alguns minutos
+</code></pre>
+<p>Também há o script <code>./start.sh</code>, que confere os pré-requisitos, gera as imagens e sobe tudo.</p>
+<p>Endereços:</p>
+<ul>
+<li><strong>interface:</strong> <code>http://localhost:3107</code>. Crie uma conta e comece;</li>
+<li><strong>API:</strong> <code>http://localhost:8000</code>, com documentação interativa em <code>/docs</code>.</li>
+</ul>
+<p>Instalações antigas sem <code>FRONTEND_PORT</code> continuam na porta <code>3001</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Na interface: cole o link do vídeo ou envie o arquivo, escolha o modelo de legenda e a duração, e acompanhe o processamento. Depois revise os cortes no editor e exporte ou publique.</p>
+<pre><code class="language-bash">docker-compose down          # para tudo
+docker-compose up -d --build # reconstrói depois de mudar código ou .env
+make test                    # testes (pytest, Vitest e Playwright)
+</code></pre>
+<p><strong>MCP no Claude Code.</strong> O servidor MCP usa por padrão a API <strong>hospedada</strong> (<code>https://api.supoclip.com</code>). Para usar a sua instalação, adicione <code>SUPOCLIP_API_URL=http://localhost:8000</code>. A chave vem de <strong>Settings → API Keys</strong>.</p>
+<pre><code class="language-bash">claude mcp add supoclip -e SUPOCLIP_API_KEY=sk_your_key_here \
+  -- uv --directory /absolute/path/to/supoclip/mcp run supoclip-mcp
+</code></pre>
+<p>Exemplo de prompt do README do MCP:</p>
+<pre><code class="language-text">Use supoclip to make clips from https://youtu.be/… with the hormozi caption template, then wait for it and download the top clip.
+</code></pre>
+<p>A duração do corte é um destes valores:</p>
+<ul>
+<li><code>auto</code> (padrão, 15–60 s);</li>
+<li><code>short</code> (15–30 s);</li>
+<li><code>medium</code> (30–60 s);</li>
+<li><code>long</code> (1–2 min).</li>
+</ul>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gerar cortes para TikTok, Reels e Shorts a partir de podcasts, entrevistas, aulas e lives gravadas.</li>
+<li>Ter o fluxo do OpusClip na própria máquina, sem marca d'água e sem pagar por minuto da plataforma (você ainda paga a transcrição e o LLM).</li>
+<li>Automatizar cortes por API ou por um agente via MCP.</li>
+<li><strong>Comparação no catálogo:</strong> o <a href="opencut.html">OpenCut</a> é um editor de vídeo manual, no estilo CapCut. O SupoClip escolhe e monta os cortes sozinho e tem só um editor simples para ajustes.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença AGPL-3.0:</strong> se você oferecer o SupoClip modificado como serviço na rede, precisa disponibilizar o código-fonte das modificações aos usuários. Quem contribui concede ao dono do projeto o direito de relicenciar o código, inclusive em licenças comerciais.</li>
+<li><strong>Custos externos:</strong> a AssemblyAI e as APIs de LLM são pagas por uso. A transcrição é cobrada uma vez por tarefa; o sistema guarda checkpoints para não pagar de novo ao repetir a geração.</li>
+<li><strong>Downloads do YouTube, Twitch e Kick:</strong>
+<ul>
+<li>baixar vídeos de terceiros pode violar os termos dessas plataformas e direitos autorais. Use em conteúdo seu ou com permissão;</li>
+<li>num servidor em datacenter, o YouTube bloqueia o <code>yt-dlp</code> com a verificação &quot;não sou robô&quot;. A documentação sugere proxy residencial (cerca de US$ 1/GB) ou Apify, ambos pagos.</li>
+</ul>
+</li>
+<li><strong>Publicação nas redes:</strong> quem opera o servidor precisa registrar apps OAuth próprios no Google, no TikTok e na Meta. Os tokens dos usuários ficam criptografados com <code>APP_SETTINGS_ENCRYPTION_KEY</code>.</li>
+<li><strong>Produção:</strong>
+<ul>
+<li>troque o <code>BETTER_AUTH_SECRET</code> (o padrão é um segredo de desenvolvimento);</li>
+<li>use senhas fortes no banco;</li>
+<li>coloque HTTPS com proxy reverso;</li>
+<li><code>SELF_HOST=true</code> (padrão) desliga a cobrança com Stripe.</li>
+</ul>
+</li>
+<li><strong>Analytics:</strong> o PostHog fica desligado se <code>NEXT_PUBLIC_POSTHOG_KEY</code> estiver vazio. Instalações self-hosted não enviam nada por padrão.</li>
+<li><strong>Limites padrão:</strong> vídeos de até 90 min (<code>MAX_VIDEO_DURATION=5400</code>), upload de até 4 GB, no máximo 10 cortes por tarefa e saída limitada a 1080p e 60 fps.</li>
+<li>Projeto muito ativo, sem releases publicados no GitHub. O <code>docker-compose down -v</code> apaga todos os dados.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/FujiwaraChoki/supoclip#readme">README</a> · <a href="https://www.supoclip.com/">Site</a> · <a href="https://www.supoclip.com/demo">Demonstração</a></li>
+<li><a href="https://www.supoclip.com/blog/self-host-supoclip-docker">Tutorial de self-hosting com Docker</a></li>
+<li><a href="https://github.com/FujiwaraChoki/supoclip/blob/main/docs/setup.md">Setup</a> · <a href="https://github.com/FujiwaraChoki/supoclip/blob/main/docs/configuration.md">Configuração</a> · <a href="https://github.com/FujiwaraChoki/supoclip/blob/main/docs/troubleshooting.md">Solução de problemas</a></li>
+<li><a href="https://github.com/FujiwaraChoki/supoclip/blob/main/docs/api-reference.md">Referência da API</a> · <a href="https://github.com/FujiwaraChoki/supoclip/tree/main/mcp">Servidor MCP</a></li>
+<li><a href="https://github.com/FujiwaraChoki/supoclip/blob/main/docs/youtube-download.md">Download do YouTube (proxy)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

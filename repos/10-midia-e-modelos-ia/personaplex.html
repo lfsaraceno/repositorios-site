@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PersonaPlex · Repositórios favoritos</title>
+<meta name="description" content="Modelo de voz da NVIDIA para conversa em tempo real (full-duplex: ouve e fala ao mesmo tempo, aceita interrupções). Você define o papel por texto e a voz por um áudio de referência.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>PersonaPlex</h1>
+    <p class="lead">Modelo de voz da NVIDIA para conversa em tempo real (full-duplex: ouve e fala ao mesmo tempo, aceita interrupções). Você define o papel por texto e a voz por um áudio de referência.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/NVIDIA/personaplex">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">NVIDIA/personaplex</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/NVIDIA/personaplex">NVIDIA/personaplex</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://research.nvidia.com/labs/adlr/personaplex/">Demo</a> · <a href="https://arxiv.org/abs/2602.06053">Artigo (arXiv)</a> · <a href="https://huggingface.co/nvidia/personaplex-7b-v1">Pesos no Hugging Face</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (PyTorch)</dd></div>
+<div><dt>Licença</dt><dd>Código MIT. Pesos sob a NVIDIA Open Model License</dd></div>
+<div><dt>Estrelas</dt><dd>~12k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O PersonaPlex é um modelo de fala para fala, com cerca de 7 bilhões de parâmetros. Não há pipeline de transcrição, LLM e síntese: ele ouve o áudio e responde em áudio diretamente, com baixa latência. Assim, a conversa soa natural, com interrupções, pausas e &quot;aham&quot;.</p>
+<p>É baseado na arquitetura e nos pesos do Moshi (Kyutai). A novidade é o controle de persona:</p>
+<ul>
+<li>um <strong>prompt de texto</strong> define quem o modelo é (professor, atendente de uma empresa, personagem);</li>
+<li>um <strong>prompt de voz</strong> define como ele soa.</li>
+</ul>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Conversa full-duplex em tempo real</strong> por uma interface web.</li>
+<li><strong>Papel por texto:</strong> o modelo foi treinado para assistente e para atendimento ao cliente. O prompt descreve a empresa, o nome do atendente e as informações que ele deve usar.</li>
+<li><strong>Vozes prontas:</strong>
+<ul>
+<li>naturais: <code>NATF0</code>–<code>NATF3</code> e <code>NATM0</code>–<code>NATM3</code>;</li>
+<li>variadas: <code>VARF0</code>–<code>VARF4</code> e <code>VARM0</code>–<code>VARM4</code>.</li>
+</ul>
+</li>
+<li><strong>Conversas sem fim:</strong> o prompt de sistema fica fixo no contexto, mas a memória da conversa cobre só os últimos ~2,5 minutos.</li>
+<li><strong>Modo offline:</strong> processa um <code>.wav</code> de entrada e gera o <code>.wav</code> de resposta, para testes.</li>
+<li><strong><code>--cpu-offload</code></strong>, para GPUs com pouca memória.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>GPU NVIDIA</strong> com bastante memória (o README não diz quanto). Sem ela, use <code>--cpu-offload</code> ou PyTorch só de CPU no modo offline.</li>
+<li><strong>Biblioteca do codec Opus</strong> (<code>libopus-dev</code> no Debian/Ubuntu, <code>opus-devel</code> no Fedora).</li>
+<li><strong>Conta no Hugging Face</strong>, com a licença do modelo aceita e um token de acesso.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">git clone https://github.com/NVIDIA/personaplex.git
+cd personaplex
+sudo apt install libopus-dev
+pip install moshi/.
+</code></pre>
+<p>Em GPUs Blackwell, instale também o PyTorch para CUDA 13:</p>
+<pre><code class="language-bash">pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130
+</code></pre>
+<p>Aceite a licença em <a href="https://huggingface.co/nvidia/personaplex-7b-v1">huggingface.co/nvidia/personaplex-7b-v1</a> e exporte o seu token na variável <code>HF_TOKEN</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Servidor com interface web</strong> (certificado SSL temporário):</p>
+<pre><code class="language-bash">SSL_DIR=$(mktemp -d); python -m moshi.server --ssl &quot;$SSL_DIR&quot;
+SSL_DIR=$(mktemp -d); python -m moshi.server --ssl &quot;$SSL_DIR&quot; --cpu-offload   # GPU com pouca memória
+</code></pre>
+<p>Abra <code>https://localhost:8998</code> no navegador.</p>
+<p><strong>Offline</strong> (arquivo de entrada e de saída):</p>
+<pre><code class="language-bash">python -m moshi.offline \
+  --voice-prompt &quot;NATM1.pt&quot; \
+  --text-prompt &quot;$(cat assets/test/prompt_service.txt)&quot; \
+  --input-wav &quot;assets/test/input_service.wav&quot; \
+  --seed 42424242 \
+  --output-wav &quot;output.wav&quot; \
+  --output-text &quot;output.json&quot;
+</code></pre>
+<p>Exemplo de prompt de atendimento, no estilo do README:</p>
+<pre><code class="language-text">You work for CitySan Services which is a waste management and your name is Ayelen Lucero. Information: ...
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Pesquisar ou prototipar agentes de voz que conversam de forma natural.</li>
+<li>Testar atendimento por voz com persona definida (restaurante, aluguel, suporte).</li>
+<li>Comparar com pipelines tradicionais de transcrição, LLM e síntese de voz.</li>
+<li><strong>Comparação no catálogo:</strong> o <a href="voicestudio.html">VoiceStudio</a> é focado em gerar e clonar vozes. O PersonaPlex é um modelo de conversa em tempo real.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Foco em inglês.</strong> O treino usa conversas sintéticas e o corpus Fisher English. Português e outros idiomas não são citados no README.</li>
+<li><strong>Licença dos pesos:</strong> o código é MIT, mas os pesos seguem a NVIDIA Open Model License, que é preciso aceitar no Hugging Face. Leia as condições antes de uso comercial.</li>
+<li><strong>Voz e identidade:</strong> condicionar o modelo com a voz de uma pessoa real exige o consentimento dela. A voz é dado pessoal na LGPD, e imitar alguém pode configurar fraude.</li>
+<li><strong>Servidor exposto:</strong> o <code>moshi.server</code> usa certificado temporário e não tem login. Não o deixe aberto na internet.</li>
+<li><strong>Memória limitada:</strong> em conversas longas, o modelo esquece o que foi dito há mais de ~2,5 minutos. Só o prompt de sistema fica fixo.</li>
+<li>Projeto de pesquisa, sem releases no GitHub.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/NVIDIA/personaplex#readme">README</a> · <a href="https://research.nvidia.com/labs/adlr/personaplex/">Demo</a> · <a href="https://arxiv.org/abs/2602.06053">Artigo</a></li>
+<li><a href="https://huggingface.co/nvidia/personaplex-7b-v1">Pesos (Hugging Face)</a> · <a href="https://arxiv.org/abs/2410.00037">Moshi (artigo)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

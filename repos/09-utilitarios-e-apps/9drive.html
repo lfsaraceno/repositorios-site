@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9Drive · Repositórios favoritos</title>
+<meta name="description" content="Gateway de armazenamento web que une várias contas do Google Drive (e storages S3) em um único painel virtual, roteando uploads para a conta com espaço livre.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>9Drive</h1>
+    <p class="lead">Gateway de armazenamento web que une várias contas do Google Drive (e storages S3) em um único painel virtual, roteando uploads para a conta com espaço livre.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/zenhosta/9drive">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">zenhosta/9drive</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/zenhosta/9drive">zenhosta/9drive</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://9drive.zenhosta.com">9drive.zenhosta.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (backend Express, frontend React + Vite)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~2,5k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O 9Drive conecta várias contas do Google Drive em um painel de armazenamento virtual. Os usuários se registram (e-mail e senha ou Google), conectam contas de Drive, acompanham a cota, enviam arquivos, organizam em pastas virtuais e visualizam arquivos. O backend decide para qual conta enviar cada upload, escolhendo uma com espaço livre suficiente.</p>
+<p>Também aceita storages compatíveis com S3 (MinIO, Cloudflare R2, Wasabi, Backblaze B2, AWS S3). Os uploads passam em stream pelo backend: os arquivos não ficam gravados no servidor.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Várias contas do Google Drive e storages S3 em um só painel.</li>
+<li>Upload direto em stream, sem guardar arquivos no servidor; no Drive, tudo vai para uma pasta raiz <code>9drive</code>.</li>
+<li>Políticas de roteamento: mais espaço disponível, round-robin e ordem de prioridade.</li>
+<li>API externa de upload com chaves de API (<code>POST /api/v1/uploads</code>), com chave exibida uma vez, armazenada com hash e revogável.</li>
+<li>Login por e-mail e senha ou Google, com conexão automática do primeiro Drive.</li>
+<li>Painel de cota, sincronização manual da pasta <code>9drive</code> para o MySQL, pastas virtuais, preview, download, renomear, mover e excluir.</li>
+<li>Atualização do sistema via <code>update.sh</code> pelas Configurações (setup com PM2) e reCAPTCHA opcional.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 20+ e npm.</li>
+<li>MySQL 8+ (o setup com Docker já inclui MySQL).</li>
+<li>Projeto no Google Cloud com a Google Drive API ativada e um OAuth Client ID/Secret.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="setup-automatico-recomendado">Setup automático (recomendado)</h3>
+<p>Windows (PowerShell), dentro da pasta do projeto:</p>
+<pre><code class="language-powershell">powershell -ExecutionPolicy Bypass -File .\setup.ps1
+</code></pre>
+<p>Linux/macOS:</p>
+<pre><code class="language-bash">bash ./setup.sh
+</code></pre>
+<p>O script gera os arquivos <code>.env</code> com chaves seguras, instala dependências e gera o cliente Prisma. Informe a URL de conexão do MySQL quando pedida (Client ID/Secret do Google podem ficar para depois). Depois aplique as migrations e inicie em dois terminais:</p>
+<pre><code class="language-bash">cd backend
+npm run prisma:migrate
+npm run dev
+</code></pre>
+<pre><code class="language-bash">cd frontend
+npm run dev
+</code></pre>
+<p>O frontend sobe em <code>http://localhost:5173</code> e o backend em <code>http://localhost:4000</code>.</p>
+<h3 id="configuracao-do-google">Configuração do Google</h3>
+<p>No Google Cloud Console: ative a Google Drive API, configure a tela de consentimento OAuth (tipo Externo, escopos do Drive e de perfil/e-mail, e adicione usuários de teste), crie um OAuth Client do tipo &quot;Web application&quot; com origem <code>http://localhost:5173</code> e redirect <code>http://localhost:4000/connected-accounts/google/callback</code>. Coloque <code>GOOGLE_CLIENT_ID</code>, <code>GOOGLE_CLIENT_SECRET</code> e <code>GOOGLE_REDIRECT_URI</code> no <code>backend/.env</code> e rode:</p>
+<pre><code class="language-bash">cd backend
+npm run seed:google-config
+</code></pre>
+<h3 id="docker">Docker</h3>
+<pre><code class="language-bash">cp .env.docker.example .env      # no PowerShell: Copy-Item .env.docker.example .env
+# edite o .env (senhas, JWT_ACCESS_SECRET, TOKEN_ENCRYPTION_KEY, credenciais do Google)
+docker compose up -d --build
+</code></pre>
+<p>Serviços: frontend em <code>http://localhost:5173</code>, backend em <code>http://localhost:4000</code> e MySQL.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">docker compose logs -f backend                         # logs do backend
+docker compose exec backend npm run seed:google-config # atualiza a config OAuth do Google
+docker compose down                                    # para os containers
+</code></pre>
+<p>No painel: conecte contas em Configurações (<code>Connect Drive</code>), escolha a política de roteamento, gere chaves de API e use a documentação de API embutida (com exemplos cURL e JavaScript).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Somar o espaço gratuito de várias contas do Google Drive em um único destino de upload.</li>
+<li>Oferecer uma API de upload que distribui arquivos entre Drive e S3.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A tela de consentimento exige escopo completo do Drive (<code>auth/drive</code>) para sincronizar arquivos da pasta <code>9drive</code>; avalie as implicações de segurança.</li>
+<li>Use <code>JWT_ACCESS_SECRET</code> e <code>TOKEN_ENCRYPTION_KEY</code> longos e aleatórios, e nunca versione o <code>.env</code>.</li>
+<li>Em modo &quot;Testing&quot;, o Google exige cadastrar os usuários de teste, ou mostrará &quot;Error 403: access_denied&quot;.</li>
+<li>Usar várias contas gratuitas para ampliar o espaço pode conflitar com os termos de uso do Google; leia-os antes.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/zenhosta/9drive#readme">README</a></li>
+<li><a href="https://9drive.zenhosta.com">Demonstração</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

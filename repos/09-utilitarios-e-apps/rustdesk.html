@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RustDesk · Repositórios favoritos</title>
+<meta name="description" content="Software de acesso remoto open source escrito em Rust, alternativa ao TeamViewer, com opção de servidor próprio (self-hosted).">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>RustDesk</h1>
+    <p class="lead">Software de acesso remoto open source escrito em Rust, alternativa ao TeamViewer, com opção de servidor próprio (self-hosted).</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/rustdesk/rustdesk">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">rustdesk/rustdesk</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/rustdesk/rustdesk">rustdesk/rustdesk</a> (cliente) · <a href="https://github.com/rustdesk/rustdesk-server">rustdesk/rustdesk-server</a> (servidor)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://rustdesk.com">rustdesk.com</a> · <a href="https://rustdesk.com/docs/en/self-host/">Servidor self-hosted</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust (interface em Flutter)</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~126k (cliente) e ~10,5k (servidor) (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O RustDesk é uma solução de desktop remoto que funciona &quot;out of the box&quot;, sem configuração. Você tem controle total dos seus dados: pode usar o servidor público de rendezvous/relay da equipe, <a href="https://rustdesk.com/server">montar o seu próprio</a> ou até escrever um servidor próprio.</p>
+<p>O ecossistema tem duas partes: o <strong>cliente</strong> (aplicativo para Windows, Linux, macOS e Android, que permite controlar e ser controlado) e o <strong>servidor</strong> (<code>hbbs</code> e <code>hbbr</code>), que você hospeda para que as conexões passem pela sua infraestrutura.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Acesso remoto multiplataforma com interface Flutter (a interface Sciter está obsoleta).</li>
+<li>Servidor próprio gratuito: <code>hbbs</code> (ID/rendezvous) e <code>hbbr</code> (relay).</li>
+<li>Chave pública do servidor para restringir conexões à sua infraestrutura.</li>
+<li>Binários prontos, versão noturna, F-Droid e Flathub.</li>
+<li>Existe um RustDesk Server Pro (pago) com recursos avançados.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Windows (cliente): instalador <code>.exe</code> ou <code>.msi</code> das releases (a release mais recente consultada é a 1.5.0, com <code>rustdesk-1.5.0-x86_64.exe</code> e <code>.msi</code>).</li>
+<li>Servidor: uma máquina com IP/domínio acessível e portas liberadas (21115 a 21119, conforme o <code>docker-compose.yml</code> do servidor) ou Docker.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="cliente-no-windows">Cliente no Windows</h3>
+<ol>
+<li>Abra a página de <a href="https://github.com/rustdesk/rustdesk/releases">releases</a> e baixe <code>rustdesk-&lt;versão&gt;-x86_64.exe</code> ou <code>rustdesk-&lt;versão&gt;-x86_64.msi</code>.</li>
+<li>Execute o instalador (ou abra o <code>.exe</code> direto, se for a versão portátil) e anote o ID exibido.</li>
+<li>Para usar o seu servidor, abra Configurações &gt; Rede (ou ID/Relay server) e informe o endereço do servidor e a chave pública (<code>id_ed25519.pub</code>). O passo a passo está na <a href="https://rustdesk.com/docs/en/self-host/">documentação</a>.</li>
+</ol>
+<h3 id="servidor-self-hosted-com-docker-compose">Servidor self-hosted com Docker Compose</h3>
+<p>O repositório <code>rustdesk-server</code> traz este <code>docker-compose.yml</code> (ajuste <code>rustdesk.example.com</code> para o seu domínio ou IP):</p>
+<pre><code class="language-yaml">services:
+  hbbs:
+    container_name: hbbs
+    ports:
+      - 21115:21115
+      - 21116:21116
+      - 21116:21116/udp
+      - 21118:21118
+    image: rustdesk/rustdesk-server:latest
+    command: hbbs -r rustdesk.example.com:21117
+    volumes:
+      - ./data:/root
+    depends_on:
+      - hbbr
+    restart: unless-stopped
+
+  hbbr:
+    container_name: hbbr
+    ports:
+      - 21117:21117
+      - 21119:21119
+    image: rustdesk/rustdesk-server:latest
+    command: hbbr
+    volumes:
+      - ./data:/root
+    restart: unless-stopped
+</code></pre>
+<pre><code class="language-bash">docker compose up -d
+</code></pre>
+<p>A chave pública é gerada na pasta <code>./data</code> (arquivo <code>id_ed25519.pub</code>); use-a nos clientes.</p>
+<p>Outras opções do servidor: compilar com <code>cargo build --release</code> (gera <code>hbbs</code>, <code>hbbr</code> e <code>rustdesk-utils</code>) ou baixar binários nas <a href="https://github.com/rustdesk/rustdesk-server/releases">releases do servidor</a>. Veja o <a href="https://rustdesk.com/docs/en/self-host/rustdesk-server-oss/">manual</a> e as <a href="https://github.com/rustdesk/rustdesk-server/blob/master/docs/environment-variables.md">variáveis de ambiente</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>O servidor aceita flags e variáveis de ambiente:</p>
+<pre><code class="language-bash">hbbs --help                 # lista as opções do servidor de ID
+hbbr --help                 # lista as opções do servidor de relay
+hbbs -r rustdesk.example.com:21117   # informa o relay a usar
+</code></pre>
+<p>Variáveis úteis: <code>KEY</code> (chave), <code>ALWAYS_USE_RELAY=Y</code> (força relay, sem conexão direta) e <code>RUST_LOG=debug</code> (logs detalhados).</p>
+<p>No cliente: informe o ID do outro computador, digite a senha e conecte.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Suporte remoto a clientes e acesso a máquinas próprias sem pagar licença de TeamViewer.</li>
+<li>Manter o tráfego de acesso remoto na sua infraestrutura (self-hosted).</li>
+<li>Instalação do servidor via <a href="../08-deploy-e-infra/setup-orion.html">SetupOrion</a>, que lista o RustDesk no catálogo.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Licença AGPL-3.0. O README tem um aviso contra uso indevido (acesso não autorizado).</li>
+<li>Os servidores <code>hbbs</code> e <code>hbbr</code> precisam de portas TCP e UDP liberadas no firewall.</li>
+<li>O RustDesk Server Pro é um produto pago, à parte.</li>
+<li>Este documento foi montado a partir do README e do <code>docker-compose.yml</code> do servidor; confira a documentação oficial antes de produção.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/rustdesk/rustdesk#readme">README do cliente</a></li>
+<li><a href="https://github.com/rustdesk/rustdesk-server#readme">README do servidor</a></li>
+<li><a href="https://github.com/rustdesk/rustdesk/releases">Releases do cliente</a></li>
+<li><a href="https://github.com/rustdesk/rustdesk/wiki/FAQ">FAQ</a></li>
+<li><a href="https://discord.gg/nDceKgxnkV">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

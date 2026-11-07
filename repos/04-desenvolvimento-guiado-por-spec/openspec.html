@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenSpec · Repositórios favoritos</title>
+<meta name="description" content="Camada leve de desenvolvimento guiado por spec: você e a IA concordam sobre o que construir (proposta, specs, design, tarefas) antes de qualquer código.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#04-desenvolvimento-guiado-por-spec"><span aria-hidden="true">📐</span> Desenvolvimento guiado por spec</a>
+    </nav>
+    <h1>OpenSpec</h1>
+    <p class="lead">Camada leve de desenvolvimento guiado por spec: você e a IA concordam sobre o que construir (proposta, specs, design, tarefas) antes de qualquer código.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Fission-AI/OpenSpec">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Fission-AI/OpenSpec</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Fission-AI/OpenSpec">Fission-AI/OpenSpec</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://openspec.dev/">openspec.dev</a> · <a href="https://openspec.dev/docs">docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~72k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Assistentes de código são poderosos, mas imprevisíveis quando os requisitos vivem só no histórico do chat. O OpenSpec adiciona uma camada de specs em Markdown, de modo que humano e IA alinham o que será feito antes de escrever código.</p>
+<p>Cada mudança ganha uma pasta própria em <code>openspec/changes/&lt;nome&gt;/</code> com <code>proposal.md</code>, <code>specs/</code>, <code>design.md</code> e <code>tasks.md</code>. Ao concluir, a mudança é arquivada e as specs são atualizadas. A filosofia é fluida em vez de rígida, iterativa em vez de cascata, e pensada para código existente (brownfield), de projetos pessoais a empresas.</p>
+<p>Funciona com mais de 30 ferramentas de IA por meio de comandos slash ou skills.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Fluxo <code>/opsx:explore</code>, <code>/opsx:propose</code>, <code>/opsx:apply</code> e <code>/opsx:archive</code> (perfil <code>core</code>, que inclui também <code>update</code> e <code>sync</code>).</li>
+<li>Specs em Markdown simples, com requisitos e cenários (WHEN/THEN).</li>
+<li>Perfil expandido opcional: <code>new</code>, <code>continue</code>, <code>ff</code>, <code>verify</code>, <code>bulk-archive</code>, <code>onboard</code>.</li>
+<li>Sem fases rígidas: qualquer artefato pode ser atualizado a qualquer momento.</li>
+<li>Mais de 30 ferramentas suportadas (Claude Code, Cursor, Codex, Gemini CLI, Copilot, Amazon Q, Kimi Code e outras).</li>
+<li>Stores (beta): planejamento em um repositório próprio, compartilhado entre repos e times.</li>
+<li>Esquemas da comunidade e perfis customizáveis.</li>
+<li>O próprio OpenSpec é construído com OpenSpec.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 20.19.0 ou superior (o Homebrew instala como dependência).</li>
+<li>Um assistente de código suportado.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npm install -g @fission-ai/openspec@latest
+</code></pre>
+<p>No macOS ou Linux, também via Homebrew:</p>
+<pre><code class="language-bash">brew install openspec
+</code></pre>
+<p>Há ainda pnpm, yarn, bun e Nix (veja <a href="https://openspec.dev/docs/installation">opções de instalação</a>). Depois, no projeto:</p>
+<pre><code class="language-bash">cd seu-projeto
+openspec init
+</code></pre>
+<p>Você escolhe as ferramentas e o <code>init</code> imprime a forma correta dos comandos para elas. Para atualizar:</p>
+<pre><code class="language-bash">npm install -g @fission-ai/openspec@latest
+openspec update      # dentro de cada projeto, regenera as instruções dos agentes
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/opsx:explore
+</code></pre>
+<p>Parceiro de raciocínio sem compromisso: lê o código e pesa opções antes de planejar.</p>
+<pre><code class="language-text">/opsx:propose add-dark-mode
+</code></pre>
+<p>Cria a pasta da mudança com proposal, specs, design e tasks.</p>
+<pre><code class="language-text">/opsx:apply
+</code></pre>
+<p>Implementa as tarefas.</p>
+<pre><code class="language-text">/opsx:archive
+</code></pre>
+<p>Arquiva a mudança e atualiza as specs.</p>
+<pre><code class="language-bash">openspec config profile
+</code></pre>
+<p>Seleciona o perfil de workflow (por exemplo, o expandido); aplique com <code>openspec update</code>.</p>
+<p>A grafia do comando varia por ferramenta (consulte <code>docs/supported-tools.md</code>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ferramenta</th>
+<th>Como digitar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code, Gemini CLI, CodeBuddy, Crush, Qoder</td>
+<td><code>/opsx:propose</code></td>
+</tr>
+<tr>
+<td>Cursor, GitHub Copilot e a maioria das demais</td>
+<td><code>/opsx-propose</code></td>
+</tr>
+<tr>
+<td>Amazon Q Developer</td>
+<td><code>@opsx-propose</code></td>
+</tr>
+<tr>
+<td>Codex</td>
+<td><code>$openspec-propose</code> (só skills; <code>/openspec-...</code> não é reconhecido)</td>
+</tr>
+<tr>
+<td>Kimi Code</td>
+<td><code>/skill:openspec-propose</code></td>
+</tr>
+<tr>
+<td>Ferramentas só com skills (Hermes, Zed Agent, Mistral Vibe etc.)</td>
+<td><code>/openspec-&lt;skill&gt;</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Projetos existentes em que mudanças precisam de proposta e specs revisáveis.</li>
+<li>Times que querem uma fonte única de verdade para requisitos entre vários repositórios.</li>
+<li>Quando você quer previsibilidade da IA sem a cerimônia de metodologias mais pesadas.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Recomenda-se modelos de raciocínio forte (o README cita Codex 5.5 e Opus 4.7) e boa higiene de contexto: limpe o contexto antes de implementar.</li>
+<li>Telemetria anônima (apenas nome do comando e versão), desativada em CI. Para desligar: <code>openspec config set telemetry.enabled false</code> ou <code>OPENSPEC_TELEMETRY=0</code> / <code>DO_NOT_TRACK=1</code>.</li>
+<li>Stores estão em beta.</li>
+<li>O README compara com o Spec Kit (mais pesado) e o Kiro (preso a IDE); é a visão dos autores.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Fission-AI/OpenSpec">README</a></li>
+<li><a href="https://openspec.dev/docs/quickstart">Quickstart</a></li>
+<li><a href="https://openspec.dev/docs/supported-tools">Ferramentas suportadas</a></li>
+<li><a href="https://openspec.dev/docs/cli">CLI</a></li>
+<li><a href="https://discord.gg/YctCnvvshC">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#04-desenvolvimento-guiado-por-spec">Desenvolvimento guiado por spec</a></h2>
+    <ul>
+<li><a href="../../repos/04-desenvolvimento-guiado-por-spec/spec-kit.html">Spec Kit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MeshCentral · Repositórios favoritos</title>
+<meta name="description" content="Servidor web self-hosted de monitoramento e gerenciamento remoto (RMM): instale um agente nos computadores e controle-os pelo navegador com área de trabalho remota, terminal e arquivos, na rede local ou pela internet.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>MeshCentral</h1>
+    <p class="lead">Servidor web self-hosted de monitoramento e gerenciamento remoto (RMM): instale um agente nos computadores e controle-os pelo navegador com área de trabalho remota, terminal e arquivos, na rede local ou pela internet.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Ylianst/MeshCentral">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Ylianst/MeshCentral</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Ylianst/MeshCentral">Ylianst/MeshCentral</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://meshcentral.com">meshcentral.com</a> · <a href="https://docs.meshcentral.com/">docs.meshcentral.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (Node.js)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~7,6k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O MeshCentral é um site completo de gerenciamento de computadores que você hospeda no seu próprio servidor. O fluxo é:</p>
+<ol>
+<li>suba o servidor;</li>
+<li>crie um grupo de dispositivos;</li>
+<li>baixe e instale o agente (MeshAgent) em cada máquina.</li>
+</ol>
+<p>Um minuto depois a máquina aparece no painel, e dá para assumir o controle dela pelo navegador. Não há serviço de terceiros no meio: o tráfego passa pelo seu servidor.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Pelo navegador:</strong> área de trabalho remota, terminal e gerenciamento de arquivos.</li>
+<li><strong>Três modos de rede:</strong>
+<ul>
+<li><strong>LAN</strong> (padrão): os agentes acham o servidor por multicast na rede local, sem IP fixo nem DNS;</li>
+<li><strong>WAN</strong> e <strong>híbrido</strong>: para gerenciar máquinas pela internet, com um nome DNS ou IP fixo.</li>
+</ul>
+</li>
+<li><strong>Agentes</strong> para Windows, Linux, macOS e Android. Também gerencia máquinas com <strong>Intel AMT</strong>, inclusive pelo CIRA.</li>
+<li><strong>Contas e acesso:</strong>
+<ul>
+<li>vários usuários e grupos de dispositivos;</li>
+<li>autenticação em dois fatores (TOTP e Duo);</li>
+<li>SSO e OpenID Connect;</li>
+<li>limite de tentativas de login;</li>
+<li>filtro de IP.</li>
+</ul>
+</li>
+<li><strong>Servidor:</strong>
+<ul>
+<li>TLS com Let's Encrypt e suporte a proxy reverso (NGINX e outros);</li>
+<li>e-mail e SMS;</li>
+<li>marca própria e termos de uso;</li>
+<li>HashiCorp Vault;</li>
+<li>plugins.</li>
+</ul>
+</li>
+<li><strong>Bancos de dados:</strong> NeDB embutido (padrão), MongoDB, PostgreSQL, MariaDB e MySQL.</li>
+<li><strong>Ferramentas do ecossistema:</strong>
+<ul>
+<li><strong>MeshCtrl</strong>: linha de comando para automatizar a administração;</li>
+<li><strong>MeshCentral Router</strong>: mapeamento de portas TCP através do agente;</li>
+<li><strong>MeshCmd</strong>.</li>
+</ul>
+</li>
+<li><strong>Leve:</strong> um Raspberry Pi ou uma instância AWS t3.nano gerencia algumas centenas de dispositivos.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Node.js 20+</strong> e npm. No Windows, o instalador gráfico instala o Node se faltar.</li>
+<li>Ou <strong>Docker/Podman</strong>, com a imagem <code>ghcr.io/ylianst/meshcentral</code>.</li>
+<li><strong>Portas padrão:</strong>
+<ul>
+<li>TCP 80 (HTTP), 443 (HTTPS) e 4433 (Intel AMT CIRA);</li>
+<li>UDP 16990 (descoberta na LAN e no modo híbrido).</li>
+</ul>
+</li>
+<li><strong>Acesso à internet na primeira partida.</strong> O servidor baixa do GitHub os instaladores dos agentes (cerca de 120 MiB). Em servidor sem internet, copie-os à mão (veja <a href="https://docs.meshcentral.com/meshcentral/agent-downloads/">Agent Downloads</a>).</li>
+<li><strong>Para uso pela internet:</strong> um nome DNS ou IP público fixo.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Com npm</strong> (qualquer sistema):</p>
+<pre><code class="language-bash">mkdir -p /opt/meshcentral
+cd /opt/meshcentral
+npm install meshcentral          # não use sudo neste comando
+node node_modules/meshcentral    # inicia o servidor (modo LAN por padrão)
+</code></pre>
+<p>Para rodar como serviço em segundo plano, inicie com <code>--install</code>. Use <code>--help</code> para ver as opções.</p>
+<p><strong>Windows:</strong> o <a href="https://meshcentral.com/tools/MeshCentralInstaller.exe">instalador do MeshCentral</a> instala o Node.js se precisar, cria o serviço do Windows e abre as portas no Firewall do Windows Defender. Na instalação ele pergunta:</p>
+<ul>
+<li><strong>Multi-user Server:</strong> se marcado, o servidor fica aberto e os usuários podem criar contas. Desmarcado, é monousuário, sem tela de login e acessível só da própria máquina.</li>
+<li><strong>Auto-update Server:</strong> atualização diária automática, entre 00:00 e 01:00.</li>
+<li><strong>Server Mode:</strong> LAN ou WAN/híbrido. No WAN, informe o DNS ou IP público; se estiver errado, os agentes não conectam.</li>
+</ul>
+<p><strong>Docker:</strong></p>
+<pre><code class="language-bash">docker run -d \
+  --name meshcentral \
+  --restart unless-stopped \
+  -p 80:80 \
+  -p 443:443 \
+  -v data:/opt/meshcentral/meshcentral-data \
+  -v user_files:/opt/meshcentral/meshcentral-files \
+  -v backup:/opt/meshcentral/meshcentral-backups \
+  -v web:/opt/meshcentral/meshcentral-web \
+  ghcr.io/ylianst/meshcentral:latest
+</code></pre>
+<p>As tags são:</p>
+<ul>
+<li><code>latest</code>: último release;</li>
+<li><code>master</code>: último commit;</li>
+<li>uma versão fixa, como <code>1.3.1</code>.</li>
+</ul>
+<p>Também há variantes <code>-slim</code> (NeDB), <code>-mongodb</code>, <code>-postgresql</code> e <code>-mysql</code>. <strong>Em contêiner, não use a atualização embutida:</strong> atualize trocando a imagem.</p>
+<p><strong>Instalação endurecida (Debian/Ubuntu):</strong> o guia <a href="https://docs.meshcentral.com/install/security/secure/">Secure</a> roda o servidor com um usuário de sistema sem login (<code>meshcentral</code>) e o código em modo só leitura. O custo:</p>
+<ul>
+<li>a atualização automática para; atualize à mão com <code>sudo npm install meshcentral</code>;</li>
+<li>é preciso um banco externo, como o MongoDB.</li>
+</ul>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Abra o endereço do servidor no navegador e <strong>crie logo a primeira conta</strong>: ela vira a administradora do servidor.</li>
+<li>Crie um <strong>grupo de dispositivos</strong>, baixe o instalador do agente desse grupo e rode-o em cada máquina.</li>
+<li>Clique no dispositivo para abrir a área de trabalho remota, o terminal ou os arquivos.</li>
+</ol>
+<p>A configuração fica em <code>meshcentral-data/config.json</code>. Ela precisa ser um JSON válido, e as chaves não diferenciam maiúsculas de minúsculas. Exemplos do repositório:</p>
+<ul>
+<li><a href="https://github.com/Ylianst/MeshCentral/blob/master/sample-config.json">config simples</a>;</li>
+<li><a href="https://github.com/Ylianst/MeshCentral/blob/master/sample-config-advanced.json">config avançada</a>;</li>
+<li><a href="https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json">schema completo</a>.</li>
+</ul>
+<p>É no <code>config.json</code> que se troca para o modo WAN (definindo o nome DNS), se configura e-mail ou SMS, a marca e o banco de dados.</p>
+<pre><code class="language-bash">node node_modules/meshcentral --help        # opções do servidor (serviço, etc.)
+node ./node_modules/meshcentral/meshctrl    # MeshCtrl: lista as ações disponíveis
+</code></pre>
+<p>O MeshCtrl entra no servidor por WebSocket, com um usuário ou administrador. Ele lista, cria e remove contas, lista grupos de dispositivos e automatiza tudo o que o site faz. Veja o <a href="https://docs.meshcentral.com/meshctrl/">guia do MeshCtrl</a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Suporte remoto e administração de muitos computadores (TI interna, MSP) sem depender de serviço de terceiros.</li>
+<li>Gerenciar máquinas na LAN sem DNS nem IP fixo, ou pela internet com o servidor exposto.</li>
+<li>Parques com Intel AMT, para gerenciamento fora de banda.</li>
+<li><strong>Comparação no catálogo:</strong>
+<ul>
+<li>o <a href="rustdesk.html">RustDesk</a> é focado em acesso remoto ponto a ponto, no estilo TeamViewer, com servidor próprio opcional;</li>
+<li>o MeshCentral é uma plataforma RMM completa, toda pelo navegador, com grupos, usuários, agentes permanentes e automação;</li>
+<li>o <a href="twindesk.html">TwinDesk</a> une seus próprios aparelhos numa mesa só e não serve para administrar terceiros.</li>
+</ul>
+</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>É uma ferramenta de acesso total às máquinas.</strong> Quem controla o servidor ou uma conta de administrador controla todos os agentes instalados.</li>
+<li><strong>Proteja o servidor:</strong>
+<ul>
+<li><strong>crie a conta de administrador assim que subir o servidor</strong>: a primeira conta criada vira admin;</li>
+<li>no modo Multi-user, desative o cadastro aberto se não precisar dele;</li>
+<li>ative 2FA;</li>
+<li>use TLS (Let's Encrypt ou proxy reverso);</li>
+<li>limite as tentativas de login e filtre IPs.</li>
+</ul>
+</li>
+<li><strong>Agentes estranhos no painel:</strong> o FAQ explica um caso comum, que não é invasão. Antivírus que enviam executáveis desconhecidos para análise rodam o instalador do agente nos seus sandboxes, e a máquina deles aparece no seu painel. A recomendação é não deixar o servidor aberto para qualquer um na internet.</li>
+<li><strong>Instale agentes só em máquinas próprias ou com autorização do dono.</strong> Acesso remoto sem consentimento é crime no Brasil (art. 154-A do Código Penal). Monitorar estações de funcionários exige política clara e base legal na LGPD.</li>
+<li>O instalador do agente pode ser apontado como suspeito por antivírus. A documentação tem uma seção sobre <a href="https://docs.meshcentral.com/meshcentral/codesigning/">assinatura de código</a>.</li>
+<li>O NeDB padrão serve para começar. Para mais desempenho, use MongoDB ou PostgreSQL.</li>
+<li>2FA por TOTP falha se o relógio do servidor ou do celular estiver errado. Confira o NTP.</li>
+<li>Projeto ativo, com último release 1.3.1 (out/2026). A documentação fica no repositório separado <a href="https://github.com/Ylianst/MeshCentralDocs">MeshCentralDocs</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Ylianst/MeshCentral#readme">README</a> · <a href="https://meshcentral.com">Site</a> · <a href="https://docs.meshcentral.com/">docs.meshcentral.com</a></li>
+<li><a href="https://docs.meshcentral.com/install/quickstart/">Guia de início rápido</a> · <a href="https://docs.meshcentral.com/install/windows/">Instalação no Windows</a> · <a href="https://docs.meshcentral.com/install/container/">Contêiner</a></li>
+<li><a href="https://meshcentral.com/docs/MeshCentral2DesignArchitecture.pdf">Guia de design e arquitetura (PDF)</a> · <a href="https://meshcentral.com/docs/MeshCentral2UserGuide.pdf">Guia do usuário (PDF)</a></li>
+<li><a href="https://www.youtube.com/channel/UCJWz607A8EVlkilzcrb-GKg/videos">Canal no YouTube</a> · <a href="https://www.reddit.com/r/MeshCentral/">Reddit</a></li>
+<li><a href="https://github.com/Ylianst/MeshAgent">MeshAgent</a> · <a href="https://github.com/Ylianst/MeshCentralRouter">MeshCentral Router</a></li>
+<li><a href="https://github.com/Ylianst/MeshCentral/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

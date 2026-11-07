@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code Plugins Directory (oficial) · Repositórios favoritos</title>
+<meta name="description" content="Diretório oficial, mantido pela Anthropic, de plugins de alta qualidade para o Claude Code, com plugins internos e plugins de terceiros.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Claude Code Plugins Directory (oficial)</h1>
+    <p class="lead">Diretório oficial, mantido pela Anthropic, de plugins de alta qualidade para o Claude Code, com plugins internos e plugins de terceiros.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/anthropics/claude-plugins-official">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">anthropics/claude-plugins-official</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/anthropics/claude-plugins-official">anthropics/claude-plugins-official</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://code.claude.com/docs/en/plugins">code.claude.com/docs/en/plugins</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0 (o repositório; cada plugin tem sua própria licença)</dd></div>
+<div><dt>Estrelas</dt><dd>~42k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#a-pasta-externalplugins">A pasta externalplugins</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É o marketplace oficial de plugins do Claude Code. Um plugin empacota extensões como comandos de barra, agentes, skills e servidores MCP em uma estrutura padrão, que você instala com um comando.</p>
+<p>O repositório se divide em duas pastas principais:</p>
+<ul>
+<li><code>/plugins</code>: plugins internos, desenvolvidos e mantidos por pessoas da Anthropic.</li>
+<li><code>/external_plugins</code>: plugins de terceiros, vindos de parceiros e da comunidade.</li>
+</ul>
+<h2 id="a-pasta-externalplugins">A pasta external_plugins</h2>
+<p><code>external_plugins</code> reúne os plugins que não são da Anthropic: parceiros e comunidade submetem seus plugins, que precisam cumprir padrões de qualidade e segurança para serem aprovados (há um formulário de submissão no README). Na leitura, a pasta continha, entre outros: <code>asana</code>, <code>context7</code>, <code>discord</code>, <code>fakechat</code>, <code>firebase</code>, <code>github</code>, <code>gitlab</code>, <code>imessage</code>, <code>laravel-boost</code>, <code>linear</code>, <code>playwright</code>, <code>serena</code>, <code>telegram</code> e <code>terraform</code>.</p>
+<p>Cada plugin externo segue a estrutura padrão (por exemplo, o <code>context7</code> tem <code>.claude-plugin/</code>, <code>.mcp.json</code> e <code>README.md</code>). Como a Anthropic não controla o que esses plugins contêm, o próprio README alerta para confiar no plugin antes de instalar, atualizar ou usar. Já os plugins internos em <code>/plugins</code> incluem, por exemplo, <code>code-review</code>, <code>feature-dev</code>, <code>frontend-design</code>, <code>hookify</code>, <code>plugin-dev</code>, <code>pr-review-toolkit</code>, <code>security-guidance</code>, <code>skill-creator</code> e servidores de linguagem (LSP) como <code>typescript-lsp</code> e <code>pyright-lsp</code>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Instalação por um comando: <code>/plugin install {nome}@claude-plugins-official</code>.</li>
+<li>Navegação visual em <code>/plugin &gt; Discover</code>.</li>
+<li>Estrutura padrão de plugin: <code>.claude-plugin/plugin.json</code>, <code>.mcp.json</code>, <code>commands/</code>, <code>agents/</code>, <code>skills/</code> e <code>README.md</code>.</li>
+<li>Nomes de plugin imutáveis (slug); para mudar o rótulo use <code>displayName</code>, e para renomear de fato use o mapa <code>renames</code> do <code>marketplace.json</code>.</li>
+<li>&quot;Skill-bundle plugins&quot;: plugins que declaram skills de outro repositório com <code>strict: false</code> e uma lista <code>skills</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code com suporte a plugins.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>O diretório é o marketplace padrão do Claude Code. Para instalar um plugin:</p>
+<pre><code class="language-text">/plugin install {plugin-name}@claude-plugins-official
+</code></pre>
+<p>Ou procure o plugin em <code>/plugin &gt; Discover</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/plugin                                           # abre o gerenciador de plugins
+/plugin install code-review@claude-plugins-official   # exemplo de instalação (nome da pasta /plugins)
+</code></pre>
+<p>Cada plugin traz seus próprios comandos, agentes e skills, documentados no <code>README.md</code> dele.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Descobrir extensões oficiais e de parceiros para o Claude Code.</li>
+<li>Integrar serviços como GitHub, GitLab, Linear, Asana ou Playwright via plugin.</li>
+<li>Estudar a estrutura de plugins (<code>/plugins/example-plugin</code>) para criar o seu.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A Anthropic não controla nem verifica o que os plugins externos incluem (servidores MCP, arquivos, software). Confie antes de instalar.</li>
+<li>Os plugins podem mudar com o tempo; consulte a página de cada plugin.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/anthropics/claude-plugins-official">README do projeto</a></li>
+<li><a href="https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins">Pasta external_plugins</a></li>
+<li><a href="https://code.claude.com/docs/en/plugins">Documentação de plugins</a></li>
+<li><a href="https://clau.de/plugin-directory-submission">Formulário de submissão de plugins</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

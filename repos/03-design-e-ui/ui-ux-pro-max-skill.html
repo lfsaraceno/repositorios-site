@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI UX Pro Max · Repositórios favoritos</title>
+<meta name="description" content="Skill de inteligência de design que gera um design system completo (padrão, estilo, cores, tipografia, efeitos) para interfaces profissionais em várias plataformas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>UI UX Pro Max</h1>
+    <p class="lead">Skill de inteligência de design que gera um design system completo (padrão, estilo, cores, tipografia, efeitos) para interfaces profissionais em várias plataformas.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">nextlevelbuilder/ui-ux-pro-max-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill">nextlevelbuilder/ui-ux-pro-max-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.uupm.cc/">uupm.cc</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~137k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O UI UX Pro Max é uma skill de IA que dá ao seu agente conhecimento de design para construir interfaces profissionais. O destaque da v2.0 é o Gerador de Design System: um motor de raciocínio que analisa o pedido (por exemplo, &quot;landing page para um spa de beleza&quot;) e devolve, em segundos, uma recomendação completa e adequada ao setor.</p>
+<p>Por trás há bases pesquisáveis de estilos, paletas, pares de fontes, padrões de landing page, gráficos e diretrizes de UX, consultadas por um script Python (<code>search.py</code>) que usa só a biblioteca padrão. A saída inclui anti-padrões a evitar e um checklist de pré-entrega (contraste, foco, <code>prefers-reduced-motion</code>, responsividade).</p>
+<p>Funciona com dezenas de agentes (Claude Code, Cursor, Windsurf, Codex CLI, Gemini CLI, Copilot e outros).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Gerador de design system: padrão de página, estilo, paleta, tipografia, efeitos e anti-padrões.</li>
+<li>Bases pesquisáveis: 192 categorias de produto e paletas, 79 estilos de UI, 74 combinações de fontes e 34 padrões de landing page (números do README).</li>
+<li>Regras de raciocínio por setor (192) e ranking BM25.</li>
+<li>Busca por domínio (<code>style</code>, <code>typography</code>, <code>chart</code>, <code>ux</code>, <code>icons</code>) e por stack (React, HTML + Tailwind, JavaFX e outras).</li>
+<li>Checklist de entrega com acessibilidade e responsividade (375, 768, 1024 e 1440 px).</li>
+<li>Instalação por plugin, CLI <code>uipro</code> ou global, para mais de 20 assistentes.</li>
+<li>Ativação automática ao pedir trabalho de UI/UX.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.x para o script de busca (apenas biblioteca padrão; os scripts não instalam nada nem fazem chamadas de rede). Verifique com <code>python3 --version</code>.</li>
+<li>Node.js/npm se for usar a CLI <code>uipro</code>.</li>
+<li>Os agentes não devem instalar software por conta própria; o README instrui a pedir ao usuário.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+/plugin install ui-ux-pro-max@ui-ux-pro-max-skill
+</code></pre>
+<h3 id="cli-recomendada">CLI (recomendada)</h3>
+<pre><code class="language-bash">npm install -g ui-ux-pro-max-cli
+cd /caminho/do/seu/projeto
+uipro init --ai claude
+</code></pre>
+<p>Troque <code>claude</code> por <code>cursor</code>, <code>windsurf</code>, <code>antigravity</code>, <code>copilot</code>, <code>codex</code>, <code>gemini</code>, <code>opencode</code>, <code>universal</code> ou <code>all</code>, entre outros listados no README.</p>
+<h3 id="instalacao-global-todos-os-projetos">Instalação global (todos os projetos)</h3>
+<pre><code class="language-bash">uipro init --ai claude --global
+</code></pre>
+<p>O pacote npm é <code>ui-ux-pro-max-cli</code> e instala o comando <code>uipro</code>. Versões antigas do <code>uipro-cli</code> estão defasadas e não devem ser usadas.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Nos agentes suportados, a skill ativa sozinha. Basta pedir, por exemplo:</p>
+<pre><code class="language-text">Build a landing page for my SaaS product
+</code></pre>
+<p>Gerar um design system direto pelo script:</p>
+<pre><code class="language-bash">python3 .claude/skills/ui-ux-pro-max/scripts/search.py &quot;beauty spa wellness&quot; --design-system -p &quot;Serenity Spa&quot;
+</code></pre>
+<p>Buscar por domínio ou por stack:</p>
+<pre><code class="language-bash">python3 .claude/skills/ui-ux-pro-max/scripts/search.py &quot;glassmorphism&quot; --domain style
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py &quot;form validation&quot; --stack react
+</code></pre>
+<p>Gerenciar a instalação:</p>
+<pre><code class="language-bash">uipro update            # atualiza os arquivos da skill
+uipro init --dry-run    # pré-visualiza sem escrever
+uipro uninstall --ai claude
+</code></pre>
+<p>No Windows, o README mostra <code>python3</code>; se o seu Python se chama <code>python</code>, ajuste o comando.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Começar uma landing page, dashboard ou app com direção visual coerente.</li>
+<li>Escolher paleta, tipografia e estilo adequados ao tipo de negócio.</li>
+<li>Revisar a UI com um checklist de acessibilidade e responsividade.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O caminho dos scripts muda por ferramenta (por exemplo <code>.continue/skills/</code>, <code>.factory/skills/</code>, <code>.amazonq/skills/</code>).</li>
+<li>Algumas contagens do README (estilos, paletas) diferem entre trechos e versões.</li>
+<li>O projeto aceita doações e divulga outros projetos dos autores no README.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill">README</a></li>
+<li><a href="https://uupm.cc">Site</a></li>
+<li><a href="https://www.npmjs.com/package/ui-ux-pro-max-cli">CLI no npm</a></li>
+<li><a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

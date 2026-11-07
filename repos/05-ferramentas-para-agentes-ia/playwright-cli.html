@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playwright CLI · Repositórios favoritos</title>
+<meta name="description" content="CLI oficial da Microsoft para agentes de código controlarem o navegador com comandos curtos (abrir, clicar, preencher, tirar screenshot, gravar vídeo), gastando menos tokens que o Playwright MCP.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Playwright CLI</h1>
+    <p class="lead">CLI oficial da Microsoft para agentes de código controlarem o navegador com comandos curtos (abrir, clicar, preencher, tirar screenshot, gravar vídeo), gastando menos tokens que o Playwright MCP.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/microsoft/playwright-cli">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">microsoft/playwright-cli</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/microsoft/playwright-cli">microsoft/playwright-cli</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://playwright.dev">playwright.dev</a> · <a href="https://github.com/microsoft/playwright-mcp">Playwright MCP</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~15k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O <code>playwright-cli</code> dá acesso ao Playwright pela linha de comando, junto com <strong>skills</strong> que ensinam o agente a usá-lo. Funciona com o Claude Code, o GitHub Copilot e outros agentes.</p>
+<p>O README explica a diferença para o <strong>Playwright MCP</strong>:</p>
+<ul>
+<li><strong>CLI:</strong> os agentes de código preferem cada vez mais CLI com skills, porque o modelo não precisa carregar esquemas de ferramentas nem árvores de acessibilidade enormes no contexto. Gasta menos tokens e sobra contexto para o código.</li>
+<li><strong>MCP:</strong> continua útil para fluxos longos e autônomos que precisam de estado persistente e de análise detalhada da página, como automação exploratória e testes que se corrigem sozinhos. Ver <a href="playwright-mcp.html">Playwright MCP</a>.</li>
+</ul>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Comandos curtos</strong> para tudo: navegação, cliques, digitação, teclado, mouse, abas, upload, arrastar e soltar e diálogos.</li>
+<li><strong>Snapshots</strong> da página salvos em arquivo, com referências (<code>e15</code>, <code>e21</code>) para mirar nos elementos. <code>find</code> busca texto no snapshot sem trazê-lo inteiro.</li>
+<li><strong>Sessões</strong> separadas por projeto (<code>-s=nome</code>), com perfil em memória ou persistente (<code>--persistent</code>).</li>
+<li><strong>Painel visual</strong> (<code>playwright-cli show</code>) para ver e controlar todas as sessões dos agentes ao vivo.</li>
+<li><strong>Saídas:</strong> screenshot, PDF, trace, vídeo com cursor animado e capítulos, e gravação de ações que vira código Playwright.</li>
+<li><strong>Emulação</strong> de dispositivo, tema claro ou escuro, redução de movimento, contraste e cores forçadas.</li>
+<li><strong>Rede e armazenamento:</strong> mock de requisições, cookies, localStorage, sessionStorage e salvar ou carregar o estado.</li>
+<li><strong>WebMCP:</strong> lista e chama ferramentas que a própria página registra para agentes (API experimental).</li>
+<li>As skills instaladas trazem guias para rodar e depurar testes, gerar testes, fazer mock, trace, vídeo e anexar evidências em PRs.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Node.js 18+</strong>.</li>
+<li>Claude Code, GitHub Copilot ou outro agente de código.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npm install -g @playwright/cli@latest
+playwright-cli --help
+playwright-cli install --skills    # instala as skills para os agentes
+</code></pre>
+<p>Se o projeto já tem Playwright instalado, dá para usar a versão local com <code>npx playwright cli</code> em vez do comando global.</p>
+<p>Sem instalar as skills, o agente também se vira: peça para ele consultar <code>playwright-cli --help</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Pedido ao agente:</strong></p>
+<pre><code class="language-text">Use playwright skills to test https://demo.playwright.dev/todomvc/.
+Take screenshots for all successful and failing scenarios.
+</code></pre>
+<p><strong>Manual:</strong></p>
+<pre><code class="language-bash">playwright-cli open https://demo.playwright.dev/todomvc/ --headed   # headless é o padrão
+playwright-cli type &quot;Buy groceries&quot;
+playwright-cli press Enter
+playwright-cli snapshot          # gera as referências dos elementos
+playwright-cli check e21
+playwright-cli screenshot
+</code></pre>
+<p><strong>Comandos principais:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Para quê</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>open [url]</code> / <code>goto &lt;url&gt;</code></td>
+<td>Abrir o navegador / navegar</td>
+</tr>
+<tr>
+<td><code>click &lt;ref&gt;</code> / <code>fill &lt;ref&gt; &lt;texto&gt;</code> / <code>type &lt;texto&gt;</code></td>
+<td>Interagir com a página</td>
+</tr>
+<tr>
+<td><code>snapshot</code> / <code>find &lt;texto&gt;</code></td>
+<td>Ler o estado da página</td>
+</tr>
+<tr>
+<td><code>screenshot</code> / <code>pdf</code></td>
+<td>Salvar a página</td>
+</tr>
+<tr>
+<td><code>console</code> / <code>requests</code></td>
+<td>Ver o console e as requisições</td>
+</tr>
+<tr>
+<td><code>route &lt;padrão&gt;</code></td>
+<td>Fazer mock de requisições</td>
+</tr>
+<tr>
+<td><code>tracing-start</code> / <code>video-start</code> / <code>recording-start</code></td>
+<td>Gravar trace, vídeo ou ações</td>
+</tr>
+<tr>
+<td><code>generate-locator &lt;ref&gt;</code></td>
+<td>Gerar um locator do Playwright</td>
+</tr>
+<tr>
+<td><code>show</code> / <code>show --annotate</code></td>
+<td>Abrir o painel / revisar a UI com anotações</td>
+</tr>
+<tr>
+<td><code>list</code> / <code>close-all</code> / <code>kill-all</code></td>
+<td>Gerenciar sessões</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sessões:</strong></p>
+<pre><code class="language-bash">playwright-cli -s=example open https://example.com --persistent
+PLAYWRIGHT_CLI_SESSION=todo-app claude .     # o agente usa essa sessão
+</code></pre>
+<p>Uma sessão headless fecha sozinha depois de 1 hora sem comandos. Mude com <code>open --idle-timeout=&lt;ms&gt;</code> (<code>0</code> desativa).</p>
+<p><strong>Outras opções de <code>open</code>:</strong> <code>--browser=chrome</code>, <code>--mobile</code>, <code>--device=&quot;iPhone 15&quot;</code>, <code>--profile=&lt;pasta&gt;</code>, <code>--config=arquivo.json</code>. A configuração padrão é lida de <code>.playwright/cli.config.json</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Deixar o agente testar o próprio frontend: abrir, clicar, conferir e tirar screenshots.</li>
+<li>Gerar e depurar testes Playwright.</li>
+<li>Gravar vídeos ou traces de um fluxo para anexar num PR.</li>
+<li>Comparação: o <a href="chrome-devtools-mcp.html">Chrome DevTools MCP</a> é um MCP voltado a depuração e desempenho no Chrome. O Playwright CLI é uma CLI com skills, mais econômica em tokens, e funciona com Chromium, Firefox e WebKit. Combina com a <a href="../03-design-e-ui/taste-skill.html">Taste Skill</a> e o <a href="../03-design-e-ui/impeccable.html">Impeccable</a> para conferir a interface gerada.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Navegador logado:</strong> <code>attach --cdp=chrome</code> e <code>attach --extension=chrome</code> conectam o agente ao seu navegador real, com todas as contas logadas. <code>--persistent</code> grava cookies e sessões em disco. Use perfis separados e não deixe o agente navegar logado em contas sensíveis.</li>
+<li><strong>Conteúdo da página não é confiável:</strong> o README avisa que nomes, descrições e resultados de ferramentas WebMCP vêm da página e são entrada não confiável, não instruções. Uma página maliciosa pode tentar manipular o agente com prompt injection.</li>
+<li><strong>Acesso a arquivos:</strong> por padrão, o acesso fica limitado à pasta do projeto. <code>allowUnrestrictedFileAccess</code> (ou <code>PLAYWRIGHT_MCP_ALLOW_UNRESTRICTED_FILE_ACCESS</code>) libera arquivos de qualquer lugar, inclusive URLs <code>file://</code>. Só ative se precisar. As listas de origens permitidas e bloqueadas <strong>não</strong> são uma barreira de segurança.</li>
+<li>O repositório é antigo (2020), mas foi reaproveitado para a CLI atual. O último release é o v0.1.22, de set/2026.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/microsoft/playwright-cli#readme">README</a></li>
+<li><a href="https://www.npmjs.com/package/@playwright/cli">Pacote npm @playwright/cli</a></li>
+<li><a href="https://playwright.dev">Playwright</a> · <a href="https://github.com/microsoft/playwright-mcp">Playwright MCP</a></li>
+<li><a href="https://github.com/microsoft/playwright-cli/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

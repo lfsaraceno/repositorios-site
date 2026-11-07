@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skills CLI (npx skills) + find-skills · Repositórios favoritos</title>
+<meta name="description" content="Gerenciador de pacotes de skills para agentes (Claude Code, Codex, Cursor e 75+). Inclui a skill find-skills, que faz o agente procurar e instalar skills sozinho.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Skills CLI (npx skills) + find-skills</h1>
+    <p class="lead">Gerenciador de pacotes de skills para agentes (Claude Code, Codex, Cursor e 75+). Inclui a skill find-skills, que faz o agente procurar e instalar skills sozinho.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/vercel-labs/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">vercel-labs/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/vercel-labs/skills">vercel-labs/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://skills.sh">skills.sh</a> · <a href="https://github.com/vercel-labs/skills/blob/main/docs/commands.md">Referência da CLI</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (Node.js)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~36k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O <code>skills</code> é a CLI da Vercel para o ecossistema aberto de <strong>agent skills</strong>: instruções reutilizáveis que ensinam agentes de código a fazer tarefas, como revisar código, seguir boas práticas de uma biblioteca ou fazer deploy. Funciona como um &quot;npm de skills&quot;: você busca, instala, atualiza e remove skills de qualquer repositório do GitHub, e a CLI coloca os arquivos na pasta certa de cada agente instalado.</p>
+<p>O catálogo público fica em <a href="https://skills.sh">skills.sh</a>, com ranking por número de instalações. A CLI detecta os agentes que você tem (Claude Code, Codex, Cursor, OpenCode e mais de 75 outros) e deixa você escolher onde instalar.</p>
+<p>O repositório também traz a skill <strong>find-skills</strong>, uma das mais instaladas do skills.sh (cerca de 4 milhões de instalações). Com ela, quando você pergunta <em>&quot;como faço X?&quot;</em> ou <em>&quot;tem alguma skill para X?&quot;</em>, o próprio agente consulta o ranking, busca com <code>npx skills find</code>, verifica a qualidade e oferece o comando de instalação.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Instala skills de qualquer repositório do GitHub, inclusive privados, no projeto ou de forma global (<code>-g</code>).</li>
+<li>Busca interativa ou por palavra-chave (<code>npx skills find</code>).</li>
+<li>Lista, verifica atualizações, atualiza e remove skills instaladas.</li>
+<li>Usa uma skill <strong>sem instalar</strong> (<code>npx skills use</code>), gerando o prompt ou abrindo o agente já com ela.</li>
+<li>Cria o modelo de uma skill nova (<code>npx skills init</code>).</li>
+<li>Experimental: sincroniza skills que vêm junto com pacotes npm e restaura as skills do projeto a partir do <code>skills-lock.json</code>.</li>
+<li><strong>find-skills:</strong> busca e recomenda skills seguindo critérios de qualidade (mais de 1 mil instalações, fonte confiável, estrelas do repositório).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Node.js 22.20 ou mais novo.</strong></li>
+<li>Pelo menos um agente compatível instalado (ex.: Claude Code).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Não precisa instalar a CLI: ela roda via <code>npx</code>. Para instalar a <strong>find-skills</strong> no seu agente:</p>
+<pre><code class="language-bash">npx skills add https://github.com/vercel-labs/skills --skill find-skills
+</code></pre>
+<p>Para instalar de forma global (em todos os projetos), sem perguntas:</p>
+<pre><code class="language-bash">npx skills add vercel-labs/skills@find-skills -g -y
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">npx skills add vercel-labs/agent-skills                                   # escolhe interativamente skills e agentes de um repositório
+npx skills add vercel-labs/agent-skills --skill web-design-guidelines -a claude-code   # uma skill específica, só no Claude Code
+npx skills find                                                           # busca interativa
+npx skills find react performance                                         # busca por palavra-chave
+npx skills find pr review --owner vercel-labs                             # busca só num autor
+npx skills list                                                           # skills instaladas
+npx skills check                                                          # verifica atualizações
+npx skills update                                                         # atualiza as instaladas
+npx skills remove &lt;skill&gt;                                                 # remove
+npx skills use vercel-labs/agent-skills@web-design-guidelines --agent claude-code   # usa sem instalar
+npx skills init minha-skill                                               # cria o modelo de uma skill nova
+npx skills --help                                                         # todas as opções
+</code></pre>
+<p><strong>Usando a find-skills:</strong> depois de instalada, é só perguntar ao agente, por exemplo: <em>&quot;tem alguma skill para testes com Playwright?&quot;</em> ou <em>&quot;como deixo meu app React mais rápido?&quot;</em>. Ele busca, mostra as opções com o número de instalações e o link do skills.sh, e oferece o comando para instalar.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Instalar e manter atualizadas as skills de vários agentes num comando só, em vez de copiar pastas à mão.</li>
+<li>Descobrir skills prontas antes de escrever uma do zero.</li>
+<li>Instalar skills citadas neste catálogo, como a <a href="vercel-agent-skills.html">Vercel Agent Skills</a> (<code>react-best-practices</code>) e a skill do <a href="../10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a>.</li>
+<li>Criar e distribuir as suas próprias skills para a equipe.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Telemetria:</strong> a CLI coleta dados de uso anônimos. Para desligar, defina <code>DISABLE_TELEMETRY=1</code> ou <code>DO_NOT_TRACK=1</code>. Isso também desliga as consultas de auditoria de segurança.</li>
+<li><strong>Skills são instruções que o agente vai seguir.</strong> Antes de instalar skills de autores desconhecidos, leia o <code>SKILL.md</code>. A própria find-skills recomenda desconfiar de skills com menos de 100 instalações ou de repositórios com menos de 100 estrelas.</li>
+<li>Os comandos <code>experimental_</code> podem mudar ou sumir sem aviso.</li>
+<li>Não confunda com o <a href="vercel-agent-skills.html">vercel-labs/agent-skills</a>: aquele é uma <em>coleção</em> de skills; este é a <em>ferramenta</em> que instala skills.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/vercel-labs/skills#readme">README</a></li>
+<li><a href="https://github.com/vercel-labs/skills/blob/main/skills/find-skills/SKILL.md">find-skills (SKILL.md)</a> · <a href="https://skills.sh/vercel-labs/skills/find-skills">Página no skills.sh</a></li>
+<li><a href="https://skills.sh">Diretório de skills</a></li>
+<li><a href="https://github.com/vercel-labs/skills/blob/main/docs/commands.md">Referência da CLI</a> · <a href="https://github.com/vercel-labs/skills/blob/main/docs/agents.md">Agentes suportados</a> · <a href="https://github.com/vercel-labs/skills/blob/main/docs/creating-skills.md">Como criar skills</a></li>
+<li><a href="https://agentskills.io">Especificação Agent Skills</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

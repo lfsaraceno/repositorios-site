@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trail of Bits Skills · Repositórios favoritos</title>
+<meta name="description" content="Marketplace de plugins do Claude Code (e Codex) da Trail of Bits com skills para auditoria de código, análise de segurança, testes e fluxos de desenvolvimento.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>Trail of Bits Skills</h1>
+    <p class="lead">Marketplace de plugins do Claude Code (e Codex) da Trail of Bits com skills para auditoria de código, análise de segurança, testes e fluxos de desenvolvimento.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/trailofbits/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">trailofbits/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/trailofbits/skills">trailofbits/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.trailofbits.com/">trailofbits.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>CC-BY-SA-4.0</dd></div>
+<div><dt>Estrelas</dt><dd>~7,6k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#destaque-plugins-insecure-defaults">Destaque: plugins/insecure-defaults</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É um marketplace de plugins do Claude Code mantido pela Trail of Bits, consultoria de segurança conhecida por auditorias e pesquisa. Cada plugin empacota skills, comandos e fluxos de trabalho que ajudam um agente de IA em análise de segurança, testes e desenvolvimento. O Codex consegue carregar o marketplace pela compatibilidade com marketplaces do Claude.</p>
+<p>Os plugins cobrem segurança de contratos inteligentes, auditoria de código (C/C++, Rust, GitHub Actions, cadeia de suprimentos), análise de malware com YARA, verificação (testes de mutação, testes baseados em propriedades, análise de tempo constante), engenharia reversa, segurança móvel e utilitários de desenvolvimento.</p>
+<h2 id="destaque-plugins-insecure-defaults">Destaque: plugins/insecure-defaults</h2>
+<p>O plugin <a href="https://github.com/trailofbits/skills/tree/main/plugins/insecure-defaults"><code>insecure-defaults</code></a> faz uma auditoria paralela em busca de configurações padrão inseguras (&quot;fail-open&quot;), rastreando cada candidato antes de reportá-lo.</p>
+<p>Categorias que ele procura:</p>
+<ul>
+<li>Segredos de fallback (por exemplo, <code>SECRET = env.get('KEY') or 'dev'</code>)</li>
+<li>Credenciais padrão (por exemplo, usuário <code>admin</code> semeado com senha fraca)</li>
+<li>Chaves &quot;fail-open&quot; (por exemplo, <code>getenv('REQUIRE_AUTH', 'false')</code>)</li>
+<li>Criptografia fraca (por exemplo, <code>hashlib.md5(password)</code>)</li>
+<li>Acesso permissivo (por exemplo, <code>ACL='public-read'</code>, permissão <code>0o666</code>, CORS <code>*</code>)</li>
+<li>Vazamento por recursos de debug (por exemplo, <code>traceback.format_exc()</code> em resposta)</li>
+</ul>
+<p>Como funciona: uma fase de reconhecimento classifica o escopo e perfila a stack; seis varreduras paralelas (uma por categoria) coletam candidatos; agentes verificadores (Opus) tentam refutar cada candidato, checando se o arquivo é alcançável em produção, se o valor inseguro é o que roda, se chega a uma decisão de segurança e se o deploy sempre define a variável; por fim, um relatório traz severidade, correção e cobertura. Traço incompleto significa candidato refutado.</p>
+<p>Uso:</p>
+<pre><code class="language-text">/plugin install insecure-defaults            # via marketplace
+/plugin install ./plugins/insecure-defaults  # checkout local
+
+/insecure-defaults:audit                      # repositório inteiro
+/insecure-defaults:audit src/                 # subdiretório
+/insecure-defaults:audit src/config/app.py    # um arquivo
+</code></pre>
+<p>Use o comando <code>audit</code>, não o workflow <code>audit-pipeline</code> diretamente (ele para imediatamente se chamado sozinho). O argumento é opcional e, por padrão, é <code>.</code>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Marketplace com dezenas de plugins organizados por área: Smart Contract Security, Code Auditing, Malware Analysis, Verification, Reverse Engineering, Mobile Security, Development</li>
+<li>Auditoria: <code>audit-context-building</code>, <code>differential-review</code>, <code>c-review</code>, <code>rust-review</code>, <code>fp-check</code>, <code>variant-analysis</code>, <code>static-analysis</code> (CodeQL, Semgrep, SARIF) e <code>supply-chain-risk-auditor</code></li>
+<li>Regras e detecção: <code>semgrep-rule-creator</code>, <code>semgrep-rule-variant-creator</code>, <code>yara-authoring</code></li>
+<li>Verificação: <code>mutation-testing</code>, <code>property-based-testing</code>, <code>constant-time-analysis</code>, <code>zeroize-audit</code>, <code>post-patch-validation</code></li>
+<li>Desenvolvimento: <code>devcontainer-setup</code>, <code>modern-python</code>, <code>modern-cpp</code>, <code>git-cleanup</code>, <code>github-triage</code>, <code>second-opinion</code></li>
+<li>Projetos relacionados: claude-code-config, codex-config, skills-curated, claude-code-devcontainer</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code com suporte a marketplaces de plugins (ou Codex, que aceita marketplaces do Claude)</li>
+<li>Dependências específicas de cada plugin (CodeQL, Semgrep, Burp Suite etc.) conforme o caso</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code">Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add trailofbits/skills
+</code></pre>
+<p>Para navegar e instalar plugins:</p>
+<pre><code class="language-text">/plugin menu
+</code></pre>
+<h3 id="codex">Codex</h3>
+<pre><code class="language-sh">codex plugin marketplace add trailofbits/skills
+codex plugin list
+codex plugin add &lt;plugin-name&gt;@trailofbits
+</code></pre>
+<h3 id="desenvolvimento-local">Desenvolvimento local</h3>
+<p>Na pasta-pai do repositório clonado:</p>
+<pre><code class="language-text">/plugins marketplace add ./skills
+</code></pre>
+<h3 id="workspace-do-chatgpt">Workspace do ChatGPT</h3>
+<p>Use o arquivo <code>.claude-plugin/marketplace.json</code> do repositório para importar no workspace.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/plugin menu                          # lista os plugins disponíveis
+/plugin install &lt;nome-do-plugin&gt;      # instala um plugin do marketplace
+/insecure-defaults:audit src/         # exemplo: auditar configurações inseguras em src/
+</code></pre>
+<p>Cada plugin traz seu próprio README com comandos e gatilhos. Em geral, descreva a tarefa ao agente (por exemplo, pedir uma revisão diferencial de segurança das mudanças da branch) e a skill correspondente é acionada.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Revisar segurança de código novo ou de um diff antes do merge</li>
+<li>Procurar configurações padrão inseguras e segredos de fallback em um projeto</li>
+<li>Criar regras Semgrep/YARA e triar falsos positivos</li>
+<li>Auditar dependências e a cadeia de suprimentos</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Licença CC-BY-SA-4.0 (atribuição e compartilhamento pela mesma licença).</li>
+<li>São ferramentas de auditoria; aplique-as em código que você possui ou tem autorização para analisar.</li>
+<li>Os resultados de agentes devem ser revisados por uma pessoa antes de virarem decisões de correção.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/trailofbits/skills#readme">README</a></li>
+<li><a href="https://github.com/trailofbits/skills/tree/main/plugins/insecure-defaults">Plugin insecure-defaults</a></li>
+<li><a href="https://github.com/trailofbits/skills/blob/main/AGENTS.md">Guia de autoria (AGENTS.md)</a></li>
+<li><a href="https://github.com/trailofbits/claude-code-config">claude-code-config</a></li>
+<li><a href="https://appsec.guide">Testing Handbook</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/anthropic-cybersecurity-skills.html">Anthropic Cybersecurity Skills</a></li>
+<li><a href="../../repos/06-seguranca/ghidra.html">Ghidra</a></li>
+<li><a href="../../repos/06-seguranca/pentagi.html">PentAGI</a></li>
+<li><a href="../../repos/06-seguranca/phoneintel.html">PhoneIntel</a></li>
+<li><a href="../../repos/06-seguranca/raptor.html">RAPTOR</a></li>
+<li><a href="../../repos/06-seguranca/rea.html">REA (Reverse Engineer Anything)</a></li>
+<li><a href="../../repos/06-seguranca/security-audit-skill.html">Security Audit Skill (Cloudflare)</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

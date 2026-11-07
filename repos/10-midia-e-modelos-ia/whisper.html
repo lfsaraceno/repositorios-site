@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Whisper · Repositórios favoritos</title>
+<meta name="description" content="Modelo de reconhecimento de fala da OpenAI, aberto e local: transcreve áudio em dezenas de idiomas (inclusive português), traduz fala para o inglês e detecta o idioma.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>Whisper</h1>
+    <p class="lead">Modelo de reconhecimento de fala da OpenAI, aberto e local: transcreve áudio em dezenas de idiomas (inclusive português), traduz fala para o inglês e detecta o idioma.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/openai/whisper">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">openai/whisper</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/openai/whisper">openai/whisper</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://arxiv.org/abs/2212.04356">Artigo (arXiv)</a> · <a href="https://github.com/openai/whisper/blob/main/model-card.md">Model card</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (PyTorch)</dd></div>
+<div><dt>Licença</dt><dd>MIT (código e pesos)</dd></div>
+<div><dt>Estrelas</dt><dd>~112k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Whisper é um modelo Transformer treinado em muitas horas de áudio variado. Um só modelo faz quatro coisas:</p>
+<ul>
+<li>reconhecimento de fala em vários idiomas;</li>
+<li>tradução da fala para o inglês;</li>
+<li>identificação do idioma falado;</li>
+<li>detecção de voz.</li>
+</ul>
+<p>Tudo roda na sua máquina, sem API e sem custo por minuto. É a referência de transcrição aberta, e muitas ferramentas usam o Whisper por baixo.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>
+<p><strong>Seis tamanhos de modelo</strong>, para escolher entre velocidade e precisão:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tamanho</th>
+<th>Parâmetros</th>
+<th>VRAM aprox.</th>
+<th>Velocidade relativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tiny</code></td>
+<td>39 M</td>
+<td>~1 GB</td>
+<td>~10×</td>
+</tr>
+<tr>
+<td><code>base</code></td>
+<td>74 M</td>
+<td>~1 GB</td>
+<td>~7×</td>
+</tr>
+<tr>
+<td><code>small</code></td>
+<td>244 M</td>
+<td>~2 GB</td>
+<td>~4×</td>
+</tr>
+<tr>
+<td><code>medium</code></td>
+<td>769 M</td>
+<td>~5 GB</td>
+<td>~2×</td>
+</tr>
+<tr>
+<td><code>large</code></td>
+<td>1550 M</td>
+<td>~10 GB</td>
+<td>1×</td>
+</tr>
+<tr>
+<td><code>turbo</code></td>
+<td>809 M</td>
+<td>~6 GB</td>
+<td>~8×</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+<li>
+<p><strong>Versões só em inglês</strong> (<code>.en</code>), que são mais precisas para inglês nos modelos pequenos.</p>
+</li>
+<li>
+<p><strong><code>turbo</code> é o padrão:</strong> versão otimizada do <code>large-v3</code>, bem mais rápida e quase tão precisa.</p>
+</li>
+<li>
+<p><strong>CLI e API Python</strong>, com acesso de baixo nível (detecção de idioma, decodificação).</p>
+</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Python 3.8–3.11</strong> e PyTorch.</li>
+<li><strong>ffmpeg</strong> instalado no sistema (veja o <a href="ffmpeg.html">FFmpeg</a>).</li>
+<li><strong>GPU NVIDIA</strong> recomendada para os modelos maiores. Em CPU funciona, mas é lento.</li>
+<li>Pode precisar de <strong>Rust</strong> se o <code>tiktoken</code> não tiver wheel pronto para a sua plataforma.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">pip install -U openai-whisper
+</code></pre>
+<p>Instale o ffmpeg:</p>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt install ffmpeg   # Ubuntu/Debian
+brew install ffmpeg                           # macOS
+choco install ffmpeg                          # Windows (Chocolatey)
+scoop install ffmpeg                          # Windows (Scoop)
+</code></pre>
+<p>Se a instalação falhar com <code>No module named 'setuptools_rust'</code>, rode <code>pip install setuptools-rust</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Linha de comando:</strong></p>
+<pre><code class="language-bash">whisper audio.mp3 --model turbo                       # transcreve
+whisper aula.mp3 --language Portuguese                # informa o idioma
+whisper entrevista.wav --model medium --language Portuguese --task translate   # traduz para inglês
+whisper --help
+</code></pre>
+<p><strong>Python:</strong></p>
+<pre><code class="language-python">import whisper
+
+model = whisper.load_model(&quot;turbo&quot;)
+result = model.transcribe(&quot;audio.mp3&quot;)
+print(result[&quot;text&quot;])
+</code></pre>
+<p>Na primeira execução, o modelo escolhido é baixado automaticamente.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Transcrever reuniões, aulas, podcasts e entrevistas sem mandar o áudio para a nuvem.</li>
+<li>Gerar legendas para vídeos (com o <a href="ffmpeg.html">FFmpeg</a> para embutir).</li>
+<li>Transcrever o áudio baixado com o <a href="yt-dlp.html">yt-dlp</a>.</li>
+<li>Substituir APIs pagas de transcrição. O <a href="supoclip.html">SupoClip</a> aceita o Whisper como alternativa local à AssemblyAI.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong><code>turbo</code> não traduz.</strong> Mesmo com <code>--task translate</code>, ele devolve o texto no idioma original. Para traduzir, use <code>medium</code> ou <code>large</code>.</li>
+<li><strong>A qualidade varia por idioma.</strong> O português costuma ir bem nos modelos maiores. O artigo traz as taxas de erro por idioma.</li>
+<li><strong>Áudio de terceiros:</strong> transcrever gravações de pessoas envolve dados pessoais. Tenha base legal na LGPD e o consentimento de quem foi gravado.</li>
+<li><strong>Alucinações:</strong> em trechos de silêncio ou ruído, o modelo às vezes inventa texto. Revise transcrições importantes.</li>
+<li>O repositório recebe poucas mudanças (última release: v20250625). Existem implementações mais rápidas mantidas por terceiros, como faster-whisper e whisper.cpp.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/openai/whisper#readme">README</a> · <a href="https://arxiv.org/abs/2212.04356">Artigo</a> · <a href="https://github.com/openai/whisper/blob/main/model-card.md">Model card</a></li>
+<li><a href="https://github.com/openai/whisper/blob/main/whisper/tokenizer.py">Idiomas suportados (tokenizer.py)</a></li>
+<li><a href="https://github.com/openai/whisper/discussions/categories/show-and-tell">Exemplos da comunidade (Show and tell)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

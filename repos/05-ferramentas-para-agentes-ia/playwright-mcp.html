@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playwright MCP · Repositórios favoritos</title>
+<meta name="description" content="Servidor MCP oficial da Microsoft que dá a LLMs o controle de um navegador via Playwright. O agente lê a página pela árvore de acessibilidade, sem depender de screenshots nem de modelo de visão.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Playwright MCP</h1>
+    <p class="lead">Servidor MCP oficial da Microsoft que dá a LLMs o controle de um navegador via Playwright. O agente lê a página pela árvore de acessibilidade, sem depender de screenshots nem de modelo de visão.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/microsoft/playwright-mcp">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">microsoft/playwright-mcp</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/microsoft/playwright-mcp">microsoft/playwright-mcp</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.npmjs.com/package/@playwright/mcp">Pacote npm @playwright/mcp</a> · <a href="https://playwright.dev">playwright.dev</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~39k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Playwright MCP expõe o Playwright como ferramentas MCP (<code>browser_navigate</code>, <code>browser_click</code>, <code>browser_snapshot</code>...). A cada ação, o agente recebe um <strong>snapshot estruturado da árvore de acessibilidade</strong>, com referências para mirar nos elementos. Por isso as ações são determinísticas, sem a ambiguidade de clicar por coordenadas num screenshot.</p>
+<p><strong>MCP ou CLI?</strong> O próprio README recomenda o <a href="playwright-cli.html">Playwright CLI</a> para agentes de código, porque gasta menos tokens: não carrega os esquemas das ferramentas nem árvores de acessibilidade enormes no contexto. O MCP continua melhor para fluxos longos e autônomos que precisam de estado contínuo e análise detalhada da página, como automação exploratória e testes que se corrigem sozinhos.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Ferramentas principais:</strong> navegar, clicar, digitar, preencher formulários, arrastar, soltar arquivos, upload, diálogos, abas, teclado, console, requisições de rede, screenshot e snapshot com busca (<code>browser_find</code>).</li>
+<li><strong>Grupos opcionais</strong>, ativados com <code>--caps</code>:
+<ul>
+<li><code>network</code>: mock de requisições e modo offline;</li>
+<li><code>storage</code>: cookies, localStorage, sessionStorage e estado salvo;</li>
+<li><code>devtools</code>: trace, vídeo, gravação de ações, destaque e anotação de elementos;</li>
+<li><code>vision</code>: cliques e mouse por coordenadas;</li>
+<li><code>pdf</code>: salvar a página em PDF;</li>
+<li><code>testing</code>: gerar locators e asserções de visibilidade e valor;</li>
+<li><code>config</code>: ler a configuração ativa.</li>
+</ul>
+</li>
+<li><strong>Perfis de navegador:</strong> persistente (padrão, um por workspace), isolado em memória (<code>--isolated</code>) ou conectado ao seu Chrome/Edge pela extensão (<code>--extension</code>).</li>
+<li>Chromium, Chrome, Edge, Firefox e WebKit. Emulação de dispositivo (<code>--device</code>, <code>--mobile</code>).</li>
+<li>Gera código Playwright em TypeScript, Python, Java ou C# (<code>--codegen</code>).</li>
+<li>Transporte HTTP (<code>--port</code>), imagem Docker oficial e uso programático (<code>createConnection</code>).</li>
+<li>Funciona em VS Code, Cursor, Windsurf, Claude Desktop, Claude Code, Codex, Goose, Warp, Amp e outros clientes MCP.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Node.js 18+</strong>.</li>
+<li>Um cliente MCP.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Configuração padrão</strong> (serve para a maioria dos clientes):</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;playwright&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;@playwright/mcp@latest&quot;]
+    }
+  }
+}
+</code></pre>
+<p><strong>Por linha de comando:</strong></p>
+<pre><code class="language-bash">claude mcp add playwright npx @playwright/mcp@latest          # Claude Code
+codex mcp add playwright npx &quot;@playwright/mcp@latest&quot;         # Codex
+code --add-mcp '{&quot;name&quot;:&quot;playwright&quot;,&quot;command&quot;:&quot;npx&quot;,&quot;args&quot;:[&quot;@playwright/mcp@latest&quot;]}'   # VS Code
+</code></pre>
+<p><strong>Docker</strong> (só Chromium headless):</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;playwright&quot;: {
+      &quot;command&quot;: &quot;docker&quot;,
+      &quot;args&quot;: [&quot;run&quot;, &quot;-i&quot;, &quot;--rm&quot;, &quot;--init&quot;, &quot;--pull=always&quot;, &quot;mcr.microsoft.com/playwright/mcp&quot;]
+    }
+  }
+}
+</code></pre>
+<p><strong>Servidor separado com HTTP</strong>, útil quando o cliente roda sem tela:</p>
+<pre><code class="language-bash">npx @playwright/mcp@latest --port 8931
+</code></pre>
+<p>No cliente, use <code>&quot;url&quot;: &quot;http://localhost:8931/mcp&quot;</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça ao agente em linguagem natural, por exemplo &quot;abra localhost:3000, faça login com o usuário de teste e confira se o dashboard carrega&quot;. Ele chama as ferramentas <code>browser_*</code>.</p>
+<p><strong>Opções úteis</strong> (vão em <code>&quot;args&quot;</code>, ou como variáveis <code>PLAYWRIGHT_MCP_*</code>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Opção</th>
+<th>Para quê</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--headless</code></td>
+<td>Roda sem janela (o padrão é com janela)</td>
+</tr>
+<tr>
+<td><code>--browser &lt;nome&gt;</code></td>
+<td><code>chrome</code>, <code>firefox</code>, <code>webkit</code> ou <code>msedge</code></td>
+</tr>
+<tr>
+<td><code>--caps &lt;lista&gt;</code></td>
+<td>Ativa grupos extras: <code>network</code>, <code>storage</code>, <code>devtools</code>, <code>vision</code>, <code>pdf</code>, <code>testing</code>, <code>config</code></td>
+</tr>
+<tr>
+<td><code>--isolated</code></td>
+<td>Perfil em memória, apagado ao fechar</td>
+</tr>
+<tr>
+<td><code>--storage-state &lt;arquivo&gt;</code></td>
+<td>Carrega cookies e localStorage numa sessão isolada</td>
+</tr>
+<tr>
+<td><code>--user-data-dir &lt;pasta&gt;</code></td>
+<td>Pasta do perfil persistente</td>
+</tr>
+<tr>
+<td><code>--extension</code></td>
+<td>Conecta ao Chrome/Edge que você já usa</td>
+</tr>
+<tr>
+<td><code>--device &quot;iPhone 15&quot;</code> / <code>--mobile</code></td>
+<td>Emula um celular</td>
+</tr>
+<tr>
+<td><code>--viewport-size 1280x720</code></td>
+<td>Tamanho da janela</td>
+</tr>
+<tr>
+<td><code>--allowed-origins</code> / <code>--blocked-origins</code></td>
+<td>Filtra origens (não é barreira de segurança)</td>
+</tr>
+<tr>
+<td><code>--redact-url-params access_token,code</code></td>
+<td>Esconde esses parâmetros de URL nas respostas</td>
+</tr>
+<tr>
+<td><code>--secrets &lt;arquivo .env&gt;</code></td>
+<td>Arquivo de segredos no formato dotenv</td>
+</tr>
+<tr>
+<td><code>--config &lt;arquivo&gt;</code></td>
+<td>Arquivo de configuração JSON</td>
+</tr>
+</tbody>
+</table></div>
+<p>Também há <code>--init-page</code> (um arquivo TypeScript que prepara a página, por exemplo permissões e geolocalização) e <code>--init-script</code> (JavaScript injetado antes dos scripts da página).</p>
+<p><strong>Onde fica o perfil persistente:</strong></p>
+<pre><code class="language-text">Windows: %USERPROFILE%\AppData\Local\ms-playwright\mcp-{canal}-{hash-do-workspace}
+macOS:   ~/Library/Caches/ms-playwright/mcp-{canal}-{hash-do-workspace}
+Linux:   ~/.cache/ms-playwright/mcp-{canal}-{hash-do-workspace}
+</code></pre>
+<p>Um perfil persistente só aceita um navegador por vez. Para rodar vários clientes no mesmo projeto, use <code>--isolated</code> ou <code>--user-data-dir</code> diferentes.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Agentes autônomos que navegam, preenchem formulários e extraem dados por vários passos.</li>
+<li>Testes exploratórios e testes que se corrigem sozinhos.</li>
+<li>Clientes que só falam MCP, como Claude Desktop, Cursor e Windsurf.</li>
+<li>Comparação: para agentes de código com terminal, o <a href="playwright-cli.html">Playwright CLI</a> é mais econômico. O <a href="chrome-devtools-mcp.html">Chrome DevTools MCP</a> foca em depuração e desempenho no Chrome. O Playwright MCP é o mais completo para automação e funciona com vários navegadores.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Não é uma barreira de segurança.</strong> O próprio README avisa e manda seguir as boas práticas de segurança do MCP. Uma página maliciosa pode tentar manipular o agente com prompt injection.</li>
+<li><strong><code>browser_run_code_unsafe</code></strong> roda código JavaScript arbitrário no processo do servidor. A documentação diz que isso <strong>equivale a execução remota de código</strong>. Ative só em ambiente confiável.</li>
+<li><strong>Sessões logadas:</strong> o perfil persistente guarda logins em disco, e o modo <code>--extension</code> usa o seu navegador real com todas as contas. Prefira <code>--isolated</code> com <code>--storage-state</code> de uma conta de teste.</li>
+<li><strong>Exposição na rede:</strong> com <code>--host 0.0.0.0</code>, como no exemplo de Docker de longa duração, qualquer máquina que alcance a porta controla o navegador. Mantenha em <code>localhost</code> ou atrás de autenticação.</li>
+<li><strong>Acesso a arquivos:</strong> por padrão, fica limitado à pasta do projeto e URLs <code>file://</code> são bloqueadas. <code>--allow-unrestricted-file-access</code> libera tudo.</li>
+<li>Versões ainda <code>0.0.x</code> (o último release é o v0.0.84, de out/2026), com mudanças frequentes. Fixar <code>@latest</code> atualiza sozinho a cada execução.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/microsoft/playwright-mcp#readme">README</a></li>
+<li><a href="https://www.npmjs.com/package/@playwright/mcp">Pacote npm</a> · <a href="https://github.com/microsoft/playwright-mcp/releases">Releases</a></li>
+<li><a href="https://github.com/microsoft/playwright/tree/main/packages/extension#readme">Extensão do Playwright para Chrome/Edge</a></li>
+<li><a href="https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices">Boas práticas de segurança do MCP</a></li>
+<li><a href="https://github.com/microsoft/playwright-cli">Playwright CLI</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

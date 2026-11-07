@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proxmox Skill · Repositórios favoritos</title>
+<meta name="description" content="Skill do Codex e CLI leve em Python para fluxos seguros de VMs e containers LXC no Proxmox VE (inspecionar, criar, clonar e iniciar).">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Proxmox Skill</h1>
+    <p class="lead">Skill do Codex e CLI leve em Python para fluxos seguros de VMs e containers LXC no Proxmox VE (inspecionar, criar, clonar e iniciar).</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Sunwood-ai-labs/proxmox-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Sunwood-ai-labs/proxmox-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Sunwood-ai-labs/proxmox-skill">Sunwood-ai-labs/proxmox-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://sunwood-ai-labs.github.io/proxmox-skill/">sunwood-ai-labs.github.io/proxmox-skill</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~10 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>A Proxmox Skill une, em uma única pasta, as instruções de uma skill para o Codex (<code>SKILL.md</code>) e um cliente real da API do Proxmox VE (<code>scripts/proxmox_vm.py</code>), executado com <code>uv run</code>. Permite inspecionar o cluster, iniciar guests, criar VMs, clonar templates e provisionar containers LXC.</p>
+<p>O fluxo recomendado é &quot;inspecionar antes de alterar&quot;: o agente lista nós, IDs livres, storages e templates antes de qualquer operação que modifique algo. As credenciais ficam em um <code>.env</code> local, e só o <code>.env.example</code> é publicado.</p>
+<p>O helper usa apenas a biblioteca padrão do Python, normaliza <code>root</code> para <code>root@pam</code>, gerencia o ticket de autenticação e envia o cabeçalho CSRF automaticamente. É um projeto pequeno (~10 estrelas), criado e validado por um único mantenedor.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Inspeção de nós, próximo VMID livre, VMs e containers.</li>
+<li>QEMU: iniciar, criar VM em branco e clonar a partir de template (clone completo com <code>--full</code>).</li>
+<li>LXC: criar e iniciar containers a partir de templates do Proxmox.</li>
+<li><code>--wait</code> para aguardar o resultado real da tarefa, em vez do ID da tarefa na fila.</li>
+<li>Credenciais lidas de <code>.env</code> direto do disco (sem <code>source</code> no shell).</li>
+<li>Scripts de exemplo não destrutivos: <code>cluster_probe.py</code> e <code>guest_snapshot.py</code>.</li>
+<li>Documentação em inglês e japonês.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um servidor Proxmox VE acessível, com usuário e senha (a skill usa autenticação por ticket).</li>
+<li><a href="https://docs.astral.sh/uv/">uv</a> instalado, para rodar o script.</li>
+<li>Codex (ou outro agente que leia o <code>SKILL.md</code>).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>O README não descreve um comando de instalação como plugin; o uso é clonar o repositório e configurar o <code>.env</code>:</p>
+<pre><code class="language-powershell">git clone https://github.com/Sunwood-ai-labs/proxmox-skill.git
+cd proxmox-skill
+Copy-Item .env.example .env   # no Linux/macOS: cp .env.example .env
+# edite o .env com host, usuário e senha do Proxmox
+</code></pre>
+<p>Para o agente usar como skill, a pasta precisa estar no diretório de skills do cliente. O README não detalha esse passo; consulte a documentação do seu agente.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Os comandos do README usam a sintaxe do PowerShell; em outros shells, troque <code>.\scripts\...</code> por <code>./scripts/...</code>.</p>
+<pre><code class="language-powershell">uv run .\scripts\proxmox_vm.py nodes                  # lista os nós do cluster
+uv run .\scripts\proxmox_vm.py nextid                 # próximo VMID livre
+uv run .\scripts\proxmox_vm.py list-vms --node pve    # lista VMs de um nó
+uv run .\scripts\proxmox_vm.py list-cts --node pve    # lista containers LXC de um nó
+</code></pre>
+<p>Criar uma VM em branco:</p>
+<pre><code class="language-powershell">uv run .\scripts\proxmox_vm.py create `
+  --node pve --vmid 220 --name app-220 `
+  --memory 4096 --cores 4 --bridge vmbr0 `
+  --storage local-lvm --disk-gb 32 --wait
+</code></pre>
+<p>Clonar de um template:</p>
+<pre><code class="language-powershell">uv run .\scripts\proxmox_vm.py clone `
+  --node pve --source-vmid 9000 --newid 221 `
+  --name app-221 --full --wait
+</code></pre>
+<p>Criar e iniciar um container LXC:</p>
+<pre><code class="language-powershell">uv run .\scripts\proxmox_vm.py create-ct `
+  --node pve --vmid 230 --hostname codex-230 `
+  --ostemplate local:vztmpl/ubuntu-24.04-standard_24.04-2_amd64.tar.zst `
+  --storage local-lvm --memory 512 --swap 512 --cores 1 `
+  --disk-gb 8 --bridge vmbr0 --ip dhcp `
+  --wait --start-after-create
+</code></pre>
+<p>Exemplos de prompt para o agente: &quot;liste os nós e os guests do meu Proxmox&quot;, &quot;clone o template 9000 para uma nova VM chamada app-221 e aguarde terminar&quot;.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar a um agente a capacidade de provisionar VMs e containers em um homelab ou servidor Proxmox próprio.</li>
+<li>Automatizar clonagem de templates e criação de LXC com verificação prévia.</li>
+<li>Partir de um cliente simples da API do Proxmox, sem dependências além do Python.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>As operações criam e alteram máquinas reais. Revise o que o agente vai executar, use um usuário com o mínimo de permissões e teste primeiro em um ambiente que possa ser descartado.</li>
+<li>A senha fica em texto no <code>.env</code>: nunca versione o arquivo e não o compartilhe com o agente além do necessário.</li>
+<li>A validação em ambiente real relatada no README cobre apenas o caminho LXC (criar, iniciar, confirmar <code>running</code>, parar e confirmar <code>stopped</code>); os fluxos de VM não têm validação equivalente descrita.</li>
+<li>Projeto pequeno e com último push em mar/2026; o suporte a outros agentes além do Codex não é descrito.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Sunwood-ai-labs/proxmox-skill#readme">README</a></li>
+<li><a href="https://sunwood-ai-labs.github.io/proxmox-skill/">Documentação</a></li>
+<li><a href="https://github.com/Sunwood-ai-labs/proxmox-skill/blob/main/SKILL.md">SKILL.md</a></li>
+<li><a href="https://github.com/Sunwood-ai-labs/proxmox-skill/blob/main/references/api-notes.md">Notas da API</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brazilian Utils · Repositórios favoritos</title>
+<meta name="description" content="Bibliotecas de utilitários para dados brasileiros (CPF, CNPJ, CEP, telefone, placa, Pix, feriados e mais), com versões em JavaScript/TypeScript e Python.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#11-referencias-e-listas"><span aria-hidden="true">📚</span> Referências e listas</a>
+    </nav>
+    <h1>Brazilian Utils</h1>
+    <p class="lead">Bibliotecas de utilitários para dados brasileiros (CPF, CNPJ, CEP, telefone, placa, Pix, feriados e mais), com versões em JavaScript/TypeScript e Python.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/brazilian-utils/javascript">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">brazilian-utils/javascript</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/brazilian-utils/javascript">brazilian-utils/javascript</a> e <a href="https://github.com/brazilian-utils/python">brazilian-utils/python</a> (organização <a href="https://github.com/brazilian-utils">brazilian-utils</a>)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://brazilian-utils.com.br/libs/javascript/">brazilian-utils.com.br</a> (JS) · <a href="https://pypi.org/project/brutils/">PyPI: brutils</a> (Python)</dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (JS) e Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~1,7k (JS) e ~0,5k (Python) (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Brazilian Utils é uma organização que mantém bibliotecas para resolver problemas do dia a dia de quem desenvolve software para o Brasil: validar, formatar, interpretar e gerar documentos e dados como CPF, CNPJ, CEP, telefone, placa de veículo, PIS, título de eleitor e outros.</p>
+<p>As duas versões principais são a de JavaScript/TypeScript (pacote npm <code>@brazilian-utils/brazilian-utils</code>) e a de Python (pacote PyPI <code>brutils</code>). A organização também tem versões em Go, Ruby, Rust, .NET (F#) e Erlang, com menos atividade.</p>
+<p>O README aponta que as funções de validação verificam apenas o formato e os dígitos verificadores, e não a existência real do documento.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>JavaScript</strong>: zero dependências, tree-shakeable (cada util também é um subpath), escrito em TypeScript, com tipos incluídos; roda em Node.js, Bun, Deno e navegadores</li>
+<li><strong>JavaScript</strong>: utilitários para CPF, CNPJ, CEP, boleto, Pix, feriados e mais; documentação em inglês e português, com <code>llms.txt</code> para assistentes de IA</li>
+<li><strong>Python</strong>: CPF, CNPJ, CEP (inclusive consulta de endereço), telefone, e-mail, data, CNH, placa de carro (inclusive conversão para padrão Mercosul), PIS, processo jurídico, RENAVAM, título eleitoral, IBGE, feriados, valores monetários, natureza jurídica e passaporte</li>
+<li>Funções por família: validar (<code>is_valid_*</code>), formatar (<code>format_*</code>), remover símbolos (<code>remove_symbols_*</code>) e gerar (<code>generate_*</code>)</li>
+<li>Testes extensos; a versão JS cita testes de mutação</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>JavaScript: Node.js <code>^20.19.0 || &gt;=22.12.0</code>, Bun mais recente, Deno 2.x ou navegador moderno</li>
+<li>Python: pip e um Python compatível com o pacote <code>brutils</code> (veja as versões suportadas no PyPI)</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="javascript-typescript">JavaScript / TypeScript</h3>
+<pre><code class="language-bash">npm install @brazilian-utils/brazilian-utils
+</code></pre>
+<p>Também funciona com <code>yarn add</code>, <code>pnpm add</code> e <code>bun add</code>. Em uma tag <code>&lt;script&gt;</code> simples, o pacote expõe o global <code>BrazilianUtils</code>:</p>
+<pre><code class="language-html">&lt;script src=&quot;https://unpkg.com/@brazilian-utils/brazilian-utils/dist/brazilian-utils.umd.cjs&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="python">Python</h3>
+<pre><code class="language-bash">pip install brutils
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>JavaScript:</p>
+<pre><code class="language-javascript">import { isValidCpf } from &quot;@brazilian-utils/brazilian-utils&quot;;
+
+isValidCpf(&quot;1232454233345&quot;); // false
+</code></pre>
+<p>Cada utilitário também existe como subpath, para carregamento sob demanda (exemplo do README: <code>@brazilian-utils/brazilian-utils/get-cities</code>).</p>
+<p>Python:</p>
+<pre><code class="language-python">&gt;&gt;&gt; from brutils import is_valid_cpf
+&gt;&gt;&gt; is_valid_cpf('00011122233')
+False
+&gt;&gt;&gt; from brutils import format_cpf
+&gt;&gt;&gt; format_cpf('82178537464')
+'821.785.374-64'
+</code></pre>
+<p>Funções Python documentadas no README (exemplos): <code>is_valid_cpf</code>, <code>format_cpf</code>, <code>remove_symbols_cpf</code>, <code>generate_cpf</code>, <code>is_valid_cnpj</code>, <code>format_cnpj</code>, <code>generate_cnpj</code>, <code>is_valid_cep</code>, <code>get_address_from_cep</code>, <code>is_valid_phone</code>, <code>format_phone</code>, <code>is_valid_license_plate</code>, <code>convert_license_plate_to_mercosul</code>, <code>is_holiday</code>, <code>format_currency</code>, <code>convert_real_to_text</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Validar e formatar CPF, CNPJ, CEP e telefone em formulários e APIs</li>
+<li>Gerar dados de teste (CPF, CNPJ e placas fictícios) para ambientes de desenvolvimento</li>
+<li>Consultar feriados e códigos IBGE em aplicações brasileiras</li>
+<li>Evitar reimplementar o cálculo de dígitos verificadores</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Validar um CPF ou CNPJ com a biblioteca não confirma que o documento existe nem pertence a alguém; apenas checa a estrutura.</li>
+<li>Documentos gerados pelas funções <code>generate_*</code> são para testes; não os use para fraudar cadastros.</li>
+<li><code>get_address_from_cep</code> consulta serviços externos de CEP, o que exige internet e está sujeito a disponibilidade.</li>
+<li>O repositório <code>old-python</code> está marcado como DEPRECATED; use <code>brazilian-utils/python</code> (pacote <code>brutils</code>).</li>
+<li>CPF, CNPJ e CEP de pessoas são dados pessoais; trate-os conforme a LGPD.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://brazilian-utils.com.br/libs/javascript/">Documentação JavaScript</a></li>
+<li><a href="https://brazilian-utils.com.br/guides/">Guias</a></li>
+<li><a href="https://www.npmjs.com/package/@brazilian-utils/brazilian-utils">npm: @brazilian-utils/brazilian-utils</a></li>
+<li><a href="https://pypi.org/project/brutils/">PyPI: brutils</a></li>
+<li><a href="https://github.com/brazilian-utils/javascript#readme">README JavaScript</a> · <a href="https://github.com/brazilian-utils/javascript/blob/main/README.pt-br.md">README em português</a></li>
+<li><a href="https://github.com/brazilian-utils/python#readme">README Python</a></li>
+<li><a href="https://github.com/brazilian-utils">Organização no GitHub</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#11-referencias-e-listas">Referências e listas</a></h2>
+    <ul>
+<li><a href="../../repos/11-referencias-e-listas/awesome-brazilian-devblogs.html">Awesome Brazilian Dev Blogs</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-claude-code.html">Awesome Claude Code</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-opus5-5-videos.html">Awesome Opus 5.5 Videos</a></li>
+<li><a href="../../repos/11-referencias-e-listas/claude-cookbooks.html">Claude Cookbooks</a></li>
+<li><a href="../../repos/11-referencias-e-listas/leis-brasil.html">Leis do Brasil em Markdown (ctresb/leis)</a></li>
+<li><a href="../../repos/11-referencias-e-listas/public-apis.html">Public APIs</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

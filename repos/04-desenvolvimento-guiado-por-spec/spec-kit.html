@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spec Kit · Repositórios favoritos</title>
+<meta name="description" content="Toolkit open source do GitHub que dá a agentes de código processos estruturados, templates reutilizáveis e resultados documentados, com foco em Spec-Driven Development.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#04-desenvolvimento-guiado-por-spec"><span aria-hidden="true">📐</span> Desenvolvimento guiado por spec</a>
+    </nav>
+    <h1>Spec Kit</h1>
+    <p class="lead">Toolkit open source do GitHub que dá a agentes de código processos estruturados, templates reutilizáveis e resultados documentados, com foco em Spec-Driven Development.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/github/spec-kit">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">github/spec-kit</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/github/spec-kit">github/spec-kit</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.github.io/spec-kit/">github.github.io/spec-kit</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~142k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Spec Kit oferece processos prontos que você pode usar, personalizar ou substituir pelos seus. O principal é o Spec-Driven Development (SDD): definir o quê e o porquê antes do como, transformando requisitos em especificação, plano técnico e tarefas acionáveis, e guiando a implementação contra esses artefatos.</p>
+<p>Além do SDD, há processos opcionais, instalados como extensões: correção de bugs (diagnosticar, consertar e verificar) e avaliação de ideias (levantar evidências até uma decisão go, precisa de esclarecimento ou descartar). Os mecanismos de extensão incluem integrações com agentes, extensões, presets, workflows, bundles e catálogos.</p>
+<p>Você usa o CLI <code>specify</code> no terminal para configurar o projeto e invoca as skills <code>/speckit-*</code> no chat do seu agente.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>SDD completo: constituição, especificação, plano, tarefas, implementação e convergência.</li>
+<li>Extensões opcionais: <code>bug</code> (assess, fix, test) e <code>assess</code> (intake, research, define, shape, decide).</li>
+<li>Integrações com vários agentes de código (o exemplo usa GitHub Copilot em modo skills).</li>
+<li>Presets para adaptar templates, terminologia e padrões organizacionais.</li>
+<li>Workflows para automatizar prompts, comandos, gates e tarefas de shell.</li>
+<li>Bundles de configurações por papel ou equipe e catálogos (inclusive privados e offline).</li>
+<li>Guia para projetos existentes (brownfield) e comandos de busca como <code>specify extension search</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.11 ou superior.</li>
+<li><a href="https://github.github.io/spec-kit/install/uv.html">uv</a>.</li>
+<li>Um agente de código suportado, em Linux, macOS ou Windows.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">uv tool install specify-cli
+specify init my-project --integration copilot
+cd my-project
+</code></pre>
+<p>Troque <code>copilot</code> pela chave de integração do seu agente (lista na <a href="https://github.github.io/spec-kit/reference/integrations.html">referência de integrações</a>). Para projetos que já têm código, siga o <a href="https://github.github.io/spec-kit/guides/existing-projects.html">guia de projetos existentes</a>. Versões fixadas, outros instaladores, CI e troubleshooting estão em <a href="https://github.github.io/spec-kit/installation.html">Installation</a>; para atualizar, veja <a href="https://github.github.io/spec-kit/upgrade.html">Upgrade</a>.</p>
+<p>Depois, abra o agente na pasta do projeto.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Estas são skills do agente, digitadas no chat, uma por vez, revisando o resultado antes de seguir. Não são comandos de terminal.</p>
+<pre><code class="language-text">/speckit-constitution Create principles focused on code quality, testing, and maintainability.
+</code></pre>
+<p>Define os princípios do projeto (uma vez por projeto).</p>
+<pre><code class="language-text">/speckit-specify Build a photo organizer with albums grouped by date and a tile preview of each album.
+</code></pre>
+<p>Cria a especificação da funcionalidade.</p>
+<pre><code class="language-text">/speckit-plan Use Vite with vanilla JavaScript. Keep images local and store metadata in SQLite.
+</code></pre>
+<p>Gera o plano técnico.</p>
+<pre><code class="language-text">/speckit-tasks
+/speckit-implement
+/speckit-converge
+</code></pre>
+<p>Quebra em tarefas, implementa e confere a convergência; repita implement e converge até o resultado ser &quot;Converged&quot;.</p>
+<p>Correção de bugs:</p>
+<pre><code class="language-bash">specify extension add bug
+</code></pre>
+<pre><code class="language-text">/speckit-bug-assess &quot;Submitting an empty password crashes the login form.&quot; slug=login-crash
+/speckit-bug-fix slug=login-crash
+/speckit-bug-test slug=login-crash
+</code></pre>
+<p>Avaliação de ideias:</p>
+<pre><code class="language-bash">specify extension add assess
+</code></pre>
+<pre><code class="language-text">/speckit-assess-intake &quot;Let users work offline and sync when they reconnect.&quot; slug=offline-mode
+</code></pre>
+<p>Os relatórios ficam em <code>.specify/bugs/&lt;slug&gt;/</code> e <code>.specify/assessments/&lt;slug&gt;/</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Construir uma funcionalidade ou app com especificação, plano e tarefas explícitos.</li>
+<li>Diagnosticar um bug com causa avaliada, correção delimitada e verificação registrada.</li>
+<li>Decidir se uma ideia merece investimento antes de escrever código.</li>
+<li>Impor padrões organizacionais por meio de presets e catálogos próprios.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Catálogos da comunidade não são auditorias nem endorsements: revise o código-fonte antes de instalar.</li>
+<li>A sintaxe de invocação varia conforme o agente e o modo (veja a referência de integrações).</li>
+<li>Exige Python e uv; o OpenSpec compara-se a ele como mais leve, mas é visão do concorrente.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/github/spec-kit">README</a></li>
+<li><a href="https://github.github.io/spec-kit/">Documentação</a></li>
+<li><a href="https://github.github.io/spec-kit/quickstart.html">Quickstart do SDD</a></li>
+<li><a href="https://github.com/github/spec-kit/blob/main/spec-driven.md">Metodologia completa</a></li>
+<li><a href="https://github.github.io/spec-kit/community/overview.html">Comunidade</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#04-desenvolvimento-guiado-por-spec">Desenvolvimento guiado por spec</a></h2>
+    <ul>
+<li><a href="../../repos/04-desenvolvimento-guiado-por-spec/openspec.html">OpenSpec</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

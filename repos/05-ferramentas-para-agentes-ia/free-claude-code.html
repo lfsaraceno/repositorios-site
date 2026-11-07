@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Claude Code (FCC) · Repositórios favoritos</title>
+<meta name="description" content="Proxy local com painel de administração que permite usar Claude Code, Codex, Aider e outros agentes de código com modelos gratuitos, pagos ou locais de dezenas de provedores.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Free Claude Code (FCC)</h1>
+    <p class="lead">Proxy local com painel de administração que permite usar Claude Code, Codex, Aider e outros agentes de código com modelos gratuitos, pagos ou locais de dezenas de provedores.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Alishahryar1/free-claude-code">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Alishahryar1/free-claude-code</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~61k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Free Claude Code (FCC) é um projeto independente de código aberto, sem afiliação com a Anthropic. Ele sobe um servidor local com uma interface de administração (Admin UI) e conecta agentes de código, como Claude Code, a um catálogo único de modelos vindos de vários provedores, incluindo camadas gratuitas, planos pagos e modelos locais.</p>
+<p>Os agentes são iniciados por launchers (<code>fcc-claude</code>, <code>fcc-codex</code> etc.) que sobem o servidor automaticamente. Na Admin UI você cadastra chaves de API, escolhe o modelo padrão, define modelos por tier (Fable, Opus, Sonnet, Haiku) e configura uma lista de modelos de fallback.</p>
+<p>Serve a quem quer testar agentes de código sem depender de uma única assinatura ou quem precisa alternar entre provedores.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Catálogo com 61 provedores citados como compatíveis com seus termos de uso (NVIDIA NIM, OpenRouter, Groq, DeepSeek, Gemini, Ollama, LM Studio, llama.cpp e outros)</li>
+<li>11 agentes de código suportados, entre eles Claude Code, Codex, Pi, OpenCode, Cline, Hermes, Grok Build, Aider e VS Code Chat</li>
+<li>Fallback automático para o próximo modelo configurado quando o provedor falha</li>
+<li>Roteamento independente por tier (<code>MODEL_FABLE</code>, <code>MODEL_OPUS</code>, <code>MODEL_SONNET</code>, <code>MODEL_HAIKU</code>) e controle de esforço de raciocínio</li>
+<li>Redução de tokens opcional com RTK e Headroom</li>
+<li>Integrações com VS Code, JetBrains, Claude Desktop, Codex App, Discord e Telegram</li>
+<li>Notas de voz com Whisper local ou NVIDIA NIM</li>
+<li>Sessões nativas de Codex no navegador</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Instalador para macOS/Linux (shell) ou Windows (PowerShell)</li>
+<li>Badge do README indica Python 3.14 e gerenciador <code>uv</code> (o instalador cuida disso; ao desinstalar, uv e Python são mantidos)</li>
+<li>Ao menos uma chave de API de provedor (ex.: NVIDIA NIM) ou um servidor local (Ollama, LM Studio, llama.cpp)</li>
+<li>Ao menos um agente de código instalado ou escolhido no instalador</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="1-instalar">1. Instalar</h3>
+<p>macOS/Linux:</p>
+<pre><code class="language-bash">curl -fsSL &quot;https://raw.githubusercontent.com/Alishahryar1/free-claude-code/main/scripts/install.sh&quot; | sh
+</code></pre>
+<p>Windows PowerShell:</p>
+<pre><code class="language-powershell">&amp; ([scriptblock]::Create((irm &quot;https://raw.githubusercontent.com/Alishahryar1/free-claude-code/main/scripts/install.ps1&quot;)))
+</code></pre>
+<p>O instalador pergunta quais agentes instalar e se deseja ativar RTK + Headroom.</p>
+<h3 id="2-iniciar-o-fcc">2. Iniciar o FCC</h3>
+<ul>
+<li>Windows e macOS: abra o atalho <strong>Free Claude Code</strong> (área de trabalho, menu Iniciar ou Applications).</li>
+<li>Linux: execute <code>fcc-server</code> e mantenha o terminal aberto.</li>
+</ul>
+<h3 id="3-configurar-um-provedor-exemplo-nvidia-nim">3. Configurar um provedor (exemplo: NVIDIA NIM)</h3>
+<ol>
+<li>Crie uma chave em build.nvidia.com/settings/api-keys.</li>
+<li>Abra a URL da Admin UI mostrada no log do servidor.</li>
+<li>Em <strong>Providers</strong>, abra NVIDIA NIM, clique em <strong>Add key</strong>, cole a chave e salve.</li>
+<li>Mantenha o <code>MODEL</code> padrão (<code>nvidia_nim/nvidia/nemotron-3-super-120b-a12b</code>) ou escolha outro.</li>
+<li>Clique em <strong>Apply</strong>.</li>
+</ol>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">fcc-claude      # Claude Code com modelos do FCC
+fcc-codex       # Codex
+fcc-pi          # Pi
+fcc-opencode    # OpenCode 2
+fcc-cline       # Cline
+fcc-hermes      # Hermes
+fcc-dsh         # DeepSeek Harness Web
+fcc-grok        # Grok Build
+fcc-muse        # Muse Code
+fcc-aider       # Aider
+fcc-server      # sobe só o servidor (Linux)
+fcc-update      # atualiza o FCC
+fcc-doctor      # diagnóstico para relatos de bug
+</code></pre>
+<ul>
+<li>No Claude Code, os modelos do FCC aparecem no seletor <code>/model</code>.</li>
+<li>Para editores e apps (VS Code, JetBrains, Claude Desktop, Codex App), abra <strong>Admin UI → Integrations</strong> e clique em <strong>Connect</strong>.</li>
+<li>Provedor sem listagem de modelos: informe <code>&lt;provider-id&gt;/&lt;exact-provider-model-id&gt;</code> manualmente.</li>
+<li>Para proteger o proxy local, ative <strong>Proxy Authentication</strong> na Admin UI.</li>
+</ul>
+<p>Desinstalar (macOS/Linux):</p>
+<pre><code class="language-bash">curl -fsSL &quot;https://raw.githubusercontent.com/Alishahryar1/free-claude-code/main/scripts/uninstall.sh&quot; | sh
+</code></pre>
+<p>No Windows, use o script <code>uninstall.ps1</code> equivalente do mesmo diretório <code>scripts/</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Experimentar agentes de código com camadas gratuitas de vários provedores</li>
+<li>Manter o trabalho andando quando um provedor cai ou atinge a cota (fallback)</li>
+<li>Rodar agentes com modelos locais via Ollama, LM Studio ou llama.cpp</li>
+<li>Alternar entre agentes e modelos mantendo um catálogo único</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Projeto independente, sem afiliação com a Anthropic. Claude e Claude Code são marcas da Anthropic.</li>
+<li>Risco de termos de uso: o FCC redireciona o tráfego do Claude Code para provedores de terceiros. Cada provedor controla limites, disponibilidade e termos, e as camadas gratuitas podem mudar a qualquer momento. O README afirma que o projeto segue os termos dos provedores e remove integrações que deixem de ser permitidas, mas confira os termos do provedor e do agente que você usa. Alguns planos têm restrições explícitas (por exemplo, o Coding Plan da QwenCloud é para uso local, pessoal e interativo).</li>
+<li>Risco de segurança: o proxy recebe seu código, prompts e chaves de API e os repassa a serviços de terceiros. Não envie código sensível ou segredos por modelos gratuitos sem entender a política de retenção e treinamento de cada provedor. Ative a autenticação do proxy, mantenha-o acessível só localmente e guarde as chaves com cuidado.</li>
+<li>O instalador é executado com <code>curl ... | sh</code> (ou <code>irm</code> no PowerShell); leia o script antes de rodar se quiser auditar o que será instalado.</li>
+<li>Um pedido que falha pode passar por mais de um provedor e consumir cota de todos eles (efeito do fallback).</li>
+<li>Licença AGPL-3.0: exige disponibilizar o código-fonte de versões modificadas oferecidas como serviço em rede.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Alishahryar1/free-claude-code#readme">README</a></li>
+<li><a href="https://github.com/Alishahryar1/free-claude-code/issues">Issues</a></li>
+<li><a href="https://github.com/Alishahryar1/free-claude-code/blob/main/CONTRIBUTING.md">Guia de contribuição</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

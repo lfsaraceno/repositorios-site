@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hallmark · Repositórios favoritos</title>
+<meta name="description" content="Skill de design para Claude Code, Codex, Cursor e OpenCode que evita páginas com &quot;cara de IA&quot;. Sorteia três temas de um catálogo de 50, monta a página em torno do que o visitante veio fazer e confere o resultado num navegador real.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Hallmark</h1>
+    <p class="lead">Skill de design para Claude Code, Codex, Cursor e OpenCode que evita páginas com &quot;cara de IA&quot;. Sorteia três temas de um catálogo de 50, monta a página em torno do que o visitante veio fazer e confere o resultado num navegador real.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Nutlope/hallmark">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Nutlope/hallmark</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Nutlope/hallmark">Nutlope/hallmark</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.usehallmark.com/">usehallmark.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>CSS, JavaScript (Node.js) e Markdown</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~50k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Hallmark é uma skill da Together AI que guia o agente na criação de páginas web. Ela funciona em três camadas de regras:</p>
+<ul>
+<li><strong>Piso:</strong> nunca é violado. Inclui contraste, foco visível, movimento reduzido, layout de celular e nada de fatos inventados.</li>
+<li><strong>Reflexos:</strong> barram os vícios típicos de IA, como um rótulo em caixa-alta acima de cada título, uma palavra colorida na manchete, cadastro de e-mail no fim de toda página e formulário que agradece sem enviar nada. Dá para quebrar uma regra com justificativa registrada.</li>
+<li><strong>Acabamento:</strong> detalhes de capricho, que não bloqueiam a entrega.</li>
+</ul>
+<p>No fim, um revisor com contexto limpo dá a palavra final.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>50 temas.</strong> Cada tema é um &quot;material&quot; (papel, tipografia, cor, superfícies, componentes) com a foto de uma página pronta. O tema não define o conteúdo nem a ordem, então dois pedidos no mesmo tema geram páginas diferentes.</li>
+<li><strong>Página construída a partir da tarefa.</strong> Página de agendamento agenda, loja vende, newsletter inscreve. A ação fica onde a categoria espera, e a página termina nela.</li>
+<li><strong>Modo custom:</strong> sem temas, só com as regras e uma direção curta.</li>
+<li><strong>Seu produto real:</strong> aponte para uma URL, um servidor de desenvolvimento ou um app, e ele captura as telas sozinho.</li>
+<li><strong>Fotos reais:</strong> 755 fotos de licença aberta da Wikimedia Commons, com crédito na página.</li>
+<li><strong>Redesign e auditoria:</strong>
+<ul>
+<li><code>/hallmark redesign &lt;caminho&gt;</code> reconstrói a página e mantém conteúdo, links, campos e handlers;</li>
+<li><code>/hallmark audit &lt;caminho&gt;</code> só gera um relatório.</li>
+</ul>
+</li>
+<li><strong><code>sloplint</code>:</strong> lint que confere a página em oito larguras de tela.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Node.js 18+</strong>.</li>
+<li><strong>Para as verificações no navegador</strong> (screenshots, <code>sloplint --render</code>): <code>puppeteer-core</code> e o Chrome. Sem eles, só as verificações estáticas rodam.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx skills add nutlope/hallmark -g        # todos os projetos
+npx skills add nutlope/hallmark           # só o projeto atual
+npx skills add nutlope/hallmark -g --agent claude-code   # só um agente
+npm i -g puppeteer-core                   # opcional, para as verificações no navegador
+</code></pre>
+<p><strong>Como plugin do Claude Code:</strong></p>
+<pre><code class="language-text">/plugin marketplace add nutlope/hallmark
+/plugin install hallmark@hallmark
+</code></pre>
+<p>Assim instalado, o comando vira <code>/hallmark:hallmark</code>. A partir de um clone, <code>node skills/hallmark/scripts/install.mjs</code> valida e instala, e <code>install-hook.mjs</code> adiciona uma checagem do Piso a cada edição no Claude Code.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/hallmark landing page para uma clínica odontológica com agendamento online
+/hallmark custom portfólio de um estúdio de arquitetura
+/hallmark redesign ./src/app
+/hallmark audit ./index.html
+</code></pre>
+<p>No redesign, diga <em>keep the layout</em> para só trocar o estilo, ou <em>polish</em> para corrigir apenas os vícios.</p>
+<p>Lint de qualquer página:</p>
+<pre><code class="language-bash">node skills/hallmark/scripts/sloplint.mjs &lt;arquivo-ou-pasta&gt; --render
+</code></pre>
+<p>Se a skill não disparar sozinha, peça explicitamente: <em>use hallmark to build ...</em>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Criar landing pages e sites que não pareçam gerados por IA.</li>
+<li>Auditar ou redesenhar uma página existente sem perder links e formulários.</li>
+<li><strong>Comparação no catálogo:</strong>
+<ul>
+<li>o <a href="impeccable.html">Impeccable</a>, o <a href="taste-skill.html">Taste Skill</a> e o <a href="ui-ux-pro-max-skill.html">UI UX Pro Max</a> também combatem o visual genérico. O Hallmark cita todos como inspiração;</li>
+<li>o diferencial do Hallmark é o catálogo de temas e o lint num navegador real;</li>
+<li>as <a href="emil-kowalski-skills.html">skills do Emil Kowalski</a> focam em animação e detalhes de interface.</li>
+</ul>
+</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Fotos:</strong> a biblioteca só aponta para imagens da Wikimedia Commons (CC0, domínio público, CC BY e CC BY-SA), e a skill credita cada uma. Imagens CC BY-SA exigem que adaptações usem a mesma licença.</li>
+<li><strong>Nada inventado:</strong> a skill pede fotos, screenshots e números reais antes de começar. Ela não preenche a página com dados falsos.</li>
+<li><strong>Não mexe em design pronto</strong> a menos que você peça (<code>redesign</code> ou <code>audit</code>).</li>
+<li>O hook de edição mexe na configuração do Claude Code. Instale só se quiser a checagem a cada edição.</li>
+<li>Sem releases no GitHub; atualize reinstalando com <code>npx skills add</code>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Nutlope/hallmark#readme">README</a> · <a href="https://www.usehallmark.com/">Site e galeria de temas</a></li>
+<li><a href="https://github.com/Nutlope/hallmark/tree/main/skills/hallmark/references/themes">Temas (references/themes)</a> · <a href="https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/direction.md">Direção do modo custom</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

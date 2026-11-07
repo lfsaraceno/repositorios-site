@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vibe Coding Toolkit · Repositórios favoritos</title>
+<meta name="description" content="Kit de documentação, prompts e templates para preparar a máquina e configurar projetos novos ou existentes com agentes de IA (Claude Code e Codex).">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>Vibe Coding Toolkit</h1>
+    <p class="lead">Kit de documentação, prompts e templates para preparar a máquina e configurar projetos novos ou existentes com agentes de IA (Claude Code e Codex).</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/soumatheusgomes/vibe-coding-toolkit">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">soumatheusgomes/vibe-coding-toolkit</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/soumatheusgomes/vibe-coding-toolkit">soumatheusgomes/vibe-coding-toolkit</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/soumatheusgomes/vibe-coding-toolkit/tree/main/docs">docs/ no repositório</a> · <a href="https://github.com/soumatheusgomes/vibe-coding-toolkit/blob/main/docs/prompts/README.md">Catálogo de prompts</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (a maior parte do conteúdo é documentação em Markdown)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~1,7k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Vibe Coding Toolkit é uma coleção de documentação, prompts e templates com duas funções: configurar máquinas e configurar projetos individuais para trabalhar com agentes de IA. Você descreve o objetivo; o agente inspeciona o ambiente, organiza as decisões, configura os componentes aplicáveis e verifica o resultado. O código fica no seu projeto, e o repositório guarda apenas a &quot;receita&quot;.</p>
+<p>O uso é feito colando no agente (com acesso a arquivos e terminal) um prompt curto que aponta para um arquivo do repositório. Os guias cobrem Claude Code e Codex separadamente; outros clientes podem seguir os mesmos acordos se tiverem capacidades equivalentes. O README está em inglês, português do Brasil e espanhol.</p>
+<p>O fluxo de trabalho proposto é: entender, projetar, planejar quando preciso, implementar, verificar e revisar. O kit reúne ferramentas como Superpowers, Ponytail, Caveman, RTK, Context7 e Graphify, além de regras de qualidade (ESLint com limite de 350 linhas por arquivo) e orquestração de subagentes em ondas paralelas.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Prompt de preparação da máquina (runtime, Docker, agentes, plugins, integrações, backups e manifesto).</li>
+<li>Prompt de bootstrap de projeto novo com Next.js (App Router, TypeScript, Tailwind, ESLint, Drizzle/PostgreSQL, Zod, Pino, Vitest).</li>
+<li>Prompt de configuração ou atualização de projeto existente, preservando a stack e os contratos atuais.</li>
+<li>Protocolo de orquestração de subagentes (um escritor por arquivo, revisores somente leitura, limites de tentativas).</li>
+<li>Biblioteca de prompts numerados: saneamento, ESLint, revisão multiagente, brainstorm até plano, memória, revisão de segurança, avaliação e melhoria do harness.</li>
+<li>Documentos-padrão do projeto: <code>README.md</code>, <code>PRODUCT.md</code>, <code>AGENTS.md</code>, <code>CLAUDE.md</code> e cinco arquivos em <code>docs/</code>.</li>
+<li>Adoção modular: dá para instalar só um componente (por exemplo, os quality gates).</li>
+<li>Validação documentada em macOS, Linux e Windows, com CI em Ubuntu e Windows.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente com permissão para ler arquivos, editar e executar comandos (Claude Code ou Codex). Uma conversa sem acesso ao ambiente só explica o processo e não prova instalações nem testes.</li>
+<li>Para projetos novos, o foco é Next.js; em projetos existentes a stack é preservada.</li>
+<li>Os demais requisitos (Node.js, Docker, Git etc.) são verificados e instalados pelo próprio prompt de preparação da máquina.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Não há pacote para instalar: o uso é colar um prompt no agente. Os comandos abaixo estão no README.</p>
+<h3 id="preparar-a-maquina">Preparar a máquina</h3>
+<pre><code class="language-text">Read https://raw.githubusercontent.com/soumatheusgomes/vibe-coding-toolkit/main/docs/prompts/10-development-environment-setup.md and execute the entire &quot;Prompt&quot; section block on this computer.
+</code></pre>
+<h3 id="iniciar-um-projeto-novo">Iniciar um projeto novo</h3>
+<p>Abra o agente na pasta de destino e cole (troque a segunda linha pela descrição do seu produto):</p>
+<pre><code class="language-text">Read https://raw.githubusercontent.com/soumatheusgomes/vibe-coding-toolkit/main/docs/prompts/11-next-project-bootstrap.md and execute setup in this directory.
+Project: [name, problem, audience, main flows, and constraints].
+</code></pre>
+<h3 id="configurar-ou-atualizar-um-projeto-existente">Configurar ou atualizar um projeto existente</h3>
+<p>Abra o agente na raiz da aplicação e cole:</p>
+<pre><code class="language-text">Read https://raw.githubusercontent.com/soumatheusgomes/vibe-coding-toolkit/main/docs/prompts/12-existing-project-setup.md and execute the entire &quot;Prompt&quot; section block in this project, starting with brainstorming.
+</code></pre>
+<p>Reexecutar o prompt faz parte da manutenção: ele confere a revisão do kit e preserva personalizações. Se você estiver com um checkout local, use o arquivo local em vez da URL.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text"># Instalar só os quality gates (ESLint com limite de linhas por arquivo)
+Read https://raw.githubusercontent.com/soumatheusgomes/vibe-coding-toolkit/main/docs/prompts/08-eslint-quality-gates-install.md and execute the prompt in this project. Use MAX_LINES=350.
+</code></pre>
+<p>Outros prompts do catálogo (em <code>docs/prompts/</code>):</p>
+<ul>
+<li><code>01-project-sanitation.md</code>: mede problemas e saneia o projeto.</li>
+<li><code>03-multi-agent-code-review.md</code>: revisão por especialistas.</li>
+<li><code>04-brainstorm-to-plan.md</code>: transforma um pedido ambíguo em trabalho com critérios de aceite.</li>
+<li><code>05-parallel-wave-dispatch.md</code>: execução independente em ondas paralelas.</li>
+<li><code>09-file-size-refactor.md</code>: refatora arquivos grandes por responsabilidade.</li>
+<li><code>13-security-review.md</code>: revisão de segurança somente leitura, com relatório privado.</li>
+<li><code>14-harness-evaluation.md</code> e <code>15-harness-improvement.md</code>: avaliam e melhoram o harness após mudanças.</li>
+</ul>
+<p>Guias de ferramentas opcionais (em <code>docs/tools/</code>), ativadas só quando servem ao projeto: next-dev-loop e next-bundle-optimizer (Next.js), PostgreSQL, conserto de CI do GitHub Actions, revisão de segurança diferencial, shadcn/ui, Sentry MCP e <a href="harness2.html">Harness2</a>.</p>
+<p>Para validar uma cópia clonada do próprio toolkit:</p>
+<pre><code class="language-bash">node --test scripts/validate-docs.test.mjs   # testa o validador
+node scripts/validate-docs.mjs               # confere links, âncoras e JSON da documentação
+node scripts/validate-next.mjs               # cria um projeto Next.js temporário e roda as checagens (exige Node.js 24, npm e internet)
+</code></pre>
+<h3 id="o-que-fica-na-maquina-e-o-que-fica-no-projeto">O que fica na máquina e o que fica no projeto</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Máquina e cliente</th>
+<th>Projeto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Runtime, Git e gerenciador de pacotes</td>
+<td>Dependências da aplicação e lockfile</td>
+</tr>
+<tr>
+<td>Agente, autenticação e plugins já instalados</td>
+<td>Produto, instruções e documentação específica</td>
+</tr>
+<tr>
+<td>RTK</td>
+<td>Skills locais e <code>skills-lock.json</code></td>
+</tr>
+<tr>
+<td>Ponytail, Caveman e Superpowers</td>
+<td>Regras de qualidade e comandos canônicos</td>
+</tr>
+<tr>
+<td>Graphify CLI e conexão do Context7</td>
+<td>Exclusões do grafo e configuração local</td>
+</tr>
+</tbody>
+</table></div>
+<p>Em projeto existente, o toolkit preserva framework, gerenciador de pacotes, banco, ORM e testes, e mede antes de mudar. Em monorepo, identifica os workspaces antes de escolher onde aplicar.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Padronizar o ambiente de desenvolvimento com agentes de IA em uma máquina nova.</li>
+<li>Começar um projeto Next.js já com documentação, regras de qualidade e instruções para agentes.</li>
+<li>Adotar boas práticas de harness (AGENTS.md, memória, skills, verificação) em um projeto que já existe.</li>
+<li>Reaproveitar prompts prontos de saneamento, revisão e refatoração.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Os atalhos remotos usam a versão publicada na branch <code>main</code>. O prompt manda o agente instalar e alterar coisas na máquina e no projeto, então vale ler o arquivo do prompt antes de executar, mesmo sendo um conteúdo público.</li>
+<li>Os padrões são revisados contra fontes atuais durante a execução; o resultado pode variar entre rodadas.</li>
+<li>O repositório é recente e muito ativo (último push em out/2026), então o conteúdo muda com frequência.</li>
+<li>Não é um gerador nem uma aplicação pronta: projetos novos saem do <code>create-next-app</code> e os templates complementam a base. Publicar, usar serviços pagos ou fazer migrações incompatíveis exige autorização sua.</li>
+<li>É montado sobre outros projetos (Superpowers, RTK, Ponytail, Caveman, Graphify, Context7, agent-browser, Vercel Agent Skills e Skills CLI), cada um com a própria licença.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/soumatheusgomes/vibe-coding-toolkit#readme">README</a> · <a href="https://github.com/soumatheusgomes/vibe-coding-toolkit/blob/main/README.pt-BR.md">versão em português</a></li>
+<li><a href="https://github.com/soumatheusgomes/vibe-coding-toolkit/blob/main/docs/prompts/README.md">Catálogo de prompts</a></li>
+<li><a href="https://github.com/soumatheusgomes/vibe-coding-toolkit/blob/main/docs/tools/02-subagent-orchestration.md">Orquestração de subagentes</a></li>
+<li><a href="https://github.com/soumatheusgomes/vibe-coding-toolkit/blob/main/docs/05-toolkit-validation.md">Validação do kit</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

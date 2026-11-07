@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LGPD Skills · Repositórios favoritos</title>
+<meta name="description" content="Pacote de Agent Skills em português para conformidade com a LGPD, as resoluções da ANPD e o ECA Digital. Um maestro (lgpd-audit) orquestra 18 sub-skills, que auditam o código e geram documentos versionáveis. Funciona no Claude Code, Codex, Gemini CLI, Cursor e OpenCode.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>LGPD Skills</h1>
+    <p class="lead">Pacote de Agent Skills em português para conformidade com a LGPD, as resoluções da ANPD e o ECA Digital. Um maestro (<code>lgpd-audit</code>) orquestra 18 sub-skills, que auditam o código e geram documentos versionáveis. Funciona no Claude Code, Codex, Gemini CLI, Cursor e OpenCode.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/goul4rt/lgpd-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">goul4rt/lgpd-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/goul4rt/lgpd-skills">goul4rt/lgpd-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/goul4rt/lgpd-skills#readme">README</a> · <a href="https://github.com/goul4rt/lgpd-skills/blob/main/skills/lgpd-audit/references/normative-reference.md">Referência normativa</a></dd></div>
+<div><dt>Linguagem</dt><dd>Markdown e Shell</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~155 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<blockquote>
+<p><strong>Atenção:</strong> o próprio projeto avisa que não é aconselhamento jurídico. Comunicação à ANPD, contratos, política de privacidade e resposta a fiscalização devem passar pelo encarregado (DPO) e por um advogado de proteção de dados.</p>
+</blockquote>
+<h2 id="o-que-e">O que é</h2>
+<p>O pacote transforma &quot;preciso adequar isso à LGPD&quot; num roteiro executável pelo agente. Em vez de uma skill gigante, são 19 skills coordenadas:</p>
+<ul>
+<li><strong>1 maestro, <code>lgpd-audit</code>:</strong> escolhe o roteiro, guarda o estado e pausa em pontos de revisão;</li>
+<li><strong>18 sub-skills especializadas:</strong> cada uma roda sozinha ou sob comando do maestro.</li>
+</ul>
+<p>Tudo o que as skills produzem fica na pasta <code>.lgpd/</code> do projeto, versionado em Git: status, mapa de dados, ROPA, RIPDs, política, runbook de incidente, lacunas e outros.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>
+<p><strong>Quatro roteiros:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Cenário</th>
+<th>Roteiro</th>
+<th>Prazo estimado pelo autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projeto novo, privacidade desde o início</td>
+<td>A</td>
+<td>1–2 semanas</td>
+</tr>
+<tr>
+<td>Sistema legado em produção</td>
+<td>B</td>
+<td>2–6 semanas</td>
+</tr>
+<tr>
+<td>Código híbrido</td>
+<td>C</td>
+<td>3–8 semanas</td>
+</tr>
+<tr>
+<td>Incidente de segurança em andamento</td>
+<td>D</td>
+<td>3 dias úteis (Res. ANPD 15/2024)</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+<li>
+<p><strong>Sub-skills</strong>, entre outras:</p>
+<ul>
+<li><code>lgpd-legal-basis</code> (bases legais, art. 7 e 11);</li>
+<li><code>lgpd-data-mapping</code> (inventário de dados);</li>
+<li><code>lgpd-ropa</code> (registro de operações, art. 37);</li>
+<li><code>lgpd-ripd</code> (relatório de impacto, art. 38);</li>
+<li><code>lgpd-consent-schema</code> (registro de consentimento);</li>
+<li><code>lgpd-dsar</code> (direitos do titular, art. 18);</li>
+<li><code>lgpd-privacy-policy</code>;</li>
+<li><code>lgpd-incident-response</code>;</li>
+<li><code>lgpd-dpo-encarregado</code>;</li>
+<li><code>lgpd-dpa</code> (contrato com operador);</li>
+<li><code>lgpd-international-transfer</code>;</li>
+<li><code>lgpd-vendor-audit</code>;</li>
+<li><code>lgpd-audit-logging</code>;</li>
+<li><code>lgpd-encryption-keys</code>;</li>
+<li><code>lgpd-anonymization</code>;</li>
+<li><code>lgpd-retention-erasure</code>;</li>
+<li><code>lgpd-eca-digital-minors</code>;</li>
+<li><code>lgpd-legacy-retrofit</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Gatilhos em português:</strong> &quot;veja como estamos de LGPD&quot;, &quot;tivemos um incidente&quot;, &quot;preciso de uma RIPD&quot;, &quot;endpoint de exclusão de conta&quot;.</p>
+</li>
+<li>
+<p><strong>Cita artigo e fonte</strong> em cada recomendação.</p>
+</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível: Claude Code, Codex, Gemini CLI, Cursor ou OpenCode.</li>
+<li>O código e os exemplos assumem Next.js, Prisma e PostgreSQL, Better Auth, React Native, AWS ou GCP, e Stripe ou Pagar.me. Os princípios valem para outras stacks, adaptando a sintaxe.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Claude Code</strong> (recomendado):</p>
+<pre><code class="language-text">/plugin marketplace add goul4rt/lgpd-skills
+/plugin install lgpd-skills@lgpd-skills
+</code></pre>
+<p>Para atualizar: <code>/plugin marketplace update lgpd-skills</code>.</p>
+<p><strong>Codex:</strong></p>
+<pre><code class="language-bash">codex plugin marketplace add goul4rt/lgpd-skills
+codex plugin add lgpd-skills@lgpd-skills
+</code></pre>
+<p><strong>Gemini CLI:</strong></p>
+<pre><code class="language-bash">gemini extensions install https://github.com/goul4rt/lgpd-skills
+</code></pre>
+<p><strong>Cursor:</strong> rode <code>/add-plugin</code> e cole a URL do repositório.</p>
+<p><strong>OpenCode:</strong> adicione <code>&quot;lgpd-skills@git+https://github.com/goul4rt/lgpd-skills.git&quot;</code> ao array <code>plugin</code> do <code>opencode.json</code>. No OpenCode, as skills não disparam sozinhas: peça &quot;use a skill lgpd-audit&quot;.</p>
+<p><strong>Manual</strong> (copiar as pastas <code>skills/lgpd-*</code> para <code>~/.claude/skills/</code> ou <code>.claude/skills/</code>):</p>
+<pre><code class="language-bash">git clone https://github.com/goul4rt/lgpd-skills.git /tmp/lgpd-skills
+cp -r /tmp/lgpd-skills/skills/lgpd-* ~/.claude/skills/
+rm -rf /tmp/lgpd-skills
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Converse com o agente:</p>
+<pre><code class="language-text">veja como estamos de LGPD
+</code></pre>
+<p>O <code>lgpd-audit</code> pergunta o cenário (A, B, C ou D) e começa o roteiro. Ele para em pontos de revisão antes de seguir.</p>
+<p>Também dá para chamar uma skill direto:</p>
+<pre><code class="language-text">implementa o endpoint de exclusão de conta
+tivemos um vazamento de e-mails, preciso comunicar a ANPD
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Auditar um sistema em produção e montar um plano de adequação priorizado.</li>
+<li>Começar um projeto novo com privacidade desde a concepção.</li>
+<li>Gerar ROPA, RIPD, política de privacidade e contratos com operadores como rascunhos, para revisão jurídica.</li>
+<li>Guiar a resposta a um incidente dentro do prazo de comunicação à ANPD.</li>
+<li><strong>Comparação no catálogo:</strong>
+<ul>
+<li>o <a href="../11-referencias-e-listas/leis-brasil.html">Leis Brasil</a> dá acesso ao texto das leis;</li>
+<li>o <a href="../06-seguranca/security-audit-skill.html">Security Audit Skill</a> foca em vulnerabilidades técnicas;</li>
+<li>o LGPD Skills foca em conformidade legal e na documentação exigida.</li>
+</ul>
+</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Não é parecer jurídico.</strong> As skills lembram disso nos pontos críticos.</li>
+<li><strong>As normas mudam.</strong> A ANPD publica resoluções com frequência. O último release é v1.1.1 (mai/2026), e o repositório não recebe commits desde então. Confira se a referência normativa está atualizada antes de confiar nos prazos e artigos.</li>
+<li><strong>Os artefatos em <code>.lgpd/</code> podem conter informações sensíveis</strong> sobre o tratamento de dados, as lacunas e os incidentes da empresa. Cuidado ao versionar num repositório público.</li>
+<li>Projeto pequeno e recente, de um único autor.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/goul4rt/lgpd-skills#readme">README</a> · <a href="https://github.com/goul4rt/lgpd-skills/blob/main/skills/lgpd-audit/references/normative-reference.md">Referência normativa</a></li>
+<li><a href="https://github.com/goul4rt/lgpd-skills/releases">Releases</a> · <a href="https://github.com/goul4rt/lgpd-skills/blob/main/CONTRIBUTING.md">Como contribuir</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

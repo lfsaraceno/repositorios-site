@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECC (Everything Claude Code) · Repositórios favoritos</title>
+<meta name="description" content="Sistema de otimização de desempenho para harnesses de agentes de IA: agentes, skills, hooks, regras, memória e varredura de segurança prontos para uso.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>ECC (Everything Claude Code)</h1>
+    <p class="lead">Sistema de otimização de desempenho para harnesses de agentes de IA: agentes, skills, hooks, regras, memória e varredura de segurança prontos para uso.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/affaan-m/ECC">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">affaan-m/ECC</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/affaan-m/ECC">affaan-m/ECC</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://ecc.tools">ecc.tools</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~283k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O ECC é um conjunto grande de configurações e automações para agentes de programação, construído a partir de mais de 10 meses de uso diário pelo autor. Não é só um pacote de dotfiles: reúne subagentes, skills, comandos slash, regras por linguagem, hooks, scripts multiplataforma e configs de MCP.</p>
+<p>Funciona com Claude Code, Codex, Cursor, OpenCode, Gemini e outros harnesses. A ideia é elevar a qualidade do trabalho do agente com planejamento, TDD, revisão de código, aprendizado contínuo (instincts), persistência de memória entre sessões e verificação de segurança.</p>
+<p>É indicado para quem quer um &quot;kit completo&quot; opinativo em vez de montar agentes, regras e hooks do zero.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>28 agentes especializados (planner, architect, tdd-guide, code-reviewer, security-reviewer, build-error-resolver etc.), 116 skills e 59 comandos segundo o README em português.</li>
+<li>Regras por linguagem (TypeScript, Python, Go, Swift, PHP, Java, Kotlin, C++, Rust e outras) além de regras comuns.</li>
+<li>Hooks com perfis de rigor: <code>ECC_HOOK_PROFILE=minimal|standard|strict</code> e <code>ECC_DISABLED_HOOKS</code>.</li>
+<li>Aprendizado contínuo com &quot;instincts&quot; (<code>/instinct-status</code>, <code>/evolve</code>).</li>
+<li>AgentShield: auditor de segurança de configurações de agentes (<code>npx ecc-agentshield scan</code>).</li>
+<li>Instalação seletiva baseada em manifesto e suporte a Windows, macOS e Linux (hooks em Node.js).</li>
+<li>Detecção automática do gerenciador de pacotes (npm, pnpm, yarn, bun).</li>
+<li>Comandos de harness: <code>/harness-audit</code>, <code>/loop-start</code>, <code>/quality-gate</code>, <code>/model-route</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code CLI v2.1.0 ou superior (<code>claude --version</code>).</li>
+<li>Node.js (os scripts e hooks são em Node) e um gerenciador de pacotes (npm, pnpm, yarn ou bun).</li>
+<li>Git, para clonar o repositório e instalar as regras.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="1-plugin-do-claude-code">1. Plugin do Claude Code</h3>
+<pre><code class="language-bash">/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin install ecc@ecc
+</code></pre>
+<p>Ou via <code>~/.claude/settings.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;extraKnownMarketplaces&quot;: {
+    &quot;ecc&quot;: { &quot;source&quot;: { &quot;source&quot;: &quot;github&quot;, &quot;repo&quot;: &quot;affaan-m/ECC&quot; } }
+  },
+  &quot;enabledPlugins&quot;: { &quot;ecc@ecc&quot;: true }
+}
+</code></pre>
+<h3 id="2-regras-obrigatorio-manual">2. Regras (obrigatório, manual)</h3>
+<p>Plugins do Claude Code não distribuem <code>rules</code>, então instale à parte:</p>
+<pre><code class="language-bash">git clone https://github.com/affaan-m/ECC.git
+cd ECC
+npm install        # ou pnpm / yarn / bun
+./install.sh typescript    # macOS/Linux; também python, golang, swift, php
+</code></pre>
+<p>No Windows (PowerShell):</p>
+<pre><code class="language-powershell">.\install.ps1 typescript
+# ou, multiplataforma:
+npx ecc-universal install typescript
+</code></pre>
+<p>Outros alvos: <code>./install.sh --target cursor typescript</code> e <code>--target antigravity</code>.</p>
+<h3 id="3-instalacao-manual-alternativa">3. Instalação manual (alternativa)</h3>
+<pre><code class="language-bash">cp ECC/agents/*.md ~/.claude/agents/
+cp -r ECC/rules/common ~/.claude/rules/common
+cp -r ECC/rules/typescript ~/.claude/rules/typescript
+cp ECC/commands/*.md ~/.claude/commands/
+cp -r ECC/.agents/skills/* ~/.claude/skills/
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/ecc:plan &quot;Adicionar autenticação de usuário&quot;
+</code></pre>
+<p>Planeja a funcionalidade (agente planner). Com instalação manual, use <code>/plan</code>.</p>
+<pre><code class="language-text">/tdd
+</code></pre>
+<p>Aplica escrita de testes primeiro (tdd-guide).</p>
+<pre><code class="language-text">/code-review
+</code></pre>
+<p>Revisa o código recém-escrito.</p>
+<pre><code class="language-text">/build-fix
+</code></pre>
+<p>Corrige builds que falham.</p>
+<pre><code class="language-text">/security-scan
+</code></pre>
+<p>Auditoria de segurança (OWASP Top 10).</p>
+<pre><code class="language-bash">npx ecc-agentshield scan
+</code></pre>
+<p>Verificação de segurança sem instalação; <code>--fix</code> corrige problemas seguros.</p>
+<pre><code class="language-text">/skill-create
+</code></pre>
+<p>Gera skills a partir da análise do repositório atual.</p>
+<pre><code class="language-text">/setup-pm
+</code></pre>
+<p>Define o gerenciador de pacotes preferido.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Montar rapidamente um ambiente completo de Claude Code com agentes, regras e hooks.</li>
+<li>Padronizar TDD, revisão e verificação em equipe.</li>
+<li>Auditar a segurança da configuração dos seus agentes.</li>
+<li>Compartilhar o mesmo conjunto de práticas entre Claude Code, Codex, Cursor e OpenCode.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O volume de componentes é grande; instale de forma seletiva para não poluir o contexto.</li>
+<li>As contagens (agentes, skills, comandos) variam entre versões e idiomas do README.</li>
+<li>As regras precisam ser instaladas manualmente, o plugin não as inclui.</li>
+<li>Os guias do autor (links no README) são o material recomendado para entender a filosofia.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/affaan-m/ECC/blob/main/docs/pt-BR/README.md">README em português</a></li>
+<li><a href="https://ecc.tools">ecc.tools</a></li>
+<li><a href="https://www.npmjs.com/package/ecc-universal">ecc-universal no npm</a></li>
+<li><a href="https://www.npmjs.com/package/ecc-agentshield">ecc-agentshield no npm</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

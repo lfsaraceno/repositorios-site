@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xtool · Repositórios favoritos</title>
+<meta name="description" content="Substituto multiplataforma do Xcode: compila, assina e instala apps iOS feitos com SwiftPM no Linux, no Windows (via WSL) e no macOS.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>xtool</h1>
+    <p class="lead">Substituto multiplataforma do Xcode: compila, assina e instala apps iOS feitos com SwiftPM no Linux, no Windows (via WSL) e no macOS.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/xtool-org/xtool">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">xtool-org/xtool</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/xtool-org/xtool">xtool-org/xtool</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://xtool.sh">xtool.sh</a> · <a href="https://xtool.sh/tutorials/xtooldocs/first-app">Tutorial do primeiro app</a></dd></div>
+<div><dt>Linguagem</dt><dd>Swift</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~14k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O xtool é uma ferramenta de linha de comando que replica as funções do Xcode usando padrões abertos. Com ele dá para desenvolver apps iOS <strong>sem um Mac</strong>: no Linux ou no Windows, pelo WSL. Você escreve o app como um pacote Swift (SwiftPM), e o xtool empacota o pacote como app iOS. Em seguida ele se conecta à conta Apple Developer, registra o iPhone, gera certificado, App ID e perfil de provisionamento, assina o app e instala no aparelho pelo USB.</p>
+<p>No macOS ele também serve, para quem quer um fluxo declarativo, só com SwiftPM, sem projeto <code>.xcodeproj</code>. O projeto também traz a biblioteca <strong>XKit</strong>, para usar os Apple Developer Services e conversar com dispositivos iOS a partir do seu próprio código.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Compila um pacote SwiftPM como app iOS (<code>xtool dev</code>).</li>
+<li>Assina e instala o app no iPhone ou iPad conectado por USB, com provisionamento automático.</li>
+<li>Instala, desinstala e abre apps e arquivos <code>.ipa</code> no aparelho.</li>
+<li>Comandos para os Apple Developer Services (<code>xtool ds</code>).</li>
+<li>Gera o SDK iOS do Swift a partir do <code>Xcode.xip</code>, no Linux.</li>
+<li>Integração com IDE (VS Code e outras) via SourceKit-LSP e Build Server Protocol: autocompletar e documentação ao passar o mouse.</li>
+<li>Suporte a App Extensions, como widgets e share extensions.</li>
+<li>Biblioteca <code>XKit</code>, para usar como dependência SwiftPM.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<p><strong>Linux ou Windows (WSL):</strong></p>
+<ul>
+<li>No Windows: WSL com repasse de USB (USBIPD), para o WSL enxergar o iPhone.</li>
+<li>Toolchain do <strong>Swift 6.4</strong>, instalada pelo <a href="https://swift.org/install/linux">swift.org/install/linux</a>.</li>
+<li><code>usbmuxd</code>, para falar com o aparelho; no Ubuntu/Debian, <code>sudo apt-get install usbmuxd</code>. O pacote <code>libimobiledevice-utils</code> (que traz o <code>ideviceinfo</code>) é opcional, mas ajuda.</li>
+<li>O arquivo <strong>Xcode 27.1 (<code>Xcode.xip</code>)</strong>, baixado pelo navegador em <a href="https://developer.apple.com/download/all/?q=Xcode">developer.apple.com/download/all</a>. Exige login com Apple ID e aceitar a licença.</li>
+</ul>
+<p><strong>macOS:</strong></p>
+<ul>
+<li>Xcode instalado e aberto ao menos uma vez (ele fornece o SDK iOS e a toolchain).</li>
+</ul>
+<p><strong>Os dois casos:</strong></p>
+<ul>
+<li>Um Apple ID. Pode ser gratuito; com o Apple Developer Program pago, a autenticação usa a API oficial.</li>
+<li>Um iPhone ou iPad com cabo USB.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="linux-wsl">Linux / WSL</h3>
+<p>Baixe o AppImage do último release para a sua arquitetura e coloque no <code>PATH</code>:</p>
+<pre><code class="language-bash">curl -fL \
+  &quot;https://github.com/xtool-org/xtool/releases/latest/download/xtool-$(uname -m).AppImage&quot; \
+  -o xtool
+chmod +x xtool
+sudo mv xtool /usr/local/bin/
+xtool --help
+</code></pre>
+<h3 id="macos">macOS</h3>
+<pre><code class="language-bash">brew install xtool-org/tap/xtool
+</code></pre>
+<p>Outra opção é baixar o <code>xtool.app</code> do <a href="https://github.com/xtool-org/xtool/releases/latest">último release</a>, mover para <code>/Applications</code>, abrir o app e rodar o script que ele sugere para colocar o <code>xtool</code> no <code>PATH</code>. Nesse caso, as atualizações são manuais.</p>
+<h3 id="configuracao-inicial-uma-vez">Configuração inicial (uma vez)</h3>
+<pre><code class="language-bash">xtool setup
+</code></pre>
+<ol>
+<li>Escolha o modo de login:
+<ul>
+<li><strong>0, API Key:</strong> recomendado para quem tem o Apple Developer Program pago. Usa a API pública do App Store Connect, com uma Team Key de papel App Manager.</li>
+<li><strong>1, Password:</strong> funciona com qualquer Apple ID, mas usa APIs privadas da Apple.</li>
+</ul>
+</li>
+<li>No Linux, informe o caminho do <code>Xcode.xip</code>, por exemplo <code>~/Downloads/Xcode_27.1.xip</code>. O xtool extrai o arquivo e gera o SDK iOS.</li>
+<li>Confira com <code>swift sdk list</code>. A saída deve listar <code>darwin</code>.</li>
+</ol>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">xtool new Hello      # cria um projeto SwiftPM a partir do template (Package.swift, xtool.yml, Sources/...)
+cd Hello
+xtool dev            # compila, assina e instala no aparelho conectado
+xtool devices        # lista os aparelhos conectados
+xtool install app.ipa   # instala um .ipa no aparelho
+xtool uninstall      # desinstala um app
+xtool launch         # abre um app instalado
+xtool auth           # gerencia o login nos Apple Developer Services
+xtool sdk            # gerencia o SDK Darwin do Swift
+xtool ds             # comandos dos Apple Developer Services
+xtool help &lt;subcomando&gt;   # ajuda detalhada
+</code></pre>
+<p>O <code>xtool.yml</code> define como o pacote vira app. O mínimo é o Bundle ID:</p>
+<pre><code class="language-yaml">version: 1
+bundleID: com.example.Hello
+</code></pre>
+<p><strong>Primeira execução do <code>xtool dev</code>:</strong></p>
+<ol>
+<li>A primeira compilação demora alguns minutos, porque compila os módulos do SDK iOS. As seguintes são rápidas.</li>
+<li>No iPhone, toque em <strong>Confiar</strong> (Trust) e digite o código. Se o xtool der erro nesse ponto, rode o comando de novo.</li>
+<li>Se o iPhone pedir, ative o <strong>Modo de Desenvolvedor</strong> e rode o comando de novo.</li>
+<li>Ao abrir o app pela primeira vez, vá em <strong>Ajustes &gt; Geral &gt; VPN e Gerenciamento de Dispositivos &gt; [seu e-mail] &gt; Confiar</strong>.</li>
+</ol>
+<p><strong>Usar como biblioteca (XKit):</strong></p>
+<pre><code class="language-swift">.package(url: &quot;https://github.com/xtool-org/xtool&quot;, .upToNextMinor(from: &quot;1.2.0&quot;))
+.product(name: &quot;XKit&quot;, package: &quot;xtool&quot;)
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Desenvolver e testar apps iOS no seu iPhone sem ter um Mac.</li>
+<li>Fazer build de apps iOS em CI ou em servidores Linux.</li>
+<li>Editar apps iOS no VS Code, no Windows (via WSL) ou no Linux, com autocompletar.</li>
+<li>No Mac, manter projetos iOS só com SwiftPM, sem arquivos <code>.xcodeproj</code>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Credenciais Apple:</strong> o modo Password usa APIs privadas da Apple. A própria documentação sugere criar um Apple ID descartável por precaução. O projeto afirma que as credenciais só vão para a Apple.</li>
+<li><strong>Apple ID gratuito:</strong> com conta gratuita valem os limites da Apple para assinatura de desenvolvimento, como validade curta do perfil e número limitado de apps e dispositivos. Para publicar na App Store, você precisa do Developer Program pago.</li>
+<li><strong>Licença do Xcode:</strong> no Linux, o SDK sai do <code>Xcode.xip</code> oficial, que você baixa aceitando os termos da Apple.</li>
+<li><strong>WSL:</strong> se aparecer <code>AFCClient.Error.muxError</code>, a documentação indica uma alternativa: repassar a conexão pelo iTunes do Windows, conforme a <a href="https://github.com/xtool-org/xtool/issues/19#issuecomment-2898986718">issue #19</a>.</li>
+<li>A versão exigida do Swift e do Xcode muda conforme o release. Confira o guia de instalação antes de atualizar. O último release é o 1.24.0, de out/2026.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/xtool-org/xtool#readme">README</a></li>
+<li><a href="https://xtool.sh/documentation/xtooldocs/installation-linux">Instalação Linux/Windows</a> · <a href="https://xtool.sh/documentation/xtooldocs/installation-macos">Instalação macOS</a></li>
+<li><a href="https://xtool.sh/tutorials/xtooldocs/first-app">Tutorial: primeiro app</a></li>
+<li><a href="https://github.com/xtool-org/xtool/releases">Releases</a></li>
+<li><a href="https://libimobiledevice.org">usbmuxd / libimobiledevice</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

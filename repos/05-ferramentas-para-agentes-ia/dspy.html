@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSPy · Repositórios favoritos</title>
+<meta name="description" content="Framework em Python de Stanford para programar modelos de linguagem em vez de escrever prompts à mão: você declara entradas e saídas, compõe módulos, e otimizadores como o GEPA reescrevem os prompts sozinhos a partir de uma métrica.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>DSPy</h1>
+    <p class="lead">Framework em Python de Stanford para <strong>programar</strong> modelos de linguagem em vez de escrever prompts à mão: você declara entradas e saídas, compõe módulos, e otimizadores como o GEPA reescrevem os prompts sozinhos a partir de uma métrica.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/stanfordnlp/dspy">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">stanfordnlp/dspy</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/stanfordnlp/dspy">stanfordnlp/dspy</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://dspy.ai">dspy.ai</a> · <a href="https://discord.gg/XCGy2WDCQB">Discord</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~39k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>DSPy significa <em>Declarative Self-improving Python</em>. Em vez de prompts frágeis em texto, você escreve código Python composto de partes:</p>
+<ul>
+<li><strong>Signature:</strong> declara a tarefa como entradas e saídas, por exemplo <code>&quot;question -&gt; answer&quot;</code>. Os nomes dos campos já servem de dica ao modelo.</li>
+<li><strong>Módulo:</strong> define <em>como</em> resolver a tarefa. Por exemplo, <code>Predict</code> faz uma chamada simples, <code>ChainOfThought</code> raciocina antes de responder, <code>ReAct</code> usa ferramentas e <code>ProgramOfThought</code> e <code>CodeAct</code> geram código.</li>
+<li><strong>Adapter:</strong> transforma a signature em mensagens para o modelo e interpreta a resposta. O padrão é o <code>XMLAdapter</code>.</li>
+<li><strong>Métrica:</strong> uma função Python que dá nota à saída.</li>
+<li><strong>Otimizador:</strong> usa a métrica para melhorar o programa, ajustando instruções, exemplos (<em>demos</em>) ou até os pesos do modelo.</li>
+</ul>
+<p>Cada etapa continua inspecionável, trocável e ajustável. A promessa do projeto é que um modelo pequeno e barato, otimizado, chegue perto de um modelo de ponta com prompt manual, ou até o supere. No tutorial oficial, o <code>gpt-5.4-nano</code> otimizado com GEPA passou de 78,1% para 90,1% na métrica, contra 82,4% do <code>gpt-5.4</code> sem otimização.</p>
+<p>Serve para classificadores simples, pipelines de RAG e loops de agentes. É um projeto acadêmico (Stanford NLP) com vários artigos publicados, entre eles o do GEPA (2025).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Módulos prontos:</strong> <code>Predict</code>, <code>ChainOfThought</code>, <code>ReAct</code>, <code>ProgramOfThought</code>, <code>CodeAct</code>, <code>Parallel</code>, <code>Retrieve</code> e o <code>RLM</code>.</li>
+<li><strong>Ferramentas</strong> como funções Python comuns, além de suporte a MCP.</li>
+<li><strong>Otimizadores</strong> (também chamados de <em>teleprompters</em>):</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Otimizador</th>
+<th>O que ajusta</th>
+<th>Quando usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LabeledFewShot</code></td>
+<td>Exemplos</td>
+<td>Linha de base: não chama o modelo durante a compilação</td>
+</tr>
+<tr>
+<td><code>BootstrapFewShot</code></td>
+<td>Exemplos</td>
+<td>Primeira tentativa segura: guarda as execuções que passaram na métrica</td>
+</tr>
+<tr>
+<td><code>BootstrapRS</code> / <code>KNNFewShot</code></td>
+<td>Exemplos</td>
+<td>Busca entre conjuntos de exemplos / escolhe exemplos por similaridade em cada chamada</td>
+</tr>
+<tr>
+<td><code>COPRO</code> / <code>MIPROv2</code></td>
+<td>Instruções</td>
+<td>Quando o texto do prompt é o gargalo</td>
+</tr>
+<tr>
+<td><code>GEPA</code></td>
+<td>Instruções</td>
+<td>Usa nota <strong>e</strong> feedback em texto da métrica, com um modelo de &quot;reflexão&quot; que reescreve o prompt</td>
+</tr>
+<tr>
+<td><code>BootstrapFinetune</code></td>
+<td>Pesos</td>
+<td>Último recurso: exige um modelo que aceite fine-tuning</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Avaliação</strong> em paralelo (<code>dspy.evaluate.Evaluate</code>) e <strong>juiz LLM</strong> escrito como signature.</li>
+<li><strong>Cache</strong> das chamadas ativo por padrão, histórico em <code>dspy.inspect_history()</code> e contexto por trecho com <code>dspy.context</code>.</li>
+<li><strong>Salvar e carregar</strong> o programa otimizado em JSON, para compilar uma vez e servir muitas vezes.</li>
+<li><strong>Provedores nativos:</strong> OpenAI, Anthropic, Google AI Studio, Azure OpenAI, Vertex AI, Ollama local e qualquer servidor compatível com a API da OpenAI.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Python 3.10+</strong>.</li>
+<li>Uma chave de API do provedor do modelo, ou o Ollama rodando localmente.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">pip install dspy
+# ou, num ambiente virtual com uv
+uv add dspy
+</code></pre>
+<p>Opcional: o motor de compatibilidade LiteLLM, para provedores ou recursos que o motor nativo não cobre:</p>
+<pre><code class="language-bash">pip install &quot;dspy[litellm]&quot;
+</code></pre>
+<p>Versão em desenvolvimento, direto do <code>main</code>:</p>
+<pre><code class="language-bash">pip install git+https://github.com/stanfordnlp/dspy.git
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Configurar o modelo</strong> (a chave vai por variável de ambiente ou <code>api_key=</code>):</p>
+<pre><code class="language-python">import dspy
+
+dspy.configure(lm=dspy.LM(&quot;anthropic/claude-sonnet-4-5-20250929&quot;))  # usa ANTHROPIC_API_KEY
+# outros: &quot;openai/gpt-5-nano&quot;, &quot;gemini/gemini-2.5-pro&quot;, &quot;ollama_chat/llama3.2:1b&quot;
+</code></pre>
+<p><strong>Primeiro programa:</strong></p>
+<pre><code class="language-python">haiku_generator = dspy.Predict(&quot;subject -&gt; haiku&quot;)
+result = haiku_generator(subject=&quot;computer science&quot;)
+print(result.haiku)
+
+dspy.inspect_history(n=1)   # mostra o prompt que o DSPy montou
+</code></pre>
+<p><strong>Signature como classe:</strong></p>
+<pre><code class="language-python">class BasicQA(dspy.Signature):
+    &quot;&quot;&quot;Answer questions with short factoid answers.&quot;&quot;&quot;
+    question: str = dspy.InputField()
+    answer: str = dspy.OutputField(desc=&quot;often between 1 and 5 words&quot;)
+
+qa = dspy.ChainOfThought(BasicQA)
+qa(question=&quot;What is the color of the sky?&quot;).answer
+</code></pre>
+<p><strong>Otimizar com GEPA:</strong></p>
+<pre><code class="language-python">optimizer = dspy.GEPA(
+    metric=minha_metrica,                  # devolve dspy.Prediction(score=..., feedback=...)
+    reflection_lm=dspy.LM(&quot;openai/gpt-5.4&quot;),
+    auto=&quot;light&quot;,                          # &quot;medium&quot; e &quot;heavy&quot; testam mais candidatos
+    num_threads=2,
+)
+otimizado = optimizer.compile(programa, trainset=train, valset=val)
+otimizado.save(&quot;programa.json&quot;)
+</code></pre>
+<p><strong>Recarregar:</strong></p>
+<pre><code class="language-python">novo = MeuPrograma()
+novo.load(&quot;programa.json&quot;)
+</code></pre>
+<p>Para forçar uma resposta nova sem usar o cache, passe <code>config={&quot;rollout_id&quot;: 1, &quot;temperature&quot;: 1.0}</code> na chamada.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Pipelines com LLM que precisam de qualidade medida: classificação, extração, RAG, agentes com ferramentas.</li>
+<li>Trocar de modelo, ou baratear com um modelo menor, sem reescrever prompts à mão: basta recompilar contra a mesma métrica.</li>
+<li>Quando você tem exemplos rotulados, ou consegue escrever uma métrica, e quer melhorar os prompts de forma sistemática.</li>
+<li>Não é um agente de código pronto nem um orquestrador de agentes como os da categoria <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a>. É a biblioteca para <strong>construir</strong> o seu sistema com LLM.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Custo da otimização:</strong> a própria documentação avisa que o GEPA e o MIPROv2 podem gastar <strong>centenas de dólares</strong> em chamadas numa única compilação. Comece com <code>LabeledFewShot</code> ou <code>BootstrapFewShot</code>, use <code>auto=&quot;light&quot;</code>, compile uma vez e reaproveite o arquivo salvo.</li>
+<li><strong>Mudança recente no acesso a modelos:</strong> o DSPy agora usa motores nativos embutidos (lm15) e o LiteLLM virou um extra opcional. Isso quebrou opções de provedor, LMs personalizados, <em>text completions</em> e embeddings. Quem vem de versões antigas deve ler o <a href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/community/normalized-lm-api-migration.md">guia de migração</a>. O Vertex AI, por exemplo, mudou de <code>vertex_ai/</code> para <code>vertex:</code>.</li>
+<li><strong>Segurança ao carregar programas:</strong>
+<ul>
+<li>Prefira salvar em <code>.json</code>.</li>
+<li>Arquivos <code>.pkl</code> e o modo <code>save_program=True</code> usam cloudpickle e <strong>executam código ao carregar</strong>. Por isso exigem <code>allow_pickle=True</code>. Só carregue arquivos de origem confiável.</li>
+<li>Ao carregar, <code>api_base</code>, <code>base_url</code> e <code>model_list</code> são descartados, a menos que você passe <code>allow_unsafe_lm_state=True</code>.</li>
+<li>As chaves de API nunca são salvas no arquivo.</li>
+</ul>
+</li>
+<li><strong>Overfitting:</strong> otimizar só os exemplos tende a se ajustar demais ao conjunto de treino, e otimizar instruções tende a generalizar melhor. Separe treino, validação e teste.</li>
+<li><code>ProgramOfThought</code> e <code>CodeAct</code> executam código gerado pelo modelo. Revise onde e como esse código roda.</li>
+<li>Projeto ativo. O último release é o 3.4.1, de out/2026.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://dspy.ai">Documentação</a> · <a href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/getting-started/program-dont-prompt.md">Tutorial &quot;Program, don't prompt&quot;</a></li>
+<li><a href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/getting-started/installation.md">Instalação e provedores</a> · <a href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/cheatsheet.md">Cheatsheet</a></li>
+<li><a href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/choosing-an-optimizer.md">Como escolher um otimizador</a> · <a href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/gepa-in-depth.md">GEPA a fundo</a></li>
+<li><a href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/saving-and-loading.md">Salvar e carregar</a> · <a href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/community/normalized-lm-api-migration.md">Guia de migração do LM</a></li>
+<li>Artigos: <a href="https://arxiv.org/abs/2310.03714">DSPy (2023)</a> · <a href="https://arxiv.org/abs/2406.11695">MIPRO (2024)</a> · <a href="https://arxiv.org/abs/2507.19457">GEPA (2025)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

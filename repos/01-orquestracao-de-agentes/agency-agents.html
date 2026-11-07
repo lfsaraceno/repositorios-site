@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agency Agents (The Agency) · Repositórios favoritos</title>
+<meta name="description" content="Coleção de agentes de IA especialistas, com personalidade, processos e entregáveis, instaláveis em Claude Code, Cursor, Codex, Gemini CLI e outros.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>Agency Agents (The Agency)</h1>
+    <p class="lead">Coleção de agentes de IA especialistas, com personalidade, processos e entregáveis, instaláveis em Claude Code, Cursor, Codex, Gemini CLI e outros.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/msitarzewski/agency-agents">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">msitarzewski/agency-agents</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/msitarzewski/agency-agents">msitarzewski/agency-agents</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://agencyagents.app">agencyagents.app</a></dd></div>
+<div><dt>Linguagem</dt><dd>Shell</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~161k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>&quot;The Agency&quot; nasceu de uma thread no Reddit e é uma coleção crescente de personas de agentes em arquivos Markdown. Cada agente tem identidade e estilo próprios, missão, fluxos de trabalho, entregáveis técnicos com exemplos de código e métricas de sucesso. A ideia é montar um &quot;time dos sonhos&quot; de especialistas que você ativa conforme a necessidade.</p>
+<p>Os agentes são organizados em divisões (engenharia, segurança, design, marketing e outras). O repositório traz scripts para converter e instalar o mesmo conjunto em várias ferramentas de agentes, e há um app desktop que faz isso com um clique.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Dezenas de agentes especializados por divisão (por exemplo, Frontend Developer, Backend Architect, DevOps Automator, Incident Response Commander, Technical Writer).</li>
+<li>Cada agente com identidade, processos, entregáveis e métricas de sucesso.</li>
+<li>App nativo para macOS, Linux e Windows que navega o catálogo e instala nas ferramentas.</li>
+<li>Scripts <code>convert.sh</code> e <code>install.sh</code> para múltiplas ferramentas.</li>
+<li>Instalação seletiva por divisão ou por agente (<code>--division</code>, <code>--agent</code>, <code>--agents-file</code>).</li>
+<li>Runbooks com rosters prontos em <code>strategy/runbooks.json</code>.</li>
+<li>Também serve como referência: copie e adapte só os agentes de que precisa.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Para os scripts: shell POSIX (<code>bash</code>) e, no exemplo de runbooks, <code>python3</code>.</li>
+<li>A ferramenta de destino instalada (Claude Code, Cursor etc.).</li>
+<li>Para o app: macOS, Linux ou Windows; no Mac também há instalação via Homebrew.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="opcao-1-app-desktop-recomendada">Opção 1: app desktop (recomendada)</h3>
+<p>Baixe a última versão em <a href="https://github.com/msitarzewski/agency-agents-app/releases/latest">agency-agents-app/releases</a>. No Mac:</p>
+<pre><code class="language-bash">brew install --cask msitarzewski/agency-agents/agency-agents
+</code></pre>
+<h3 id="opcao-2-claude-code-via-script">Opção 2: Claude Code via script</h3>
+<pre><code class="language-bash">./scripts/install.sh --tool claude-code
+</code></pre>
+<p>Ou copie uma categoria manualmente:</p>
+<pre><code class="language-bash">cp engineering/*.md ~/.claude/agents/
+</code></pre>
+<h3 id="opcao-3-outras-ferramentas">Opção 3: outras ferramentas</h3>
+<pre><code class="language-bash">./scripts/convert.sh
+./scripts/install.sh                 # assistente interativo
+./scripts/install.sh --tool cursor   # ou antigravity, gemini-cli, opencode, copilot, openclaw, aider, windsurf, kimi, codex, osaurus, hermes, vibe, dsh
+</code></pre>
+<p>No Windows, os scripts são shell: use Git-Bash ou WSL, ou prefira o app.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">./scripts/install.sh --tool claude-code --division engineering,security
+</code></pre>
+<p>Instala só as divisões escolhidas.</p>
+<pre><code class="language-bash">./scripts/install.sh --tool cursor --agent frontend-developer,ui-designer
+</code></pre>
+<p>Instala agentes específicos.</p>
+<pre><code class="language-bash">./scripts/install.sh --list teams
+</code></pre>
+<p>Lista as equipes e a quantidade de agentes.</p>
+<pre><code class="language-bash">./scripts/install.sh --tool opencode --division engineering --dry-run
+</code></pre>
+<p>Simula a instalação.</p>
+<p>Ativação no Claude Code, por prompt:</p>
+<pre><code class="language-text">Hey Claude, activate Frontend Developer mode and help me build a React component
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Quando você quer personas de especialistas prontas em vez de escrever prompts de agente do zero.</li>
+<li>Para montar equipes de agentes por projeto (MVP de startup, revisão de segurança etc.).</li>
+<li>Como biblioteca de referência para criar seus próprios agentes.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O OpenCode registra apenas cerca de 119 agentes e descarta o resto (bug upstream); instale um subconjunto com <code>--division</code>. O instalador avisa quando a seleção excede o limite.</li>
+<li>Instalar todos os agentes polui o contexto; prefira instalação seletiva.</li>
+<li>Os arquivos de agente são prompts: revise o conteúdo antes de adotar.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/msitarzewski/agency-agents">README</a></li>
+<li><a href="https://agencyagents.app">App Agency Agents</a></li>
+<li><a href="https://github.com/msitarzewski/agency-agents-app/releases/latest">Releases do app</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

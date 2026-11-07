@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphify · Repositórios favoritos</title>
+<meta name="description" content="Transforma qualquer projeto (código, docs, PDFs, imagens, vídeo) em um grafo de conhecimento consultável, com a skill /graphify para Claude Code, Cursor, Codex, Gemini CLI e mais de 20 assistentes.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Graphify</h1>
+    <p class="lead">Transforma qualquer projeto (código, docs, PDFs, imagens, vídeo) em um grafo de conhecimento consultável, com a skill <code>/graphify</code> para Claude Code, Cursor, Codex, Gemini CLI e mais de 20 assistentes.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Graphify-Labs/graphify">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Graphify-Labs/graphify</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Graphify-Labs/graphify">Graphify-Labs/graphify</a> (branch padrão: <code>v8</code>)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.graphify.com">graphify.com</a> · <a href="https://docs.graphify.com">docs.graphify.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~128k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Graphify mapeia um projeto inteiro em um grafo de conhecimento que você consulta em vez de varrer arquivos com grep. Você digita <code>/graphify</code> no assistente e ele gera o grafo com código, documentação, esquemas SQL, configs, PDFs, imagens e vídeos.</p>
+<p>O código é analisado localmente com AST do tree-sitter (cerca de 40 linguagens): determinístico, sem LLM e sem enviar nada para fora da máquina. Docs, PDFs, imagens e vídeo passam por uma etapa semântica que usa o modelo do seu assistente ou uma chave de API configurada. Não há embeddings nem banco vetorial: é um grafo real que se percorre.</p>
+<p>Cada aresta é explicada e marcada como <code>EXTRACTED</code> (explícita na fonte) ou <code>INFERRED</code> (resolvida pelo Graphify), o que permite distinguir o que foi lido do que foi deduzido. Existe também o Graphify Cloud, serviço pago com teste de 14 dias, para manter o grafo ativo em vários repositórios.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Saída em três arquivos em <code>graphify-out/</code>: <code>graph.html</code> (interativo), <code>GRAPH_REPORT.md</code> (resumo) e <code>graph.json</code> (grafo completo).</li>
+<li>&quot;God nodes&quot; (conceitos mais conectados) e comunidades (subsistemas detectados por Leiden).</li>
+<li>Consultas <code>query</code>, <code>path</code> e <code>explain</code> sobre o <code>graph.json</code>, sem reler os arquivos.</li>
+<li>Ligações entre arquivos (<code>calls</code>, <code>imports</code>, <code>inherits</code>, <code>mixes_in</code>) resolvidas via tree-sitter.</li>
+<li>Comentários <code># NOTE:</code>/<code># WHY:</code> e citações de ADR/RFC viram nós ligados ao código.</li>
+<li>Extras opcionais por pacote: PDF, Office, vídeo/áudio, MCP, Neo4j, SQL, Postgres, backends Ollama/OpenAI/Gemini/Anthropic/Bedrock e outros.</li>
+<li>Instalação para 20+ assistentes e modo &quot;sempre usar o grafo&quot; por hook ou arquivo de configuração.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.10 ou superior.</li>
+<li><code>uv</code> (recomendado) ou <code>pipx</code>.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>O pacote oficial no PyPI é <code>graphifyy</code> (com dois &quot;y&quot;); outros pacotes <code>graphify*</code> não são afiliados. O comando continua sendo <code>graphify</code>.</p>
+<pre><code class="language-bash">uv tool install graphifyy      # recomendado (ambiente isolado)
+# alternativas:
+pipx install graphifyy
+pip install graphifyy          # pode exigir ajuste de PATH
+
+graphify install               # detecta o assistente e registra a skill
+</code></pre>
+<p>Se <code>graphify</code> não for encontrado depois do <code>uv</code>, rode <code>uv tool update-shell</code>.</p>
+<h3 id="windows">Windows</h3>
+<pre><code class="language-powershell">winget install astral-sh.uv
+uv tool install graphifyy
+graphify install
+</code></pre>
+<p>No Claude Code para Windows, <code>graphify install</code> detecta o sistema automaticamente (ou use <code>graphify install --platform windows</code>).</p>
+<h3 id="outros-assistentes-e-instalacao-no-projeto">Outros assistentes e instalação no projeto</h3>
+<pre><code class="language-bash">graphify install --platform codex      # Codex (usa $graphify em vez de /graphify)
+graphify install --platform gemini     # Gemini CLI
+graphify cursor install                # Cursor
+graphify antigravity install           # Google Antigravity
+graphify install --project             # grava a skill no repositório atual (.claude/skills/...)
+</code></pre>
+<h3 id="extras-opcionais">Extras opcionais</h3>
+<pre><code class="language-bash">uv tool install &quot;graphifyy[pdf]&quot;
+uv tool install &quot;graphifyy[mcp]&quot;
+uv tool install &quot;graphifyy[all]&quot;
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No assistente:</p>
+<pre><code class="language-text">/graphify .          # mapeia o diretório atual e gera graphify-out/
+</code></pre>
+<p>Na linha de comando, depois que o grafo existe:</p>
+<pre><code class="language-bash">graphify query &quot;&lt;pergunta em linguagem natural&gt;&quot;   # subgrafo para a pergunta
+graphify path &quot;FastAPI&quot; &quot;ModelField&quot;               # caminho mais curto entre dois conceitos
+graphify explain &quot;APIRouter&quot;                       # explica um nó e suas conexões
+graphify claude install                            # faz o assistente consultar o grafo (também: graphify codex install)
+</code></pre>
+<p>Resumo: abra <code>graph.html</code> no navegador para explorar, leia <code>GRAPH_REPORT.md</code> para os destaques e use <code>graph.json</code> para consultas sem reler os arquivos.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Entender rapidamente uma base de código grande ou desconhecida.</li>
+<li>Reduzir o gasto de tokens do agente em perguntas de arquitetura.</li>
+<li>Relacionar código com documentação, esquemas SQL, PDFs e decisões (ADR/RFC).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A branch padrão do repositório é <code>v8</code>, não <code>main</code>.</li>
+<li>A etapa semântica (docs, PDFs, mídia) usa um backend de LLM e pode consumir créditos da sua conta ou chave; o mapeamento de código é gratuito e local.</li>
+<li>Cuidado com pacotes de nome parecido no PyPI: o oficial é <code>graphifyy</code>.</li>
+<li>Graphify Cloud é um serviço comercial separado.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Graphify-Labs/graphify/tree/v8">README do projeto (branch v8)</a></li>
+<li><a href="https://docs.graphify.com">Documentação</a></li>
+<li><a href="https://docs.graphify.com/quickstart">Quickstart</a></li>
+<li><a href="https://docs.graphify.com/installation">Instalação e solução de problemas</a></li>
+<li><a href="https://github.com/Graphify-Labs/graphify/blob/v8/BENCHMARKS.md">Benchmarks</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

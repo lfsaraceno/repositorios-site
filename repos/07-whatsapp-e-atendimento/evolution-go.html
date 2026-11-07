@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolution Go · Repositórios favoritos</title>
+<meta name="description" content="API de WhatsApp de alto desempenho escrita em Go (sobre a whatsmeow), versão enxuta da família Evolution; exige ativação de licença.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#07-whatsapp-e-atendimento"><span aria-hidden="true">💬</span> WhatsApp e atendimento</a>
+    </nav>
+    <h1>Evolution Go</h1>
+    <p class="lead">API de WhatsApp de alto desempenho escrita em Go (sobre a whatsmeow), versão enxuta da família Evolution; exige ativação de licença.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/evolution-foundation/evolution-go">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">evolution-foundation/evolution-go</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/evolution-foundation/evolution-go">evolution-foundation/evolution-go</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://evolutionfoundation.com.br">evolutionfoundation.com.br</a> · <a href="https://docs.evolutionfoundation.com.br">docs.evolutionfoundation.com.br</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (Node.js 20+) | Go 1.24+</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0 com condições adicionais de proteção de marca (o GitHub a classifica como &quot;Other&quot;)</dd></div>
+<div><dt>Estrelas</dt><dd>~940 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Evolution Go é uma API REST para integrar WhatsApp a sistemas, construída em Go sobre a biblioteca <a href="https://github.com/tulir/whatsmeow">whatsmeow</a>. Faz parte do ecossistema da Evolution Foundation e é usado como provedor de WhatsApp pelo Evo CRM Community e por outros projetos da casa.</p>
+<p>A proposta é consumir poucos recursos: um serviço em Go, com banco PostgreSQL, eventos em tempo real (WebSocket, Webhook, RabbitMQ e NATS) e armazenamento de mídia em MinIO/S3. A documentação da API é gerada em Swagger.</p>
+<h3 id="diferenca-para-a-evolution-api-node-js">Diferença para a Evolution API (Node.js)</h3>
+<p>Já existe a ficha da <a href="evolution-api.html">Evolution API</a>, a versão original em TypeScript/Node.js. As duas são &quot;irmãs&quot; e têm o mesmo objetivo, mas não são intercambiáveis:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Evolution API</th>
+<th>Evolution Go</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Linguagem</strong></td>
+<td>TypeScript (Node.js 20+)</td>
+<td>Go 1.24+</td>
+</tr>
+<tr>
+<td><strong>Biblioteca de WhatsApp</strong></td>
+<td>Baileys (e também a Cloud API oficial da Meta)</td>
+<td>whatsmeow</td>
+</tr>
+<tr>
+<td><strong>Banco</strong></td>
+<td>PostgreSQL ou MySQL (Prisma) e Redis</td>
+<td>PostgreSQL (GORM)</td>
+</tr>
+<tr>
+<td><strong>Integrações prontas</strong></td>
+<td>Chatwoot, Typebot, OpenAI, Dify, Flowise, N8N</td>
+<td>Não listadas no README; foco em API e eventos</td>
+</tr>
+<tr>
+<td><strong>Filas/eventos</strong></td>
+<td>WebSocket, RabbitMQ, Kafka, SQS, NATS, Pusher</td>
+<td>WebSocket, Webhook, RabbitMQ, NATS</td>
+</tr>
+<tr>
+<td><strong>Licença de uso</strong></td>
+<td>Apache 2.0 com condições de marca</td>
+<td>Apache 2.0 com condições de marca <strong>e exige licença ativada</strong></td>
+</tr>
+<tr>
+<td><strong>Maturidade</strong></td>
+<td>~9,9k estrelas, mais recursos</td>
+<td>~940 estrelas, mais recente e mais enxuta</td>
+</tr>
+</tbody>
+</table></div>
+<p>Quando usar cada uma:</p>
+<ul>
+<li><strong>Evolution API:</strong> quando você precisa da Cloud API oficial da Meta, de integrações nativas com Chatwoot/Typebot/Dify/OpenAI, ou de um ecossistema com mais exemplos e comunidade.</li>
+<li><strong>Evolution Go:</strong> quando o foco é desempenho e baixo consumo de recursos, e você aceita o fluxo de ativação de licença. O README não menciona suporte à Cloud API oficial nem às integrações de chatbot; confirme na documentação se algo disso é requisito.</li>
+</ul>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Alto desempenho e baixo uso de recursos (Go).</li>
+<li>API REST com Swagger (<code>/swagger/index.html</code>).</li>
+<li>Eventos em tempo real: WebSocket, Webhook, AMQP/RabbitMQ e NATS.</li>
+<li>Mídia (imagens, vídeos, áudio, documentos) com MinIO/S3.</li>
+<li>Persistência opcional de mensagens no PostgreSQL.</li>
+<li>Pareamento por QR code embutido.</li>
+<li>Painel Manager em <code>/manager/login</code>.</li>
+<li>Gerenciamento de licença embutido (registro, ativação e heartbeat).</li>
+<li>Configuração de produção em Docker.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Go 1.24+ para rodar a partir do código-fonte.</li>
+<li>PostgreSQL (dois bancos nos exemplos do <code>.env</code>: <code>evogo_auth</code> e <code>evogo_users</code>).</li>
+<li>Docker e <code>make</code>, para o caminho recomendado.</li>
+<li>Opcionais: RabbitMQ, NATS e MinIO/S3.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="docker-recomendado-pelo-readme">Docker (recomendado pelo README)</h3>
+<pre><code class="language-bash">git clone https://github.com/evolution-foundation/evolution-go.git
+cd evolution-go
+make docker-build
+make docker-run
+</code></pre>
+<p>Também existe a imagem <a href="https://hub.docker.com/r/evoapicloud/evolution-go"><code>evoapicloud/evolution-go</code></a> no Docker Hub (o README só a cita no selo e na tabela de links).</p>
+<h3 id="desenvolvimento-local">Desenvolvimento local</h3>
+<pre><code class="language-bash">git clone https://github.com/evolution-foundation/evolution-go.git
+cd evolution-go
+make setup
+cp .env.example .env
+make dev
+</code></pre>
+<p><code>make help</code> lista os comandos; detalhes em <code>COMMANDS.md</code>. No Windows, o <code>make</code> não vem instalado por padrão; o README não traz instruções específicas para Windows, então use WSL ou Docker.</p>
+<h3 id="configuracao-minima-env">Configuração mínima (<code>.env</code>)</h3>
+<pre><code class="language-env">SERVER_PORT=8080
+CLIENT_NAME=evolution
+GLOBAL_API_KEY=troque-por-uma-chave-segura
+POSTGRES_AUTH_DB=postgresql://postgres:senha@localhost:5432/evogo_auth?sslmode=disable
+POSTGRES_USERS_DB=postgresql://postgres:senha@localhost:5432/evogo_users?sslmode=disable
+DATABASE_SAVE_MESSAGES=false
+</code></pre>
+<p>Variáveis opcionais: <code>AMQP_URL</code>, <code>NATS_URL</code>, <code>WEBHOOK_URL</code> e as do MinIO (<code>MINIO_ENABLED</code>, <code>MINIO_ENDPOINT</code> etc.).</p>
+<h3 id="ativacao-da-licenca">Ativação da licença</h3>
+<ol>
+<li>Suba o servidor (a API responde <code>503</code> até a ativação).</li>
+<li>Abra o Manager em <code>http://localhost:8080/manager/login</code>.</li>
+<li>Informe a URL da API e a <code>GLOBAL_API_KEY</code>.</li>
+<li>Conclua o fluxo de registro de licença.</li>
+</ol>
+<p>O estado fica na tabela <code>runtime_configs</code> e há heartbeats periódicos para manter a ativação.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">make help            # lista os comandos disponíveis
+make dev             # sobe em modo desenvolvimento
+make docker-build    # constrói a imagem Docker
+make docker-run      # executa o container
+</code></pre>
+<p>Endpoints principais (autenticados com a <code>GLOBAL_API_KEY</code>):</p>
+<pre><code class="language-text">POST   /instance/create             # cria uma instância de WhatsApp
+GET    /instance/{name}/qrcode      # QR code para parear
+GET    /instance/{name}/status      # status da instância
+POST   /message/sendText            # envia texto
+POST   /message/sendMedia           # envia mídia
+DELETE /instance/{name}             # remove a instância
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Enviar e receber WhatsApp por API com baixo consumo de CPU e memória.</li>
+<li>Servir como provedor de WhatsApp para o Evo CRM Community.</li>
+<li>Receber eventos em filas (RabbitMQ ou NATS) ou webhooks para automações próprias.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Exige ativação de licença:</strong> sem ela, a API devolve <code>503</code>. O README não detalha custos nem termos do registro; consulte o site da Evolution Foundation antes de adotar.</li>
+<li>A licença é Apache 2.0 com condições adicionais (preservar logo/copyright e aviso de uso). Leia o <code>LICENSE</code> e o <code>TRADEMARKS.md</code> antes de uso comercial ou revenda.</li>
+<li>Coleta telemetria anônima (rotas usadas e versão da API).</li>
+<li>Como toda API não oficial baseada em WhatsApp Web (whatsmeow), há risco de bloqueio de números e de quebra por mudanças do WhatsApp. Atenção também à LGPD ao armazenar mensagens (<code>DATABASE_SAVE_MESSAGES</code>).</li>
+<li>O README cita um parceiro de hospedagem (HostGator); isso é opcional.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/evolution-foundation/evolution-go#readme">README</a></li>
+<li><a href="https://docs.evolutionfoundation.com.br">Documentação</a></li>
+<li><a href="https://hub.docker.com/r/evoapicloud/evolution-go">Docker Hub</a></li>
+<li><a href="https://evolutionfoundation.com.br/community">Comunidade</a></li>
+<li><a href="evolution-api.html">Ficha da Evolution API (Node.js)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#07-whatsapp-e-atendimento">WhatsApp e atendimento</a></h2>
+    <ul>
+<li><a href="../../repos/07-whatsapp-e-atendimento/apibrasil.html">APIBrasil (organização)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot.html">Chatwoot</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot-nestor.html">Chatwoot Nestor</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/deskcomm-crm.html">DeskcommCRM</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-api.html">Evolution API</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/sellbird.html">Sellbird (antigo Harvey)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/wa-akg.html">WA-AKG</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/zuckzapgo.html">ZuckZapGo Private</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

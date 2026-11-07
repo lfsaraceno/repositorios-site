@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chatwoot Nestor · Repositórios favoritos</title>
+<meta name="description" content="Fork do Chatwoot (derivado do chatwoot-mod) com integração extra para a Unoapi, usado para conectar o WhatsApp ao atendimento.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#07-whatsapp-e-atendimento"><span aria-hidden="true">💬</span> WhatsApp e atendimento</a>
+    </nav>
+    <h1>Chatwoot Nestor</h1>
+    <p class="lead">Fork do Chatwoot (derivado do <code>chatwoot-mod</code>) com integração extra para a Unoapi, usado para conectar o WhatsApp ao atendimento.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/jmelati/chatwoot-nestor">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">jmelati/chatwoot-nestor</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/jmelati/chatwoot-nestor">jmelati/chatwoot-nestor</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>Ruby (Rails) + Vue (herdado do Chatwoot)</dd></div>
+<div><dt>Licença</dt><dd>Herdada do Chatwoot (MIT; o GitHub marca &quot;NOASSERTION&quot;)</dd></div>
+<div><dt>Estrelas</dt><dd>~20 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#o-que-difere-do-chatwoot-original">O que difere do Chatwoot original</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O <code>chatwoot-nestor</code> é um fork do Chatwoot mantido por <code>jmelati</code>, criado em outubro de 2024. Ele é, por sua vez, um fork de <a href="https://github.com/AntonionniGomes/chatwoot-mod">AntonionniGomes/chatwoot-mod</a>, uma versão modificada do Chatwoot. O repositório não tem descrição própria e o README é o mesmo do Chatwoot original.</p>
+<h2 id="o-que-difere-do-chatwoot-original">O que difere do Chatwoot original</h2>
+<p>O README não documenta as diferenças. Pelo histórico de commits (branch <code>develop</code>, último push em setembro de 2024) e pelos arquivos alterados, as mudanças se concentram em uma integração com a <strong>Unoapi</strong> (uma API de WhatsApp):</p>
+<ul>
+<li><code>UnoapiConfiguration.vue</code>: tela de configuração da Unoapi no painel (a maioria dos commits).</li>
+<li><code>unoapi_webhook_setup_service.rb</code>: serviço Ruby que prepara o webhook da Unoapi.</li>
+<li><code>inboxMgmt.json</code>: textos de tradução da gestão de caixas de entrada.</li>
+<li>Um ajuste no <code>Makefile</code>.</li>
+</ul>
+<p>Todos os commits têm a mensagem genérica &quot;Update ...&quot;, então não há changelog explicando cada alteração. Trate o fork como uma variação comunitária e pequena do Chatwoot, sem releases nem documentação própria.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Todos os recursos do Chatwoot (caixa omnichannel, equipes, etiquetas, automações, relatórios, API e webhooks).</li>
+<li>Configuração de Unoapi dentro das caixas de entrada de WhatsApp.</li>
+<li>Criação do webhook da Unoapi por um serviço dedicado.</li>
+<li>Textos traduzidos para a nova configuração.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Os mesmos do Chatwoot: Docker/Docker Compose (ou ambiente Ruby/Node), Postgres e Redis.</li>
+<li>Uma instância da Unoapi, caso queira usar a integração.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>O repositório não traz instruções próprias. O README é o do Chatwoot e aponta para a documentação oficial (<a href="https://www.chatwoot.com/help-center">chatwoot.com/help-center</a>) e para os métodos de deploy do projeto original (Heroku, DigitalOcean Kubernetes e a <a href="https://chatwoot.com/deploy">página de deploy</a>).</p>
+<p>O repositório não cita nenhuma imagem Docker publicada para este fork, então o caminho seria construir a partir do código-fonte, seguindo os guias do Chatwoot. Veja <a href="chatwoot.html">chatwoot.md</a> para a instalação padrão via Docker.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Não há comandos específicos do fork documentados. Depois de subir a instância, a configuração da Unoapi deve aparecer nas configurações da caixa de entrada de WhatsApp (componente <code>UnoapiConfiguration.vue</code>).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Quando você já usa a Unoapi e quer a configuração dela embutida no Chatwoot.</li>
+<li>Para estudar como a integração foi feita em um fork pequeno.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Projeto pequeno, sem releases e sem descrição; último push em 23/09/2024. Provavelmente está defasado em relação ao Chatwoot atual.</li>
+<li>Para produção, prefira o <a href="chatwoot.html">Chatwoot oficial</a>, que recebe correções de segurança.</li>
+<li>A análise das diferenças foi feita pelos nomes de arquivos e commits, não por um diff completo.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/jmelati/chatwoot-nestor">Repositório</a></li>
+<li><a href="https://github.com/AntonionniGomes/chatwoot-mod">Fork de origem: AntonionniGomes/chatwoot-mod</a></li>
+<li><a href="https://github.com/chatwoot/chatwoot">Chatwoot original</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#07-whatsapp-e-atendimento">WhatsApp e atendimento</a></h2>
+    <ul>
+<li><a href="../../repos/07-whatsapp-e-atendimento/apibrasil.html">APIBrasil (organização)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot.html">Chatwoot</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/deskcomm-crm.html">DeskcommCRM</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-api.html">Evolution API</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-go.html">Evolution Go</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/sellbird.html">Sellbird (antigo Harvey)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/wa-akg.html">WA-AKG</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/zuckzapgo.html">ZuckZapGo Private</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

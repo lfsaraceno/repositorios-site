@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GBrain · Repositórios favoritos</title>
+<meta name="description" content="Memória explícita, com fontes e sob seu controle, para os agentes que você já usa (Claude Code, Codex, Cursor, OpenClaw, Hermes e outros), via CLI e MCP.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>GBrain</h1>
+    <p class="lead">Memória explícita, com fontes e sob seu controle, para os agentes que você já usa (Claude Code, Codex, Cursor, OpenClaw, Hermes e outros), via CLI e MCP.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/garrytan/gbrain">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">garrytan/gbrain</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/garrytan/gbrain">garrytan/gbrain</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://gbrain.io">gbrain.io</a> (versão hospedada) · <a href="https://github.com/garrytan/gbrain/blob/master/docs/INSTALL.md">docs/INSTALL.md</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~31k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O GBrain é o &quot;cérebro&quot; de memória que Garry Tan (CEO do Y Combinator) construiu para rodar os próprios agentes. Ele guarda fatos explícitos com suas fontes, permite correções e retirada de informações, e disponibiliza a mesma memória para vários agentes. Começa sem chaves de API (busca por palavra-chave) e pode ganhar busca semântica, síntese e enriquecimento em segundo plano.</p>
+<p>Em vez de devolver uma lista de páginas, a camada opcional de síntese responde com texto citado e aponta o que o cérebro ainda não sabe. Há também um grafo de conhecimento tipado (pessoas, empresas, relações) e um &quot;dream cycle&quot; que consolida memória enquanto você dorme.</p>
+<p>Serve tanto como memória pessoal para um agente de código quanto como &quot;cérebro de empresa&quot; compartilhado, com concessões de acesso por fonte e operação.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Memória com proveniência, correção e retirada, portátil entre agentes.</li>
+<li>Início sem chaves de API: <code>gbrain init --pglite --no-embedding</code>, sem servidor nem Docker.</li>
+<li>Busca por palavra-chave, semântica e híbrida; camada de síntese com citações e análise de lacunas.</li>
+<li>Grafo de conhecimento tipado com extração de referências em escritas locais.</li>
+<li>Servidor MCP (stdio e HTTP com OAuth 2.1 e painel admin) e publicação remota via Tailscale (<code>gbrain mcp expose</code>).</li>
+<li>Setup guiado para Claude Code e Codex (<code>gbrain setup claude-code</code>), com hooks e teste de fumaça.</li>
+<li>Skills de memória que acompanham o cérebro local; plugin para Claude Code e Codex.</li>
+<li>Caminhos para Postgres/Supabase em escala e para OpenClaw/Hermes com crons 24/7.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Bun 1.4.0 ou superior.</li>
+<li>Para o caminho sempre ativo (OpenClaw/Hermes): servidor com 8 GB ou mais de RAM e uso de API que escala com a carga (é o caminho mais caro, segundo o README).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<blockquote>
+<p>Atenção: o GBrain NÃO é distribuído no npm. O pacote <code>gbrain</code> do npm é outro projeto e pode sobrepor o binário. Nunca rode <code>npm install -g gbrain</code> nem <code>bun add -g gbrain</code>.</p>
+</blockquote>
+<h3 id="claude-code-ou-codex-caminho-mais-rapido">Claude Code ou Codex (caminho mais rápido)</h3>
+<pre><code class="language-bash">bun install -g github:garrytan/gbrain
+gbrain setup claude-code   # ou: codex
+</code></pre>
+<p>O <code>setup</code> mostra o cérebro, a fonte e o dono resolvidos antes de escrever, cria um cérebro keyless se não houver um, registra o MCP stdio e os hooks de leitura de contexto e faz um teste de fumaça. Use <code>--dry-run</code> para pré-visualizar e <code>--remove</code> para desfazer.</p>
+<h3 id="cli-standalone-sem-agente">CLI standalone (sem agente)</h3>
+<pre><code class="language-bash">bun install -g github:garrytan/gbrain
+gbrain init --pglite --no-embedding
+gbrain doctor
+gbrain import ~/notes/ --no-embed
+gbrain search &quot;uma frase de uma nota&quot; --json
+</code></pre>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add garrytan/gbrain
+/plugin install gbrain@gbrain
+</code></pre>
+<p>Ou, só o MCP local: <code>claude mcp add gbrain -- &quot;$(command -v gbrain)&quot; serve</code>.</p>
+<h3 id="plugin-do-codex">Plugin do Codex</h3>
+<pre><code class="language-bash">codex plugin marketplace add garrytan/gbrain@codex-plugin
+codex plugin add gbrain@gbrain
+</code></pre>
+<p>Se instalou o pacote errado do npm: <code>npm uninstall -g gbrain</code> (ou <code>bun remove -g gbrain</code>), reinstale e rode <code>gbrain doctor</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">gbrain doctor
+</code></pre>
+<p>Verifica a saúde da instalação (também detecta o pacote errado do npm).</p>
+<pre><code class="language-bash">gbrain serve
+</code></pre>
+<p>Sobe o servidor MCP via stdio, para Claude Code, Cursor e Windsurf.</p>
+<pre><code class="language-bash">gbrain serve --http
+</code></pre>
+<p>Servidor MCP HTTP com OAuth 2.1 e painel admin em <code>/admin</code>.</p>
+<pre><code class="language-bash">gbrain mcp expose
+</code></pre>
+<p>Publica o cérebro via MCP na sua rede Tailscale (<code>--funnel</code> para agentes em nuvem).</p>
+<pre><code class="language-bash">gbrain connect https://seu-host/mcp --token gbrain_xxx
+</code></pre>
+<p>Gera o bloco de conexão para um cérebro remoto (<code>--install</code> configura e testa).</p>
+<p>Exemplo de prompt ao agente: &quot;What do I need to know before my meeting with Alice tomorrow?&quot;</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar memória durável e auditável ao Claude Code ou Codex entre sessões.</li>
+<li>Manter uma base pessoal ou de equipe de pessoas, empresas e notas com respostas citadas.</li>
+<li>Compartilhar a mesma memória entre vários agentes e clientes MCP.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Instale somente via <code>bun install -g github:garrytan/gbrain</code> ou clone + <code>bun install &amp;&amp; bun link</code>.</li>
+<li>Provedores de embedding, reranking, extração e síntese configurados podem receber texto, e o modelo do harness vê a memória recuperada mesmo no modo keyless.</li>
+<li>A exportação em Markdown não é um backup completo do banco.</li>
+<li>Arquivos locais e credenciais compartilhadas de banco são outra fronteira de confiança; as fontes sozinhas não isolam esses chamadores.</li>
+<li>Há versão hospedada paga em <a href="https://gbrain.io">gbrain.io</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/garrytan/gbrain">README</a></li>
+<li><a href="https://github.com/garrytan/gbrain/blob/master/docs/guides/setup.md">Guia de setup</a></li>
+<li><a href="https://github.com/garrytan/gbrain/blob/master/docs/mcp/CLAUDE_CODE.md">MCP no Claude Code</a></li>
+<li><a href="https://github.com/garrytan/gbrain/blob/master/docs/mcp/CODEX.md">MCP no Codex</a></li>
+<li><a href="https://github.com/garrytan/gbrain/blob/master/docs/guides/memory-boundaries.md">Fronteiras de memória</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

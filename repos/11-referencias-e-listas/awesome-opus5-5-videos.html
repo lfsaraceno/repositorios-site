@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome Opus 5.5 Videos · Repositórios favoritos</title>
+<meta name="description" content="Coleção de 700+ prompts de vídeos virais feitos com o Claude Opus 5.5 escrevendo a animação em código (HTML, Canvas, SVG, Three.js, GSAP), com link para o original.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#11-referencias-e-listas"><span aria-hidden="true">📚</span> Referências e listas</a>
+    </nav>
+    <h1>Awesome Opus 5.5 Videos</h1>
+    <p class="lead">Coleção de 700+ prompts de vídeos virais feitos com o Claude Opus 5.5 escrevendo a animação em código (HTML, Canvas, SVG, Three.js, GSAP), com link para o original.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/yihui-dev/awesome-opus5-5-videos">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">yihui-dev/awesome-opus5-5-videos</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/yihui-dev/awesome-opus5-5-videos">yihui-dev/awesome-opus5-5-videos</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://skillry.dev/ai-videos/opus-5-5">Galeria no Skillry (original ao lado do remake)</a></dd></div>
+<div><dt>Linguagem</dt><dd>— (lista em Markdown + <code>data/videos.json</code>)</dd></div>
+<div><dt>Licença</dt><dd>MIT (a lista). Cada vídeo e prompt pertence a quem o criou</dd></div>
+<div><dt>Estrelas</dt><dd>~6,9k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É uma lista curada (<em>awesome list</em>) de vídeos que viralizaram, todos feitos pedindo ao <strong>Claude Opus 5.5 que escrevesse a animação como código</strong>: uma página HTML com Canvas, SVG, Three.js, GLSL, GSAP ou Web Audio, que depois é gravada como vídeo. Nenhum vídeo foi feito com modelo de geração de vídeo.</p>
+<p>Cada item traz uma prévia, o link para o post original do criador (quase sempre no X/Twitter) e um arquivo com o prompt compartilhado. Quando o criador não publicou o prompt, ou publicou só uma parte, o arquivo avisa. São 703 prompts na pasta <code>prompts/</code> e no <code>data/videos.json</code>; 418 deles têm um &quot;remake&quot; ao vivo no site Skillry, que mostra o original ao lado da recriação.</p>
+<p>O README destaca 100 vídeos, separados por tipo, e é atualizado com frequência. A última atualização é de 12/out/2026.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>703 prompts em Markdown (<code>prompts/&lt;autor&gt;-&lt;id&gt;.md</code>) e em JSON estruturado (<code>data/videos.json</code>).</li>
+<li>Organização por tipo: <strong>motion graphics</strong>, <strong>explainers</strong> (vídeos explicativos), <strong>cenas 3D</strong>, <strong>jogos e interativos</strong>, além de uma seção com os prompts mais recentes.</li>
+<li>Cada item indica as tecnologias usadas: Canvas, SVG, GSAP, Three.js, GLSL/WebGL, partículas, Web Audio, CSS.</li>
+<li>Link para o post original de cada criador.</li>
+<li>Galeria no Skillry com o original e a recriação lado a lado.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Acesso ao Claude Opus 5.5: Claude Code, o app do Claude ou outro agente rodando esse modelo.</li>
+<li>Um navegador para abrir o HTML gerado.</li>
+<li>Opcional: um gravador de tela, para transformar a animação em vídeo.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Não há o que instalar: é uma lista para consultar. Para ter os prompts no computador e pesquisar offline:</p>
+<pre><code class="language-bash">git clone https://github.com/yihui-dev/awesome-opus5-5-videos.git
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>O fluxo indicado no README:</p>
+<ol>
+<li>Abra um arquivo em <code>prompts/</code> e copie o bloco que fica abaixo de <strong>Prompt</strong>.</li>
+<li>Cole no Claude Opus 5.5 (Claude Code, app do Claude ou outro agente).</li>
+<li>Peça para gerar o resultado <strong>como um único arquivo HTML</strong> e, se quiser um vídeo, grave a página.</li>
+</ol>
+<p>Exemplo de pedido complementar, para colar depois do prompt copiado:</p>
+<pre><code class="language-text">Render the result as a single self-contained HTML file.
+</code></pre>
+<p>Para buscar por tema ou tecnologia na cópia local:</p>
+<pre><code class="language-bash">grep -ril &quot;three.js&quot; prompts/ | head      # prompts que usam Three.js
+grep -ril &quot;gsap&quot; prompts/ | head          # prompts com animação GSAP
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Achar inspiração e prompts prontos para <strong>vídeos de lançamento, explicativos, intros de marca e motion graphics</strong> sem editor de vídeo.</li>
+<li>Aprender como pedir animações complexas a um modelo: estrutura do prompt, nível de detalhe, tecnologias citadas.</li>
+<li>Criar conteúdo para redes sociais, landing pages e apresentações, usando o HTML direto na página ou gravado como vídeo.</li>
+<li>Combinar com o <a href="../10-midia-e-modelos-ia/opencut.html">OpenCut</a> para editar as gravações, ou com o <a href="../10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a> para narrar.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Direitos:</strong> a licença MIT vale para a lista. <strong>Cada vídeo e prompt pertence ao criador.</strong> Para uso comercial, use o prompt como ponto de partida e não copie o vídeo de outra pessoa.</li>
+<li>Vários prompts são incompletos: alguns criadores só descreveram o resultado. O arquivo do prompt avisa quando é o caso.</li>
+<li>Os prompts foram pensados para o Opus 5.5. Com outros modelos, o resultado pode ser bem diferente.</li>
+<li>Os links do README apontam para o Skillry, um site de terceiros, com parâmetros de rastreamento (UTM). Os prompts em si ficam no próprio repositório.</li>
+<li>Coleção recente (criada em set/2026) e em crescimento rápido.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/yihui-dev/awesome-opus5-5-videos#readme">README</a></li>
+<li><a href="https://github.com/yihui-dev/awesome-opus5-5-videos/tree/main/prompts">Pasta de prompts</a></li>
+<li><a href="https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/data/videos.json">Dados em JSON</a></li>
+<li><a href="https://skillry.dev/ai-videos/opus-5-5">Galeria no Skillry</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#11-referencias-e-listas">Referências e listas</a></h2>
+    <ul>
+<li><a href="../../repos/11-referencias-e-listas/awesome-brazilian-devblogs.html">Awesome Brazilian Dev Blogs</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-claude-code.html">Awesome Claude Code</a></li>
+<li><a href="../../repos/11-referencias-e-listas/brazilian-utils.html">Brazilian Utils</a></li>
+<li><a href="../../repos/11-referencias-e-listas/claude-cookbooks.html">Claude Cookbooks</a></li>
+<li><a href="../../repos/11-referencias-e-listas/leis-brasil.html">Leis do Brasil em Markdown (ctresb/leis)</a></li>
+<li><a href="../../repos/11-referencias-e-listas/public-apis.html">Public APIs</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

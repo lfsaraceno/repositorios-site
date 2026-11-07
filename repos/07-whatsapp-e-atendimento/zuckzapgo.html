@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZuckZapGo Private · Repositórios favoritos</title>
+<meta name="description" content="Gateway de API de WhatsApp comercial e pago (Go, baseado em whatsmeow) com mensagens interativas, webhooks, filas e integrações com Chatwoot e n8n.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#07-whatsapp-e-atendimento"><span aria-hidden="true">💬</span> WhatsApp e atendimento</a>
+    </nav>
+    <h1>ZuckZapGo Private</h1>
+    <p class="lead">Gateway de API de WhatsApp comercial e pago (Go, baseado em whatsmeow) com mensagens interativas, webhooks, filas e integrações com Chatwoot e n8n.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/guilhermejansen/use-zuckzapgo">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">guilhermejansen/use-zuckzapgo</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/guilhermejansen/use-zuckzapgo">guilhermejansen/use-zuckzapgo</a> (material de apoio)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://zuckzapgo.com">zuckzapgo.com</a> · <a href="https://www.postman.com/setupautomatizado/">coleção Postman</a></dd></div>
+<div><dt>Linguagem</dt><dd>Go (o repositório em si contém só material de apoio)</dd></div>
+<div><dt>Licença</dt><dd>Comercial (assinatura)</dd></div>
+<div><dt>Estrelas</dt><dd>~19 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O ZuckZapGo Private é um gateway de API de WhatsApp <strong>premium e comercial</strong>, desenvolvido pela Setup Automatizado. Ele implementa a biblioteca <a href="https://github.com/tulir/whatsmeow">whatsmeow</a> como um serviço RESTful com suporte a múltiplos dispositivos e várias sessões simultâneas.</p>
+<p>O repositório <code>use-zuckzapgo</code> não contém o código-fonte do produto: é um <strong>material de apoio</strong> (README com planos, vídeos de instalação e um exemplo de stack Docker Swarm). O serviço é distribuído como imagem Docker privada e exige uma chave de licença.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Multi-dispositivo e múltiplas sessões simultâneas, em Go, com foco em desempenho.</li>
+<li>Mensagens ricas: texto, imagem, vídeo e documento.</li>
+<li>Mensagens interativas: botões, listas, carrosséis, enquetes e WhatsApp Flows (botões e carrosséis nos planos Premium).</li>
+<li>Entrega de eventos por webhooks (com retry), WebSockets, RabbitMQ, Amazon SQS e Redis Streams.</li>
+<li>Armazenamento de mídia em S3 compatível (AWS, MinIO, DigitalOcean Spaces, Google Cloud Storage).</li>
+<li>Suporte a proxy, grupos, comunidades, newsletters/canais e verificação de usuários.</li>
+<li>Integração com Chatwoot e nodes de comunidade para n8n.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Assinatura ativa e <code>LICENSE_KEY</code> emitida pelo ZuckZapGo.</li>
+<li>Docker (o exemplo do README usa Docker Swarm com Portainer e uma rede externa <code>network_public</code>).</li>
+<li>Serviços de apoio conforme o uso (por exemplo PostgreSQL, Redis, RabbitMQ, S3/MinIO).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>O repositório traz apenas um exemplo de stack &quot;Docker Compose (Swarm) v1.4.3&quot; para Portainer, usando a imagem <code>setupautomatizado/zuckzapgo-private:latest</code>. As variáveis de ambiente incluem:</p>
+<ul>
+<li><code>LICENSE_KEY</code> (chave de licença; habilita ou restringe recursos como botões e flows);</li>
+<li><code>INSTANCE_ID</code> e <code>SERVER_IP</code> (opcionais);</li>
+<li><code>ZUCKZAPGO_ADDRESS</code> (URL pública da instância, enviada nos eventos);</li>
+<li><code>APP_ENV</code> e <code>APP_REGION</code>.</li>
+</ul>
+<p>A seção &quot;Quick Start&quot; do README está vazia. Para a instalação completa, use o vídeo de instalação passo a passo citado no README (<a href="https://youtu.be/3pB2selupGg">YouTube</a>) e o material recebido ao assinar. Não copie chaves de exemplo do README; use a sua própria licença.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>O uso é por chamadas HTTP à API. A coleção do Postman da Setup Automatizado e a documentação da API (acessadas após a assinatura) listam os endpoints de sessão, envio de mensagens, grupos e webhooks.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Quando você quer uma API de WhatsApp com suporte comercial e recursos interativos (botões, carrosséis) sem manter um fork próprio.</li>
+<li>Para operações que precisam de eventos em filas (RabbitMQ, SQS, Redis Streams) e mídia em S3.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Produto comercial pago</strong>: o acesso é por assinatura (planos Standard e Premium, mensais ou anuais, vendidos via Hotmart). Standard: 1 licença por IP público e instâncias ilimitadas. Premium: até 2 instalações simultâneas, com botões interativos, carrosséis e recursos Enterprise.</li>
+<li>O código-fonte não está no repositório; ele guarda apenas documentação e exemplos.</li>
+<li>Como toda API baseada no WhatsApp Web (whatsmeow), não é uma solução oficial da Meta, e há risco de bloqueio de números.</li>
+<li>Alternativas gratuitas na mesma categoria: <a href="evolution-api.html">Evolution API</a> e <a href="wa-akg.html">WA-AKG</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/guilhermejansen/use-zuckzapgo">Repositório (material de apoio)</a></li>
+<li><a href="https://zuckzapgo.com">Site</a></li>
+<li><a href="https://hub.docker.com/r/setupautomatizado/zuckzapgo-private">Imagem no Docker Hub</a></li>
+<li><a href="https://www.postman.com/setupautomatizado/">Coleção Postman</a></li>
+<li><a href="https://youtu.be/3pB2selupGg">Vídeo de instalação</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#07-whatsapp-e-atendimento">WhatsApp e atendimento</a></h2>
+    <ul>
+<li><a href="../../repos/07-whatsapp-e-atendimento/apibrasil.html">APIBrasil (organização)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot.html">Chatwoot</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot-nestor.html">Chatwoot Nestor</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/deskcomm-crm.html">DeskcommCRM</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-api.html">Evolution API</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-go.html">Evolution Go</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/sellbird.html">Sellbird (antigo Harvey)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/wa-akg.html">WA-AKG</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

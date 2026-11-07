@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude-Mem · Repositórios favoritos</title>
+<meta name="description" content="Memória persistente para agentes de código: captura o que o agente faz nas sessões, comprime com IA e injeta o contexto relevante nas sessões futuras.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Claude-Mem</h1>
+    <p class="lead">Memória persistente para agentes de código: captura o que o agente faz nas sessões, comprime com IA e injeta o contexto relevante nas sessões futuras.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/thedotmack/claude-mem">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">thedotmack/claude-mem</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/thedotmack/claude-mem">thedotmack/claude-mem</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://claude-mem.ai">claude-mem.ai</a> · <a href="https://docs.claude-mem.ai/">docs.claude-mem.ai</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~102k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Claude-Mem preserva o contexto entre sessões do Claude Code (e de outros agentes, como Codex, Gemini, Copilot, OpenCode e OpenClaw). Ele registra automaticamente as observações de uso de ferramentas, gera resumos semânticos e os disponibiliza para as sessões seguintes. Assim, o agente mantém a continuidade do conhecimento sobre o projeto mesmo depois que a sessão termina ou reconecta.</p>
+<p>Por baixo, ganchos (hooks) de ciclo de vida (SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop, SessionEnd) alimentam um serviço worker local, gerenciado pelo Bun, com API HTTP e interface web. Os dados ficam em SQLite, com busca textual (FTS5) e busca híbrida semântica com o banco vetorial Chroma.</p>
+<p>A busca segue um padrão de &quot;divulgação progressiva&quot; em 3 camadas para economizar tokens: primeiro um índice compacto, depois a linha do tempo ao redor dos resultados e, por fim, os detalhes completos só dos IDs filtrados (economia de cerca de 10x, segundo o README). Existe tradução automática do README em português do Brasil em <code>docs/i18n/README.pt-br.md</code>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Memória persistente: o contexto sobrevive entre sessões, sem intervenção manual.</li>
+<li>Ferramentas MCP de busca: <code>search</code>, <code>timeline</code> e <code>get_observations</code>, no fluxo de 3 camadas.</li>
+<li>Skill <code>mem-search</code> para consultar o histórico do projeto em linguagem natural.</li>
+<li>Controle de privacidade com tags <code>&lt;private&gt;</code> para excluir conteúdo sensível do armazenamento.</li>
+<li>Interface web (viewer) e &quot;My Work&quot;, com requisições, progresso e fila de revisão; TeamBrain opcional para equipes.</li>
+<li>Configuração fina do contexto injetado e modos de fluxo/idioma via <code>CLAUDE_MEM_MODE</code>.</li>
+<li>Cloud Sync opcional para backup das memórias em cmem.ai.</li>
+<li>Integrações com várias ferramentas: Claude Code, OpenCode, Antigravity CLI, T3 Code, Pi, OpenClaw e outras.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 20.0.0 ou superior.</li>
+<li>Claude Code recente, com suporte a plugins.</li>
+<li>Bun (instalado automaticamente se faltar).</li>
+<li>uv, gerenciador de pacotes Python para a busca vetorial (instalado automaticamente se faltar).</li>
+<li>SQLite 3 (embutido).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="instalador-recomendado">Instalador (recomendado)</h3>
+<pre><code class="language-bash">npx claude-mem install
+</code></pre>
+<p>O instalador configura tudo e depois pede login no navegador (link mágico por e-mail, sem cartão) para liberar o &quot;claude-mem observer&quot;, com 30 dias de teste grátis. Depois você escolhe o provedor de memória: o observer do claude-mem, sua própria chave do OpenRouter ou Gemini, ou o seu plano da Anthropic. Para pular o login, passe um <code>--provider</code> explícito, defina <code>CLAUDE_MEM_ONLINE_OPTIN=false</code> ou rode em CI/shell não interativo.</p>
+<h3 id="pelo-marketplace-de-plugins-do-claude-code">Pelo marketplace de plugins do Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add thedotmack/claude-mem
+/plugin install claude-mem
+</code></pre>
+<p>Reinicie o Claude Code. O contexto das sessões anteriores aparece automaticamente nas novas.</p>
+<h3 id="outros-agentes">Outros agentes</h3>
+<pre><code class="language-bash">npx claude-mem install --ide opencode
+npx claude-mem install --ide antigravity
+npx claude-mem install --ide t3code
+npx claude-mem install --ide pi
+</code></pre>
+<p>Para gateways OpenClaw, o README documenta um script de instalação via <code>curl</code> (<code>install.cmem.ai/openclaw.sh</code>); revise o script antes de executar.</p>
+<h3 id="windows">Windows</h3>
+<p>Os hooks do Claude Code não precisam do Git Bash: cada hook chama o <code>claude-mem</code> diretamente. O instalador coloca o launcher em <code>%LOCALAPPDATA%\claude-mem\bin\claude-mem.exe</code> e adiciona a pasta ao Path do usuário; reinicie o terminal ou a IDE depois. Se aparecer o erro <code>npm : The term 'npm' is not recognized</code>, instale o Node.js (nodejs.org) e reinicie o terminal.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">npx claude-mem install    # instala e configura o claude-mem
+npx claude-mem repair     # reaplica a instalação (citado pelo README em &quot;Smart Install&quot;)
+</code></pre>
+<p>Uso das ferramentas MCP de busca (exemplo do README):</p>
+<pre><code class="language-typescript">// 1) índice compacto
+search(query=&quot;authentication bug&quot;, type=&quot;bugfix&quot;, limit=10)
+// 2) contexto cronológico em volta de um resultado
+timeline(...)
+// 3) detalhes completos apenas dos IDs relevantes
+get_observations(ids=[123, 456])
+</code></pre>
+<p>As configurações ficam em <code>~/.claude-mem/settings.json</code>, criado com valores padrão na primeira execução.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Projetos longos em que o agente precisa lembrar decisões, bugs e padrões de sessões anteriores.</li>
+<li>Retomar o trabalho depois de dias sem reexplicar o contexto.</li>
+<li>Equipes que querem um espaço compartilhado de memória (TeamBrain).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><code>npm install -g claude-mem</code> instala apenas o SDK/biblioteca; não registra hooks nem sobe o worker. Use sempre <code>npx claude-mem install</code> ou os comandos <code>/plugin</code>.</li>
+<li>O observer hospedado tem teste grátis de 30 dias; depois a memória volta para o seu plano da Anthropic, a menos que você assine.</li>
+<li>A tradução em <code>docs/i18n/README.pt-br.md</code> é automática e reflete uma versão anterior (13.4.0, contra 14.0.1 do README principal).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/thedotmack/claude-mem">README (inglês)</a></li>
+<li><a href="https://github.com/thedotmack/claude-mem/blob/main/docs/i18n/README.pt-br.md">README em português do Brasil</a></li>
+<li><a href="https://docs.claude-mem.ai/">Documentação completa</a></li>
+<li><a href="https://docs.claude-mem.ai/configuration">Guia de configuração</a></li>
+<li><a href="https://docs.claude-mem.ai/troubleshooting">Solução de problemas</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harness² (Harness2) · Repositórios favoritos</title>
+<meta name="description" content="Framework de pesquisa do Google que melhora sozinho o &quot;harness&quot; de um agente (prompts, ferramentas, memória, skills) a cada tarefa, sem retreinar o modelo.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>Harness² (Harness2)</h1>
+    <p class="lead">Framework de pesquisa do Google que melhora sozinho o &quot;harness&quot; de um agente (prompts, ferramentas, memória, skills) a cada tarefa, sem retreinar o modelo.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/google-research/harness2">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">google-research/harness2</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/google-research/harness2">google-research/harness2</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://harness2.github.io">harness2.github.io</a> · <a href="https://arxiv.org/abs/2610.14224">Artigo no arXiv</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0 (benchmarks e código de terceiros mantêm licenças próprias)</dd></div>
+<div><dt>Estrelas</dt><dd>~14k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p><strong>Harness</strong> é tudo o que fica em volta do modelo e o transforma num agente: prompt de sistema, ferramentas, memória, skills, subagentes, regras e orquestração. Ajustar esse conjunto é chamado de <em>harnessing</em>. O Harness² é um framework do Google Research que faz esse ajuste <strong>automaticamente e de forma recursiva</strong>, inclusive para tarefas que não existiam quando o harness foi desenhado. Os pesos do modelo não mudam.</p>
+<p>Ele trabalha em dois níveis:</p>
+<ul>
+<li><strong>Por tarefa:</strong> um ciclo <strong>Propor → Testar → Compor</strong> sugere alterações no harness, executa a mesma tarefa com cada variação e monta um harness melhor comparando o comportamento das execuções, sem precisar saber a resposta certa.</li>
+<li><strong>Entre tarefas:</strong> guarda os harnesses adotados e as lições confirmadas por evidência num <em>improvement harness</em> persistente, que orienta as próximas melhorias.</li>
+</ul>
+<p>Segundo o artigo, um único ciclo melhorou o GLM-5 e o Gemini 3.5 Flash em três benchmarks profissionais: até 11,5 pontos no WorkBuddy-Bench, 4,5 no JobBench e 11,8 pontos percentuais no LAB (tarefas jurídicas). Mais ciclos trazem ganhos adicionais.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Oito componentes editáveis do harness: prompt de sistema, guardrails, memória, orientação de ferramentas, subagentes, skills, scripts e plugins.</li>
+<li>Dois modos de recursão: <strong>paralelo</strong>, que testa várias variações ao mesmo tempo e explora mais, e <strong>sequencial</strong>, que refina passo a passo e aprofunda mais.</li>
+<li>Executores <strong>OpenCode</strong> (padrão) e <strong>Codex</strong>.</li>
+<li>Benchmarks prontos: JobBench (trabalho profissional), LAB (jurídico) e WorkBuddy-Bench (escritório, web e código).</li>
+<li>Demonstração local que não precisa de credenciais de modelo.</li>
+<li>Resultados salvos em <code>runs/</code>: entregáveis, harnesses adotados, notas de reflexão e avaliações. Para retomar uma execução, basta repetir o comando.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Linux</strong>, Python 3.12 e <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>. No Windows, use o WSL.</li>
+<li>Para benchmarks com modelos: Node.js 20+ e Google Cloud CLI (<code>gcloud</code>). O LAB também precisa de Pandoc e Poppler, e o WorkBuddy-Bench precisa de Docker.</li>
+<li>Acesso a modelos. A configuração pronta usa <strong>Vertex AI</strong> (Gemini como executor e juiz; Claude ou Gemini no Vertex como &quot;melhorador&quot;). O executor Codex aceita outro endpoint compatível com a Responses API, configurado com <code>HARNESS2_CODEX_API_KEY</code> e <code>HARNESS2_CODEX_MODEL</code>.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Na raiz do repositório clonado:</p>
+<pre><code class="language-bash">uv venv --python 3.12 .venv
+source .venv/bin/activate
+uv pip install -e '.[render]'
+harness2-demo --output runs/demo --k 2     # demo local, sem chave de modelo
+</code></pre>
+<p>Para rodar com modelos de verdade:</p>
+<pre><code class="language-bash">cp .env.example .env
+# edite o .env com o projeto do Vertex AI e os IDs dos modelos
+gcloud auth application-default login
+</code></pre>
+<p>Variáveis principais do <code>.env</code>:</p>
+<ul>
+<li><code>HARNESS2_SOLVER_MODEL</code>: modelo executor, no formato <code>provider/model</code> do OpenCode.</li>
+<li><code>HARNESS2_IMPROVER_MODEL</code>: modelo que melhora o harness. Se ficar vazio, usa o mesmo do executor.</li>
+<li><code>HARNESS2_JUDGE_MODEL</code>: modelo juiz.</li>
+</ul>
+<p>Outras formas de autenticação e o executor Codex estão no <a href="https://github.com/google-research/harness2/blob/main/docs/SETUP.md">guia de setup</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Exemplo com o benchmark LAB, rodando uma tarefa só:</p>
+<pre><code class="language-bash">harness2-setup lab                          # instala o benchmark
+harness2-check --bench lab                  # confere as dependências (não testa os modelos)
+harness2 --bench lab --k 1 --mode parallel \
+  --only-domains antitrust-competition --max-tasks 1   # roda o ciclo de melhoria
+harness2-judge --bench lab --k 1 --mode parallel       # avalia o resultado
+harness2-report --bench lab --k 1 --mode parallel      # gera o relatório
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Opção</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--k 1</code></td>
+<td>Um ciclo Propor → Testar → Compor</td>
+</tr>
+<tr>
+<td><code>--k K --mode parallel</code></td>
+<td>Testa <code>K</code> variações gerais e <code>K</code> específicas do domínio e gera <code>K</code> composições</td>
+</tr>
+<tr>
+<td><code>--k K --mode sequential</code></td>
+<td>Refina o harness em <code>K</code> ciclos seguidos</td>
+</tr>
+<tr>
+<td><code>--substrate cx</code></td>
+<td>Usa o Codex no lugar do OpenCode</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>Mostra quais tarefas seriam executadas, sem chamar modelos</td>
+</tr>
+</tbody>
+</table></div>
+<p>Outros benchmarks: <code>harness2-setup jb</code> (JobBench) e <code>harness2-setup wb</code> (WorkBuddy-Bench, que aceita <code>--subset office</code>, <code>web</code> ou <code>code</code>). Os comandos de avaliação e relatório precisam usar o mesmo benchmark, executor, subconjunto, <code>--k</code>, <code>--mode</code> e seed da execução. Todos os comandos aceitam <code>--help</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Pesquisa e experimentos sobre como melhorar agentes de IA sem fine-tuning.</li>
+<li>Comparar, com evidências, mudanças no seu harness: prompts, skills, subagentes. O <a href="vibe-coding-toolkit.html">Vibe Coding Toolkit</a> traz um guia de uso do Harness2 para esse fim.</li>
+<li>Ter ideias para melhorar o seu próprio setup de agentes, como CLAUDE.md, skills e hooks, a partir das lições que o framework registra.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>É um projeto de pesquisa</strong>, não uma ferramenta pronta para o dia a dia. O próprio README diz que não é um produto oficialmente suportado pelo Google.</li>
+<li><strong>Gera custo de API:</strong> cada ciclo executa a tarefa várias vezes. Comece com <code>--max-tasks 1</code> e <code>--dry-run</code>.</li>
+<li><strong>Segurança:</strong> os executores têm acesso livre à rede, e o Codex roda <strong>com o sandbox desligado</strong>. Rode numa VM ou container isolado e configure as <a href="https://github.com/google-research/harness2/blob/main/docs/EXPERIMENTS.md#web-access">restrições de rede</a> antes de avaliar, para o agente não achar as respostas dos benchmarks online.</li>
+<li>Projeto muito recente (criado em out/2026), ainda sem releases publicadas.</li>
+<li>Ao trocar de modelo ou de seleção de tarefas, use um <code>HARNESS2_RUNS_DIR</code> novo para não misturar resultados.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/google-research/harness2#readme">README</a></li>
+<li><a href="https://arxiv.org/abs/2610.14224">Artigo (arXiv 2610.14224)</a> · <a href="https://harness2.github.io">Site</a></li>
+<li><a href="https://github.com/google-research/harness2/blob/main/docs/SETUP.md">Guia de setup</a></li>
+<li><a href="https://github.com/google-research/harness2/blob/main/docs/EXPERIMENTS.md">Guia de experimentos</a></li>
+<li><a href="https://github.com/google-research/harness2/blob/main/docs/BENCHMARKS.md">Benchmarks</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

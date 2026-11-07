@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anthropic Cybersecurity Skills · Repositórios favoritos</title>
+<meta name="description" content="Biblioteca aberta com mais de 800 skills de cibersegurança para agentes de IA, organizadas em 34 domínios e mapeadas para MITRE ATT&amp;CK, NIST CSF, ATLAS, D3FEND, AI RMF e F3.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>Anthropic Cybersecurity Skills</h1>
+    <p class="lead">Biblioteca aberta com mais de 800 skills de cibersegurança para agentes de IA, organizadas em 34 domínios e mapeadas para MITRE ATT&amp;CK, NIST CSF, ATLAS, D3FEND, AI RMF e F3.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">mukul975/Anthropic-Cybersecurity-Skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills">mukul975/Anthropic-Cybersecurity-Skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://mahipal.engineer/Anthropic-Cybersecurity-Skills/">mahipal.engineer/Anthropic-Cybersecurity-Skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~35k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É uma coleção de skills estruturadas, no padrão aberto <a href="https://agentskills.io">agentskills.io</a>, que ensinam agentes de IA a executar tarefas de segurança como análise de memória com Volatility3, caça a ameaças, resposta a incidentes, revisão de nuvem e testes de aplicações web. Cada skill traz um fluxo de trabalho passo a passo e uma seção de verificação.</p>
+<p>O projeto é comunitário e independente, sem afiliação com a Anthropic PBC, apesar do nome. O README informa 818 skills (e 817 em outras partes do texto), 34 domínios e compatibilidade com mais de 20 plataformas de agentes.</p>
+<p>Funciona com divulgação progressiva: o agente lê só o frontmatter de cada skill (cerca de 30 tokens) para escolher as relevantes e só então carrega o fluxo completo (500 a 2.000 tokens).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Mais de 800 skills em 34 domínios: nuvem, SOC, caça a ameaças, inteligência de ameaças, segurança web, forense digital, análise de malware, red team, contêineres, OT/ICS, resposta a incidentes, entre outros</li>
+<li>Mapeamento para seis frameworks: MITRE ATT&amp;CK, NIST CSF 2.0, MITRE ATLAS, MITRE D3FEND, NIST AI RMF e MITRE F3 (Fight Fraud Framework)</li>
+<li>Cada skill segue a estrutura <code>SKILL.md</code> + <code>references/</code> + <code>scripts/</code> + <code>assets/</code></li>
+<li>Seções padronizadas: Quando usar, Pré-requisitos, Fluxo de trabalho e Verificação</li>
+<li>Compatível com Claude Code, GitHub Copilot, Codex CLI, Cursor, Gemini CLI, Cline, Aider e outros</li>
+<li>Camada de arquivo de layer do ATT&amp;CK Navigator nos assets da release v1.0.0</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com o padrão agentskills.io (por exemplo, Claude Code)</li>
+<li>Node.js/npx para a instalação recomendada, ou Git para clonar o repositório</li>
+<li>Ferramentas específicas de cada skill (Volatility3, Sigma etc.) quando o fluxo as exigir</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Opção recomendada com <code>npx</code>:</p>
+<pre><code class="language-bash">npx skills add mukul975/Anthropic-Cybersecurity-Skills
+</code></pre>
+<p>Alternativa com Git:</p>
+<pre><code class="language-bash">git clone https://github.com/mukul975/Anthropic-Cybersecurity-Skills.git
+cd Anthropic-Cybersecurity-Skills
+</code></pre>
+<p>O README informa que funciona imediatamente com as plataformas compatíveis, sem configuração adicional. As skills ficam em <code>skills/&lt;nome-da-skill&gt;/</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>O README não define comandos próprios: o agente descobre e carrega as skills pelo frontmatter. Exemplos de prompts do estilo mostrado no projeto:</p>
+<pre><code class="language-text">Analise este dump de memória em busca de sinais de roubo de credenciais
+</code></pre>
+<p>Nesse fluxo, o agente identifica skills como <code>performing-memory-forensics-with-volatility3</code>, <code>hunting-for-credential-dumping-lsass</code> e <code>analyzing-windows-event-logs-for-credential-access</code>, executa o fluxo e valida o resultado mapeando para as técnicas ATT&amp;CK.</p>
+<p>Outros prompts úteis, em linha com os domínios da biblioteca:</p>
+<pre><code class="language-text">Monte um playbook de resposta a incidentes de ransomware
+Revise a configuração de segurança desta conta AWS
+Crie regras Sigma para detectar este comportamento
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar a um agente de IA conhecimento procedural de analista de segurança (SOC, DFIR, threat hunting)</li>
+<li>Padronizar playbooks defensivos mapeados a ATT&amp;CK e NIST CSF</li>
+<li>Estudo e treinamento em segurança, com fluxos documentados</li>
+<li>Apoiar auditorias e avaliações de conformidade</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Projeto comunitário, não afiliado à Anthropic.</li>
+<li>A biblioteca inclui técnicas ofensivas e de uso duplo (por exemplo, C2 de red team, simulação de phishing, exploração). O próprio README restringe o uso a testes de intrusão autorizados, pesquisa, defesa e educação, em sistemas que você possui ou para os quais tem permissão escrita explícita.</li>
+<li>Skills com scripts auxiliares devem ser revisadas antes de serem executadas em ambientes reais.</li>
+<li>Os números de skills e domínios variam entre trechos do README (817 e 818); trate-os como aproximados.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills#readme">README</a></li>
+<li><a href="https://mahipal.engineer/Anthropic-Cybersecurity-Skills/">Site do projeto</a></li>
+<li><a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases">Releases</a></li>
+<li><a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills/blob/main/CONTRIBUTING.md">Contribuindo</a></li>
+<li><a href="https://agentskills.io">Padrão agentskills.io</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/ghidra.html">Ghidra</a></li>
+<li><a href="../../repos/06-seguranca/pentagi.html">PentAGI</a></li>
+<li><a href="../../repos/06-seguranca/phoneintel.html">PhoneIntel</a></li>
+<li><a href="../../repos/06-seguranca/raptor.html">RAPTOR</a></li>
+<li><a href="../../repos/06-seguranca/rea.html">REA (Reverse Engineer Anything)</a></li>
+<li><a href="../../repos/06-seguranca/security-audit-skill.html">Security Audit Skill (Cloudflare)</a></li>
+<li><a href="../../repos/06-seguranca/trailofbits-skills.html">Trail of Bits Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

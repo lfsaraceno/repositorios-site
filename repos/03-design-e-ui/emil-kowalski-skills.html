@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emil Kowalski Skills · Repositórios favoritos</title>
+<meta name="description" content="16 skills de design engineering do Emil Kowalski (ex-Vercel e Linear, criador do Sonner): animação com a curva e a duração certas, revisão e auditoria de movimento, teste de UI com dados extremos, protótipos com seletor de variantes e Swift moderno.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Emil Kowalski Skills</h1>
+    <p class="lead">16 skills de design engineering do Emil Kowalski (ex-Vercel e Linear, criador do Sonner): animação com a curva e a duração certas, revisão e auditoria de movimento, teste de UI com dados extremos, protótipos com seletor de variantes e Swift moderno.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/emilkowalski/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">emilkowalski/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/emilkowalski/skills">emilkowalski/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://emilkowal.ski/skill">emilkowal.ski/skill</a> · <a href="https://emilkowal.ski/ui/agents-with-taste">Agents with Taste</a> · <a href="https://skills.sh/emilkowalski/skills">skills.sh</a></dd></div>
+<div><dt>Linguagem</dt><dd>Markdown</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~53k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma coleção de skills para designers e engenheiros, escrita a partir da experiência do autor na Vercel e na Linear. A ideia é que agentes não têm bom gosto. Eles erram detalhes pequenos, como usar <code>ease-in</code> numa animação de entrada (o certo é <code>ease-out</code>) ou uma borda sólida onde caberia uma sombra semitransparente. Esses detalhes se somam e decidem se a interface fica ótima ou só razoável. As skills listam esses erros e explicam como corrigir cada um.</p>
+<p>A maior parte trata de <strong>animação</strong>, mas há skills de design geral, de mobile, de Swift e da biblioteca de toasts Sonner. São só arquivos Markdown, sem scripts.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<p><strong>Animação:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>emil-design-eng</code></td>
+<td>A skill principal: filosofia de polimento de UI, componentes e decisões de animação</td>
+</tr>
+<tr>
+<td><code>animate</code></td>
+<td>Cria uma animação do zero, escolhendo curva, duração e propriedades</td>
+</tr>
+<tr>
+<td><code>animate-expo</code></td>
+<td>O mesmo padrão para React Native e Expo: gestos, sheets, haptics, transições de tela, animação fora da thread de JS</td>
+</tr>
+<tr>
+<td><code>review-animations</code></td>
+<td>Revisão rígida das animações, pelas regras do autor (só manual)</td>
+</tr>
+<tr>
+<td><code>improve-animations</code></td>
+<td>Audita todas as animações do projeto e gera planos priorizados que outro agente, até um modelo mais barato, executa. Não altera o código</td>
+</tr>
+<tr>
+<td><code>find-animation-opportunities</code></td>
+<td>Acha onde movimento ajudaria de verdade, e onde não animar</td>
+</tr>
+<tr>
+<td><code>remove-animations</code></td>
+<td>O contrário: tira animações desnecessárias, como em atalhos de teclado, fade-in em toda seção e atraso em todo tooltip</td>
+</tr>
+<tr>
+<td><code>animation-performance</code></td>
+<td>Corrige animações que perdem quadros</td>
+</tr>
+<tr>
+<td><code>animation-vocabulary</code></td>
+<td>Ensina as palavras certas para pedir animações a uma IA</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Design e UI:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apple-design</code></td>
+<td>Princípios de interface e movimento da Apple, tirados das palestras da WWDC e adaptados para a web</td>
+</tr>
+<tr>
+<td><code>mobile-native</code></td>
+<td>Faz o web app parecer nativo no celular: hover que gruda, flash de toque, bug do <code>100vh</code>, zoom em inputs, toque lento, safe areas</td>
+</tr>
+<tr>
+<td><code>break-ui</code></td>
+<td>Testa a UI com os piores dados realistas (nomes enormes, e-mails sem quebra, contagens gigantes, listas vazias, emoji, texto não latino), com um botão para alternar e a correção de cada problema</td>
+</tr>
+<tr>
+<td><code>prototype</code></td>
+<td>Cria várias versões bem diferentes de um componente com um seletor para comparar ao vivo (só manual)</td>
+</tr>
+<tr>
+<td><code>pick-ui-library</code></td>
+<td>Escolhe a biblioteca certa numa lista curada pelo autor (números, OTP, gráficos, command menu, virtualização, drag and drop, toasts, estado, estilo) em vez de deixar a IA improvisar (só manual)</td>
+</tr>
+<tr>
+<td><code>ask-sonner</code></td>
+<td>Guia do <a href="https://sonner.emilkowal.ski">Sonner</a>, a biblioteca de toasts do autor: setup, estilo, receitas e problemas comuns</td>
+</tr>
+<tr>
+<td><code>write-swift</code></td>
+<td>Swift moderno: value types, concorrência do Swift 6, generics, desempenho e Swift Testing</td>
+</tr>
+</tbody>
+</table></div>
+<p>&quot;Só manual&quot; significa que a skill tem <code>disable-model-invocation: true</code>: o agente não a ativa sozinho, você precisa chamar.</p>
+<p>O repositório também traz dois resumos rápidos, <code>ui-cheatsheet.md</code> e <code>performance-cheatsheet.md</code>, com dicas como <code>font-variant-numeric: tabular-nums</code> para números que tremem, <code>scale(0.97)</code> no <code>:active</code> de botões, animar só <code>transform</code> e <code>opacity</code>, e não usar <code>transition: all</code>.</p>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente que suporte Agent Skills, como Claude Code, Codex ou Cursor.</li>
+<li>Node.js, para a CLI <code>npx skills</code>.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Com a CLI <code>npx skills</code> (ver <a href="../02-skills-para-agentes/vercel-skills-cli.html">Vercel Skills CLI</a>):</p>
+<pre><code class="language-bash">npx skills@latest add emilkowalski/skills
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>A maioria das skills entra sozinha quando o pedido combina com ela, por exemplo &quot;review the animations&quot; ou &quot;make this app feel better&quot;. As três manuais (<code>prototype</code>, <code>pick-ui-library</code> e <code>review-animations</code>) são chamadas pelo nome, como <code>/prototype</code> no Claude Code.</p>
+<p>Chamadas sem uma pergunta, as skills só respondem que estão prontas e esperam o pedido.</p>
+<p>Exemplos de pedido:</p>
+<pre><code class="language-text">/prototype a hold-to-delete button
+/pick-ui-library I need toasts
+Try the worst case on this user card.
+Audit the motion in this app and give me a plan.
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Ao criar ou revisar animações e microinterações num app React, React Native ou web.</li>
+<li>Para deixar um web app com sensação de app nativo no celular.</li>
+<li>Para testar componentes com dados reais e feios antes de publicar.</li>
+<li>Comparação: o <a href="impeccable.html">Impeccable</a> e a <a href="taste-skill.html">Taste Skill</a> cuidam da direção visual e da página inteira. Estas skills cuidam do acabamento, sobretudo de movimento. A skill <code>web-design-guidelines</code> do <a href="../02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a> é uma lista de regras de revisão de UI, mais ampla e menos opinativa.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Opinativo:</strong> as regras e a lista de bibliotecas são escolhas pessoais do autor. A <code>pick-ui-library</code> evita sair da lista, mas confere primeiro o <code>package.json</code> e não troca uma dependência existente sem você pedir.</li>
+<li><strong>Contexto:</strong> algumas skills são longas. A <code>write-swift</code> tem cerca de 42 KB e a <code>emil-design-eng</code> cerca de 27 KB, e isso pesa no contexto quando são carregadas.</li>
+<li>O autor divulga uma newsletter para acompanhar novas skills (<a href="https://aiforui.dev/skills">aiforui.dev</a>).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/emilkowalski/skills#readme">README</a></li>
+<li><a href="https://emilkowal.ski/skill">Página das skills</a> · <a href="https://emilkowal.ski/ui/agents-with-taste">Artigo &quot;Agents with Taste&quot;</a></li>
+<li><a href="https://github.com/emilkowalski/skills/blob/main/skills/emil-design-eng/SKILL.md">emil-design-eng</a> · <a href="https://github.com/emilkowalski/skills/tree/main/skills">Pasta de skills</a></li>
+<li><a href="https://github.com/emilkowalski/skills/blob/main/ui-cheatsheet.md">UI cheatsheet</a> · <a href="https://github.com/emilkowalski/skills/blob/main/performance-cheatsheet.md">Performance cheatsheet</a></li>
+<li><a href="https://sonner.emilkowal.ski">Sonner</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

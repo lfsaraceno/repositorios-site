@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antigravity Skill Vault · Repositórios favoritos</title>
+<meta name="description" content="Coleção curada com mais de 300 Agent Skills para o Google Antigravity, portadas do repositório de agentes do Claude Code (wshobson/agents), com CLI para instalar só o que você precisa.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Antigravity Skill Vault</h1>
+    <p class="lead">Coleção curada com mais de 300 Agent Skills para o Google Antigravity, portadas do repositório de agentes do Claude Code (wshobson/agents), com CLI para instalar só o que você precisa.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/rmyndharis/antigravity-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">rmyndharis/antigravity-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/rmyndharis/antigravity-skills">rmyndharis/antigravity-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/rmyndharis/antigravity-skills">github.com/rmyndharis/antigravity-skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~1,8k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Antigravity Skill Vault transforma o ecossistema de agentes e comandos do Claude Code em <em>skills</em> no formato do Google Antigravity. Cada skill é uma pasta com instruções que ensinam o agente a executar uma tarefa específica, como gerar manifestos Kubernetes, desenhar uma API REST ou revisar segurança.</p>
+<p>As skills vêm de três origens: skills de domínio (ex.: <code>k8s-manifest-generator</code>), agentes especialistas (ex.: <code>backend-architect</code>, <code>security-auditor</code>) e comandos/fluxos de trabalho em várias etapas (ex.: <code>conductor-implement</code>). O Antigravity carrega apenas nome e descrição de cada skill instalada no início da sessão e ativa a skill quando seu pedido combina com a descrição.</p>
+<p>Por isso o projeto recomenda instalação seletiva: quanto mais skills instaladas, mais tokens gastos e maior a chance de ativações irrelevantes. Há um catálogo gerado (<code>CATALOG.md</code>, <code>catalog.json</code>), pacotes temáticos (bundles) e um CLI via npm para buscar e instalar.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Mais de 300 skills em desenvolvimento, infraestrutura, segurança, qualidade, dados e IA.</li>
+<li>CLI em npm (<code>@rmyndharis/antigravity-skills</code>) com <code>search</code>, <code>list</code>, <code>install</code>, <code>installed</code>, <code>update</code>, <code>doctor</code> e <code>stats</code>.</li>
+<li>Instalação por skill, por tag (<code>--tag</code>) ou por bundle (<code>--bundle</code>): <code>core-dev</code>, <code>security-core</code>, <code>k8s-core</code>, <code>data-core</code>, <code>ops-core</code>.</li>
+<li>Escopo de workspace (<code>.agent/skills/</code>) ou global (<code>--global</code>, <code>~/.gemini/antigravity/skills/</code>), com override pela variável <code>AG_SKILLS_DIR</code>.</li>
+<li>Skill gerenciadora <code>antigravity-skills-manager</code>, invocável com <code>/antigravity-skills-manager</code>.</li>
+<li>Aliases curtos (<code>aliases.json</code>) para nomes longos de skills.</li>
+<li>Instalação não sobrescreve skill existente, a menos que use <code>--force</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js e npm (o README exige, sem citar versão mínima).</li>
+<li>Google Antigravity (IDE, app ou CLI <code>agy</code>) para usar as skills.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Instale a skill gerenciadora e verifique:</p>
+<pre><code class="language-bash">npx @rmyndharis/antigravity-skills install antigravity-skills-manager
+npx @rmyndharis/antigravity-skills doctor
+npx @rmyndharis/antigravity-skills installed
+</code></pre>
+<p>Depois, inicie uma nova sessão do Antigravity.</p>
+<p>Para instalar o executável <code>ag-skills</code> globalmente no PATH:</p>
+<pre><code class="language-bash">npm install --global @rmyndharis/antigravity-skills
+ag-skills install antigravity-skills-manager
+</code></pre>
+<p>Para escolher outro diretório de destino:</p>
+<pre><code class="language-bash">AG_SKILLS_DIR=.agents/skills npx @rmyndharis/antigravity-skills install bash-pro
+</code></pre>
+<p>O README também descreve a instalação via <code>agy plugin install</code> (marcada como experimental) e o uso a partir de um clone do repositório (<code>node /caminho/absoluto/antigravity-skills/bin/cli.js ...</code>).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">npx @rmyndharis/antigravity-skills search kubernetes      # busca skills por termo
+npx @rmyndharis/antigravity-skills list                   # lista todas as skills
+npx @rmyndharis/antigravity-skills install bash-pro       # instala uma skill no projeto atual
+npx @rmyndharis/antigravity-skills install bash-pro --global   # instala no escopo global
+npx @rmyndharis/antigravity-skills install --tag kubernetes    # instala por tag
+npx @rmyndharis/antigravity-skills install --bundle core-dev   # instala um bundle
+npx @rmyndharis/antigravity-skills update                 # atualiza todas as skills instaladas
+npx @rmyndharis/antigravity-skills doctor                 # diagnostica a instalação
+</code></pre>
+<p>Exemplos de pedidos que ativam skills automaticamente:</p>
+<ul>
+<li>&quot;Help me design a REST API for a user service&quot; ativa <code>api-design-principles</code> e <code>backend-architect</code>.</li>
+<li>&quot;Review this PR for security issues&quot; ativa <code>security-scanning-security-hardening</code> ou <code>security-auditor</code>.</li>
+</ul>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Você usa o Google Antigravity e quer skills prontas de arquitetura, DevOps e segurança.</li>
+<li>Quer instalar apenas pacotes temáticos (ex.: Kubernetes) em vez de carregar tudo.</li>
+<li>Precisa de fluxos estruturados de várias etapas, como o Conductor.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><code>install --all</code> é desaconselhado: aumenta o uso de tokens e pode disparar skills não relacionadas.</li>
+<li><code>update</code> e <code>install --force</code> substituem a pasta da skill inteira e descartam edições locais. Faça backup antes.</li>
+<li>O destino padrão atual é <code>.agents/skills/</code>; o caminho <code>.agent/skills/</code> é mantido por compatibilidade.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/rmyndharis/antigravity-skills">README do projeto</a></li>
+<li><a href="https://github.com/rmyndharis/antigravity-skills/blob/main/CATALOG.md">Catálogo (CATALOG.md)</a></li>
+<li><a href="https://www.antigravity.google/docs/skills/">Documentação de locais de skills do Antigravity</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

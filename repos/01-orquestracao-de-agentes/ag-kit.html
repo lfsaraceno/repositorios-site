@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AG Kit (Antigravity Kit) · Repositórios favoritos</title>
+<meta name="description" content="Kit de engenharia de agentes focado no Google Antigravity, com regras, skills, agentes especialistas, workflows, memória persistente e hook de segurança.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>AG Kit (Antigravity Kit)</h1>
+    <p class="lead">Kit de engenharia de agentes focado no Google Antigravity, com regras, skills, agentes especialistas, workflows, memória persistente e hook de segurança.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/vudovn/ag-kit">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">vudovn/ag-kit</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/vudovn/ag-kit">vudovn/ag-kit</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://ag-kit.unikorn.vn">ag-kit.unikorn.vn</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~8k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O AG Kit instala no seu projeto um contrato de workspace <code>.agents/</code> completo: regras, skills, agentes especialistas, workflows (comandos slash), tópicos de memória e um hook nativo de segurança. O runtime de produção suportado é o Google Antigravity; outras ferramentas podem ler os arquivos Markdown, mas o comportamento fora do Antigravity não é garantido.</p>
+<p>Os componentes são em Markdown, com versionamento SemVer, manifesto e lockfile para detectar divergências. A orquestração acontece por comandos como <code>/coordinate</code> e <code>/orchestrate</code>, combinados com <code>/agents</code> e <code>/tasks</code> do Antigravity.</p>
+<p>É para quem usa o Antigravity e quer um conjunto estruturado e revisável de práticas de agentes por projeto.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>20 agentes especialistas, 47 skills, 13 workflows e 6 regras (contagens do README).</li>
+<li>Memória persistente em <code>.agents/memory/</code> (convenções, decisões, preferências, feedback).</li>
+<li>Hook <code>PreToolUse</code> que bloqueia comandos destrutivos de alta confiança (apagar raiz, formatar disco, sobrescrever disco bruto), sem atrapalhar limpezas normais como <code>dist/</code>.</li>
+<li>Atualização com merge seguro, backup e rollback (<code>ag-kit update</code>, <code>ag-kit rollback</code>).</li>
+<li>Sincronização de MCP explícita e com backup (<code>sync-mcp.mjs</code>).</li>
+<li>Empacotamento como plugin local do Antigravity, com inventário SHA-256.</li>
+<li>Verificações: <code>check:agents</code>, <code>check:antigravity</code>, <code>test:antigravity</code> e o Antigravity Doctor.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 22 ou superior para as ferramentas de repositório do Antigravity (o CLI publicado aceita Node 18 ou superior).</li>
+<li>Python 3.10 ou superior para validadores e scripts.</li>
+<li>Workspace confiável do Google Antigravity.</li>
+<li>Git, para atualização, revisão e rollback.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx @vudovn/ag-kit init
+</code></pre>
+<p>Ou globalmente:</p>
+<pre><code class="language-bash">npm install -g @vudovn/ag-kit
+ag-kit init
+</code></pre>
+<p>Não coloque <code>.agents/</code> no <code>.gitignore</code> se o Antigravity precisa indexá-lo; para manter local, use <code>.git/info/exclude</code>.</p>
+<p>Verifique o workspace:</p>
+<pre><code class="language-bash">npm run check:agents
+npm run check:antigravity
+npm run test:antigravity
+</code></pre>
+<p>Abra o repositório no Antigravity como workspace confiável e confirme que <code>/plan</code>, <code>/coordinate</code> e <code>/orchestrate</code> foram descobertos.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">ag-kit update --dry-run
+</code></pre>
+<p>Mostra o plano de atualização sem aplicar.</p>
+<pre><code class="language-bash">ag-kit update
+</code></pre>
+<p>Atualiza com merge seguro e cria backup.</p>
+<pre><code class="language-bash">ag-kit rollback
+</code></pre>
+<p>Restaura o backup mais recente anterior à atualização.</p>
+<pre><code class="language-bash">node .agents/hooks/sync-mcp.mjs --check
+</code></pre>
+<p>Revisa o plano de configuração MCP sem escrever no diretório home.</p>
+<pre><code class="language-bash">npm run build:antigravity-plugin
+</code></pre>
+<p>Gera o bundle em <code>dist/antigravity-plugin/</code>, instalável com <code>agy plugin install ./dist/antigravity-plugin</code>.</p>
+<p>Workflows no chat do agente: <code>/brainstorm</code>, <code>/plan</code>, <code>/create</code>, <code>/enhance</code>, <code>/debug</code>, <code>/test</code>, <code>/verify</code>, <code>/deploy</code>, <code>/coordinate</code>, <code>/orchestrate</code>, <code>/preview</code>, <code>/remember</code>, <code>/status</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Projetos no Google Antigravity que precisam de agentes especialistas e fluxos repetíveis.</li>
+<li>Equipes que querem atualizações revisáveis e reversíveis das regras de agentes.</li>
+<li>Quando você quer um hook de segurança básico contra comandos destrutivos.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O suporte de produção é apenas para o Antigravity.</li>
+<li>O exemplo de MCP contém <code>YOUR_API_KEY</code>; o doctor avisa até você configurar. Nunca versione credenciais reais.</li>
+<li>O hook de segurança é propositalmente estreito e não substitui permissões, sandbox ou aprovação humana.</li>
+<li>Nada é mesclado, implantado ou sincronizado automaticamente.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/vudovn/ag-kit">README</a></li>
+<li><a href="https://github.com/vudovn/ag-kit/blob/main/MIGRATION.md">Guia de migração</a></li>
+<li><a href="https://github.com/vudovn/ag-kit/blob/main/PRODUCTION_CHECKLIST.md">Checklist de produção</a></li>
+<li><a href="https://github.com/vudovn/ag-kit/blob/main/SECURITY.md">Segurança</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

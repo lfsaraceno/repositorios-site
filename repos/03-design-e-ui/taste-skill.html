@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taste Skill · Repositórios favoritos</title>
+<meta name="description" content="Skill que dá &quot;bom gosto&quot; de design ao agente de código: escolhe uma direção de arte, usa fotos reais de acervos abertos e confere a página num navegador de verdade, em vez de montar a landing page genérica de IA.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Taste Skill</h1>
+    <p class="lead">Skill que dá &quot;bom gosto&quot; de design ao agente de código: escolhe uma direção de arte, usa fotos reais de acervos abertos e confere a página num navegador de verdade, em vez de montar a landing page genérica de IA.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Leonxlnx/taste-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Leonxlnx/taste-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Leonxlnx/taste-skill">Leonxlnx/taste-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://tasteskill.dev">tasteskill.dev</a> · <a href="https://github.com/Leonxlnx/taste-skill/blob/main/CHANGELOG.md">Changelog</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (scripts em Node)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~107k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>A Taste Skill é uma Agent Skill (instalada como <code>design-taste-frontend</code>) para o agente desenhar sites e telas de app com cara de projeto de designer. A versão 2 foi construída a partir do estudo de 247 sites selecionados. Cada construção segue seis passos:</p>
+<ol>
+<li>Lê o briefing e lista o que só aquele cliente tem.</li>
+<li>Um script sorteia três de 20 direções de arte pesquisadas, e o agente escolhe uma.</li>
+<li>Acha a ideia: uma frase que liga o material do cliente à direção escolhida.</li>
+<li>Constrói com fotos e vídeos reais de acervos abertos, com os créditos na página.</li>
+<li>Confere a página num navegador real em três larguras e reprova o que tiver cara de &quot;slop&quot;.</li>
+<li>Olha os próprios screenshots e corrige os três maiores problemas, em até três rodadas.</li>
+</ol>
+<p>A partir da v2.1, dashboards e telas de app têm um caminho próprio: estilos tirados de telas de produtos reais, painéis discretos, números alinhados, cor reservada para os dados e navegação que se recolhe no celular. A v2.1 também confere o enquadramento de cada página e usa movimentos medidos nos 100 últimos &quot;Sites of the Day&quot; do Awwwards.</p>
+<p>O mesmo autor lançou o <strong>TasteCode</strong> (<a href="https://tastecode.dev">tastecode.dev</a>), um app desktop gratuito e open source com a Taste Skill e um agente de design embutido.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Direções de arte</strong> sorteadas de uma biblioteca em JSON (paletas, tipografia, heroes, seções, movimentos e fotos).</li>
+<li><strong>Imagens reais</strong> de acervos como Wikimedia Commons, Openverse e o Met. Só oferece arquivos em domínio público, CC0, CC BY e CC BY-SA, e coloca os créditos na página.</li>
+<li><strong>Checagem no navegador</strong> (Chrome, Edge ou Chromium) em três larguras, com regras contra clichês de IA. Telas de app usam <code>inspect.mjs --app</code>.</li>
+<li><strong>Auditoria de página existente:</strong> antes de mexer num site pronto, analisa a página no navegador. Isso substitui a antiga skill <code>redesign-existing-projects</code>.</li>
+<li>Funciona com React, Vue, Svelte ou HTML puro, porque as regras são de design e não de framework.</li>
+<li>Não instala nada no sistema e não precisa de chave de API.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Node.js 22+</strong>.</li>
+<li><strong>Chrome, Edge ou Chromium</strong> instalado.</li>
+<li>Acesso à internet, só para buscar imagens.</li>
+<li>Um agente que suporte Agent Skills, como Claude Code, Codex ou Cursor.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Com a CLI <code>npx skills</code> (ver <a href="../02-skills-para-agentes/vercel-skills-cli.html">Vercel Skills CLI</a>):</p>
+<pre><code class="language-bash">npx skills add https://github.com/Leonxlnx/taste-skill --skill &quot;design-taste-frontend&quot;
+</code></pre>
+<p><strong>Como plugin do Claude Code</strong> (a skill fica com o prefixo <code>taste-skill:</code>, sem conflito com outras skills):</p>
+<pre><code class="language-text">/plugin marketplace add Leonxlnx/taste-skill
+/plugin install taste-skill@taste-skill
+</code></pre>
+<p>Para atualizar depois, use <code>/plugin update</code>.</p>
+<p><strong>Como plugin do Codex:</strong></p>
+<pre><code class="language-bash">codex plugin marketplace add Leonxlnx/taste-skill
+codex plugin add taste-skill@taste-skill
+</code></pre>
+<p>Depois, abra uma nova sessão do Codex.</p>
+<p><strong>A partir de um clone:</strong> o <code>./install.sh</code> cria um link da skill no Claude Code. Use <code>--codex</code> para o Codex ou <code>--all-agents</code> para os dois. Assim, um <code>git pull</code> já atualiza a skill.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça ao agente uma página ou tela em linguagem natural, por exemplo um site para uma cafeteria ou um dashboard administrativo. A skill entra sozinha nas tarefas de frontend visual.</p>
+<p>Uma construção completa leva <strong>de 30 a 45 minutos e algumas centenas de milhares de tokens</strong>.</p>
+<p><strong>Skills antigas que saíram deste repositório</strong> (os nomes de instalação continuam os mesmos):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Nome de instalação</th>
+<th>Onde está agora</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>high-end-visual-design</code>, <code>minimalist-ui</code>, <code>industrial-brutalist-ui</code>, <code>gpt-taste</code>, <code>stitch-design-taste</code>, <code>design-taste-frontend-v1</code>, <code>design-taste-frontend-v2-experimental</code></td>
+<td><a href="https://github.com/Leonxlnx/taste-skill-classics">Leonxlnx/taste-skill-classics</a></td>
+</tr>
+<tr>
+<td><code>imagegen-frontend-web</code>, <code>imagegen-frontend-mobile</code>, <code>brandkit</code>, <code>image-to-code</code></td>
+<td><a href="https://github.com/Leonxlnx/imagegen-skills">Leonxlnx/imagegen-skills</a> (ver <a href="imagegen-skills.html">Imagegen Skills</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-bash">npx skills add https://github.com/Leonxlnx/taste-skill-classics --skill &quot;high-end-visual-design&quot;
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Landing pages, sites institucionais e páginas de produto em que a qualidade visual importa.</li>
+<li>Dashboards e telas de app com cara de produto real.</li>
+<li>Revisar e melhorar um site que já existe.</li>
+<li>Comparação: o <a href="impeccable.html">Impeccable</a> dá ao agente vocabulário de design e comandos de crítica e polimento. A Taste Skill conduz a construção inteira, da direção de arte à checagem no navegador. O <a href="ui-ux-pro-max-skill.html">UI UX Pro Max</a> é uma base de estilos e paletas para consulta. A mesma ideia aplicada a vídeo é o <a href="../02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Custo:</strong> cada construção consome algumas centenas de milhares de tokens. Num plano pago por uso, isso pesa.</li>
+<li><strong>Imagens de terceiros:</strong> as fotos têm licença aberta, mas CC BY e CC BY-SA exigem crédito, e CC BY-SA exige que obras derivadas usem a mesma licença. Mantenha os créditos que a skill coloca, ou troque pelas suas imagens.</li>
+<li><strong>Golpe de cripto:</strong> o autor avisa que a Taste Skill não tem token, moeda nem projeto de cripto. Qualquer token com o nome dele é falso.</li>
+<li>Projeto muito ativo. O último release é o v2.1.5, de out/2026.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Leonxlnx/taste-skill#readme">README</a> · <a href="https://tasteskill.dev">Site</a></li>
+<li><a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">SKILL.md</a> · <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/research.md">Estudo dos 247 sites</a></li>
+<li><a href="https://github.com/Leonxlnx/taste-skill/blob/main/CHANGELOG.md">Changelog</a> · <a href="https://github.com/Leonxlnx/taste-skill/releases">Releases</a></li>
+<li><a href="https://tastecode.dev">TasteCode (app desktop)</a></li>
+<li><a href="https://github.com/Leonxlnx/taste-skill-classics">Skills clássicas</a> · <a href="https://github.com/Leonxlnx/imagegen-skills">Imagegen Skills</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

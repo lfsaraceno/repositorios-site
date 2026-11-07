@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Superpowers · Repositórios favoritos</title>
+<meta name="description" content="Framework de skills e metodologia de desenvolvimento para agentes de código: brainstorming, planos, TDD, subagentes e revisão de forma automática.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>Superpowers</h1>
+    <p class="lead">Framework de skills e metodologia de desenvolvimento para agentes de código: brainstorming, planos, TDD, subagentes e revisão de forma automática.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/obra/superpowers">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">obra/superpowers</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/obra/superpowers">obra/superpowers</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://blog.fsck.com/2025/10/09/superpowers/">Anúncio original</a></dd></div>
+<div><dt>Linguagem</dt><dd>Shell</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~301k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Superpowers é uma metodologia completa de desenvolvimento de software para agentes de código, implementada como um conjunto de skills combináveis mais instruções iniciais que garantem que o agente as use. Como as skills disparam automaticamente, você não precisa fazer nada de especial: o agente simplesmente &quot;tem Superpowers&quot;.</p>
+<p>O fluxo começa antes de qualquer código: o agente pergunta o que você realmente quer, extrai uma especificação e a mostra em pedaços fáceis de ler. Depois de aprovada, gera um plano de implementação detalhado e executa tarefa por tarefa com subagentes, revisão e TDD de verdade (RED-GREEN-REFACTOR), seguindo YAGNI e DRY.</p>
+<p>Foi criado por Jesse Vincent e pela Prime Radiant, e funciona em muitos harnesses (Claude Code, Codex, Cursor, Gemini CLI, Copilot CLI, OpenCode e outros).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Skills disparadas automaticamente antes de cada tarefa, como fluxos obrigatórios e não sugestões.</li>
+<li><code>brainstorming</code>: levanta a intenção e produz um design aprovado antes de codar.</li>
+<li><code>writing-plans</code>: divide o trabalho em tarefas de 2 a 5 minutos com caminhos de arquivo, código e verificação.</li>
+<li><code>subagent-driven-development</code> e <code>executing-plans</code>: execução com subagente por tarefa ou inline.</li>
+<li><code>test-driven-development</code>: aplica RED-GREEN-REFACTOR e descarta código escrito antes dos testes.</li>
+<li><code>systematic-debugging</code> e <code>verification-before-completion</code>: depuração em 4 fases e prova antes de declarar sucesso.</li>
+<li><code>using-git-worktrees</code>, <code>requesting-code-review</code>, <code>finishing-a-development-branch</code>.</li>
+<li><code>diagnosing-superpowers</code>: analisa uma sessão que deu errado, com evidências.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um dos agentes de código suportados (Claude Code, Codex, Cursor, Gemini CLI, Copilot CLI, OpenCode, Antigravity, Qwen Code, Hermes e outros).</li>
+<li>A instalação é feita separadamente em cada harness que você usar.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code-marketplace-oficial">Claude Code (marketplace oficial)</h3>
+<pre><code class="language-bash">/plugin install superpowers@claude-plugins-official
+</code></pre>
+<h3 id="claude-code-marketplace-do-superpowers">Claude Code (marketplace do Superpowers)</h3>
+<pre><code class="language-bash">/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
+</code></pre>
+<h3 id="outros-agentes">Outros agentes</h3>
+<pre><code class="language-bash"># Gemini CLI
+gemini extensions install https://github.com/obra/superpowers
+
+# Antigravity
+agy plugin install https://github.com/obra/superpowers
+
+# Devin CLI
+devin plugins install obra/superpowers
+
+# Qwen Code
+qwen extensions install obra/superpowers
+
+# Hermes Agent
+hermes plugins install obra/superpowers --enable
+
+# Pi
+pi install git:github.com/obra/superpowers
+</code></pre>
+<p>No Cursor, use <code>/add-plugin superpowers</code> no chat do agente. No Codex (app e CLI) instale pelo marketplace oficial de plugins (<code>/plugins</code>, busque &quot;superpowers&quot;). Para Copilot CLI, Factory Droid, Grok Build, Kimi Code, OpenCode e Muse, veja o README do repositório.</p>
+<h3 id="atualizacao">Atualização</h3>
+<p>Depende do agente e costuma ser automática; no Gemini CLI, por exemplo, <code>gemini extensions update superpowers</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Não há comandos a memorizar: as skills ativam sozinhas. Para testar a instalação, abra uma sessão nova e envie:</p>
+<pre><code class="language-text">Let's make a react todo list
+</code></pre>
+<p>Uma instalação funcional dispara <code>brainstorming</code> antes de qualquer código.</p>
+<pre><code class="language-text">figure out what went wrong with superpowers in this session
+</code></pre>
+<p>Invoca a skill <code>diagnosing-superpowers</code> para investigar uma sessão problemática.</p>
+<p>Fluxo básico: brainstorming, worktree isolada, plano, execução com subagentes, TDD, revisão entre tarefas e finalização do branch.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Projetos novos em que você quer design e plano aprovados antes do código.</li>
+<li>Execução longa e autônoma (o README fala em horas sem desvio do plano).</li>
+<li>Equipes que querem disciplina de TDD e revisão em dois estágios (conformidade com a spec e qualidade).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O projeto não costuma aceitar contribuições de novas skills.</li>
+<li>Há telemetria opcional mínima: o logotipo do &quot;visual companion&quot; é carregado do site e informa a versão. Desative com <code>SUPERPOWERS_DISABLE_TELEMETRY</code> (também respeita <code>DISABLE_TELEMETRY</code> do Claude Code).</li>
+<li>Há oferta de serviços comerciais para empresas (contato no README).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/obra/superpowers">README</a></li>
+<li><a href="https://blog.fsck.com/2025/10/09/superpowers/">Anúncio de lançamento</a></li>
+<li><a href="https://discord.gg/35wsABTejz">Discord</a></li>
+<li><a href="https://github.com/obra/superpowers/issues">Issues</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

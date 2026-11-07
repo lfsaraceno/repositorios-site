@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REA (Reverse Engineer Anything) · Repositórios favoritos</title>
+<meta name="description" content="Servidor MCP e CLI que conecta agentes de IA a ferramentas de engenharia reversa para inspecionar binários nativos, apps JavaScript/Electron, assemblies .NET, APKs, sites e comportamento em execução.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>REA (Reverse Engineer Anything)</h1>
+    <p class="lead">Servidor MCP e CLI que conecta agentes de IA a ferramentas de engenharia reversa para inspecionar binários nativos, apps JavaScript/Electron, assemblies .NET, APKs, sites e comportamento em execução.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/morluto/rea">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">morluto/rea</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/morluto/rea">morluto/rea</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://rea.tools/">rea.tools</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~318k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>REA é um MCP único para engenharia reversa. Você pede ao agente que investigue um recurso de um aplicativo; o REA inspeciona o alvo sem precisar do código-fonte, devolve as conclusões com as evidências e limitações, e o agente usa isso para explicar o comportamento ou escrever e testar uma implementação própria.</p>
+<p>A análise roda localmente. Para binários nativos, o REA usa um motor já instalado (Hopper, <a href="ghidra.html">Ghidra</a> ou IDA); a análise estática de JavaScript não precisa de motor nativo. Os mesmos fluxos podem ser usados pelo terminal.</p>
+<p>O README alerta para obter o REA apenas de fontes oficiais (repositório morluto/rea, rea.tools ou o pacote npm <code>rea-agents</code>), pois nomes parecidos não garantem um download legítimo.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Servidor MCP com catálogo gerado de ferramentas e prompts guiados de investigação</li>
+<li>Binários nativos: pseudocódigo, assembly, strings, símbolos, chamadas e referências (Hopper, Ghidra ou IDA)</li>
+<li>JavaScript/Electron: módulos, imports, source maps, rotas, IPC e add-ons nativos</li>
+<li>Assemblies .NET, APKs Android (via JADX), apps Flutter, firmware (Binwalk/Unblob) e bancos SQLite</li>
+<li>Websites, capturas de rede (HAR, SAZ) e capturas de pacotes (TShark)</li>
+<li>Resultados acompanhados das evidências e das limitações de cada conclusão</li>
+<li>Setup automatizado para Claude Code, Codex, Cursor, Gemini CLI, Grok Build e outros agentes</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 22.x (&gt;=22.19), 24.x (&gt;=24.11) ou 26+, com npm</li>
+<li>Motor de análise nativa conforme o alvo: Hopper, Ghidra ou IDA (o setup pode instalar o Hopper com sua aprovação)</li>
+<li>Para APKs: JADX headless e um JDK completo; para sites: um navegador da família Chrome</li>
+<li>No Linux: um <code>ps</code> compatível com procps no PATH (necessário para Ghidra, JADX, ferramentas de firmware e análise estática de JavaScript/Electron)</li>
+<li>Outras ferramentas dependem do alvo (pwntools, WABT, TShark, adb etc.), conforme a tabela do README</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="configurar-o-agente">Configurar o agente</h3>
+<pre><code class="language-bash">npx rea-agents setup
+</code></pre>
+<p>Escolha os agentes, revise as mudanças propostas e aprove. O setup registra o servidor MCP e instruções de fluxo de trabalho, com backup da configuração existente. Reinicie o agente depois.</p>
+<h3 id="cli-global-opcional">CLI global (opcional)</h3>
+<pre><code class="language-bash">npm install --global rea-agents
+rea --help
+</code></pre>
+<h3 id="atualizar">Atualizar</h3>
+<pre><code class="language-bash">rea update
+# ou, se usa npx:
+npx rea-agents@latest setup
+</code></pre>
+<p>Com Bun, use <code>bunx rea-agents@latest</code> no lugar de <code>npx rea-agents@latest</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Prompt para o agente:</p>
+<pre><code class="language-text">Understand how search works in the Notes app, show me the evidence, and build a
+similar feature for my project.
+</code></pre>
+<p>Análise estática de um app JavaScript/Electron (diretório extraído ou ASAR) pelo terminal:</p>
+<pre><code class="language-bash">npx -y rea-agents@latest analyze-javascript-application /caminho/absoluto/do/app --json
+</code></pre>
+<p>O resultado inclui módulos, imports, fronteiras do Electron e evidências. Para análise nativa, configure antes um provedor; veja o guia de CLI e Evidence do repositório (<code>docs/cli.md</code>).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Entender como um recurso de um app funciona quando você não tem o código-fonte, para fins de interoperabilidade ou aprendizado</li>
+<li>Analisar software próprio ou autorizado: auditoria de binários, APKs e apps Electron</li>
+<li>Preservação e estudo de software, e pesquisa em segurança defensiva</li>
+<li>Documentar comportamento de sistemas legados</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Uso responsável: o projeto destina-se a pesquisa lícita, educação, interoperabilidade, preservação de software e análise de software que você possui ou está autorizado a examinar. Veja o <code>DISCLAIMER.md</code> do repositório.</li>
+<li>A análise estática de JavaScript e .NET lê os arquivos sem executá-los; a captura em tempo de execução executa ou interage com o alvo com as permissões do seu usuário, então analise amostras desconhecidas em ambiente isolado.</li>
+<li>O REA muda rápido; mantenha-o atualizado.</li>
+<li>Alguns recursos dependem de ferramentas de terceiros com termos próprios (Hopper, IDA etc.); o REA não instala nem atualiza provedores como GNU objdump e Rizin.</li>
+<li>Vulnerabilidades do próprio REA devem ser reportadas via <code>SECURITY.md</code>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/morluto/rea#readme">README</a></li>
+<li><a href="https://rea.tools/guides/">Site e guias</a></li>
+<li><a href="https://github.com/morluto/rea/blob/main/docs/installation.md">Instalação e setup</a></li>
+<li><a href="https://github.com/morluto/rea/blob/main/docs/cli.md">CLI e Evidence</a></li>
+<li><a href="https://github.com/morluto/rea/blob/main/docs/mcp-contracts.md">Contratos MCP e catálogo de ferramentas</a></li>
+<li><a href="https://www.npmjs.com/package/rea-agents">Pacote npm rea-agents</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/anthropic-cybersecurity-skills.html">Anthropic Cybersecurity Skills</a></li>
+<li><a href="../../repos/06-seguranca/ghidra.html">Ghidra</a></li>
+<li><a href="../../repos/06-seguranca/pentagi.html">PentAGI</a></li>
+<li><a href="../../repos/06-seguranca/phoneintel.html">PhoneIntel</a></li>
+<li><a href="../../repos/06-seguranca/raptor.html">RAPTOR</a></li>
+<li><a href="../../repos/06-seguranca/security-audit-skill.html">Security Audit Skill (Cloudflare)</a></li>
+<li><a href="../../repos/06-seguranca/trailofbits-skills.html">Trail of Bits Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

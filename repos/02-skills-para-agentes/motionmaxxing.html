@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>motionmaxxing · Repositórios favoritos</title>
+<meta name="description" content="Skill para agentes (Claude Code e outros) que cria vídeos de motion graphics com cara de motion designer profissional: captura a marca pelo site, acha uma ideia, anima em HTML + GSAP, renderiza e se autoavalia com scripts.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>motionmaxxing</h1>
+    <p class="lead">Skill para agentes (Claude Code e outros) que cria vídeos de motion graphics com cara de motion designer profissional: captura a marca pelo site, acha uma ideia, anima em HTML + GSAP, renderiza e se autoavalia com scripts.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Tejashmakwana/motionmaxxing">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Tejashmakwana/motionmaxxing</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Tejashmakwana/motionmaxxing">Tejashmakwana/motionmaxxing</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/Tejashmakwana/motionmaxxing#readme">README</a> · <a href="https://github.com/Tejashmakwana/motionmaxxing/blob/main/docs/HOW-IT-WAS-BUILT.md">Como foi construído</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (Node) + Python</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0 (o GSAP embutido tem licença própria, ver Observações)</dd></div>
+<div><dt>Estrelas</dt><dd>~1,1k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O motionmaxxing (&quot;looksmaxxing para motion graphics&quot;) é uma skill que faz o agente produzir <strong>filmes de lançamento, promos de produto, vinhetas de marca e peças de tipografia cinética</strong>. A promessa é sair do vídeo &quot;slop&quot; de IA, que parece um slide que se mexe, e chegar a um resultado que pareça feito por um motion designer.</p>
+<p>O fluxo:</p>
+<ol>
+<li>Você dá a URL de um site.</li>
+<li>A skill captura a marca: cores, fontes, logo oficial, textos e telas.</li>
+<li>Procura uma ideia que só aquela marca poderia ter e monta um storyboard. Você aprova antes da construção.</li>
+<li>Anima em HTML puro com um runtime sobre GSAP, usando 12 curvas de easing medidas quadro a quadro em 53 trechos de vídeos profissionais.</li>
+<li>Renderiza o MP4 localmente com Chrome e ffmpeg.</li>
+<li>Confere o resultado com <strong>portões automáticos (G0 a G5)</strong>, em vez de simplesmente dizer que ficou bom.</li>
+</ol>
+<p>Com uma chave da ElevenLabs, também escreve e grava a narração, coloca música e efeitos sonoros e sincroniza o corte com a voz.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Captura de marca</strong> a partir de um site (<code>brand.mjs</code>) e busca do logo oficial (<code>fetch_logo.mjs</code>, que nunca redesenha um logo).</li>
+<li><strong>Runtime <code>motion.js</code></strong> sobre GSAP, sem build. As 12 curvas têm nome (<code>softLand</code>, <code>snapSettle</code>, <code>accelExit</code>...). Qualquer quadro pode ser renderizado direto, e o <code>Motion.selfTest</code> verifica isso.</li>
+<li><strong><code>hero3d</code>:</strong> objeto 3D com Three.js (logo extrudado, moeda, vidro, celular), com luz e profundidade.</li>
+<li><strong><code>native-ui</code>:</strong> elementos de iOS em proporção real (celular, tela de bloqueio, notificações).</li>
+<li><strong>Portões de qualidade:</strong>
+<ul>
+<li>G0: o vídeo existe e tem movimento;</li>
+<li>G2: sem quadros parados em sequência;</li>
+<li>G3: cartão final curto;</li>
+<li>G5: lint de &quot;page chrome&quot;, que reprova rótulos no canto, contadores, timecodes, layout de slide e cards genéricos;</li>
+<li>G1 e G4 são avaliados no olho.</li>
+</ul>
+</li>
+<li><strong>Lista &quot;Never ship&quot;</strong> do que a IA costuma errar: textos de slogan, estatísticas inventadas, fade em tudo, fundo chapado em cada cena.</li>
+<li>Narração, música e efeitos via ElevenLabs, e mixagem em -14 LUFS (<code>mix.py</code>).</li>
+<li>Página de comparação A/B às cegas entre versões (<code>blind_review.py</code>).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Node.js 22+</strong>, <strong>Python 3.9+</strong>, <strong>ffmpeg</strong> e <strong>Google Chrome</strong> (ou Chromium).</li>
+<li>Um agente que lê pastas com <code>SKILL.md</code>, como o Claude Code, com acesso ao terminal.</li>
+<li>Opcional: <code>ELEVENLABS_API_KEY</code>, para voz, música e efeitos sonoros.</li>
+<li>Opcional: a CLI do Codex com geração de imagem, para gerar texturas de fundo.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Claude Code:</strong></p>
+<pre><code class="language-bash">git clone https://github.com/Tejashmakwana/motionmaxxing ~/.claude/skills/motionmaxxing
+bash ~/.claude/skills/motionmaxxing/install.sh
+</code></pre>
+<p>O <code>install.sh</code> só confere os requisitos e cria o link na pasta de skills; não instala nada no sistema. Opções:</p>
+<ul>
+<li><code>--dir CAMINHO</code>: outra pasta de skills;</li>
+<li><code>--copy</code>: copia em vez de criar link;</li>
+<li><code>--force</code>: substitui uma instalação existente.</li>
+</ul>
+<p><strong>Outros agentes:</strong> aponte o agente para a pasta, ou copie a pasta para o diretório de skills dele. Os scripts só precisam de <code>node</code>, <code>python3</code> e <code>ffmpeg</code> no <code>PATH</code>.</p>
+<p><strong>Conferir a máquina:</strong></p>
+<pre><code class="language-bash">bash scripts/providers.sh   # JSON com chrome, ffmpeg, chave, codex e disco livre; não instala nada
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No Claude Code, use <code>/motionmaxxing</code> ou peça em linguagem natural. Exemplos do README:</p>
+<pre><code class="language-text">/motionmaxxing make a 20s launch film for https://example.com. I want to see the idea and the storyboard before you build.
+/motionmaxxing a 6 second kinetic-type sting for our brand: the one line &quot;Ship it&quot; with real 3D on the mark. Silent is fine.
+/motionmaxxing here is draft.mp4 and its index.html. Rate it slop, mid or maxxed, run the gates, tell me what fails, and fix it.
+</code></pre>
+<p><strong>O que sai na pasta <code>film/</code>:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Arquivo</th>
+<th>O que é</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>final.mp4</code></td>
+<td>O filme, com som se houver chave da ElevenLabs</td>
+</tr>
+<tr>
+<td><code>index.html</code></td>
+<td>O código-fonte editável (HTML + runtime <code>Motion</code>)</td>
+</tr>
+<tr>
+<td><code>STORYBOARD.md</code></td>
+<td>O plano: marca, ideia escolhida e por quê, tabela de beats</td>
+</tr>
+<tr>
+<td><code>NOTE.md</code></td>
+<td>O relatório honesto: o que é real e o que é ilustrativo, os números dos portões, o que ainda melhoraria</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Principais scripts</strong> (todos aceitam <code>--help</code>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Para quê</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scripts/brand.mjs</code></td>
+<td>Captura a marca de um site</td>
+</tr>
+<tr>
+<td><code>scripts/render.mjs</code></td>
+<td>Renderiza quadro a quadro via Chrome + ffmpeg</td>
+</tr>
+<tr>
+<td><code>scripts/look.py</code></td>
+<td>Gera a folha de contato e calcula os portões G0, G2 e G3</td>
+</tr>
+<tr>
+<td><code>scripts/lint.mjs</code></td>
+<td>Roda o lint de page chrome (portão G5)</td>
+</tr>
+<tr>
+<td><code>scripts/voice.py</code></td>
+<td>Narração, efeitos e música via ElevenLabs</td>
+</tr>
+<tr>
+<td><code>scripts/mix.py</code></td>
+<td>Mixa voz, música e efeitos</td>
+</tr>
+<tr>
+<td><code>scripts/blind_review.py</code></td>
+<td>Monta uma comparação A/B às cegas</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Fazer vídeo de lançamento, promo de produto ou anúncio para redes sociais a partir do site da marca.</li>
+<li>Melhorar um vídeo gerado por IA que ficou com cara de slide, usando a skill para dar nota e corrigir.</li>
+<li>Ter vídeos reproduzíveis e editáveis em HTML, em vez de exportações fechadas.</li>
+<li>É a mesma ideia do <a href="../03-design-e-ui/impeccable.html">Impeccable</a>, aplicada a vídeo em vez de interface: regras contra &quot;AI slop&quot; mais checagens. Para narração local, combina com o <a href="../10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a>; para editar o MP4 final, com o <a href="../10-midia-e-modelos-ia/opencut.html">OpenCut</a>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Lançamento inicial.</strong> O próprio autor diz que funciona de ponta a ponta na máquina dele, mas ainda não teve teste amplo. O repositório recebeu um único push, na criação (out/2026). Os limites conhecidos estão em <code>docs/KNOWN-LIMITS.md</code>:
+<ul>
+<li>o lint não enxerga texto dentro de canvas ou imagem;</li>
+<li>G1 e G4 são avaliados no olho;</li>
+<li>cenas WebGL renderizam a cerca de 7 a 11 fps;</li>
+<li>a música da ElevenLabs nem sempre acerta o tempo;</li>
+<li>o <code>fetch_logo.mjs</code> pode trazer uma faixa do cabeçalho do site em vez do logo.</li>
+</ul>
+</li>
+<li><strong>Licença do GSAP:</strong> o GSAP 3.12.5 vem embutido com a GreenSock Standard License, que <strong>não é open source</strong> e tem termos próprios. O Three.js, o opentype.js e a fonte Inter mantêm as licenças deles. Ao redistribuir, mantenha o arquivo <code>NOTICE</code>.</li>
+<li><strong>Marcas de terceiros:</strong> os exemplos usam Cluely, Spotify e Wispr Flow só como demonstração não oficial. Para usar marca alheia em vídeo comercial, você precisa de autorização.</li>
+<li><strong>Uso de serviços externos:</strong> o <code>brand.mjs</code> abre o site no Chrome headless; não funciona em páginas com login ou que bloqueiam headless. Narração e música consomem créditos da ElevenLabs.</li>
+<li>A skill pertence ao produto <a href="https://finalmotion.video">FinalMotion</a>, do mesmo autor.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Tejashmakwana/motionmaxxing#readme">README</a></li>
+<li><a href="https://github.com/Tejashmakwana/motionmaxxing/blob/main/SKILL.md">SKILL.md</a></li>
+<li><a href="https://github.com/Tejashmakwana/motionmaxxing/blob/main/docs/KNOWN-LIMITS.md">Limites conhecidos</a> · <a href="https://github.com/Tejashmakwana/motionmaxxing/blob/main/docs/HOW-IT-WAS-BUILT.md">Como foi construído</a></li>
+<li><a href="https://github.com/Tejashmakwana/motionmaxxing/blob/main/runtime/README.md">API do runtime</a> · <a href="https://github.com/Tejashmakwana/motionmaxxing/blob/main/references/tools.md">Referência dos scripts</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

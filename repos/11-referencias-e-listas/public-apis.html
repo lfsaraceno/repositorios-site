@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Public APIs · Repositórios favoritos</title>
+<meta name="description" content="Lista colaborativa com milhares de APIs públicas e gratuitas, organizadas por categoria, com informações de autenticação, HTTPS e CORS.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#11-referencias-e-listas"><span aria-hidden="true">📚</span> Referências e listas</a>
+    </nav>
+    <h1>Public APIs</h1>
+    <p class="lead">Lista colaborativa com milhares de APIs públicas e gratuitas, organizadas por categoria, com informações de autenticação, HTTPS e CORS.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/public-apis/public-apis">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">public-apis/public-apis</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/public-apis/public-apis">public-apis/public-apis</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://APILayer.com/?utm_source=Github&amp;utm_medium=Referral&amp;utm_campaign=Public-apis-repo">APILayer</a> (patrocinador/mantenedor)</dd></div>
+<div><dt>Linguagem</dt><dd>Python (scripts de validação; o conteúdo é Markdown)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~490k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Public APIs é um repositório curado por membros da comunidade e por pessoas da APILayer, com uma lista extensa de APIs públicas de vários domínios que você pode usar em seus próprios projetos, protótipos e estudos.</p>
+<p>O README abre com uma divulgação da suíte comercial da APILayer (IPstack, Mediastack, Aviationstack e outras) e, em seguida, apresenta as tabelas por categoria. Cada linha informa nome com link, descrição curta e três atributos: tipo de autenticação, suporte a HTTPS e suporte a CORS.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Cerca de 50 categorias, entre elas Animals, Anime, Authentication &amp; Authorization, Blockchain, Books, Business, Cryptocurrency, Currency Exchange, Data Validation, Development, Email, Finance, Food &amp; Drink, Geocoding, Government, Health, Machine Learning, Music, News, Open Data, Security, Sports &amp; Fitness, Test Data, Transportation, Weather</li>
+<li>Colunas de <strong>Auth</strong> (<code>No</code>, <code>apiKey</code>, <code>OAuth</code>), <strong>HTTPS</strong> e <strong>CORS</strong> para filtrar o que funciona no navegador</li>
+<li>Índice no topo para navegar por categoria</li>
+<li>Coleção Postman da APILayer</li>
+<li>Servidor Discord da comunidade</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Nenhum para consultar a lista. Para usar uma API específica, valem os requisitos dela (chave de API, cadastro, limites de uso).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Não se aplica: é uma lista de referência, não um pacote.</p>
+<p>Como navegar:</p>
+<ol>
+<li>Abra o README e vá ao <strong>Index</strong> para escolher a categoria.</li>
+<li>Na tabela, filtre mentalmente pela coluna <strong>Auth</strong>: <code>No</code> significa que não exige chave.</li>
+<li>Se for chamar a API direto do navegador (front-end), prefira as que têm <strong>CORS = Yes</strong>.</li>
+<li>Confirme <strong>HTTPS = Yes</strong> antes de enviar qualquer dado sensível.</li>
+<li>Abra o link da API e leia a documentação oficial para limites e termos.</li>
+</ol>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Não há CLI nem comandos. Formato das tabelas do README (exemplo real da categoria Animals):</p>
+<pre><code class="language-text">| [Cat Facts](https://catfact.ninja/) | Random cat facts | No | Yes | Yes |
+</code></pre>
+<p>Leia assim: API &quot;Cat Facts&quot;, sem autenticação (<code>No</code>), com HTTPS e com CORS. Os endpoints devem ser consultados na documentação de cada serviço. Para contribuir com uma API nova, siga as regras do repositório (veja o guia de contribuição) e mantenha a ordem alfabética da categoria.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Encontrar uma API gratuita para um protótipo, tutorial ou projeto de estudo</li>
+<li>Buscar dados abertos (governo, clima, finanças, saúde) para visualizações</li>
+<li>Gerar dados de teste e integrações de exemplo</li>
+<li>Descobrir alternativas quando um serviço pago é desnecessário</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A lista é mantida pela comunidade: APIs podem sair do ar, mudar de termos ou passar a exigir chave. Verifique o status antes de depender de uma.</li>
+<li>O repositório tem conteúdo promocional da APILayer no topo.</li>
+<li>Use APIs de terceiros com cuidado em produção: respeite limites de uso e termos, e não envie dados pessoais sem avaliar a política de privacidade (LGPD).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/public-apis/public-apis#readme">README</a></li>
+<li><a href="https://apilayer.com/products">APILayer</a></li>
+<li><a href="https://www.postman.com/apilayer/apilayer/collection/2uo8qbu/apilayer-suite">Coleção Postman da APILayer</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#11-referencias-e-listas">Referências e listas</a></h2>
+    <ul>
+<li><a href="../../repos/11-referencias-e-listas/awesome-brazilian-devblogs.html">Awesome Brazilian Dev Blogs</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-claude-code.html">Awesome Claude Code</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-opus5-5-videos.html">Awesome Opus 5.5 Videos</a></li>
+<li><a href="../../repos/11-referencias-e-listas/brazilian-utils.html">Brazilian Utils</a></li>
+<li><a href="../../repos/11-referencias-e-listas/claude-cookbooks.html">Claude Cookbooks</a></li>
+<li><a href="../../repos/11-referencias-e-listas/leis-brasil.html">Leis do Brasil em Markdown (ctresb/leis)</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AnyPS5 · Repositórios favoritos</title>
+<meta name="description" content="Converte executáveis de PS5 em programas nativos de Linux e Windows (e macOS, só o conversor), sem emulação: um &quot;relinker&quot; reescreve o executável e bibliotecas próprias substituem as do sistema do console.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>AnyPS5</h1>
+    <p class="lead">Converte executáveis de PS5 em programas nativos de Linux e Windows (e macOS, só o conversor), sem emulação: um &quot;relinker&quot; reescreve o executável e bibliotecas próprias substituem as do sistema do console.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/boykopovar/AnyPS5">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">boykopovar/AnyPS5</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/boykopovar/AnyPS5">boykopovar/AnyPS5</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://boykopovar.github.io/AnyPS5/">Conversor web</a> · <a href="https://boykopovar.github.io/AnyPS5/progress.html">Progresso</a> · <a href="https://github.com/boykopovar/AnyPS5/blob/main/docs/user/README.pt-BR.md">README em PT-BR</a></dd></div>
+<div><dt>Linguagem</dt><dd>C++ (com Vulkan / SPIR-V e SDL2)</dd></div>
+<div><dt>Licença</dt><dd>GPL-2.0 (somente a versão 2)</dd></div>
+<div><dt>Estrelas</dt><dd>~50k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O AnyPS5 faz o <strong>port automático</strong> de executáveis do PS5 para Linux e Windows. Ele não é um emulador. O <strong>relinker</strong> converte o executável ELF do console para o formato nativo do sistema de destino: ELF no Linux, <code>.exe</code> no Windows, Mach-O no macOS. Junto vêm implementações próprias das <strong>bibliotecas de sistema do PS5</strong> (<code>.prx</code>), carregadas como bibliotecas dinâmicas comuns. O resultado roda como um programa normal, sem processo de emulação por trás.</p>
+<p>Isso funciona porque o PS5 usa CPU x86-64 (Zen 2): o código do jogo roda direto no processador do PC. Os shaders da GPU são recompilados para SPIR-V e rodam em Vulkan.</p>
+<p>É um projeto em andamento. O site mostra o percentual das funções conhecidas do sistema que já foram implementadas, e cada jogo tem um tópico de teste em <a href="https://github.com/boykopovar/AnyPS5/discussions/categories/game-bring-up">Game bring-up</a>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Relinker</strong> de linha de comando para Linux, Windows e macOS. No macOS, só o relinker roda, inclusive em Apple Silicon.</li>
+<li><strong>Conversor web:</strong> o arquivo é processado no navegador e não sai do seu computador. Converte vários apps de uma vez num ZIP.</li>
+<li>Bibliotecas de sistema do PS5 reimplementadas para Linux e Windows.</li>
+<li>Recompilador de shaders para SPIR-V e Vulkan, com cache de shaders.</li>
+<li><strong>Controles:</strong> joysticks via SDL (até 4, com analógicos e gatilhos; o controle de Xbox é mapeado para os botões do PlayStation), teclado e mouse configuráveis em <code>anyps5-input.ini</code>, e vibração ajustável.</li>
+<li>Tela cheia (F11), captura de tela (F12), overlay de desempenho, volume do host (F5/F6/F8), troféus lidos dos dados do próprio jogo, HDR e escolha de GPU.</li>
+<li><strong>Patches por jogo:</strong> arquivos TOML que conferem os bytes antes de alterar o executável, e uma ferramenta que sugere patches de um catálogo (<code>tools/suggest_patches.py</code>).</li>
+<li>No Linux, pede o modo de jogo do Feral GameMode.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>CPU com as extensões do Zen 2:</strong> AVX2, FMA, F16C, BMI1, BMI2, LZCNT e MOVBE. O título verifica isso ao iniciar e para se faltar alguma. Instruções específicas de AMD exigem processador AMD, ou a opção <code>--to-intel</code> no caso de PCs com Intel; ela não cobre código gerado pelo jogo durante a execução.</li>
+<li><strong>GPU com Vulkan.</strong></li>
+<li><strong>Linux:</strong> se o driver de vídeo importa memória dma-buf (não vale para o driver proprietário da NVIDIA), o usuário precisa de acesso a <code>/dev/udmabuf</code>, normalmente entrando no grupo <code>kvm</code>.</li>
+<li><strong>Windows:</strong> memória virtual suficiente. Um jogo pode mapear até cerca de 13,5 GB de &quot;memória direta&quot;, que precisa caber no limite de RAM mais arquivo de paginação.</li>
+<li><strong>Um executável de PS5 já descriptografado (ELF limpo)</strong>, com os módulos do jogo. O AnyPS5 não inclui nem obtém chaves, firmware ou jogos.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Baixe do <a href="https://github.com/boykopovar/AnyPS5/releases/latest">último release</a>:</p>
+<ul>
+<li><code>relinker-&lt;versão&gt;</code> (Linux) ou <code>relinker-&lt;versão&gt;.exe</code> (Windows): o conversor;</li>
+<li><code>prx-linux-&lt;versão&gt;</code> ou <code>prx-windows-&lt;versão&gt;</code> (<code>.zip</code> / <code>.tar.gz</code>): as bibliotecas de sistema do AnyPS5;</li>
+<li><code>USAGE.md</code> e <code>INPUT_MAPPING.md</code>: o manual de uso e o mapeamento de controles.</li>
+</ul>
+<p>Para quem não quer usar o terminal, há o <a href="https://boykopovar.github.io/AnyPS5/">conversor web</a>. Para compilar do código-fonte, siga o <a href="https://github.com/boykopovar/AnyPS5/blob/main/docs/dev/BUILD.md">guia de build</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>1. Organize a entrada</strong> (os módulos do jogo ficam ao lado do executável):</p>
+<pre><code class="language-text">source/
+    input.elf
+    sce_module/
+        &lt;módulos ELF do jogo&gt;
+</code></pre>
+<p><strong>2. Converta:</strong></p>
+<pre><code class="language-sh">relinker source/input.elf app.elf                 # Linux
+relinker --windows source/input.elf app.exe       # Windows
+relinker --macos source/input.elf eboot           # macOS (x86-64, via Rosetta no Apple Silicon)
+relinker --help                                   # todas as opções
+</code></pre>
+<p>Opções úteis:</p>
+<ul>
+<li><code>--to-intel</code>: para PCs com processador Intel;</li>
+<li><code>--to-rosetta</code>: para o Apple Silicon;</li>
+<li><code>--module-dir &lt;pasta&gt;</code>: módulos em outro lugar;</li>
+<li><code>--sce-module-path &lt;pasta&gt;</code>: pasta-mãe dos módulos.</li>
+</ul>
+<p>Contêineres SELF já descriptografados podem ser desempacotados com <code>tools/unwrap_self.py &lt;input.self&gt; &lt;output.elf&gt;</code>.</p>
+<p><strong>3. Monte a pasta de execução</strong> (caminhos relativos ao executável gerado):</p>
+<pre><code class="language-text">app.elf (Linux) ou app.exe (Windows)
+libs/
+    *.prx               ← bibliotecas do AnyPS5 (do pacote prx-*), não as do console
+app0/
+    &lt;recursos do jogo&gt;
+    eboot.bin           ← o original, que muitos jogos procuram
+    sce_sys/param.json
+    sce_module/
+        &lt;módulos convertidos .guest.prx&gt;
+</code></pre>
+<p><strong>4. Rode:</strong></p>
+<pre><code class="language-sh">./app.elf          # Linux (se perdeu a permissão: chmod +x app.elf)
+</code></pre>
+<pre><code class="language-powershell">.\app.exe          # Windows
+</code></pre>
+<p><strong>Teclado padrão</strong> (sem <code>anyps5-input.ini</code>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Tecla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X / Círculo / Triângulo / Quadrado</td>
+<td>Enter ou Espaço / C / I / botão esquerdo do mouse</td>
+</tr>
+<tr>
+<td>Analógico esquerdo / direito</td>
+<td>W A S D / T F G H</td>
+</tr>
+<tr>
+<td>L1 / R1 / L2 / R2</td>
+<td>Q / E / R / botão direito do mouse</td>
+</tr>
+<tr>
+<td>Options</td>
+<td>Esc</td>
+</tr>
+<tr>
+<td>Tela cheia / captura de tela</td>
+<td>F11 / F12</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Pesquisa, preservação e compatibilidade: rodar no PC homebrew e jogos de PS5 que <strong>você mesmo</strong> extraiu do seu console.</li>
+<li>Estudar como funcionam ports nativos, recompilação de shaders e reimplementação de bibliotecas de sistema.</li>
+<li>Contribuir com testes de compatibilidade de jogos.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Questão legal:</strong> o projeto declara que é para interoperabilidade, pesquisa e preservação, e que não inclui nem exige software protegido, firmware, chaves ou bibliotecas proprietárias. Você é responsável por obter os executáveis de forma legal, por exemplo extraindo de jogos seus no seu próprio console. Baixar jogos de terceiros é pirataria. O projeto não é afiliado à Sony.</li>
+<li><strong>Segurança:</strong> o próprio manual avisa que o jogo convertido roda como um programa comum, <strong>com as permissões da sua conta e sem o sandbox do console</strong>, e sem ASLR no executável. Converta só títulos e módulos em que você confia, e de preferência rode com outro usuário, num container ou numa máquina virtual.</li>
+<li><strong>Compatibilidade parcial:</strong> situações não suportadas encerram o processo com erro (<code>std::runtime_error</code>). Não há suporte a VR, a resolução de renderização é a que o jogo escolhe, e fontes do sistema e alguns ícones de troféus podem faltar. Confira o tópico do jogo antes de tentar.</li>
+<li><strong>Patches de catálogos de terceiros:</strong> a ferramenta só confere se o patch bate com os arquivos. Ela não garante que o patch é seguro. Revise antes de aplicar.</li>
+<li>Projeto muito ativo e novo (criado em ago/2026), com releases frequentes. O último é o v0.1.3, de out/2026.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/boykopovar/AnyPS5#readme">README</a> · <a href="https://github.com/boykopovar/AnyPS5/blob/main/docs/user/README.pt-BR.md">README em PT-BR</a></li>
+<li><a href="https://boykopovar.github.io/AnyPS5/">Conversor web</a></li>
+<li><a href="https://github.com/boykopovar/AnyPS5/blob/main/docs/user/USAGE.md">Manual de uso</a> · <a href="https://github.com/boykopovar/AnyPS5/blob/main/docs/user/INPUT_MAPPING.md">Mapeamento de controles</a></li>
+<li><a href="https://github.com/boykopovar/AnyPS5/blob/main/docs/dev/BUILD.md">Como compilar</a> · <a href="https://github.com/boykopovar/AnyPS5/blob/main/docs/dev/ARCHITECTURE.md">Arquitetura</a></li>
+<li><a href="https://github.com/boykopovar/AnyPS5/discussions/categories/game-bring-up">Compatibilidade por jogo</a></li>
+<li><a href="https://github.com/boykopovar/AnyPS5/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

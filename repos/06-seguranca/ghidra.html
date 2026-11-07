@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghidra · Repositórios favoritos</title>
+<meta name="description" content="Framework de engenharia reversa da NSA: desmonta e descompila binários (Windows, Linux, macOS, firmware) em pseudocódigo C, com scripts em Java e Python.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>Ghidra</h1>
+    <p class="lead">Framework de engenharia reversa da NSA: desmonta e descompila binários (Windows, Linux, macOS, firmware) em pseudocódigo C, com scripts em Java e Python.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/NationalSecurityAgency/ghidra">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">NationalSecurityAgency/ghidra</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/NationalSecurityAgency/ghidra">NationalSecurityAgency/ghidra</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/NationalSecurityAgency/ghidra/blob/master/GhidraDocs/GettingStarted.md">Getting Started</a></dd></div>
+<div><dt>Linguagem</dt><dd>Java (com componentes nativos em C++)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~92k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Ghidra é o framework de engenharia reversa de software criado e mantido pela diretoria de pesquisa da NSA (Agência de Segurança Nacional dos EUA). Ele analisa programas já compilados (executáveis <code>.exe</code>, <code>.dll</code>, ELF, Mach-O, firmware) e mostra o que eles fazem: desmonta o código de máquina em assembly e, principalmente, <strong>descompila para um pseudocódigo parecido com C</strong>, bem mais fácil de ler.</p>
+<p>É a principal alternativa gratuita ao IDA Pro. Suporta uma grande variedade de arquiteturas de processador (x86, ARM, MIPS, PowerPC e muitas outras) e formatos de executável. Funciona tanto com interface gráfica quanto em modo automatizado pela linha de comando, e pode ser estendido com scripts e extensões em Java ou Python.</p>
+<p>A NSA o usa para analisar código malicioso e encontrar vulnerabilidades. Ele também tem servidor para equipes trabalharem juntas no mesmo projeto, depurador integrado e o BSim, que encontra funções parecidas entre vários binários.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Desmontagem (assembly) e descompilação para pseudocódigo C.</li>
+<li>Suporte a muitas arquiteturas de processador e formatos de executável.</li>
+<li>Grafos de fluxo de controle e de chamadas entre funções.</li>
+<li>Scripts em Java e em Python 3 nativo (PyGhidra).</li>
+<li>Modo headless (sem interface) para analisar muitos arquivos em lote.</li>
+<li>Ghidra Server para trabalho em equipe num repositório compartilhado.</li>
+<li>Depurador integrado que se conecta aos depuradores nativos do sistema.</li>
+<li>BSim, para achar funções estruturalmente parecidas em coleções de binários.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Windows 10 (build 1809 ou mais novo), Linux ou macOS 10.13+, sempre 64 bits.</li>
+<li><strong>JDK 25 de 64 bits</strong>, por exemplo o <a href="https://adoptium.net/temurin/releases">Adoptium Temurin</a> ou o Amazon Corretto.</li>
+<li>Python 3.9 a 3.15, para PyGhidra. Para o depurador, Python 3.7 a 3.14.</li>
+<li>4 GB de RAM e 1 GB de disco. Dois monitores são fortemente recomendados.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>O Ghidra <strong>não tem instalador</strong>: é só extrair um zip. Não precisa de administrador para uso pessoal, e para desinstalar basta apagar a pasta.</p>
+<ol>
+<li>Instale o JDK 25 de 64 bits.</li>
+<li>Na <a href="https://github.com/NationalSecurityAgency/ghidra/releases">página de releases</a>, abra <strong>Assets</strong> e baixe o arquivo <code>ghidra_&lt;versão&gt;_PUBLIC_&lt;data&gt;.zip</code>. A versão atual é a 12.1.4, de set/2026. <strong>Não</strong> baixe os arquivos &quot;Source Code&quot;.</li>
+<li>Extraia numa pasta nova, nunca por cima de uma instalação anterior. Evite caminhos com o caractere <code>^</code>, que impede o Ghidra de abrir.</li>
+<li>Abra o Ghidra:</li>
+</ol>
+<pre><code class="language-bat">ghidraRun.bat
+</code></pre>
+<p>No Linux e no macOS, o comando é <code>./ghidraRun</code>. O Ghidra não cria atalho no menu Iniciar; se quiser, crie um manualmente apontando para o <code>ghidraRun.bat</code>.</p>
+<p>No Windows, versões antigas do 7-Zip podem falhar ao extrair o zip. Atualize o 7-Zip ou use o extrator do próprio Windows.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Interface gráfica:</strong> abra com <code>ghidraRun.bat</code>, crie um projeto (<em>File → New Project</em>), importe o binário (<em>File → Import File</em>), dê dois cliques nele para abrir o CodeBrowser e aceite a análise automática. O pseudocódigo aparece na janela <strong>Decompile</strong>.</p>
+<p><strong>Python 3 (PyGhidra):</strong></p>
+<pre><code class="language-bat">support\pyghidraRun.bat
+</code></pre>
+<p>Na primeira vez, o script oferece instalar o módulo <code>pyghidra</code>. Para instalar manualmente:</p>
+<pre><code class="language-bash">python3 -m pip install --no-index -f &lt;GhidraInstallDir&gt;/Ghidra/Features/PyGhidra/pypkg/dist pyghidra
+</code></pre>
+<p>Depois de instalado, dá para importar o <code>pyghidra</code> em outros scripts Python ou abrir pelos comandos <code>pyghidra</code> e <code>pyghidraw</code>.</p>
+<p><strong>Modo headless (lote, sem interface):</strong></p>
+<pre><code class="language-bash"># importa e analisa um arquivo num projeto novo e roda um script ao final
+support/analyzeHeadless &lt;pasta_do_projeto&gt; &lt;nome_do_projeto&gt; -import &lt;arquivo_ou_pasta&gt; -postScript &lt;NomeDoScript&gt;
+
+# reprocessa os arquivos de um projeto existente
+support/analyzeHeadless &lt;pasta_do_projeto&gt; &lt;nome_do_projeto&gt; -process -recursive
+</code></pre>
+<p>Opções úteis: <code>-scriptPath</code> (pastas de scripts), <code>-recursive</code> (importa subpastas), <code>-deleteProject</code> (apaga o projeto ao terminar) e <code>-processor</code> (força a arquitetura). A referência completa fica em <code>support/analyzeHeadlessREADME.html</code>, dentro da instalação.</p>
+<p><strong>Scripts e extensões:</strong> pelo <em>Script Manager</em>, que tem um botão para editar no VS Code, ou criando um projeto completo em <em>Tools → Create VSCode Module project</em>. Também há o plugin GhidraDev para Eclipse em <code>Extensions/Eclipse/GhidraDev/</code>.</p>
+<p><strong>Ghidra num arquivo só:</strong> <code>support/buildGhidraJar</code> gera um <code>ghidra.jar</code> para usar na linha de comando ou como biblioteca em outra aplicação Java.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Analisar malware ou executáveis suspeitos com segurança, sem executá-los.</li>
+<li>Entender como funciona um programa ou firmware sem código-fonte, para interoperabilidade, auditoria ou correção de software legado.</li>
+<li>Pesquisa de vulnerabilidades e CTFs.</li>
+<li>Como motor de análise de outras ferramentas: o <a href="rea.html">REA</a> usa o Ghidra (ou Hopper, ou IDA) para dar a agentes de IA acesso a binários nativos.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Mantenha o Ghidra atualizado.</strong> O próprio README alerta que algumas versões têm vulnerabilidades conhecidas. Confira os <a href="https://github.com/NationalSecurityAgency/ghidra/security/advisories">avisos de segurança</a>.</li>
+<li><strong>Malware:</strong> importar e analisar um arquivo no Ghidra não executa o programa, mas o depurador executa. Analise malware numa máquina virtual isolada.</li>
+<li><strong>Aspecto legal:</strong> a engenharia reversa de software de terceiros pode ser proibida pela licença do programa. No Brasil, a Lei de Software (Lei 9.609/98) permite certos usos, como a interoperabilidade, mas avalie caso a caso.</li>
+<li>Na primeira abertura de projetos de versões antigas, o Ghidra pede para atualizar o arquivo. Depois disso, versões anteriores não conseguem mais abri-lo.</li>
+<li>No macOS, o Gatekeeper pode bloquear componentes nativos. Rode <code>xattr -d com.apple.quarantine</code> no zip antes de extrair.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/NationalSecurityAgency/ghidra#readme">README</a></li>
+<li><a href="https://github.com/NationalSecurityAgency/ghidra/releases">Releases</a></li>
+<li><a href="https://github.com/NationalSecurityAgency/ghidra/blob/master/GhidraDocs/GettingStarted.md">Getting Started</a></li>
+<li><a href="https://github.com/NationalSecurityAgency/ghidra/blob/master/Ghidra/RuntimeScripts/support/analyzeHeadlessREADME.md">Modo headless</a></li>
+<li><a href="https://github.com/NationalSecurityAgency/ghidra/blob/master/Ghidra/Features/PyGhidra/src/main/py/README.md">PyGhidra</a></li>
+<li><a href="https://github.com/NationalSecurityAgency/ghidra/security/advisories">Avisos de segurança</a></li>
+<li><a href="https://github.com/NationalSecurityAgency/ghidra/blob/master/DevGuide.md">Guia de desenvolvimento</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/anthropic-cybersecurity-skills.html">Anthropic Cybersecurity Skills</a></li>
+<li><a href="../../repos/06-seguranca/pentagi.html">PentAGI</a></li>
+<li><a href="../../repos/06-seguranca/phoneintel.html">PhoneIntel</a></li>
+<li><a href="../../repos/06-seguranca/raptor.html">RAPTOR</a></li>
+<li><a href="../../repos/06-seguranca/rea.html">REA (Reverse Engineer Anything)</a></li>
+<li><a href="../../repos/06-seguranca/security-audit-skill.html">Security Audit Skill (Cloudflare)</a></li>
+<li><a href="../../repos/06-seguranca/trailofbits-skills.html">Trail of Bits Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 07/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>
