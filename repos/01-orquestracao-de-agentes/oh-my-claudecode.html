@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>oh-my-claudecode (OMC) · Repositórios favoritos</title>
+<meta name="description" content="Camada de orquestração multiagente para o Claude Code, com agentes especializados, roteamento de modelos e modos de execução persistentes.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>oh-my-claudecode (OMC)</h1>
+    <p class="lead">Camada de orquestração multiagente para o Claude Code, com agentes especializados, roteamento de modelos e modos de execução persistentes.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Yeachan-Heo/oh-my-claudecode">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Yeachan-Heo/oh-my-claudecode</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Yeachan-Heo/oh-my-claudecode">Yeachan-Heo/oh-my-claudecode</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://oh-my-claudecode.dev">oh-my-claudecode.dev</a> · <a href="https://yeachan-heo.github.io/oh-my-claudecode-website">documentação</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~40k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O oh-my-claudecode (OMC) é um plugin para o Claude Code que adiciona uma camada de orquestração multiagente. O lema do projeto é &quot;curva de aprendizado zero&quot;: você descreve o que quer em linguagem natural e o OMC distribui o trabalho entre agentes especializados (arquitetura, pesquisa, design, testes, ciência de dados etc.).</p>
+<p>A superfície canônica de orquestração é o modo <strong>Team</strong>, um pipeline em estágios (<code>team-plan → team-prd → team-exec → team-verify → team-fix</code>) em que agentes coordenados trabalham sobre uma lista de tarefas compartilhada. Há ainda modos como Autopilot (execução autônoma), Ralph (loop persistente de verificar/corrigir) e utilitários como HUD na statusline, skills reaproveitáveis e roteamento de modelos (Haiku para tarefas simples, Opus para raciocínio complexo).</p>
+<p>É voltado a quem já usa o Claude Code e quer mais automação, paralelismo e persistência sem montar a orquestração à mão.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Modo Team com pipeline em estágios e agentes coordenados em lista de tarefas compartilhada.</li>
+<li>32 agentes especializados (segundo o README) e delegação automática ao agente certo.</li>
+<li>Roteamento inteligente de modelos (Haiku/Opus) com economia de tokens declarada de 30% a 50%.</li>
+<li>Magic keywords opcionais: <code>autopilot</code>, <code>ralph</code>, <code>ulw</code>, <code>plan</code>, <code>ralplan</code>, <code>deep-interview</code>.</li>
+<li><code>deep-interview</code>: entrevista socrática que mede ambiguidade antes de escrever código.</li>
+<li>Skills próprias (<code>.omc/skills/</code> por projeto, <code>~/.omc/skills/</code> por usuário), com <code>/skill</code> e <code>/skillify</code> para extrair padrões.</li>
+<li>HUD na statusline com métricas de orquestração em tempo real.</li>
+<li>Utilitários: espera de rate limit (<code>omc wait</code>), notificações (Telegram/Discord/Slack) e integração com OpenClaw.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code instalado.</li>
+<li>Para o modo Team nativo: variável <code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code> em <code>~/.claude/settings.json</code>.</li>
+<li>tmux, apenas para <code>omc wait</code> e para os trabalhadores CLI (<code>/omc-teams</code>).</li>
+<li>CLIs <code>codex</code> e/ou <code>gemini</code>, apenas se for usar workers desses provedores.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="plugin-do-claude-code-principal">Plugin do Claude Code (principal)</h3>
+<ol>
+<li>Adicione o marketplace e instale o plugin:</li>
+</ol>
+<pre><code class="language-bash">/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode
+/plugin install oh-my-claudecode
+</code></pre>
+<ol start="2">
+<li>Execute o setup:</li>
+</ol>
+<pre><code class="language-bash">/omc-setup
+</code></pre>
+<ol start="3">
+<li>Para usar o modo Team, habilite os times nativos em <code>~/.claude/settings.json</code>:</li>
+</ol>
+<pre><code class="language-json">{
+  &quot;env&quot;: {
+    &quot;CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS&quot;: &quot;1&quot;
+  }
+}
+</code></pre>
+<h3 id="cli-via-npm">CLI via npm</h3>
+<p>O nome do pacote npm é diferente da marca do projeto:</p>
+<pre><code class="language-bash">npm install -g oh-my-claude-sisyphus
+</code></pre>
+<h3 id="atualizacao">Atualização</h3>
+<pre><code class="language-bash">/plugin marketplace update omc
+/omc-setup
+</code></pre>
+<p>Se algo quebrar após atualizar, rode <code>/omc-doctor</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">autopilot: build a REST API for managing tasks
+</code></pre>
+<p>Execução autônoma de ponta a ponta.</p>
+<pre><code class="language-text">/deep-interview &quot;I want to build a task management app&quot;
+</code></pre>
+<p>Esclarece requisitos com perguntas socráticas antes de qualquer código.</p>
+<pre><code class="language-bash">/team 3:executor &quot;fix all TypeScript errors&quot;
+</code></pre>
+<p>Orquestração Team com 3 agentes executores.</p>
+<pre><code class="language-bash">/omc-teams 2:codex &quot;review auth module for security issues&quot;
+</code></pre>
+<p>Sobe workers CLI reais em painéis tmux (também <code>2:gemini</code>, <code>1:claude</code>).</p>
+<pre><code class="language-bash">omc wait --start
+</code></pre>
+<p>Ativa o daemon que retoma sessões do Claude Code quando o rate limit é resetado (requer tmux).</p>
+<pre><code class="language-bash">/skill list
+</code></pre>
+<p>Gerencia skills (<code>list | add | remove | edit | search</code>).</p>
+<p>Outras palavras-gatilho: <code>ralph: refactor auth</code> (modo persistente), <code>ulw fix all errors</code> (paralelismo máximo), <code>ralplan this feature</code> (planejamento por consenso).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Tarefas grandes que se beneficiam de vários agentes em paralelo (correções em massa, refatorações).</li>
+<li>Quando os requisitos ainda estão vagos e você quer uma entrevista antes de implementar.</li>
+<li>Fluxos longos que precisam de verificação e correção até a conclusão real (Ralph).</li>
+<li>Revisões com mais de um modelo (Claude, Codex, Gemini) via tmux.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O README em português cita modos como <code>swarm</code>, <code>ultrapilot</code>, <code>ultrawork</code>, <code>omc-teams</code> e <code>ccg</code>. Versões recentes do projeto reorganizaram ou aposentaram parte deles; confira o <a href="https://github.com/Yeachan-Heo/oh-my-claudecode/blob/main/docs/MIGRATION.md">guia de migração</a> e a documentação para a versão que você instalar.</li>
+<li>O pacote npm (<code>oh-my-claude-sisyphus</code>) não tem o mesmo nome do repositório.</li>
+<li>O README tem trechos marcados como tradução ainda por revisar.</li>
+<li>Existe uma versão equivalente para o Codex CLI: <a href="https://github.com/Yeachan-Heo/oh-my-codex">oh-my-codex</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Yeachan-Heo/oh-my-claudecode/blob/main/README.pt.md">README em português</a></li>
+<li><a href="https://yeachan-heo.github.io/oh-my-claudecode-website">Documentação</a></li>
+<li><a href="https://github.com/Yeachan-Heo/oh-my-claudecode/blob/main/docs/REFERENCE.md">REFERENCE.md</a></li>
+<li><a href="https://github.com/Yeachan-Heo/oh-my-claudecode/blob/main/docs/MIGRATION.md">Guia de migração</a></li>
+<li><a href="https://discord.gg/wSyUQYfhAw">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

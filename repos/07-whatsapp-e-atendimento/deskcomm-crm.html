@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeskcommCRM · Repositórios favoritos</title>
+<meta name="description" content="CRM brasileiro open source e self-hosted com agentes de IA que atendem, qualificam e vendem no WhatsApp. Alternativa aberta a Kommo, Octadesk e Intercom.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#07-whatsapp-e-atendimento"><span aria-hidden="true">💬</span> WhatsApp e atendimento</a>
+    </nav>
+    <h1>DeskcommCRM</h1>
+    <p class="lead">CRM brasileiro open source e self-hosted com agentes de IA que atendem, qualificam e vendem no WhatsApp. Alternativa aberta a Kommo, Octadesk e Intercom.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/melgarafael/DeskcommCRM">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">melgarafael/DeskcommCRM</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/melgarafael/DeskcommCRM">melgarafael/DeskcommCRM</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://deskcomm.com.br">deskcomm.com.br</a> · <a href="https://github.com/melgarafael/DeskcommCRM/blob/main/VISION.md">Visão</a> · <a href="https://github.com/melgarafael/DeskcommCRM/blob/main/ARCHITECTURE.md">Arquitetura</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (Next.js 16 + Supabase)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~4,8k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O DeskcommCRM (&quot;comercial de mesa&quot;) é um <strong>sistema operacional de vendas</strong> feito no Brasil, com README e documentação em português. Ele reúne num só lugar o atendimento pelo WhatsApp, o funil de vendas (kanban) e <strong>agentes de IA que operam o CRM de verdade</strong>: atendem o cliente, qualificam, movem o lead no funil, disparam automações e sabem a hora de passar para um humano.</p>
+<p>Começou como CRM de e-commerce, com integração Nuvemshop, e hoje atende clínicas, imobiliárias, infoprodutos, agências e prestadores de serviço. O vocabulário muda por funil: o lead vira <em>Paciente</em>, <em>Comprador</em> ou <em>Cliente</em>, e &quot;ganho&quot; vira <em>Pago</em>, <em>Agendado</em> ou <em>Fechado</em>.</p>
+<p>Roda <strong>no seu servidor</strong> (VPS com Docker), com banco no Supabase e a chave de IA que você escolher. Não tem mensalidade nem versão paga com recursos travados. É multiempresa (multi-tenant), com isolamento por RLS testado no CI, e foi pensado para a LGPD.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Agentes de IA</strong> com base de conhecimento própria por empresa (RAG), skills executadas durante o atendimento, memória, análise de sentimento, passagem auditada da IA para um humano e teto de gasto por organização.</li>
+<li><strong>Follow-up automático</strong> de conversas que esfriaram, com tempo adaptativo, e um <strong>Radar</strong> que mostra quem está para ficar sem resposta.</li>
+<li><strong>Agentes que se aprimoram:</strong> conversas resolvidas viram conhecimento, e a IA sugere melhorias para si mesma (&quot;Propostas&quot;), sempre com aprovação humana.</li>
+<li><strong>WhatsApp de duas formas:</strong> por QR code (WAHA, vários números, com proteção contra banimento) ou pelo <strong>canal oficial da Meta</strong> (Cloud API, com templates).</li>
+<li><strong>IA à sua escolha:</strong> OpenRouter, Anthropic ou OpenAI, trocável pela tela e separada por parte do sistema.</li>
+<li><strong>Webhooks e automações:</strong> recebe leads de landing pages, formulários, Zapier ou n8n, e monta regras QUANDO/SE/ENTÃO que movem o lead, atribuem atendente ou enviam WhatsApp.</li>
+<li><strong>Gestão do atendimento:</strong> papéis e permissões (RBAC), fila com rodízio, transferências auditadas e roteamento por intenção.</li>
+<li><strong>Servidor MCP interno</strong>, para agentes externos operarem o CRM (o MCP público está no roadmap).</li>
+<li>Atualização <strong>pela tela, com um clique</strong>, com backup automático e volta para a versão anterior se der problema.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VPS com Docker</strong></td>
+<td>4 GB de RAM recomendados. Funciona em x86 e em ARM64 (ex.: Oracle Ampere). O projeto tem parceria com a HostGator, mas qualquer VPS serve</td>
+</tr>
+<tr>
+<td><strong>Domínio</strong></td>
+<td>Um registro <strong>A</strong> apontando para o IP da VPS (ex.: <code>crm.suaempresa.com.br</code>)</td>
+</tr>
+<tr>
+<td><strong>Supabase</strong></td>
+<td>Conta grátis em supabase.com: 3 chaves + connection string do <strong>Session pooler</strong>. O instalador também pode criar o projeto sozinho com um <code>SUPABASE_ACCESS_TOKEN</code></td>
+</tr>
+<tr>
+<td><strong>Chave de IA</strong></td>
+<td>OpenRouter, Anthropic ou OpenAI</td>
+</tr>
+<tr>
+<td><strong>WhatsApp</strong></td>
+<td>O seu número, conectado por QR code no onboarding, ou o canal oficial da Meta</td>
+</tr>
+</tbody>
+</table></div>
+<p>Não precisa instalar Node nem compilar nada na VPS: a imagem do app vem pronta, e o instalador oferece instalar o Docker se faltar.</p>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="na-vps-caminho-principal">Na VPS (caminho principal)</h3>
+<p>Conecte na VPS. No Windows, pelo PowerShell:</p>
+<pre><code class="language-bash">ssh -p PORTA root@SEU_IP
+</code></pre>
+<p>Já dentro da VPS:</p>
+<pre><code class="language-bash">git clone https://github.com/melgarafael/DeskcommCRM.git
+cd DeskcommCRM
+bash hostgator-setup-kit/install.sh
+</code></pre>
+<p>O instalador pergunta só o que é seu (domínio, chaves, senha do admin) e valida cada resposta antes de seguir. Depois, ele gera os segredos, aplica o schema do banco, cria o admin, sobe tudo com <strong>HTTPS automático</strong> e instala o cron das automações e o agente de atualização. Pode rodar de novo sem quebrar nada.</p>
+<p>Modo não interativo: copie o <code>.env.hostgator.example</code> para <code>.env</code>, preencha e rode <code>bash hostgator-setup-kit/install.sh --yes</code>.</p>
+<p><strong>VPS que já tem proxy reverso</strong> (Coolify, Dokploy, CapRover, Hostinger): o instalador detecta o proxy nas portas 80/443 e publica o CRM através dele. Veja o <a href="https://github.com/melgarafael/DeskcommCRM/blob/main/hostgator-setup-kit/README.md">README do kit</a>.</p>
+<h3 id="instalar-com-ajuda-de-um-agente-de-ia">Instalar com ajuda de um agente de IA</h3>
+<p>O repositório traz guias que funcionam no Claude Code, Codex, Cursor, OpenCode e Antigravity. Para instalá-los no seu computador:</p>
+<pre><code class="language-bash">curl -fsSL https://raw.githubusercontent.com/melgarafael/DeskcommCRM/main/scripts/instalar-guias.sh | bash
+</code></pre>
+<p>Depois, numa sessão nova, diga <em>&quot;quero instalar o CRM na minha VPS&quot;</em> ou chame <code>/deskcomm-instalar</code> no Claude Code. Para remover os guias, rode o mesmo comando com <code>bash -s -- --remover</code>.</p>
+<h3 id="primeiro-acesso">Primeiro acesso</h3>
+<p>Abra <code>https://&lt;seu-domínio&gt;</code> (o cadeado do HTTPS leva cerca de 1 minuto para aparecer), entre com o admin e, no onboarding, escaneie o QR code com o WhatsApp. A verificação em duas etapas é opcional e fica em <strong>Configurações › Segurança</strong>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Atualizar:</strong> quando sai versão nova, o menu lateral mostra <strong>&quot;Nova versão&quot;</strong>. Clique e acompanhe em <strong>Configurações → Atualização</strong>; o backup é automático. Pelo terminal:</p>
+<pre><code class="language-bash">bash hostgator-setup-kit/update.sh       # atualiza para a última versão publicada, com backup antes
+</code></pre>
+<p>Scripts do kit (na pasta do projeto, dentro da VPS):</p>
+<pre><code class="language-bash">bash hostgator-setup-kit/backup.sh          # backup do banco + sessões do WhatsApp
+bash hostgator-setup-kit/restore.sh         # restaura um backup (só em banco vazio)
+bash hostgator-setup-kit/healthcheck.sh     # diagnóstico de todos os serviços
+bash hostgator-setup-kit/reset-password.sh  # redefine a senha de um usuário
+bash hostgator-setup-kit/reset-mfa.sh       # remove o MFA de quem perdeu o celular
+bash desinstalar_docker.sh                  # remove só os containers, volumes e redes deste projeto
+</code></pre>
+<p><strong>Receber leads de fora:</strong> em <strong>Webhooks → Receber dados</strong>, crie uma fonte e use o endereço <code>/api/v1/webhooks/in/&lt;token&gt;</code> para enviar leads por POST (JSON ou formulário) a partir de landing pages, n8n ou Zapier.</p>
+<p><strong>Telas principais:</strong> Inbox (você e a IA lado a lado), Radar, Kanban, Contatos, Funis, Agentes, Conhecimento (RAG), Follow-ups, Webhooks, Desempenho, Evolução da IA, Audit Log e LGPD.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Atender e vender pelo WhatsApp com IA sem pagar mensalidade de Kommo, Octadesk ou similares.</li>
+<li>Clínicas, imobiliárias, infoprodutores, lojas Nuvemshop e prestadores de serviço que vendem pelo chat.</li>
+<li>Agências que querem oferecer CRM com IA para clientes: há guia de <a href="https://github.com/melgarafael/DeskcommCRM/blob/main/docs/white-label.md">white-label</a> para trocar a marca e revender.</li>
+<li>Como alternativa mais completa de vendas a montar à mão <a href="chatwoot.html">Chatwoot</a> + <a href="evolution-api.html">Evolution API</a> + automações.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>WhatsApp por QR code não é oficial.</strong> O projeto tem proteções contra banimento (ritmo de envio, intervalos aleatórios, janela de horário), mas o risco de bloqueio do número existe. Para volume alto, use o canal oficial da Meta.</li>
+<li><strong>LGPD:</strong> quem hospeda a instância é o <strong>controlador</strong> dos dados (clientes, conversas, pedidos), com as obrigações legais que isso traz.</li>
+<li><strong>Backup é com você:</strong> o plano grátis do Supabase <strong>não faz backup sozinho</strong>. Agende o <code>backup.sh</code> no cron todo dia.</li>
+<li><strong>Telemetria (Sentry):</strong> o instalador pergunta. Se aceitar, envia relatórios de erro com dados pessoais mascarados. Para desligar, coloque <code>SENTRY_DSN=off</code> no <code>.env</code>.</li>
+<li><strong>Suporte é da comunidade</strong>, sem SLA, via Issues e Discussions.</li>
+<li>A tabela de tecnologias do README cita o <strong>WAHA Plus</strong>. Confira na documentação do WAHA se a sua configuração exige licença paga.</li>
+<li>O README tem um link de afiliado da HostGator. A instalação funciona em qualquer VPS com Docker.</li>
+<li>Projeto jovem (criado em abr/2026) e muito ativo: versão v1.86.0 em out/2026. Leia o <code>CHANGELOG.md</code> antes de atualizar.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/melgarafael/DeskcommCRM#readme">README</a> · <a href="https://github.com/melgarafael/DeskcommCRM/blob/main/README.en.md">English</a></li>
+<li><a href="https://github.com/melgarafael/DeskcommCRM/blob/main/hostgator-setup-kit/README.md">Kit de instalação self-host</a></li>
+<li><a href="https://github.com/melgarafael/DeskcommCRM/blob/main/docs/ATUALIZANDO.md">Como atualizar</a></li>
+<li><a href="https://github.com/melgarafael/DeskcommCRM/blob/main/docs/SETUP.md">Setup de desenvolvimento</a></li>
+<li><a href="https://github.com/melgarafael/DeskcommCRM/blob/main/docs/white-label.md">White-label / revenda</a></li>
+<li><a href="https://github.com/melgarafael/DeskcommCRM/blob/main/docs/runbooks/waha-hostgator.md">Runbook do WAHA em produção</a></li>
+<li><a href="https://github.com/melgarafael/DeskcommCRM/blob/main/CHANGELOG.md">CHANGELOG</a> · <a href="https://github.com/melgarafael/DeskcommCRM/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#07-whatsapp-e-atendimento">WhatsApp e atendimento</a></h2>
+    <ul>
+<li><a href="../../repos/07-whatsapp-e-atendimento/apibrasil.html">APIBrasil (organização)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot.html">Chatwoot</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot-nestor.html">Chatwoot Nestor</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-api.html">Evolution API</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-go.html">Evolution Go</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/sellbird.html">Sellbird (antigo Harvey)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/wa-akg.html">WA-AKG</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/zuckzapgo.html">ZuckZapGo Private</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

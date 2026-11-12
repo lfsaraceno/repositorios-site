@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Master · Repositórios favoritos</title>
+<meta name="description" content="Skill do Claude que escreve prompts precisos para qualquer ferramenta de IA (LLMs, agentes de código, geradores de imagem e vídeo), sem desperdiçar tokens ou créditos.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Prompt Master</h1>
+    <p class="lead">Skill do Claude que escreve prompts precisos para qualquer ferramenta de IA (LLMs, agentes de código, geradores de imagem e vídeo), sem desperdiçar tokens ou créditos.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/nidhinjs/prompt-master">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">nidhinjs/prompt-master</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/nidhinjs/prompt-master">nidhinjs/prompt-master</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>— (skill em Markdown)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~15k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Prompt Master é uma skill que transforma uma ideia vaga em um prompt afiado para a ferramenta de destino. O problema que ele ataca é o ciclo clássico: prompt vago, resposta errada, novo prompt, resposta mais próxima, e assim por diante até acertar na quarta tentativa, gastando créditos e tempo.</p>
+<p>Funciona com Claude, ChatGPT, Codex, Grok, Gemini, o1/o3, Cursor, Claude Code, GitHub Copilot, Windsurf, Bolt, v0, Lovable, Devin, Perplexity, Midjourney, DALL-E, Stable Diffusion, ComfyUI, Sora, Runway, ElevenLabs, Zapier, Make e qualquer outra ferramenta, para a qual usa um &quot;Universal Fingerprint&quot; de 4 perguntas. A filosofia declarada: o melhor prompt não é o mais longo, é aquele em que cada palavra tem função.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Pipeline em 8 etapas: detecta a ferramenta de destino, extrai 9 dimensões da intenção (tarefa, entrada, saída, restrições, contexto, público, memória, critérios de sucesso, exemplos) e faz no máximo 3 perguntas de esclarecimento.</li>
+<li>Roteia silenciosamente para o framework de prompt adequado e aplica só técnicas seguras (papel, few-shot, estrutura XML, âncoras de fundamentação).</li>
+<li>Auditoria de eficiência de tokens: remove o que não muda o resultado.</li>
+<li>Perfis para mais de 30 ferramentas, incluindo modelos de raciocínio (que não recebem cadeia de pensamento forçada), modelos locais e geradores de imagem.</li>
+<li>Bloco de memória (Memory Block) que carrega decisões anteriores para o novo prompt não contradizer o que já foi decidido.</li>
+<li>Catálogo de 37 padrões que desperdiçam créditos, com a correção para cada um.</li>
+<li>Modo de reescrita: você cola um prompt ruim e ele corrige; também lida com edição de imagem de referência.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude.ai (upload de skill) ou Claude Code.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="recomendado-claude-ai-navegador">Recomendado: Claude.ai (navegador)</h3>
+<ol>
+<li>Baixe o repositório como ZIP.</li>
+<li>Vá em <strong>claude.ai &gt; Sidebar &gt; Customize &gt; Skills &gt; Upload a Skill</strong>.</li>
+</ol>
+<h3 id="alternativa-claude-code-o-readme-diz-nao-sugerido">Alternativa: Claude Code (o README diz &quot;não sugerido&quot;)</h3>
+<pre><code class="language-bash">mkdir -p ~/.claude/skills
+git clone https://github.com/nidhinjs/prompt-master.git ~/.claude/skills/prompt-master
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Invocação natural ou explícita com <code>/prompt-master</code>:</p>
+<pre><code class="language-text">Write me a prompt for Cursor to refactor my auth module
+</code></pre>
+<pre><code class="language-text">I need a prompt for Claude Code to build a REST API — ask me what you need to know
+</code></pre>
+<pre><code class="language-text">Here's a bad prompt I wrote for GPT-4o, fix it: [paste prompt]
+</code></pre>
+<pre><code class="language-text">Generate a Midjourney prompt for a cyberpunk city at night
+</code></pre>
+<pre><code class="language-text">/prompt-master
+
+I want to ask Claude Code to build a todo app with React and Supabase
+</code></pre>
+<p>A saída é um bloco de prompt pronto para copiar, com uma linha de estratégia (ferramenta alvo, framework e justificativa).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Escrever prompts para agentes de código (Claude Code, Cursor, Codex) com escopo, restrições e critérios de aceite claros.</li>
+<li>Gerar prompts para Midjourney, Stable Diffusion, ComfyUI, Sora etc.</li>
+<li>Consertar prompts que dão respostas erradas e adaptar um prompt entre ferramentas.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A skill só deve ser acionada quando você pede explicitamente para escrever, melhorar ou adaptar um prompt.</li>
+<li>Versão 1.8.0 no momento da leitura; o README registra atualizações frequentes de perfis de modelos.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/nidhinjs/prompt-master">README do projeto</a></li>
+<li><a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Documentação de Skills da Anthropic</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Replica Skill · Repositórios favoritos</title>
+<meta name="description" content="Onze skills do Claude que clonam a funcionalidade de um app: engenharia reversa, arquitetura, design, build, testes, comparação, reclamações dos usuários, nova marca, lançamento e deploy.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Replica Skill</h1>
+    <p class="lead">Onze skills do Claude que clonam a funcionalidade de um app: engenharia reversa, arquitetura, design, build, testes, comparação, reclamações dos usuários, nova marca, lançamento e deploy.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Jakeschincariol/replica-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Jakeschincariol/replica-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Jakeschincariol/replica-skill">Jakeschincariol/replica-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://opusjake.ai">opusjake.ai</a></dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (skills) + Python (ferramentas auxiliares)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~6,1k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Replica é um pacote de <strong>11 skills para o Claude</strong> que levam você de &quot;quero um app parecido com X&quot; até &quot;meu app está no ar com outra marca&quot;. Uma skill faz a engenharia reversa do app de referência; as seguintes planejam a stack e o banco, recriam o design system, constroem as telas, adicionam login e pagamentos, testam os fluxos, comparam o clone com o original e dão uma nota de paridade.</p>
+<p>O diferencial é a skill <strong>Entrepreneur</strong>: ela lê avaliações reais do app original (App Store, G2, Capterra, Reddit), lista o que os usuários mais odeiam, com contagem e link para cada citação, e transforma isso em melhorias e num posicionamento de venda. A ideia é você não lançar uma cópia, e sim um produto melhor naquilo que incomoda os clientes do concorrente.</p>
+<p>Ele trabalha no modo <strong>clean-room</strong>: recria o que o app <em>faz</em> (funcionalidades e fluxos), nunca o que ele <em>possui</em>, como código, logo, textos, conteúdo e APIs privadas. As skills impõem isso, e o deploy é bloqueado enquanto restar qualquer vestígio da marca original.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/replica-recon</code></td>
+<td>Engenharia reversa: telas, fluxos, componentes e modelo de dados, a partir de páginas públicas, prints, listagem na loja e da sua própria conta</td>
+</tr>
+<tr>
+<td><code>/replica-architect</code></td>
+<td>Planeja a stack, o schema do banco e a API</td>
+</tr>
+<tr>
+<td><code>/replica-design</code></td>
+<td>Recria o design system (cores, tipografia, espaçamento) como tokens, com os seus próprios assets</td>
+</tr>
+<tr>
+<td><code>/replica-build</code></td>
+<td>Constrói o app tela por tela a partir do mapa do recon</td>
+</tr>
+<tr>
+<td><code>/replica-backend</code></td>
+<td>Login, banco, pagamentos e integrações</td>
+</tr>
+<tr>
+<td><code>/replica-test</code></td>
+<td>Percorre todos os fluxos e registra bugs por gravidade</td>
+</tr>
+<tr>
+<td><code>/replica-diff</code></td>
+<td>Compara o clone com o original: nota de paridade e o que falta</td>
+</tr>
+<tr>
+<td><code>/replica-entrepreneur</code></td>
+<td>Lê avaliações reais e transforma as reclamações em melhorias e posicionamento</td>
+</tr>
+<tr>
+<td><code>/replica-brand</code></td>
+<td>Dá nome, paleta, logo e tom de voz novos, e varre o código até não sobrar nada do original</td>
+</tr>
+<tr>
+<td><code>/replica-launch</code></td>
+<td>Landing page, preços e listagem para App Store e Google Play</td>
+</tr>
+<tr>
+<td><code>/replica-deploy</code></td>
+<td>Checklist final e publicação no seu domínio</td>
+</tr>
+</tbody>
+</table></div>
+<p>Inclui também 6 ferramentas em Python puro, que não acessam a rede, e testes automatizados para cada uma.</p>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code (para o plugin e as ferramentas Python) ou qualquer chat do Claude (colando o <code>SKILL.md</code>, sem as ferramentas).</li>
+<li>Python 3.8 ou mais novo. Não precisa instalar nenhum pacote.</li>
+<li>Não precisa de cadastro, chave de API nem conexão com serviço externo.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add Jakeschincariol/replica-skill
+/plugin install replica-skill@replica-skill
+</code></pre>
+<p>Como plugin, os comandos ficam com prefixo: <code>/replica-skill:replica-recon</code>, e assim por diante.</p>
+<h3 id="pastas-de-skills-para-usar-os-comandos-sem-prefixo">Pastas de skills, para usar os comandos sem prefixo</h3>
+<pre><code class="language-bash">git clone https://github.com/Jakeschincariol/replica-skill.git
+cp -r replica-skill/replica-* ~/.claude/skills/
+</code></pre>
+<p>Para valer só num projeto, copie as pastas para o <code>.claude/skills/</code> do repositório.</p>
+<h3 id="pelo-chat-do-claude">Pelo chat do Claude</h3>
+<p>Cole no Claude o link do repositório seguido de <code>install skill</code>. Sem o Claude Code, dá para colar o conteúdo de um <code>SKILL.md</code> no início da conversa e usar a skill como um modo, mas sem as ferramentas Python.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Rode as skills na ordem. Cada uma lê o que a anterior gravou na pasta <code>replica/</code> do projeto:</p>
+<pre><code class="language-text">recon -&gt; architect -&gt; design -&gt; build -&gt; backend -&gt; test -&gt; diff -&gt; entrepreneur -&gt; brand -&gt; launch -&gt; deploy
+</code></pre>
+<p>Exemplo: <code>/replica-recon</code> com a URL de um app de agendamentos gera o <code>replica/recon.md</code> (telas, fluxos, modelo de dados) e o <code>features.csv</code>. Depois, <code>/replica-architect</code> escolhe a stack e escreve o schema, e assim por diante.</p>
+<p>Cada skill também roda sozinha. Por exemplo, <code>/replica-entrepreneur</code> sobre um app que você só está <em>pensando</em> em clonar é uma boa forma de validar a ideia antes de começar.</p>
+<p><strong>Ferramentas auxiliares:</strong></p>
+<pre><code class="language-bash">python3 replica-diff/imgdiff.py original.png clone.png --out diff.png   # diferença de layout, ignora cores
+python3 replica-diff/parity.py replica/features.csv                     # nota de paridade e lista do que falta
+python3 replica-entrepreneur/reviews.py replica/reviews.csv             # reclamações ranqueadas, com link
+python3 replica-design/contrast.py replica/design/tokens.json           # contraste WCAG dos tokens
+python3 replica-brand/sweep.py . --avoid &quot;Original App&quot;                 # procura restos do nome original no código
+python3 replica-launch/listing.py replica/launch/listing.json           # limites das lojas e checagem de cópia
+python3 -m unittest discover -s tests -v                                # testes das ferramentas
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Criar um SaaS ou app concorrente de um produto que já tem mercado, com diferencial baseado nas reclamações reais dos usuários.</li>
+<li>Validar uma ideia de produto antes de investir (<code>/replica-entrepreneur</code>).</li>
+<li>Agências e indie hackers que querem um processo completo, da pesquisa ao deploy.</li>
+<li>Junto com o <a href="res.html">RES</a>, que faz uma engenharia reversa mais profunda pelo navegador e gera um relatório e uma base de conhecimento. O Replica cobre o ciclo inteiro até o lançamento.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Questão legal:</strong> a skill trabalha com funcionalidade e fluxos, mas os termos de uso de alguns apps proíbem usá-los para criar um concorrente. O próprio README recomenda checar marca registrada e termos, e <strong>falar com um advogado</strong> antes de lançar. Não é aconselhamento jurídico.</li>
+<li><strong>Leitura limitada:</strong> usa só páginas públicas e a sua própria conta; não passa de login de terceiros nem de paywall.</li>
+<li><strong>Sem garantia de clone perfeito:</strong> um app de agendamento leva semanas, mas um editor de planilhas está fora de alcance. O <code>/replica-recon</code> estima a complexidade antes de começar.</li>
+<li>O repositório recebeu um único push, na criação (out/2026), e não teve atualizações desde então.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Jakeschincariol/replica-skill#readme">README</a></li>
+<li><a href="https://github.com/Jakeschincariol/replica-skill/tree/main/replica-recon">Skill de recon</a> · <a href="https://github.com/Jakeschincariol/replica-skill/tree/main/replica-entrepreneur">Skill Entrepreneur</a></li>
+<li>Outras skills do mesmo autor: <a href="https://github.com/Jakeschincariol/arena-skill">Arena</a>, <a href="https://github.com/Jakeschincariol/x-agent-skill">X</a>, <a href="https://github.com/Jakeschincariol/linkedin-agent-skill">LinkedIn</a>, <a href="https://github.com/Jakeschincariol/instagram-agent-skill">Instagram</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

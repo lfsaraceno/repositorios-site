@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenData Skills · Repositórios favoritos</title>
+<meta name="description" content="Skills oficiais da plataforma OpenData para agentes: consulta e análise de datasets públicos, geração de gráficos (OpenChart) e criação de logos e ícones em SVG.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>OpenData Skills</h1>
+    <p class="lead">Skills oficiais da plataforma OpenData para agentes: consulta e análise de datasets públicos, geração de gráficos (OpenChart) e criação de logos e ícones em SVG.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/tryopendata/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">tryopendata/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/tryopendata/skills">tryopendata/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://tryopendata.ai">tryopendata.ai</a></dd></div>
+<div><dt>Linguagem</dt><dd>HTML</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~144 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É um marketplace de plugins para o Claude Code, construído sobre a especificação Agent Skills, com três plugins para dados, visualização e design. Cada skill é uma pasta com um <code>SKILL.md</code> (frontmatter com nome e descrição), podendo incluir <code>evals/</code>, <code>scripts/</code>, <code>references/</code> e <code>assets/</code>.</p>
+<p>Os plugins são: <code>opendata</code> (consulta e análise de datasets públicos pela API do OpenData), <code>openchart</code> (gráficos, tabelas, grafos e diagramas sankey com o OpenChart) e <code>opendesign</code> (logos, ícones e gráficos em SVG).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Plugin <code>opendata</code> com a skill <code>opendata-api</code>: buscar linhas de datasets, filtrar, ordenar, agregar, inspecionar colunas, compor joins entre datasets e explorar inteligência de grafos.</li>
+<li>Plugin <code>openchart</code> com a skill <code>openchart</code>: gráficos, tabelas, grafos e sankey.</li>
+<li>Plugin <code>opendesign</code> com a skill <code>svg-design</code>: logos, ícones e gráficos em SVG.</li>
+<li>Instalação com escopo de usuário, projeto (<code>--scope project</code>) ou local (<code>--scope local</code>).</li>
+<li>Cada skill é independente e pode ser copiada para outras plataformas (Codex, Gemini CLI, Cursor, VS Code/Copilot).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code com suporte a marketplaces de plugins.</li>
+<li>Para as skills de dados, acesso à plataforma OpenData (o README não detalha chaves de API).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code">Claude Code</h3>
+<p>Adicione o marketplace e instale os plugins desejados:</p>
+<pre><code class="language-text">/plugin marketplace add tryopendata/skills
+/plugin install opendata@opendata-skills
+/plugin install openchart@opendata-skills
+/plugin install opendesign@opendata-skills
+</code></pre>
+<p>Ou pela linha de comando:</p>
+<pre><code class="language-bash">claude plugin marketplace add tryopendata/skills
+claude plugin install opendata@opendata-skills
+</code></pre>
+<h3 id="outras-plataformas-codex-gemini-cli-cursor-vs-code-copilot">Outras plataformas (Codex, Gemini CLI, Cursor, VS Code/Copilot)</h3>
+<p>Copie o diretório da skill para o local de skills da plataforma (normalmente <code>.agents/skills/</code>):</p>
+<pre><code class="language-bash">cp -r plugins/opendesign/skills/svg-design .agents/skills/svg-design
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>As skills são acionadas pelo contexto. Exemplos de pedidos, no espírito do que cada skill faz:</p>
+<pre><code class="language-text">Consulte o dataset X na OpenData e agregue por ano
+Gere um gráfico de barras com esses dados usando OpenChart
+Crie um logo em SVG para o meu projeto
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Pesquisa e análise de dados públicos diretamente na conversa com o agente.</li>
+<li>Visualizações rápidas (gráficos, tabelas, sankey) a partir dos dados consultados.</li>
+<li>Geração de ícones e logos SVG.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Projeto pequeno e mantido por uma empresa específica (OpenData); a skill de dados depende da plataforma deles.</li>
+<li>Migração pré-1.0: a skill <code>svg-design</code> saiu do plugin <code>openchart</code> e foi para o novo plugin <code>opendesign</code> na versão 1.0.0.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/tryopendata/skills">README do projeto</a></li>
+<li><a href="https://github.com/tryopendata/openchart">OpenChart</a></li>
+<li><a href="https://agentskills.io/specification">Especificação Agent Skills</a></li>
+<li><a href="https://code.claude.com/docs/en/plugin-marketplaces">Marketplaces de plugins do Claude Code</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

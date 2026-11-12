@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soup · Repositórios favoritos</title>
+<meta name="description" content="CLI para fine-tuning e pós-treino de LLMs a partir de um único arquivo YAML, com streaming de camadas que treina um modelo de 8B em uma GPU de notebook de 4 GB.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>Soup</h1>
+    <p class="lead">CLI para fine-tuning e pós-treino de LLMs a partir de um único arquivo YAML, com streaming de camadas que treina um modelo de 8B em uma GPU de notebook de 4 GB.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/MakazhanAlpamys/Soup">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">MakazhanAlpamys/Soup</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/MakazhanAlpamys/Soup">MakazhanAlpamys/Soup</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://trysoup.dev">trysoup.dev</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~9,3k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Soup simplifica o fine-tuning de LLMs: uma configuração em YAML, um comando e pronto. Ele cuida de tamanho de lote, detecção de GPU e quantização, e funciona localmente com QLoRA, sem precisar de SSH em máquinas de nuvem.</p>
+<p>O destaque é o <strong>layer streaming</strong> (opt-in e ainda em BETA, <code>stream_layers: true</code>): mantém o modelo base congelado fora da VRAM e o envia para a GPU uma camada por vez. Segundo o README, isso permitiu treinar o Llama-3.1-8B-Instruct em NF4 em uma RTX 3050 Laptop de 4 GB, com pico de 3,32 GB.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Treino a partir de um YAML (<code>soup.yaml</code>): SFT, DPO, GRPO, PPO, KTO, ORPO, SimPO, IPO e outros.</li>
+<li>Templates prontos: chat, code, tool-calling, medical, reasoning, vision, rlhf, pretrain, moe, embedding, audio e mais.</li>
+<li>Layer streaming para treinar modelos grandes em GPUs com pouca VRAM.</li>
+<li>Painel web local (<code>soup ui</code>) para experimentos, métricas, datasets e chat com o modelo.</li>
+<li>Exportação para GGUF (Ollama e llama.cpp), merge de LoRA, push para o Hugging Face e servidor compatível com a API da OpenAI (<code>soup serve</code>).</li>
+<li>Ferramentas de dados (<code>soup data inspect</code>, <code>soup data clean</code>), avaliação (<code>soup eval</code>) e diagnóstico (<code>soup doctor</code>).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.10 a 3.12 (versões 3.13 ou superiores não são suportadas).</li>
+<li>Para treinar: GPU compatível e o extra <code>[train]</code> (PyTorch, transformers, peft, trl, datasets).</li>
+<li><code>pipx</code> ou <code>uv</code> recomendados para instalar o CLI isolado.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Núcleo leve (CLI, configuração e ferramentas de dados, sem PyTorch):</p>
+<pre><code class="language-bash">pipx install soup-cli
+# ou
+uv tool install soup-cli
+</code></pre>
+<p>Com a pilha de treino, ou tudo (treino, serve, ui e dados):</p>
+<pre><code class="language-bash">pipx install &quot;soup-cli[train]&quot;
+pipx install &quot;soup-cli[all]&quot;
+</code></pre>
+<p>Dentro de um virtualenv, Colab ou Docker, use <code>pip</code> com os mesmos nomes (<code>pip install &quot;soup-cli[train]&quot;</code>). Use <strong>aspas duplas</strong> em <code>&quot;soup-cli[train]&quot;</code>: é o único formato que funciona em cmd.exe, PowerShell, bash e zsh. Versão de desenvolvimento:</p>
+<pre><code class="language-bash">pipx install &quot;git+https://github.com/MakazhanAlpamys/Soup.git&quot;
+</code></pre>
+<p>Se aparecer <code>externally-managed-environment</code> (PEP 668), use <code>pipx</code>, <code>uv tool</code> ou um <code>venv</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">soup init --template chat                       # cria o soup.yaml a partir de um template
+soup train --config soup.yaml                   # treina (LoRA, quantização e lotes automáticos)
+soup chat --model ./output                      # conversa com o modelo treinado
+soup infer --model ./output --input prompts.jsonl --output results.jsonl   # inferência em lote
+soup serve --model ./output                     # API compatível com a OpenAI
+soup merge --adapter ./output                   # une o LoRA ao modelo base
+soup export --model ./output --format gguf --quant q4_k_m   # exporta para GGUF
+soup push --model ./output --repo voce/meu-modelo           # publica no Hugging Face
+soup eval benchmark --model ./output            # avalia
+soup data inspect ./data/train.jsonl            # estatísticas do dataset
+soup doctor --config soup.yaml                  # valida a configuração
+soup ui                                         # painel web em http://127.0.0.1:7860 (pip install &quot;soup-cli[ui]&quot;)
+</code></pre>
+<p>Exemplo mínimo de <code>soup.yaml</code>:</p>
+<pre><code class="language-yaml">base: meta-llama/Llama-3.1-8B-Instruct
+task: sft
+data:
+  train: ./data/train.jsonl
+  format: alpaca
+  val_split: 0.1
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Ajustar (fine-tune) um LLM com seus dados em uma GPU doméstica ou de notebook.</li>
+<li>Padronizar experimentos de treino com um arquivo de configuração versionável.</li>
+<li>Exportar o modelo treinado para rodar localmente (Ollama, llama.cpp).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O layer streaming é BETA e opt-in.</li>
+<li>A versão 0.76 trouxe mudanças que quebram configurações antigas (configurações que nunca tinham efeito agora são recusadas ao carregar). Rode <code>soup doctor --config soup.yaml</code> antes de reutilizar um YAML.</li>
+<li><code>soup export --format awq</code> e <code>gptq</code> serão removidos na v0.77.</li>
+<li>Os números de desempenho do README vêm de medições do autor e de colaboradores em placas específicas.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/MakazhanAlpamys/Soup#readme">README</a></li>
+<li><a href="https://trysoup.dev">Site</a></li>
+<li><a href="https://github.com/MakazhanAlpamys/Soup/releases">Releases</a></li>
+<li><a href="https://github.com/MakazhanAlpamys/Soup/blob/main/notebooks/proof-4gb.ipynb">Notebook de prova (Colab T4)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

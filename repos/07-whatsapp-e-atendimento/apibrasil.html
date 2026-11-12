@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APIBrasil (organização) · Repositórios favoritos</title>
+<meta name="description" content="Organização do GitHub da APIBrasil: SDKs oficiais, painéis e utilitários open source para consumir a plataforma de APIs brasileiras (WhatsApp, consultas de CPF/CNPJ, veículos, CEP, multas e mais).">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#07-whatsapp-e-atendimento"><span aria-hidden="true">💬</span> WhatsApp e atendimento</a>
+    </nav>
+    <h1>APIBrasil (organização)</h1>
+    <p class="lead">Organização do GitHub da APIBrasil: SDKs oficiais, painéis e utilitários open source para consumir a plataforma de APIs brasileiras (WhatsApp, consultas de CPF/CNPJ, veículos, CEP, multas e mais).</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/apibrasil">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">github.com/apibrasil</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/apibrasil">github.com/apibrasil</a> (organização, ~30 repositórios)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://apibrasil.com.br">apibrasil.com.br</a></dd></div>
+<div><dt>Linguagem</dt><dd>Várias (PHP, TypeScript, Python, Go, Java etc.)</dd></div>
+<div><dt>Licença</dt><dd>MIT nos SDKs principais (verifique cada repositório)</dd></div>
+<div><dt>Estrelas</dt><dd>Varia por repositório (maiores: api-multas ~55, apibrasil-whatsapp ~45)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>A APIBrasil se descreve como &quot;Serviços de API for Brazil&quot;. Ela oferece uma plataforma com APIs de WhatsApp, SMS, consultas (CPF, CNPJ, veículos, CEP, correios) e pagamentos (PIX e boleto), cobradas por créditos ou assinatura. A organização no GitHub reúne os SDKs oficiais, exemplos de integração e alguns projetos abertos.</p>
+<p>O foco do WhatsApp é o <strong>MyZap</strong>, uma API de WhatsApp da própria APIBrasil, com painel de gestão de dispositivos. Os SDKs permitem chamar a plataforma em várias linguagens com poucas linhas de código.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>SDKs oficiais com a mesma ideia de uso (WhatsApp, consultas, auth) em várias linguagens.</li>
+<li>Painel open source para gerenciar dispositivos conectados ao MyZap.</li>
+<li>Disparador gratuito de mensagens para servidores da APIBrasil.</li>
+<li>API de multas dos Detrans (web scraping retornando JSON).</li>
+<li>Cliente de exemplo do servidor MCP da APIBrasil para agentes de IA.</li>
+<li>Exemplos de bot com Dialogflow e de chat com Node.js, socket e webhook.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Conta e credenciais da APIBrasil (Bearer Token, Device Token), obtidas em <a href="https://apibrasil.com.br">apibrasil.com.br</a>.</li>
+<li>Node.js 18+ para o SDK Node; PHP 8.0+ para o SDK PHP.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Veja a seguir os repositórios principais e como cada um é instalado, conforme os READMEs.</p>
+<h3 id="repositorios-principais">Repositórios principais</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Repositório</th>
+<th>O que é</th>
+<th>Linguagem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/apibrasil/apibrasil-whatsapp">apibrasil-whatsapp</a></td>
+<td>Painel (Laravel) para gestão de dispositivos conectados à API MyZap</td>
+<td>HTML/PHP</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/apigratis-sdk-node">apigratis-sdk-node</a></td>
+<td>SDK oficial Node.js/TypeScript</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/apigratis-sdk-php">apigratis-sdk-php</a></td>
+<td>SDK oficial PHP</td>
+<td>PHP</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/api-multas">api-multas</a> e <a href="https://github.com/apibrasil/api-multas-npm">api-multas-npm</a></td>
+<td>Busca de multas dos Detrans via web scraping, retorno em JSON</td>
+<td>TypeScript</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/apibrasil-disparador-free">apibrasil-disparador-free</a></td>
+<td>Disparador gratuito base para integrações com WhatsApp (PHP 8.3+)</td>
+<td>SCSS/PHP</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/apibrasil-mcp-client">apibrasil-mcp-client</a></td>
+<td>Exemplos de uso do servidor MCP da APIBrasil em clientes de IA</td>
+<td>Python</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/apigratis-starter-kit">apigratis-starter-kit</a> e <a href="https://github.com/apibrasil/api-starter-kit">api-starter-kit</a></td>
+<td>Kits iniciais (JavaScript e Laravel 12)</td>
+<td>JavaScript/PHP</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/apigratis-chatopen">apigratis-chatopen</a></td>
+<td>Estudo de Node.js, socket, webhook e WhatsApp</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/apigratis-exemplos">apigratis-exemplos</a></td>
+<td>Exemplos de consumo da API em várias linguagens</td>
+<td>HTML</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/maturador-de-chips">maturador-de-chips</a></td>
+<td>Maturador de chips com interface gráfica</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td><a href="https://github.com/apibrasil/placa-ocr">placa-ocr</a></td>
+<td>Detecção e OCR de placas Mercosul</td>
+<td>Shell</td>
+</tr>
+</tbody>
+</table></div>
+<p>Existem ainda SDKs para Java, Go, Flutter, Ruby, C++, Rust, Elixir, Scala, Lua e .NET (NuGet), a maioria recente e com poucas estrelas, além de forks de <code>whatsmeow</code> e <code>wppconnect</code>.</p>
+<h3 id="sdk-node-js">SDK Node.js</h3>
+<pre><code class="language-bash">npm install apigratis-sdk-nodejs --save
+</code></pre>
+<p>Requer Node.js 18 ou superior. Sem dependências de runtime, com builds ESM e CJS.</p>
+<h3 id="sdk-php">SDK PHP</h3>
+<pre><code class="language-bash">composer require jhowbhz/apigratis-sdk-php
+</code></pre>
+<p>Requer PHP 8.0 ou superior.</p>
+<h3 id="painel-apibrasil-whatsapp">Painel apibrasil-whatsapp</h3>
+<p>O README descreve uma instalação em servidor Ubuntu 20.04+ (1 GB de RAM, 1 vCPU) com Nginx, MariaDB, PHP 7.4 e Certbot, clonando o projeto em <code>/opt/painel-whatsapp</code>. Há um vídeo de instalação no README. Consulte o passo a passo completo no repositório, pois ele inclui regras de firewall e configuração do PHP.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Exemplo do SDK Node.js (do README):</p>
+<pre><code class="language-typescript">import { ApiBrasil } from 'apigratis-sdk-nodejs';
+
+const api = new ApiBrasil({
+  bearerToken: process.env.APIBRASIL_BEARER_TOKEN,
+  deviceToken: process.env.APIBRASIL_DEVICE_TOKEN,
+});
+
+await api.whatsapp.sendText({ number: '5511999999999', text: 'Olá!' });
+const empresa = await api.consulta.cnpj({ cnpj: '00000000000000' });
+</code></pre>
+<p>Os SDKs também leem as variáveis <code>APIBRASIL_BEARER_TOKEN</code>, <code>APIBRASIL_DEVICE_TOKEN</code>, <code>APIBRASIL_SECRET_KEY</code> e <code>APIBRASIL_BASE_URL</code>, e suportam login por e-mail e senha, inclusive com 2FA.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Integrar WhatsApp (MyZap) e consultas brasileiras (CPF, CNPJ, veículos, CEP) em sistemas próprios.</li>
+<li>Gerenciar dispositivos de WhatsApp com um painel pronto.</li>
+<li>Dar a agentes de IA acesso às APIs por meio do servidor MCP da APIBrasil.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A plataforma APIBrasil é um serviço comercial (créditos e assinaturas); os repositórios são clientes e utilitários, não substituem o serviço.</li>
+<li>O painel <code>apibrasil-whatsapp</code> usa PHP 7.4, que já está fora de suporte; avalie isso antes de expor em produção.</li>
+<li>Projetos de web scraping (como <code>api-multas</code>) dependem dos sites dos Detrans e podem quebrar sem aviso.</li>
+<li>A lista de repositórios muda com frequência; confira a organização para ver novidades.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/apibrasil">Organização no GitHub</a></li>
+<li><a href="https://apibrasil.com.br">Site da APIBrasil</a></li>
+<li><a href="https://www.npmjs.com/package/apigratis-sdk-nodejs">SDK Node.js no npm</a></li>
+<li><a href="https://packagist.org/packages/jhowbhz/apigratis-sdk-php">SDK PHP no Packagist</a></li>
+<li><a href="https://status.apibrasil.com.br">Status dos serviços</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#07-whatsapp-e-atendimento">WhatsApp e atendimento</a></h2>
+    <ul>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot.html">Chatwoot</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot-nestor.html">Chatwoot Nestor</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/deskcomm-crm.html">DeskcommCRM</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-api.html">Evolution API</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-go.html">Evolution Go</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/sellbird.html">Sellbird (antigo Harvey)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/wa-akg.html">WA-AKG</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/zuckzapgo.html">ZuckZapGo Private</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

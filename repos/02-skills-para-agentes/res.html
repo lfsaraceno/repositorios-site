@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RES (Reverse Engineering SaaS) · Repositórios favoritos</title>
+<meta name="description" content="Skill que estuda um produto SaaS pelo navegador e gera uma base de conhecimento (telas, regras, modelo de dados, design tokens, barreiras) para recriá-lo.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>RES (Reverse Engineering SaaS)</h1>
+    <p class="lead">Skill que estuda um produto SaaS pelo navegador e gera uma base de conhecimento (telas, regras, modelo de dados, design tokens, barreiras) para recriá-lo.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/alextnetto/res">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">alextnetto/res</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/alextnetto/res">alextnetto/res</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://alextnetto.github.io/res/examples/pipedrive/REPORT.html">Relatório de exemplo (Pipedrive)</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (Node.js)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~49 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O RES é uma skill para agentes de código (feita para o Claude Code) que estuda um produto web pelo navegador e documenta como ele funciona, para que um time ou outro agente consiga recriá-lo e lançá-lo. A ideia é responder &quot;como o produto funciona para o usuário e o que é preciso para lançar um clone&quot;, sem tocar em dados de produção.</p>
+<p>O agente explora o produto num ambiente de teste, registra cada alteração que faz e grava o que aprende em arquivos: telas e estados, regras de negócio com evidência, modelo de dados, formato das APIs, design tokens e as barreiras de lançamento (integrações que exigem aprovação, licenças, certificações). Cada afirmação leva uma marca de evidência: <code>[obs]</code> visto no produto, <code>[net]</code> capturado na rede, <code>[doc]</code> da documentação pública ou <code>[inf]</code> inferência com pergunta em aberto.</p>
+<p>No fim, entrega dois arquivos: o <code>REPORT.html</code>, um relatório de página única para pessoas, e um zip para o agente de código, que começa pelo <code>BUILD.md</code>. A base de conhecimento em disco é a memória do agente, então um estudo pode durar várias sessões.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Estudo em 7 fases: escopo, ambiente seguro, pesquisa pública, mapa de telas, aprofundamento por funcionalidade, síntese e entrega.</li>
+<li>Regras de negócio em Given/When/Then com evidência, que viram testes de paridade.</li>
+<li>Modelo de dados com entidades, enums, relações, diagrama ER e tipos TypeScript.</li>
+<li>Design tokens (cores, tipografia, espaçamento, sombras, animações) mapeados às variáveis CSS do produto.</li>
+<li>Análise de barreiras de lançamento com severidade, prazo e mitigação (ex.: verificação da Meta para WhatsApp).</li>
+<li>Modelo de segurança em 4 níveis (L1 a L4) e registro de todas as alterações em <code>sandbox/ledger.csv</code>, revertidas no fim.</li>
+<li>Pode rodar sem interrupções: o que precisa de você fica anotado em <code>STATUS.md</code>, em &quot;Needs human&quot;.</li>
+<li>Leve: cerca de 130 tokens por sessão e cerca de 4.600 quando é acionada.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 22 ou superior.</li>
+<li>Um agente que controle o navegador e execute JavaScript na página: Claude in Chrome, Playwright MCP ou Chrome DevTools MCP.</li>
+<li>De preferência, uma conta de teste (trial) do produto, logada num perfil separado do Chrome.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code-plugin">Claude Code (plugin)</h3>
+<p>No terminal:</p>
+<pre><code class="language-bash">claude plugin marketplace add alextnetto/res
+claude plugin install res@res
+</code></pre>
+<p>Dentro de uma sessão do Claude Code os comandos são <code>/plugin marketplace add alextnetto/res</code> e <code>/plugin install res@res</code>. Depois, abra uma sessão nova.</p>
+<h3 id="outros-agentes-skill-em-disco">Outros agentes (skill em disco)</h3>
+<pre><code class="language-bash">git clone https://github.com/alextnetto/res.git &amp;&amp; mkdir -p ~/.claude/skills &amp;&amp; cp -R res/skills/reverse-engineering-saas ~/.claude/skills/
+</code></pre>
+<p>Ajuste o destino para a pasta de onde o seu agente lê as skills.</p>
+<h3 id="atualizar">Atualizar</h3>
+<pre><code class="language-bash">claude plugin marketplace update res
+claude plugin update res@res
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Crie uma conta de teste do produto com um e-mail seu, faça login num perfil separado do Chrome e conecte a ferramenta de navegador do agente a esse perfil.</li>
+<li>Peça ao agente, por exemplo:</li>
+</ol>
+<pre><code class="language-text">Study Pipedrive so my team can rebuild it for the Brazilian market.
+Use the trial profile, and don't ask me anything until you're done.
+</code></pre>
+<p>O agente cria a pasta <code>re-&lt;produto&gt;/</code> e, ao terminar, entrega o <code>REPORT.html</code> e o <code>re-&lt;produto&gt;-handoff-&lt;data&gt;.zip</code>. Para retomar depois, abra uma sessão na mesma pasta e diga &quot;Continue the Pipedrive study.&quot;</p>
+<p>Os scripts também funcionam sem agente, para criar, validar, gerar relatório ou empacotar uma base:</p>
+<pre><code class="language-bash">node skills/reverse-engineering-saas/scripts/init-kb.mjs --product &quot;Acme CRM&quot; --git   # cria a base de conhecimento
+node skills/reverse-engineering-saas/scripts/check-kb.mjs re-acme-crm                 # valida a base
+node skills/reverse-engineering-saas/scripts/build-report.mjs re-acme-crm             # gera o REPORT.html
+node skills/reverse-engineering-saas/scripts/pack-kb.mjs re-acme-crm                  # gera o zip de entrega
+</code></pre>
+<p>Cada script mostra as opções com <code>--help</code>.</p>
+<h3 id="niveis-de-seguranca">Níveis de segurança</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>Ambiente</th>
+<th>O que o agente pode alterar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1</td>
+<td>Conta trial em perfil separado do navegador</td>
+<td>Tudo, exceto ações externas e irreversíveis</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>Workspace novo e vazio no seu login</td>
+<td>Dados de teste e configuração desse workspace</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>Uma lista, projeto ou pipeline de sandbox dentro da produção</td>
+<td>Só dados de teste dentro desse container</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>Produção, só observação</td>
+<td>Nada</td>
+</tr>
+</tbody>
+</table></div>
+<p>Em todos os níveis o agente nunca envia mensagens ou convites, não menciona outras pessoas, não mexe em cobrança, não cria contas e não digita senhas.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Entender a fundo um SaaS concorrente ou de referência antes de construir algo parecido (ex.: um CRM para o mercado brasileiro).</li>
+<li>Gerar requisitos, regras e testes de paridade para entregar a desenvolvedores ou a um agente de código.</li>
+<li>Levantar o que pode travar o lançamento de um clone: integrações com aprovação, licenças, certificações.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Uso responsável:</strong> use só em contas suas ou que você tem autorização para examinar. Muitos termos de uso proíbem engenharia reversa ou uso para concorrência; a decisão e o risco jurídico são seus. Recrie a partir do comportamento, sem copiar código, ícones, logos ou textos.</li>
+<li>Use conta de teste em perfil separado do Chrome. Assim o agente não alcança a sua conta de produção nem por engano.</li>
+<li>Funciona mal com apps desktop ou mobile, porque precisa do DOM e da rede. Para binários, Electron e APKs, use o <a href="../06-seguranca/rea.html">REA</a>: ele mostra <strong>com o que</strong> o produto é feito, e o RES mostra <strong>como funciona</strong> para o usuário.</li>
+<li>Projeto jovem (versão 0.4.0, poucas estrelas), mas com dois estudos completos publicados como exemplo: ClickUp e Pipedrive.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/alextnetto/res#readme">README</a></li>
+<li><a href="https://github.com/alextnetto/res/blob/main/skills/reverse-engineering-saas/SKILL.md">SKILL.md (regras que o agente segue)</a></li>
+<li><a href="https://github.com/alextnetto/res/blob/main/skills/reverse-engineering-saas/references/safety.md">Modelo de segurança</a></li>
+<li><a href="https://github.com/alextnetto/res/blob/main/skills/reverse-engineering-saas/references/tools.md">Ferramentas de navegador e perfil separado</a></li>
+<li><a href="https://github.com/alextnetto/res/tree/main/examples">Exemplos (ClickUp e Pipedrive)</a></li>
+<li><a href="https://github.com/alextnetto/res/blob/main/docs/comparison-with-rea.md">Comparação com o REA</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chrome DevTools MCP · Repositórios favoritos</title>
+<meta name="description" content="Servidor MCP oficial que permite ao agente de código controlar e inspecionar um Chrome ao vivo: automação, depuração e análise de performance com o poder do Chrome DevTools.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Chrome DevTools MCP</h1>
+    <p class="lead">Servidor MCP oficial que permite ao agente de código controlar e inspecionar um Chrome ao vivo: automação, depuração e análise de performance com o poder do Chrome DevTools.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ChromeDevTools/chrome-devtools-mcp">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ChromeDevTools/chrome-devtools-mcp</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp">ChromeDevTools/chrome-devtools-mcp</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://developer.chrome.com/docs/devtools/agents">developer.chrome.com/docs/devtools/agents</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~54k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O <code>chrome-devtools-mcp</code> é um servidor Model Context Protocol (MCP) que dá ao seu assistente de código (Antigravity, Claude, Cursor, Copilot etc.) acesso a uma instância real do Chrome. Com isso, o agente pode automatizar ações, depurar problemas e analisar performance usando o próprio Chrome DevTools.</p>
+<p>A automação usa o Puppeteer e espera automaticamente o resultado das ações. O pacote também oferece uma CLI para uso sem MCP. O navegador só é iniciado quando o cliente MCP usa uma ferramenta que precisa dele; apenas conectar ao servidor não abre o Chrome.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Insights de performance: grava traces e extrai recomendações acionáveis com o Chrome DevTools.</li>
+<li>Depuração avançada: análise de requisições de rede, capturas de tela e mensagens do console (com stack traces mapeados por source map).</li>
+<li>Automação confiável com Puppeteer, com espera automática pelos resultados.</li>
+<li>Modo <code>--slim</code> com conjunto reduzido de ferramentas para tarefas básicas de navegador.</li>
+<li>Opções de configuração como <code>--headless</code> e <code>--isolated</code>, e conexão a um Chrome já em execução (veja o guia de uso avançado).</li>
+<li>Suporte oficial ao Google Chrome e ao Chrome for Testing.</li>
+<li>CLI incluída para uso sem MCP.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js, versão LTS.</li>
+<li>Chrome estável atual ou mais recente.</li>
+<li>npm.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Adicione esta configuração ao seu cliente MCP:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;chrome-devtools&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;chrome-devtools-mcp@latest&quot;]
+    }
+  }
+}
+</code></pre>
+<p>Usar <code>@latest</code> garante que o cliente sempre rode a versão mais recente. Para tarefas básicas, use o modo enxuto:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;chrome-devtools&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;chrome-devtools-mcp@latest&quot;, &quot;--slim&quot;, &quot;--headless&quot;]
+    }
+  }
+}
+</code></pre>
+<p>Instruções específicas para Claude Code, Cursor, VS Code e Antigravity estão no <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/client-configurations.md">guia de configuração de clientes</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Primeiro prompt para testar (o cliente deve abrir o navegador e gravar um trace de performance):</p>
+<pre><code class="language-text">Check the performance of https://developers.chrome.com
+</code></pre>
+<p>Flags mencionadas no README:</p>
+<pre><code class="language-text">--headless                 # executa o Chrome sem janela
+--isolated                 # perfil isolado
+--slim                     # conjunto reduzido de ferramentas
+--no-performance-crux      # não envia URLs de trace à API CrUX
+--no-usage-statistics      # desativa estatísticas de uso do Google
+</code></pre>
+<p>Variáveis de ambiente: <code>CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS</code>, <code>CHROME_DEVTOOLS_MCP_NO_UPDATE_CHECKS</code> (e a variável <code>CI</code> também desativa as estatísticas).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Depurar uma página no navegador real (console, rede, DOM) a partir do agente.</li>
+<li>Medir e melhorar performance (Core Web Vitals, traces) com orientação do agente.</li>
+<li>Automatizar fluxos de teste e capturas de tela.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O servidor expõe o conteúdo do navegador ao cliente MCP, que pode inspecionar, depurar e modificar qualquer dado do navegador e do DevTools. Evite compartilhar informações sensíveis.</li>
+<li>O Google coleta estatísticas de uso por padrão (taxa de sucesso, latência, ambiente); desative com <code>--no-usage-statistics</code>.</li>
+<li>Ferramentas de performance podem enviar URLs de trace à API CrUX (Chrome User Experience Report); desative com <code>--no-performance-crux</code>.</li>
+<li>Outros navegadores baseados em Chromium podem funcionar, sem garantia.</li>
+<li>O servidor verifica periodicamente o registro do npm por atualizações; desative com a variável <code>CHROME_DEVTOOLS_MCP_NO_UPDATE_CHECKS</code>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp">README do projeto</a></li>
+<li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/tool-reference.md">Referência de ferramentas</a></li>
+<li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/configuration.md">Guia de configuração</a></li>
+<li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/advanced-usage.md">Uso avançado</a></li>
+<li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/troubleshooting.md">Solução de problemas</a></li>
+<li><a href="https://npmjs.org/package/chrome-devtools-mcp">Pacote no npm</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

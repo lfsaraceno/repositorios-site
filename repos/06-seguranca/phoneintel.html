@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhoneIntel · Repositórios favoritos</title>
+<meta name="description" content="Ferramenta OSINT de linha de comando em Python para obter informações públicas sobre números de telefone (país, região, operadora, reputação) e gerar Google dorks.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>PhoneIntel</h1>
+    <p class="lead">Ferramenta OSINT de linha de comando em Python para obter informações públicas sobre números de telefone (país, região, operadora, reputação) e gerar Google dorks.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/phoneintel/phoneintel">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">phoneintel/phoneintel</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/phoneintel/phoneintel">phoneintel/phoneintel</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://phoneintel.github.io">phoneintel.github.io</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>GPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~341 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>PhoneIntel é uma ferramenta de código aberto voltada a OSINT (inteligência de fontes abertas) que consulta e analisa informações sobre números de telefone. Ela mostra dados como país, área ou estado e operadora, processa vários números de uma vez e consolida dados de serviços de terceiros.</p>
+<p>Também gera Google dorks (consultas de busca) codificadas em URL para categorias como redes sociais, fóruns, classificados e diretórios telefônicos, e mostra a localização aproximada no OpenStreetMap.</p>
+<p>O próprio README descreve a ferramenta como destinada a fins educacionais e de pesquisa, para varreduras básicas e primeiros indícios sobre números de telefone.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Análise de número: país, área/estado e operadora</li>
+<li>Processamento em lote a partir de arquivo de texto ou de uma string com vários números</li>
+<li>Geração de Google dorks por categoria (social_networks, forums, classifieds, ecommerce, news, blogs, job_sites, pastes, reputation, phone_directories, people_search ou all)</li>
+<li>Mapa da localização no OpenStreetMap com <code>--map</code></li>
+<li>Integrações com Tellows (pontuação e tipo de chamada), SpamCalls.net (risco de spam), c-qui.fr (operadoras francesas) e Neutrino API (requer credenciais)</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python e pip</li>
+<li>Para a Neutrino API: ID e chave de API da conta Neutrino</li>
+<li>Conexão com a internet para as consultas aos serviços de terceiros</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">pip install phoneintel
+</code></pre>
+<p>No Kali Linux, adicione o diretório de binários locais ao PATH:</p>
+<pre><code class="language-bash">export PATH=$PATH:/home/&lt;username&gt;/.local/bin
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">phoneintel --info +34613814500                      # consulta de um número
+phoneintel --info &quot;+34613814500&quot; --map              # com mapa no OpenStreetMap
+phoneintel --search --string &quot;My number is +16148077641 but you can call me at +34613814500&quot;   # números dentro de um texto
+phoneintel --search --input ./example.txt           # lote a partir de arquivo
+phoneintel &quot;+34613814500&quot; --dorks --type social_networks   # gera dorks de uma categoria
+phoneintel --browser &quot;+34613814500&quot;                 # comando browser
+phoneintel --neutrino --login --id &lt;api-id&gt; --key &lt;api-key&gt;   # autentica na Neutrino API
+phoneintel --neutrino +34613814500                  # consulta pela Neutrino API
+phoneintel --neutrino --show                        # exibe as credenciais salvas
+phoneintel --disclaimer                             # mostra o aviso legal
+</code></pre>
+<p>Comandos disponíveis: <code>--info</code>, <code>--search</code>, <code>--dorks</code>, <code>--browser</code>, <code>--neutrino</code>, <code>--credits</code> e <code>--disclaimer</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Verificar a reputação de um número que ligou para você (spam, golpe)</li>
+<li>Pesquisa OSINT autorizada, como parte de uma investigação ou de um teste de engenharia social com escopo e consentimento</li>
+<li>Estudo de técnicas de OSINT e de validação de números de telefone</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>LGPD e uso ético: número de telefone é dado pessoal. No Brasil, o tratamento de dados pessoais está sujeito à LGPD (Lei 13.709/2018): é preciso ter finalidade legítima e base legal, e evitar coleta excessiva. Não use a ferramenta para perseguir, assediar, expor ou perfilar pessoas sem consentimento ou fundamento legal.</li>
+<li>O README pede autorização adequada antes de usar qualquer ferramenta em avaliações de segurança e adverte contra mau uso.</li>
+<li>Os dados vêm de serviços de terceiros (Tellows, Neutrino API, SpamCalls.net, c-qui.fr), cujos termos de uso e limites se aplicam. Consultar um número envia esse dado a esses serviços.</li>
+<li>Os resultados são indícios iniciais, não prova de identidade.</li>
+<li>Licença GPL-3.0.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/phoneintel/phoneintel#readme">README</a></li>
+<li><a href="https://phoneintel.github.io">Documentação</a></li>
+<li><a href="https://pypi.org/project/phoneintel/">PyPI: phoneintel</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/anthropic-cybersecurity-skills.html">Anthropic Cybersecurity Skills</a></li>
+<li><a href="../../repos/06-seguranca/ghidra.html">Ghidra</a></li>
+<li><a href="../../repos/06-seguranca/pentagi.html">PentAGI</a></li>
+<li><a href="../../repos/06-seguranca/raptor.html">RAPTOR</a></li>
+<li><a href="../../repos/06-seguranca/rea.html">REA (Reverse Engineer Anything)</a></li>
+<li><a href="../../repos/06-seguranca/security-audit-skill.html">Security Audit Skill (Cloudflare)</a></li>
+<li><a href="../../repos/06-seguranca/trailofbits-skills.html">Trail of Bits Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

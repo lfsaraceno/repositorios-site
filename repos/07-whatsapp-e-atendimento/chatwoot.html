@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chatwoot · Repositórios favoritos</title>
+<meta name="description" content="Plataforma open source de atendimento ao cliente omnichannel (alternativa ao Intercom, Zendesk e Salesforce Service Cloud), com instalação self-hosted via Docker.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#07-whatsapp-e-atendimento"><span aria-hidden="true">💬</span> WhatsApp e atendimento</a>
+    </nav>
+    <h1>Chatwoot</h1>
+    <p class="lead">Plataforma open source de atendimento ao cliente omnichannel (alternativa ao Intercom, Zendesk e Salesforce Service Cloud), com instalação self-hosted via Docker.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/chatwoot/chatwoot">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">chatwoot/chatwoot</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/chatwoot/chatwoot">chatwoot/chatwoot</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.chatwoot.com/help-center">chatwoot.com/help-center</a></dd></div>
+<div><dt>Linguagem</dt><dd>Ruby (Rails) + Vue</dd></div>
+<div><dt>Licença</dt><dd>MIT (núcleo); a pasta <code>enterprise/</code> tem licença própria</dd></div>
+<div><dt>Estrelas</dt><dd>~38k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Chatwoot é uma central de atendimento open source e self-hosted. Ele reúne em uma única caixa de entrada as conversas de vários canais: chat ao vivo no site, e-mail, Facebook, Instagram, Twitter, WhatsApp, Telegram, Line, SMS e outros.</p>
+<p>Você mantém controle total dos dados dos clientes, define equipes, atribuições e automações, e pode ampliar a plataforma por API e webhooks. É muito usado em conjunto com APIs de WhatsApp não oficiais (como a Evolution API) para centralizar o atendimento da equipe.</p>
+<p>A branch padrão do repositório é <code>develop</code> (modelo git-flow). Para uso estável, o README recomenda a <code>master</code> ou as tags <code>v1.x.x</code>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Caixa de entrada omnichannel (site, e-mail, redes sociais, WhatsApp, Telegram, SMS e canal via API).</li>
+<li>Captain, agente de IA para automatizar respostas de suporte.</li>
+<li>Help Center (portal de artigos e FAQs) embutido.</li>
+<li>Notas privadas, @menções, etiquetas, respostas prontas e atribuição automática de conversas.</li>
+<li>Equipes, automações, horário comercial e gestão de capacidade dos agentes.</li>
+<li>CRM básico: contatos, segmentos, atributos personalizados e campanhas.</li>
+<li>Integrações: Slack, Dialogflow, Shopify, Linear, Google Translate e Dashboard Apps.</li>
+<li>Relatórios (conversas, agentes, caixas, etiquetas, equipes e CSAT).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Docker com Docker Compose.</li>
+<li>Postgres (imagem <code>pgvector/pgvector:pg16</code>) e Redis, ambos já definidos no compose de produção.</li>
+<li>Um domínio e, de preferência, um proxy reverso com HTTPS na frente (a porta 3000 do compose é exposta apenas em <code>127.0.0.1</code>).</li>
+<li>Servidor SMTP para envio de e-mails (variáveis <code>SMTP_*</code>).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Instalação self-hosted com Docker, usando os arquivos oficiais do repositório (<code>docker-compose.production.yaml</code> e <code>.env.example</code>). O guia completo está na documentação oficial de deploy com Docker.</p>
+<ol>
+<li>Baixe o compose de produção e o arquivo de variáveis de ambiente:</li>
+</ol>
+<pre><code class="language-bash">wget -O docker-compose.yaml https://raw.githubusercontent.com/chatwoot/chatwoot/develop/docker-compose.production.yaml
+wget -O .env https://raw.githubusercontent.com/chatwoot/chatwoot/develop/.env.example
+</code></pre>
+<ol start="2">
+<li>Edite o <code>.env</code>. Pontos principais do <code>.env.example</code>:
+<ul>
+<li><code>SECRET_KEY_BASE</code> (troque por uma chave longa e segura);</li>
+<li><code>FRONTEND_URL</code> (URL pública da instalação);</li>
+<li><code>POSTGRES_PASSWORD</code> e <code>REDIS_PASSWORD</code> (defina senhas);</li>
+<li><code>ENABLE_ACCOUNT_SIGNUP</code> (<code>false</code> por padrão);</li>
+<li>variáveis <code>SMTP_*</code> e <code>MAILER_SENDER_EMAIL</code> para e-mail;</li>
+<li><code>RAILS_ENV</code> (o <code>.env.example</code> traz <code>development</code>; o compose de produção já força <code>production</code> nos serviços <code>rails</code> e <code>sidekiq</code>).</li>
+</ul>
+</li>
+<li>No <code>docker-compose.yaml</code>, preencha <code>POSTGRES_PASSWORD</code> do serviço <code>postgres</code> com a mesma senha do <code>.env</code>.</li>
+<li>Prepare o banco (a tarefa <code>db:chatwoot_prepare</code> existe em <code>lib/tasks/db_enhancements.rake</code>):</li>
+</ol>
+<pre><code class="language-bash">docker compose run --rm rails bundle exec rails db:chatwoot_prepare
+</code></pre>
+<ol start="5">
+<li>Suba os serviços:</li>
+</ol>
+<pre><code class="language-bash">docker compose up -d
+</code></pre>
+<p>O compose cria os serviços <code>rails</code> (porta <code>127.0.0.1:3000</code>), <code>sidekiq</code>, <code>postgres</code> e <code>redis</code>, com volumes persistentes <code>storage_data</code>, <code>postgres_data</code> e <code>redis_data</code>. Configure um proxy reverso (Nginx, Traefik etc.) apontando para a porta 3000 e abra a URL para criar a conta de super administrador.</p>
+<p>Outras formas de deploy citadas no README: Heroku (botão one-click), DigitalOcean 1-Click Kubernetes, Helm (Artifact Hub) e a <a href="https://chatwoot.com/deploy">página de deploy</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">docker compose up -d                          # sobe a stack em segundo plano
+docker compose logs -f rails                  # acompanha os logs do app web
+docker compose logs -f sidekiq                # acompanha os logs dos jobs em fila
+docker compose pull &amp;&amp; docker compose up -d   # atualiza a imagem chatwoot/chatwoot:latest
+</code></pre>
+<p>Depois de instalar: crie caixas de entrada (Inboxes) em Configurações, convide agentes e conecte canais como WhatsApp (Cloud API, Twilio ou uma API não oficial como a Evolution API).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Centralizar o atendimento de uma equipe em um único painel, com histórico por contato.</li>
+<li>Ter um helpdesk self-hosted para não depender de SaaS cobrado por agente.</li>
+<li>Servir de front-end de atendimento para bots e APIs de WhatsApp (Evolution API, Typebot, n8n).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O README declara MIT, mas o GitHub marca a licença como &quot;NOASSERTION&quot; por causa da pasta <code>enterprise/</code>, que tem recursos sob licença própria.</li>
+<li>Faça backup do volume do Postgres e do <code>storage_data</code> antes de atualizar.</li>
+<li>Confira o passo a passo atualizado na documentação oficial de self-hosting, pois variáveis e versões mudam.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/chatwoot/chatwoot#readme">README</a></li>
+<li><a href="https://www.chatwoot.com/help-center">Help Center / documentação</a></li>
+<li><a href="https://www.chatwoot.com/docs/environment-variables">Variáveis de ambiente</a></li>
+<li><a href="https://chatwoot.com/deploy">Página de deploy</a></li>
+<li><a href="https://hub.docker.com/r/chatwoot/chatwoot/">Docker Hub</a></li>
+<li><a href="https://discord.gg/cJXdrwS">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#07-whatsapp-e-atendimento">WhatsApp e atendimento</a></h2>
+    <ul>
+<li><a href="../../repos/07-whatsapp-e-atendimento/apibrasil.html">APIBrasil (organização)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot-nestor.html">Chatwoot Nestor</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/deskcomm-crm.html">DeskcommCRM</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-api.html">Evolution API</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-go.html">Evolution Go</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/sellbird.html">Sellbird (antigo Harvey)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/wa-akg.html">WA-AKG</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/zuckzapgo.html">ZuckZapGo Private</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

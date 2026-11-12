@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skills Collection (patricio0312rev) · Repositórios favoritos</title>
+<meta name="description" content="Biblioteca com 155 skills de desenvolvimento prontas para produção, cobrindo desde setup de projeto até deploy, segurança e performance.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Skills Collection (patricio0312rev)</h1>
+    <p class="lead">Biblioteca com 155 skills de desenvolvimento prontas para produção, cobrindo desde setup de projeto até deploy, segurança e performance.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/patricio0312rev/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">patricio0312rev/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/patricio0312rev/skills">patricio0312rev/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>— (coleção de arquivos Markdown)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~63 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É uma coleção de skills no formato do Claude: pacotes modulares de conhecimento que estendem o assistente com expertise em tarefas específicas de engenharia de software. O README descreve cada skill como um &quot;consultor especialista&quot; que o Claude chama quando você precisa de ajuda naquele tema.</p>
+<p>As skills são organizadas por área: Foundation (23), Frontend (19), Backend (16), AI Engineering (16), além de Architecture, CI/CD, DB Management, Testing, Security e Performance. Cada skill traz código pronto para copiar, boas práticas, exemplos de configuração, estratégias de teste e checklists de saída.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Foundation: <code>project-scaffolder</code>, <code>dependency-doctor</code>, <code>conventional-commits</code>, <code>monorepo-setup</code>, <code>readme-generator</code>.</li>
+<li>Frontend: <code>component-scaffold-generator</code>, <code>form-wizard-builder</code>, <code>table-builder</code>, <code>accessibility-auditor</code>, <code>dark-mode-implementer</code>.</li>
+<li>Backend: <code>api-endpoint-generator</code>, <code>auth-module-builder</code>, <code>rbac-permissions-builder</code>, <code>caching-strategist</code>.</li>
+<li>AI Engineering: <code>prompt-template-builder</code>, <code>rag-pipeline-builder</code>, <code>guardrails-safety-filter-builder</code>.</li>
+<li>Observabilidade e performance: <code>observability-setup</code>, <code>core-web-vitals-tuner</code>, <code>load-test-scenario-builder</code>, <code>postmortem-writer</code>.</li>
+<li>Estrutura em pastas por área (<code>foundation/</code>, <code>frontend/</code>, <code>backend/</code>, <code>ai-engineering/</code> etc.).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Desktop, Claude Code ou Claude.ai com suporte a skills.</li>
+<li>O README não lista outros requisitos.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Não há instalador nem comando de pacote documentado. O README descreve o uso manual, copiando os arquivos de skill:</p>
+<ol>
+<li>Baixe as skills que você precisa deste repositório.</li>
+<li>Crie a pasta de skills no projeto:</li>
+</ol>
+<pre><code class="language-bash">mkdir -p .claude/skills
+</code></pre>
+<ol start="3">
+<li>Copie o arquivo da skill:</li>
+</ol>
+<pre><code class="language-bash">cp path/to/downloaded/skill.skill .claude/skills/
+</code></pre>
+<ol start="4">
+<li>Abra o projeto no Claude Desktop; as skills são carregadas automaticamente.</li>
+</ol>
+<p>Alternativas descritas no README: enviar o arquivo da skill como anexo no Claude.ai, ou versionar <code>.claude/skills/</code> no repositório para que toda a equipe tenha acesso.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Não há comandos de barra. Você pede a skill pelo nome em linguagem natural:</p>
+<pre><code class="language-text">Use the unit-test-generator skill to create tests for my auth module
+</code></pre>
+<pre><code class="language-text">I've uploaded the api-endpoint-generator skill. Please use it to create a REST API for user management.
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Começar um projeto novo com estrutura, lint, testes e CI/CD padronizados (skills de Foundation).</li>
+<li>Reforçar segurança de autenticação, segredos e modelagem de ameaças.</li>
+<li>Montar funcionalidades de IA como RAG e guardrails.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Projeto pequeno (poucas estrelas); revise o conteúdo de cada skill antes de adotá-la.</li>
+<li>O número de skills no título do README (155) difere do texto de descrição do repositório (&quot;+100&quot;).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/patricio0312rev/skills">README do projeto</a></li>
+<li><a href="https://agentskills.io">Agent Skills (site oficial)</a></li>
+<li><a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Documentação de Skills da Anthropic</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

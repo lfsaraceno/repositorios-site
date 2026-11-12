@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impeccable · Repositórios favoritos</title>
+<meta name="description" content="Vocabulário de design para agentes de código: 24 comandos para direcionar, revisar e finalizar interfaces, modo ao vivo no navegador e um detector com 62 regras que pega clichês de UI gerada por IA antes de publicar.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Impeccable</h1>
+    <p class="lead">Vocabulário de design para agentes de código: 24 comandos para direcionar, revisar e finalizar interfaces, modo ao vivo no navegador e um detector com 62 regras que pega clichês de UI gerada por IA antes de publicar.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/pbakaus/impeccable">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">pbakaus/impeccable</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/pbakaus/impeccable">pbakaus/impeccable</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://impeccable.style">impeccable.style</a> · <a href="https://impeccable.style/docs">Documentação</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~99k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Peça uma página a um agente sem nenhuma orientação e os mesmos vícios aparecem sempre, em qualquer modelo: Inter em tudo, gradiente roxo para azul, cards dentro de cards, texto cinza sobre fundo colorido, um ícone em quadrado arredondado acima de cada título. O Impeccable resolve isso de três formas:</p>
+<ul>
+<li><strong>Vocabulário:</strong> em vez de &quot;deixa mais bonito&quot;, <code>/impeccable bolder the pricing cards</code> carrega um roteiro escrito para aquele movimento e aplica num alvo só.</li>
+<li><strong>Revisor:</strong> <code>critique</code> dá nota ao design com heurísticas de usabilidade e ordena o que corrigir. <code>audit</code> confere acessibilidade, desempenho, temas e responsividade, com achados de P0 (bloqueia) a P3 (acabamento).</li>
+<li><strong>Detector de &quot;slop&quot;:</strong> 62 regras determinísticas, sem LLM e sem chave de API, que também pegam espaçamento apertado e títulos fora de ordem.</li>
+</ul>
+<p>O Impeccable é mais forte em interfaces que <strong>já existem</strong>: aponte para uma página ou componente e itere. Ele também cria páginas novas, um modo mais difícil com um <a href="https://impeccable.style/docs/new-work">guia próprio</a>. Começou a partir da skill <code>frontend-design</code> da Anthropic.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<p><strong>Os 24 comandos:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>Comandos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Direcionar</strong></td>
+<td><code>bolder</code> (ousar mais), <code>quieter</code> (acalmar), <code>distill</code> (tirar o que sobra), <code>colorize</code> (dar cor), <code>typeset</code> (tipografia), <code>layout</code> (espaçamento e ritmo), <code>animate</code> (transições e feedback), <code>delight</code> (personalidade), <code>overdrive</code> (shaders, física de mola, efeitos de rolagem)</td>
+</tr>
+<tr>
+<td><strong>Revisar</strong></td>
+<td><code>critique</code> (revisão de UX com nota), <code>audit</code> (relatório técnico)</td>
+</tr>
+<tr>
+<td><strong>Finalizar</strong></td>
+<td><code>polish</code> (passada final), <code>harden</code> (erros, i18n, overflow, casos de borda), <code>clarify</code> (reescreve textos confusos), <code>adapt</code> (telas e dispositivos), <code>optimize</code> (carregamento e renderização), <code>onboard</code> (primeiro uso e estados vazios)</td>
+</tr>
+<tr>
+<td><strong>Iterar ao vivo</strong></td>
+<td><code>live</code> (escolhe um elemento no navegador e alterna variantes), <code>generate</code> (variantes de um elemento pelo nome)</td>
+</tr>
+<tr>
+<td><strong>Planejar e configurar</strong></td>
+<td><code>shape</code> (planeja a UX antes do código), <code>init</code> (cria <code>PRODUCT.md</code>), <code>document</code> (cria <code>DESIGN.md</code>), <code>extract</code> (leva padrões repetidos para o design system)</td>
+</tr>
+</tbody>
+</table></div>
+<p>O 24º, <code>craft</code>, ficou obsoleto e hoje é só um pedido de construção comum.</p>
+<p><strong>Outros recursos:</strong></p>
+<ul>
+<li><strong>Arquivos de contexto:</strong> <code>PRODUCT.md</code> (público, propósito, restrições) e <code>DESIGN.md</code> (sistema visual atual), lidos por todos os comandos.</li>
+<li><strong>Modo live:</strong> abre o servidor de desenvolvimento com uma camada por cima. Você escolhe um elemento, as variantes trocam na hora, e a escolhida é gravada no código. Funciona com Vite, Next, SvelteKit, Astro, Nuxt e HTML puro.</li>
+<li><strong>Detector em três lugares:</strong>
+<ul>
+<li>um hook que confere cada arquivo de UI editado pelo agente antes de ele dar a tarefa por concluída;</li>
+<li>a CLI <code>npx impeccable detect</code>, para terminal e CI;</li>
+<li>uma extensão do Chrome que mostra os achados sobre qualquer página.</li>
+</ul>
+</li>
+<li><strong>Caminho de construção:</strong> para landing pages novas, pode gerar um mockup completo primeiro e construir igual a ele (mais ousado e mais lento), ou ir direto no código. Só aparece se o agente gera imagens.</li>
+<li>Atalhos próprios: <code>/impeccable pin audit</code> cria <code>/audit</code>.</li>
+<li><code>/impeccable doctor</code> acha arquivos de contexto velhos, configurações sem uso e hooks quebrados.</li>
+<li>Suporta Claude Code, Cursor, Codex CLI, GitHub Copilot, Devin, Replit Agent, Gemini CLI, Grok Build, OpenCode, Google Antigravity, Kiro, Trae, Rovo Dev, Qoder, Mistral Vibe, Pi, Hermes Agent, DeepSeek Harness e Veto.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente de código suportado.</li>
+<li>Node.js só para o <code>npx</code>. A skill usa um binário próprio, que vem junto ou é baixado uma vez para <code>~/.impeccable/bin/</code>.</li>
+<li>Para escanear URLs com a CLI: Chrome ou Edge instalado.</li>
+<li>Para a extensão do VS Code: VS Code 1.109.3+, Copilot Chat e workspace confiável.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="instalador-recomendado">Instalador (recomendado)</h3>
+<p>Na raiz do projeto:</p>
+<pre><code class="language-bash">npx impeccable install
+</code></pre>
+<p>O instalador detecta suas ferramentas, pergunta se é para o projeto ou global e oferece o hook de design onde houver suporte. O autor recomenda aceitar o hook. Recarregue a ferramenta depois.</p>
+<pre><code class="language-bash">npx impeccable update                                       # atualizar
+npx impeccable install --providers=claude,codex,cursor --scope=project   # sem perguntas
+</code></pre>
+<p>Três ferramentas pedem um passo a mais para o hook funcionar:</p>
+<ul>
+<li><strong>Codex:</strong> aprove o hook em <code>/hooks</code>, também depois de atualizações que mudem o hook;</li>
+<li><strong>Grok Build:</strong> rode <code>/hooks-trust</code> ou inicie com <code>--trust</code>;</li>
+<li><strong>Hermes Agent:</strong> rode <code>hermes plugins enable impeccable-design-hook</code> uma vez.</li>
+</ul>
+<h3 id="plugins">Plugins</h3>
+<ul>
+<li><strong>Claude Code:</strong> <code>/plugin marketplace add pbakaus/impeccable</code>, depois abra <code>/plugin</code> e instale o Impeccable.</li>
+<li><strong>Copilot no VS Code:</strong> <code>code --install-extension renaissance-geek.impeccable</code>. Instala a skill, mas sem o hook.</li>
+<li><strong>Grok Build:</strong> <code>grok plugin install pbakaus/impeccable#plugin --trust</code>.</li>
+</ul>
+<h3 id="submodulo-git-versao-fixa-para-o-time">Submódulo Git (versão fixa para o time)</h3>
+<pre><code class="language-bash">git submodule add https://github.com/pbakaus/impeccable vendor/impeccable
+npx impeccable link --source=vendor/impeccable --providers=claude,cursor
+</code></pre>
+<p>Faça commit do <code>.gitmodules</code>, do submódulo e dos links. O <code>link</code> instala as skills, mas não os hooks.</p>
+<h3 id="copia-manual-sem-node">Cópia manual (sem Node)</h3>
+<p>Baixe o ZIP da sua ferramenta em <a href="https://impeccable.style">impeccable.style</a>, ou copie <code>skills/impeccable</code> da pasta da ferramenta no repositório, por exemplo <code>.claude/</code> para o Claude Code. A cópia manual não traz o hook nem os subagentes.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/impeccable init                          # uma vez por projeto: cria o PRODUCT.md
+/impeccable document                      # registra o sistema visual atual no DESIGN.md
+/impeccable critique the pricing cards    # bom primeiro passo: um componente só
+/impeccable quieter the landing page
+/impeccable polish settings
+/impeccable harden checkout
+/impeccable redo this hero section        # também aceita descrição livre
+/impeccable live                          # iteração no navegador
+</code></pre>
+<p>No Codex, use <code>$impeccable</code> ou abra <code>/skills</code>. Digite <code>/impeccable</code> sozinho para ver a lista. Alvos estreitos dão resultados melhores: uma seção revisada de perto rende mais que uma página inteira de relance.</p>
+<p><strong>Detector pela CLI</strong> (sem agente):</p>
+<pre><code class="language-bash">npx impeccable detect src/                   # escaneia uma pasta
+npx impeccable detect http://localhost:5173  # escaneia a página renderizada
+npx impeccable detect --json .               # saída para máquinas
+npx impeccable detect --github src/          # anotações no GitHub Actions
+npx impeccable detect --list-rules           # lista todas as regras
+</code></pre>
+<p>Arquivos JSX e TSX recebem só as regras de padrão. Regras que dependem da página renderizada, como contraste baixo e texto pequeno, só rodam escaneando uma URL. O código de saída <code>2</code> significa que houve achados, e <code>1</code> que um alvo não pôde ser escaneado.</p>
+<p>Para liberar a fonte da sua marca, use <code>npx impeccable ignores add-value overused-font Inter --reason &quot;Brand font&quot;</code>. Para desligar uma regra num arquivo, use o comentário <code>&lt;!-- impeccable-disable overused-font: motivo --&gt;</code>.</p>
+<p><strong>Git:</strong> o Impeccable grava seus arquivos em <code>.impeccable/</code>. Vão para o repositório o <code>config.json</code>, o <code>live/config.json</code>, o <code>design.json</code>, <code>surfaces/*.md</code>, <code>critique/*.md</code>, o <code>PRODUCT.md</code> e o <code>DESIGN.md</code>. O resto (screenshots, caches, estado) deve ir para o <code>.gitignore</code>; o bloco pronto está no README.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar identidade a interfaces geradas por IA que saem todas iguais.</li>
+<li>Revisar e finalizar telas existentes: auditoria, polimento, acessibilidade, casos de borda.</li>
+<li>Barrar &quot;slop&quot; no CI com o <code>detect</code>.</li>
+<li>Comparação: a <a href="taste-skill.html">Taste Skill</a> conduz a construção de uma página nova, da direção de arte à checagem no navegador. O Impeccable brilha iterando sobre o que já existe. As <a href="emil-kowalski-skills.html">Emil Kowalski Skills</a> focam no acabamento de animações. Para começar de um sistema visual pronto de outra marca, veja o <a href="awesome-design-md.html">Awesome DESIGN.md</a>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Hooks rodam fora da aprovação do modelo.</strong> No Claude Code, os hooks instalados rodam mesmo quando você nega os comandos do modelo, então a primeira edição pode baixar o binário do motor. Revise os hooks antes de deixar o agente rodando sozinho, ou desligue numa execução com <code>--settings '{&quot;disableAllHooks&quot;: true}'</code>.</li>
+<li><strong>Telemetria:</strong> ao começar um design novo, a skill busca direções visuais no catálogo do impeccable.style. Desligar a telemetria não impede essa busca; só deixa de registrar, de forma anônima, quais direções foram mostradas e escolhidas. Nome do projeto, arquivos, código e <code>PRODUCT.md</code> nunca são enviados, segundo o README. Para desligar, use <code>npx impeccable telemetry off</code>, <code>DO_NOT_TRACK=1</code> ou <code>&quot;telemetry&quot;: false</code> em <code>.impeccable/config.json</code>.</li>
+<li><strong>Modo live:</strong> só use em um checkout local. Não injete num site publicado nem afrouxe a CSP de produção. Ao aplicar edições de texto, ele roda o script opcional <code>impeccable:manual-edit-validate</code> do seu <code>package.json</code> com as suas permissões. Revise esse script antes de usar o live num repositório que você não conhece.</li>
+<li>No Cursor e no Gemini CLI, talvez seja preciso habilitar Agent Skills nas configurações. No Hermes, skills de projeto pedem <code>hermes skills trust</code>. Reinicie o Trae depois de copiar.</li>
+<li>Evite duas cópias da skill no mesmo workspace, por exemplo a extensão do VS Code junto com a instalação pela CLI.</li>
+<li>Projeto muito ativo. O último release da CLI é o cli-v4.8.0, de out/2026.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/pbakaus/impeccable#readme">README</a> · <a href="https://impeccable.style/docs">Documentação</a> · <a href="https://impeccable.style/changelog">Changelog</a></li>
+<li><a href="https://impeccable.style/cases/neo-mirai">Caso de estudo Neo Mirai</a> · <a href="https://impeccable.style/docs/new-work">Construir algo novo</a></li>
+<li><a href="https://impeccable.style/docs/detector">Detector</a> · <a href="https://impeccable.style/docs/config">Configuração e exceções</a> · <a href="https://impeccable.style/docs/hooks">Hooks</a></li>
+<li><a href="https://chromewebstore.google.com/detail/impeccable/bdkgmiklpdmaojlpflclinlofgjfpabf">Extensão do Chrome</a> · <a href="https://marketplace.visualstudio.com/items?itemName=renaissance-geek.impeccable">Extensão do VS Code</a></li>
+<li><a href="https://impeccable.style/privacy">Privacidade e telemetria</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

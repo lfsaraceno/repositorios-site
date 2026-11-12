@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>scrcpy · Repositórios favoritos</title>
+<meta name="description" content="Espelha e controla dispositivos Android no computador (vídeo, áudio, teclado e mouse), sem root e sem instalar app no aparelho.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>scrcpy</h1>
+    <p class="lead">Espelha e controla dispositivos Android no computador (vídeo, áudio, teclado e mouse), sem root e sem instalar app no aparelho.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Genymobile/scrcpy">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Genymobile/scrcpy</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Genymobile/scrcpy">Genymobile/scrcpy</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/Genymobile/scrcpy/tree/master/doc">Documentação em <code>doc/</code></a> · <a href="https://github.com/Genymobile/scrcpy/blob/master/doc/windows.md">Windows</a></dd></div>
+<div><dt>Linguagem</dt><dd>C (servidor em Java)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~152k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O scrcpy (pronuncia-se &quot;screen copy&quot;) espelha a tela de aparelhos Android conectados por USB ou TCP/IP e permite controlá-los com o teclado e o mouse do computador. Não exige root nem app instalado no aparelho, e funciona em Linux, Windows e macOS.</p>
+<p>Foca em leveza, desempenho (30 a 120 fps), qualidade (1920x1080 ou mais), baixa latência (35 a 70 ms) e inicialização rápida (cerca de 1 s). Sem conta, sem anúncios e sem internet. O README alerta que o repositório do GitHub é a única fonte oficial: não baixe de sites aleatórios.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Espelhamento de vídeo e encaminhamento de áudio (Android 11+).</li>
+<li>Gravação de tela.</li>
+<li>Display virtual e espelhamento com a tela do aparelho apagada.</li>
+<li>Copiar e colar nos dois sentidos.</li>
+<li>Qualidade configurável (codec, resolução, bitrate, fps).</li>
+<li>Espelhamento da câmera (Android 12+).</li>
+<li>Simulação de teclado e mouse físicos (HID), gamepad e modo OTG.</li>
+<li>Conexão por USB ou sem fio (TCP/IP).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Aparelho Android com API 21 (Android 5.0) ou superior.</li>
+<li><strong>Depuração USB</strong> ativada nas opções de desenvolvedor (não é necessária no modo OTG).</li>
+<li>Em alguns aparelhos (principalmente Xiaomi), ative também a opção &quot;Depuração USB (configurações de segurança)&quot; para controlar com teclado e mouse; é preciso reiniciar o aparelho uma vez.</li>
+<li>Para áudio: Android 11 ou superior (API 30+).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="windows-foco-principal">Windows (foco principal)</h3>
+<p>Opção 1, pacote oficial: baixe o <code>.zip</code> na <a href="https://github.com/Genymobile/scrcpy/releases/latest">página de releases</a> e extraia. O guia <code>doc/windows.md</code> lista a versão v5.0.1 em três variantes:</p>
+<ul>
+<li><code>scrcpy-win64-v5.0.1.zip</code> (64 bits);</li>
+<li><code>scrcpy-win32-v5.0.1.zip</code> (32 bits);</li>
+<li><code>scrcpy-winarm64-v5.0.1.zip</code> (ARM 64 bits).</li>
+</ul>
+<p>O guia traz também o hash SHA-256 de cada arquivo para conferência (veja <code>doc/windows.md</code>). O pacote inclui o ADB.</p>
+<p>Opção 2, gerenciadores de pacote (o WinGet instala o ADB e as outras dependências junto):</p>
+<pre><code class="language-bash">winget install --exact Genymobile.scrcpy
+</code></pre>
+<pre><code class="language-bash">choco install scrcpy
+choco install adb    # se ainda não tiver
+</code></pre>
+<pre><code class="language-bash">scoop install scrcpy
+scoop install adb    # se ainda não tiver
+</code></pre>
+<p>Para compilar manualmente, veja <a href="https://github.com/Genymobile/scrcpy/blob/master/doc/build.md"><code>doc/build.md</code></a>.</p>
+<h3 id="como-executar-no-windows">Como executar no Windows</h3>
+<p>O scrcpy é um aplicativo de linha de comando. No pacote extraído:</p>
+<ul>
+<li>dê duplo clique em <code>open_a_terminal_here.bat</code> para abrir um terminal na pasta e digite os comandos;</li>
+<li>ou crie um arquivo <code>.bat</code> (por exemplo <code>myscrcpy.bat</code>) com o comando e as opções que você sempre usa, e execute-o com duplo clique;</li>
+<li>para abrir sem terminal, use <code>scrcpy-noconsole.vbs</code> (erros não serão exibidos); para passar argumentos, edite uma cópia do arquivo.</li>
+</ul>
+<p>Exemplo de <code>.bat</code> do guia (acrescente <code>--pause-on-exit=if-error</code> para o console não fechar em caso de erro):</p>
+<pre><code class="language-bash">scrcpy --prefer-text --turn-screen-off --stay-awake --pause-on-exit=if-error
+</code></pre>
+<h3 id="linux-e-macos">Linux e macOS</h3>
+<p>Veja <a href="https://github.com/Genymobile/scrcpy/blob/master/doc/linux.md"><code>doc/linux.md</code></a> e <a href="https://github.com/Genymobile/scrcpy/blob/master/doc/macos.md"><code>doc/macos.md</code></a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">scrcpy                                   # espelha o aparelho conectado por USB
+scrcpy --no-audio --record=file.mkv      # sem áudio, gravando em arquivo
+scrcpy -m1024                            # limita a resolução (melhora o desempenho)
+scrcpy --video-codec=h265 --max-size=1920 --max-fps=60 --no-audio --keyboard=uhid   # H.265, 1920 px, 60 fps, teclado físico simulado
+scrcpy --new-display=1920x1080 --start-app=org.videolan.vlc   # app em um display virtual
+scrcpy --video-source=camera --video-codec=h265 --camera-size=1920x1080 --record=file.mp4   # grava a câmera
+scrcpy --serial=0123456789abcdef         # escolhe o aparelho pelo número de série
+scrcpy -d                                # usa o aparelho USB
+scrcpy --tcpip                           # configura e conecta por Wi-Fi (TCP/IP)
+scrcpy --tcpip=192.168.1.1               # conecta a um IP (porta padrão 5555)
+scrcpy --help                            # lista todas as opções
+</code></pre>
+<p>Atalhos úteis: clique direito = Voltar, clique do meio = Home, &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;f&lt;/kbd&gt; = tela cheia. Veja todos em <a href="https://github.com/Genymobile/scrcpy/blob/master/doc/shortcuts.md"><code>doc/shortcuts.md</code></a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Controlar o celular pelo PC (testes, demonstrações, jogos, apps sem versão desktop, como o WhatsApp no aparelho).</li>
+<li>Gravar a tela do Android com áudio.</li>
+<li>Usar o celular com a tela apagada ou como webcam (a opção V4L2 é só para Linux).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Baixe somente do repositório oficial, como o README alerta.</li>
+<li>Conferir o SHA-256 dos arquivos é recomendado; o guia de verificação está em <code>doc/verify-release.md</code>.</li>
+<li>Para conexão sem fio, o aparelho e o PC precisam estar na mesma rede.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Genymobile/scrcpy#readme">README</a></li>
+<li><a href="https://github.com/Genymobile/scrcpy/blob/master/doc/windows.md">Guia para Windows</a></li>
+<li><a href="https://github.com/Genymobile/scrcpy/blob/master/doc/connection.md">Conexão (USB e TCP/IP)</a></li>
+<li><a href="https://github.com/Genymobile/scrcpy/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

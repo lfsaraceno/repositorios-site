@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anatomy · Repositórios favoritos</title>
+<meta name="description" content="Skill que explica um conceito técnico construindo um objeto físico que funciona como ele: ilustrações isométricas interativas, com dezenas de peças, em SVG, WebGL e 3D, que se autoverificam no navegador.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Anatomy</h1>
+    <p class="lead">Skill que explica um conceito técnico construindo um objeto físico que funciona como ele: ilustrações isométricas interativas, com dezenas de peças, em SVG, WebGL e 3D, que se autoverificam no navegador.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/wheresryan22/anatomy">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">wheresryan22/anatomy</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/wheresryan22/anatomy">wheresryan22/anatomy</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://skills.wheresryan.sh/anatomy">skills.wheresryan.sh/anatomy</a> · <a href="https://github.com/wheresryan22/anatomy-community">Galeria da comunidade</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (Node, sem dependências)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~24k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Você pede uma figura que explique uma ideia técnica, e o Anatomy faz o agente <strong>inventar uma máquina cujo funcionamento é o próprio conceito</strong>. Dois exemplos do README:</p>
+<ul>
+<li>uma chave de cache que pula o trabalho quando nada mudou vira uma fechadura de pinos que só gira quando todos os pinos batem;</li>
+<li>um contexto de GPU servindo vários canvases vira um plotter com um único cabeçote que visita 16 poços.</li>
+</ul>
+<p>Depois, o agente monta o objeto com dezenas de peças sólidas e sombreadas. Coloca tudo num card com título, dica e um mostrador ao vivo, faz as peças se moverem com o mouse e o teclado e confere o próprio trabalho dando zoom em cada junta. Todo número que aparece na figura sai do mesmo modelo que move as peças.</p>
+<p>Funciona no Claude Code, Antigravity, OpenCode, Codex e MiniMax Code.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tipo de figura</th>
+<th>O que é</th>
+<th>Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SVG</strong></td>
+<td>O núcleo: peças isométricas com sombreamento em quatro tons, num card com mostrador e movimento suave. Sai como página HTML, arquivo <code>.svg</code> avulso ou componentes React/Next.js</td>
+<td><code>dial-indicator</code>, <code>desk-computer</code>, <code>arcade-cabinet</code>, <code>test-rig</code></td>
+</tr>
+<tr>
+<td><strong>SVG + WebGL</strong></td>
+<td>Para o que linhas não desenham: fogo, exaustão, água, cáusticas, luz, brilho, vapor. O shader roda entre um SVG de fundo e um da frente, na mesma câmera isométrica</td>
+<td><code>raptor-engine</code>, <code>ripple-tank</code></td>
+</tr>
+<tr>
+<td><strong>3D</strong> (beta)</td>
+<td>Peças que giram em 3D de verdade: um dial que roda, dedos que dobram, uma peça que se solta e cai</td>
+<td><code>turning-dial</code></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Kit de desenho próprio</strong> (<code>kit/</code>): câmera isométrica, sólidos, peças redondas em qualquer eixo, tubos e cabos, camada WebGL, runtime 3D e componentes React. Só usa módulos nativos do Node.</li>
+<li><strong>Verificação automática:</strong>
+<ul>
+<li><code>kit/audit.mjs</code> prova a geometria: nada atravessa nada, toda ponta está presa e a ordem de profundidade está certa;</li>
+<li>scripts com Chrome headless tiram screenshots, closes e folhas de contato em câmera lenta, e reprovam linhas que terminam no ar.</li>
+</ul>
+</li>
+<li><strong>Impressão:</strong> gera PDFs A4 (pôster, desenho técnico e explicação detalhada) a partir de um <code>sheet.mjs</code>.</li>
+<li>Tema claro (o principal) e escuro. Com movimento reduzido, a figura fica parada.</li>
+<li><strong>Galeria da comunidade:</strong> o agente pode enviar a sua figura para a galeria.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente suportado: Claude Code, Antigravity, OpenCode, Codex ou MiniMax Code.</li>
+<li><strong>Node.js 20.10+</strong>, sem nada para instalar com <code>npm</code>.</li>
+<li><strong>Chrome ou Chromium</strong>, para as verificações. Use <code>CHROME_PATH</code> se o executável estiver num lugar incomum.</li>
+<li><strong>React 18+</strong>, só para a saída em React.</li>
+<li>A CLI <code>npx skills</code> pede Node 22.20+.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Com a CLI <code>npx skills</code> (ver <a href="../02-skills-para-agentes/vercel-skills-cli.html">Vercel Skills CLI</a>):</p>
+<pre><code class="language-bash">npx skills add wheresryan22/anatomy -g -a claude-code    # Claude Code, para o seu usuário
+npx skills add wheresryan22/anatomy -g -a antigravity    # ou: opencode, codex, minimax-code
+npx skills add wheresryan22/anatomy                      # só neste projeto
+</code></pre>
+<p><strong>Com git</strong> (exemplo para o Claude Code):</p>
+<pre><code class="language-bash">git clone https://github.com/wheresryan22/anatomy.git ~/.claude/skills/anatomy
+</code></pre>
+<p>Para atualizar, rode <code>git pull</code> dentro da pasta. As pastas dos outros agentes são <code>~/.gemini/antigravity/skills/</code>, <code>~/.config/opencode/skills/</code>, <code>~/.agents/skills/</code> (Codex) e <code>~/.minimax/skills/</code>. Também dá para <a href="https://github.com/wheresryan22/anatomy/archive/refs/heads/main.zip">baixar o ZIP</a> e renomear a pasta para <code>anatomy</code>.</p>
+<p>O Claude Code reconhece a skill na sessão aberta. Se a pasta <code>skills</code> não existia quando a sessão começou, rode <code>/reload-skills</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/anatomy explain how a token bucket rate limiter works, interactive
+</code></pre>
+<p>No Codex, use <code>$anatomy</code>. A skill também ativa sozinha quando você pede uma ilustração isométrica, uma figura explicativa para docs, blog ou landing page, ou um explicador interativo.</p>
+<p><strong>Outros pedidos de exemplo:</strong></p>
+<pre><code class="language-text">/anatomy a figure for our Next.js docs on database connection pooling: a pool of 10 connections, requests borrow one and give it back, and when all 10 are busy new requests wait in a queue. A React component plus a static HTML preview, dark theme.
+/anatomy an isometric SVG explaining how a CDN edge cache works, cache hit vs miss, TTL of 60 s, for a dark landing page. Just the SVG file and a PNG preview.
+/anatomy a Bunsen burner on a lab bench: opening the air collar turns the lazy yellow flame into a roaring blue cone. WebGL for the flame, one HTML file, dark theme.
+</code></pre>
+<p><strong>Dicas do autor para melhores figuras:</strong></p>
+<ol>
+<li><strong>Diga a ideia, não o desenho</strong>, com os números reais: tamanhos, quantidades, taxas e limites. Inventar o objeto é a maior parte do trabalho, e a skill faz isso melhor do que uma descrição de caixas e setas.</li>
+<li><strong>Ou diga o objeto</strong>, se já sabe qual máquina quer, e o que deve se mexer.</li>
+<li><strong>Diga onde a figura vai morar:</strong> HTML avulso, arquivo SVG ou componente React/Next.js, e se o tema é claro ou escuro.</li>
+</ol>
+<p>O resultado é código-fonte seu: um script de build em Node e a página que ele gera, ou, em React, módulos de geometria, um server component para a arte estática e um client component para o movimento.</p>
+<p><strong>Exemplos do repositório</strong> (os <code>.html</code> já gerados vêm no repositório):</p>
+<pre><code class="language-bash">node examples/dial-indicator/build.mjs            # o menor, ~300 linhas
+node examples/raptor-engine/build.mjs --light     # motor Raptor 2; o build leva alguns minutos
+node examples/raptor-engine/build.mjs --audit     # roda a auditoria de geometria
+node scripts/print.mjs examples/raptor-engine/sheet.mjs --format all   # três PDFs A4
+node scripts/capture.mjs page.html --out shots/page.png                # screenshot pelo Chrome headless
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Figuras explicativas para documentação, posts técnicos e landing pages: cache, filas, pools de conexão, rate limiting, CDN.</li>
+<li>Explicadores interativos de máquinas e instrumentos, como motor, máquina de espresso ou bico de Bunsen.</li>
+<li>Comparação: o <a href="../02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a> faz vídeos de marca em motion graphics. O Anatomy faz ilustrações técnicas interativas, que vivem dentro da página. Para animações de interface, veja as <a href="emil-kowalski-skills.html">Emil Kowalski Skills</a>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Lento de propósito.</strong> Uma figura leva uma sessão longa: lista de peças, geometria, auditoria e closes de cada junta nos dois temas. Uma auditoria 3D completa leva de 15 a 20 minutos para 30 peças. Isso consome bastante tempo e tokens.</li>
+<li><strong>Limites:</strong> não é uma biblioteca de gráficos (não tem eixos nem séries). Desenha máquinas, instrumentos, ferramentas e móveis, e não pessoas nem mapas exatos. Ideias sem um mecanismo para construir saem mais fracas.</li>
+<li><strong>O modo 3D é beta.</strong> Só foi provado no exemplo e numa figura de teste. A mão de estresse com 380 peças rodou a cerca de 20 fps.</li>
+<li><strong>Codex:</strong> as verificações abrem o Chrome headless, e o sandbox pode bloquear. Prefira aprovar caso a caso (<code>approval_policy = &quot;on-request&quot;</code>). O <code>--sandbox danger-full-access</code> tira todos os limites da sessão; o próprio README recomenda usá-lo só em projetos confiáveis.</li>
+<li><strong>Galeria da comunidade:</strong> ao pedir &quot;publish this figure to the Anatomy community gallery&quot;, o agente abre um pull request público no repositório anatomy-community <strong>com a sua conta do GitHub</strong>. Ele mostra o que vai enviar e pede confirmação antes; revise antes de aceitar.</li>
+<li>A CLI <code>npx skills</code> copia o repositório inteiro, com os exemplos (cerca de 10 MB).</li>
+<li>Projeto novo (out/2026). O último release é o v1.1.0.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/wheresryan22/anatomy#readme">README</a> · <a href="https://skills.wheresryan.sh/anatomy">Site</a></li>
+<li><a href="https://github.com/wheresryan22/anatomy/blob/main/SKILL.md">SKILL.md</a> · <a href="https://github.com/wheresryan22/anatomy/tree/main/references">Guias (references/)</a></li>
+<li><a href="https://github.com/wheresryan22/anatomy/tree/main/examples">Exemplos</a> · <a href="https://github.com/wheresryan22/anatomy/blob/main/CHANGELOG.md">Changelog</a></li>
+<li><a href="https://github.com/wheresryan22/anatomy-community">Galeria da comunidade</a></li>
+<li><a href="https://github.com/wheresryan22/anatomy/issues/new?template=figure_request.yml">Pedir uma figura</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

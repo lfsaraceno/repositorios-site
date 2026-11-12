@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>i-have-adhd · Repositórios favoritos</title>
+<meta name="description" content="Skill que impede o agente de esconder a resposta: saída amigável para TDAH, com a ação primeiro, passos numerados e sem enrolação.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>i-have-adhd</h1>
+    <p class="lead">Skill que impede o agente de esconder a resposta: saída amigável para TDAH, com a ação primeiro, passos numerados e sem enrolação.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ayghri/i-have-adhd">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ayghri/i-have-adhd</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ayghri/i-have-adhd">ayghri/i-have-adhd</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~58k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É uma skill para o seu assistente de código que muda o formato das respostas: a ação ou o comando vem primeiro, tarefas de vários passos são numeradas e a resposta termina com um único próximo passo concreto. Some o &quot;Ótima pergunta!&quot;, o resumo no final e o &quot;Espero que ajude!&quot;.</p>
+<p>Não é preciso diagnóstico de TDAH para usar. O README mostra um exemplo antes/depois: de um parágrafo longo com tangentes sobre o fluxo de autenticação para &quot;Edite <code>src/auth.ts:42</code>&quot;, seguido de três passos numerados e um &quot;Next:&quot; com o que fazer se um teste falhar. É livremente baseada no livro <em>The Adult ADHD Tool Kit</em> (Ramsay e Rostain), adaptada para como um LLM deve responder.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<p>As 10 regras da skill (texto completo em <code>skills/i-have-adhd/SKILL.md</code>):</p>
+<ol>
+<li>Começar pela próxima ação.</li>
+<li>Numerar tarefas de vários passos.</li>
+<li>Terminar com um próximo passo concreto.</li>
+<li>Suprimir tangentes.</li>
+<li>Reafirmar o estado a cada turno.</li>
+<li>Estimativas de tempo específicas (minutos, não &quot;um pouco&quot;).</li>
+<li>Tornar as conquistas visíveis.</li>
+<li>Erros em tom objetivo.</li>
+<li>Limitar listas a 5 itens.</li>
+<li>Sem preâmbulo, sem recapitulação, sem fechamentos.</li>
+</ol>
+<p>Também há traduções do README (incluindo português do Brasil) e instruções de instalação para vários agentes.</p>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente de código com suporte a plugins ou skills (Claude Code, Antigravity <code>agy</code> etc.).</li>
+<li>O README não cita versões de Node ou Python.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>A forma mais simples, segundo o README, é colar este texto no prompt do seu CLI:</p>
+<pre><code class="language-text">Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd, refer to the repo's AGENTS.md for instructions.
+</code></pre>
+<p>As instruções detalhadas por agente estão em <code>INSTALL.md</code>. Exemplo para o Antigravity (<code>agy</code>):</p>
+<pre><code class="language-bash">agy plugin install https://github.com/ayghri/i-have-adhd
+agy plugin list
+</code></pre>
+<p>O <code>INSTALL.md</code> traz ainda um bloco &quot;always-on&quot; para colocar em <code>~/.gemini/GEMINI.md</code> e um caminho de importação manual do <code>SKILL.md</code> para o AstronClaw. Para o Claude Code, o README só mostra os comandos de plugin no contexto de um fork (<code>claude plugin marketplace add &lt;seu-usuario&gt;/i-have-adhd</code> e <code>claude plugin install i-have-adhd@i-have-adhd</code>); consulte o <code>INSTALL.md</code> do repositório para o passo exato do upstream.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/i-have-adhd        # ativa a skill (reinvoque após reiniciar o assistente)
+stop adhd mode      # desliga o estilo (a skill também aceita &quot;normal mode&quot;)
+</code></pre>
+<p>Para personalizar: faça um fork, edite <code>skills/i-have-adhd/SKILL.md</code> e troque a cópia instalada:</p>
+<pre><code class="language-bash">claude plugin uninstall i-have-adhd
+claude plugin marketplace remove i-have-adhd
+claude plugin marketplace add &lt;seu-usuario&gt;/i-have-adhd
+claude plugin install i-have-adhd@i-have-adhd
+</code></pre>
+<p>Reinicie o assistente e invoque <code>/i-have-adhd</code> de novo.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Você se perde em respostas longas e quer ir direto ao comando ou à edição.</li>
+<li>Sessões de depuração em que cada turno deve terminar com uma única ação.</li>
+<li>Equipes que querem respostas de agente mais curtas e objetivas.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Segundo o <code>INSTALL.md</code>, a skill mantém o estilo na conversa até você dizer &quot;stop adhd mode&quot; ou &quot;normal mode&quot;.</li>
+<li>O próprio guia avisa que o procedimento de importação no AstronClaw não foi testado com esta skill; revise o conteúdo antes de habilitar.</li>
+<li>Quando você pede explicação completa, o estilo permite explicar por inteiro.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/ayghri/i-have-adhd">README do projeto</a></li>
+<li><a href="https://github.com/ayghri/i-have-adhd/blob/main/INSTALL.md">INSTALL.md</a></li>
+<li><a href="https://github.com/ayghri/i-have-adhd/blob/main/skills/i-have-adhd/SKILL.md">SKILL.md</a></li>
+<li><a href="https://github.com/ayghri/i-have-adhd/blob/main/.github/readme/README.pt-BR.md">README em português (Brasil)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

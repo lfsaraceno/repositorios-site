@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UniFace · Repositórios favoritos</title>
+<meta name="description" content="Biblioteca Python de análise facial: detecção, reconhecimento, rastreamento, landmarks, idade/emoção, olhar, anti-spoofing e anonimização numa só API.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>UniFace</h1>
+    <p class="lead">Biblioteca Python de análise facial: detecção, reconhecimento, rastreamento, landmarks, idade/emoção, olhar, anti-spoofing e anonimização numa só API.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/yakhyo/uniface">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">yakhyo/uniface</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/yakhyo/uniface">yakhyo/uniface</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://yakhyo.github.io/uniface/">yakhyo.github.io/uniface</a> · <a href="https://huggingface.co/spaces/yakhyo/uniface">Demo no Hugging Face</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (ONNX Runtime)</dd></div>
+<div><dt>Licença</dt><dd>MIT (código). Vários pesos de modelos são <strong>não comerciais</strong></dd></div>
+<div><dt>Estrelas</dt><dd>~2,1k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O UniFace junta numa API única os modelos mais usados de visão computacional para rostos. Em vez de instalar e integrar um projeto diferente para cada tarefa, você faz <code>pip install</code> e chama classes como <code>RetinaFace</code> (detecção), <code>ArcFace</code> (reconhecimento) ou <code>BlurFace</code> (anonimização).</p>
+<p>A classe <code>FaceAnalyzer</code> roda detecção, alinhamento e reconhecimento numa chamada só e devolve, para cada rosto, a caixa, a confiança, os pontos faciais e o vetor de identidade (embedding). Atributos como idade, sexo, emoção e qualidade entram só quando você passa o modelo correspondente.</p>
+<p>Os modelos rodam com ONNX Runtime em CPU, Apple Silicon ou GPU NVIDIA. Os pesos são baixados no primeiro uso e conferidos por SHA-256. O projeto não tem relação com o Uniface da Rocket Software.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>15 tarefas: detecção, reconhecimento, rastreamento em vídeo, landmarks (até 478 pontos em 3D), segmentação do rosto, recorte de retrato (matting), direção do olhar, pose da cabeça, idade e sexo, emoção, estados do rosto (olhos, óculos, máscara), qualidade da imagem, anti-spoofing, anonimização e busca vetorial.</li>
+<li>Vários modelos por tarefa. Detecção: RetinaFace, SCRFD, CenterFace, YOLOv5/v8-Face, BlazeFace. Reconhecimento: AdaFace, ArcFace, EdgeFace, MobileFace, SphereFace.</li>
+<li><code>FaceAnalyzer</code> para o pipeline completo numa linha.</li>
+<li>Rastreamento com IDs persistentes entre quadros de vídeo (BYTETracker).</li>
+<li>Anti-spoofing (MiniFASNet), que distingue rosto real de foto ou tela.</li>
+<li>5 métodos de anonimização: pixelate, gaussian, blackout, elliptical e median.</li>
+<li>Busca de rostos por similaridade com FAISS.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.10 a 3.14.</li>
+<li>Windows, Linux ou macOS.</li>
+<li>Opcional: GPU NVIDIA com CUDA (veja a <a href="https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html">matriz de compatibilidade do ONNX Runtime</a>).</li>
+<li>Para os exemplos com imagens: OpenCV (<code>cv2</code>).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Escolha <strong>um</strong> dos extras. Os pacotes <code>onnxruntime</code> (CPU) e <code>onnxruntime-gpu</code> (CUDA) entram em conflito, então não instale os dois:</p>
+<pre><code class="language-bash">pip install &quot;uniface[cpu]&quot;          # CPU e Apple Silicon
+pip install &quot;uniface[gpu]&quot;          # GPU NVIDIA (CUDA)
+pip install --pre &quot;uniface[cpu]&quot;    # pré-lançamento mais recente
+</code></pre>
+<p>Extras opcionais:</p>
+<pre><code class="language-bash">pip install faiss-cpu      # busca vetorial (ou faiss-gpu com CUDA)
+pip install torch          # necessário para o modelo de emoção
+pip install torchvision    # NMS mais rápido nos detectores YOLO
+</code></pre>
+<p>Conferir se a GPU está sendo usada:</p>
+<pre><code class="language-python">import onnxruntime as ort
+print(ort.get_available_providers())   # com NVIDIA deve aparecer 'CUDAExecutionProvider'
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Pipeline completo:</strong></p>
+<pre><code class="language-python">import cv2
+from uniface import FaceAnalyzer, FairFace
+
+analyzer = FaceAnalyzer(predictors=[FairFace()])   # padrão: RetinaFace + EdgeFace; FairFace adiciona idade, sexo e etnia
+
+for face in analyzer.analyze(cv2.imread(&quot;photo.jpg&quot;)):
+    print(face.bbox, face.sex, face.age_group, face.embedding.shape)
+</code></pre>
+<p><strong>Comparar dois rostos (mesma pessoa?):</strong></p>
+<pre><code class="language-python">import cv2
+from uniface import compute_similarity
+from uniface.detection import RetinaFace
+from uniface.recognition import ArcFace
+
+detector, recognizer = RetinaFace(), ArcFace()
+img1, img2 = cv2.imread(&quot;person1.jpg&quot;), cv2.imread(&quot;person2.jpg&quot;)
+f1, f2 = detector.detect(img1), detector.detect(img2)
+
+emb1 = recognizer.get_normalized_embedding(img1, f1[0].landmarks)
+emb2 = recognizer.get_normalized_embedding(img2, f2[0].landmarks)
+print(compute_similarity(emb1, emb2, normalized=True))   # &gt; 0.6 mesma pessoa; 0.4 a 0.6 incerto; &lt; 0.4 pessoas diferentes
+</code></pre>
+<p><strong>Borrar rostos (privacidade):</strong></p>
+<pre><code class="language-python">import cv2
+from uniface.detection import RetinaFace
+from uniface.privacy import BlurFace
+
+image = cv2.imread(&quot;group_photo.jpg&quot;)
+faces = RetinaFace().detect(image)
+cv2.imwrite(&quot;anonymized.jpg&quot;, BlurFace(method=&quot;pixelate&quot;).anonymize(image, faces))
+</code></pre>
+<p><strong>Rosto real ou foto/tela (anti-spoofing):</strong></p>
+<pre><code class="language-python">from uniface.spoofing import MiniFASNet
+
+spoofer = MiniFASNet()
+for face in faces:
+    result = spoofer.predict(image, face.bbox)
+    print(&quot;Real&quot; if result.is_real else &quot;Fake&quot;, f&quot;{result.confidence:.1%}&quot;)
+</code></pre>
+<p>O <a href="https://yakhyo.github.io/uniface/quickstart/">Quickstart</a> traz exemplos de landmarks, olhar, pose da cabeça, segmentação, recorte com fundo transparente, qualidade, webcam e rastreamento em vídeo.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Anonimizar rostos em fotos e vídeos antes de publicar ou armazenar.</li>
+<li>Controle de acesso ou verificação de identidade (comparação de rosto com anti-spoofing).</li>
+<li>Organizar acervos de fotos por pessoa (embeddings + FAISS).</li>
+<li>Prototipar funcionalidades de visão computacional sem integrar um modelo por vez.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença dos pesos:</strong> o código é MIT, mas <strong>SCRFD, ArcFace, AgeGender e Landmark106 (da InsightFace) são só para pesquisa não comercial</strong>. YOLOv5-Face e YOLOv8-Face são GPL-3.0. Para uso comercial, prefira modelos permissivos, como RetinaFace, AdaFace (MIT) ou EdgeFace (BSD-3), e confira a <a href="https://yakhyo.github.io/uniface/license-attribution/">página de licenças</a>. O exemplo de reconhecimento acima usa o ArcFace, que é não comercial.</li>
+<li>Mesmo com licença permissiva, muitos modelos foram treinados em bases de dados restritas a pesquisa. Para uso comercial, faça a sua própria análise.</li>
+<li><strong>LGPD:</strong> dado biométrico é <strong>dado pessoal sensível</strong> (art. 5º, II, e art. 11). Reconhecimento facial de pessoas exige base legal adequada, normalmente consentimento específico, além de transparência e segurança. A anonimização ajuda a reduzir esse risco.</li>
+<li>Os modelos de idade, sexo, etnia e emoção podem ter vieses. Não use para decisões automáticas sobre pessoas.</li>
+<li>Na primeira execução, os pesos são baixados da internet. Em servidor sem acesso externo, baixe-os antes.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/yakhyo/uniface#readme">README</a></li>
+<li><a href="https://yakhyo.github.io/uniface/">Documentação</a> · <a href="https://yakhyo.github.io/uniface/quickstart/">Quickstart</a> · <a href="https://yakhyo.github.io/uniface/installation/">Instalação</a></li>
+<li><a href="https://yakhyo.github.io/uniface/models/">Model Zoo</a> · <a href="https://yakhyo.github.io/uniface/license-attribution/">Licenças dos modelos</a></li>
+<li><a href="https://yakhyo.github.io/uniface/notebooks/">Notebooks</a></li>
+<li><a href="https://pypi.org/project/uniface/">PyPI</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

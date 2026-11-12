@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenHiggsfield AI · Repositórios favoritos</title>
+<meta name="description" content="Estúdio open source de geração de imagem e vídeo, alternativa ao Higgsfield AI, com 38 modelos em uma única barra de prompt e galeria de resultados.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>OpenHiggsfield AI</h1>
+    <p class="lead">Estúdio open source de geração de imagem e vídeo, alternativa ao Higgsfield AI, com 38 modelos em uma única barra de prompt e galeria de resultados.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/wide-trace/open-higgsfield">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">wide-trace/open-higgsfield</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/wide-trace/open-higgsfield">wide-trace/open-higgsfield</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://openhiggsfield.ai">openhiggsfield.ai</a> (versão online)</dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (Next.js 16, React 19)</dd></div>
+<div><dt>Licença</dt><dd>Não informada (o repositório não tem arquivo de licença)</dd></div>
+<div><dt>Estrelas</dt><dd>~4,4k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O OpenHiggsfield AI é um estúdio web para gerar imagens e vídeos a partir de uma única barra de prompt. O modelo escolhido define se o resultado é imagem ou vídeo, e cada modelo expõe as suas próprias configurações (proporção, resolução, duração, formato, áudio, lote e melhoria de prompt).</p>
+<p>Ele não roda modelos localmente: usa uma API externa de geração, acessada com a <strong>sua própria chave de plataforma</strong> (<code>id:secret</code>). O estúdio é gratuito e auto-hospedável; o custo da geração depende da plataforma da chave. Também há uma versão hospedada em <a href="https://openhiggsfield.ai">openhiggsfield.ai</a>, sem instalação.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Catálogo de 38 modelos (8 de imagem e 30 de vídeo), incluindo Soul, Seedance, Kling, Wan, Flux, Ideogram, Recraft, LTX, MiniMax, PixVerse, Grok e Qwen, com seletor pesquisável.</li>
+<li>Entradas de mídia por função: quadro inicial, quadro final, referências, vídeo e áudio.</li>
+<li>Lotes de até 4 resultados por envio, com acompanhamento do estado de cada geração.</li>
+<li>Galeria com abas (Imagem, Vídeo, Assets, Favoritos), grade tipo masonry, visualizador, reuso de configurações e ações em massa (baixar, favoritar, excluir) com desfazer.</li>
+<li>Histórico salvo no IndexedDB do navegador (60 registros; favoritos nunca expiram).</li>
+<li>Chave de API guardada em cookie <code>httpOnly</code> por server action; o navegador nunca chama a API de geração diretamente.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js e pnpm.</li>
+<li>Uma chave de plataforma de geração (formato <code>id:secret</code>).</li>
+<li>Para uploads de mídia: um token de leitura e escrita do Vercel Blob.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">git clone https://github.com/wide-trace/open-higgsfield.git
+cd open-higgsfield
+pnpm install
+pnpm dev            # http://localhost:3000
+</code></pre>
+<p>Abra o estúdio, clique em <strong>Add key</strong> e cole a sua chave no formato <code>id:secret</code>.</p>
+<p>Variáveis de ambiente (veja <code>.env.example</code>):</p>
+<pre><code class="language-bash">HF_API_BASE_URL=                      # origem da API de geração, só no servidor
+OPEN_HIGGSFIELD_READ_WRITE_TOKEN=     # token de leitura e escrita do Vercel Blob
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">pnpm dev      # servidor de desenvolvimento na porta 3000
+pnpm build    # build de produção
+pnpm start    # serve o build de produção
+pnpm brand    # reconstrói ícones e o card OG em public/
+</code></pre>
+<p>Uso: escolha um modelo, escreva o prompt, ajuste as configurações do modelo, anexe mídias se precisar e envie com Ctrl/Cmd + Enter. Os resultados aparecem na galeria, onde dá para reutilizar, favoritar ou baixar.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Ter uma interface única para vários modelos de vídeo e imagem comerciais, sem assinar um estúdio fechado.</li>
+<li>Testar e comparar modelos (Kling, Seedance, Wan, Flux etc.) com os mesmos prompts.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O repositório não declara licença; sem ela, o direito de reutilizar ou redistribuir o código não é claro. Confirme com o autor antes de uso comercial.</li>
+<li>Não é geração local: exige uma chave de plataforma de terceiros e a geração é cobrada por ela.</li>
+<li>O histórico fica só no navegador, e as URLs dos resultados pertencem à plataforma de geração (podem expirar).</li>
+<li>O README não identifica qual plataforma emite a chave <code>id:secret</code>; veja o site para detalhes.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/wide-trace/open-higgsfield#readme">README</a></li>
+<li><a href="https://openhiggsfield.ai">Versão online</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

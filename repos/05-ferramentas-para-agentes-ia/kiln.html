@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiln · Repositórios favoritos</title>
+<meta name="description" content="Bancada para criar, avaliar e otimizar produtos de IA: testes automáticos, otimização de prompt e modelo, RAG, agentes, dados sintéticos e fine-tuning num app só.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Kiln</h1>
+    <p class="lead">Bancada para criar, avaliar e otimizar produtos de IA: testes automáticos, otimização de prompt e modelo, RAG, agentes, dados sintéticos e fine-tuning num app só.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Kiln-AI/Kiln">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Kiln-AI/Kiln</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Kiln-AI/Kiln">Kiln-AI/Kiln</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://kiln.tech">kiln.tech</a> · <a href="https://docs.kiln.tech">docs.kiln.tech</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (biblioteca) + app desktop</dd></div>
+<div><dt>Licença</dt><dd>Biblioteca e servidor REST: MIT. App desktop: <em>source-available</em> (fair-code), de uso gratuito</dd></div>
+<div><dt>Estrelas</dt><dd>~5,2k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Kiln é uma bancada de trabalho para o ciclo completo de desenvolvimento de um produto de IA, como um chatbot, um agente, um classificador ou um extrator de dados. A ideia central é <strong>definir uma tarefa uma vez</strong> e, sobre o mesmo conjunto de dados, avaliar, otimizar o prompt, escolher o modelo, adicionar RAG, montar agentes, gerar dados sintéticos e fazer fine-tuning. Os resultados de cada etapa se somam.</p>
+<p>Ele resolve um problema comum: mudar o prompt ou trocar de modelo melhora uma coisa e piora outra sem ninguém perceber. O Kiln mede a qualidade em todas as dimensões que você definir e, com o Auto-Optimize, testa centenas de variações para achar a melhor combinação.</p>
+<p>Tem duas faces: um <strong>app desktop</strong> (Windows, Mac e Linux) em que gestores, especialistas e QA dão nota às respostas e adicionam exemplos sem programar, e uma <strong>biblioteca Python</strong> que leva as mesmas tarefas para produção. Roda localmente, com as suas chaves de API ou totalmente offline via Ollama. A sincronização entre pessoas da equipe usa o Git.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Eval Builder:</strong> gera automaticamente os testes (um modelo-juiz e um dataset sintético) e os ajusta à sua preferência em cerca de 10 minutos.</li>
+<li><strong>Auto-Optimize:</strong> busca a melhor forma de rodar a tarefa, otimizando prompt, modelo, ferramentas, skills, subagentes e parâmetros.</li>
+<li><strong>RAG:</strong> você arrasta documentos (PDF, imagem, vídeo, áudio) e ele gera a base e os testes dela.</li>
+<li><strong>Subagentes:</strong> hierarquias de agentes, cada um com o seu próprio contexto. Também suporta ferramentas e MCP.</li>
+<li><strong>Dados sintéticos</strong> para testes ou fine-tuning.</li>
+<li><strong>Fine-tuning sem código</strong> em mais de 60 modelos (Qwen, Llama, GPT, Gemini) via Fireworks, Together e Vertex, com deploy serverless.</li>
+<li><strong>Mais de 190 modelos testados:</strong> OpenAI, Anthropic, Gemini, Bedrock, Ollama, OpenRouter, Fireworks, Groq e qualquer endpoint compatível com OpenAI.</li>
+<li>Projetos em arquivos JSON abertos (<code>.kiln</code>), fáceis de versionar no Git e de abrir com pandas.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Windows, macOS ou Linux para o app.</li>
+<li>Python, para usar a biblioteca.</li>
+<li>Chaves de API dos provedores que for usar, ou Ollama para rodar offline.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="app-desktop">App desktop</h3>
+<p>Baixe em <a href="https://kiln.tech/download">kiln.tech/download</a>, instale com um clique e siga o <a href="https://docs.kiln.tech/getting-started/quickstart">quickstart de 5 minutos</a>. Conecte os provedores de IA pela interface: as credenciais ficam em <code>~/.kiln_ai/settings.yaml</code> e são lidas também pela biblioteca.</p>
+<h3 id="biblioteca-python">Biblioteca Python</h3>
+<pre><code class="language-bash">pip install kiln-ai
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Fluxo no app:</strong> crie um projeto, defina uma tarefa (instrução e, se quiser, os esquemas JSON de entrada e saída), rode alguns exemplos, dê notas às respostas, gere os testes com o Eval Builder e compare prompts e modelos.</p>
+<p><strong>Abrir um projeto pela biblioteca:</strong></p>
+<pre><code class="language-python">from kiln_ai.datamodel import Project
+
+project = Project.load_from_file(&quot;path/to/your/project.kiln&quot;)   # fica em ~/Kiln Projects/&lt;nome&gt;/
+for task in project.tasks():
+    print(task.name, len(task.runs()))   # tarefas e tamanho do dataset de cada uma
+</code></pre>
+<p><strong>Empacotar só o necessário para rodar uma tarefa em produção:</strong></p>
+<pre><code class="language-bash">uvx kiln_ai package_project &quot;/path/to/your/project.kiln&quot; -t TASK_ID_TO_EXPORT
+</code></pre>
+<p><strong>Rodar a tarefa dentro da sua aplicação</strong>, com a configuração padrão definida no app:</p>
+<pre><code class="language-python">from kiln_ai.adapters.adapter_registry import adapter_for_task
+from kiln_ai.datamodel.task import Task
+
+async def run_kiln_task(input: str):
+    task = Task.load_from_file(TASK_PATH)
+    run_config = next(c for c in task.run_configs() if c.id == task.default_run_config_id)
+    adapter = adapter_for_task(task, run_config_properties=run_config.run_config_properties)
+    task_run, run_output = await adapter.invoke_returning_run_output(input)
+    return run_output.output    # task_run.usage traz custo e tokens
+</code></pre>
+<p><strong>Importar um dataset existente:</strong> crie objetos <code>TaskRun</code> com entrada, saída e nota (opcional), e salve com <code>item.save_to_file()</code>. O Kiln valida cada item contra o esquema da tarefa. Também dá para carregar os <code>.kiln</code> direto em pandas ou polars.</p>
+<p>A biblioteca exporta o RAG para vector stores do LlamaIndex (ex.: LanceDB) e se conecta a OpenTelemetry e Braintrust. Há também uma <a href="https://docs.kiln.tech/developers/rest-api">API REST</a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Medir e melhorar o prompt de um agente antes de colocá-lo em produção. Por exemplo, o agente de vendas de um CRM como o <a href="../07-whatsapp-e-atendimento/deskcomm-crm.html">DeskcommCRM</a>.</li>
+<li>Comparar modelos e provedores para achar o mais barato que mantém a qualidade.</li>
+<li>Montar e testar uma base RAG com documentos da empresa.</li>
+<li>Treinar um modelo menor e mais barato com os seus próprios dados (fine-tuning).</li>
+<li>Envolver pessoas não técnicas (gestor, especialista) na avaliação das respostas da IA.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença mista:</strong> só a biblioteca Python e o servidor REST são MIT. O app desktop é <em>source-available</em> (fair-code): o uso é gratuito, mas não é software livre no sentido estrito.</li>
+<li><strong>Kiln Pro (pago e opcional):</strong> o assistente de IA, o Auto-Optimize e o Eval Builder fazem parte desse serviço. O app básico funciona sem ele.</li>
+<li>O Auto-Optimize e os testes chamam os modelos muitas vezes, o que gera custo de API nos seus provedores.</li>
+<li>O fine-tuning roda em provedores externos (Fireworks, Together, Vertex), que cobram à parte.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Kiln-AI/Kiln#readme">README</a></li>
+<li><a href="https://kiln.tech/download">Download do app</a> · <a href="https://docs.kiln.tech/getting-started/quickstart">Quickstart</a></li>
+<li><a href="https://docs.kiln.tech/developers/python-library-quickstart">Biblioteca Python</a> · <a href="https://github.com/Kiln-AI/Kiln/blob/main/libs/core/README.md">README da biblioteca</a></li>
+<li><a href="https://docs.kiln.tech/docs/evaluations">Evals</a> · <a href="https://docs.kiln.tech/docs/prompts/automatic-prompt-optimizer">Auto-Optimize</a> · <a href="https://docs.kiln.tech/docs/documents-and-search-rag">RAG</a> · <a href="https://docs.kiln.tech/docs/fine-tuning-guide">Fine-tuning</a></li>
+<li><a href="https://docs.kiln.tech/docs/end-to-end-project-demo">Demo completa (20 min)</a></li>
+<li><a href="https://kiln.tech/pricing">Preços do Kiln Pro</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

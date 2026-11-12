@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAPTOR · Repositórios favoritos</title>
+<meta name="description" content="Framework autônomo de pesquisa de segurança (ofensiva e defensiva) construído sobre o Claude Code, que encadeia análise estática, análise de binários, validação por LLM e geração de patches.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>RAPTOR</h1>
+    <p class="lead">Framework autônomo de pesquisa de segurança (ofensiva e defensiva) construído sobre o Claude Code, que encadeia análise estática, análise de binários, validação por LLM e geração de patches.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/gadievron/raptor">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">gadievron/raptor</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/gadievron/raptor">gadievron/raptor</a></dd></div>
+<div><dt>Site / Docs</dt><dd>— (documentação em <code>docs/</code> no repositório)</dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT (o CodeQL tem licença própria e não permite uso comercial)</dd></div>
+<div><dt>Estrelas</dt><dd>~3,9k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>RAPTOR (Recursive Autonomous Penetration Testing and Observation Robot) é um framework de pesquisa de segurança criado por Gadi Evron, Daniel Cuthbert, Thomas Dullien (Halvar Flake), Michael Bargury e John Cartwright. Ele usa o Claude Code como camada de orquestração, com <code>CLAUDE.md</code>, regras, sub-agentes e skills, para conduzir fluxos de análise de vulnerabilidades em código-fonte e binários.</p>
+<p>O pipeline combina ferramentas como Semgrep, CodeQL, Ghidra e AFL++ com validação de achados por LLM, análise de exploitabilidade e geração de patches. Também é possível usar outros modelos (OpenAI, Gemini, modelos locais) na camada de análise ou rodar os CLIs de forma independente, sem o Claude Code.</p>
+<p>Os próprios autores descrevem o projeto como software não polido, feito em tempo livre e majoritariamente escrito por IA, com verificação mecânica (testes, análise estática) para manter a qualidade.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Comando <code>/scan</code> para análise estática com Semgrep (e CodeQL opcional), gerando relatório SARIF</li>
+<li>Comando <code>/agentic</code> para o fluxo completo: varredura, deduplicação, validação, e geração de exploit e patch</li>
+<li><code>/understand</code> para mapear superfície de ataque e fluxos de dados; <code>/validate</code> para o pipeline de validação de exploitabilidade</li>
+<li>Análise de binários (<code>/binary</code>, <code>/ghidra</code>), fuzzing com AFL++ (<code>/fuzz</code>) e análise de crashes (<code>/crash-analysis</code>)</li>
+<li><code>/sca</code> para análise de composição de software (dependências, advisories OSV/CISA KEV/EPSS, SBOM)</li>
+<li><code>/cve-diff</code>, <code>/oss-forensics</code>, <code>/threat-model</code> e <code>/project</code> para organizar execuções e acompanhar achados</li>
+<li>Modelo de segurança com sandbox (namespaces Linux, Landlock, seccomp) para subprocessos que tratam conteúdo não confiável</li>
+<li>Suporte a execução offline e em ambientes isolados (air-gapped)</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code com assinatura ativa (Max, Pro, Team ou Enterprise) ou chave de API da Anthropic (opcional se usar só os CLIs standalone)</li>
+<li><a href="https://docs.astral.sh/uv/">uv</a>, Python 3.12+ e Node.js 18+</li>
+<li>Semgrep (<code>uv tool install semgrep</code>); CodeQL é opcional, mas recomendado</li>
+<li>Para análise multi-modelo ou local: configurar os demais provedores (veja &quot;Using a different LLM&quot; no README)</li>
+<li>Docker, se optar pela instalação em contêiner (imagem de cerca de 6 GB)</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="opcao-1-manual">Opção 1: manual</h3>
+<pre><code class="language-bash">git clone https://github.com/gadievron/raptor.git
+cd raptor
+
+uv sync --locked
+source .venv/bin/activate
+
+npm install -g @anthropic-ai/claude-code   # se ainda não tiver o Claude Code
+uv tool install semgrep                    # necessário para varreduras
+
+# Adicione o launcher ao PATH (coloque no perfil do shell para persistir)
+export PATH=&quot;$PATH:$PWD/bin&quot;
+
+raptor
+</code></pre>
+<p>O launcher <code>raptor</code> funciona de qualquer diretório e executa as verificações prévias antes de entregar o controle ao Claude Code. Rodar <code>claude</code> em outro diretório abre o Claude Code comum, não o RAPTOR.</p>
+<h3 id="opcao-2-conteiner-recomendada-pelos-autores">Opção 2: contêiner (recomendada pelos autores)</h3>
+<p>Contêineres limitam o acesso do agente ao seu sistema de arquivos e o alcance de código malicioso.</p>
+<pre><code class="language-bash">docker pull danielcuthbert/raptor:latest
+# ou construa localmente:
+docker build -f .devcontainer/Dockerfile -t raptor:latest .
+
+docker run -it \
+  -v &quot;$(pwd):/workspaces/raptor&quot; \
+  raptor:latest
+</code></pre>
+<p>Para montar também uma pasta-alvo, adicione <code>-v &quot;/caminho/do/alvo:/workspaces/target&quot;</code>. Use <code>--privileged</code> apenas se precisar do depurador determinístico <code>rr</code>. Há suporte a devcontainer do VS Code.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Dentro do shell <code>raptor</code>:</p>
+<pre><code class="language-text">/scan /caminho/do/codigo           # Semgrep (e Coccinelle, se disponível); adicione --codeql para CodeQL
+/agentic /caminho/do/codigo        # pipeline completo com validação por LLM
+/project create myapp --target /caminho/do/codigo   # cria um projeto
+/project use myapp                 # define como ativo
+/understand --map                  # mapeia a superfície de ataque
+/agentic --threat-model --validate # mapeia, modela, varre e valida
+/project findings                  # revisa todos os achados
+</code></pre>
+<p>Execução standalone, sem Claude Code:</p>
+<pre><code class="language-bash">python3 raptor.py doctor
+</code></pre>
+<p>Estimativa do README: um <code>/agentic</code> em base média (~50 achados) leva 10 a 30 minutos e custa US$ 2 a 8 em chamadas de LLM da camada de análise; o teto padrão é US$ 10 por execução (ajustável com <code>--max-cost-usd</code>).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Auditar código próprio ou de projetos que você tem autorização para analisar</li>
+<li>Triar resultados de análise estática com validação por LLM para reduzir falsos positivos</li>
+<li>Pesquisa de vulnerabilidades, análise de CVEs e investigação de crashes</li>
+<li>Gerar patches para vulnerabilidades confirmadas</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Ferramenta de pesquisa dual-use: inclui geração de prova de conceito de exploit (<code>/exploit</code>). Use apenas em alvos que você possui ou para os quais tem autorização expressa.</li>
+<li>O RAPTOR executa código gerado por LLM e analisa repositórios não confiáveis; os autores recomendam o contêiner para limitar o impacto.</li>
+<li>Vários comandos estão em estado Beta, Experimental ou Alpha, conforme a tabela do README.</li>
+<li>Custos de LLM da camada de análise são cobrados por token; o Claude Code usa sua assinatura.</li>
+<li>O CodeQL não permite uso comercial; revise as licenças das dependências antes de uso comercial.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/gadievron/raptor#readme">README</a></li>
+<li><a href="https://github.com/gadievron/raptor/blob/main/docs/sandbox.md">Documentação de sandbox (docs/sandbox.md)</a></li>
+<li><a href="https://github.com/gadievron/raptor/blob/main/docs/dependencies.md">Dependências e licenças (docs/dependencies.md)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/anthropic-cybersecurity-skills.html">Anthropic Cybersecurity Skills</a></li>
+<li><a href="../../repos/06-seguranca/ghidra.html">Ghidra</a></li>
+<li><a href="../../repos/06-seguranca/pentagi.html">PentAGI</a></li>
+<li><a href="../../repos/06-seguranca/phoneintel.html">PhoneIntel</a></li>
+<li><a href="../../repos/06-seguranca/rea.html">REA (Reverse Engineer Anything)</a></li>
+<li><a href="../../repos/06-seguranca/security-audit-skill.html">Security Audit Skill (Cloudflare)</a></li>
+<li><a href="../../repos/06-seguranca/trailofbits-skills.html">Trail of Bits Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

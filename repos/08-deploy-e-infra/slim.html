@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SlimToolkit (Slim, ex-DockerSlim) · Repositórios favoritos</title>
+<meta name="description" content="CLI que analisa e encolhe imagens Docker em até 30x (mais em linguagens compiladas) sem mudar o Dockerfile, e gera perfis Seccomp/AppArmor.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#08-deploy-e-infra"><span aria-hidden="true">🚀</span> Deploy e infra</a>
+    </nav>
+    <h1>SlimToolkit (Slim, ex-DockerSlim)</h1>
+    <p class="lead">CLI que analisa e encolhe imagens Docker em até 30x (mais em linguagens compiladas) sem mudar o Dockerfile, e gera perfis Seccomp/AppArmor.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/slimtoolkit/slim">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">slimtoolkit/slim</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/slimtoolkit/slim">slimtoolkit/slim</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/slimtoolkit/slim#readme">README</a> · <a href="https://github.com/slimtoolkit/examples">Exemplos</a></dd></div>
+<div><dt>Linguagem</dt><dd>Go</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~23k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Slim (antigo DockerSlim) é uma ferramenta de linha de comando para inspecionar, otimizar e depurar containers. O comando mais usado, <code>build</code>, sobe um container temporário a partir da sua imagem, observa o que a aplicação realmente usa enquanto roda (análise estática e dinâmica) e gera uma imagem nova só com o necessário. Você não precisa trocar a imagem base, o gerenciador de pacotes nem otimizar o Dockerfile à mão.</p>
+<p>Além de diminuir o tamanho, isso reduz a superfície de ataque, e o Slim gera automaticamente perfis de segurança Seccomp e AppArmor a partir do comportamento observado. Já foi usado com Node.js, Python, Ruby, Java, Go, Rust, Elixir e PHP sobre Ubuntu, Debian, CentOS, Alpine e Distroless. Exemplos do README: Node.js de 432 MB para 14 MB, Python de 916 MB para 27,5 MB e Go de 700 MB para 1,56 MB.</p>
+<p>Também serve para entender imagens de terceiros: o <code>xray</code> mostra o que tem em cada camada e reconstrói o Dockerfile da imagem (<code>Dockerfile.reversed</code>). O projeto é sandbox da CNCF.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><code>build</code>: minifica a imagem observando a aplicação em execução, com sondagem HTTP automática.</li>
+<li><code>xray</code>: análise estática da imagem, camada por camada, com engenharia reversa do Dockerfile.</li>
+<li><code>lint</code>: verifica instruções do Dockerfile.</li>
+<li><code>debug</code>: anexa um container sidecar de depuração a um container mínimo (sem shell), no Docker ou no Kubernetes.</li>
+<li><code>profile</code>: gera relatório e perfil Seccomp sem criar a imagem otimizada.</li>
+<li>Geração automática de perfis Seccomp e AppArmor.</li>
+<li><code>merge</code>, <code>registry</code> (pull, push, copy), <code>images</code>, <code>appbom</code> (dependências da aplicação) e <code>vulnerability</code> (EPSS).</li>
+<li>Modo interativo com autocompletar ao rodar <code>slim</code> sem parâmetros.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Docker instalado e em execução. O Slim conversa com o daemon pelo socket <code>/var/run/docker.sock</code> ou pelas variáveis <code>DOCKER_HOST</code>, <code>DOCKER_TLS_VERIFY</code> e <code>DOCKER_CERT_PATH</code>.</li>
+<li>Binários oficiais para Linux (x86, ARM, ARM64) e macOS (Intel e Apple Silicon). <strong>Não há binário para Windows</strong>: no Windows, use a imagem Docker do Slim ou rode dentro do WSL.</li>
+<li>Algumas análises avançadas dependem de recursos do kernel Linux.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="script-linux-e-macos">Script (Linux e macOS)</h3>
+<pre><code class="language-bash">curl -sL https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh | sudo -E bash -
+</code></pre>
+<h3 id="download-manual-linux">Download manual (Linux)</h3>
+<pre><code class="language-bash">curl -L -o ds.tar.gz https://github.com/slimtoolkit/slim/releases/download/1.40.11/dist_linux.tar.gz
+tar -xvf ds.tar.gz
+mv dist_linux/slim /usr/local/bin/
+mv dist_linux/slim-sensor /usr/local/bin/
+</code></pre>
+<p>Para outras plataformas (Mac, Mac M1, Linux ARM e ARM64), veja os links na seção INSTALLATION do README. O pacote traz dois binários: <code>slim</code> (o app) e <code>slim-sensor</code> (coleta dados dos containers).</p>
+<h3 id="homebrew">Homebrew</h3>
+<pre><code class="language-bash">brew install docker-slim
+</code></pre>
+<h3 id="docker-recomendado-no-windows">Docker (recomendado no Windows)</h3>
+<pre><code class="language-bash">docker pull dslim/slim
+docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock dslim/slim build nome-da-sua-imagem
+</code></pre>
+<h3 id="atualizar">Atualizar</h3>
+<pre><code class="language-bash">slim update
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">slim                                       # modo interativo, com sugestões e autocompletar
+slim help                                  # lista comandos e flags globais
+slim build my/sample-app                   # gera a imagem minificada my/sample-app.slim
+slim build --http-probe=false minha/cli    # para ferramentas de linha de comando sem API HTTP
+slim build --target archlinux:latest --tag archlinux:curl --http-probe=false --exec &quot;curl checkip.amazonaws.com&quot;   # imagem que só sabe rodar curl
+slim build --include-path=/var/lib/nginx nginx   # força a inclusão de um caminho que a análise não detectou
+slim xray my/sample-app                    # mostra o conteúdo de cada camada e reconstrói o Dockerfile
+slim lint --target Dockerfile              # verifica o Dockerfile
+slim profile my/sample-app                 # só analisa e gera o perfil Seccomp, sem nova imagem
+slim debug mycontainer                     # abre um shell de depuração num container em execução
+slim debug --runtime=k8s --pod=example-pod example-container   # o mesmo no Kubernetes
+</code></pre>
+<p>Por padrão, o <code>build</code> pausa e espera você interagir com o container temporário (as portas mapeadas aparecem no console) e depois pressionar Enter. Use <code>--continue-after</code> para mudar isso e integrar com os seus testes.</p>
+<p>Usar o perfil Seccomp gerado (funciona com a imagem original e com a minificada):</p>
+<pre><code class="language-bash">docker run --security-opt seccomp:&lt;pasta do slim&gt;/.images/&lt;ID_DA_IMAGEM&gt;/artifacts/your-name-your-app-seccomp.json your-name/your-app
+</code></pre>
+<h3 id="ci-cd">CI/CD</h3>
+<p>GitHub Actions, com a action da comunidade:</p>
+<pre><code class="language-yaml">- uses: kitabisa/docker-slim-action@v1
+  env:
+    DSLIM_HTTP_PROBE: false
+  with:
+    target: IMAGE_NAME:latest
+    tag: &quot;slim&quot;
+</code></pre>
+<p>O README também traz exemplos para Jenkins, GitLab (<code>dind</code>) e CircleCI usando a imagem <code>dslim/slim</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Diminuir imagens Docker antes do deploy (no <a href="coolify.html">Coolify</a>, no <a href="caprover.html">CapRover</a> ou num registry) para economizar disco e banda e acelerar o pull.</li>
+<li>Reduzir a superfície de ataque dos containers em produção e gerar perfis Seccomp sem conhecer syscalls.</li>
+<li>Investigar por que uma imagem está grande ou entender uma imagem de terceiros (<code>xray</code>).</li>
+<li>Depurar containers mínimos ou distroless, que não têm shell (<code>debug</code>).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Teste a imagem minificada antes de ir para produção.</strong> A análise só mantém o que viu sendo usado: arquivos carregados dinamicamente ou rotas que não foram acessadas podem ficar de fora. Use <code>--http-probe-cmd</code>, <code>--include-path</code> e <code>--continue-after</code> com os seus testes para cobrir isso.</li>
+<li>Apps sem API HTTP exigem que você interaja manualmente com o container durante a análise.</li>
+<li>Nginx com diretório temporário fora do padrão falha na imagem minificada; resolva com <code>--include-path</code>.</li>
+<li><strong>A última release publicada é a 1.40.11, de fevereiro de 2024.</strong> O repositório segue com commits (último em set/2026), mas sem versões novas.</li>
+<li>O README tem um link para um portal SaaS (slim.dev), que é opcional; o CLI funciona sozinho.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/slimtoolkit/slim#readme">README</a></li>
+<li><a href="https://github.com/slimtoolkit/slim/releases">Releases</a></li>
+<li><a href="https://github.com/slimtoolkit/examples">Exemplos de minificação</a></li>
+<li><a href="https://hub.docker.com/r/dslim/slim">Imagem Docker dslim/slim</a></li>
+<li><a href="https://github.com/slimtoolkit/slim/blob/master/CHANGELOG.md">CHANGELOG</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#08-deploy-e-infra">Deploy e infra</a></h2>
+    <ul>
+<li><a href="../../repos/08-deploy-e-infra/caprover.html">CapRover</a></li>
+<li><a href="../../repos/08-deploy-e-infra/coolify.html">Coolify</a></li>
+<li><a href="../../repos/08-deploy-e-infra/floci.html">Floci</a></li>
+<li><a href="../../repos/08-deploy-e-infra/setup-orion.html">SetupOrion</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

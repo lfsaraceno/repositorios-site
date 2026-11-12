@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Awesome Skills (AAS Core) · Repositórios favoritos</title>
+<meta name="description" content="Biblioteca com mais de 2.700 playbooks SKILL.md e um plano de controle local (CLI, MCP, catálogo, plugins e Workbench) para descobrir, selecionar e validar skills.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Agentic Awesome Skills (AAS Core)</h1>
+    <p class="lead">Biblioteca com mais de 2.700 playbooks <code>SKILL.md</code> e um plano de controle local (CLI, MCP, catálogo, plugins e Workbench) para descobrir, selecionar e validar skills.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/sickn33/agentic-awesome-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">sickn33/agentic-awesome-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/sickn33/agentic-awesome-skills">sickn33/agentic-awesome-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://aaskills.tech/">aaskills.tech</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~48k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Agentic Awesome Skills é uma biblioteca de mais de 2.700 skills instaláveis em formato <code>SKILL.md</code>. Seu núcleo, o AAS Core, ajuda o Codex ou o Claude a pesquisar o catálogo local completo, registrar as skills que o agente escolheu e gerar um plano que você pode inspecionar antes de alterar qualquer destino.</p>
+<p>O Core não ranqueia nem recomenda skills: quem escolhe é o agente. Um servidor MCP local expõe ferramentas como <code>compose_stack</code>, que valida em memória os IDs e a estrutura escolhidos. O CLI <code>aas</code> pode gravar o manifesto <code>aas-stack.json</code>, validá-lo (<code>aas stack validate</code>) e gerar uma prévia imutável (<code>aas stack plan</code>).</p>
+<p>É um projeto comunitário independente, sem afiliação ao Google. O catálogo hospedado e o Workbench (que revisa artefatos no navegador, sem acessar seu sistema de arquivos) são superfícies complementares.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Catálogo com 2.712+ skills, todas pesquisáveis e legíveis individualmente.</li>
+<li>MCP local para Codex e Claude, com seleção feita pelo agente e plano em modo prévia.</li>
+<li>Instalador direto por <code>npx agentic-awesome-skills</code> para Cursor, Gemini CLI, Codex, Kiro, Antigravity, OpenCode e outros.</li>
+<li>Plugins especializados para Claude Code e Codex (Web App Builder, Security Engineer, DevOps &amp; Cloud, QA &amp; Test Automation, entre outros).</li>
+<li>Bundles por papel/objetivo e workflows com ordem sugerida de uso.</li>
+<li>Filtros de instalação por <code>--risk</code>, <code>--category</code> e <code>--tags</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js e npm (os comandos usam <code>npm exec</code>/<code>npx</code>).</li>
+<li>Codex ou Claude Code para o fluxo AAS Core; ou outro agente suportado para a instalação direta.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="configurar-o-mcp-local-do-aas-core">Configurar o MCP local do AAS Core</h3>
+<p>O primeiro comando mostra uma prévia da alteração e devolve um digest de aprovação. Para Claude, use <code>--host claude</code> com o caminho de configuração correspondente:</p>
+<pre><code class="language-bash">npm exec --yes --ignore-scripts --package=agentic-awesome-skills@19.9.0 -- aas mcp configure \
+  --host codex \
+  --scope user \
+  --config /absolute/path/to/codex/config.toml \
+  --cache-root /absolute/path/to/aas-cache
+</code></pre>
+<p>Guias completos: <code>docs/users/codex-cli-skills.md</code> e <code>docs/users/claude-code-skills.md</code> no repositório.</p>
+<h3 id="instalar-skills-escolhidas-diretamente">Instalar skills escolhidas diretamente</h3>
+<p>Primeiro como prévia (<code>--dry-run</code>), depois repita sem a flag:</p>
+<pre><code class="language-bash">npm exec --yes --ignore-scripts --package=agentic-awesome-skills@19.9.0 -- \
+  agentic-awesome-skills --release 19.9.0 --path .agents/skills \
+  --skills brainstorming,systematic-debugging --dry-run
+</code></pre>
+<h3 id="atalhos-por-ferramenta-do-readme">Atalhos por ferramenta (do README)</h3>
+<pre><code class="language-bash">npx agentic-awesome-skills --cursor
+npx agentic-awesome-skills --gemini
+npx agentic-awesome-skills --codex
+npx agentic-awesome-skills --agy
+npx agentic-awesome-skills --path ./my-skills
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ul>
+<li><code>aas stack validate</code> valida o manifesto de seleção.</li>
+<li><code>aas stack plan</code> grava uma prévia imutável para revisão.</li>
+<li><code>aas stack install-preview</code> prepara uma prévia <code>--dry-run</code> para o instalador direto.</li>
+</ul>
+<p>Exemplos de uso nos agentes: <code>@brainstorming help me plan a feature</code> (Cursor), <code>Use brainstorming to plan a feature</code> (Gemini CLI, Codex), <code>/brainstorming help me plan a feature</code> (Antigravity CLI).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Você quer que o agente escolha skills certas para o seu projeto, com revisão humana antes de instalar.</li>
+<li>Precisa de um catálogo grande e pesquisável de playbooks para vários agentes.</li>
+<li>Quer plugins temáticos prontos (segurança, dados, DevOps, acessibilidade).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O modo &quot;apply&quot; e a recuperação do AAS Core ainda são experimentais (versão 19.9.0 no momento da leitura).</li>
+<li>No Antigravity, instalar muitas skills pode sobrecarregar o contexto; o destino padrão exige um conjunto selecionado, um filtro ou <code>--all</code> explícito.</li>
+<li>O instalador direto não aplica um plano do Core.</li>
+<li>O README lista também skills de terceiros (algumas pagas e hospedadas); revise a fonte antes de instalar.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/sickn33/agentic-awesome-skills">README do projeto</a></li>
+<li><a href="https://aaskills.tech/">Catálogo hospedado</a></li>
+<li><a href="https://github.com/sickn33/agentic-awesome-skills/blob/v19.9.0/docs/users/aas-core.md">Guia do AAS Core</a></li>
+<li><a href="https://github.com/sickn33/agentic-awesome-skills/releases/latest">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

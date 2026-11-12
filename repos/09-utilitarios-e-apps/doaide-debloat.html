@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DoAide Debloat · Repositórios favoritos</title>
+<meta name="description" content="Remove anúncios, rastreamento e apps pré-instalados de celulares e tablets Android via ADB, sem root e de forma reversível, pensado para ser conduzido por um agente de IA (Claude Code, Codex, Gemini CLI).">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>DoAide Debloat</h1>
+    <p class="lead">Remove anúncios, rastreamento e apps pré-instalados de celulares e tablets Android via ADB, sem root e de forma reversível, pensado para ser conduzido por um agente de IA (Claude Code, Codex, Gemini CLI).</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/DoAideAi/DoAide-Debloat">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">DoAideAi/DoAide-Debloat</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/DoAideAi/DoAide-Debloat">DoAideAi/DoAide-Debloat</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~2 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O DoAide Debloat limpa celulares e tablets Android de bloatware: anúncios na tela de bloqueio (Glance), anúncios dentro das Configurações (MSA da Xiaomi), serviços de perfilamento (Samsung Customization Service), lojas e navegadores duplicados, atalhos que pedem para instalar apps. Muitos desses apps são de &quot;sistema&quot; e não podem ser removidos pelo celular, mas podem ser desativados pelo ADB.</p>
+<p>Nada é apagado da imagem do sistema: os pacotes são desativados com <code>pm disable-user --user 0</code>, um por comando, e tudo é registrado num arquivo que permite desfazer com um comando. Não precisa de root.</p>
+<p>O projeto foi feito para ser conduzido por um agente de programação: você abre o agente na pasta do repositório e diz &quot;clean up my phone&quot;. O agente identifica o modelo, faz backup, explica cada pacote, pergunta o que o dono usa, desativa o resto, verifica e deixa um arquivo de restauração. Também funciona à mão, pela linha de comando.</p>
+<p>Inclui um <strong>modo pais</strong> (parent mode), que audita o celular de um familiar em busca de riscos de golpe (apps de acesso remoto, apps que instalam APK, acesso a SMS e acessibilidade) e desfaz o que o dono aprovar.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Probe:</strong> lê modelo, versão do Android, fabricante e quais apps são a tela inicial, teclado, telefone, SMS e navegador; esses ficam protegidos durante toda a execução.</li>
+<li><strong>Backup</strong> da lista de pacotes, desativados, removidos, props e configurações em <code>backups/</code>.</li>
+<li><strong>Plan:</strong> cruza os pacotes instalados com um perfil por fabricante (anúncios, telemetria, lixo e uma lista &quot;perguntar ao dono&quot;), enriquecido com a lista comunitária do UAD; não altera nada.</li>
+<li><strong>Apply</strong> com verificação: depois de aplicar, refaz o probe e, se tela inicial, teclado, telefone ou SMS mudaram, restaura sozinho.</li>
+<li><strong>Restore</strong> exato a partir do registro ou do backup; <strong>check</strong> reaplica o que voltou depois de uma atualização de firmware.</li>
+<li>Lista de pacotes que nunca são desativados (<code>data/never-disable.txt</code>): pacotes do Android, Play Services, Knox, segurança da Xiaomi etc.</li>
+<li>Perfis para Samsung, Xiaomi/Redmi/POCO, OnePlus/OPPO/realme, vivo/iQOO, Motorola, Pixel e tablets Amazon Fire.</li>
+<li>Conexão por cabo USB ou por Wi-Fi (depuração sem fio com código de pareamento).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.9+ (sem outras dependências).</li>
+<li><code>adb</code> (Android Platform Tools).</li>
+<li>Celular com <strong>Opções do desenvolvedor</strong> e <strong>Depuração USB</strong> ativadas, e cabo de dados.</li>
+<li>Opcional: um agente de IA (Claude Code, Codex, Hermes, Gemini CLI).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="1-preparar-o-celular">1. Preparar o celular</h3>
+<p>Configurações &gt; Sobre o telefone &gt; toque 7 vezes em <em>Número da versão</em>. Depois Configurações &gt; Opções do desenvolvedor &gt; ative <em>Depuração USB</em>. Os caminhos por marca estão em <code>recipes/android-phone.md</code>.</p>
+<h3 id="2-instalar-o-adb-e-clonar">2. Instalar o adb e clonar</h3>
+<pre><code class="language-sh">winget install Google.PlatformTools        # Windows
+brew install android-platform-tools        # macOS
+sudo apt install adb                       # Debian/Ubuntu
+
+git clone https://github.com/DoAideAi/DoAide-Debloat &amp;&amp; cd DoAide-Debloat
+</code></pre>
+<h3 id="como-skill-de-agente-sem-clonar-antes">Como skill de agente (sem clonar antes)</h3>
+<pre><code class="language-sh">npx skills add DoAideAi/DoAide-Debloat     # instala skills/android-debloat/SKILL.md no Claude Code, Codex, Cursor etc.
+</code></pre>
+<p>A skill instrui o agente a clonar o repositório e seguir o <code>AGENTS.md</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<h3 id="com-um-agente-de-ia">Com um agente de IA</h3>
+<p>Abra o agente na pasta do repositório e cole o conteúdo de <code>PROMPT.md</code>, ou diga:</p>
+<pre><code>Clean up my Samsung phone, follow AGENTS.md
+</code></pre>
+<p>Aceite <em>Permitir depuração USB?</em> no celular e responda ao checklist de apps opcionais (Samsung Pay, Bixby, Mi Video, Alexa...). Só o que você <strong>não</strong> marcar é desativado. Leva uns 15 minutos.</p>
+<h3 id="a-mao">À mão</h3>
+<pre><code class="language-sh">python3 tools/debloat.py probe                          # identifica o aparelho e o que fica protegido
+python3 tools/debloat.py backup                         # snapshot em backups/
+python3 tools/debloat.py plan                           # mostra o que seria desativado e grava um plano
+python3 tools/debloat.py plan --remove com.samsung.android.spay,com.samsung.android.bixby.agent   # tira pacotes do plano
+python3 tools/debloat.py apply --plan backups/plan-&lt;model&gt;-&lt;time&gt;.json --yes   # aplica o plano
+python3 tools/debloat.py restore --record backups/record-&lt;model&gt;-&lt;time&gt;.json   # desfaz tudo
+python3 tools/debloat.py check --record backups/record-&lt;model&gt;-&lt;time&gt;.json --fix  # após atualização de firmware
+python3 tools/debloat.py lookup glance bixby --device   # explica o que é um pacote
+</code></pre>
+<p>No Windows, troque <code>python3</code> por <code>python</code> se for o caso.</p>
+<h3 id="por-wi-fi">Por Wi-Fi</h3>
+<p>Ative <em>Depuração sem fio</em> no celular, abra &quot;Parear dispositivo com código de pareamento&quot; e rode:</p>
+<pre><code class="language-sh">python3 tools/debloat.py connect --discover --code 123456   # encontra as portas sozinho na mesma rede
+</code></pre>
+<p>Use o <code>--serial ip:port</code> que ele imprimir em todos os outros comandos.</p>
+<h3 id="modo-pais-anti-golpe">Modo pais (anti-golpe)</h3>
+<pre><code class="language-sh">python3 tools/debloat.py parent audit                        # só leitura; grava backups/parent-audit-*.json
+python3 tools/debloat.py parent apply --audit &lt;file&gt; --yes   # aplica as mudanças [auto]; --fix &lt;id&gt; para as [ask]
+python3 tools/debloat.py parent card --record &lt;file&gt; --who Mum   # gera um cartão compartilhável (só contagens)
+python3 tools/debloat.py parent finish --record &lt;file&gt; --yes # desliga depuração USB e sem fio; último passo
+python3 tools/debloat.py parent restore --record &lt;file&gt;      # desfaz
+</code></pre>
+<p>Com agente: <em>&quot;make this phone safe, follow recipes/parent-mode.md&quot;</em>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Limpar anúncios e apps de fábrica de um celular Samsung, Xiaomi, OnePlus, vivo ou Motorola sem root.</li>
+<li>Configurar o celular de pais ou parentes com um agente de IA fazendo o trabalho e explicando cada passo.</li>
+<li>Reduzir o risco de golpe em celular de idosos (apps de acesso remoto, permissões de SMS, acessibilidade).</li>
+<li>Deixar o celular &quot;chato&quot; de propósito (tons de cinza, launcher mínimo) com <code>recipes/dumbphone.md</code>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Projeto <strong>muito novo</strong> (nov/2026, poucas estrelas). Testado de ponta a ponta em um único aparelho real (OnePlus CPH2487, Android 16). Os demais fabricantes têm listas verificadas pela comunidade, mas não em aparelho. O modo pais só foi testado em dispositivo simulado.</li>
+<li><code>--allow-uninstall</code> usa <code>pm uninstall -k --user 0</code> para pacotes que alguns fabricantes não deixam desativar. É reversível (<code>cmd package install-existing</code>), mas mais agressivo que o padrão.</li>
+<li>Ao terminar, <strong>desligue a depuração USB</strong>: um celular com ADB ligado é um risco (<code>parent finish</code> faz isso).</li>
+<li>A lista do UAD (GPL-3.0) é baixada em tempo de execução para <code>~/.cache/doaide-debloat/</code>, não é redistribuída.</li>
+<li>Não funciona para Android TV/Google TV (use cleanyourtv), Fire TV (use dumbtv), Tizen, webOS, Roku nem iPhone.</li>
+<li>Para espelhar e controlar o celular pelo PC via ADB, veja <a href="scrcpy.html">scrcpy</a>; o DoAide Debloat foca em desativar pacotes.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/DoAideAi/DoAide-Debloat#readme">README</a></li>
+<li><a href="https://github.com/DoAideAi/DoAide-Debloat/blob/main/PROMPT.md">PROMPT.md</a> (prompt para colar no agente)</li>
+<li><a href="https://github.com/DoAideAi/DoAide-Debloat/tree/main/recipes">Receitas</a> (por marca, modo pais, dumbphone, Fire tablet)</li>
+<li><a href="https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation">Universal Android Debloater NG</a></li>
+<li><a href="https://github.com/DoAideAi/DoAide-Debloat/issues/new?template=device-report.yml">Relatório de dispositivo</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

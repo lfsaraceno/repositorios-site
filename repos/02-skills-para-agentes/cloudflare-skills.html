@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloudflare Skills · Repositórios favoritos</title>
+<meta name="description" content="Skills oficiais da Cloudflare que ensinam agentes a construir em Workers, Agents SDK, Durable Objects e no restante da plataforma de desenvolvimento, com o servidor MCP da Cloudflare embutido.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Cloudflare Skills</h1>
+    <p class="lead">Skills oficiais da Cloudflare que ensinam agentes a construir em Workers, Agents SDK, Durable Objects e no restante da plataforma de desenvolvimento, com o servidor MCP da Cloudflare embutido.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/cloudflare/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">cloudflare/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/cloudflare/skills">cloudflare/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://developers.cloudflare.com/">developers.cloudflare.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>Shell</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~3,1k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É uma coleção de Agent Skills para construir na Cloudflare: Workers, o Agents SDK e a plataforma de desenvolvedores em geral. As skills são contextuais e carregadas automaticamente: quando o seu pedido combina com os gatilhos de uma skill, o agente aplica a orientação atualizada daquele produto.</p>
+<p>Onde há suporte, o repositório é instalado como plugin nativo, que traz tanto as skills quanto o servidor MCP principal da Cloudflare (acesso à API e à documentação atual via &quot;Code Mode&quot;). Agentes que só suportam o padrão Agent Skills podem instalar apenas as skills.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Skill <code>cloudflare</code> para descobrir quais produtos servem à sua necessidade.</li>
+<li><code>wrangler</code> para deploy e gestão de Workers, KV, R2, D1, Vectorize, Queues e Workflows.</li>
+<li><code>workers-best-practices</code> e <code>workers-profiling</code> para código de produção e análise de CPU/alocações.</li>
+<li><code>agents-sdk</code> e <code>durable-objects</code> para agentes com estado, agendamento, RPC, MCP, e-mail e WebSockets.</li>
+<li><code>sandbox-next</code>, <code>sandbox-stable</code> e <code>sandbox-migrate-to-next</code> para o Cloudflare Sandbox.</li>
+<li><code>web-perf</code> (Core Web Vitals), <code>turnstile-spin</code> (verificação de bots) e <code>cloudflare-email-service</code>.</li>
+<li><code>cloudflare-one</code> e <code>cloudflare-one-migrations</code> para Zero Trust/SASE; <code>nextjs-on-cloudflare</code> para Next.js com vinext.</li>
+<li>Servidor MCP <code>cloudflare</code> incluído no plugin.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível: Claude Code, Codex, VS Code/GitHub Copilot, Cursor, OpenCode ou Pi.</li>
+<li>Para <code>npx skills</code>, Node.js/npm.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code">Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add cloudflare/skills
+/plugin install cloudflare@cloudflare
+</code></pre>
+<h3 id="codex">Codex</h3>
+<pre><code class="language-sh">codex plugin marketplace add cloudflare/skills
+codex plugin add cloudflare@cloudflare
+</code></pre>
+<p>Inicie uma nova sessão depois.</p>
+<h3 id="vs-code-github-copilot">VS Code / GitHub Copilot</h3>
+<ol>
+<li>Habilite <code>chat.plugins.enabled</code> nas configurações do VS Code.</li>
+<li>Na paleta de comandos, execute <strong>Chat: Install Plugin From Source</strong>.</li>
+<li>Informe <code>https://github.com/cloudflare/skills</code>.</li>
+</ol>
+<h3 id="cursor">Cursor</h3>
+<p>Instale pelo Cursor Marketplace ou adicione manualmente em <strong>Settings &gt; Rules &gt; Add Rule &gt; Remote Rule (Github)</strong> com <code>cloudflare/skills</code>.</p>
+<h3 id="qualquer-agente-npx-skills">Qualquer agente (npx skills)</h3>
+<pre><code class="language-sh">npx skills add https://github.com/cloudflare/skills
+</code></pre>
+<h3 id="clonar-e-copiar">Clonar e copiar</h3>
+<p>Clone o repositório e copie as pastas de skills para o diretório do seu agente, por exemplo <code>~/.claude/skills/</code> (Claude Code), <code>~/.cursor/skills/</code> (Cursor), <code>~/.config/opencode/skills/</code> (OpenCode), <code>~/.codex/skills/</code> (Codex) ou <code>~/.pi/agent/skills/</code> (Pi).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Não há comandos próprios: as skills são acionadas pelo contexto da conversa. Exemplos de pedidos:</p>
+<pre><code class="language-text">Crie um Worker com D1 e faça o deploy usando wrangler
+Audite os Core Web Vitals da minha página e liste recursos que bloqueiam a renderização
+Monte um agente com estado usando o Agents SDK e Durable Objects
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Desenvolver ou migrar aplicações para Workers, R2, D1, KV, Queues e Workflows.</li>
+<li>Construir agentes de IA com estado na Cloudflare.</li>
+<li>Configurar Cloudflare One (Access, Gateway, WARP, Tunnel) ou planejar migração de SASE/VPN.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O plugin inclui apenas o servidor MCP principal <code>cloudflare</code>; os servidores MCP específicos de cada produto não vêm junto.</li>
+<li>A skill <code>sandbox-next</code> usa a prévia 1.0 (<code>@cloudflare/sandbox@next</code>) e é recomendada para projetos novos; a estável é <code>sandbox-stable</code>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/cloudflare/skills">README do projeto</a></li>
+<li><a href="https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/">Servidor MCP da Cloudflare</a></li>
+<li><a href="https://code.claude.com/docs/en/plugins/install#add-a-marketplace">Marketplace de plugins do Claude Code</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

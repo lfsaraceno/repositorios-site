@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magic MCP (agora 21st MCP) · Repositórios favoritos</title>
+<meta name="description" content="Servidor MCP para buscar e gerar componentes de UI React/Tailwind do 21st.dev direto no Cursor, Claude Code, Windsurf e outros editores.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Magic MCP (agora 21st MCP)</h1>
+    <p class="lead">Servidor MCP para buscar e gerar componentes de UI React/Tailwind do 21st.dev direto no Cursor, Claude Code, Windsurf e outros editores.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/21st-dev/magic-mcp">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">21st-dev/magic-mcp</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/21st-dev/magic-mcp">21st-dev/magic-mcp</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://21st.dev/mcp">21st.dev/mcp</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>ISC</dd></div>
+<div><dt>Estrelas</dt><dd>~6k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Magic MCP era um servidor MCP que funcionava como um &quot;v0 dentro do seu editor&quot;: buscar entre mais de 10 mil componentes React/Tailwind, gerar UI com IA e publicar os seus. Ele foi substituído pelo <strong>21st MCP</strong>, instalado pelo CLI da 21st. O pacote <code>@21st-dev/magic</code> continua publicado como um proxy stdio de compatibilidade, para que configurações antigas sigam funcionando.</p>
+<p>O servidor atual expõe muito mais que as quatro ferramentas originais: busca em catálogo de componentes, temas e templates, recuperação de código, favoritos, bibliotecas de equipe, geração de UI com variantes e gestão de perfil.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Busca de componentes, temas e templates (<code>search</code>, <code>get_component</code>).</li>
+<li>Geração de UI com variantes (<code>generate</code>, <code>iterate_generation</code>), quando o acesso a IA está habilitado.</li>
+<li>Inspiração de design (<code>get_inspiration</code>) e busca de logos (<code>search_logo</code>).</li>
+<li>Servidor HTTP simples, com chave de API no cabeçalho <code>x-api-key</code>.</li>
+<li>Proxy de compatibilidade: nomes antigos de ferramentas continuam sendo traduzidos.</li>
+<li>Empacotado também como plugin para Claude Code, Grok Build e Codex CLI.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js, para usar <code>npx</code>.</li>
+<li>Uma chave de API da 21st, gerada em <a href="https://21st.dev/mcp">21st.dev/mcp</a> (há chave gratuita). As chaves antigas do Magic foram resetadas e não funcionam mais.</li>
+<li>Um cliente MCP: Cursor, Claude Code, VS Code, Windsurf ou Codex.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="21st-mcp-via-cli-recomendado">21st MCP via CLI (recomendado)</h3>
+<pre><code class="language-bash">npx @21st-dev/cli@latest init --client cursor
+</code></pre>
+<p>Troque <code>cursor</code> por <code>claude</code>, <code>vscode</code>, <code>windsurf</code> ou <code>codex</code>.</p>
+<h3 id="configuracao-manual-http">Configuração manual (HTTP)</h3>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;21st&quot;: {
+      &quot;url&quot;: &quot;https://21st.dev/api/mcp&quot;,
+      &quot;headers&quot;: { &quot;x-api-key&quot;: &quot;YOUR_21ST_API_KEY&quot; }
+    }
+  }
+}
+</code></pre>
+<h3 id="plugin">Plugin</h3>
+<pre><code class="language-bash">claude plugin marketplace add 21st-dev/magic-mcp   # depois: /plugin install 21st
+grok plugin marketplace add 21st-dev/magic-mcp &amp;&amp; grok plugin install 21st --trust
+codex plugin marketplace add 21st-dev/magic-mcp
+</code></pre>
+<p>Defina a chave na variável <code>API_KEY_21ST</code>.</p>
+<h3 id="proxy-legado-configs-antigas">Proxy legado (configs antigas)</h3>
+<pre><code class="language-bash">npx -y @21st-dev/magic@latest API_KEY=&quot;...&quot;
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Use linguagem natural no agente, por exemplo: &quot;busque no 21st um componente de pricing table&quot; ou, com IA habilitada, peça para gerar uma interface com variantes. Os gatilhos antigos <code>/ui</code> e <code>/21</code> eram convenção das descrições das ferramentas, não do protocolo.</p>
+<p>Mapa de nomes antigos para novos:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ferramenta antiga</th>
+<th>Ferramenta atual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>21st_magic_component_builder</code></td>
+<td><code>generate</code></td>
+</tr>
+<tr>
+<td><code>21st_magic_component_inspiration</code></td>
+<td><code>get_inspiration</code></td>
+</tr>
+<tr>
+<td><code>21st_magic_component_refiner</code></td>
+<td><code>generate</code></td>
+</tr>
+<tr>
+<td><code>logo_search</code></td>
+<td><code>search_logo</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Acelerar telas e componentes React/Tailwind sem sair do editor.</li>
+<li>Buscar inspiração e referências de UI antes de implementar.</li>
+<li>Manter funcionando configs antigas do Magic MCP.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O acesso de construtor a componentes não habilita a IA hospedada da 21st: <code>generate</code> e <code>iterate_generation</code> só aparecem se o acesso a IA estiver ativo (veja <code>get_usage.aiGenerationEnabled</code>). Sem IA, use <code>search</code> e <code>get_component</code> e adapte o código com seu agente.</li>
+<li>Um erro <code>ai_subscription_required</code> indica que a IA não está habilitada; não repita a chamada até habilitar.</li>
+<li>Serviço hospedado de terceiros: seu uso depende da conta e dos planos da 21st.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/21st-dev/magic-mcp">README</a></li>
+<li><a href="https://21st.dev/mcp">Configuração e chaves do 21st MCP</a></li>
+<li><a href="https://www.npmjs.com/package/@21st-dev/cli">21st CLI no npm</a></li>
+<li><a href="https://21st.dev">21st.dev</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

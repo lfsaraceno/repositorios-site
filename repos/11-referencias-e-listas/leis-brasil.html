@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leis do Brasil em Markdown (ctresb/leis) · Repositórios favoritos</title>
+<meta name="description" content="Acervo com 320 mil+ normas brasileiras (Constituição, leis federais e estaduais) convertidas de fontes oficiais para Markdown, com metadados e link para a origem.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#11-referencias-e-listas"><span aria-hidden="true">📚</span> Referências e listas</a>
+    </nav>
+    <h1>Leis do Brasil em Markdown (ctresb/leis)</h1>
+    <p class="lead">Acervo com 320 mil+ normas brasileiras (Constituição, leis federais e estaduais) convertidas de fontes oficiais para Markdown, com metadados e link para a origem.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ctresb/leis">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ctresb/leis</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ctresb/leis">ctresb/leis</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/ctresb/leis/blob/main/PROGRESSO.md">PROGRESSO.md</a> · <a href="https://github.com/ctresb/leis/blob/main/COBERTURA.md">COBERTURA.md</a></dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (acervo) + Python (scripts de coleta)</dd></div>
+<div><dt>Licença</dt><dd>Scripts: MIT. Textos das normas: atos oficiais, sem proteção autoral (art. 8º, I, da Lei 9.610/98)</dd></div>
+<div><dt>Estrelas</dt><dd>~1,3k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É um repositório que reúne a <strong>legislação brasileira em texto simples (Markdown)</strong>, de graça e num lugar só. Os textos vêm de fontes oficiais (Planalto, Senado/normas.leg.br e os sistemas das Assembleias Legislativas) e são convertidos por scripts. Cada arquivo traz um cabeçalho com os dados da norma e o link para a fonte original.</p>
+<p>A base inicial tem <strong>323.849 normas</strong>: a Constituição Federal (texto vigente), 29 mil normas federais de 1822 até hoje e 294 mil estaduais e distritais. Coletas posteriores, como os 153 mil decretos federais, estão contabilizadas no <code>PROGRESSO.md</code>. O objetivo declarado é cobrir <strong>todo o ordenamento jurídico</strong>: decretos, atos das agências reguladoras (CONTRAN, ANVISA, Receita, CMN), jurisprudência vinculante, tratados e, por fim, as leis municipais.</p>
+<p>Um detalhe curioso: o histórico do Git é uma linha do tempo da legislação. Cada norma da base inicial entrou num commit próprio, em ordem cronológica, &quot;assinado&quot; por quem a promulgou (5.414 autores).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Constituição Federal vigente em <code>constituicao.md</code>.</li>
+<li>Normas federais: leis ordinárias, complementares, delegadas e decretos-lei.</li>
+<li>Normas de 25 estados e do DF, incluindo constituições estaduais e emendas. PR e RJ estão pendentes.</li>
+<li>Pastas reservadas para atos de órgãos reguladores, jurisprudência, tratados e leis municipais, preenchidas conforme o progresso.</li>
+<li><strong>Cabeçalho YAML padronizado</strong> em cada arquivo: título, tipo, número, data, ementa, situação (em vigor ou revogada), publicação, URN e link da fonte.</li>
+<li>Página de estatísticas (<code>estatisticas.html</code>): normas por estado, por década, por tema e quem mais assinou.</li>
+<li>Scripts que baixam, convertem, corrigem o OCR e auditam o acervo, todos retomáveis e idempotentes.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Para <strong>consultar:</strong> só o navegador (GitHub) ou um editor de texto.</li>
+<li>Para <strong>reproduzir a coleta:</strong> macOS, Python 3 e <code>pdftotext</code> (poppler). O OCR usa o framework Vision do macOS; para imagens, o Tesseract 5 com o modelo português.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Não precisa instalar nada para consultar: navegue pelas pastas no GitHub.</p>
+<p>Para ter o acervo no computador:</p>
+<pre><code class="language-bash">git clone https://github.com/ctresb/leis.git
+</code></pre>
+<p>O repositório é <strong>muito grande</strong> (cerca de 4 GB e meio milhão de commits). Se não precisar do histórico, uma cópia rasa é bem mais leve. Este é um recurso geral do Git, não uma instrução do README:</p>
+<pre><code class="language-bash">git clone --depth 1 https://github.com/ctresb/leis.git
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Estrutura das pastas:</strong></p>
+<pre><code class="language-text">constituicao.md                     Constituição Federal de 1988 (texto vigente)
+federal/leis-ordinarias/AAAA/*.md   Leis federais, de 1822 a hoje
+federal/leis-complementares/  federal/decretos-lei/  federal/leis-delegadas/
+estaduais/UF/                       constituição, emendas, leis e decretos-lei por estado
+reguladores/&lt;orgao&gt;/&lt;tipo&gt;/         atos infralegais (CONTRAN, ANVISA, RFB, CMN...)
+jurisprudencia/&lt;tribunal&gt;/          súmulas e temas vinculantes
+tratados/   municipais/UF/&lt;municipio&gt;/
+</code></pre>
+<p><strong>Formato de cada arquivo</strong> (exemplo do Código Civil):</p>
+<pre><code class="language-markdown">---
+titulo: &quot;Lei nº 10.406 de 10/01/2002&quot;
+tipo: &quot;Lei Ordinária&quot;
+numero: &quot;10406&quot;
+data: 2002-01-10
+ementa: &quot;Institui o Código Civil.&quot;
+situacao: &quot;Em vigor&quot;
+revogada: false
+fonte: &quot;https://normas.leg.br/?urn=urn:lex:br:federal:lei:2002-01-10;10406&quot;
+---
+# Lei nº 10.406 de 10/01/2002
+...
+</code></pre>
+<p><strong>Buscar na cópia local</strong> (ex.: normas que citam &quot;LGPD&quot; ou &quot;proteção de dados&quot;):</p>
+<pre><code class="language-bash">grep -ril &quot;proteção de dados&quot; federal/ | head
+grep -l &quot;revogada: false&quot; estaduais/SP/leis-ordinarias/2024/*.md   # leis de SP de 2024 ainda vigentes
+</code></pre>
+<p><strong>Reproduzir ou atualizar a coleta</strong> (macOS):</p>
+<pre><code class="language-sh">python3 -I scripts/baixar_federal.py              # normas federais
+python3 -I scripts/estados/sp.py                  # um estado por script
+python3 -I scripts/estados/sapl.py baixar PB      # estados que usam o SAPL
+python3 -I scripts/relatorio.py                   # atualiza o COBERTURA.md
+python3 -I scripts/progresso.py                   # atualiza o PROGRESSO.md
+</code></pre>
+<p>Os scripts de manutenção rodam em modo simulação por padrão e só gravam com <code>--aplicar</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li><strong>Base de conhecimento (RAG) para agentes de IA jurídicos ou de atendimento:</strong> os arquivos já vêm em Markdown limpo, com metadados para filtrar por esfera, tipo, data e vigência. Combina com o RAG do <a href="../05-ferramentas-para-agentes-ia/kiln.html">Kiln</a> ou com o <a href="../05-ferramentas-para-agentes-ia/graphify.html">Graphify</a>.</li>
+<li>Consultar o texto de uma lei estadual que é difícil de achar no site da Assembleia.</li>
+<li>Pesquisa, análise de dados e jornalismo sobre legislação (volume por estado, por década, por tema).</li>
+<li>Acompanhar mudanças: pelo histórico do Git dá para ver quando cada norma entrou no acervo.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>
+<p><strong>Não substitui o Diário Oficial.</strong> Os textos são conversões automáticas, e parte veio de <strong>OCR de documentos escaneados</strong>, que pode ter erros. Confira sempre a fonte indicada no cabeçalho antes de citar ou usar juridicamente.</p>
+</li>
+<li>
+<p><strong>Lacunas conhecidas:</strong></p>
+<ul>
+<li>RJ não tem nada coletado.</li>
+<li>PR foi destravado em 15/10/2026 e está sendo coletado.</li>
+<li>AC só tem normas até 2009, e TO só a partir de 2020.</li>
+<li>Há 5.569 leis antigas do RS sem texto digitalizado.</li>
+<li>MG não atualiza mais pela fonte.</li>
+</ul>
+<p>O detalhe completo está no <code>COBERTURA.md</code>.</p>
+</li>
+<li>
+<p>Nem todas as normas trazem a versão compilada (vigente). Algumas são o texto original publicado; veja o campo <code>versao_texto</code>.</p>
+</li>
+<li>
+<p>O repositório é enorme. No Windows, com centenas de milhares de arquivos, o clone e as buscas podem ser lentos.</p>
+</li>
+<li>
+<p>Projeto recente (criado em out/2026), em expansão acelerada. As contagens mudam a cada commit.</p>
+</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/ctresb/leis#readme">README</a></li>
+<li><a href="https://github.com/ctresb/leis/blob/main/constituicao.md">Constituição Federal</a></li>
+<li><a href="https://github.com/ctresb/leis/blob/main/PROGRESSO.md">Progresso do plano</a> · <a href="https://github.com/ctresb/leis/blob/main/COBERTURA.md">Cobertura por estado</a></li>
+<li><a href="https://github.com/ctresb/leis/tree/main/federal">Pasta federal</a> · <a href="https://github.com/ctresb/leis/tree/main/estaduais">Pasta estaduais</a></li>
+<li><a href="https://github.com/ctresb/leis/tree/main/scripts">Scripts de coleta</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#11-referencias-e-listas">Referências e listas</a></h2>
+    <ul>
+<li><a href="../../repos/11-referencias-e-listas/awesome-brazilian-devblogs.html">Awesome Brazilian Dev Blogs</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-claude-code.html">Awesome Claude Code</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-opus5-5-videos.html">Awesome Opus 5.5 Videos</a></li>
+<li><a href="../../repos/11-referencias-e-listas/brazilian-utils.html">Brazilian Utils</a></li>
+<li><a href="../../repos/11-referencias-e-listas/claude-cookbooks.html">Claude Cookbooks</a></li>
+<li><a href="../../repos/11-referencias-e-listas/public-apis.html">Public APIs</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Cookbooks · Repositórios favoritos</title>
+<meta name="description" content="Coleção oficial da Anthropic de notebooks e receitas com código copiável para construir aplicações com o Claude.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#11-referencias-e-listas"><span aria-hidden="true">📚</span> Referências e listas</a>
+    </nav>
+    <h1>Claude Cookbooks</h1>
+    <p class="lead">Coleção oficial da Anthropic de notebooks e receitas com código copiável para construir aplicações com o Claude.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/anthropics/claude-cookbooks">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">anthropics/claude-cookbooks</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/anthropics/claude-cookbooks">anthropics/claude-cookbooks</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>Jupyter Notebook (exemplos principalmente em Python)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~54k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Claude Cookbooks reúne código e guias para desenvolvedores que constroem com o Claude, com trechos prontos para copiar e integrar em seus projetos. Os exemplos são majoritariamente em Python, mas os conceitos podem ser adaptados para qualquer linguagem que consiga chamar a API do Claude.</p>
+<p>O README funciona como um índice de receitas organizado por tema. Os links do índice ainda apontam para o caminho anterior do repositório (<code>anthropics/anthropic-cookbook</code>), então se algum link falhar, procure a receita pelo nome no repositório atual.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Capabilities</strong>: classificação, RAG (geração aumentada por recuperação) e sumarização</li>
+<li><strong>Tool use e integração</strong>: agente de atendimento ao cliente, calculadora, consultas SQL</li>
+<li><strong>Integrações de terceiros</strong>: Pinecone, Wikipedia, páginas web e embeddings com Voyage AI</li>
+<li><strong>Multimodal</strong>: primeiros passos com imagens, boas práticas de visão, leitura de gráficos e extração de formulários</li>
+<li><strong>Técnicas avançadas</strong>: sub-agentes (Haiku com Opus), upload de PDFs, avaliações automatizadas, modo JSON, filtro de moderação, prompt caching e otimização de custos</li>
+<li>Recursos adicionais com exemplos da AWS (Anthropic on AWS)</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Chave de API do Claude</li>
+<li>Python para rodar os notebooks (Jupyter) na maioria dos exemplos</li>
+<li>Para iniciantes, o README recomenda o curso &quot;Claude API Fundamentals&quot; da Anthropic</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>O README não define um passo de instalação. Fluxo comum, sem comandos próprios do projeto: clone o repositório, abra o notebook desejado em um ambiente Jupyter e configure sua chave de API conforme o notebook indicar.</p>
+<pre><code class="language-bash">git clone https://github.com/anthropics/claude-cookbooks.git
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Não há CLI. O uso é abrir a receita de interesse e executar as células. Exemplos de receitas citadas no índice:</p>
+<pre><code class="language-text">tool_use/customer_service_agent.ipynb         # agente de atendimento com tool use
+tool_use/calculator_tool.ipynb                # integração de calculadora
+misc/prompt_caching.ipynb                     # técnicas de prompt caching
+misc/building_evals.ipynb                     # avaliações automatizadas
+misc/how_to_enable_json_mode.ipynb            # saída JSON consistente
+cost_optimization/cost_optimization.ipynb     # checklist de otimização de custo
+</code></pre>
+<p>Os caminhos acima vêm do índice do README e podem ter mudado no repositório; confirme no GitHub.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Aprender padrões de uso da API do Claude com exemplos executáveis</li>
+<li>Copiar trechos de tool use, RAG, visão ou prompt caching para o seu projeto</li>
+<li>Montar avaliações e reduzir custos de um agente</li>
+<li>Consultar boas práticas oficiais antes de implementar uma integração</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O consumo de tokens nos notebooks é cobrado na sua conta da API.</li>
+<li>Os links do README apontam para o nome antigo do repositório (<code>anthropic-cookbook</code>); confirme se o caminho ainda existe.</li>
+<li>Verifique nomes de modelos nos notebooks, pois podem estar desatualizados frente à documentação atual.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/anthropics/claude-cookbooks#readme">README</a></li>
+<li><a href="https://docs.claude.com/claude/docs/guide-to-anthropics-prompt-engineering-resources">Documentação para desenvolvedores da Anthropic</a></li>
+<li><a href="https://github.com/anthropics/courses/tree/master/anthropic_api_fundamentals">Curso Claude API Fundamentals</a></li>
+<li><a href="https://www.anthropic.com/discord">Comunidade no Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#11-referencias-e-listas">Referências e listas</a></h2>
+    <ul>
+<li><a href="../../repos/11-referencias-e-listas/awesome-brazilian-devblogs.html">Awesome Brazilian Dev Blogs</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-claude-code.html">Awesome Claude Code</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-opus5-5-videos.html">Awesome Opus 5.5 Videos</a></li>
+<li><a href="../../repos/11-referencias-e-listas/brazilian-utils.html">Brazilian Utils</a></li>
+<li><a href="../../repos/11-referencias-e-listas/leis-brasil.html">Leis do Brasil em Markdown (ctresb/leis)</a></li>
+<li><a href="../../repos/11-referencias-e-listas/public-apis.html">Public APIs</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

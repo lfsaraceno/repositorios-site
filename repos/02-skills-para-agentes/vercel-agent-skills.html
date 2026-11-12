@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vercel Agent Skills · Repositórios favoritos</title>
+<meta name="description" content="Coleção oficial de skills da Vercel para agentes de código: boas práticas de React/Next.js, revisão de UI, React Native, transições de view, deploy e otimização de projetos Vercel.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Vercel Agent Skills</h1>
+    <p class="lead">Coleção oficial de skills da Vercel para agentes de código: boas práticas de React/Next.js, revisão de UI, React Native, transições de view, deploy e otimização de projetos Vercel.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/vercel-labs/agent-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">vercel-labs/agent-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/vercel-labs/agent-skills">vercel-labs/agent-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://skills.sh/vercel-labs/agent-skills">skills.sh/vercel-labs/agent-skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT (informada no README; a API do GitHub não retorna licença)</dd></div>
+<div><dt>Estrelas</dt><dd>~33k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#skill-em-destaque-react-best-practices">Skill em destaque: react-best-practices</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É a coleção oficial de skills da Vercel Labs, no formato Agent Skills: pacotes de instruções e scripts que ampliam o que um agente de código sabe fazer. Cada skill tem um <code>SKILL.md</code> com as instruções e, opcionalmente, pastas <code>scripts/</code> e <code>references/</code>.</p>
+<p>Depois de instaladas, as skills ficam disponíveis automaticamente e o agente as usa quando detecta uma tarefa relacionada. O repositório publica, a cada mudança em <code>main</code>, uma release imutável com um índice de descoberta de skills e um artefato por skill.</p>
+<h2 id="skill-em-destaque-react-best-practices">Skill em destaque: react-best-practices</h2>
+<p>É o guia de otimização de performance de React e Next.js da engenharia da Vercel. O README fala em 40+ regras em 8 categorias; o <code>SKILL.md</code> atual (nome <code>vercel-react-best-practices</code>, versão 1.0.0) declara 70 regras, priorizadas por impacto.</p>
+<p>Quando é aplicada: ao escrever componentes React ou páginas Next.js, implementar busca de dados (cliente ou servidor), revisar código quanto a performance e otimizar tamanho de bundle ou tempo de carregamento.</p>
+<p>Categorias, em ordem de prioridade (prefixo da regra entre parênteses):</p>
+<ol>
+<li>Eliminar waterfalls, crítico (<code>async-</code>), por exemplo <code>async-parallel</code> (usar <code>Promise.all()</code> para operações independentes) e <code>async-suspense-boundaries</code>.</li>
+<li>Tamanho do bundle, crítico (<code>bundle-</code>), por exemplo <code>bundle-barrel-imports</code> (evitar barrel files) e <code>bundle-dynamic-imports</code> (<code>next/dynamic</code>).</li>
+<li>Performance no servidor, alto (<code>server-</code>), por exemplo <code>server-cache-react</code> e <code>server-after-nonblocking</code>.</li>
+<li>Busca de dados no cliente, médio-alto (<code>client-</code>).</li>
+<li>Otimização de re-renders, médio (<code>rerender-</code>).</li>
+<li>Performance de renderização, médio (<code>rendering-</code>).</li>
+<li>Performance de JavaScript, baixo-médio (<code>js-</code>).</li>
+<li>Padrões avançados, baixo (<code>advanced-</code>).</li>
+</ol>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><code>react-best-practices</code>: regras de performance para React e Next.js.</li>
+<li><code>web-design-guidelines</code>: revisão de UI com mais de 100 regras (acessibilidade, foco, formulários, animação, tipografia, i18n).</li>
+<li><code>vercel-optimize</code>: auditoria de custo, performance e cache de um projeto Vercel a partir de métricas reais.</li>
+<li><code>react-native-guidelines</code>: 16 regras para apps React Native e Expo.</li>
+<li><code>react-view-transitions</code>: View Transition API do React, incluindo integração com Next.js.</li>
+<li><code>composition-patterns</code>: padrões de composição para evitar excesso de props booleanas.</li>
+<li><code>writing-guidelines</code>: revisão de documentação conforme o handbook de escrita da Vercel.</li>
+<li><code>vercel-deploy-claimable</code>: deploy instantâneo na Vercel com URL de preview e URL de &quot;claim&quot;.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js e npm/npx para o instalador <code>skills</code>.</li>
+<li>Um agente compatível com o formato Agent Skills.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx skills add vercel-labs/agent-skills
+</code></pre>
+<p>As skills ficam disponíveis automaticamente; o agente as usa quando a tarefa combina.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Não há comandos de barra obrigatórios: basta descrever a tarefa. Exemplos do README:</p>
+<pre><code class="language-text">Deploy my app
+</code></pre>
+<pre><code class="language-text">Review this React component for performance issues
+</code></pre>
+<pre><code class="language-text">Help me optimize this Next.js page
+</code></pre>
+<p>Para revisão de interface, frases como &quot;Review my UI&quot;, &quot;Check accessibility&quot; ou &quot;Audit design&quot; ativam <code>web-design-guidelines</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Escrever ou revisar componentes React e páginas Next.js com foco em performance.</li>
+<li>Auditar acessibilidade e UX de uma interface.</li>
+<li>Reduzir custo e tempo de resposta de um projeto implantado na Vercel.</li>
+<li>Criar transições de página e animações com a View Transition API.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><code>vercel-deploy-claimable</code> foi pensada para uso com claude.ai e Claude Desktop; a implantação pode ser &quot;reivindicada&quot; (transferida) para a sua conta Vercel.</li>
+<li>O número de regras de <code>react-best-practices</code> diverge entre o README (40+) e o <code>SKILL.md</code> (70); considere o <code>SKILL.md</code> como mais atual.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/vercel-labs/agent-skills">README do projeto</a></li>
+<li><a href="https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices">Skill react-best-practices</a></li>
+<li><a href="https://skills.sh/vercel-labs/agent-skills">skills.sh</a></li>
+<li><a href="https://agentskills.io/">Especificação Agent Skills</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

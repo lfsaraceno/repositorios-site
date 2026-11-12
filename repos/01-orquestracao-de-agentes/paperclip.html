@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paperclip · Repositórios favoritos</title>
+<meta name="description" content="Plataforma open source para gerenciar equipes de agentes de IA como uma empresa. Tem organograma, tarefas, metas, orçamentos, aprovações e histórico, num painel web self-hosted. Funciona com Claude Code, Codex, Cursor, OpenClaw e outros.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>Paperclip</h1>
+    <p class="lead">Plataforma open source para gerenciar equipes de agentes de IA como uma empresa. Tem organograma, tarefas, metas, orçamentos, aprovações e histórico, num painel web self-hosted. Funciona com Claude Code, Codex, Cursor, OpenClaw e outros.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/paperclipai/paperclip">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">paperclipai/paperclip</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/paperclipai/paperclip">paperclipai/paperclip</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://paperclip.ing">paperclip.ing</a> · <a href="https://docs.paperclip.ing/guides/getting-started/five-minute-path/">Documentação</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (servidor Node.js + interface React)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~112k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Paperclip parece um gerenciador de tarefas, mas por baixo organiza uma &quot;empresa&quot; de agentes. O fluxo é:</p>
+<ol>
+<li>defina a meta, por exemplo &quot;levar o app de notas a US$ 1 milhão de receita recorrente&quot;;</li>
+<li>&quot;contrate&quot; a equipe (CEO, CTO, engenheiros, designers, marketing), cada um com o agente e o modelo que você quiser;</li>
+<li>aprove a estratégia, defina orçamentos e acompanhe pelo painel.</li>
+</ol>
+<p>O lema do projeto: &quot;se consegue receber um heartbeat, está contratado&quot;. Qualquer agente que acorde por chamada entra no organograma.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Traga seu agente:</strong> Claude Code, Codex, Cursor, Gemini, bash, bots via HTTP e webhook (como o OpenClaw) e adaptadores externos.</li>
+<li><strong>Tarefas com trava atômica:</strong> só um agente pega cada tarefa. Conversas, planos, bloqueios, arquivos e histórico ficam presos à tarefa e sobrevivem a reinicializações.</li>
+<li><strong>Metas em cascata:</strong> cada tarefa carrega o contexto do projeto e da meta da empresa.</li>
+<li><strong>Organograma:</strong> papéis, cargos, chefes, permissões e orçamentos por agente. Humanos e agentes no mesmo organograma.</li>
+<li><strong>Controle de custo:</strong> gastos por empresa, agente, projeto, meta, provedor e modelo, com alertas e parada automática.</li>
+<li><strong>Governança:</strong>
+<ul>
+<li>etapas de revisão e aprovação;</li>
+<li>configuração versionada, com rollback;</li>
+<li>pausar ou encerrar agentes.</li>
+</ul>
+</li>
+<li><strong>Rotinas agendadas</strong> por cron, webhook ou API.</li>
+<li><strong>Skill Studio:</strong> skills compartilhadas, avaliações e histórico de versões.</li>
+<li><strong>Gateway de ferramentas MCP</strong>, com aprovação por chamada.</li>
+<li><strong>Segredos criptografados</strong>, com acesso por agente.</li>
+<li><strong>Várias empresas</strong> numa só instalação, com dados separados.</li>
+<li><strong>Exportar e importar</strong> empresas inteiras como modelo.</li>
+<li><strong>Plugins</strong>, sandboxes na nuvem (e2b, Cloudflare, Daytona, Modal e outros) e uso pelo celular.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Node.js 24.11+</strong>.</li>
+<li>Para usar a assinatura do Claude ou do ChatGPT localmente: <strong>Python 3</strong> e a CLI do provedor (<code>claude</code> ou <code>codex</code>) instalados no servidor. A imagem Docker já inclui.</li>
+<li>Para desenvolver a partir do código: <strong>pnpm 9.15+</strong> e Rust (para o Paperclip Runner).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Rápida:</strong></p>
+<pre><code class="language-bash">npx paperclipai@latest onboard --yes
+</code></pre>
+<p>Esse comando sobe em modo local confiável, só no próprio computador (loopback). Para modo autenticado, acessível pela rede:</p>
+<pre><code class="language-bash">npx paperclipai@latest onboard --yes --bind lan       # rede local
+npx paperclipai@latest onboard --yes --bind tailnet   # Tailscale
+</code></pre>
+<p><strong>Instância de teste</strong>, já com um agente CEO. Ela roda em primeiro plano e não instala serviço:</p>
+<pre><code class="language-bash">ANTHROPIC_API_KEY=... npx paperclipai test-drive
+OPENAI_API_KEY=... npx paperclipai test-drive --harness codex
+</code></pre>
+<p><strong>A partir do código:</strong></p>
+<pre><code class="language-bash">git clone https://github.com/paperclipai/paperclip.git
+cd paperclip
+pnpm install
+pnpm dev
+</code></pre>
+<p>A interface e a API sobem em <code>http://localhost:3100</code>, com PostgreSQL embutido criado automaticamente. Para produção, aponte para o seu próprio Postgres ou use <a href="https://docs.paperclip.ing/reference/deploy/docker/">Docker</a>.</p>
+<p>Se o <code>npx</code> der <code>E404</code> e você usa um registro npm privado, rode com <code>--registry https://registry.npmjs.org</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Abra o painel e crie a empresa e a meta.</li>
+<li>Adicione agentes, escolhendo o adaptador (Claude Code, Codex etc.), o modelo, o cargo e o orçamento.</li>
+<li>Crie tarefas ou rotinas. Os agentes acordam quando recebem trabalho, executam e registram o resultado.</li>
+<li>Revise, aprove ou devolva pelo painel ou pelo celular.</li>
+</ol>
+<pre><code class="language-bash">npx paperclipai configure    # muda a configuração de uma instalação existente
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Coordenar vários agentes (Claude Code, Codex, Cursor) num objetivo comum sem perder o controle.</li>
+<li>Trocar &quot;20 terminais do Claude Code abertos&quot; por tarefas rastreáveis.</li>
+<li>Rodar agentes 24/7 com orçamento, aprovação humana e auditoria.</li>
+<li>Automatizar trabalho recorrente (suporte, relatórios, redes sociais) com rotinas.</li>
+<li><strong>Comparação no catálogo:</strong>
+<ul>
+<li>o <a href="ruflo.html">Ruflo</a> e o <a href="oh-my-claudecode.html">Oh My ClaudeCode</a> orquestram agentes dentro do terminal;</li>
+<li>o Paperclip é um servidor com painel, organograma, orçamento e governança para várias equipes e empresas.</li>
+</ul>
+</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Telemetria ligada por padrão.</strong> O projeto diz que não coleta dados pessoais, prompts nem segredos. Para desligar, use <code>PAPERCLIP_TELEMETRY_DISABLED=1</code> ou <code>DO_NOT_TRACK=1</code>.</li>
+<li><strong>Custos:</strong> agentes autônomos 24/7 gastam tokens sem parar. Configure orçamentos com parada automática antes de soltar a equipe. O próprio projeto avisa que o gasto em andamento pode atrasar a parada.</li>
+<li><strong>Assinaturas:</strong> usar o plano Claude Pro/Max ou ChatGPT para agentes contínuos pode esbarrar nos termos de uso do plano. Confira antes, ou use chaves de API.</li>
+<li><strong>Acesso remoto:</strong> o modo padrão é local e confiável. Para acessar de fora, use o modo autenticado com rede privada (Tailscale) ou Docker. Não exponha o modo local na internet.</li>
+<li><strong>Exportar empresas:</strong> os valores de segredos são omitidos, mas variáveis de ambiente comuns e caminhos locais podem ir junto. Revise o pacote antes de compartilhar.</li>
+<li>Projeto muito ativo, com releases diárias (última: v2026.1106.0). Leia as notas antes de atualizar.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/paperclipai/paperclip#readme">README</a> · <a href="https://paperclip.ing">Site</a> · <a href="https://docs.paperclip.ing/guides/getting-started/five-minute-path/">Guia de 5 minutos</a></li>
+<li><a href="https://docs.paperclip.ing/reference/cli/installation/">Instalação</a> · <a href="https://docs.paperclip.ing/reference/deploy/deployment-modes/">Modos de implantação</a> · <a href="https://docs.paperclip.ing/reference/deploy/docker/">Docker</a></li>
+<li><a href="https://docs.paperclip.ing/reference/adapters/overview/">Adaptadores</a> · <a href="https://github.com/paperclipai/paperclip/blob/master/ROADMAP.md">Roadmap</a> · <a href="https://github.com/gsxdsm/awesome-paperclip">awesome-paperclip</a></li>
+<li><a href="https://github.com/paperclipai/paperclip/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

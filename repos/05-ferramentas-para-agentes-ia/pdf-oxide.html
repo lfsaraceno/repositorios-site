@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDFOxide (pdf_oxide) · Repositórios favoritos</title>
+<meta name="description" content="Biblioteca de PDF em Rust, muito rápida, com bindings para Python, JavaScript/WASM, Go, C# e mais 15 linguagens. Extrai texto, imagens, tabelas e formulários, converte para Markdown e HTML, cria e edita PDFs. Também tem CLI e servidor MCP.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>PDFOxide (pdf_oxide)</h1>
+    <p class="lead">Biblioteca de PDF em Rust, muito rápida, com bindings para Python, JavaScript/WASM, Go, C# e mais 15 linguagens. Extrai texto, imagens, tabelas e formulários, converte para Markdown e HTML, cria e edita PDFs. Também tem CLI e servidor MCP.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/yfedoseev/pdf_oxide">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">yfedoseev/pdf_oxide</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/yfedoseev/pdf_oxide">yfedoseev/pdf_oxide</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://oxide.fyi">oxide.fyi</a> · <a href="https://pdf.oxide.fyi">pdf.oxide.fyi</a> · <a href="https://docs.rs/pdf_oxide">docs.rs/pdf_oxide</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust (núcleo) + bindings para 19 linguagens, inclusive WASM</dd></div>
+<div><dt>Licença</dt><dd>MIT ou Apache-2.0 (à sua escolha)</dd></div>
+<div><dt>Estrelas</dt><dd>~1,2k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O PDFOxide é um kit de ferramentas para ler, criar e editar PDFs. O núcleo é escrito em Rust. As bindings das outras linguagens são camadas finas sobre esse mesmo núcleo, e a mesma correção chega a todas.</p>
+<p>O autor criou o projeto para ter a velocidade do PyMuPDF sem a licença AGPL. Pelo benchmark do README, com 3.830 PDFs de suítes públicas (veraPDF, Mozilla pdf.js e SafeDocs), a média é de 0,8 ms por documento: cerca de 5× mais rápido que o PyMuPDF e 15× mais rápido que o pypdf. Esses números são do próprio autor.</p>
+<p>O uso mais comum é transformar PDFs em Markdown limpo para pipelines de RAG e LLM. O RAGFlow, o AFFiNE e a pipeline de submissão do arXiv usam a biblioteca.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Extração:</strong>
+<ul>
+<li>texto, com posição de cada caractere, palavra e linha;</li>
+<li>imagens, tabelas, campos de formulário, anotações e marcadores;</li>
+<li>extração só de uma região da página;</li>
+<li>perfis prontos para tipos de documento (formulário, artigo acadêmico).</li>
+</ul>
+</li>
+<li><strong>Conversão:</strong> página para Markdown (com detecção de títulos), HTML ou texto puro.</li>
+<li><strong>Criação e edição:</strong>
+<ul>
+<li>criar PDFs a partir de Markdown, HTML, texto ou imagens;</li>
+<li>preencher formulários, anotar, rotacionar páginas, apagar áreas (whiteout) e fazer redação;</li>
+<li>juntar, dividir e aplicar marca d'água;</li>
+<li>criptografia AES-256 e PDFs protegidos por senha.</li>
+</ul>
+</li>
+<li><strong>OCR</strong> de PDFs escaneados com modelos PaddleOCR (opcional, cerca de 12,5 MB de modelos).</li>
+<li><strong>Renderização de página para imagem</strong> nas builds nativas (opcional). <strong>Não existe na build WASM.</strong></li>
+<li><strong>CLI <code>pdf-oxide</code></strong> com 22 comandos e modo interativo (REPL).</li>
+<li><strong>Servidor MCP <code>pdf-oxide-mcp</code></strong>, que dá ao Claude, ao Cursor e a outros clientes uma ferramenta <code>extract</code>. O processamento é local.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<p>Depende da linguagem:</p>
+<ul>
+<li><strong>Python 3.8–3.14:</strong> há wheels prontos para Linux, macOS e Windows.</li>
+<li><strong>Rust:</strong> cargo.</li>
+<li><strong>Navegador ou Node.js:</strong> o pacote npm <code>pdf-oxide-wasm</code>. Com Vite, use o <code>vite-plugin-wasm</code>.</li>
+<li><strong>CLI e MCP:</strong> Homebrew ou cargo.</li>
+<li><strong>OCR:</strong> ONNX Runtime e os modelos PaddleOCR, nas builds nativas.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">pip install pdf_oxide                    # Python
+npm install pdf-oxide-wasm               # navegador / Node.js (WASM)
+npm install pdf-oxide                    # Node.js nativo
+brew install yfedoseev/tap/pdf-oxide     # CLI + servidor MCP
+cargo install pdf_oxide_cli              # CLI via cargo
+</code></pre>
+<p>No Rust, adicione ao <code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">[dependencies]
+pdf_oxide = &quot;0.3&quot;
+</code></pre>
+<p>As outras linguagens (Go, C#, Java, Ruby, PHP, Swift, Kotlin, Dart e mais) têm comando próprio no <a href="https://github.com/yfedoseev/pdf_oxide#other-languages">README</a>.</p>
+<p><strong>MCP no Claude Code / Claude Desktop / Cursor:</strong></p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;pdf-oxide&quot;: { &quot;command&quot;: &quot;crgx&quot;, &quot;args&quot;: [&quot;pdf_oxide_mcp@latest&quot;] }
+  }
+}
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Python:</strong></p>
+<pre><code class="language-python">from pdf_oxide import PdfDocument
+
+with PdfDocument(&quot;relatorio.pdf&quot;) as doc:
+    print(len(doc))                           # número de páginas
+    for page in doc:
+        texto  = page.text
+        tabelas = page.tables
+        md     = page.markdown(detect_headings=True)
+</code></pre>
+<p><strong>Navegador (WASM), lendo o arquivo que o usuário escolheu:</strong></p>
+<pre><code class="language-javascript">import { WasmPdfDocument } from &quot;pdf-oxide-wasm&quot;;
+
+const bytes = new Uint8Array(await file.arrayBuffer());
+const doc = new WasmPdfDocument(bytes);
+try {
+  for (let i = 0; i &lt; doc.pageCount(); i++) {
+    console.log(doc.extractText(i));
+  }
+} finally {
+  doc.free();   // a memória do WASM precisa ser liberada à mão
+}
+</code></pre>
+<p><strong>CLI:</strong></p>
+<pre><code class="language-bash">pdf-oxide text relatorio.pdf                    # extrai o texto
+pdf-oxide markdown relatorio.pdf -o relatorio.md
+pdf-oxide search relatorio.pdf &quot;rede.?neural&quot;   # busca com regex
+pdf-oxide merge a.pdf b.pdf -o juntos.pdf
+pdf-oxide forms w2.pdf --fill &quot;name=Jane&quot;       # preenche formulário
+</code></pre>
+<p>Use <code>--pages 1-5</code> para escolher páginas e <code>--json</code> para saída em JSON.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Converter PDFs em Markdown para RAG, busca semântica ou contexto de LLM.</li>
+<li>Extrair texto, tabelas e campos de formulário em lote, com velocidade.</li>
+<li>Substituir o PyMuPDF quando a licença AGPL for um problema.</li>
+<li><strong>Num webapp</strong>, para extrair texto, buscar, preencher formulários ou editar o PDF no próprio navegador, sem enviar o arquivo a um servidor.</li>
+<li><strong>Não serve, sozinho, para exibir o PDF na tela.</strong> A build WASM não renderiza páginas. Para um visualizador, use o <a href="https://mozilla.github.io/pdf.js/">PDF.js</a> ou o visualizador nativo do navegador, e o PDFOxide para texto, busca e edição.</li>
+<li><strong>Comparação no catálogo:</strong> o <a href="markitdown.html">MarkItDown</a> converte vários formatos (Word, Excel, PowerPoint, PDF) para Markdown, em Python. O PDFOxide é focado em PDF, roda em muitas linguagens e também cria e edita arquivos.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença:</strong> o código é MIT ou Apache-2.0, à sua escolha, e pode ser usado em projetos comerciais. Os nomes &quot;PDFOxide&quot; e &quot;pdf_oxide&quot; são marcas do autor: não dê esses nomes a um fork ou a um produto modificado (veja <a href="https://github.com/yfedoseev/pdf_oxide/blob/main/TRADEMARKS.md">TRADEMARKS.md</a>).</li>
+<li><strong>Limites da build WASM:</strong>
+<ul>
+<li>sem renderização de página;</li>
+<li>sem assinaturas digitais;</li>
+<li>OCR só numa build separada (<code>wasm-ocr</code>), experimental. Ela exige compilar com <code>wasm-pack</code> e baixar os modelos no navegador. Rode o OCR num Web Worker para não travar a interface.</li>
+</ul>
+</li>
+<li><strong>PDFs de usuários são entrada não confiável.</strong> Num servidor, processe com limite de tamanho e de tempo. O projeto passa por fuzzing e afirma zero panics no corpus de teste, mas isso não substitui o limite.</li>
+<li><strong>Memória no WASM:</strong> cada <code>WasmPdfDocument</code> precisa de <code>.free()</code>, ou de <code>using</code>, para não vazar memória.</li>
+<li>Projeto muito ativo, com releases frequentes (última: v0.3.78, set/2026). A API ainda está na série 0.x e pode mudar.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/yfedoseev/pdf_oxide#readme">README</a> · <a href="https://pdf.oxide.fyi">Documentação</a> · <a href="https://pdf.oxide.fyi/docs/performance">Benchmarks</a></li>
+<li><a href="https://github.com/yfedoseev/pdf_oxide/blob/main/docs/getting-started-wasm.md">Guia WASM (navegador e Node.js)</a> · <a href="https://github.com/yfedoseev/pdf_oxide/blob/main/docs/getting-started-python.md">Guia Python</a> · <a href="https://github.com/yfedoseev/pdf_oxide/blob/main/docs/OCR_GUIDE.md">Guia de OCR</a></li>
+<li><a href="https://pypi.org/project/pdf_oxide/">PyPI: pdf_oxide</a> · <a href="https://www.npmjs.com/package/pdf-oxide-wasm">npm: pdf-oxide-wasm</a> · <a href="https://docs.rs/pdf_oxide">API Rust (docs.rs)</a></li>
+<li><a href="https://github.com/yfedoseev/pdf_oxide/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

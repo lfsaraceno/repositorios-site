@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MarkItDown · Repositórios favoritos</title>
+<meta name="description" content="Utilitário Python da Microsoft que converte PDF, Word, PowerPoint, Excel, imagens, áudio, HTML e outros formatos em Markdown, pronto para uso com LLMs.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>MarkItDown</h1>
+    <p class="lead">Utilitário Python da Microsoft que converte PDF, Word, PowerPoint, Excel, imagens, áudio, HTML e outros formatos em Markdown, pronto para uso com LLMs.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/microsoft/markitdown">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">microsoft/markitdown</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/microsoft/markitdown">microsoft/markitdown</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://pypi.org/project/markitdown/">PyPI: markitdown</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~191k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>MarkItDown é uma biblioteca e CLI em Python que transforma arquivos de vários formatos em Markdown. O foco é preservar a estrutura relevante do documento (títulos, listas, tabelas, links) para que o texto seja consumido por LLMs e pipelines de análise de texto, e não produzir uma conversão de alta fidelidade para leitura humana.</p>
+<p>O Markdown é usado porque fica próximo do texto puro, é bem compreendido pelos LLMs e gasta poucos tokens. A ferramenta é comparável ao textract, mas com ênfase em manter a estrutura.</p>
+<p>É útil para quem monta pipelines de RAG, alimenta agentes com documentos ou precisa indexar arquivos heterogêneos em um formato único.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Converte PDF, PowerPoint, Word, Excel, imagens (metadados EXIF e OCR), áudio (metadados e transcrição de fala), HTML, CSV/JSON/XML, ZIP, URLs do YouTube e EPub</li>
+<li>CLI simples (<code>markitdown arquivo.pdf &gt; documento.md</code>) e API Python</li>
+<li>Dependências opcionais por formato (<code>pdf</code>, <code>docx</code>, <code>pptx</code>, <code>xlsx</code>, <code>xls</code>, <code>outlook</code>, <code>audio-transcription</code>, <code>youtube-transcription</code> etc.)</li>
+<li>Descrição de imagens por LLM (<code>llm_client</code> e <code>llm_model</code>) para arquivos pptx e imagens</li>
+<li>Integração opcional com Azure Document Intelligence e Azure Content Understanding</li>
+<li>Suporte a plugins de terceiros e plugin <code>markitdown-ocr</code> (OCR via LLM com visão)</li>
+<li>Imagem Docker para uso isolado</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.10 a 3.14</li>
+<li>Recomendado usar um ambiente virtual (<code>venv</code>, <code>uv</code> ou Conda)</li>
+<li>Para recursos de nuvem: endpoint do Azure Document Intelligence ou Content Understanding (cobrados pela Azure)</li>
+<li>Para descrição de imagens e OCR por LLM: um cliente compatível com OpenAI</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="ambiente-virtual-recomendado">Ambiente virtual (recomendado)</h3>
+<pre><code class="language-bash">python -m venv .venv
+source .venv/bin/activate
+</code></pre>
+<p>No Windows, ative com <code>.venv\Scripts\activate</code>.</p>
+<p>Com <code>uv</code>:</p>
+<pre><code class="language-bash">uv venv --python=3.12 .venv
+source .venv/bin/activate
+# use 'uv pip install' em vez de 'pip install'
+</code></pre>
+<h3 id="via-pip">Via pip</h3>
+<pre><code class="language-bash">pip install 'markitdown[all]'
+</code></pre>
+<p>Para instalar só alguns formatos:</p>
+<pre><code class="language-bash">pip install 'markitdown[pdf, docx, pptx]'
+</code></pre>
+<h3 id="a-partir-do-codigo-fonte">A partir do código-fonte</h3>
+<pre><code class="language-bash">git clone git@github.com:microsoft/markitdown.git
+cd markitdown
+pip install -e 'packages/markitdown[all]'
+</code></pre>
+<h3 id="docker">Docker</h3>
+<pre><code class="language-bash">docker build -t markitdown:latest .
+docker run --rm -i markitdown:latest &lt; ~/your-file.pdf &gt; output.md
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">markitdown path-to-file.pdf &gt; document.md        # converte e redireciona a saída
+markitdown path-to-file.pdf -o document.md       # grava direto em arquivo
+cat path-to-file.pdf | markitdown                # lê da entrada padrão
+markitdown --list-plugins                        # lista plugins instalados
+markitdown --use-plugins path-to-file.pdf        # ativa plugins na conversão
+markitdown path-to-file.pdf -o document.md -d -e &quot;&lt;endpoint&gt;&quot;   # usa Azure Document Intelligence
+</code></pre>
+<p>API Python:</p>
+<pre><code class="language-python">from markitdown import MarkItDown
+
+md = MarkItDown(enable_plugins=False)  # True para habilitar plugins
+result = md.convert(&quot;test.xlsx&quot;)
+print(result.markdown)
+</code></pre>
+<p>Descrição de imagens com LLM:</p>
+<pre><code class="language-python">from markitdown import MarkItDown
+from openai import OpenAI
+
+md = MarkItDown(llm_client=OpenAI(), llm_model=&quot;gpt-4o&quot;)
+result = md.convert(&quot;example.jpg&quot;)
+print(result.markdown)
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Preparar documentos de escritório e PDFs para indexação em RAG</li>
+<li>Dar a um agente de IA acesso ao conteúdo de planilhas, apresentações e relatórios</li>
+<li>Extrair texto de imagens e áudios em pipelines de análise</li>
+<li>Padronizar uma pasta de arquivos variados em Markdown</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O README alerta que o MarkItDown faz I/O com os privilégios do processo atual. Em ambientes com entrada não confiável, sanitize as entradas e use a função <code>convert_*</code> mais restrita possível (<code>convert_stream()</code>, <code>convert_local()</code>).</li>
+<li>A saída é voltada a máquinas; não é indicada para conversões de alta fidelidade para leitura humana.</li>
+<li>Azure Document Intelligence e Content Understanding geram chamadas de API cobradas.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/microsoft/markitdown#readme">README</a></li>
+<li><a href="https://pypi.org/project/markitdown/">PyPI</a></li>
+<li><a href="https://github.com/microsoft/markitdown/tree/main/packages/markitdown-sample-plugin">Plugin de exemplo (packages/markitdown-sample-plugin)</a></li>
+<li><a href="https://learn.microsoft.com/azure/ai-services/content-understanding/">Azure Content Understanding</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

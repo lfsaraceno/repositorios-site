@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floci · Repositórios favoritos</title>
+<meta name="description" content="Emulador local e gratuito da AWS (alternativa ao LocalStack): S3, DynamoDB, Lambda, SQS, RDS, ECS e dezenas de outros serviços em localhost:4566, sem conta nem token.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#08-deploy-e-infra"><span aria-hidden="true">🚀</span> Deploy e infra</a>
+    </nav>
+    <h1>Floci</h1>
+    <p class="lead">Emulador local e gratuito da AWS (alternativa ao LocalStack): S3, DynamoDB, Lambda, SQS, RDS, ECS e dezenas de outros serviços em <code>localhost:4566</code>, sem conta nem token.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/floci-io/floci">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">floci-io/floci</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/floci-io/floci">floci-io/floci</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://floci.io/floci/">floci.io/floci</a> · <a href="https://floci.io/floci/services/">Lista de serviços</a></dd></div>
+<div><dt>Linguagem</dt><dd>Java (Quarkus / Vert.x, com imagem nativa)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~27k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Floci roda serviços com a cara da AWS na sua máquina, para desenvolvimento, testes e CI. Você aponta o AWS CLI, o SDK, o Terraform, o CDK, o OpenTofu ou a sua suíte de testes para <code>http://localhost:4566</code> e continua trabalhando como se fosse a AWS. Não precisa de conta na AWS, token de autenticação nem plano pago.</p>
+<p>Ele nasceu como substituto direto do <strong>LocalStack Community</strong>: segundo o README, o LocalStack Community foi encerrado em março de 2026, passou a exigir token e congelou as atualizações de segurança. A migração é trocar a imagem Docker; a porta, as credenciais e as variáveis de ambiente do LocalStack continuam funcionando.</p>
+<p>A maioria dos serviços roda dentro do próprio processo. Os que precisam de fidelidade sobem <strong>containers Docker reais</strong>: Lambda, RDS (PostgreSQL, MySQL e MariaDB), ElastiCache (Valkey), MSK (Redpanda), ECS, EC2, EKS (k3s), OpenSearch, DocumentDB (MongoDB), Neptune e CodeBuild. A mesma família tem emuladores para Azure (<code>floci-az</code>, porta 4577), GCP (<code>floci-gcp</code>, 4588) e Oracle Cloud (<code>floci-oci</code>, 4599).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Cobertura ampla:</strong> S3, SQS, SNS, DynamoDB (com Streams), Lambda, IAM, STS, KMS, Secrets Manager, SSM, API Gateway REST e v2, Cognito, EventBridge, Step Functions, CloudFormation, CloudWatch, SES, Kinesis, Athena (DuckDB), Glue, Route53, CloudFront, WAF, Organizations, Cost Explorer e muitos outros.</li>
+<li><strong>Leve:</strong> o README cita início em ~24 ms, ~13 MiB de memória ociosa e imagem Docker de ~90 MB, contra ~3,3 s, ~143 MiB e ~1 GB do LocalStack. Há também um binário nativo (<code>floci-aws</code>) para Linux, macOS e Windows, que dispensa o Docker.</li>
+<li><strong>Console web</strong> em <code>http://localhost:4566/_floci/ui</code> para ver os recursos criados. Dá para trocar por outro console compatível.</li>
+<li><strong>Persistência configurável:</strong> <code>memory</code>, <code>persistent</code>, <code>hybrid</code> e <code>wal</code>.</li>
+<li><strong>Várias contas isoladas:</strong> um <code>AWS_ACCESS_KEY_ID</code> de 12 dígitos vira o ID da conta, e <code>AssumeRole</code> entre contas funciona.</li>
+<li><strong>Testcontainers</strong> para Java, Node.js, Python e .NET (Go em andamento).</li>
+<li>Mais de 2.500 testes de compatibilidade com os SDKs Java, Node, Python e Go, o AWS CLI, Terraform, OpenTofu e CDK.</li>
+<li>Qualquer região publicada da AWS funciona, em todas as partições.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Docker:</strong> para a imagem e para os serviços que usam containers reais (Lambda, RDS etc.), que precisam do socket do Docker. Sem Docker, use o binário nativo, mas esses serviços não sobem.</li>
+<li>Opcional: a CLI <code>floci</code>, o AWS CLI e os SDKs da AWS que você já usa.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="pela-cli-oficial-recomendado">Pela CLI oficial (recomendado)</h3>
+<p>A CLI (<a href="https://github.com/floci-io/floci-cli">floci-io/floci-cli</a>) inicia, para e configura os emuladores.</p>
+<pre><code class="language-bash"># macOS / Linux (Homebrew)
+brew install floci-io/floci/floci
+
+# Linux / macOS (script)
+curl -fsSL https://floci.io/install.sh | sh
+</code></pre>
+<pre><code class="language-powershell"># Windows (PowerShell)
+iwr https://floci.io/install.ps1 | iex
+</code></pre>
+<p>Depois:</p>
+<pre><code class="language-bash">floci start           # sobe o emulador AWS
+eval $(floci env)     # exporta as variáveis AWS_* apontando para o emulador
+</code></pre>
+<h3 id="docker-compose">Docker Compose</h3>
+<p>Crie um <code>compose.yaml</code>:</p>
+<pre><code class="language-yaml">services:
+  floci:
+    image: floci/floci:latest
+    ports:
+      - &quot;4566:4566&quot;
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock   # para Lambda, RDS, ECS, console web etc.
+</code></pre>
+<pre><code class="language-bash">docker compose up
+export AWS_ENDPOINT_URL=http://localhost:4566
+export AWS_DEFAULT_REGION=us-east-1
+export AWS_ACCESS_KEY_ID=test
+export AWS_SECRET_ACCESS_KEY=test
+</code></pre>
+<h3 id="docker-run-com-os-servicos-em-container">Docker run (com os serviços em container)</h3>
+<pre><code class="language-bash">docker run -d --name floci \
+  -p 4566:4566 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -u root \
+  floci/floci:latest
+</code></pre>
+<h3 id="vindo-do-localstack">Vindo do LocalStack</h3>
+<pre><code class="language-yaml"># antes
+image: localstack/localstack
+# depois
+image: floci/floci:latest
+# ou, se os scripts de init usam AWS CLI ou boto3
+image: floci/floci:latest-compat
+</code></pre>
+<p>Variáveis como <code>LOCALSTACK_HOST</code>, <code>PERSISTENCE=1</code> e <code>DEBUG=1</code> são traduzidas sozinhas. Scripts em <code>/etc/localstack/init/</code> rodam sem mudança.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">aws s3 mb s3://my-bucket
+aws dynamodb create-table \
+  --table-name demo-table \
+  --attribute-definitions AttributeName=pk,AttributeType=S \
+  --key-schema AttributeName=pk,KeyType=HASH \
+  --billing-mode PAY_PER_REQUEST
+aws dynamodb list-tables
+
+# sem exportar AWS_ENDPOINT_URL:
+aws --endpoint-url http://localhost:4566 s3 ls
+</code></pre>
+<p><strong>No código (Python / boto3):</strong></p>
+<pre><code class="language-python">import boto3
+client = boto3.client(&quot;ssm&quot;, endpoint_url=&quot;http://localhost:4566&quot;,
+                      region_name=&quot;us-east-1&quot;,
+                      aws_access_key_id=&quot;test&quot;, aws_secret_access_key=&quot;test&quot;)
+</code></pre>
+<p><strong>Nos testes (Testcontainers):</strong></p>
+<pre><code class="language-bash">npm install --save-dev @floci/testcontainers   # Node.js
+pip install testcontainers-floci               # Python
+# Java: io.floci:testcontainers-floci (Maven Central)
+</code></pre>
+<p><strong>Contas isoladas:</strong></p>
+<pre><code class="language-bash">AWS_ACCESS_KEY_ID=111111111111 aws sqs create-queue --queue-name orders
+AWS_ACCESS_KEY_ID=222222222222 aws sqs create-queue --queue-name orders
+</code></pre>
+<p><strong>Configurações principais (variáveis <code>FLOCI_*</code>):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Variável</th>
+<th>Padrão</th>
+<th>Para quê</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FLOCI_PORT</code></td>
+<td><code>4566</code></td>
+<td>Porta da API</td>
+</tr>
+<tr>
+<td><code>FLOCI_DEFAULT_REGION</code></td>
+<td><code>us-east-1</code></td>
+<td>Região padrão</td>
+</tr>
+<tr>
+<td><code>FLOCI_STORAGE_MODE</code></td>
+<td><code>memory</code></td>
+<td><code>memory</code>, <code>persistent</code>, <code>hybrid</code> ou <code>wal</code></td>
+</tr>
+<tr>
+<td><code>FLOCI_STORAGE_PERSISTENT_PATH</code></td>
+<td><code>./data</code></td>
+<td>Pasta dos dados persistidos</td>
+</tr>
+<tr>
+<td><code>FLOCI_HOSTNAME</code></td>
+<td>(vazio)</td>
+<td>Nome do serviço no Compose (ex.: <code>floci</code>), para as URLs devolvidas apontarem para o container certo</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Tags da imagem:</strong> <code>latest</code> (estável), <code>x.y.z</code> (versão fixa), <code>latest-compat</code> (com AWS CLI e boto3), <code>latest-baseline</code> (ARM64 antigo, como Raspberry Pi 4) e <code>nightly</code>. Sai versão estável todo dia 15 e no último dia de cada mês.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Desenvolver e testar apps que usam AWS sem gastar com a conta nem depender da internet.</li>
+<li>Rodar testes de integração no CI com um emulador que sobe em milissegundos.</li>
+<li>Testar Terraform, OpenTofu ou CDK localmente antes de aplicar na AWS de verdade.</li>
+<li>Substituir o LocalStack Community sem precisar de token.</li>
+<li>Simular cenários com várias contas (Organizations, <code>AssumeRole</code> entre contas).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>É um emulador, não a AWS.</strong> Alguns serviços são só <em>stubs</em>: Bedrock Runtime devolve respostas fictícias, e Textract e Transcribe não processam nada de verdade. O FIS só simula o experimento, sem injetar falhas. Confira a fidelidade de cada serviço na <a href="https://floci.io/floci/services/">lista de serviços</a> antes de confiar nos resultados.</li>
+<li><strong>Socket do Docker:</strong> montar <code>/var/run/docker.sock</code> (e rodar com <code>-u root</code>) dá ao container controle total do Docker da máquina. Use só em ambiente de desenvolvimento.</li>
+<li><strong>Não exponha na internet:</strong> por padrão, qualquer credencial não vazia é aceita. A verificação de acesso do S3 fica desligada (<code>FLOCI_SERVICES_S3_ENFORCE_AUTH=false</code>).</li>
+<li>No modo <code>memory</code>, que é o padrão, os dados somem quando o container para.</li>
+<li>A imagem antiga <code>hectorvent/floci</code> não recebe mais atualizações. Use <code>floci/floci</code>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/floci-io/floci#readme">README</a></li>
+<li><a href="https://floci.io/floci/">Documentação</a> · <a href="https://floci.io/floci/getting-started/migrate-from-localstack/">Migrar do LocalStack</a> · <a href="https://github.com/floci-io/floci/blob/main/docs/getting-started/terraform.md">Terraform com Floci</a></li>
+<li><a href="https://github.com/floci-io/floci-cli">CLI floci</a></li>
+<li><a href="https://hub.docker.com/r/floci/floci">Imagem no Docker Hub</a></li>
+<li>Emuladores irmãos: <a href="https://github.com/floci-io/floci-az">floci-az</a> · <a href="https://github.com/floci-io/floci-gcp">floci-gcp</a> · <a href="https://github.com/floci-io/floci-oci">floci-oci</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#08-deploy-e-infra">Deploy e infra</a></h2>
+    <ul>
+<li><a href="../../repos/08-deploy-e-infra/caprover.html">CapRover</a></li>
+<li><a href="../../repos/08-deploy-e-infra/coolify.html">Coolify</a></li>
+<li><a href="../../repos/08-deploy-e-infra/setup-orion.html">SetupOrion</a></li>
+<li><a href="../../repos/08-deploy-e-infra/slim.html">SlimToolkit (Slim, ex-DockerSlim)</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

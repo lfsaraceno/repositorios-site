@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imagegen Skills (Image to Code) · Repositórios favoritos</title>
+<meta name="description" content="Quatro skills para agentes que geram imagens de design: mockups de site, telas de app, brand kits e o image-to-code, que gera as imagens do site primeiro e depois programa o site igual a elas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Imagegen Skills (Image to Code)</h1>
+    <p class="lead">Quatro skills para agentes que geram imagens de design: mockups de site, telas de app, brand kits e o <code>image-to-code</code>, que gera as imagens do site primeiro e depois programa o site igual a elas.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Leonxlnx/imagegen-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Leonxlnx/imagegen-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Leonxlnx/imagegen-skills">Leonxlnx/imagegen-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/Leonxlnx/imagegen-skills#readme">README</a></dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (skills) + JavaScript (testes)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~50 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>São as skills de geração de imagem do autor da <a href="taste-skill.html">Taste Skill</a>. Elas viviam no repositório da Taste Skill e foram separadas em out/2026: a Taste Skill constrói e confere frontends, e este repositório gera as imagens. Por isso o repositório tem poucas estrelas, embora as skills sejam usadas há mais tempo.</p>
+<p>A mais conhecida é a <strong><code>image-to-code</code></strong>. Ela impõe uma ordem fixa:</p>
+<ol>
+<li><strong>Gerar as imagens de design primeiro</strong>, uma imagem grande e legível por seção, em vez de um painel único comprimido.</li>
+<li><strong>Analisar as imagens a fundo</strong>: layout, tipografia, espaçamento e hierarquia.</li>
+<li><strong>Só então programar</strong> o site, o mais fiel possível às imagens.</li>
+</ol>
+<p>A skill combate vícios comuns da IA: cards dentro de cards, hero escuro e centralizado, texto pequeno demais, rótulos e &quot;pills&quot; sem função e pouca imagem para muitas seções.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>imagegen-frontend-web</code></td>
+<td>Mockups de site: uma imagem por seção da landing page, com composição variada e texto legível</td>
+</tr>
+<tr>
+<td><code>imagegen-frontend-mobile</code></td>
+<td>Telas e fluxos de app para iOS, Android e multiplataforma, coerentes entre si</td>
+</tr>
+<tr>
+<td><code>brandkit</code></td>
+<td>Painéis de identidade visual: direções de logo, símbolos, paletas, tipografia e aplicações</td>
+</tr>
+<tr>
+<td><code>image-to-code</code></td>
+<td>O fluxo completo: gera as imagens, estuda e implementa o site</td>
+</tr>
+</tbody>
+</table></div>
+<p>As três primeiras só produzem imagens. Use com o ChatGPT Images, o modo de imagem do Codex ou outro agente que gere imagens, e depois entregue as imagens ao agente de código.</p>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Para <code>image-to-code</code>:</strong> um agente que gere imagens <strong>e</strong> escreva código. A descrição da skill foi escrita pensando no Codex.</li>
+<li><strong>Para as outras três:</strong> qualquer agente ou ferramenta que gere imagens.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Com a CLI <code>npx skills</code> (ver <a href="../02-skills-para-agentes/vercel-skills-cli.html">Vercel Skills CLI</a>):</p>
+<pre><code class="language-bash">npx skills add https://github.com/Leonxlnx/imagegen-skills --skill &quot;image-to-code&quot;
+</code></pre>
+<p>Troque <code>image-to-code</code> por qualquer nome da tabela, ou tire o <code>--skill</code> para instalar as quatro.</p>
+<p><strong>Como plugin do Claude Code:</strong></p>
+<pre><code class="language-text">/plugin marketplace add Leonxlnx/imagegen-skills
+/plugin install imagegen-skills@imagegen-skills
+</code></pre>
+<p><strong>Como plugin do Codex:</strong></p>
+<pre><code class="language-bash">codex plugin marketplace add Leonxlnx/imagegen-skills
+codex plugin add imagegen-skills@imagegen-skills
+</code></pre>
+<p>Depois, abra uma nova sessão do Codex. Quem instalou essas skills pela Taste Skill deve reinstalar a partir daqui; os nomes não mudaram.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça em linguagem natural, por exemplo uma landing page para um produto. Com <code>image-to-code</code>, o agente deve gerar as imagens das seções, analisá-las e só depois escrever o código.</p>
+<p>A skill tem uma configuração base, em escala de 1 a 10, que você pode citar no pedido para ajustar o resultado:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Padrão</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DESIGN_VARIANCE</code></td>
+<td>8</td>
+<td>De convencional a assimétrico e autoral</td>
+</tr>
+<tr>
+<td><code>VISUAL_DENSITY</code></td>
+<td>3</td>
+<td>De arejado a denso</td>
+</tr>
+<tr>
+<td><code>ART_DIRECTION</code></td>
+<td>8</td>
+<td>De comercial seguro a declaração criativa ousada</td>
+</tr>
+<tr>
+<td><code>SPACING_GENEROSITY</code></td>
+<td>9</td>
+<td>De compacto a espaçoso</td>
+</tr>
+<tr>
+<td><code>IMAGE_GENERATION_EAGERNESS</code></td>
+<td>10</td>
+<td>De poucas imagens a quantas forem necessárias</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Quando o agente gera imagens bem, mas o código sai genérico: a imagem vira a referência visual que guia a implementação.</li>
+<li>Para mockups de site, telas de app ou brand kit antes de programar.</li>
+<li>Comparação: a <a href="taste-skill.html">Taste Skill</a> parte de fotos reais de acervos e confere o resultado no navegador. A <code>image-to-code</code> parte de imagens geradas pela própria IA. Para copiar a linguagem visual de uma marca existente, use o <a href="awesome-design-md.html">Awesome DESIGN.md</a>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Repositório novo</strong> (criado em out/2026 e sem atualizações desde a semana de criação). O único teste confere o cabeçalho dos <code>SKILL.md</code>. São skills de texto: não há scripts que rodem na sua máquina.</li>
+<li><strong>Custo:</strong> a <code>image-to-code</code> gera muitas imagens de propósito (<code>IMAGE_GENERATION_EAGERNESS: 10</code>). Num plano pago por imagem, o custo sobe rápido.</li>
+<li>As imagens geradas por IA podem trazer textos, logos ou elementos parecidos com marcas reais. Revise antes de usar comercialmente.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Leonxlnx/imagegen-skills#readme">README</a></li>
+<li><a href="https://github.com/Leonxlnx/imagegen-skills/blob/main/skills/image-to-code/SKILL.md">SKILL.md do image-to-code</a></li>
+<li><a href="https://github.com/Leonxlnx/imagegen-skills/blob/main/skills/imagegen-frontend-web/SKILL.md">imagegen-frontend-web</a> · <a href="https://github.com/Leonxlnx/imagegen-skills/blob/main/skills/imagegen-frontend-mobile/SKILL.md">imagegen-frontend-mobile</a> · <a href="https://github.com/Leonxlnx/imagegen-skills/blob/main/skills/brandkit/SKILL.md">brandkit</a></li>
+<li><a href="https://github.com/Leonxlnx/taste-skill">Taste Skill</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

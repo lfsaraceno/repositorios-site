@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruflo (ex-Claude Flow) · Repositórios favoritos</title>
+<meta name="description" content="Meta-harness de agentes para Claude Code e Codex, com enxames de agentes, memória que aprende, federação entre máquinas e guardrails de segurança.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>Ruflo (ex-Claude Flow)</h1>
+    <p class="lead">Meta-harness de agentes para Claude Code e Codex, com enxames de agentes, memória que aprende, federação entre máquinas e guardrails de segurança.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ruvnet/ruflo">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ruvnet/ruflo</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ruvnet/ruflo">ruvnet/ruflo</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://Cognitum.One">Cognitum.One</a> · <a href="https://github.com/ruvnet/ruflo/blob/main/docs/USERGUIDE.md">guia do usuário</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~76k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Ruflo (antigo Claude Flow, criado por Reuven Cohen, o &quot;rUv&quot;) parte da ideia de que &quot;agente = modelo + harness&quot;. O modelo escreve o código; o harness fornece ferramentas, memória, loops, sandboxes e controles. O Ruflo é essa camada de execução em volta do Claude Code e do Codex.</p>
+<p>Depois de um <code>init</code>, você usa o Claude Code normalmente e os hooks roteiam tarefas, aprendem com padrões bem-sucedidos e coordenam agentes em segundo plano. O README cita mais de 100 agentes especializados, enxames coordenados, memória com aprendizado, comunicação federada entre máquinas e controles de segurança.</p>
+<p>Além do CLI e do servidor MCP, há um console visual (&quot;cockpit&quot;) e um marketplace com cerca de 35 plugins.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Enxames de agentes (swarm) e agentes autônomos em loop (autopilot).</li>
+<li>Memória persistente e vetorial (AgentDB, RAG, RuVector) que alimenta o roteamento.</li>
+<li>Aprendizado a partir de tarefas concluídas (plugin de inteligência).</li>
+<li>Federação: agentes em máquinas diferentes colaboram com segurança.</li>
+<li>Console/cockpit para acompanhar workflows, agentes, tokens e custo; também há TUI (<code>npx ruflo tui</code>).</li>
+<li>Controle do console pelo Claude com níveis de permissão (<code>read</code>, <code>write</code>, <code>manage</code>, <code>full</code>) e aprovação <code>ask</code> ou <code>auto</code>.</li>
+<li>Servidor MCP e cerca de 35 plugins no marketplace (core, swarm, autopilot, memória, testes etc.).</li>
+<li>Instalação por plugin ou por CLI, com o CLI trazendo agentes, comandos, skills, hooks e daemon.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code 2.1.287 ou superior, para o console e os mods.</li>
+<li>Node.js com <code>npx</code> para o CLI e o servidor MCP.</li>
+<li>Shell POSIX (Git-Bash, WSL, MSYS) somente se usar o instalador <code>curl ... | bash</code>.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="caminho-a-plugins-do-claude-code">Caminho A: plugins do Claude Code</h3>
+<p>Dentro do Claude Code:</p>
+<pre><code class="language-text">/plugin marketplace add ruvnet/ruflo
+/plugin install ruflo-core@ruflo
+/plugin install ruflo-console@ruflo
+/plugin install ruflo-mods@ruflo
+/reload-plugins
+/ruflo
+</code></pre>
+<p>Isso dá comandos slash e definições de agentes, sem arquivos no workspace. Os mods rodam com as permissões da sua conta e não são isolados: leia o código antes de instalar.</p>
+<h3 id="caminho-b-cli-instalacao-completa">Caminho B: CLI (instalação completa)</h3>
+<pre><code class="language-bash">npx ruflo@latest init wizard
+</code></pre>
+<p>Funciona em PowerShell e cmd (Windows). Alternativas:</p>
+<pre><code class="language-bash">npx ruflo@latest init
+npm install -g ruflo@latest
+</code></pre>
+<p>Em macOS, Linux, WSL ou Git-Bash existe também o instalador de uma linha:</p>
+<pre><code class="language-bash">curl -fsSL https://cdn.jsdelivr.net/gh/ruvnet/ruflo@main/scripts/install.sh | bash
+</code></pre>
+<p>O CLI cria <code>.claude/</code>, <code>.claude-flow/</code>, <code>CLAUDE.md</code>, helpers e settings no projeto.</p>
+<h3 id="servidor-mcp">Servidor MCP</h3>
+<pre><code class="language-bash">claude mcp add claude-flow -- npx ruflo@latest mcp start
+</code></pre>
+<p>Para outros clientes MCP stdio: comando <code>npx</code>, argumentos <code>[&quot;-y&quot;, &quot;ruflo@latest&quot;, &quot;mcp&quot;, &quot;start&quot;]</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">npx ruflo@latest init wizard
+</code></pre>
+<p>Assistente interativo de configuração do projeto.</p>
+<pre><code class="language-text">/ruflo
+</code></pre>
+<p>Abre o console no Claude Code (após instalar os plugins).</p>
+<pre><code class="language-bash">npx ruflo tui
+</code></pre>
+<p>Console em terminal puro, sem Claude Code (<code>--plain</code> imprime um quadro para scripts).</p>
+<pre><code class="language-text">/plugin install ruflo-swarm@ruflo
+</code></pre>
+<p>Adiciona plugins avulsos, como swarm, rag-memory ou autopilot.</p>
+<p>Depois do <code>init</code>, basta trabalhar normalmente no Claude Code: os hooks fazem o roteamento e a coordenação.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Projetos grandes em que vários agentes precisam trabalhar em paralelo com memória compartilhada.</li>
+<li>Quando você quer observabilidade (custo, tokens, logs de agentes) ao lado do Claude Code.</li>
+<li>Cenários com Codex e Claude Code usando o mesmo servidor MCP.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O README é extenso e cita números grandes (agentes, ferramentas MCP, downloads); confira na documentação o que se aplica à sua versão.</li>
+<li>O caminho por plugins é &quot;lite&quot;; o conjunto completo exige o <code>init</code> via CLI.</li>
+<li>Os mods não são sandboxed.</li>
+<li>O repositório se chamava <code>claude-flow</code>; alguns comandos ainda usam esse nome (como no <code>claude mcp add claude-flow</code>).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/ruvnet/ruflo">README</a></li>
+<li><a href="https://github.com/ruvnet/ruflo/blob/main/docs/USERGUIDE.md">Guia do usuário</a></li>
+<li><a href="https://github.com/ruvnet/ruflo/blob/main/docs/ruflo-explained.md">RuFlo Explained (guia em 14 capítulos)</a></li>
+<li><a href="https://www.npmjs.com/package/ruflo">ruflo no npm</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

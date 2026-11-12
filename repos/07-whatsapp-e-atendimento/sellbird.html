@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sellbird (antigo Harvey) · Repositórios favoritos</title>
+<meta name="description" content="Plataforma open source de prospecção por e-mail que roda no seu plano do Claude ou do ChatGPT. Ela encontra empresas e quem decide, verifica os e-mails, escreve e envia cold e-mails personalizados e cuida das respostas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#07-whatsapp-e-atendimento"><span aria-hidden="true">💬</span> WhatsApp e atendimento</a>
+    </nav>
+    <h1>Sellbird (antigo Harvey)</h1>
+    <p class="lead">Plataforma open source de prospecção por e-mail que roda no seu plano do Claude ou do ChatGPT. Ela encontra empresas e quem decide, verifica os e-mails, escreve e envia cold e-mails personalizados e cuida das respostas.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ethanplusai/sellbird">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ethanplusai/sellbird</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ethanplusai/sellbird">ethanplusai/sellbird</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://sellbird.ai">sellbird.ai</a> · <a href="https://github.com/ethanplusai/sellbird/blob/main/docs/how-it-works.md">Como funciona</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python 3.11+</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0 (versões até 0.3.x do Harvey eram MIT)</dd></div>
+<div><dt>Estrelas</dt><dd>~4,7k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<blockquote>
+<p><strong>Atenção:</strong> cold e-mail para pessoas no Brasil envolve tratamento de dados pessoais (nome e e-mail). Exige base legal na LGPD, em geral o legítimo interesse documentado, além de informar a origem dos dados e oferecer descadastro fácil. A documentação do Sellbird cobre as regras dos EUA (CAN-SPAM) e da Europa (GDPR), não a LGPD. Consulte um advogado antes de enviar em escala.</p>
+</blockquote>
+<h2 id="o-que-e">O que é</h2>
+<p>O Sellbird é um pipeline de vendas outbound que roda na sua máquina. Você pode rodar tudo de ponta a ponta ou parar em qualquer etapa. Ele não usa chave de API de modelo: pensa pela CLI do Claude Code (plano Pro ou Max) ou pelo Codex (plano do ChatGPT).</p>
+<p>Por padrão, <strong>nenhum e-mail sai sem a sua aprovação</strong>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Encontra empresas</strong> parecidas com o seu cliente ideal. A fonte padrão é o OpenStreetMap, gratuita. Fontes pagas mostram o custo antes de rodar.</li>
+<li><strong>Lê o site de cada empresa</strong> em busca de sinais de compra, por exemplo &quot;não tem agendamento online&quot;, &quot;está anunciando&quot; ou &quot;está contratando&quot;. São 29 sinais, sem chamar o modelo.</li>
+<li><strong>Encontra quem decide:</strong> dono ou gestor citado nas páginas da empresa, no máximo duas pessoas por empresa.</li>
+<li><strong>Verifica o e-mail:</strong> descobre o padrão de endereços da empresa e marca cada um como verificado, arriscado, palpite ou inválido. Só envia para os entregáveis.</li>
+<li><strong>Escreve e envia</strong> uma sequência curta para cada pessoa, pelo Gmail, Microsoft 365 ou SMTP. Respeita o limite diário e o horário comercial de quem recebe.</li>
+<li><strong>Cuida das respostas:</strong>
+<ul>
+<li>rascunha a resposta;</li>
+<li>separa as respostas automáticas;</li>
+<li>respeita pedidos de descadastro na hora;</li>
+<li>passa para você o que não deve responder sozinho.</li>
+</ul>
+</li>
+<li><strong>Painel web</strong> local, com caixa de saída para aprovação.</li>
+<li><strong>Exporta a lista</strong> em CSV (<code>sellbird export</code>) se você só quiser os contatos.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Python 3.11+</strong>.</li>
+<li><strong>Claude Pro ou Max</strong>, com a CLI logada (<code>claude login</code>), <strong>ou</strong> um plano do ChatGPT com a CLI do Codex.</li>
+<li><strong>Uma caixa de e-mail para envio</strong>, de preferência num domínio separado do principal (Google Workspace, Microsoft 365 ou SMTP).</li>
+<li><strong>Aquecimento (warmup) dessa caixa</strong> antes de começar, para não cair no spam.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Com o Claude Code guiando:</strong></p>
+<pre><code class="language-bash">git clone https://github.com/ethanplusai/sellbird.git
+cd sellbird
+claude
+</code></pre>
+<p>Depois peça <em>&quot;set up Sellbird for me&quot;</em>. O <code>CLAUDE.md</code> do repositório transforma o Claude Code no guia de instalação.</p>
+<p><strong>Manual:</strong></p>
+<pre><code class="language-bash">python3.13 -m venv .venv &amp;&amp; source .venv/bin/activate &amp;&amp; pip install -e .
+cp .env.example .env          # preencha as credenciais (documentadas no arquivo)
+sellbird train https://sua-empresa.com.br   # aprende o seu produto pelo site
+sellbird signals --confirm free             # confirma os sinais de bom cliente
+sellbird discover                           # busca empresas (fonte gratuita)
+sellbird dashboard                          # painel em http://127.0.0.1:5555
+sellbird run                                # inicia o ciclo
+</code></pre>
+<p>No Linux também roda com <a href="https://github.com/ethanplusai/sellbird/blob/main/docs/docker.md">Docker</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">sellbird run              # ciclo contínuo: escreve, envia e responde (a cada 15 min)
+sellbird status           # situação atual
+sellbird export           # CSV com os contatos verificados
+sellbird sending pause    # para todos os envios na hora
+</code></pre>
+<p>A caixa de saída do painel mostra cada e-mail para aprovar. O autopilot só liga se você ativar. Mesmo ligado, ele segura e-mails com link para domínios de fora ou que citam as instruções internas do Sellbird.</p>
+<p>Antes da primeira campanha, defina <code>compliance.postal_address</code> no <code>sellbird.yaml</code>. Ela vai no rodapé de todo cold e-mail, junto com a linha de descadastro.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Prospecção B2B de pequenas empresas locais (clínicas, construtoras, serviços) sem pagar Apollo, ZoomInfo ou Clay.</li>
+<li>Gerar listas de empresas com o contato de quem decide, mesmo que você envie por outra ferramenta.</li>
+<li><strong>Comparação no catálogo:</strong>
+<ul>
+<li>o <a href="deskcomm-crm.html">DeskComm CRM</a> e o <a href="chatwoot.html">Chatwoot</a> cuidam do atendimento e do relacionamento com quem já chegou;</li>
+<li>o Sellbird faz a prospecção ativa, por e-mail.</li>
+</ul>
+</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>LGPD:</strong> veja o aviso no topo. Raspar nomes e deduzir e-mails de sites é tratamento de dados pessoais. Documente a origem e o legítimo interesse, e honre o descadastro. A <a href="https://github.com/ethanplusai/sellbird/blob/main/docs/deliverability.md">documentação legal</a> do projeto também diz que não é aconselhamento jurídico.</li>
+<li><strong>Termos do plano de IA:</strong> o Sellbird usa a sua assinatura do Claude ou do ChatGPT para automação contínua. Isso pode esbarrar nos termos de uso desses planos. Confira antes.</li>
+<li><strong>Reputação do domínio:</strong> cold e-mail mal feito queima o domínio. Use um domínio separado, faça o aquecimento e respeite os limites diários.</li>
+<li><strong>AGPL-3.0:</strong> se oferecer uma versão modificada como serviço na rede, precisa abrir o código das modificações.</li>
+<li><strong>Links de afiliado:</strong> os links do TrulyInbox no projeto rendem comissão ao mantenedor.</li>
+<li><strong>Versão hospedada:</strong> existe em <a href="https://sellbird.ai">sellbird.ai</a>, em acesso antecipado.</li>
+<li><strong>Quem vinha do Harvey:</strong> configuração e dados são migrados automaticamente na primeira execução. Projeto muito ativo (última: v0.4.0, nov/2026).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/ethanplusai/sellbird#readme">README</a> · <a href="https://sellbird.ai">Site</a></li>
+<li><a href="https://github.com/ethanplusai/sellbird/blob/main/docs/how-it-works.md">Como funciona</a> · <a href="https://github.com/ethanplusai/sellbird/blob/main/docs/approval-and-sending.md">Aprovação e envio</a> · <a href="https://github.com/ethanplusai/sellbird/blob/main/docs/configuration.md">Configuração e comandos</a></li>
+<li><a href="https://github.com/ethanplusai/sellbird/blob/main/docs/deliverability.md">Regras legais e entregabilidade</a> · <a href="https://github.com/ethanplusai/sellbird/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#07-whatsapp-e-atendimento">WhatsApp e atendimento</a></h2>
+    <ul>
+<li><a href="../../repos/07-whatsapp-e-atendimento/apibrasil.html">APIBrasil (organização)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot.html">Chatwoot</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot-nestor.html">Chatwoot Nestor</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/deskcomm-crm.html">DeskcommCRM</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-api.html">Evolution API</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-go.html">Evolution Go</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/wa-akg.html">WA-AKG</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/zuckzapgo.html">ZuckZapGo Private</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

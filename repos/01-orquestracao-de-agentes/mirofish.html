@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiroFish · Repositórios favoritos</title>
+<meta name="description" content="Motor de inteligência de enxame que simula milhares de agentes em um mundo digital paralelo para prever cenários a partir de materiais-semente.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>MiroFish</h1>
+    <p class="lead">Motor de inteligência de enxame que simula milhares de agentes em um mundo digital paralelo para prever cenários a partir de materiais-semente.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/666ghj/MiroFish">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">666ghj/MiroFish</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/666ghj/MiroFish">666ghj/MiroFish</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://mirofish.ai">mirofish.ai</a> · <a href="https://666ghj.github.io/mirofish-demo/">demo online</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (backend) e Node.js (frontend)</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~83k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O MiroFish é um motor de previsão multiagente. Você envia materiais-semente (notícias, rascunhos de política, sinais financeiros, relatórios ou até uma história) e descreve em linguagem natural o que quer prever. O sistema constrói um mundo digital paralelo de alta fidelidade, no qual milhares de agentes com personalidade, memória de longo prazo e lógica de comportamento interagem e evoluem socialmente.</p>
+<p>Você pode injetar variáveis de uma &quot;visão de Deus&quot; para explorar trajetórias futuras. O resultado é um relatório de previsão detalhado e um mundo simulado com o qual dá para conversar. A simulação usa o motor OASIS, da CAMEL-AI.</p>
+<p>É útil como laboratório de ensaio para decisões (políticas, comunicação) e como sandbox criativo.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Construção de grafo a partir das sementes, com injeção de memória individual e coletiva e GraphRAG.</li>
+<li>Geração de personas e configuração de agentes.</li>
+<li>Simulação paralela em duas plataformas, com atualização temporal da memória.</li>
+<li>ReportAgent com conjunto de ferramentas para interagir com o ambiente pós-simulação.</li>
+<li>Conversa com qualquer agente do mundo simulado.</li>
+<li>Demo online e exemplos (simulação de opinião pública e final perdido de &quot;Sonho da Câmara Vermelha&quot;).</li>
+<li>Implantação por código-fonte ou Docker.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 18 ou superior.</li>
+<li>Python 3.11 ou superior e até 3.12.</li>
+<li><code>uv</code> (gerenciador de pacotes Python).</li>
+<li>Chave de API de um LLM compatível com o formato OpenAI SDK (o README recomenda o Qwen-plus via Alibaba Bailian).</li>
+<li>Chave de API da Zep Cloud (há cota mensal gratuita).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="opcao-1-codigo-fonte-recomendada">Opção 1: código-fonte (recomendada)</h3>
+<ol>
+<li>Configure as variáveis de ambiente:</li>
+</ol>
+<pre><code class="language-bash">cp .env.example .env
+</code></pre>
+<ol start="2">
+<li>Preencha o <code>.env</code>:</li>
+</ol>
+<pre><code class="language-env">LLM_API_KEY=your_api_key
+LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+LLM_MODEL_NAME=qwen-plus
+ZEP_API_KEY=your_zep_api_key
+</code></pre>
+<p>O <code>.env.example</code> também tem um bloco opcional de &quot;LLM acelerado&quot; (<code>LLM_BOOST_API_KEY</code>, <code>LLM_BOOST_BASE_URL</code>, <code>LLM_BOOST_MODEL_NAME</code>). Se não for usar esse bloco, apague as três linhas do <code>.env</code>: elas não podem ficar em branco.</p>
+<ol start="3">
+<li>Instale as dependências:</li>
+</ol>
+<pre><code class="language-bash">npm run setup:all
+</code></pre>
+<p>Ou em etapas: <code>npm run setup</code> e <code>npm run setup:backend</code>.</p>
+<ol start="4">
+<li>Inicie os serviços:</li>
+</ol>
+<pre><code class="language-bash">npm run dev
+</code></pre>
+<p>Frontend em <code>http://localhost:3000</code> e API em <code>http://localhost:5001</code>.</p>
+<h3 id="opcao-2-docker">Opção 2: Docker</h3>
+<pre><code class="language-bash">cp .env.example .env
+docker compose up -d
+</code></pre>
+<p>Usa a imagem <code>ghcr.io/666ghj/mirofish:latest</code>, lê o <code>.env</code> da raiz, mapeia as portas 3000 (frontend) e 5001 (backend) e guarda os arquivos enviados em <code>./backend/uploads</code>. Se o download da imagem estiver lento, o <code>docker-compose.yml</code> traz, em comentário, um endereço alternativo.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">npm run backend
+</code></pre>
+<p>Sobe apenas o backend.</p>
+<pre><code class="language-bash">npm run frontend
+</code></pre>
+<p>Sobe apenas o frontend.</p>
+<p>Fluxo na interface: envie os materiais-semente, descreva a pergunta de previsão em linguagem natural, acompanhe a simulação, leia o relatório e converse com os agentes ou com o ReportAgent.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Testar o impacto provável de uma decisão, política ou comunicado antes de publicar.</li>
+<li>Explorar cenários &quot;e se&quot; a partir de notícias ou relatórios.</li>
+<li>Experimentos criativos, como imaginar finais alternativos de uma história.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Licença AGPL-3.0: obrigações de código aberto se você oferecer o software como serviço em rede.</li>
+<li>O consumo de tokens é alto; o README recomenda começar com menos de 40 rodadas de simulação.</li>
+<li>Depende de serviços externos (LLM e Zep Cloud).</li>
+<li>O README é bilíngue (inglês e chinês); a comunidade e o contato são voltados ao público chinês.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/666ghj/MiroFish">README</a></li>
+<li><a href="https://666ghj.github.io/mirofish-demo/">Demo online</a></li>
+<li><a href="https://github.com/camel-ai/oasis">OASIS (CAMEL-AI)</a></li>
+<li><a href="http://discord.gg/ePf5aPaHnA">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

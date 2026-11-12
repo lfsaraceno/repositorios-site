@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude SEO · Repositórios favoritos</title>
+<meta name="description" content="Plugin de SEO para o Claude Code com 26 sub-skills e 19 agentes especialistas: auditoria técnica, E-E-A-T, schema, GEO/AEO, SEO local, e-commerce, internacional e relatórios.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Claude SEO</h1>
+    <p class="lead">Plugin de SEO para o Claude Code com 26 sub-skills e 19 agentes especialistas: auditoria técnica, E-E-A-T, schema, GEO/AEO, SEO local, e-commerce, internacional e relatórios.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/AgriciDaniel/claude-seo">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">AgriciDaniel/claude-seo</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/AgriciDaniel/claude-seo">AgriciDaniel/claude-seo</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.skool.com/ai-marketing-hub-pro">skool.com/ai-marketing-hub-pro</a> (comunidade do autor)</dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~19k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Claude SEO é um plugin open source de análise de SEO para o Claude Code. Ele executa 26 sub-skills e 19 agentes especialistas em paralelo, cobrindo SEO técnico, qualidade de conteúdo (E-E-A-T), marcação Schema.org, otimização para busca por IA (GEO/AEO), SEO local, e-commerce e SEO internacional.</p>
+<p>Cada auditoria gera um plano de ação priorizado, com recomendações testáveis baseadas em orientações primárias do Google. Auditorias de site completo disparam até 17 agentes ao mesmo tempo. O foco declarado é ser &quot;falseável, não promocional&quot;: cada recomendação traz a observação em que se apoia e como saber se falhou.</p>
+<p>É voltado a agências de SEO com vários clientes, líderes de SEO in-house e consultores freelancers. O autor mantém também um espelho privado para membros de uma comunidade paga, mas a versão pública é MIT e não exige assinatura.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><code>/seo audit</code> com sub-agentes paralelos e plano de ação priorizado, com nota de 0 a 100.</li>
+<li>SEO técnico, conteúdo (E-E-A-T), schema (detectar, validar, gerar) e Core Web Vitals (LCP, INP, CLS).</li>
+<li>GEO/AEO e prontidão para agentes (<code>/seo agentic</code>): llms.txt, Lighthouse Agentic Browsing, WebMCP.</li>
+<li>SEO local e mapas, hreflang/i18n, e-commerce, backlinks, clusters semânticos, monitoramento de drift com SQLite.</li>
+<li>Integração com APIs do Google (Search Console, PageSpeed, CrUX, GA4) e relatórios em PDF/Excel.</li>
+<li>9 extensões MCP opcionais para dados ao vivo (por exemplo SE Ranking, Profound, Bing Webmaster).</li>
+<li>Modo local por padrão: sem chamadas a terceiros, além de buscar as URLs que você auditar.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code CLI (a instalação por plugin pede Claude Code 1.0.33 ou superior).</li>
+<li>Python 3.10+ (o README recomenda 3.11 ou mais novo, pois o 3.10 chega ao fim de vida em out/2026).</li>
+<li>Opcional: Playwright Chromium (renderização de SPA e capturas de tela).</li>
+<li>Opcional: credenciais da API do Google para dados reais de CWV, GSC e GA4.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="plugin-recomendado">Plugin (recomendado)</h3>
+<pre><code class="language-text">/plugin marketplace add AgriciDaniel/claude-seo
+/plugin install claude-seo@agricidaniel-claude-seo
+/seo setup
+</code></pre>
+<p>O <code>/seo setup</code> cria um ambiente Python isolado nos dados persistentes do plugin e instala o Chromium do Playwright. Verifique a qualquer momento com <code>/seo doctor</code>.</p>
+<h3 id="manual-linux-macos">Manual (Linux/macOS)</h3>
+<pre><code class="language-bash">git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git
+bash claude-seo/install.sh
+</code></pre>
+<h3 id="windows-powershell">Windows (PowerShell)</h3>
+<pre><code class="language-powershell">git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git
+powershell -ExecutionPolicy Bypass -File claude-seo\install.ps1
+</code></pre>
+<p>O README recomenda <code>git clone</code> em vez de <code>irm | iex</code>, para você poder inspecionar o <code>install.ps1</code> antes de rodar.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/seo audit https://example.com        # auditoria completa do site com sub-agentes paralelos
+/seo page https://example.com/about   # análise profunda de uma página
+/seo technical &lt;url&gt;                  # SEO técnico em 9 categorias
+/seo content &lt;url&gt;                    # E-E-A-T e qualidade de conteúdo
+/seo schema &lt;url&gt;                     # detectar, validar e gerar Schema.org
+/seo geo &lt;url&gt;                        # otimização para AI Overviews e busca generativa
+/seo agentic &lt;url&gt;                    # prontidão para agentes (llms.txt, WebMCP)
+/seo sitemap generate                 # gerar sitemap com modelos por setor
+/seo local &lt;url&gt;                      # SEO local (GBP, citações, avaliações)
+/seo google [comando]                 # APIs do Google (GSC, PageSpeed, CrUX, GA4)
+/seo doctor                           # checa o ambiente sem alterar o sistema
+</code></pre>
+<p>São 34 comandos <code>/seo</code> no total; a referência completa está em <code>docs/COMMANDS.md</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Auditar rapidamente um site antes de uma proposta ou revisão executiva.</li>
+<li>Otimizar conteúdo e schema para aparecer em respostas de IA (GEO).</li>
+<li>Monitorar mudanças de SEO ao longo do tempo (drift) em vários clientes.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Cinco agentes de julgamento (<code>seo-content</code>, <code>seo-geo</code>, <code>seo-sxo</code>, <code>seo-cluster</code>, <code>seo-drift</code>) rodam em Opus desde a v2.3.1 e os outros treze em Sonnet: uma auditoria completa custa mais tokens.</li>
+<li>Sem credenciais do Google, os Core Web Vitals são estimativas de laboratório e a indexação é inferida.</li>
+<li>Algumas extensões dependem de contas e serviços de terceiros.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/AgriciDaniel/claude-seo">README do projeto</a></li>
+<li><a href="https://github.com/AgriciDaniel/claude-seo/blob/main/docs/COMMANDS.md">Referência de comandos</a></li>
+<li><a href="https://github.com/AgriciDaniel/claude-seo/releases">Releases</a></li>
+<li><a href="https://www.skool.com/ai-marketing-hub-pro">Comunidade AI Marketing Hub Pro</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

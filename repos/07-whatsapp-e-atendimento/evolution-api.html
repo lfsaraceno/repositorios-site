@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolution API · Repositórios favoritos</title>
+<meta name="description" content="API REST open source para WhatsApp (Baileys e Cloud API oficial) e mensageria multicanal, com integrações para Chatwoot, Typebot, Dify, OpenAI e filas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#07-whatsapp-e-atendimento"><span aria-hidden="true">💬</span> WhatsApp e atendimento</a>
+    </nav>
+    <h1>Evolution API</h1>
+    <p class="lead">API REST open source para WhatsApp (Baileys e Cloud API oficial) e mensageria multicanal, com integrações para Chatwoot, Typebot, Dify, OpenAI e filas.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/evolution-foundation/evolution-api">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">evolution-foundation/evolution-api</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/evolution-foundation/evolution-api">evolution-foundation/evolution-api</a> (antigo EvolutionAPI/evolution-api)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://evolutionfoundation.com.br">evolutionfoundation.com.br</a> · <a href="https://docs.evolutionfoundation.com.br">docs.evolutionfoundation.com.br</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (Node.js)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0 com condições adicionais de proteção de marca</dd></div>
+<div><dt>Estrelas</dt><dd>~9,9k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>A Evolution API é uma API REST pronta para produção que controla conexões de WhatsApp e permite enviar e receber mensagens a partir de qualquer sistema. Nasceu como um controlador de WhatsApp baseado no CodeChat, que usa a biblioteca Baileys, e hoje faz parte do ecossistema da Evolution Foundation.</p>
+<p>Ela suporta dois tipos de conexão: a <strong>WhatsApp API baseada em Baileys</strong> (gratuita, usa o WhatsApp Web) e a <strong>WhatsApp Cloud API</strong> oficial da Meta (para volumes maiores, com custo por mensagem e regras da Meta).</p>
+<p>É voltada para quem precisa integrar WhatsApp a CRMs, bots, automações (n8n, Typebot) e plataformas de atendimento como o Chatwoot.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Conexão via Baileys (WhatsApp Web) ou WhatsApp Cloud API oficial.</li>
+<li>Integrações de chatbot: Typebot, Chatwoot, OpenAI, Dify, Flowise e N8N.</li>
+<li>Eventos em tempo real via WebSocket (Socket.io), RabbitMQ, Apache Kafka, Amazon SQS, NATS e Pusher.</li>
+<li>Armazenamento de mídia em disco local ou S3/MinIO.</li>
+<li>Transcrição opcional de áudio via OpenAI.</li>
+<li>Banco PostgreSQL ou MySQL (com Prisma) e cache Redis.</li>
+<li>Imagem Docker oficial <code>evoapicloud/evolution-api</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 20+ (para instalação manual).</li>
+<li>PostgreSQL ou MySQL.</li>
+<li>Redis (recomendado, para cache).</li>
+<li>Docker, se usar a imagem pronta.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="manual-codigo-fonte">Manual (código-fonte)</h3>
+<pre><code class="language-bash">git clone git@github.com:evolution-foundation/evolution-api.git
+cd evolution-api
+npm install
+cp .env.example .env
+# edite o .env com banco, Redis e a chave de API
+</code></pre>
+<p>Configuração do banco (Prisma):</p>
+<pre><code class="language-bash">export DATABASE_PROVIDER=postgresql   # ou mysql
+npm run db:generate
+npm run db:deploy
+</code></pre>
+<p>Execução:</p>
+<pre><code class="language-bash">npm run dev:server                    # desenvolvimento com hot reload
+npm run build &amp;&amp; npm run start:prod   # produção
+</code></pre>
+<h3 id="docker">Docker</h3>
+<pre><code class="language-bash">docker pull evoapicloud/evolution-api:latest
+docker run -p 8080:8080 --env-file .env evoapicloud/evolution-api:latest
+</code></pre>
+<p>O README não traz um <code>docker-compose</code> completo com banco e Redis; consulte a documentação oficial para montar a stack.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">npm run dev:server      # servidor de desenvolvimento
+npm run build           # compila o projeto
+npm run start:prod      # inicia a versão compilada
+npm run db:generate     # gera o cliente Prisma
+npm run db:deploy       # aplica as migrations
+</code></pre>
+<p>O uso no dia a dia é por chamadas HTTP à API (criar instância, ler o QR code, enviar mensagens, configurar webhooks e integrações). Os endpoints estão na <a href="https://docs.evolutionfoundation.com.br">documentação oficial</a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Enviar e receber WhatsApp a partir de sistemas próprios, CRMs e automações.</li>
+<li>Plugar WhatsApp no Chatwoot para atendimento em equipe.</li>
+<li>Criar bots com Typebot, Dify ou OpenAI conectados ao WhatsApp.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A conexão Baileys usa o WhatsApp Web e não é oficial; há risco de bloqueio de números e limitações em comparação com a Cloud API.</li>
+<li>A licença é Apache 2.0 com condições extras (preservar logo/copyright e aviso de uso). Leia o arquivo <code>LICENSE</code> antes de uso comercial ou revenda.</li>
+<li>O projeto coleta telemetria anônima (rotas usadas e versão da API).</li>
+<li>O repositório mudou de dono: antes era <code>EvolutionAPI/evolution-api</code>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/evolution-foundation/evolution-api#readme">README</a></li>
+<li><a href="https://docs.evolutionfoundation.com.br">Documentação</a></li>
+<li><a href="https://evolutionfoundation.com.br/community">Comunidade</a></li>
+<li><a href="https://hub.docker.com/r/evoapicloud/evolution-api">Docker Hub</a></li>
+<li><a href="https://github.com/evolution-foundation/evolution-api/blob/main/CHANGELOG.md">CHANGELOG</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#07-whatsapp-e-atendimento">WhatsApp e atendimento</a></h2>
+    <ul>
+<li><a href="../../repos/07-whatsapp-e-atendimento/apibrasil.html">APIBrasil (organização)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot.html">Chatwoot</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot-nestor.html">Chatwoot Nestor</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/deskcomm-crm.html">DeskcommCRM</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-go.html">Evolution Go</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/sellbird.html">Sellbird (antigo Harvey)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/wa-akg.html">WA-AKG</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/zuckzapgo.html">ZuckZapGo Private</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

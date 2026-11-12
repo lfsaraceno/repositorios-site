@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yt-dlp · Repositórios favoritos</title>
+<meta name="description" content="Baixador de áudio e vídeo por linha de comando que funciona com milhares de sites (YouTube, Twitch, Vimeo e muitos outros). Escolhe formato e qualidade, extrai áudio, baixa legendas e playlists.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>yt-dlp</h1>
+    <p class="lead">Baixador de áudio e vídeo por linha de comando que funciona com milhares de sites (YouTube, Twitch, Vimeo e muitos outros). Escolhe formato e qualidade, extrai áudio, baixa legendas e playlists.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/yt-dlp/yt-dlp">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">yt-dlp/yt-dlp</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/yt-dlp/yt-dlp">yt-dlp/yt-dlp</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/yt-dlp/yt-dlp/wiki">Wiki</a> · <a href="https://github.com/yt-dlp/yt-dlp/wiki/FAQ">FAQ</a> · <a href="https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md">Sites suportados</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Unlicense (domínio público). Os executáveis prontos incluem código GPLv3+</dd></div>
+<div><dt>Estrelas</dt><dd>~206k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<blockquote>
+<p><strong>Atenção:</strong> baixar conteúdo de terceiros pode violar os termos de uso das plataformas e direitos autorais (Lei 9.610/1998). Use em conteúdo seu, em domínio público ou com permissão do dono.</p>
+</blockquote>
+<h2 id="o-que-e">O que é</h2>
+<p>O yt-dlp é o sucessor ativo do youtube-dl. Você passa uma URL, e ele descobre os formatos disponíveis, baixa o melhor (ou o que você pedir) e junta vídeo e áudio. Também baixa legendas, miniaturas, capítulos e playlists ou canais inteiros.</p>
+<p>É a base de muitas outras ferramentas. O <a href="supoclip.html">SupoClip</a>, por exemplo, usa o yt-dlp para baixar os vídeos que vai cortar.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Milhares de sites</strong>, com seleção fina de formato, resolução, codec e idioma (<code>-f</code>, <code>-S</code>).</li>
+<li><strong>Só o áudio:</strong> extrai e converte para mp3, aac e outros (<code>-x</code>).</li>
+<li><strong>Legendas:</strong> baixa as normais e as automáticas, escolhe idiomas e embute no vídeo.</li>
+<li><strong>Playlists e canais</strong>, com modelo de nome de arquivo e pastas (<code>-o</code>).</li>
+<li><strong>Trechos:</strong> baixa só capítulos ou intervalos (<code>--download-sections</code>) ou divide por capítulo.</li>
+<li><strong>SponsorBlock:</strong> marca ou remove trechos patrocinados.</li>
+<li><strong>Lives:</strong> baixa transmissões desde o início (<code>--live-from-start</code>).</li>
+<li><strong>Login e cookies:</strong> importa cookies do navegador (<code>--cookies-from-browser</code>) para conteúdo que exige conta.</li>
+<li><strong>Uso como biblioteca Python</strong> e sistema de plugins.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Python 3.11+</strong>, se instalar via pip. Os executáveis prontos não precisam de Python.</li>
+<li><strong>Fortemente recomendados:</strong>
+<ul>
+<li><strong>ffmpeg e ffprobe</strong> (o programa, não o pacote Python de mesmo nome). São necessários para juntar vídeo e áudio separados e para conversões. Veja o <a href="ffmpeg.html">FFmpeg</a>;</li>
+<li><strong>yt-dlp-ejs</strong> e um runtime JavaScript (<strong>Deno</strong>, recomendado, ou Node.js, Bun ou QuickJS). Sem eles o suporte ao YouTube fica incompleto. Veja a <a href="https://github.com/yt-dlp/yt-dlp/wiki/EJS">wiki do EJS</a>.</li>
+</ul>
+</li>
+<li><strong>Opcional:</strong> <code>curl_cffi</code>, para sites que bloqueiam por impressão digital TLS (<code>--impersonate</code>).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Executável pronto</strong> (recomendado no Windows e no macOS): baixe <code>yt-dlp.exe</code> ou <code>yt-dlp_macos</code> em <a href="https://github.com/yt-dlp/yt-dlp/releases/latest">Releases</a>.</p>
+<p><strong>Via pip:</strong></p>
+<pre><code class="language-bash">python -m pip install -U &quot;yt-dlp[default]&quot;
+</code></pre>
+<p>Outros gerenciadores estão na <a href="https://github.com/yt-dlp/yt-dlp/wiki/Installation">wiki de instalação</a>.</p>
+<p><strong>Atualizar:</strong> <code>yt-dlp -U</code> nos executáveis; no pip, rode de novo o comando de instalação. O canal <code>stable</code> sai mais ou menos uma vez por mês e quebra quando os sites mudam. O próprio projeto recomenda o canal <code>nightly</code> para uso normal:</p>
+<pre><code class="language-bash">yt-dlp --update-to nightly                          # executável
+python -m pip install -U --pre &quot;yt-dlp[default]&quot;    # pip
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">yt-dlp URL                                   # baixa no melhor formato
+yt-dlp -F URL                                # lista os formatos disponíveis
+yt-dlp -t mp4 URL                            # preset: MP4 com H.264 e AAC
+yt-dlp -t mp3 URL                            # preset: só o áudio em MP3
+yt-dlp -x --audio-format aac URL             # extrai o áudio
+yt-dlp --write-subs --sub-langs &quot;pt.*,en&quot; --embed-subs URL
+yt-dlp -o &quot;%(title)s-%(id)s.%(ext)s&quot; URL     # modelo de nome do arquivo
+yt-dlp --cookies-from-browser firefox URL    # usa a sessão do navegador
+yt-dlp -t sleep URL_DA_PLAYLIST              # pausas entre downloads
+</code></pre>
+<p>Opções fixas podem ir num arquivo de configuração (veja a seção CONFIGURATION do README).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Baixar vídeos ou áudios seus, de aulas, palestras e conteúdo com licença livre, para guardar ou editar.</li>
+<li>Extrair o áudio de um vídeo para transcrever com o <a href="whisper.html">Whisper</a>.</li>
+<li>Alimentar pipelines de vídeo, como o <a href="supoclip.html">SupoClip</a>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Termos e direitos autorais:</strong> o yt-dlp é legal, mas o uso pode não ser. Baixar conteúdo protegido sem permissão ou contornar bloqueios pode violar termos e leis.</li>
+<li><strong>Bloqueios do YouTube:</strong> a partir de servidores em datacenter, o YouTube costuma pedir a verificação &quot;não sou robô&quot;. Em uso pesado, use o preset <code>-t sleep</code> para não ser bloqueado.</li>
+<li><strong>Cookies do navegador</strong> dão acesso à sua conta. Não compartilhe arquivos de cookies, e prefira uma conta secundária para automação.</li>
+<li><strong>Licença dos executáveis:</strong> o código é Unlicense, mas os executáveis do PyInstaller incluem código GPLv3+. O conjunto distribuído fica sob GPLv3+.</li>
+<li>O projeto não faz download de conteúdo com DRM.</li>
+<li>Projeto muito ativo, com release a cada poucas semanas (última: 2026.10.26).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/yt-dlp/yt-dlp#readme">README</a> · <a href="https://github.com/yt-dlp/yt-dlp/wiki">Wiki</a> · <a href="https://github.com/yt-dlp/yt-dlp/wiki/FAQ">FAQ</a></li>
+<li><a href="https://github.com/yt-dlp/yt-dlp/wiki/Installation">Instalação</a> · <a href="https://github.com/yt-dlp/yt-dlp/wiki/EJS">EJS (YouTube)</a> · <a href="https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md">Sites suportados</a></li>
+<li><a href="https://github.com/yt-dlp/FFmpeg-Builds">Builds do FFmpeg do projeto</a> · <a href="https://github.com/yt-dlp/yt-dlp/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

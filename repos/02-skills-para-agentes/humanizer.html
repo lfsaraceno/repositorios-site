@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Humanizer · Repositórios favoritos</title>
+<meta name="description" content="Skill que reescreve textos com cara de IA para soarem como escritos por uma pessoa, sem mudar o que dizem, com base na lista &quot;Signs of AI writing&quot; da Wikipédia.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Humanizer</h1>
+    <p class="lead">Skill que reescreve textos com cara de IA para soarem como escritos por uma pessoa, sem mudar o que dizem, com base na lista &quot;Signs of AI writing&quot; da Wikipédia.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/blader/humanizer">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">blader/humanizer</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/blader/humanizer">blader/humanizer</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://skills.sh/blader/humanizer">skills.sh/blader/humanizer</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (o conteúdo principal é o <code>SKILL.md</code>)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~58k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Humanizer é uma skill para agentes de IA que edita textos para leitores humanos. Ela se baseia no guia da Wikipédia &quot;Signs of AI writing&quot;, usado por editores para identificar texto gerado por IA, e funciona no Claude Code, no Codex e em outros agentes.</p>
+<p>A ideia do README: um modelo de linguagem escolhe o que serve para o maior número de leitores e assuntos, enquanto uma pessoa escolhe para um leitor e um assunto. Cada &quot;tell&quot; que a skill procura é uma forma dessa escolha padrão. Ela marca os sinais encontrados (os mais fortes primeiro), escreve um rascunho sem tratar a estrutura original como fixa, confere o rascunho contra os padrões e as afirmações originais e entrega a versão final.</p>
+<p>Ao colar um texto, a skill mostra o trabalho: a primeira reescrita, uma crítica curta do que ainda soa artificial e a versão final. Ao apontar um arquivo, ela altera só a prosa e preserva código, dados, frontmatter e destinos de links. Ela não inventa nomes, números, datas, citações ou fatos.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>26 padrões de escrita de IA, numerados por força e frequência, em seis grupos: encenação em vez de afirmação, ritmo por regra, inflação e autoridade emprestada, formatação, restos do chat e do rascunho, e escrita para o leitor errado.</li>
+<li>Os cinco sinais mais fortes: &quot;não é X, é Y&quot;, fechamentos de uma linha, frases que parecem profundas, introduções encenadas e &quot;argumentar com ninguém&quot;.</li>
+<li>Casamento de voz: você cola 2 a 3 parágrafos seus e a reescrita segue ritmo, vocabulário e pontuação.</li>
+<li>Edição de arquivos, mexendo só na prosa.</li>
+<li>Funciona como plugin do Claude Code e via Skills CLI em vários agentes.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível: Claude Code (plugin exige a versão 2.1.142 ou superior), Codex, Gemini CLI, GitHub Copilot, Windsurf, entre outros suportados pela Skills CLI.</li>
+<li>Node.js, para usar <code>npx skills</code>.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code">Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add blader/humanizer
+/plugin install humanizer@humanizer
+</code></pre>
+<p>O plugin responde a <code>/humanizer:humanizer</code>. Em versões do Claude Code anteriores à 2.1.142, use o comando abaixo.</p>
+<pre><code class="language-bash">npx skills add blader/humanizer --global --agent claude-code
+</code></pre>
+<h3 id="codex">Codex</h3>
+<pre><code class="language-bash">npx skills add blader/humanizer --global --agent codex
+</code></pre>
+<h3 id="claude-ai-e-claude-desktop">Claude.ai e Claude Desktop</h3>
+<p>Baixe o repositório em ZIP (Code, Download ZIP) e envie como skill em Configurações.</p>
+<h3 id="outros-agentes">Outros agentes</h3>
+<pre><code class="language-bash">npx skills add blader/humanizer --global --agent '*'
+</code></pre>
+<p>Instala para todos os agentes suportados pela Skills CLI. Sem <code>--global</code>, a instalação vale só para o projeto atual. Para um agente que a CLI não conhece, copie o <code>SKILL.md</code> para a pasta de skills dele. O README não traz variações específicas para Windows.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Depois de instalada, a skill responde a <code>/humanizer</code>.</p>
+<pre><code class="language-text">/humanizer
+
+[cole o texto aqui]
+</code></pre>
+<pre><code class="language-text">Please humanize this text: [seu texto]
+</code></pre>
+<pre><code class="language-text">Humanize the prose in docs/launch-post.md
+</code></pre>
+<p>Para casar com a sua voz, inclua uma amostra:</p>
+<pre><code class="language-text">/humanizer
+
+Here's a sample of my writing for voice matching:
+[cole 2 a 3 parágrafos seus]
+
+Now humanize this text:
+[cole o texto da IA]
+</code></pre>
+<p>A skill foi escrita pensando em textos em inglês; para textos em português, teste com um trecho antes de aplicar em tudo.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Revisar posts, e-mails, documentação e README escritos com ajuda de IA que ficaram com cara de texto genérico.</li>
+<li>Tirar vícios como &quot;não é só X, é Y&quot;, fechamentos dramáticos, travessões em excesso, negrito decorativo e tom de vendedor.</li>
+<li>Manter o seu estilo em textos longos, usando uma amostra da sua escrita.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O próprio README diz que o objetivo é editar para leitores humanos, não enganar detectores de IA; os detectores ainda sinalizam a maior parte da saída.</li>
+<li>O README cita um teste cego em que juízes preferiram a reescrita 16 de 16 vezes (issue #229); é um resultado do autor, de amostra pequena.</li>
+<li>Revise sempre o resultado: a skill promete não inventar fatos, mas a revisão final é sua.</li>
+<li>O README menciona patrocínio (cfo.ai).</li>
+<li>Repositório muito popular (~58k estrelas) e ativo (último push em out/2026).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/blader/humanizer#readme">README</a></li>
+<li><a href="https://skills.sh/blader/humanizer">Página na skills.sh</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing">Wikipedia: Signs of AI writing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup">WikiProject AI Cleanup</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

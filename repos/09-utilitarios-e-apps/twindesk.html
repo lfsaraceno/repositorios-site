@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TwinDesk · Repositórios favoritos</title>
+<meta name="description" content="Une computadores (Mac, Windows, Linux) e celular Android numa só &quot;mesa&quot;: um mouse e teclado para todos, segunda tela, apps remotos em janela, arquivos, área de transferência, câmera, chamadas e SMS. Sem conta e sem nuvem.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>TwinDesk</h1>
+    <p class="lead">Une computadores (Mac, Windows, Linux) e celular Android numa só &quot;mesa&quot;: um mouse e teclado para todos, segunda tela, apps remotos em janela, arquivos, área de transferência, câmera, chamadas e SMS. Sem conta e sem nuvem.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/InukaAsith/TwinDesk">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">InukaAsith/TwinDesk</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/InukaAsith/TwinDesk">InukaAsith/TwinDesk</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://twin-desk.vercel.app">twin-desk.vercel.app</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (Electron) + helpers nativos em Swift, C# e C + Android em Kotlin</dd></div>
+<div><dt>Licença</dt><dd>GPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~1,8k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O TwinDesk faz seus computadores e seu celular trabalharem juntos. O mesmo app roda em macOS, Windows, Linux e Android, e qualquer combinação funciona: Mac com Windows, PC com PC, Linux com qualquer um, celular com qualquer computador. No modo <strong>Mesh</strong> (beta), todos se conectam ao mesmo tempo.</p>
+<p>Ele junta num app só o que costuma exigir várias ferramentas: o mouse e o teclado compartilhados do Synergy, a integração com o celular do Phone Link e do KDE Connect, a segunda tela e o espelhamento do scrcpy. Os aparelhos falam só entre si, por um link criptografado (TLS). A conexão pode ser pelo mesmo Wi-Fi, por cabo USB, por Bluetooth ou por Wi-Fi Direct ou hotspot criados na hora. Não há conta, telemetria nem servidor intermediário.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<p><strong>Entre computadores:</strong></p>
+<ul>
+<li>Um mouse e um teclado para todos: o ponteiro passa pela borda da tela para o outro computador. Gestos do trackpad funcionam, e a Scroll Lock trava o cursor num computador.</li>
+<li>Tela estendida com display virtual de verdade, espelhamento, ou a tela do outro computador numa janela, em H.264 de baixa latência.</li>
+<li><strong>Apps do outro computador em janelas próprias:</strong> um app do Windows no Mac, com ícone no Dock, sem área de trabalho remota inteira.</li>
+<li>Arquivos: arrastar pela borda da tela, <code>Ctrl+Alt+C</code> / <code>Ctrl+Alt+V</code>, pastas compartilhadas como unidade de rede e progresso ao vivo.</li>
+<li>Área de transferência compartilhada, com imagens de até 10 MB. Entradas de gerenciadores de senha ficam de fora.</li>
+<li>Câmera do outro computador como webcam virtual (&quot;TwinDesk Camera&quot;) no Zoom, Teams e Meet.</li>
+<li>Notificações, som, Wake-on-LAN e terminal (<code>ssh twindesk</code>, sem senha).</li>
+</ul>
+<p><strong>Celular e tablet Android:</strong></p>
+<ul>
+<li>Atender, recusar e fazer ligações pelo computador. Com Bluetooth, o computador vira o fone de ouvido do celular.</li>
+<li>Ler e responder SMS, ver fotos e vídeos e navegar em todos os arquivos do celular.</li>
+<li>A tela do celular numa janela, ou <strong>apps Android em janelas próprias</strong> no computador. No WhatsApp, Instagram e Telegram, o Enter envia a mensagem.</li>
+<li>Tablet ou celular como segunda tela, estendida ou espelhada.</li>
+<li>Câmera do celular como webcam em chamadas de vídeo.</li>
+<li><strong>Controle remoto e gamepad:</strong> touchpad e teclado para o computador, ou um controle que o computador reconhece como de Xbox 360 (Windows) ou gamepad (Linux).</li>
+<li>Controles de mídia, notificações e área de transferência nos dois sentidos.</li>
+</ul>
+<p><strong>Geral:</strong> todo recurso começa desligado e nem é carregado até você ligar.</p>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>macOS 13 (Ventura) ou mais novo; Windows 10 ou 11 (x64 ou ARM64); Linux x86_64 com X11 ou Wayland; Android 10 ou mais novo (Android 11 para os recursos que usam depuração sem fio).</li>
+<li>O app instalado em todos os aparelhos que vão se conectar.</li>
+<li>Para tela, apps e câmera do celular: a <strong>depuração sem fio</strong> do Android ligada, configurada uma vez pelo próprio TwinDesk.</li>
+<li>Na rede local: porta TCP <strong>47800</strong> (controle e arquivos) e UDP <strong>47801</strong> (descoberta).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Baixe o instalador de cada plataforma no <a href="https://github.com/InukaAsith/TwinDesk/releases/latest">último release</a>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th>Arquivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>macOS (Apple Silicon / Intel)</td>
+<td><code>TwinDesk-&lt;versão&gt;-arm64.dmg</code> / <code>TwinDesk-&lt;versão&gt;-x64_Intel.dmg</code></td>
+</tr>
+<tr>
+<td>Windows (x64 / ARM64)</td>
+<td><code>TwinDesk-Setup-&lt;versão&gt;.exe</code> / <code>TwinDesk-Setup-&lt;versão&gt;-arm64.exe</code></td>
+</tr>
+<tr>
+<td>Linux</td>
+<td><code>.deb</code> (Debian/Ubuntu), <code>.AppImage</code> (qualquer distro) ou <code>.pkg.tar.zst</code> (Arch)</td>
+</tr>
+<tr>
+<td>Android</td>
+<td><code>TwinDesk-&lt;versão&gt;.apk</code> (padrão) ou <code>TwinDesk-&lt;versão&gt;-full.apk</code> (completo)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>macOS via Homebrew:</strong></p>
+<pre><code class="language-bash">brew install --cask inukaasith/twindesk/twindesk
+brew upgrade --cask twindesk    # atualizar
+</code></pre>
+<p><strong>NixOS / Nix Flakes:</strong></p>
+<pre><code class="language-bash">nix run github:InukaAsith/TwinDesk
+</code></pre>
+<p>Ou ative o módulo na configuração do sistema:</p>
+<pre><code class="language-nix">programs.twindesk = {
+  enable = true;
+  user = &quot;seuusuario&quot;;   # adiciona aos grupos input/uinput (Wayland)
+};
+</code></pre>
+<h3 id="primeira-abertura-os-apps-nao-sao-assinados">Primeira abertura: os apps não são assinados</h3>
+<p>O projeto não tem certificado da Apple nem da Microsoft, então os sistemas pedem confirmação uma vez:</p>
+<ul>
+<li>
+<p><strong>macOS:</strong> abra o app, clique em <strong>Concluído</strong> (não em &quot;Mover para o Lixo&quot;), depois vá em <strong>Ajustes do Sistema &gt; Privacidade e Segurança &gt; Abrir Mesmo Assim</strong>. Se o macOS disser que o app &quot;está danificado&quot;:</p>
+<pre><code class="language-bash">xattr -dr com.apple.quarantine /Applications/TwinDesk.app
+</code></pre>
+</li>
+<li>
+<p><strong>Windows:</strong> no aviso do SmartScreen, clique em <strong>Mais informações &gt; Executar assim mesmo</strong>. Com o <strong>Controle Inteligente de Aplicativos</strong> do Windows 11 ligado, o app é bloqueado sem essa opção (veja Observações).</p>
+</li>
+<li>
+<p><strong>Android:</strong> permita &quot;instalar apps desconhecidos&quot; e, se o Play Protect avisar, use <strong>Mais detalhes &gt; Instalar mesmo assim</strong>.</p>
+</li>
+</ul>
+<p>O <strong>APK completo</strong> (notificações, SMS e Acessibilidade) é mais fácil de instalar pelo próprio computador, via depuração sem fio: <strong>Phone &gt; Notifications from the phone</strong>. Instalado à mão, o Play Protect pode bloquear o app. No Android 13 e mais novos, é preciso liberar em <strong>Ajustes &gt; Apps &gt; TwinDesk &gt; ⋮ &gt; Permitir configurações restritas</strong>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Instale e abra o TwinDesk em cada computador e no celular.</li>
+<li>Os aparelhos se encontram sozinhos: mesma rede, Bluetooth ou cabo USB (no caso do celular).</li>
+<li><strong>Pareie uma vez</strong> comparando o código. No cabo USB, basta clicar em Allow. Depois disso eles se conectam sozinhos.</li>
+<li>Ligue os recursos que quiser: cada um tem uma aba com um botão.</li>
+</ol>
+<p><strong>Atalhos e comandos:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Atalho / comando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Copiar arquivos para o outro aparelho</td>
+<td><code>⌃⌥C</code> (Mac) / <code>Ctrl+Alt+C</code> (Windows e Linux)</td>
+</tr>
+<tr>
+<td>Colar arquivos (numa pasta ou direto no app em foco)</td>
+<td><code>⌃⌥V</code> / <code>Ctrl+Alt+V</code></td>
+</tr>
+<tr>
+<td>Travar o cursor no computador atual</td>
+<td><code>Scroll Lock</code> (<code>F14</code> no Mac)</td>
+</tr>
+<tr>
+<td>Trazer o ponteiro de volta</td>
+<td>toque duplo na tecla de atalho configurada</td>
+</tr>
+<tr>
+<td>Terminal no outro computador</td>
+<td><code>ssh twindesk</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Depuração sem fio (para tela, apps e câmera do celular):</strong> no celular, abra <strong>Opções do desenvolvedor &gt; Depuração sem fio &gt; Parear dispositivo com código</strong> e digite os 6 dígitos no computador. Depois disso o TwinDesk liga a depuração sozinho quando precisa e mantém o pareamento ativo. Em Xiaomi, Redmi e POCO também é preciso ligar <strong>Depuração USB (configurações de segurança)</strong>, que pede uma conta Mi; sem ela, a tela aparece mas o toque é recusado.</p>
+<p><strong>Compilar do código-fonte</strong> (Node.js 18+), por exemplo no Linux:</p>
+<pre><code class="language-bash">sudo apt install build-essential libx11-dev libxi-dev libxtst-dev libxext-dev libxrandr-dev libxfixes-dev
+cd linux
+npm install
+npm run build:helper
+npm start            # roda a partir do código
+npm run dist         # gera AppImage e .deb em linux/dist/
+</code></pre>
+<p>No macOS e no Windows os passos são parecidos, nas pastas <code>mac/</code> e <code>windows/</code>. No Android, use <code>cd android &amp;&amp; ./gradlew assembleRelease</code>, com JDK 17+. Os detalhes estão no README.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Usar um Mac e um PC lado a lado com um só mouse e teclado. É uma alternativa ao Synergy.</li>
+<li>Transformar um notebook velho ou um tablet Android em segundo monitor.</li>
+<li>Atender ligações, responder SMS e usar apps do celular no computador. É uma alternativa ao Phone Link e ao KDE Connect.</li>
+<li>Usar a câmera do celular como webcam em reuniões.</li>
+<li>Conectar aparelhos onde não há rede compartilhada (trem, Wi-Fi de visitante que bloqueia dispositivos), por Bluetooth e Wi-Fi Direct.</li>
+<li>Comparando com outras ferramentas do catálogo: o <a href="rustdesk.html">RustDesk</a> faz acesso remoto pela internet, e o <a href="scrcpy.html">scrcpy</a> espelha só o Android. O TwinDesk usa o servidor do scrcpy por baixo e foca em aparelhos próximos de você.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Os apps não são assinados.</strong> No Windows 11 com o Controle Inteligente de Aplicativos (Smart App Control) ligado, a única saída é desligar esse recurso. Em muitas versões do Windows 11, ele <strong>não pode ser religado sem reinstalar o Windows</strong>. Pense nisso antes.</li>
+<li><strong>Permissões amplas:</strong> o app pede Gravação de Tela, Acessibilidade e Monitoramento de Entrada no macOS. No Android, o APK completo lê notificações e SMS e usa Acessibilidade. A depuração sem fio e a USB ficam ligadas no celular enquanto o recurso estiver em uso; o próprio app tem uma opção para desligá-las quando o computador sai (<strong>General &gt; Allow on the phone</strong>).</li>
+<li><strong>Privacidade:</strong> segundo o README, a única requisição à internet é a verificação de atualizações nos releases do GitHub, e ela pode ser desligada.</li>
+<li><strong>Mesh</strong> está em beta. Câmera, imagens na área de transferência e arrastar arquivos para vários aparelhos ainda não funcionam nele. O celular se conecta a um computador por vez, e o Linux só entra pelo mesmo Wi-Fi.</li>
+<li><strong>No Linux:</strong> pasta compartilhada usa Samba, webcam virtual usa v4l2loopback e gamepad usa uinput. Cada um pede a senha uma vez. Abrir apps remotos e arrastar arquivos para fora do Linux exige sessão Xorg. O &quot;Extend&quot; no X11 não funciona com o driver da NVIDIA.</li>
+<li>Licença GPL-3.0. Partes do código vêm do DeskPad (MIT). Projeto novo (out/2026), com releases frequentes.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/InukaAsith/TwinDesk#readme">README</a></li>
+<li><a href="https://twin-desk.vercel.app">Site</a></li>
+<li><a href="https://github.com/InukaAsith/TwinDesk/releases">Releases</a></li>
+<li><a href="https://github.com/InukaAsith/homebrew-twindesk">Tap do Homebrew</a></li>
+<li><a href="https://github.com/InukaAsith/TwinDesk/blob/main/docs/nixos.md">NixOS (docs/nixos.md)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

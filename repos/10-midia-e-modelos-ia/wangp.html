@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WanGP · Repositórios favoritos</title>
+<meta name="description" content="Super app em interface web para gerar vídeo, imagem e áudio com os melhores modelos open source (Wan, LTX, Hunyuan, Flux, Qwen e outros), pensado para quem tem pouca VRAM.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>WanGP</h1>
+    <p class="lead">Super app em interface web para gerar vídeo, imagem e áudio com os melhores modelos open source (Wan, LTX, Hunyuan, Flux, Qwen e outros), pensado para quem tem pouca VRAM.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/deepbeepmeep/WanGP">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">deepbeepmeep/WanGP</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/deepbeepmeep/WanGP">deepbeepmeep/WanGP</a> (também chamado Wan2GP)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/deepbeepmeep/WanGP/tree/main/docs">docs/ no repositório</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>WanGP Community License 2.0 (própria)</dd></div>
+<div><dt>Estrelas</dt><dd>~10,6k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O WanGP, de DeepBeepMeep, é um aplicativo &quot;tudo em um&quot; para modelos generativos open source de vídeo, imagem, áudio e texto para fala, acessível a quem tem GPU modesta (&quot;GPU poor&quot;). O repositório é um fork do Wan2.1 que evoluiu para um app próprio, com interface web completa para gerar, gerenciar e reutilizar resultados.</p>
+<p>Ele otimiza memória e velocidade para rodar modelos grandes em placas com pouca VRAM, e baixa automaticamente os arquivos de modelo adequados à sua arquitetura de GPU.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Vídeo: Wan 2.1/2.2, MiniMax H3, LTX-2/2.3/2.5, Hunyuan Video 1/1.5, LongCat, Kandinsky e outros.</li>
+<li>Imagem: Krea 2, Qwen Image, Z-Image, Flux 1/2, HiDream e outros.</li>
+<li>Áudio e TTS: Qwen3 TTS, Ace Step, Index TTS, Chatterbox, Stable Audio e outros.</li>
+<li>Baixa exigência de VRAM: alguns modelos rodam com a partir de 6 GB; suporte a GTX 10XX, RTX 20XX em diante e GPUs AMD (RDNA 2, 3, 3.5 e 4).</li>
+<li>Customização com LoRAs e vários formatos quantizados (int8, fp8, gguf, NV FP4, Nunchaku).</li>
+<li>Modo headless para processar filas em lote e agente offline &quot;Deepy&quot; para tarefas auxiliares.</li>
+<li>Workspaces para organizar mídias geradas por projeto.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<p>(Conforme <code>docs/INSTALLATION.md</code>.)</p>
+<ul>
+<li>GPU NVIDIA (ou AMD suportada). Recomendação: Python 3.11.14 com PyTorch 2.10 e CUDA 13.0/13.1 para RTX 20XX a 50XX; Python 3.10.9 com PyTorch 2.7.1 e CUDA 12.8 para GTX 10XX.</li>
+<li>O guia desaconselha PyTorch 2.8.0 e 2.9.0.</li>
+<li>Conda (Anaconda ou Miniconda) para a instalação manual.</li>
+<li>Windows ou Linux.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="instalador-de-um-clique-recomendado">Instalador de um clique (recomendado)</h3>
+<p>Os scripts automáticos instalam o WanGP e os kernels de aceleração disponíveis para a sua configuração (Triton, Sage, Flash, GGUF, Lightx2v, Nunchaku).</p>
+<ul>
+<li>Windows: clique duas vezes em <code>scripts\install.bat</code>.</li>
+<li>Linux/macOS: execute <code>scripts/install.sh</code>.</li>
+</ul>
+<p>Escolha entre <strong>Auto Install</strong> (instala a pilha recomendada para a sua GPU) e <strong>Manual Install</strong> (escolhe o gerenciador de pacotes, o nome do ambiente e o modo). Para executar: <code>scripts\run.bat</code> (Windows) ou <code>scripts/run.sh</code>. Para atualizar: <code>scripts\update.bat</code> ou <code>scripts/update.sh</code> (Update atualiza o código; Upgrade permite atualizar PyTorch, Triton e Sage Attention).</p>
+<p>Para passar argumentos ao iniciar, crie <code>scripts/args.txt</code>, por exemplo:</p>
+<pre><code class="language-text">--advanced --open-browser
+</code></pre>
+<h3 id="instalacao-manual-rtx-20xx-a-50xx">Instalação manual (RTX 20XX a 50XX)</h3>
+<p>Requer CUDA 13.1 instalado.</p>
+<pre><code class="language-bash">git clone https://github.com/deepbeepmeep/Wan2GP.git
+cd Wan2GP
+conda create -n wan2gp python=3.11.14
+conda activate wan2gp
+pip install torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url https://download.pytorch.org/whl/cu130
+pip install -r requirements.txt
+</code></pre>
+<p>Para GTX 10XX, o guia usa Python 3.10.9, PyTorch 2.7.1 e CUDA 12.8 (veja <code>docs/INSTALLATION.md</code>).</p>
+<h3 id="outras-opcoes">Outras opções</h3>
+<ul>
+<li>Pinokio: o README recomenda os scripts da comunidade <code>wan2gp</code> ou <code>wan2gp-amd</code> (por Morpheus) em vez do instalador oficial do Pinokio.</li>
+<li>Docker (Debian/Ubuntu): <code>./run-docker-cuda-deb.sh</code>, que detecta a GPU, instala o runtime NVIDIA Docker se preciso, constrói a imagem e executa o app.</li>
+</ul>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">python wgp.py                       # inicia a interface web
+python wgp.py --process my_queue.zip   # processa uma fila salva, sem abrir a UI
+</code></pre>
+<p>Fluxo típico: abra a interface no navegador, escolha o modelo, escreva o prompt, ajuste resolução e duração e gere. Para economizar VRAM, em <em>Config &gt; RAM/VRAM Management</em> use um <em>MMGP Optimized VRAM Allocator</em> e ative <em>Smart Memory Pinning</em>; desativar a aceleração por GPU do navegador libera de 1 a 5 GB (use <code>scripts/start-chrome-no-gpu.bat</code> ou <code>.sh</code>).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gerar vídeos e imagens com modelos open source em placas com pouca VRAM.</li>
+<li>Testar vários modelos de vídeo, imagem e áudio em uma única interface.</li>
+<li>Processar filas de geração em lote.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A licença é própria (WanGP Community License 2.0): em resumo, uso livre, inclusive em empresas, e saídas podem ser vendidas; leia o <code>LICENSE.txt</code> para as restrições.</li>
+<li>Exige GPU; sem uma placa compatível a geração é inviável.</li>
+<li>Os modelos baixados ocupam muito espaço em disco.</li>
+<li>Após atualizar o PyTorch, pode ser preciso reinstalar Sage Attention, Triton e Flash Attention.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/deepbeepmeep/WanGP#readme">README</a></li>
+<li><a href="https://github.com/deepbeepmeep/WanGP/blob/main/docs/INSTALLATION.md">Guia de instalação</a></li>
+<li><a href="https://github.com/deepbeepmeep/WanGP/blob/main/docs/CHANGELOG.md">Changelog</a></li>
+<li><a href="https://github.com/deepbeepmeep/WanGP/blob/main/docs/CLI.md">CLI</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oh My Antigravity (OMA) · Repositórios favoritos</title>
+<meta name="description" content="Framework de orquestração multiagente com 28 agentes especializados para o Google Antigravity IDE (repositório arquivado e desatualizado).">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>Oh My Antigravity (OMA)</h1>
+    <p class="lead">Framework de orquestração multiagente com 28 agentes especializados para o Google Antigravity IDE (repositório arquivado e desatualizado).</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/turnabouthero/oh-my-antigravity">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">turnabouthero/oh-my-antigravity</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/turnabouthero/oh-my-antigravity">turnabouthero/oh-my-antigravity</a></dd></div>
+<div><dt>Site / Docs</dt><dd>— (documentação em <code>docs/</code> no repositório)</dd></div>
+<div><dt>Linguagem</dt><dd>PowerShell (CLI também em shell script)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~13 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<blockquote>
+<p><strong>Atenção: repositório ARQUIVADO e sem manutenção.</strong> O próprio README informa que o Google Antigravity passou a ter uma CLI oficial com sistema de skills embutido, e que o OMA está fora da especificação atual. Registrado aqui apenas como referência.</p>
+</blockquote>
+<h2 id="o-que-e">O que é</h2>
+<p>O Oh My Antigravity (OMA) transforma o Antigravity IDE em um ambiente multiagente, com 28 agentes especializados definidos como skills (Sisyphus como orquestrador, Prometheus como planejador, Oracle como arquiteto, CodeSmith no backend, Pixel no frontend, Tester, Debugger, Security Guard e outros). É inspirado no Oh My Claude Code e no Oh My OpenCode.</p>
+<p>A ideia era delegar tarefas por um protocolo explícito entre agentes e rotear cada tarefa para o backend de IA mais adequado (Codex, Claude ou Gemini), com uma CLI <code>oma</code> multiplataforma e uma memória local de longo prazo por projeto (Project Cortex).</p>
+<p>Hoje o projeto não funciona com as versões atuais do Antigravity (veja Observações).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>28 definições de agentes (skills), do orquestrador a especialistas em dados, banco e segurança.</li>
+<li>Roteamento por backend de IA: Claude Opus para planejamento, Codex para arquitetura, testes e depuração, Gemini para frontend, Claude Code para backend.</li>
+<li>Protocolo de delegação entre agentes.</li>
+<li>CLI <code>oma</code> para Windows, macOS e Linux.</li>
+<li>SubAgents isolados com sessões consultáveis (<code>oma spawn</code>, <code>oma session</code>).</li>
+<li>Memória persistente por projeto (<code>oma memory</code>).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Google Antigravity IDE (em versão antiga, compatível com os caminhos <code>~/.gemini/antigravity/skills</code> e <code>.agent/skills</code>).</li>
+<li>Node.js para o <code>npx</code>, ou PowerShell/Bash para os instaladores locais.</li>
+<li>Para o roteamento multi-IA, as CLIs de Codex, Claude e Gemini (integração listada como &quot;em andamento&quot; no README).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Formas documentadas no README (não recomendadas hoje, veja Observações):</p>
+<pre><code class="language-bash"># via npm
+npx oh-my-antigravity
+</code></pre>
+<pre><code class="language-bash"># clonando o repositório
+git clone https://github.com/turnabouthero/oh-my-antigravity.git
+cd oh-my-antigravity
+
+# Windows
+.\lib\install.ps1
+
+# macOS/Linux
+bash lib/install.sh
+</code></pre>
+<p>O README usa o placeholder <code>YOUR_USERNAME</code> na URL do <code>git clone</code>; acima foi usado o dono real do repositório. O README também lista o pacote npm como item &quot;em andamento&quot;, então não há garantia de que o <code>npx</code> funcione.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">oma &quot;Analyze the project and design a new logo&quot;   # o Sisyphus planeja e executa a tarefa
+oma list                                          # lista agentes/skills disponíveis
+oma install oracle                                # instala um agente (global)
+oma install oracle --project                      # instala só no projeto
+oma remove oracle                                 # remove um agente
+oma update                                        # atualiza o OMA
+oma spawn oracle &quot;Research best practices for Next.js auth&quot;   # cria um SubAgent isolado
+oma session list                                  # lista sessões de SubAgents
+oma session result &lt;id&gt;                           # resultado de uma sessão
+oma memory save &quot;Use TailwindCSS v3.4 for this project&quot;       # salva uma informação
+oma memory recall &lt;consulta&gt;                      # busca nas memórias
+oma memory list                                   # memórias recentes
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Como referência de como estruturar um conjunto de agentes e um protocolo de delegação em formato de skills.</li>
+<li>Para estudar a ideia de roteamento por backend de IA.</li>
+<li>Para uso real no Antigravity, prefira a CLI oficial e o sistema de skills nativo.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Arquivado e sem manutenção</strong> (flag de arquivado no GitHub; último push em set/2026). Apenas ~13 estrelas, ou seja, quase nenhuma adoção ou validação pela comunidade.</li>
+<li><strong>Incompatível com o Antigravity atual:</strong> o OMA instala skills em <code>~/.gemini/antigravity/skills</code>, mas o Antigravity agora lê <code>~/.gemini/config/skills</code>, e o escopo de projeto mudou de <code>.agent/skills</code> para <code>.agents/skills</code>. Segundo o README, a CLI não funciona nas versões atuais.</li>
+<li>O README indica que várias partes eram incompletas (configs de SubAgent 5/28, integração com CLIs externas, extensão do VS Code e pacote npm em andamento).</li>
+<li>Para o mesmo propósito, use a <a href="https://antigravity.google/product/antigravity-cli/">CLI oficial do Antigravity</a> e seu <a href="https://antigravity.google/docs/skills/">sistema de skills</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/turnabouthero/oh-my-antigravity#readme">README</a></li>
+<li><a href="https://github.com/turnabouthero/oh-my-antigravity/blob/main/docs/AGENTS.md">Catálogo dos 28 agentes</a></li>
+<li><a href="https://github.com/turnabouthero/oh-my-antigravity/blob/main/docs/DELEGATION.md">Protocolo de delegação</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

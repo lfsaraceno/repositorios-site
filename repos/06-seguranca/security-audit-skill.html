@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security Audit Skill (Cloudflare) · Repositórios favoritos</title>
+<meta name="description" content="Skill para agentes de código que conduz auditorias de segurança em várias fases, com achados validados de forma independente e saída estruturada legível por máquina.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>Security Audit Skill (Cloudflare)</h1>
+    <p class="lead">Skill para agentes de código que conduz auditorias de segurança em várias fases, com achados validados de forma independente e saída estruturada legível por máquina.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/cloudflare/security-audit-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">cloudflare/security-audit-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/cloudflare/security-audit-skill">cloudflare/security-audit-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://blog.cloudflare.com/build-your-own-vulnerability-harness">Build your own vulnerability harness (blog da Cloudflare)</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~31k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É a skill que serviu de semente para o harness de descoberta de vulnerabilidades da Cloudflare, descrito no post &quot;Build your own vulnerability harness&quot;. O harness original cresceu para um sistema multi-estágio; esta skill é o ponto de partida para um único repositório.</p>
+<p>Ela transforma o agente de código em um auditor de segurança, orquestrando agentes isolados por reconhecimento, caça guiada por cobertura, validação de candidatos, saída estruturada, verificação independente dos registros e relatório neutro quanto ao alvo.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Auditoria em seis fases: reconhecimento, caça guiada por cobertura, validação de candidatos, saída estruturada, verificação independente e relatório</li>
+<li>Veredictos distintos: <code>confirmed</code> (rastro completo da fonte e resultado observado), <code>needs_validation</code> (fato pendente exato, sem severidade) e <code>rejected</code></li>
+<li>Validação adversarial: o agente que verifica um achado nunca é o que o encontrou</li>
+<li>Arquivos <code>findings.json</code> e <code>coverage-ledger.json</code> validados por schema e por validadores sem dependências (Node.js)</li>
+<li>Relatórios derivados: <code>REPORT.md</code>, <code>FINDINGS-DETAIL.md</code> e <code>NEEDS-VALIDATION.md</code></li>
+<li>Classes de caça por tipo de alvo: memória/binário, IA e LLM, web/protocolos/autenticação, client-side, cadeia de suprimentos, nuvem, RPC/mensageria, exaustão de recursos, isolamento de dados e desktop/mobile</li>
+<li>Execuções repetidas são aditivas: usam ledgers anteriores para atacar lacunas</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Agente de código com modelo que suporte uso de ferramentas e subagentes paralelos</li>
+<li>Node.js para os validadores de achados e do ledger de cobertura</li>
+<li>Sandbox aplicado pelo sistema operacional para builds, testes, processos, navegadores, fuzzers e fixtures controlados pelo alvo: sem rede externa, ambiente saneado com lista de permissão, limites de recursos e escrita apenas em caminhos de rascunho atribuídos</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Com o <a href="https://skills.sh">Skills CLI</a>:</p>
+<pre><code class="language-bash">npx skills add https://github.com/cloudflare/security-audit-skill \
+  --skill security-audit
+</code></pre>
+<p>Instalação em nível de usuário:</p>
+<pre><code class="language-bash">npx skills add https://github.com/cloudflare/security-audit-skill \
+  --skill security-audit \
+  --global
+</code></pre>
+<p>Rode <code>npx skills --help</code> para opções de seleção de agente e modo não interativo.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Inicie o agente dentro (ou apontando para) do código que será auditado e peça:</p>
+<pre><code class="language-text">security audit this codebase
+find security vulnerabilities in ./src
+do a security review, output to ~/audits/my-project
+</code></pre>
+<p>A skill é ativada quando o pedido corresponde ao gatilho (auditoria de segurança, achar vulnerabilidades, pen-test do código). Um pedido direto de auditoria usa o modo completo; perguntas de segurança e trabalhos focados usam o modo de orientação, a menos que você peça artefatos de relatório.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Auditoria de segurança de um repositório próprio antes de release</li>
+<li>Triagem de candidatos a vulnerabilidade com validação independente para reduzir falsos positivos</li>
+<li>Gerar relatórios de auditoria estruturados e rastreáveis</li>
+<li>Reauditar um projeto ao longo do tempo, aproveitando a cobertura anterior</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Use apenas em código que você possui ou tem autorização para auditar.</li>
+<li>Rode builds e testes do alvo somente em sandbox com rede desativada, como exigido pelo README.</li>
+<li>Princípios do projeto: só confirmar falhas de fronteira estabelecidas, lacunas de defesa em profundidade são notas de hardening (não vulnerabilidades) e múltiplas execuções melhoram a cobertura (nos testes dos autores, uma execução achou cerca de metade do total encontrado por execuções repetidas).</li>
+<li>Auditorias com vários agentes consomem muitos tokens.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/cloudflare/security-audit-skill#readme">README</a></li>
+<li><a href="https://blog.cloudflare.com/build-your-own-vulnerability-harness">Post do blog da Cloudflare</a></li>
+<li><a href="https://skills.sh">Skills CLI</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/anthropic-cybersecurity-skills.html">Anthropic Cybersecurity Skills</a></li>
+<li><a href="../../repos/06-seguranca/ghidra.html">Ghidra</a></li>
+<li><a href="../../repos/06-seguranca/pentagi.html">PentAGI</a></li>
+<li><a href="../../repos/06-seguranca/phoneintel.html">PhoneIntel</a></li>
+<li><a href="../../repos/06-seguranca/raptor.html">RAPTOR</a></li>
+<li><a href="../../repos/06-seguranca/rea.html">REA (Reverse Engineer Anything)</a></li>
+<li><a href="../../repos/06-seguranca/trailofbits-skills.html">Trail of Bits Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoiceStudio · Repositórios favoritos</title>
+<meta name="description" content="Alternativa open source e 100% local ao ElevenLabs: clonagem e design de voz, dublagem de vídeo, ditado, transcrição e audiolivros em 646 idiomas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>VoiceStudio</h1>
+    <p class="lead">Alternativa open source e 100% local ao ElevenLabs: clonagem e design de voz, dublagem de vídeo, ditado, transcrição e audiolivros em 646 idiomas.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/debpalash/VoiceStudio">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">debpalash/VoiceStudio</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://voicestudio.sh">voicestudio.sh</a> · <a href="https://github.com/debpalash/VoiceStudio/tree/main/docs">Documentação</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (backend) + Electron (app desktop)</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0 (modelos e vozes têm licenças próprias)</dd></div>
+<div><dt>Estrelas</dt><dd>~78k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O VoiceStudio é um estúdio de voz com IA que roda na sua máquina, sem depender de serviço na nuvem. Num app desktop (Electron) ou numa interface web via Docker, você clona uma voz a partir de uma gravação de referência, cria uma voz nova descrevendo-a em texto, dubla vídeos com fala sincronizada, dita em qualquer campo de texto com um widget flutuante, transcreve áudio e gera audiolivros e histórias em lote.</p>
+<p>O motor padrão é o próprio VoiceStudio (baseado no k2-fsa/OmniVoice), mas dá para escolher entre vários outros motores de voz, como CosyVoice 3, IndexTTS 2.5, KittenTTS, MOSS-TTS e sherpa-onnx. Para transcrição, o padrão é o WhisperX, com alternativas como Faster-Whisper, Parakeet e Moonshine. Os modelos são baixados e gerenciados dentro do app.</p>
+<p>Também funciona como serviço local de fala para outros programas: tem API HTTP compatível com a da OpenAI, WebSocket para transcrição ao vivo e um <strong>servidor MCP</strong>, que deixa agentes como Claude Code, Codex e Cursor gerarem fala, clonarem vozes e transcreverem áudio.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Clonagem de voz a partir de uma gravação limpa de referência.</li>
+<li>Design de voz por descrição em texto (gênero, idade, tom, estilo, sotaque).</li>
+<li>Dublagem de vídeo com fala no tempo certo.</li>
+<li>Widget de ditado flutuante com atalho global, que funciona em qualquer campo de texto.</li>
+<li>Transcrição, isolamento de voz e separação de falantes (diarização).</li>
+<li>Fila de lotes, receitas reutilizáveis e pastas monitoradas para produção de audiolivros.</li>
+<li>Servidor MCP e API local (OpenAI-compatible e WebSocket).</li>
+<li>Marca d'água de IA, detecção automática de GPU e app complementar para iOS e Android (prévia).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Windows 10 ou 11 (x64)</strong>, macOS com Apple Silicon ou Linux. O Windows em ARM é experimental, e o Mac Intel só roda a interface, conectada a um backend remoto.</li>
+<li><strong>Cerca de 10 GB livres</strong> para o app, o ambiente Python e os modelos (cerca de 5 GB numa máquina sem GPU NVIDIA).</li>
+<li>Opcional: <strong>GPU NVIDIA</strong> com driver comum para aceleração CUDA (não precisa do CUDA Toolkit). Sem GPU, tudo funciona na CPU, só que mais devagar.</li>
+<li>Python, FFmpeg e os modelos são instalados pelo próprio app na primeira execução.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="windows">Windows</h3>
+<p>Opção 1: baixe o <code>VoiceStudio-Electron-&lt;versão&gt;-win-x64.exe</code> na <a href="https://github.com/debpalash/VoiceStudio/releases/latest">página de releases</a> e rode. A instalação é só para o seu usuário e não pede administrador. Compare o arquivo com o <code>SHA256SUMS.txt</code> da release.</p>
+<p>Opção 2: num PowerShell comum (sem administrador), o script escolhe o instalador certo, confere e abre o assistente:</p>
+<pre><code class="language-powershell">irm https://voicestudio.sh/install | iex
+</code></pre>
+<p>Para não encher o <code>C:</code>, aponte os motores para outro disco antes de abrir o app:</p>
+<pre><code class="language-powershell">[Environment]::SetEnvironmentVariable('OMNIVOICE_ENGINES_DIR', 'D:\VoiceStudio\engines', 'User')
+</code></pre>
+<h3 id="macos-e-linux">macOS e Linux</h3>
+<pre><code class="language-sh">curl -fsSL https://voicestudio.sh/install | sh                          # última versão
+curl -fsSL https://voicestudio.sh/install | sh -s -- --uninstall        # remove o app, mantendo os dados
+</code></pre>
+<p>Também há pacotes <code>.dmg</code>, <code>.AppImage</code> e <code>.deb</code> nas releases.</p>
+<h3 id="docker-servidor-interface-pelo-navegador">Docker (servidor, interface pelo navegador)</h3>
+<p>As imagens são só <code>linux/amd64</code>. CPU:</p>
+<pre><code class="language-bash">docker run -d --name omnivoice \
+  -p 127.0.0.1:3900:3900 \
+  -e OMNIVOICE_API_KEY=&quot;$OMNIVOICE_API_KEY&quot; \
+  -v omnivoice-data:/app/omnivoice_data \
+  ghcr.io/debpalash/voicestudio:stable
+</code></pre>
+<p>Com GPU NVIDIA, acrescente <code>--gpus all</code> (exige o NVIDIA Container Toolkit no host). Depois, abra http://localhost:3900. A primeira execução baixa cerca de 2,4 GB de modelos.</p>
+<p>A forma recomendada é o Docker Compose do repositório, com perfis <code>cpu</code>, <code>gpu</code> e <code>rocm</code>:</p>
+<pre><code class="language-bash">docker compose -f deploy/docker-compose.yml --profile gpu up -d
+</code></pre>
+<p>Use a tag <code>:stable</code> em produção. A <code>:latest</code> acompanha a branch <code>main</code> e é uma prévia.</p>
+<h3 id="instalar-pedindo-a-um-agente">Instalar pedindo a um agente</h3>
+<p>Cole no Claude Code, Codex ou Cursor:</p>
+<pre><code class="language-text">Install the VoiceStudio Electron app on this device and verify it works, following
+https://github.com/debpalash/VoiceStudio/blob/main/docs/install/agent.md
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>No app:</strong> abra <strong>Voice cloning</strong>, escolha uma voz ou adicione uma gravação limpa de referência, digite o texto e gere. Instale o modelo quando o app pedir. Em PCs sem GPU, escolha um motor leve (KittenTTS, Supertonic-3, PocketTTS) e um Whisper pequeno no catálogo de modelos.</p>
+<p><strong>Servidor MCP para agentes:</strong> com o VoiceStudio aberto, o MCP já está no ar em:</p>
+<pre><code class="language-text">http://localhost:3900/mcp/
+</code></pre>
+<p>Em <strong>Integrations</strong>, o app exporta a configuração pronta para Claude Code (<code>.mcp.json</code>), Cursor (<code>.cursor/mcp.json</code>) e Codex CLI (<code>~/.codex/config.toml</code>). As ferramentas expostas são <code>generate_speech</code>, <code>clone_voice</code>, <code>design_voice</code>, <code>describe_voice</code>, <code>transcribe</code>, <code>list_voices</code> e <code>check_health</code>. Cada agente pode ter uma voz própria, definida pelo cabeçalho <code>X-OmniVoice-Client-Id</code>.</p>
+<p><strong>API local:</strong></p>
+<pre><code class="language-bash">curl http://127.0.0.1:3900/.well-known/voicestudio-speech      # lista as capacidades do serviço
+python -m backend.speech_client transcribe recording.wav       # transcreve um arquivo (a partir do código-fonte)
+</code></pre>
+<p>Endpoints principais: <code>POST :3900/v1/audio/transcriptions</code> (compatível com a OpenAI) e <code>ws://127.0.0.1:3900/v1/audio/transcriptions/stream</code> (transcrição ao vivo).</p>
+<p><strong>Skills para agentes:</strong></p>
+<pre><code class="language-bash">npx skills add debpalash/VoiceStudio    # escolha &quot;voicestudio&quot; para fluxos de áudio
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Narrar vídeos, cursos e anúncios com voz natural sem pagar ElevenLabs e sem mandar áudio para a nuvem.</li>
+<li>Dublar vídeos para outros idiomas.</li>
+<li>Ditar textos e prompts em qualquer app, inclusive no Claude Code, com transcrição local.</li>
+<li>Dar voz e transcrição a agentes de IA via MCP.</li>
+<li>Produzir audiolivros e conteúdo em lote.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>AGPL-3.0:</strong> se você oferecer o VoiceStudio modificado como serviço na rede, precisa disponibilizar o código-fonte. Os pesos dos modelos, as vozes e as condições de uso do áudio gerado têm licenças separadas: confira no Model Manager antes de uso comercial.</li>
+<li><strong>Clone vozes só com permissão</strong> da pessoa dona da voz.</li>
+<li><strong>GPU AMD no Windows não acelera</strong> os motores PyTorch, que rodam na CPU. Uma exceção é o motor audio.cpp, que tem build Vulkan. O ROCm só funciona no Linux.</li>
+<li>Em placas com menos de 16 GB de VRAM, alguns motores (IndexTTS 2.5, CosyVoice) podem estourar memória no Windows. Ative <strong>Settings → Performance → Disable torch.compile</strong>.</li>
+<li>Alguns modelos pedem um token do Hugging Face. Cadastre em <strong>Settings → API Keys</strong>.</li>
+<li>As estatísticas de uso são opcionais e pedem consentimento. No Docker, <code>-e OMNIVOICE_ANALYTICS_DISABLED=1</code> desliga de vez.</li>
+<li>O projeto é novo (criado em abr/2026) e muda rápido. A versão 0.5.3 foi a última com o app Tauri; quem a usa precisa migrar para o Electron.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/debpalash/VoiceStudio#readme">README</a></li>
+<li><a href="https://github.com/debpalash/VoiceStudio/releases/latest">Releases</a></li>
+<li><a href="https://github.com/debpalash/VoiceStudio/blob/main/docs/install/windows.md">Instalação no Windows</a> · <a href="https://github.com/debpalash/VoiceStudio/blob/main/docs/install/docker.md">Docker</a></li>
+<li><a href="https://github.com/debpalash/VoiceStudio/blob/main/docs/feature-catalog.md">Recursos e motores</a></li>
+<li><a href="https://github.com/debpalash/VoiceStudio/blob/main/docs/mcp.md">Servidor MCP</a> · <a href="https://github.com/debpalash/VoiceStudio/blob/main/docs/speech-platform.md">API local de fala</a></li>
+<li><a href="https://github.com/debpalash/VoiceStudio/blob/main/docs/install/troubleshooting.md">Solução de problemas</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

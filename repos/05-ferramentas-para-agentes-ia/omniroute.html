@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OmniRoute · Repositórios favoritos</title>
+<meta name="description" content="Gateway de IA local com um único endpoint compatível com OpenAI que roteia Claude Code, Codex, Cursor, Cline e outros para centenas de provedores, com fallback automático e compressão de tokens.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>OmniRoute</h1>
+    <p class="lead">Gateway de IA local com um único endpoint compatível com OpenAI que roteia Claude Code, Codex, Cursor, Cline e outros para centenas de provedores, com fallback automático e compressão de tokens.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/diegosouzapw/OmniRoute">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">diegosouzapw/OmniRoute</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/diegosouzapw/OmniRoute">diegosouzapw/OmniRoute</a> (branch padrão <code>release/v3.8.52</code>)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://omniroute.online">omniroute.online</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~78k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O OmniRoute é um gateway de IA que roda na sua máquina (ou em um servidor) e expõe um único endpoint em <code>http://localhost:20128/v1</code>. Ferramentas de código como Claude Code, Codex, Cursor, OpenCode, Cline e Copilot apontam para esse endpoint, e o OmniRoute decide para qual provedor e modelo encaminhar cada requisição.</p>
+<p>Você conecta suas próprias contas e chaves de provedores (o README cataloga 375 provedores, dos quais cerca de 150 com camada gratuita). Quando uma cota acaba ou um provedor falha, o roteador passa para a próxima opção. O modelo <code>auto</code> escolhe entre as conexões elegíveis, e é possível montar &quot;combos&quot; com estratégias de roteamento próprias.</p>
+<p>Os tokens gratuitos citados no README (~1,62 bilhão por mês) são uma estimativa agregada de camadas gratuitas de terceiros, não uma concessão do OmniRoute. Cada provedor controla limites, disponibilidade e termos.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Endpoint único compatível com OpenAI (chat, embeddings, imagens, áudio, OCR)</li>
+<li>Fallback automático e agendamento ciente de cota entre provedores</li>
+<li>Combos com 19 estratégias de roteamento e modelo <code>auto</code> sem configuração</li>
+<li>Compressão de contexto (RTK + Caveman e outros motores) que, segundo o README, economiza de 15% a 95% dos tokens</li>
+<li>Servidor MCP (stdio e HTTP, com 110 ferramentas) e servidor A2A para que agentes controlem o próprio gateway</li>
+<li>CLI com mais de 80 comandos e modo remoto com tokens de acesso com escopo</li>
+<li>Dashboard web, versão desktop/PWA e integração com o Copilot Chat do VS Code</li>
+<li>Catálogo de camadas gratuitas com uso e cota restante em <code>/dashboard/free-tiers</code></li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js e npm (o pacote é instalado globalmente via npm); alternativas: Docker, Bun, pnpm, código-fonte</li>
+<li>Contas ou chaves de API dos provedores que você pretende usar</li>
+<li>Com npm 11 ou superior, scripts de ciclo de vida podem ser bloqueados; o <code>postinstall</code> do OmniRoute é necessário (veja abaixo)</li>
+<li>Para provedores via cookie web (como Gemini Web): o pacote inclui Playwright, mas não o binário do Chromium</li>
+<li>Memória: a imagem Docker usa <code>OMNIROUTE_MEMORY_MB=1024</code> por padrão; para um agente de código, o README recomenda heap de 8192 e container com pelo menos 10 GB</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="quick-start-secao-aberta-pelo-usuario">Quick Start (seção aberta pelo usuário)</h3>
+<ol>
+<li>Instalar e executar:</li>
+</ol>
+<pre><code class="language-bash">npm install -g omniroute
+omniroute
+</code></pre>
+<p>O dashboard fica em <code>http://localhost:20128</code> e a API em <code>http://localhost:20128/v1</code>.</p>
+<p>Com npm 11 ou superior, permita os scripts dos pacotes citados no aviso do npm:</p>
+<pre><code class="language-bash">npm install -g --allow-scripts=omniroute,keytar,onnxruntime-node,@parcel/watcher,@swc/core,protobufjs,esbuild omniroute
+</code></pre>
+<p>Para reutilizar a lista de permissões nas próximas instalações globais:</p>
+<pre><code class="language-bash">npm config set allow-scripts=omniroute,keytar,onnxruntime-node,@parcel/watcher,@swc/core,protobufjs,esbuild --location=user
+npm install -g omniroute
+</code></pre>
+<p>A lista pode mudar entre versões; use os nomes que o npm indicar no aviso. Avisos <code>npm warn ERESOLVE</code> são considerados inofensivos pelo README.</p>
+<ol start="2">
+<li>
+<p>Conectar um provedor com sua própria conta: Dashboard → <strong>Providers</strong>, escolha um provedor cujos termos e cota atendam seu uso e adicione a chave de API ou conclua o fluxo da conta.</p>
+</li>
+<li>
+<p>Apontar sua ferramenta de código:</p>
+</li>
+</ol>
+<pre><code class="language-txt">Base URL: http://localhost:20128/v1
+API Key:  [copiar de Dashboard → Endpoints]
+Model:    auto            (ou provedor/modelo)
+</code></pre>
+<ol start="4">
+<li>Verificar:</li>
+</ol>
+<pre><code class="language-bash">curl http://localhost:20128/v1/models -H &quot;Authorization: Bearer YOUR_KEY&quot;
+</code></pre>
+<h3 id="docker">Docker</h3>
+<pre><code class="language-bash">docker run -d --name omniroute --restart unless-stopped --stop-timeout 40 \
+  -p 127.0.0.1:20128:20128 -v omniroute-data:/app/data diegosouzapw/omniroute:latest
+</code></pre>
+<p><code>:latest</code> segue a versão estável publicada mais recente. Para GitOps, fixe <code>:X.Y.Z</code>. As tags <code>next</code> e <code>next-web</code> são pré-lançamento e não são suportadas em produção.</p>
+<p>Para um agente de código com mais memória:</p>
+<pre><code class="language-bash">docker run -d --name omniroute --restart unless-stopped --stop-timeout 40 \
+  -e OMNIROUTE_MEMORY_MB=8192 --memory=10g \
+  -p 127.0.0.1:20128:20128 -v omniroute-data:/app/data diegosouzapw/omniroute:latest
+</code></pre>
+<h3 id="outras-formas">Outras formas</h3>
+<pre><code class="language-bash"># pnpm
+pnpm add -g omniroute@latest --allow-build=better-sqlite3 --allow-build=@swc/core &amp;&amp; omniroute
+
+# Código-fonte
+cp .env.example .env &amp;&amp; npm install
+PORT=20128 npm run dev
+</code></pre>
+<p>O README também documenta Bun, Nix, devbox, Podman e Arch Linux; consulte a seção &quot;More install methods&quot;.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">omniroute                # sobe gateway e dashboard (porta 20128)
+omniroute chat           # cliente de chat em TUI (/model, /combo, /skill, /memory)
+omniroute setup          # assistente guiado de primeira execução
+omniroute doctor         # diagnostica provedores, portas e dependências nativas
+omniroute --mcp          # servidor MCP via stdio (Claude Desktop, Cursor etc.)
+omniroute connect &lt;host&gt; # conecta o CLI a uma instância remota
+omniroute models         # lista modelos (da instância ativa)
+omniroute configure codex  # escolhe um modelo e grava o perfil local do Codex
+</code></pre>
+<p>Teste rápido de chat:</p>
+<pre><code class="language-bash">curl http://localhost:20128/v1/chat/completions \
+  -H &quot;Authorization: Bearer YOUR_OMNIROUTE_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;model&quot;:&quot;auto&quot;,&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Hello!&quot;}]}'
+</code></pre>
+<p>Dar ao Claude Code as ferramentas do OmniRoute via MCP:</p>
+<pre><code class="language-bash">claude mcp add-server omniroute --type http --url http://localhost:20128/api/mcp/stream
+</code></pre>
+<p>Para clientes que não enviam cabeçalho <code>Authorization</code>, existem aliases com a chave na URL (<code>/vscode/YOUR_KEY/...</code>); o README recomenda usá-los só quando não houver alternativa.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Centralizar vários provedores de IA atrás de um único endpoint para suas ferramentas de código</li>
+<li>Evitar interrupções por limite de cota com fallback automático</li>
+<li>Reduzir o consumo de tokens com compressão de contexto</li>
+<li>Dar a agentes (via MCP/A2A) controle sobre roteamento e configuração do gateway</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Camadas gratuitas dependem de cada provedor (cadastro, aprovação, cartão de crédito), e os números do README são estimativas que sobem e descem.</li>
+<li>O catálogo marca alguns provedores com <code>tos: avoid</code> (termos de uso arriscados); verifique os termos antes de conectar contas, especialmente provedores sem chave que podem rejeitar clientes de terceiros.</li>
+<li>O gateway concentra suas chaves e o tráfego dos agentes: mantenha-o em <code>127.0.0.1</code> ou protegido por autenticação.</li>
+<li>A branch padrão atual é <code>release/v3.8.52</code>; o projeto trabalha com canais de release e roadmap para o <code>v3.9.0 LTS</code>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/diegosouzapw/OmniRoute#readme">README</a></li>
+<li><a href="https://omniroute.online">Site</a></li>
+<li><a href="https://github.com/diegosouzapw/OmniRoute/blob/release/v3.8.52/docs/getting-started/FREE-TIERS-GUIDE.md">Guia de camadas gratuitas</a></li>
+<li><a href="https://github.com/diegosouzapw/OmniRoute/blob/release/v3.8.52/docs/guides/DOCKER_GUIDE.md">Docker Guide</a></li>
+<li><a href="https://github.com/diegosouzapw/OmniRoute/blob/release/v3.8.52/docs/guides/TROUBLESHOOTING.md">Troubleshooting</a></li>
+<li><a href="https://github.com/diegosouzapw/OmniRoute/blob/release/v3.8.52/ROADMAP.md">Roadmap</a></li>
+<li><a href="https://www.npmjs.com/package/omniroute">npm: omniroute</a></li>
+<li><a href="https://hub.docker.com/r/diegosouzapw/omniroute">Docker Hub: diegosouzapw/omniroute</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

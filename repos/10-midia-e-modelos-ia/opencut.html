@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenCut · Repositórios favoritos</title>
+<meta name="description" content="Editor de vídeo gratuito e open source (alternativa ao CapCut) para web, desktop e mobile, hoje em reescrita completa.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>OpenCut</h1>
+    <p class="lead">Editor de vídeo gratuito e open source (alternativa ao CapCut) para web, desktop e mobile, hoje em reescrita completa.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/OpenCut-app/OpenCut">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">OpenCut-app/OpenCut</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/OpenCut-app/OpenCut">OpenCut-app/OpenCut</a> (também <code>opencut-app/opencut</code>)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://opencut.app">opencut.app</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (com núcleo em Rust em desenvolvimento)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~95k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O OpenCut é um editor de vídeo open source que se apresenta como alternativa ao CapCut, cujos recursos básicos passaram a ser pagos. A proposta é privacidade (os vídeos ficam no seu dispositivo), recursos gratuitos e simplicidade.</p>
+<p><strong>Atenção ao estado do projeto:</strong> o repositório principal está sendo <strong>reescrito do zero</strong>. O README informa que a versão anterior está em <a href="https://github.com/opencut-app/opencut-classic">opencut-app/opencut-classic</a> (arquivada e sem manutenção) e que ela ainda é a indicada para uso hoje. O site <a href="https://opencut.app">opencut.app</a> continua rodando a versão clássica, e a reescrita fica em <code>new.opencut.app</code> até estar pronta.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<p>Planejados para a reescrita, segundo o README:</p>
+<ul>
+<li>API do editor e plugins de terceiros (arquitetura plugin-first).</li>
+<li>Desktop, mobile e navegador a partir de uma base de código, com núcleo em Rust.</li>
+<li>Servidor MCP para agentes de IA.</li>
+<li>Modo headless para automação e renderização em lote.</li>
+<li>Aba de scripts dentro do editor.</li>
+</ul>
+<p>Na versão clássica: editor web em Next.js, timeline, app desktop nativo em andamento (GPUI) e núcleo em Rust/WASM para compositor de GPU, efeitos e máscaras.</p>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Reescrita (repo principal): <a href="https://moonrepo.dev/proto">proto</a> para instalar as ferramentas fixadas em <code>.prototools</code>, e o sistema de build moon.</li>
+<li>Versão clássica: <a href="https://bun.sh">Bun</a> e, opcionalmente, Docker com Docker Compose (banco e Redis).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>O projeto principal só documenta o ambiente de desenvolvimento (não há instalador final ainda).</p>
+<h3 id="reescrita-repositorio-principal">Reescrita (repositório principal)</h3>
+<p>Instale o proto. No Windows (PowerShell):</p>
+<pre><code class="language-powershell">irm https://moonrepo.dev/install/proto.ps1 | iex
+</code></pre>
+<p>Se os shims não rodarem, permita scripts locais: <code>Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code>. No Linux, macOS ou WSL:</p>
+<pre><code class="language-bash">bash &lt;(curl -fsSL https://moonrepo.dev/install/proto.sh)
+</code></pre>
+<p>Na raiz do repositório:</p>
+<pre><code class="language-bash">proto use              # instala as ferramentas fixadas em .prototools
+moon run web:dev       # web em localhost:5173
+moon run api:dev       # API em localhost:8787
+moon run desktop:dev   # app desktop (veja apps/desktop/README.md)
+</code></pre>
+<h3 id="versao-classica-indicada-para-uso-hoje">Versão clássica (indicada para uso hoje)</h3>
+<p>Do README do <code>opencut-classic</code>:</p>
+<pre><code class="language-bash">cp apps/web/.env.example apps/web/.env.local     # no PowerShell: Copy-Item
+docker compose up -d db redis serverless-redis-http
+bun install
+bun dev:web                                      # http://localhost:3000
+</code></pre>
+<p>Auto-hospedagem completa em Docker (app em <code>http://localhost:3100</code>):</p>
+<pre><code class="language-bash">docker compose up -d
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Para uso final, o caminho mais simples é abrir <a href="https://opencut.app">opencut.app</a> no navegador (roda a versão clássica). Os comandos acima servem para desenvolver ou hospedar por conta própria.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Edição de vídeo simples no navegador, sem marca d'água ou paywall.</li>
+<li>Acompanhar o projeto para plugins, automação e MCP quando a reescrita ficar pronta.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O repositório principal está em reescrita e <strong>não aceita contribuições externas</strong> por enquanto; a versão clássica está arquivada.</li>
+<li>A funcionalidade do repositório principal pode estar incompleta; para uso hoje, siga o <code>opencut-classic</code>.</li>
+<li>Licença MIT.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/OpenCut-app/OpenCut#readme">README</a></li>
+<li><a href="https://github.com/opencut-app/opencut-classic">Versão clássica (arquivada)</a></li>
+<li><a href="https://opencut.app">Site</a></li>
+<li><a href="https://discord.gg/zmR9N35cjK">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

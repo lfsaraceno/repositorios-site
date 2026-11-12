@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WA-AKG · Repositórios favoritos</title>
+<meta name="description" content="Gateway e painel de WhatsApp self-hosted (Next.js, Baileys e Prisma) com múltiplas sessões, agendamento, auto-resposta e webhooks.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#07-whatsapp-e-atendimento"><span aria-hidden="true">💬</span> WhatsApp e atendimento</a>
+    </nav>
+    <h1>WA-AKG</h1>
+    <p class="lead">Gateway e painel de WhatsApp self-hosted (Next.js, Baileys e Prisma) com múltiplas sessões, agendamento, auto-resposta e webhooks.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/mrifqidaffaaditya/WA-AKG">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">mrifqidaffaaditya/WA-AKG</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/mrifqidaffaaditya/WA-AKG">mrifqidaffaaditya/WA-AKG</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://wa-akg.aikeigroup.net">wa-akg.aikeigroup.net</a> · <a href="https://github.com/mrifqidaffaaditya/WA-AKG/tree/main/docs">docs/</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~675 (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O WA-AKG transforma contas de WhatsApp em uma API REST programável, com um painel web para gerenciar tudo. Usa a biblioteca <code>@whiskeysockets/baileys</code> para a conexão (QR code) e o Prisma para o banco de dados (MySQL ou PostgreSQL).</p>
+<p>É pensado para quem quer um gateway pronto, com interface, para criar bots, automações e integrações de atendimento sem montar tudo do zero. A versão citada no README é a 1.6.2, e há uma branch <code>beta</code> com recursos experimentais.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Gerenciamento de múltiplas sessões de WhatsApp, conectadas por QR code.</li>
+<li>Agendador de mensagens com suporte a mídia (imagem, vídeo, documento).</li>
+<li>Broadcast com mecanismos anti-banimento (atrasos aleatórios de 10 a 30 s e envio em lotes).</li>
+<li>Auto-resposta por palavras-chave, com contexto (grupo, privado ou todos) e anexos.</li>
+<li>Controle de acesso com whitelist e blacklist para comandos do bot e auto-respostas.</li>
+<li>Webhooks em tempo real (mensagens, conexão, status e grupos).</li>
+<li>Gerador de figurinhas com remoção de fundo (integração remove.bg).</li>
+<li>Nodes oficiais de comunidade para n8n (<code>n8n-nodes-wa-akg</code>) e documentação OpenAPI/Swagger com mais de 109 endpoints.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 20+ (22 recomendado).</li>
+<li>MySQL ou PostgreSQL.</li>
+<li>Git.</li>
+<li>PM2 instalado globalmente (<code>npm install -g pm2</code>) para produção.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="instalacao-manual">Instalação manual</h3>
+<pre><code class="language-bash">git clone https://github.com/mrifqidaffaaditya/WA-AKG.git
+cd WA-AKG
+npm install
+cp .env.example .env
+# edite o .env: DATABASE_URL, AUTH_SECRET, PORT etc.
+npm run db:push
+npm run make-admin admin@example.com password123
+</code></pre>
+<p>Desenvolvimento:</p>
+<pre><code class="language-bash">npm run dev
+</code></pre>
+<h3 id="producao-com-pm2-recomendado">Produção com PM2 (recomendado)</h3>
+<p>Opção A, script automático que checa a configuração, instala dependências, sincroniza o banco, compila e inicia/recarrega o PM2:</p>
+<pre><code class="language-bash">./start.sh
+</code></pre>
+<p>Opção B, manual:</p>
+<pre><code class="language-bash">npm run build
+pm2 start ecosystem.config.js
+pm2 startup   # copie e execute o comando que ele imprimir
+pm2 save
+</code></pre>
+<h3 id="docker-alternativa">Docker (alternativa)</h3>
+<p>O README também descreve um deploy com Docker Compose: copie <code>.env.example</code> para <code>.env</code> e ajuste <code>DATABASE_URL</code> para o container do banco. Veja os detalhes no README do repositório.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">pm2 status            # estado do processo
+pm2 logs wa-akg       # logs
+pm2 restart wa-akg    # reinicia
+pm2 stop wa-akg       # para
+</code></pre>
+<p>Depois de instalar, entre no painel com o SuperAdmin criado, adicione uma sessão e leia o QR code. A documentação Swagger fica em <code>/docs</code> na própria aplicação.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Ter um gateway de WhatsApp com painel próprio, de código aberto e fácil de hospedar.</li>
+<li>Automatizar respostas, agendamentos e disparos controlados.</li>
+<li>Integrar WhatsApp a n8n ou a qualquer sistema por webhooks.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Usa Baileys (WhatsApp Web, não oficial): risco de bloqueio de números, principalmente em disparos em massa.</li>
+<li>Troque a senha de exemplo do <code>make-admin</code> (<code>password123</code>) por uma senha forte.</li>
+<li>O próprio README recomenda PM2 em vez de Docker para produção.</li>
+<li>Há uma branch <code>beta</code> e pré-releases com recursos experimentais.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/mrifqidaffaaditya/WA-AKG#readme">README</a></li>
+<li><a href="https://github.com/mrifqidaffaaditya/WA-AKG/blob/main/docs/USER_GUIDE.md">Guia do usuário</a></li>
+<li><a href="https://github.com/mrifqidaffaaditya/WA-AKG/blob/main/docs/API_DOCUMENTATION.md">Documentação da API</a></li>
+<li><a href="https://github.com/mrifqidaffaaditya/WA-AKG/blob/main/docs/ENVIRONMENT_VARIABLES.md">Variáveis de ambiente</a></li>
+<li><a href="https://www.npmjs.com/package/n8n-nodes-wa-akg">n8n-nodes-wa-akg (npm)</a></li>
+<li><a href="https://github.com/mrifqidaffaaditya/WA-AKG/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#07-whatsapp-e-atendimento">WhatsApp e atendimento</a></h2>
+    <ul>
+<li><a href="../../repos/07-whatsapp-e-atendimento/apibrasil.html">APIBrasil (organização)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot.html">Chatwoot</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/chatwoot-nestor.html">Chatwoot Nestor</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/deskcomm-crm.html">DeskcommCRM</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-api.html">Evolution API</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/evolution-go.html">Evolution Go</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/sellbird.html">Sellbird (antigo Harvey)</a></li>
+<li><a href="../../repos/07-whatsapp-e-atendimento/zuckzapgo.html">ZuckZapGo Private</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

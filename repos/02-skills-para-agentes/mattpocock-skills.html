@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skills For Real Engineers (mattpocock/skills) · Repositórios favoritos</title>
+<meta name="description" content="Skills de agente pequenas e componíveis de Matt Pocock para engenharia de software real, com foco em alinhamento (grilling), linguagem compartilhada, TDD e design de código.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Skills For Real Engineers (mattpocock/skills)</h1>
+    <p class="lead">Skills de agente pequenas e componíveis de Matt Pocock para engenharia de software real, com foco em alinhamento (grilling), linguagem compartilhada, TDD e design de código.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/mattpocock/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">mattpocock/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/mattpocock/skills">mattpocock/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://aihero.dev/skills">aihero.dev/skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>Shell</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~296k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#skills-em-destaque-grill-me-e-grilling">Skills em destaque: grill-me e grilling</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É o conjunto de skills que Matt Pocock usa no dia a dia, tirado do diretório <code>.agents</code> dele. A proposta é fazer engenharia de verdade, &quot;não vibe coding&quot;: em vez de frameworks que controlam todo o processo (GSD, BMAD, Spec-Kit), as skills são pequenas, fáceis de adaptar e componíveis, e funcionam com qualquer modelo.</p>
+<p>O README organiza o conteúdo em torno de quatro falhas comuns dos agentes: (1) o agente não fez o que você queria, resolvido com sessões de &quot;grilling&quot;; (2) o agente é verboso demais, resolvido com uma linguagem compartilhada (glossário e ADRs); (3) o código não funciona, resolvido com ciclos de feedback e TDD; (4) o código virou uma &quot;bola de lama&quot;, resolvido com atenção contínua ao design.</p>
+<p>As skills se dividem em duas pastas: <code>engineering</code> (código) e <code>productivity</code> (ferramentas gerais). Há skills invocadas pelo usuário (digitadas como <code>/nome</code>, orquestram) e skills invocadas pelo modelo (disciplinas reutilizáveis que o agente também aciona sozinho).</p>
+<h2 id="skills-em-destaque-grill-me-e-grilling">Skills em destaque: grill-me e grilling</h2>
+<p>As duas ficam em <code>skills/productivity/</code> e são, segundo o autor, as skills mais populares do repositório.</p>
+<ul>
+<li><strong><code>/grill-me</code></strong> (invocada pelo usuário): você é entrevistado de forma implacável sobre um plano ou design até resolver todos os ramos da &quot;árvore de decisões&quot;. Ela é só um atalho: o arquivo <code>SKILL.md</code> tem frontmatter <code>disable-model-invocation: true</code> e manda chamar a skill <code>grilling</code>.</li>
+<li><strong><code>grilling</code></strong> (invocada pelo modelo): é a primitiva de entrevista reutilizável por trás de <code>grill-me</code>, <code>grill-with-docs</code>, <code>triage</code>, <code>wayfinder</code> e <code>improve-codebase-architecture</code>. Seu <code>SKILL.md</code> define o método:
+<ul>
+<li>mapear o plano como uma árvore de decisões, onde cada decisão gera outras;</li>
+<li>trabalhar em rodadas: a &quot;fronteira&quot; são as decisões cujos pré-requisitos já foram resolvidos, e todas as perguntas da fronteira são feitas de uma vez, numeradas, cada uma com a resposta recomendada pelo agente (redigidas para que &quot;sim&quot; aceite a recomendação);</li>
+<li>fatos do ambiente (arquivos, ferramentas) são buscados pelo próprio agente, via subagente, sem perguntar ao usuário; as decisões são do usuário;</li>
+<li>a sessão termina quando a fronteira está vazia, e o agente não age até você confirmar o entendimento compartilhado.</li>
+</ul>
+</li>
+</ul>
+<p>Use essas skills toda vez que for fazer uma mudança: elas alinham você e o agente antes de começar.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Engineering (usuário): <code>ask-matt</code>, <code>grill-with-docs</code>, <code>triage</code>, <code>improve-codebase-architecture</code>, <code>setup-matt-pocock-skills</code>, <code>to-spec</code>, <code>to-tickets</code>, <code>implement</code>, <code>implement-spec</code>, <code>wayfinder</code>, <code>retro</code>.</li>
+<li>Engineering (modelo): <code>prototype</code>, <code>diagnosing-bugs</code>, <code>research</code>, <code>tdd</code>, <code>domain-modeling</code>, <code>codebase-design</code>, <code>code-review</code>, <code>pr</code>, <code>wizard</code>.</li>
+<li>Productivity (usuário): <code>grill-me</code>, <code>handoff</code>, <code>teach</code>, <code>to-questionnaire</code>, <code>wait-what</code>.</li>
+<li>Productivity (modelo): <code>grilling</code>, <code>writing-for-agents</code>.</li>
+<li>Glossário (<code>GLOSSARY.md</code>) e ADRs para criar linguagem compartilhada com o agente.</li>
+<li>Funciona com Claude Code, Codex, GitHub Copilot, Gemini CLI e outros agentes.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente de código compatível (Claude Code, Codex, Copilot, Gemini CLI, Cursor, etc.).</li>
+<li>Para o instalador manual <code>npx skills</code>, Node.js/npm.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Escolha um método por agente (instalar plugin e <code>skills.sh</code> ao mesmo tempo duplica as skills).</p>
+<h3 id="claude-code">Claude Code</h3>
+<pre><code class="language-bash">claude plugin install mattpocock-skills@claude-plugins-official
+</code></pre>
+<p>Atualiza sozinho por padrão.</p>
+<h3 id="codex">Codex</h3>
+<pre><code class="language-bash">codex plugin marketplace add mattpocock/skills
+codex plugin add mattpocock-skills@mattpocock
+</code></pre>
+<h3 id="github-copilot-cli-e-vs-code">GitHub Copilot (CLI e VS Code)</h3>
+<pre><code class="language-bash">copilot plugin marketplace add mattpocock/skills
+copilot plugin install mattpocock-skills@mattpocock
+</code></pre>
+<p>Depois, adicione uma vez ao <code>~/.copilot/settings.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;extraKnownMarketplaces&quot;: {
+    &quot;mattpocock&quot;: { &quot;source&quot;: { &quot;source&quot;: &quot;github&quot;, &quot;repo&quot;: &quot;mattpocock/skills&quot; }, &quot;autoUpdate&quot;: true }
+  }
+}
+</code></pre>
+<p>No VS Code, rode <strong>Chat: Install Plugin From Source</strong> e informe <code>https://github.com/mattpocock/skills</code>.</p>
+<h3 id="gemini-cli-atualizacao-manual">Gemini CLI (atualização manual)</h3>
+<pre><code class="language-bash">gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering
+gemini skills install https://github.com/mattpocock/skills.git --path skills/productivity
+</code></pre>
+<h3 id="qualquer-outro-agente-arquivos-editaveis">Qualquer outro agente (arquivos editáveis)</h3>
+<pre><code class="language-bash">npx skills@latest add mattpocock/skills -a &lt;agent&gt;
+</code></pre>
+<p>Agentes citados: cursor, opencode, devin, windsurf, amp, pi (omita <code>-a</code> para escolher). Inclua a skill <code>setup-matt-pocock-skills</code>. Para atualizar: <code>npx skills@latest update</code>.</p>
+<h3 id="configuracao-inicial">Configuração inicial</h3>
+<p>Em cada repositório, rode uma vez <code>/setup-matt-pocock-skills</code>. Ela pergunta qual issue tracker você usa (GitHub, GitLab, arquivos locais), quais labels aplica na triagem e onde salvar os documentos.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/grill-me                 # entrevista sobre um plano ou design (uso geral)
+/grill-with-docs          # grilling que também atualiza GLOSSARY.md e ADRs
+/to-spec                  # transforma a conversa em um spec publicado no tracker
+/to-tickets               # quebra um plano em tickets &quot;tracer bullet&quot; com dependências
+/implement                # implementa spec ou tickets usando /tdd e /code-review
+/triage                   # move issues por uma máquina de estados de triagem
+/improve-codebase-architecture   # procura oportunidades de aprofundar módulos
+/handoff                  # compacta a conversa em um documento para outro agente
+/wait-what                # reexplica, em linguagem simples, algo que não ficou claro
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Antes de qualquer mudança relevante, para alinhar expectativas com o agente (grill-me).</li>
+<li>Para reduzir a verbosidade do agente criando um glossário do domínio.</li>
+<li>Para fluxos de planejamento até implementação: spec, tickets, TDD e revisão.</li>
+<li>Para diagnosticar bugs difíceis com um ciclo disciplinado (<code>diagnosing-bugs</code>).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O repositório tem muitas skills: instale conscientemente para não carregar contexto desnecessário.</li>
+<li>Algumas skills de engenharia dependem de <code>/setup-matt-pocock-skills</code> ter sido executada no repositório.</li>
+<li>O autor mantém uma newsletter para acompanhar mudanças.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/mattpocock/skills">README do projeto</a></li>
+<li><a href="https://skills.sh/mattpocock/skills">skills.sh</a></li>
+<li><a href="https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md">Skill grill-me</a></li>
+<li><a href="https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md">Skill grilling</a></li>
+<li><a href="https://aihero.dev/skills">Site AI Hero</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

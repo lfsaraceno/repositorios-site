@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CapRover · Repositórios favoritos</title>
+<meta name="description" content="PaaS escalável e self-hosted (&quot;Heroku on steroids&quot;) sobre Docker Swarm, nginx e Let&#x27;s Encrypt, com painel web e CLI para implantar apps e bancos.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#08-deploy-e-infra"><span aria-hidden="true">🚀</span> Deploy e infra</a>
+    </nav>
+    <h1>CapRover</h1>
+    <p class="lead">PaaS escalável e self-hosted (&quot;Heroku on steroids&quot;) sobre Docker Swarm, nginx e Let's Encrypt, com painel web e CLI para implantar apps e bancos.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/caprover/caprover">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">caprover/caprover</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/caprover/caprover">caprover/caprover</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://caprover.com">caprover.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~15k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O CapRover é um gerenciador de deploy de aplicações e bancos de dados, com servidor web embutido, para apps NodeJS, Python, PHP, ASP.NET, Ruby, Go, MariaDB, MySQL, MongoDB, Postgres, WordPress e outros. Por baixo ele usa Docker (Swarm), nginx, Let's Encrypt e NetData.</p>
+<p>A proposta é dispensar conhecimento profundo de Docker ou nginx: você instala o CapRover em um servidor, aponta um domínio e passa a publicar apps pelo painel web ou pela CLI. Não há lock-in: se remover o CapRover, os apps continuam rodando.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Painel web e CLI para automação e scripts.</li>
+<li>Docker Swarm para containerização e clusterização.</li>
+<li>nginx (com template personalizável) para balanceamento de carga.</li>
+<li>HTTPS gratuito com Let's Encrypt.</li>
+<li>Instalação de bancos (MariaDB, MySQL, MongoDB, Postgres) e apps por seleção em lista (one-click apps).</li>
+<li>Deploy por <code>captain-definition</code> (arquivo na raiz do projeto), Dockerfile ou imagem pronta.</li>
+<li>Sem lock-in: os apps seguem funcionando sem o CapRover.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<p>(Conforme o guia &quot;Getting Started&quot; da documentação oficial.)</p>
+<ul>
+<li>Servidor com IP público (ou instalação local, com limitações de HTTPS), em AMD64 ou ARM64. Testado em Ubuntu 24.04.</li>
+<li>Docker 25 ou superior instalado com as instruções oficiais (evite a instalação via snap).</li>
+<li>Pelo menos 1 GB de RAM recomendado (512 MB pode não bastar para builds).</li>
+<li>Um domínio com registro DNS wildcard (<code>*.algo.seudominio.com</code>) apontando para o IP do servidor, se quiser HTTPS.</li>
+<li>Portas liberadas no firewall: 80/tcp, 443/tcp, 443/udp e 3000/tcp.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<ol>
+<li>No servidor, libere as portas (exemplo para Ubuntu com <code>ufw</code>):</li>
+</ol>
+<pre><code class="language-bash">ufw allow 80/tcp
+ufw allow 443/tcp
+ufw allow 443/udp
+ufw allow 3000/tcp
+</code></pre>
+<ol start="2">
+<li>Instale o CapRover:</li>
+</ol>
+<pre><code class="language-bash">docker run -p 80:80 -p 443:443 -p 3000:3000 -e ACCEPTED_TERMS=true -v /var/run/docker.sock:/var/run/docker.sock -v /captain:/captain caprover/caprover
+</code></pre>
+<ol start="3">
+<li>Crie o registro DNS do tipo A: <code>*.algo.seudominio.com</code> apontando para o IP do servidor.</li>
+<li>Instale a CLI na sua máquina e rode o assistente de configuração (recomendado em vez de usar o painel no primeiro acesso):</li>
+</ol>
+<pre><code class="language-bash">npm install -g caprover
+caprover serversetup
+</code></pre>
+<p>O assistente pede o IP do servidor, o domínio raiz e um e-mail válido (usado no certificado SSL) e, ao final, pede para trocar a senha. O painel fica em <code>http://IP_DO_SERVIDOR:3000</code> e a senha padrão inicial é <code>captain42</code>.</p>
+<p>A documentação também indica instalação por one-click app no DigitalOcean.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">caprover login      # faz login em um servidor CapRover (pode ter vários)
+caprover deploy     # envia o app do diretório atual para o servidor
+</code></pre>
+<p>Para deploy, crie um arquivo <code>captain-definition</code> na raiz do projeto, por exemplo para Node:</p>
+<pre><code class="language-json">{
+  &quot;schemaVersion&quot;: 2,
+  &quot;templateId&quot;: &quot;node/24&quot;
+}
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Publicar vários apps e bancos em uma única VPS com HTTPS automático.</li>
+<li>Ter um &quot;Heroku próprio&quot; simples, com painel e CLI, sem aprender Kubernetes.</li>
+<li>Substituir PaaS pagos para reduzir custo.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Troque a senha padrão <code>captain42</code> imediatamente.</li>
+<li>O README e o <code>LICENSE</code> indicam Apache 2.0 (o GitHub marca a licença como &quot;NOASSERTION&quot;).</li>
+<li>O front-end e a documentação ficam em repositórios separados (<code>caprover-frontend</code> e <code>caprover-website</code>).</li>
+<li>Alternativa mais moderna e com mais recursos: veja o <a href="coolify.html">Coolify</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/caprover/caprover#readme">README</a></li>
+<li><a href="https://caprover.com">Documentação</a></li>
+<li><a href="https://hub.docker.com/r/caprover/caprover/">Docker Hub</a></li>
+<li><a href="https://github.com/caprover/caprover/releases">Releases</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#08-deploy-e-infra">Deploy e infra</a></h2>
+    <ul>
+<li><a href="../../repos/08-deploy-e-infra/coolify.html">Coolify</a></li>
+<li><a href="../../repos/08-deploy-e-infra/floci.html">Floci</a></li>
+<li><a href="../../repos/08-deploy-e-infra/setup-orion.html">SetupOrion</a></li>
+<li><a href="../../repos/08-deploy-e-infra/slim.html">SlimToolkit (Slim, ex-DockerSlim)</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

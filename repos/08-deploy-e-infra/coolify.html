@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coolify · Repositórios favoritos</title>
+<meta name="description" content="PaaS open source e self-hosted, alternativa à Vercel, Heroku e Netlify, para implantar aplicações, bancos de dados e mais de 300 serviços em seus próprios servidores via SSH.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#08-deploy-e-infra"><span aria-hidden="true">🚀</span> Deploy e infra</a>
+    </nav>
+    <h1>Coolify</h1>
+    <p class="lead">PaaS open source e self-hosted, alternativa à Vercel, Heroku e Netlify, para implantar aplicações, bancos de dados e mais de 300 serviços em seus próprios servidores via SSH.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/coollabsio/coolify">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">coollabsio/coolify</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/coollabsio/coolify">coollabsio/coolify</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://coolify.io">coolify.io</a> · <a href="https://coolify.io/docs">coolify.io/docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>PHP (Laravel)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~63k (out/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Coolify é uma plataforma para gerenciar servidores, aplicações e bancos de dados no seu próprio hardware, precisando apenas de uma conexão SSH. Pode ser uma VPS, um servidor dedicado, um Raspberry Pi ou qualquer máquina acessível por SSH.</p>
+<p>Você ganha a comodidade de uma plataforma em nuvem (deploy por push no Git, HTTPS automático, previews de pull request) mantendo o controle da infraestrutura. As configurações ficam nos seus servidores e, se você parar de usar o Coolify, os recursos em execução continuam funcionando.</p>
+<p>Existe também o Coolify Cloud, uma instância mantida pela equipe, paga, para quem não quer manter o painel.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Deploy de qualquer aplicação a partir de GitHub, GitLab, Bitbucket ou Gitea, com Nixpacks, Railpack, Dockerfile, Docker Compose ou imagem Docker pronta.</li>
+<li>Bancos de dados e mais de 300 serviços de um clique, com volumes persistentes e credenciais geradas.</li>
+<li>Deploy a cada push, previews de pull request, webhooks de deploy e rollback.</li>
+<li>Domínios próprios, certificados HTTPS automáticos, proxy reverso e health checks.</li>
+<li>Gerenciamento de vários servidores, logs, terminal de container e monitoramento.</li>
+<li>Backups de bancos e storage, tarefas agendadas, variáveis de ambiente, segredos e notificações.</li>
+<li>Controle por dashboard, API, CLI, MCP e acesso por equipes.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um servidor Linux com acesso SSH (consulte o guia de instalação para os requisitos de versão, CPU e memória).</li>
+<li>Acesso root ou equivalente para rodar o script de instalação.</li>
+<li>O README recomenda um servidor para o Coolify e um ou mais servidores para os recursos implantados.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Instalação com um comando em um servidor suportado:</p>
+<pre><code class="language-bash">curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
+</code></pre>
+<p>Você pode revisar o script antes em <a href="https://github.com/coollabsio/coolify/blob/main/scripts/install.sh"><code>scripts/install.sh</code></a>. Os requisitos e instruções detalhadas estão no <a href="https://coolify.io/docs/installation">guia de instalação</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Depois de instalado, o uso é pelo painel web:</p>
+<ol>
+<li>Crie a conta administradora no primeiro acesso.</li>
+<li>Adicione um servidor (o próprio localhost ou outro via SSH).</li>
+<li>Conecte um provedor Git e crie um recurso (aplicação, banco ou serviço de um clique).</li>
+<li>Configure o domínio e faça o deploy; ative o deploy automático por push, se quiser.</li>
+</ol>
+<p>A automação é possível pela API, CLI e MCP, descritas na documentação.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Hospedar apps e bancos em VPS próprias sem pagar por plataformas como Vercel ou Heroku.</li>
+<li>Subir serviços self-hosted populares (n8n, Chatwoot, bancos etc.) pelo catálogo de um clique.</li>
+<li>Gerenciar vários servidores e projetos de uma equipe em um só painel.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Gratuito e open source quando auto-hospedado; o Coolify Cloud é pago.</li>
+<li>O script de instalação roda como root; revise-o antes de executar em um servidor de produção.</li>
+<li>Use um servidor separado para o painel e outro(s) para as cargas de trabalho, como o README recomenda.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/coollabsio/coolify#readme">README</a></li>
+<li><a href="https://coolify.io/docs">Documentação</a></li>
+<li><a href="https://coolify.io/docs/installation">Guia de instalação</a></li>
+<li><a href="https://coollabs.io/discord">Discord</a></li>
+<li><a href="https://github.com/coollabsio/coolify/discussions">Discussões no GitHub</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#08-deploy-e-infra">Deploy e infra</a></h2>
+    <ul>
+<li><a href="../../repos/08-deploy-e-infra/caprover.html">CapRover</a></li>
+<li><a href="../../repos/08-deploy-e-infra/floci.html">Floci</a></li>
+<li><a href="../../repos/08-deploy-e-infra/setup-orion.html">SetupOrion</a></li>
+<li><a href="../../repos/08-deploy-e-infra/slim.html">SlimToolkit (Slim, ex-DockerSlim)</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PentAGI · Repositórios favoritos</title>
+<meta name="description" content="Sistema multiagente self-hosted para pentest autônomo: você descreve o alvo e o objetivo, e uma equipe de agentes de IA planeja, roda nmap, Metasploit, sqlmap e outras ferramentas num sandbox Docker e entrega um relatório.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>PentAGI</h1>
+    <p class="lead">Sistema multiagente self-hosted para pentest autônomo: você descreve o alvo e o objetivo, e uma equipe de agentes de IA planeja, roda nmap, Metasploit, sqlmap e outras ferramentas num sandbox Docker e entrega um relatório.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/vxcontrol/pentagi">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">vxcontrol/pentagi</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/vxcontrol/pentagi">vxcontrol/pentagi</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://pentagi.com">pentagi.com</a> · <a href="https://github.com/vxcontrol/pentagi/blob/main/examples/guides/installation_configuration.md">Guia de instalação e configuração</a></dd></div>
+<div><dt>Linguagem</dt><dd>Go (backend) e React + TypeScript (frontend)</dd></div>
+<div><dt>Licença</dt><dd>MIT, com um <a href="https://github.com/vxcontrol/pentagi/blob/main/EULA.md">EULA</a> de uso aceitável</dd></div>
+<div><dt>Estrelas</dt><dd>~33k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<blockquote>
+<p><strong>Atenção:</strong> use só em sistemas que são seus ou que você tem autorização explícita para testar. O EULA proíbe qualquer outro uso e deixa toda a responsabilidade pelas ações dos agentes com quem os configura.</p>
+</blockquote>
+<h2 id="o-que-e">O que é</h2>
+<p>O PentAGI (<em>Penetration testing Artificial General Intelligence</em>) é uma plataforma que roda na sua infraestrutura e faz testes de intrusão sozinha ou guiada por você. Você escreve em linguagem natural o alvo, o tipo de avaliação, o escopo e o resultado esperado. Um orquestrador divide o trabalho entre agentes especializados (pesquisador, desenvolvedor, executor, pentester e outros). Eles rodam as ferramentas dentro de contêineres isolados, guardam o que aprenderam e geram um relatório de vulnerabilidades com passos de reprodução.</p>
+<p>É feito pela VXControl, empresa de engenharia de segurança de Dubai. Serve para engenheiros de segurança, pentesters, pesquisadores e red teams.</p>
+<p><strong>O que ele não é</strong> (segundo o próprio README): não é uma plataforma de simulação de ataques (BAS) ou de emulação de adversário com campanhas prontas, no estilo CALDERA.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Dois modos de flow:</strong>
+<ul>
+<li><strong>Automation:</strong> execução autônoma de ponta a ponta;</li>
+<li><strong>Assistant:</strong> conversa interativa para conduzir a investigação passo a passo, com a opção <strong>Use Agents</strong> para delegar subtarefas.</li>
+</ul>
+</li>
+<li><strong>Mais de 20 ferramentas de pentest</strong> (nmap, Metasploit, sqlmap e outras), rodando em contêineres Docker isolados. A imagem padrão para pentest é <code>vxcontrol/kali-linux</code>, e o próprio LLM escolhe a imagem de cada tarefa.</li>
+<li><strong>Memória de longo prazo</strong> em PostgreSQL com pgvector. <strong>Grafo de conhecimento opcional</strong> com Graphiti e Neo4j, em beta, para relacionar hosts, serviços e achados.</li>
+<li><strong>Pesquisa na web:</strong>
+<ul>
+<li>navegador isolado (scraper);</li>
+<li>buscadores: DuckDuckGo, Google Custom Search, Tavily, Firecrawl, Traversaal, Perplexity, SearXNG e Sploitus (busca de exploits e CVEs).</li>
+</ul>
+</li>
+<li><strong>Mais de 10 provedores de LLM:</strong>
+<ul>
+<li>nuvem: OpenAI, Anthropic, Gemini, AWS Bedrock, DeepSeek, GLM, Kimi, Qwen, MiniMax, Mistral e xAI;</li>
+<li>agregadores: OpenRouter e DeepInfra;</li>
+<li>Azure OpenAI e qualquer endpoint compatível com OpenAI;</li>
+<li>modelos locais com Ollama ou vLLM.</li>
+</ul>
+</li>
+<li><strong>Supervisão de agentes:</strong>
+<ul>
+<li>limite de chamadas de ferramenta por agente;</li>
+<li>um agente &quot;reflector&quot; que corrige quem trava;</li>
+<li>opcional e em beta: <strong>monitor de execução</strong> e <strong>planejamento de tarefas</strong>, recomendados para modelos menores que 32B.</li>
+</ul>
+</li>
+<li><strong>Relatórios</strong> na web, copiados ou baixados em Markdown ou PDF.</li>
+<li><strong>Arquivos por flow:</strong> envio de arquivos para o contêiner (<code>/work/uploads/</code>), biblioteca de recursos e cópia de arquivos do contêiner.</li>
+<li><strong>APIs REST e GraphQL</strong> com token Bearer, Swagger UI e GraphQL Playground.</li>
+<li><strong>Observabilidade opcional:</strong> Langfuse para traces de LLM e Grafana, VictoriaMetrics, Jaeger e Loki para o sistema.</li>
+<li>Login opcional com GitHub e Google (OAuth). Vários usuários e várias instâncias com <code>TENANT_ID</code>.</li>
+<li>A versão <strong>Enterprise</strong> (paga) acrescenta perfis de agente, plugins e servidores MCP, relatórios para clientes e visualização da cadeia de ataque em tempo real.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Docker e Docker Compose, ou Podman.</li>
+<li>Mínimo de 2 vCPU, 4 GB de RAM e 20 GB de disco livre.</li>
+<li>Acesso à internet para baixar as imagens. Em redes restritas, configure um mirror de registry no daemon do Docker.</li>
+<li><strong>Pelo menos um provedor de LLM</strong> (chave de API) ou um servidor local (Ollama, vLLM). As chaves de busca são opcionais, mas melhoram os resultados.</li>
+<li>Para rodar tudo local com qualidade, o guia oficial usa vLLM com Qwen3.5-27B-FP8 em 4× RTX 5090.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="instalador-interativo-recomendado">Instalador interativo (recomendado)</h3>
+<p>Há um instalador com interface de terminal para Linux (amd64/arm64), Windows (amd64) e macOS (Intel e Apple Silicon). Ele verifica o sistema, cria o <code>.env</code>, configura provedores de LLM e buscadores, gera credenciais e certificados e sobe tudo com Docker Compose. Os links de download estão na seção <a href="https://github.com/vxcontrol/pentagi#using-installer-recommended">Quick Start</a> do README.</p>
+<p>Exemplo para Linux amd64:</p>
+<pre><code class="language-bash">mkdir -p pentagi &amp;&amp; cd pentagi
+wget -O installer.zip https://pentagi.com/downloads/linux/amd64/installer-latest.zip
+unzip installer.zip
+sudo ./installer          # precisa de acesso ao socket do Docker
+</code></pre>
+<p>O instalador precisa falar com a API do Docker: rode como root ou coloque o usuário no grupo <code>docker</code>. Entrar no grupo <code>docker</code> equivale a ter acesso de root na máquina, então só faça isso para usuários de confiança.</p>
+<h3 id="instalacao-manual-com-docker-compose">Instalação manual com Docker Compose</h3>
+<pre><code class="language-bash">mkdir pentagi &amp;&amp; cd pentagi
+curl -o .env https://raw.githubusercontent.com/vxcontrol/pentagi/master/.env.example
+
+# arquivos de exemplo montados pelo compose (se faltarem, o Docker cria pastas no lugar)
+curl -o example.custom.provider.yml https://raw.githubusercontent.com/vxcontrol/pentagi/master/examples/configs/custom-openai.provider.yml
+curl -o example.ollama.provider.yml https://raw.githubusercontent.com/vxcontrol/pentagi/master/examples/configs/ollama-llama318b.provider.yml
+curl -o example.bedrock.provider.yml https://raw.githubusercontent.com/vxcontrol/pentagi/master/examples/configs/bedrock.provider.yml
+
+# edite o .env: chave de pelo menos um LLM e troque COOKIE_SIGNING_SALT e as senhas do banco
+
+curl -O https://raw.githubusercontent.com/vxcontrol/pentagi/master/docker-compose.yml
+docker compose up -d
+</code></pre>
+<p>A interface fica em <code>https://localhost:8443</code>. A conta inicial é <code>admin@pentagi.com</code>, com a senha padrão documentada no README. <strong>Troque a senha no primeiro login.</strong> Não existe cadastro público na tela de login.</p>
+<p>Langfuse, Graphiti e observabilidade têm compose próprios (<code>docker-compose-langfuse.yml</code>, <code>docker-compose-graphiti.yml</code>, <code>docker-compose-observability.yml</code>). Rode o <code>docker-compose.yml</code> principal primeiro, porque ele cria as redes que os outros usam.</p>
+<h3 id="producao">Produção</h3>
+<p>Para produção, o README recomenda <strong>dois nós</strong>: os contêineres de trabalho rodam num servidor separado, com Docker-in-Docker e TLS. Veja o <a href="https://github.com/vxcontrol/pentagi/blob/main/examples/guides/worker_node.md">guia do worker node</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p><strong>Primeiro flow:</strong> abra <strong>Flows</strong>, clique em <strong>New Flow</strong>, escolha Automation ou Assistant, selecione o provedor de LLM e descreva o alvo. Exemplo do README:</p>
+<pre><code class="language-text">Assess https://target.example for common web application vulnerabilities. Focus on authentication, file handling, and injection issues. Stay within the provided target only and summarize confirmed findings with reproduction steps.
+</code></pre>
+<p>Um bom prompt diz o alvo, o tipo de avaliação, os limites de escopo (regras de engajamento) e o resultado esperado. Há um prompt-base para pentest web em <a href="https://github.com/vxcontrol/pentagi/blob/main/examples/prompts/base_web_pentest.md"><code>examples/prompts/base_web_pentest.md</code></a>. Comece com um alvo pequeno e um objetivo só.</p>
+<p><strong>API</strong> (gere o token em Settings da interface):</p>
+<pre><code class="language-bash"># listar flows pela API REST
+curl https://your-pentagi-instance:8443/api/v1/flows \
+  -H &quot;Authorization: Bearer YOUR_API_TOKEN&quot;
+</code></pre>
+<p><strong>Utilitários de diagnóstico dentro do contêiner:</strong></p>
+<pre><code class="language-bash">docker exec -it pentagi /opt/pentagi/bin/ctester -verbose            # testa os modelos configurados para cada agente
+docker exec -it pentagi /opt/pentagi/bin/ctester -type anthropic     # testa um provedor específico
+docker exec -it pentagi /opt/pentagi/bin/etester test -verbose       # testa o provedor de embeddings e o banco
+docker exec -it pentagi /opt/pentagi/bin/ftester -flow 123 describe  # mostra tarefas e subtarefas de um flow travado
+docker logs pentagi                                                  # primeiro lugar para olhar quando um flow trava
+</code></pre>
+<p>Flow parado sem progresso costuma ser <strong>provedor de embeddings mal configurado</strong>. Teste com <code>etester</code>. Erro <code>failed to select primary docker image via llm call</code> indica problema no LLM do agente <code>simple</code>, não no Docker.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Pentest autorizado de aplicações web e redes, com um time de agentes rodando ferramentas reais e gerando relatório.</li>
+<li>Laboratórios, CTFs e ambientes de treino seus.</li>
+<li>Ambientes isolados (air-gapped), com modelo local via vLLM ou Ollama.</li>
+<li>Integrar testes de segurança em automações via API REST ou GraphQL.</li>
+<li>Comparação no catálogo:
+<ul>
+<li>o <a href="raptor.html">RAPTOR</a> é um framework de pesquisa de segurança sobre o Claude Code, com análise estática, de binários e patches;</li>
+<li>a <a href="security-audit-skill.html">Security Audit Skill</a> e as <a href="trailofbits-skills.html">Trail of Bits Skills</a> auditam <strong>código-fonte</strong> dentro do agente de código;</li>
+<li>o PentAGI ataca <strong>sistemas em execução</strong> a partir de uma plataforma própria, com interface web.</li>
+</ul>
+</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Uso legal e autorizado apenas.</strong> O EULA vale para as imagens Docker e a interface, além da licença MIT. Ele exige permissão explícita do dono da rede e proíbe uso em infraestrutura crítica sem validação. Também deixa com você a responsabilidade por tudo o que os agentes fizerem. Testar sistemas de terceiros sem autorização é crime no Brasil (Lei 12.737/2012, art. 154-A do Código Penal).</li>
+<li><strong>Agente autônomo com ferramentas ofensivas.</strong> Os agentes executam comandos e exploits de verdade. Defina o escopo com clareza, acompanhe a execução e use o Assistant para frear ou redirecionar o flow.</li>
+<li><strong>Superfície de risco da instalação:</strong>
+<ul>
+<li>o serviço <code>pentagi</code> roda como <strong>root</strong> no compose padrão para acessar o <code>docker.sock</code>;</li>
+<li>montar o socket do Docker do host (<code>DOCKER_SOCKET</code>) dá ao agente controle total da máquina. O README recomenda isso só em desenvolvimento, num nó só;</li>
+<li>cada flow publica duas portas TCP (faixa <code>28000</code>–<code>29999</code>) em <strong>todas as interfaces</strong> do host, para conexões de retorno como reverse shells. O Docker passa por cima das regras do <code>ufw</code>, então bloqueie essa faixa num firewall à frente do host ou na chain <code>DOCKER-USER</code>;</li>
+<li>a API do Graphiti não tem autenticação. O compose a liga só em <code>127.0.0.1</code>.</li>
+</ul>
+</li>
+<li><strong>Dados sensíveis:</strong>
+<ul>
+<li>prompts, saídas de ferramentas, credenciais encontradas e evidências vão para o provedor de LLM e para os buscadores que você configurar. Avalie a LGPD e os contratos com o cliente antes;</li>
+<li>logs, banco, Neo4j e backups guardam esse material;</li>
+<li>apagar um flow não apaga a pasta <code>flow-{id}-data/</code> do disco.</li>
+</ul>
+</li>
+<li><strong>Provedores de LLM:</strong>
+<ul>
+<li>alguns modelos acionam as proteções de cibersegurança do provedor. O README cita os GPT-5, 5.1 e 5.2 da OpenAI, que pedem acesso verificado;</li>
+<li>no AWS Bedrock, as cotas padrão para Claude são muito baixas.</li>
+</ul>
+</li>
+<li><strong>Custo:</strong> o monitor de execução e o planejamento multiplicam por 2 a 3 o tempo e os tokens. O Graphiti gera custos próprios de LLM e de embeddings.</li>
+<li><strong>Embeddings:</strong> não troque de provedor depois de indexar dados. Se trocar, rode <code>etester flush</code> ou <code>reindex</code>.</li>
+<li>Os serviços VXControl Cloud (inteligência de ameaças, suporte de IA, recursos premium) exigem chave de licença e termos próprios. A versão Enterprise é paga.</li>
+<li>Projeto ativo, com último release v2.2.0 (out/2026).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/vxcontrol/pentagi#readme">README</a> · <a href="https://pentagi.com">Site</a> · <a href="https://github.com/vxcontrol/pentagi/blob/main/EULA.md">EULA</a></li>
+<li><a href="https://github.com/vxcontrol/pentagi/blob/main/examples/guides/installation_configuration.md">Instalação e configuração</a> · <a href="https://github.com/vxcontrol/pentagi/blob/main/examples/guides/worker_node.md">Worker node (produção)</a></li>
+<li><a href="https://github.com/vxcontrol/pentagi/blob/main/examples/guides/vllm-qwen35-27b-fp8.md">vLLM + Qwen3.5-27B-FP8 (tudo local)</a></li>
+<li><a href="https://github.com/vxcontrol/pentagi/blob/main/backend/docs/prompt_engineering_pentagi.md">Engenharia de prompt para o PentAGI</a> · <a href="https://github.com/vxcontrol/pentagi/blob/main/examples/prompts/base_web_pentest.md">Prompt-base de pentest web</a></li>
+<li><a href="https://github.com/vxcontrol/pentagi/releases">Releases</a> · <a href="https://hub.docker.com/r/vxcontrol/pentagi">Docker Hub</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/anthropic-cybersecurity-skills.html">Anthropic Cybersecurity Skills</a></li>
+<li><a href="../../repos/06-seguranca/ghidra.html">Ghidra</a></li>
+<li><a href="../../repos/06-seguranca/phoneintel.html">PhoneIntel</a></li>
+<li><a href="../../repos/06-seguranca/raptor.html">RAPTOR</a></li>
+<li><a href="../../repos/06-seguranca/rea.html">REA (Reverse Engineer Anything)</a></li>
+<li><a href="../../repos/06-seguranca/security-audit-skill.html">Security Audit Skill (Cloudflare)</a></li>
+<li><a href="../../repos/06-seguranca/trailofbits-skills.html">Trail of Bits Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 12/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>
