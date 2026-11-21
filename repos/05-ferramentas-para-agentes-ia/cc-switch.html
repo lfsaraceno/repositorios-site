@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CC Switch · Repositórios favoritos</title>
+<meta name="description" content="App desktop que gerencia num só lugar os provedores de API, servidores MCP, skills, prompts e sessões do Claude Code, Claude Desktop, Codex, Gemini CLI, OpenCode e outros, trocando de provedor com um clique, sem editar JSON, TOML ou YAML à mão.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>CC Switch</h1>
+    <p class="lead">App desktop que gerencia num só lugar os provedores de API, servidores MCP, skills, prompts e sessões do Claude Code, Claude Desktop, Codex, Gemini CLI, OpenCode e outros, trocando de provedor com um clique, sem editar JSON, TOML ou YAML à mão.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/farion1231/cc-switch">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">farion1231/cc-switch</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/farion1231/cc-switch">farion1231/cc-switch</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://ccswitch.io">ccswitch.io</a> (único site oficial) · <a href="https://github.com/farion1231/cc-switch/blob/main/docs/user-manual/en/README.md">Manual</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust e TypeScript (Tauri 2)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~155k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Cada ferramenta de IA para programação tem seu próprio formato de configuração, e trocar de provedor de modelo significa editar arquivos à mão; MCP, skills e prompts também precisam ser mantidos separadamente em cada uma. O CC Switch junta tudo num app desktop: escolha um preset, coloque a chave e troque com um clique.</p>
+<p>A troca altera só os dados de conexão (endpoint, chave e modelo); plugins, hooks, MCP e comentários que você adicionou ficam intactos, e cada arquivo é copiado antes da primeira reescrita. Na primeira execução, ele importa sua configuração atual como provedor <code>default</code>, para nada se perder.</p>
+<p>Atende 12 ferramentas: Claude Code, Claude Desktop, Codex, Gemini CLI, Grok Build, OpenCode, OpenClaw, Hermes, Pi, MiniMax Code, Kimi Code e Oh My Pi.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Mais de 90 presets de provedores</strong> (incluindo AWS Bedrock, NVIDIA NIM e relays) e configurações customizadas.</li>
+<li><strong>Três modos:</strong> Direto (ferramenta fala com o provedor), Roteamento (passa pela sua máquina, converte formatos de API e faz failover; ex.: usar GPT no Claude Code) e Agregação (modelos de vários provedores numa só lista no Claude Code ou Codex).</li>
+<li><strong>MCP, skills e prompts centralizados</strong>, sincronizados com as ferramentas que você escolher; busca no skills.sh e instalação de skills do GitHub.</li>
+<li><strong>Projetos:</strong> salva provedor, MCP, skills e prompts de uma configuração e troca tudo de uma vez.</li>
+<li><strong>Sessões legíveis:</strong> histórico de conversas com resumo por turno, arquivos alterados e passos que falharam; copia o comando para retomar.</li>
+<li><strong>Uso e cotas:</strong> tokens, custo, taxa de cache e saldo/cota restante das assinaturas, no app e na bandeja do sistema.</li>
+<li>Gerencia versões das CLIs (instalar, atualizar, diagnosticar duplicatas), inclusive dentro do WSL no Windows.</li>
+<li>Sincronização entre máquinas via WebDAV ou S3; deep links <code>ccswitch://</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Windows 10+, macOS 12+ ou Linux x86_64/ARM64 com glibc 2.35+ e WebKitGTK 4.1 (Ubuntu 22.04+, Debian 12+, Fedora recente).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<ul>
+<li>
+<p><strong>Windows:</strong> baixe <code>CC-Switch-v{version}-Windows.msi</code> (ou a versão Portable <code>.zip</code>; há builds arm64) em <a href="https://github.com/farion1231/cc-switch/releases">Releases</a>.</p>
+</li>
+<li>
+<p><strong>macOS:</strong></p>
+<pre><code class="language-bash">brew install --cask cc-switch
+brew upgrade --cask cc-switch     # atualizar
+</code></pre>
+<p>Ou o <code>.dmg</code> universal (assinado e notarizado) em Releases.</p>
+</li>
+<li>
+<p><strong>Arch Linux:</strong> <code>paru -S cc-switch-bin</code></p>
+</li>
+<li>
+<p><strong>Linux:</strong> <code>.deb</code>, <code>.rpm</code> ou <code>.AppImage</code> em Releases.</p>
+</li>
+</ul>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Na barra lateral, escolha a ferramenta e clique em <strong>+</strong> para adicionar um provedor (preset ou customizado).</li>
+<li>Selecione o provedor e clique em <strong>Enable</strong> (ou troque pela bandeja do sistema).</li>
+<li>O Claude Code não precisa reiniciar; Codex, Gemini CLI e Grok Build precisam reiniciar o terminal; o Claude Desktop precisa reiniciar o app.</li>
+<li>Para voltar ao login oficial, ative o provedor oficial (ex.: &quot;Claude Official&quot;) e refaça o login.</li>
+<li>Opcional: nas abas <strong>Routing</strong> ou <strong>Aggregation</strong>, clique em &quot;Start routing&quot; ou &quot;Switch to Aggregation&quot;; &quot;Back to direct&quot; desfaz.</li>
+<li>Em <strong>MCP</strong>, <strong>Prompts</strong> e <strong>Skills</strong>, adicione uma vez e ligue a sincronização por ferramenta.</li>
+</ol>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Alternar entre a assinatura oficial do Claude e provedores alternativos (Kimi, GLM, DeepSeek, OpenRouter) sem editar arquivos.</li>
+<li>Manter os mesmos MCPs e skills em vários agentes.</li>
+<li>Acompanhar consumo e cotas de várias ferramentas num painel.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Termos de uso:</strong> o recurso Accounts (beta) permite usar assinaturas do Copilot, ChatGPT e Grok fora do cliente oficial; o próprio projeto alerta que isso pode violar os termos dos fornecedores.</li>
+<li>O README é dominado por patrocinadores, em grande parte relays de API chineses com descontos; avalie com cuidado antes de mandar código e chaves para intermediários.</li>
+<li>O site oficial é só <a href="https://ccswitch.io">ccswitch.io</a>; desconfie de cópias.</li>
+<li>A ficha cobre o README até a seção de recursos; o FAQ não foi lido por inteiro.</li>
+<li>Alternativa em forma de gateway: <a href="claude-code-router.html">Claude Code Router</a>; também <a href="omniroute.html">OmniRoute</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/farion1231/cc-switch#readme">README</a></li>
+<li><a href="https://github.com/farion1231/cc-switch/blob/main/docs/user-manual/en/README.md">Manual do usuário</a></li>
+<li><a href="https://github.com/farion1231/cc-switch/blob/main/docs/guides/claude-codex-routing-guide-en.md">Usar GPT no Claude Code</a></li>
+<li><a href="https://github.com/farion1231/cc-switch/blob/main/CHANGELOG.md">Changelog</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArtCraft · Repositórios favoritos</title>
+<meta name="description" content="App de desktop open source (&quot;a IDE para artistas&quot;) para criar imagem e vídeo com IA de forma controlada: você monta a cena em 2D e 3D (cenário, props, personagens posados, câmera) antes de gerar, e escolhe entre 62 modelos de imagem, vídeo, música, malhas 3D e mundos.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>ArtCraft</h1>
+    <p class="lead">App de desktop open source (&quot;a IDE para artistas&quot;) para criar imagem e vídeo com IA de forma controlada: você monta a cena em 2D e 3D (cenário, props, personagens posados, câmera) antes de gerar, e escolhe entre 62 modelos de imagem, vídeo, música, malhas 3D e mundos.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/storytold/artcraft">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">storytold/artcraft</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/storytold/artcraft">storytold/artcraft</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://getartcraft.com">getartcraft.com</a> · <a href="https://www.youtube.com/watch?v=kzvQMdg66Go">vídeo de 2 min</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust (Tauri) + TypeScript/React</dd></div>
+<div><dt>Licença</dt><dd>MIT ou Apache-2.0, à escolha (marcas ArtCraft e alguns assets de terceiros excluídos)</dd></div>
+<div><dt>Estrelas</dt><dd>~41,7k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O ArtCraft troca o &quot;prompt e torce&quot; por &quot;crafting&quot;: em vez de só descrever a imagem, você constrói a cena. Coloca fundo, primeiro plano e objetos em camadas 3D, posa um manequim para definir a pose do personagem, posiciona a câmera e só então gera a imagem ou o vídeo final.</p>
+<p>Também dá para começar só com um prompt e depois refinar no canvas, com máscaras, inpainting e edição por texto. É um app nativo para Windows, macOS e Linux, do mesmo time do <a href="../06-seguranca/craft-anything.html">Craft Anything</a>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Image to Location:</strong> coloca atores virtuais num ambiente consistente e planeja várias tomadas na mesma sala.</li>
+<li><strong>Composição 3D e 2D:</strong> camadas de fundo, primeiro plano e props com profundidade, ou camadas de imagem com remoção de fundo e desenho.</li>
+<li><strong>Image to 3D Mesh:</strong> transforma uma imagem num objeto 3D que você gira e enquadra.</li>
+<li><strong>Pose de personagem e transferência de identidade:</strong> um manequim posado guia a pose e a posição do personagem.</li>
+<li><strong>Kitbashing:</strong> combina kits de assets 3D para controlar ângulo de câmera, posição e profundidade.</li>
+<li><strong>Remoção de fundo</strong> para usar recortes como props, camadas ou cenários.</li>
+<li><strong>Prompt rápido:</strong> texto para imagem, edição de imagem por texto (Nano Banana Pro, GPT Image), edição no canvas e imagem para vídeo.</li>
+<li><strong>62 modelos</strong> pelo provedor ArtCraft: imagens (Nano Banana, GPT Image, FLUX, Seedream), vídeo (Seedance, Kling, Veo, Sora, Vidu, MiniMax, Flux), música e som (Suno, Seed Audio), malhas 3D (Hunyuan 3D, Tripo3D, Meshy, Rodin) e mundos com Gaussian splats (Marble, TripoSplat). Alguns estão marcados como desativados ou restritos.</li>
+<li><strong>Outros provedores:</strong> Grok, Midjourney, Sora e World Labs. Kling, Google, Runway e Luma estão planejados.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Windows, macOS ou Linux.</li>
+<li>Conexão com a internet: os modelos rodam nos serviços online do ArtCraft e dos provedores, não na sua máquina.</li>
+<li>Para compilar do código: Rust, Node.js (20+; testado com v24.13.0) e Tauri CLI 2.x.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Windows:</strong> baixe <code>ArtCraft_&lt;versão&gt;_x64-setup.exe</code> (ou o <code>.msi</code>) na <a href="https://github.com/storytold/artcraft/releases/latest">última release</a> ou em <a href="https://getartcraft.com">getartcraft.com</a>. A release traz <code>SHA256SUMS.txt</code> para conferir os arquivos.</p>
+<p><strong>macOS:</strong> <code>ArtCraft_&lt;versão&gt;_universal.dmg</code>.</p>
+<p><strong>Linux:</strong> AppImage, DEB, RPM, Flatpak, pacote Arch e <code>.tar.gz</code> (x86_64 e aarch64), mais DEB/RPM para riscv64. Veja as <a href="https://github.com/storytold/artcraft/blob/main/packaging/linux/README.md">notas de empacotamento</a>.</p>
+<p><strong>Do código (Mac/Linux):</strong></p>
+<pre><code class="language-bash">git clone https://github.com/storytold/artcraft.git
+cd artcraft
+./script/artcraft/unix_dev.sh
+</code></pre>
+<p>O script sobe o frontend (Vite, a partir da porta 5193) e o app Tauri juntos. O guia completo está em <a href="https://github.com/storytold/artcraft/blob/main/_docs/dev_setup.md">_docs/dev_setup.md</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>É um app gráfico, sem CLI de uso. O fluxo típico:</p>
+<ol>
+<li>Gere ou importe uma imagem de cenário (ou crie um mundo 3D).</li>
+<li>Adicione props, recortes e malhas 3D, poste o manequim e posicione a câmera.</li>
+<li>Escolha o modelo e gere a imagem final.</li>
+<li>Anime a imagem com um modelo de vídeo, se quiser.</li>
+</ol>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Storyboard e pré-visualização de filmes, comerciais e vídeos curtos com personagens e cenários consistentes.</li>
+<li>Imagens de produto ou de campanha em que a composição e o ângulo precisam ser exatos.</li>
+<li>Gerar objetos 3D a partir de imagens para usar em outras cenas.</li>
+<li>Testar vários modelos de imagem e vídeo num só lugar.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Custo:</strong> o app é gratuito e open source, mas a geração usa serviços online. O README não detalha preços nem créditos; confira no site antes de usar em volume.</li>
+<li><strong>Licença:</strong> código em MIT ou Apache-2.0. O nome e os logos ArtCraft são marca registrada e não estão cobertos. O <code>NOTICE</code> lista assets de terceiros sem licença livre (efeitos sonoros de jogos da Nintendo, memes, skyboxes, animações Mixamo), que serão removidos com o tempo. Num fork, retire esses arquivos.</li>
+<li><strong>Projeto ativo:</strong> a versão mais recente é a v0.41.1 (nov/2026).</li>
+<li>Relacionados no catálogo: o <a href="flux2.html">FLUX.2</a> gera imagens localmente. O <a href="opencreator.html">OpenCreator</a> e o <a href="open-higgsfield.html">Open Higgsfield</a> também juntam vários modelos de imagem e vídeo. As <a href="../02-skills-para-agentes/blender-skills.html">Blender Skills</a> cobrem 3D no Blender pelo agente.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://getartcraft.com">Site e downloads</a></li>
+<li><a href="https://github.com/storytold/artcraft/releases">Releases</a></li>
+<li><a href="https://www.youtube.com/watch?v=kzvQMdg66Go">Vídeo de demonstração</a></li>
+<li><a href="https://github.com/storytold/artcraft/blob/main/_docs/dev_setup.md">Configuração de desenvolvimento</a></li>
+<li><a href="https://github.com/storytold/artcraft/blob/main/ROADMAP.md">Roadmap</a></li>
+<li><a href="https://github.com/storytold/artcraft/blob/main/NOTICE">NOTICE (material de terceiros)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

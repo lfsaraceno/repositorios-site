@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Agent · Repositórios favoritos</title>
+<meta name="description" content="Agente de IA autônomo e auto-aprimorável da Nous Research: cria e melhora as próprias skills, lembra de você entre sessões e roda na sua máquina, num VPS ou na nuvem, com conversa pelo terminal ou por Telegram, Discord, Slack, WhatsApp e Signal.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>Hermes Agent</h1>
+    <p class="lead">Agente de IA autônomo e auto-aprimorável da Nous Research: cria e melhora as próprias skills, lembra de você entre sessões e roda na sua máquina, num VPS ou na nuvem, com conversa pelo terminal ou por Telegram, Discord, Slack, WhatsApp e Signal.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/NousResearch/hermes-agent">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">NousResearch/hermes-agent</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://hermes-agent.nousresearch.com/docs/">hermes-agent.nousresearch.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~264k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Hermes Agent é um agente de IA de uso geral, feito pela Nous Research, que funciona como um assistente pessoal sempre disponível. Ele não fica preso ao seu notebook: você pode instalá-lo num VPS de US$ 5, num cluster de GPU ou em infraestrutura serverless e conversar com ele pelo terminal ou por apps de mensagem enquanto ele trabalha numa máquina na nuvem.</p>
+<p>O diferencial que o projeto destaca é o <strong>ciclo de aprendizado fechado</strong>. Depois de tarefas complexas, o agente cria skills (procedimentos reutilizáveis) a partir da experiência e as aprimora com o uso. Ele também mantém uma memória curada por ele mesmo, com lembretes periódicos para registrar conhecimento. Para recuperar contexto, faz busca textual (SQLite FTS5) nas conversas antigas com resumo por LLM. E monta um modelo de quem você é ao longo das sessões, usando a modelagem dialética de usuário do <a href="https://github.com/plastic-labs/honcho">Honcho</a>.</p>
+<p>Ele não depende de um provedor: funciona com Nous Portal, OpenRouter, OpenAI, endpoints próprios e muitos outros, e a troca de modelo é feita com <code>hermes model</code>, sem mudar código. As skills seguem o padrão aberto <a href="https://agentskills.io">agentskills.io</a>, o mesmo usado por várias ferramentas deste catálogo.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>TUI completa no terminal:</strong> edição multilinha, autocompletar de slash commands, histórico, interromper e redirecionar o agente no meio da tarefa, saída de ferramentas em streaming.</li>
+<li><strong>Gateway de mensagens:</strong> um único processo atende Telegram, Discord, Slack, WhatsApp, Signal e e-mail, com transcrição de áudio e continuidade da conversa entre plataformas.</li>
+<li><strong>Memória e skills que evoluem:</strong> criação autônoma de skills, melhoria delas durante o uso, busca nas sessões antigas e perfil do usuário entre sessões.</li>
+<li><strong>Automações agendadas:</strong> cron embutido, configurado em linguagem natural, com entrega do resultado em qualquer plataforma (relatórios diários, backups noturnos, auditorias semanais).</li>
+<li><strong>Subagentes e paralelismo:</strong> cria subagentes isolados para frentes paralelas e permite escrever scripts Python que chamam ferramentas via RPC, juntando pipelines de vários passos num turno só.</li>
+<li><strong>Seis backends de terminal:</strong> local, Docker, SSH, Modal, Daytona e Vercel Sandbox, além de plugins como Singularity/Apptainer. Daytona e Modal hibernam o ambiente quando ocioso, então o custo entre sessões fica perto de zero.</li>
+<li><strong>Mais de 40 ferramentas</strong>, integração com servidores MCP, arquivos de contexto de projeto e personalidades configuráveis.</li>
+<li><strong>Pesquisa:</strong> geração de trajetórias em lote e compressão de trajetórias para treinar modelos de tool calling.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Linux, macOS, WSL2 ou Windows nativo (PowerShell). Há também pacote APT para Android/Termux (aarch64).</li>
+<li>O instalador cuida das dependências: Python 3.14, Node.js, npm, pnpm, ripgrep, FFmpeg e as bibliotecas Python. No Windows, se o Git não existir, ele baixa uma cópia verificada para a pasta de ferramentas do Hermes, sem mexer no Git do sistema.</li>
+<li>Chave de API de algum provedor de modelo, ou assinatura do Nous Portal.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="linux-macos-e-wsl2">Linux, macOS e WSL2</h3>
+<pre><code class="language-bash">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+source ~/.bashrc    # recarrega o shell (ou: source ~/.zshrc)
+hermes              # começa a conversar
+</code></pre>
+<h3 id="windows-nativo-powershell">Windows (nativo, PowerShell)</h3>
+<pre><code class="language-powershell">iex (irm https://hermes-agent.nousresearch.com/install.ps1)
+</code></pre>
+<p>No Windows nativo a instalação fica em <code>%LOCALAPPDATA%\hermes</code>; no WSL2, em <code>~/.hermes</code>, como no Linux. CLI, gateway, TUI e ferramentas funcionam sem WSL. Existe ainda um pacote MSIX/App Installer separado, descrito na <a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation">página de instalação</a>.</p>
+<h3 id="android-termux">Android (Termux)</h3>
+<p>Use o <a href="https://hermes-agent.nousresearch.com/docs/getting-started/termux">guia do Termux</a>, que tem repositório APT assinado com canais <code>stable</code> e <code>canary</code>. Não use o script de desktop/servidor.</p>
+<h3 id="atalho-nous-portal">Atalho: Nous Portal</h3>
+<p>Se não quiser juntar várias chaves (modelo, busca web, geração de imagem, TTS, navegador na nuvem), o Nous Portal cobre tudo numa assinatura, com mais de 300 modelos e um Tool Gateway:</p>
+<pre><code class="language-bash">hermes setup --portal   # login via OAuth, define a Nous como provedor e liga o Tool Gateway
+hermes portal info      # mostra o que está configurado
+</code></pre>
+<p>Dá para continuar usando chaves próprias por ferramenta; o gateway não é tudo-ou-nada.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<h3 id="cli">CLI</h3>
+<pre><code class="language-bash">hermes              # CLI interativa: inicia uma conversa
+hermes setup        # assistente de configuração completo
+hermes model        # escolhe provedor e modelo de LLM
+hermes tools        # liga e desliga ferramentas
+hermes config set   # define um valor de configuração
+hermes config get   # mostra um valor de configuração
+hermes gateway      # inicia o gateway de mensagens (Telegram, Discord etc.)
+hermes update       # atualiza para a versão mais recente
+hermes doctor       # diagnostica problemas
+</code></pre>
+<h3 id="conversar-pelo-celular">Conversar pelo celular</h3>
+<pre><code class="language-bash">hermes gateway setup   # configura as plataformas de mensagem
+hermes gateway start   # sobe o gateway; depois é só mandar mensagem para o bot
+</code></pre>
+<h3 id="slash-commands-cli-e-mensageiros">Slash commands (CLI e mensageiros)</h3>
+<pre><code class="language-text">/new ou /reset              # nova conversa
+/model [provider:model]     # troca o modelo
+/personality [nome]         # aplica uma personalidade
+/retry, /undo               # refaz ou desfaz o último turno
+/compress, /usage           # comprime o contexto / mostra o consumo
+/insights [--days N]        # estatísticas de uso
+/skills ou /&lt;nome-da-skill&gt; # navega pelas skills ou chama uma
+/stop                       # interrompe a tarefa (no mensageiro; na CLI, Ctrl+C)
+/platforms                  # status das plataformas (CLI); no mensageiro: /status, /sethome
+</code></pre>
+<h3 id="migrar-de-outro-agente">Migrar de outro agente</h3>
+<p>O <code>hermes setup</code> detecta <code>~/.openclaw</code>, <code>~/.claude</code>, <code>~/.codex</code> e <code>~/.cursor</code> e oferece importar configurações, memórias e skills, com prévia. Depois da instalação:</p>
+<pre><code class="language-bash">hermes plugins install agent-importers          # uma vez por perfil
+hermes import-agent openclaw --dry-run          # prévia do que seria migrado
+hermes import-agent openclaw                    # migração interativa
+hermes import-agent openclaw --migrate-secrets  # também traz chaves de API da lista permitida
+hermes import-agent claude-code                 # ou codex / cursor
+</code></pre>
+<h3 id="exemplos-de-prompt">Exemplos de prompt</h3>
+<pre><code class="language-text">Todo dia às 8h, me mande no Telegram um resumo das issues novas do meu repositório.
+Configure um backup noturno da pasta ~/projetos e me avise se falhar.
+Pesquise três alternativas a esta biblioteca e compare em paralelo.
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Você quer um assistente pessoal que roda 24/7 num servidor e responde pelo Telegram, WhatsApp ou Discord.</li>
+<li>Precisa de tarefas recorrentes (relatórios, backups, auditorias) descritas em linguagem natural, sem montar cron e scripts à mão.</li>
+<li>Quer um agente que acumule memória e skills ao longo do tempo, em vez de começar do zero a cada sessão.</li>
+<li>Está saindo do OpenClaw, Claude Code, Codex ou Cursor e quer levar memórias e skills junto.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Agente com acesso a terminal:</strong> ele executa comandos no backend que você escolher. A documentação de <a href="https://hermes-agent.nousresearch.com/docs/user-guide/security">segurança</a> cobre aprovação de comandos, pareamento por DM e isolamento em contêiner. Para uso 24/7 exposto a mensageiros, prefira Docker ou sandbox em vez do backend local.</li>
+<li><strong>Antivírus no Windows:</strong> o Windows Defender e o Bitdefender às vezes colocam em quarentena o <code>uv.exe</code> em <code>%LOCALAPPDATA%\hermes\bin</code>. Segundo o README é falso positivo (é o <code>uv</code> da Astral); o README traz um passo a passo com <code>gh attestation verify</code> para conferir o binário. Para liberar, adicione a <strong>pasta</strong> às exclusões, não o hash, porque o hash muda a cada atualização.</li>
+<li><strong>Custos:</strong> o agente é MIT e gratuito, mas o uso de modelos, busca, TTS e navegador na nuvem é pago, via chaves próprias ou pela assinatura do Nous Portal.</li>
+<li><strong>Migração de segredos:</strong> <code>--migrate-secrets</code> copia chaves de API (Telegram, OpenRouter, OpenAI, Anthropic, ElevenLabs) do OpenClaw. Use só se quiser mesmo essas chaves no Hermes.</li>
+<li><strong>Ecossistema no catálogo:</strong> várias ferramentas daqui já suportam o Hermes como alvo, entre elas <a href="superpowers.html">Superpowers</a> (<code>hermes plugins install obra/superpowers --enable</code>), <a href="../03-design-e-ui/impeccable.html">Impeccable</a>, <a href="../04-desenvolvimento-guiado-por-spec/openspec.html">OpenSpec</a>, <a href="../02-skills-para-agentes/planning-with-files.html">Planning with Files</a> e <a href="../05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a>. O <a href="gbrain.html">GBrain</a> oferece memória externa explícita para o Hermes, enquanto a memória nativa do Hermes é curada pelo próprio agente.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://hermes-agent.nousresearch.com/docs/">Documentação</a></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/getting-started/quickstart">Quickstart</a></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/developer-guide/architecture">Arquitetura</a></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands">Referência de comandos da CLI</a></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills">Sistema de skills</a></li>
+<li><a href="https://hermes-agent.nousresearch.com/docs/guides/migrate-from-openclaw">Guia de migração do OpenClaw</a></li>
+<li><a href="https://agentskills.io">Skills Hub (agentskills.io)</a></li>
+<li><a href="https://discord.gg/NousResearch">Discord da Nous Research</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gstack.html">gstack</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-kanban.html">Vibe Kanban</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

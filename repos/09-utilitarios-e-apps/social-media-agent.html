@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Media Agent · Repositórios favoritos</title>
+<meta name="description" content="Agente da LangChain (LangGraph + Claude) que recebe um link, lê o conteúdo e escreve posts para X/Twitter e LinkedIn, com aprovação humana antes de publicar e agendamento. Pode puxar links de um canal do Slack todo dia.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Social Media Agent</h1>
+    <p class="lead">Agente da LangChain (LangGraph + Claude) que recebe um link, lê o conteúdo e escreve posts para X/Twitter e LinkedIn, com aprovação humana antes de publicar e agendamento. Pode puxar links de um canal do Slack todo dia.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/langchain-ai/social-media-agent">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">langchain-ai/social-media-agent</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/langchain-ai/social-media-agent">langchain-ai/social-media-agent</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://youtu.be/TmTl5FMgkCQ">vídeo tutorial</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~3k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um agente feito com LangGraph que a própria LangChain usa para divulgar conteúdo. Você manda uma URL (post de blog, repositório do GitHub, tweet, vídeo do YouTube). O agente lê o conteúdo, confere se é relevante para o seu negócio, escreve um relatório de marketing e gera o post.</p>
+<p>O fluxo é <strong>human-in-the-loop</strong>: antes de publicar, o post para numa caixa de entrada (o <strong>Agent Inbox</strong>), onde você aceita, edita, rejeita ou responde. Depois de aprovado, o post é agendado e publicado no X e no LinkedIn (pessoal ou página de empresa).</p>
+<p>Na configuração completa, um cron lê os links enviados num canal do Slack e gera os posts uma vez por dia. Na LangChain, a equipe joga links num canal e o agente cuida do resto.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Gera posts para X/Twitter e LinkedIn</strong> a partir de uma URL.</li>
+<li><strong>Lê vários tipos de fonte:</strong> páginas web (FireCrawl), GitHub, tweets e vídeos do YouTube (Vertex AI) na configuração completa.</li>
+<li><strong>Aprovação humana</strong> pelo Agent Inbox (versão hospedada ou local).</li>
+<li><strong>Agendamento e publicação</strong>, inclusive como página de empresa no LinkedIn.</li>
+<li><strong>Imagens:</strong> escolhe e envia imagens para os posts (guardadas no Supabase).</li>
+<li><strong>Slack:</strong> ingestão diária de links por cron e mensagens de atualização num canal.</li>
+<li><strong>Estilo configurável</strong> por prompts: contexto do negócio, exemplos de posts, estrutura e regras de conteúdo.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node com <code>yarn</code>, e Python com <code>pip</code> (para o <code>langgraph-cli</code>).</li>
+<li><strong>Configuração básica:</strong> chaves da Anthropic, LangSmith (gratuita), FireCrawl (500 créditos grátis para novos usuários) e Arcade (autenticação nas redes).</li>
+<li><strong>Configuração completa:</strong> além dessas, Google Vertex AI, contas de desenvolvedor do X e do LinkedIn, token do GitHub, Supabase e, opcionalmente, Slack.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">git clone https://github.com/langchain-ai/social-media-agent.git
+cd social-media-agent
+yarn install
+cp .env.quickstart.example .env        # configuração completa: .env.full.example
+pip install langgraph-cli
+</code></pre>
+<p>No <code>.env</code> básico:</p>
+<pre><code class="language-bash">LANGSMITH_API_KEY=
+ANTHROPIC_API_KEY=
+FIRECRAWL_API_KEY=
+ARCADE_API_KEY=
+# para postar como empresa no LinkedIn:
+POST_TO_LINKEDIN_ORGANIZATION=true
+LINKEDIN_ORGANIZATION_ID=
+</code></pre>
+<p>A autenticação nas redes é feita pelo Arcade (mais rápido) <strong>ou</strong> por apps próprios no X e no LinkedIn, nunca os dois. Os apps próprios usam <code>yarn start:auth</code> (servidor OAuth em http://localhost:3000) para obter os tokens. Para enviar mídia ao X, precisa do app próprio mesmo usando o Arcade.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">yarn langgraph:in_mem:up     # sobe o servidor LangGraph local (porta 54367)
+yarn generate_post           # gera um post a partir da URL definida no script
+yarn start:auth              # servidor OAuth para obter tokens do X e do LinkedIn
+yarn cron:create             # cria o cron que lê links do Slack uma vez por dia
+</code></pre>
+<p>Para revisar os posts, adicione o grafo no <a href="https://dev.agentinbox.ai/">Agent Inbox</a> com:</p>
+<pre><code class="language-text">Graph ID: generate_post
+Graph API URL: http://localhost:54367
+</code></pre>
+<p>Para usar com o seu negócio, edite os prompts em <code>src/agents/generate-post/prompts/</code>: <code>BUSINESS_CONTEXT</code>, <code>TWEET_EXAMPLES</code>, <code>POST_STRUCTURE_INSTRUCTIONS</code> e <code>POST_CONTENT_RULES</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Divulgar posts de blog, lançamentos e vídeos da empresa no X e no LinkedIn com um fluxo de aprovação.</li>
+<li>Equipes que juntam links interessantes num canal do Slack e querem transformar isso em posts diários.</li>
+<li>Base para montar um agente próprio de social media com LangGraph.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Vem configurado para a LangChain:</strong> os prompts e os exemplos de posts falam de produtos da LangChain e de conteúdo de IA. Troque <code>BUSINESS_CONTEXT</code> e <code>TWEET_EXAMPLES</code> antes de usar; senão os posts saem fora do seu contexto.</li>
+<li><strong>Muitas contas e chaves:</strong> a configuração completa envolve cerca de dez serviços. Comece pela básica (sem GitHub, YouTube, Slack e imagens).</li>
+<li><strong>Só X e LinkedIn.</strong> Instagram, TikTok e outras redes não estão no README.</li>
+<li><strong>Postar como empresa no LinkedIn</strong> exige o produto <em>Advertising API</em>, verificação do app pela página e um papel de administrador ou de postagem.</li>
+<li>O bucket <code>images</code> do Supabase precisa ser público.</li>
+<li>Gera tudo em inglês por padrão; para posts em português, ajuste os prompts e os exemplos.</li>
+<li>Relacionados no catálogo: as <a href="../02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a> pesquisam o que funciona nas redes. As <a href="../02-skills-para-agentes/marketingskills.html">Marketing Skills</a> têm a skill <code>social</code> para escrever posts dentro do Claude Code.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://youtu.be/TmTl5FMgkCQ">Vídeo tutorial de configuração</a></li>
+<li><a href="https://github.com/langchain-ai/agent-inbox">Agent Inbox</a></li>
+<li><a href="https://github.com/langchain-ai/social-media-agent/blob/main/scripts/README.md">Scripts prontos</a></li>
+<li><a href="https://github.com/langchain-ai/social-media-agent/tree/main/src/agents/generate-post/prompts">Prompts</a></li>
+<li><a href="https://langchain-ai.github.io/langgraph/cloud/reference/cli/">LangGraph CLI</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

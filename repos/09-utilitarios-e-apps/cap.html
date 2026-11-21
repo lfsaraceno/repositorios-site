@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cap · Repositórios favoritos</title>
+<meta name="description" content="Alternativa open-source ao Loom: grava tela, câmera e microfone, gera link compartilhável na hora ou edita com zoom, legendas e fundos, com IA para títulos e capítulos, armazenamento próprio (S3) e self-hosting.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Cap</h1>
+    <p class="lead">Alternativa open-source ao Loom: grava tela, câmera e microfone, gera link compartilhável na hora ou edita com zoom, legendas e fundos, com IA para títulos e capítulos, armazenamento próprio (S3) e self-hosting.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/CapSoftware/Cap">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">CapSoftware/Cap</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/CapSoftware/Cap">CapSoftware/Cap</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://cap.so">cap.so</a> · <a href="https://cap.so/docs">Docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust (desktop) e TypeScript (web)</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0 (crates <code>cap-camera*</code> e <code>scap-*</code> em MIT)</dd></div>
+<div><dt>Estrelas</dt><dd>~25k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Cap grava a tela com câmera e microfone e deixa você compartilhar por link ou exportar um vídeo editado. Serve para demos de produto, reportes de bug, onboarding, tutoriais, revisões de design e atualizações assíncronas, sempre que mostrar é mais rápido que marcar uma reunião.</p>
+<p>Tem app nativo para macOS, Windows e Linux, e um painel web para ver, compartilhar e gerenciar as gravações. Você escolhe onde ficam os vídeos: Cap Cloud, seu próprio bucket S3, só local, ou a plataforma inteira self-hosted.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Instant Mode:</strong> envia enquanto grava e dá o link assim que você para.</li>
+<li><strong>Studio Mode:</strong> grava localmente e abre o editor com fundos, zooms, cortes, legendas e exportação.</li>
+<li>Comentários, reações, transcrições, analytics de visualização e workspaces de time.</li>
+<li><strong>Cap AI:</strong> títulos, resumos, capítulos clicáveis, legendas e transcrições automáticos.</li>
+<li>Compartilhamento público ou privado, com senha e domínio próprio.</li>
+<li>Armazenamento em AWS S3, Cloudflare R2, Backblaze B2, MinIO, Wasabi ou outro compatível com S3.</li>
+<li>Importação de vídeos do Loom.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>macOS, Windows ou Linux para o app.</li>
+<li>Self-hosting: Docker (ou Railway, Coolify).</li>
+<li>Desenvolvimento: Node.js 24+, Bun 1.4.4, Rust (rustup) e Docker.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="app">App</h3>
+<ol>
+<li>Baixe em <a href="https://cap.so/download">cap.so/download</a>.</li>
+<li>Entre ou crie uma conta.</li>
+<li>Escolha Instant Mode ou Studio Mode e grave.</li>
+</ol>
+<h3 id="self-hosting-docker-compose">Self-hosting (Docker Compose)</h3>
+<pre><code class="language-bash">git clone https://github.com/CapSoftware/Cap.git
+cd Cap
+docker compose up -d
+</code></pre>
+<p>Disponível em <code>http://localhost:3000</code>. Sem e-mail configurado, os links de login aparecem nos logs:</p>
+<pre><code class="language-bash">docker compose logs cap-web
+</code></pre>
+<p>Em produção, defina as URLs públicas e troque os segredos padrão antes de expor na internet:</p>
+<pre><code class="language-bash">CAP_URL=https://cap.yourdomain.com
+S3_PUBLIC_URL=https://s3.yourdomain.com
+</code></pre>
+<p>No app desktop, aponte para sua instância em <code>Settings &gt; Cap Server URL</code>. Também há deploy com <a href="https://railway.com/new/template/PwpGcf">Railway</a> e Coolify (<code>docker-compose.coolify.yml</code>).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Desenvolvimento local:</p>
+<pre><code class="language-bash">bun install
+bun run env-setup
+bun run cap-setup
+bun run dev            # stack completa
+bun run dev:web        # só a web
+bun run dev:desktop    # app desktop
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gravar demos e tutoriais com edição rápida, sem pagar Loom.</li>
+<li>Reportar bugs com vídeo e link instantâneo.</li>
+<li>Manter gravações sensíveis no próprio servidor ou bucket.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença AGPL-3.0</strong> para a maior parte do código; oferecer versão modificada como serviço exige publicar as modificações.</li>
+<li>Gravações com áudio ou rosto de terceiros envolvem dados pessoais; atenção à LGPD ao compartilhar.</li>
+<li>Guia completo de self-hosting (e-mail, IA, SSL, armazenamento, hardening): <a href="https://cap.so/docs/self-hosting">cap.so/docs/self-hosting</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/CapSoftware/Cap#readme">README</a></li>
+<li><a href="https://cap.so/docs">Documentação</a></li>
+<li><a href="https://cap.so/pricing">Preços</a></li>
+<li><a href="https://cap.so/docs/self-hosting">Self-hosting</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

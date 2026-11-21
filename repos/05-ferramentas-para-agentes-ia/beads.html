@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beads (bd) · Repositórios favoritos</title>
+<meta name="description" content="Rastreador de tarefas em grafo, distribuído e versionado (sobre o banco Dolt), que serve de memória estruturada para agentes de programação: substitui planos soltos em Markdown por tarefas com dependências, para o agente tocar trabalhos longos sem perder o contexto.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Beads (bd)</h1>
+    <p class="lead">Rastreador de tarefas em grafo, distribuído e versionado (sobre o banco Dolt), que serve de memória estruturada para agentes de programação: substitui planos soltos em Markdown por tarefas com dependências, para o agente tocar trabalhos longos sem perder o contexto.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/gastownhall/beads">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">gastownhall/beads</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/gastownhall/beads">gastownhall/beads</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://beads.gascity.com/">beads.gascity.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>Go</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~29k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Beads (comando <code>bd</code>), criado por Steve Yegge, dá ao agente um lugar persistente para criar, priorizar e encadear tarefas (&quot;beads&quot;). Cada tarefa pode bloquear outras; o comando <code>bd ready</code> mostra só o que está livre para ser feito, o agente reivindica a tarefa, conclui e libera as próximas.</p>
+<p>Os dados ficam no <a href="https://github.com/dolthub/dolt">Dolt</a>, um banco SQL versionado com branches e merge por célula, sincronizado entre máquinas e agentes via o remoto git. IDs por hash (<code>bd-a1b2</code>) evitam conflitos quando vários agentes ou branches trabalham ao mesmo tempo. Tarefas antigas fechadas são resumidas (&quot;decaimento de memória&quot;) para economizar contexto.</p>
+<p>É uma ferramenta de linha de comando instalada uma vez no sistema; você não clona o repositório no seu projeto.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Grafo de dependências com detecção automática de tarefas prontas.</li>
+<li>Saída em JSON pensada para agentes.</li>
+<li>Hierarquia de épicos, tarefas e subtarefas (<code>bd-a3f8</code>, <code>bd-a3f8.1</code>, <code>bd-a3f8.1.1</code>).</li>
+<li>Memórias de projeto (<code>bd remember</code>) injetadas no contexto por <code>bd prime</code>.</li>
+<li>Ligações <code>relates-to</code>, <code>duplicates</code>, <code>supersedes</code>, <code>replies-to</code>; mensagens com threads.</li>
+<li>Modo stealth (uso local sem commitar arquivos) e modo contribuidor (planejamento em repositório separado).</li>
+<li>Sincronização com GitHub Issues, backend HTTP experimental e uso sem git.</li>
+<li><code>bd rules audit</code> e <code>bd rules compact</code> para regras do Claude em <code>.claude/rules/</code>.</li>
+<li>Integrações: Claude Code, Codex, Cursor, Factory Droid, Copilot.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>macOS, Linux, Windows ou FreeBSD.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">brew install beads           # macOS / Linux (recomendado)
+npm install -g @beads/bd     # via Node.js
+curl -fsSL https://raw.githubusercontent.com/gastownhall/beads/main/scripts/install.sh | bash   # script
+</code></pre>
+<p>No seu projeto:</p>
+<pre><code class="language-bash">cd your-project
+bd init            # cria/atualiza AGENTS.md e instala integrações do Claude Code, Codex e Cursor
+bd setup claude    # hooks e configurações do Claude Code
+bd setup codex     # skill, AGENTS.md e hooks do Codex
+</code></pre>
+<p>Windows e outras formas: <a href="https://github.com/gastownhall/beads/blob/main/docs/getting-started/installation.md">guia de instalação</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">bd ready                        # tarefas sem bloqueios abertos
+bd create &quot;Title&quot; -p 0          # cria tarefa prioridade P0
+bd update &lt;id&gt; --claim          # reivindica a tarefa (responsável + em andamento)
+bd dep add &lt;child&gt; &lt;parent&gt;     # liga tarefas
+bd show &lt;id&gt;                    # detalhes e histórico
+bd close &lt;id&gt; &quot;Fixed&quot;           # conclui
+bd prime                        # contexto de fluxo e memórias para o agente
+bd remember &quot;insight&quot;           # guarda um fato do projeto
+bd dolt push / bd dolt pull     # sincroniza entre máquinas
+bd init --stealth               # uso local, sem commitar arquivos no repo
+</code></pre>
+<p>Para agentes sem <code>bd setup</code>, acrescente ao <code>AGENTS.md</code>: &quot;This project uses bd (beads) for issue tracking. Run <code>bd prime</code> for workflow context. Do not use markdown TODO lists for task tracking.&quot;</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Tarefas longas que atravessam várias sessões e compactações de contexto.</li>
+<li>Vários agentes trabalhando em paralelo no mesmo projeto.</li>
+<li>Substituir TODOs em Markdown por algo com dependências e histórico.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Atualizações que cruzam migração de esquema exigem cuidado em bancos sincronizados: siga o <a href="https://beads.gascity.com/getting-started/upgrading">guia de upgrade</a>.</li>
+<li>Verifique o checksum dos binários baixados; o arquivo <code>.beads/.env</code> ignora variáveis de comando e credenciais por segurança.</li>
+<li>O repositório migrou de <code>steveyegge/beads</code> para <code>gastownhall/beads</code>.</li>
+<li>Alternativa mais simples, em arquivos Markdown: <a href="../02-skills-para-agentes/planning-with-files.html">Planning with Files</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/gastownhall/beads#readme">README</a></li>
+<li><a href="https://beads.gascity.com/">Documentação</a></li>
+<li><a href="https://github.com/gastownhall/beads/blob/main/docs/getting-started/ide-setup.md">Configuração de agentes e IDEs</a></li>
+<li><a href="https://github.com/gastownhall/beads/blob/main/docs/community-tools.md">Ferramentas da comunidade</a></li>
+<li><a href="https://github.com/gastownhall/beads/blob/main/docs/reference/faq.md">FAQ</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

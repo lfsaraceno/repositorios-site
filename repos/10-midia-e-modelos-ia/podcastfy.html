@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podcastfy · Repositórios favoritos</title>
+<meta name="description" content="Alternativa open source ao recurso de podcast do NotebookLM: um pacote Python que transforma sites, PDFs, imagens, vídeos do YouTube ou um tema em um podcast conversado entre duas vozes, curto ou longo, em vários idiomas (inclusive português do Brasil).">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>Podcastfy</h1>
+    <p class="lead">Alternativa open source ao recurso de podcast do NotebookLM: um pacote Python que transforma sites, PDFs, imagens, vídeos do YouTube ou um tema em um podcast conversado entre duas vozes, curto ou longo, em vários idiomas (inclusive português do Brasil).</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/souzatharsis/podcastfy">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">souzatharsis/podcastfy</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/souzatharsis/podcastfy">souzatharsis/podcastfy</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.podcastfy.ai">podcastfy.ai</a> · <a href="https://podcastfy.readthedocs.io/en/latest/podcastfy.html">manual</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~6,8k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Podcastfy faz o que o &quot;Audio Overview&quot; do NotebookLM faz, mas como código aberto e programável. Você passa uma ou mais fontes, um LLM escreve o roteiro de uma conversa entre apresentadores, e um modelo de voz (TTS) gera o áudio.</p>
+<p>Por ser uma biblioteca, dá para personalizar o formato, o estilo, o idioma e as vozes e gerar podcasts em escala. O autor é brasileiro, e o README traz um exemplo em português sobre pesquisas eleitorais em São Paulo. Projetos como OpenNotebook e SurfSense usam o Podcastfy por baixo.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Fontes:</strong> sites, PDFs, imagens, vídeos do YouTube, texto puro ou um tema (com busca na web em tempo real).</li>
+<li><strong>Duração:</strong> podcasts curtos (2 a 5 minutos) ou longos (30 minutos ou mais, opção <code>longform</code>).</li>
+<li><strong>LLMs:</strong> mais de 100 modelos (OpenAI, Anthropic, Google etc.) ou modelos locais, para mais privacidade.</li>
+<li><strong>Vozes:</strong> OpenAI TTS, Google (inclusive TTS multi-falante), ElevenLabs e Microsoft Edge.</li>
+<li><strong>Personalização da conversa:</strong> formato, estilo, estrutura, idioma e nomes e papéis dos apresentadores, via arquivo YAML.</li>
+<li><strong>Só o roteiro:</strong> dá para gerar só a transcrição, revisar e depois gerar o áudio a partir dela.</li>
+<li><strong>Formas de uso:</strong> biblioteca Python, CLI e uma API FastAPI em beta (via Docker).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.11 ou mais novo.</li>
+<li>ffmpeg, para processar o áudio.</li>
+<li>Chaves de API conforme os modelos: no padrão, <code>GEMINI_API_KEY</code> (roteiro com <code>gemini-2.5-flash</code>) e <code>OPENAI_API_KEY</code> (voz). Com LLM local e vozes do Edge, não precisa de chave nenhuma.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">pip install podcastfy
+</code></pre>
+<p>Crie um <code>.env</code> na pasta do projeto com as chaves:</p>
+<pre><code class="language-text">GEMINI_API_KEY=...
+OPENAI_API_KEY=...
+ELEVENLABS_API_KEY=...     # só se usar ElevenLabs
+</code></pre>
+<p>O README indica <code>pip install ffmpeg</code> para o áudio. Se der erro ao gerar áudio, instale o programa ffmpeg no sistema.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-python">from podcastfy.client import generate_podcast
+audio_file = generate_podcast(urls=[&quot;https://exemplo.com/artigo1&quot;, &quot;https://exemplo.com/artigo2&quot;])
+</code></pre>
+<p>CLI:</p>
+<pre><code class="language-bash">python -m podcastfy.client --url https://exemplo.com/artigo1 --url https://exemplo.com/artigo2   # podcast de dois links
+python -m podcastfy.client --url https://exemplo.com/artigo1 --tts-model elevenlabs              # outra voz
+python -m podcastfy.client --file urls.txt                                                       # lista de URLs
+python -m podcastfy.client --image foto1.jpg --image foto2.png                                   # a partir de imagens
+python -m podcastfy.client --text &quot;Texto que vira podcast&quot;                                       # texto puro
+python -m podcastfy.client --url https://exemplo.com/artigo1 --transcript-only                   # só o roteiro
+python -m podcastfy.client --transcript roteiro.txt                                              # áudio a partir do roteiro
+python -m podcastfy.client --url https://exemplo.com/artigo1 --longform                          # podcast longo
+python -m podcastfy.client --url https://exemplo.com/artigo1 --transcript-only --local           # roteiro com LLM local
+python -m podcastfy.client --url https://exemplo.com/artigo1 --conversation-config custom.yaml   # estilo personalizado
+</code></pre>
+<p>Configurações recomendadas pela documentação: Gemini + vozes <code>geminimulti</code> (só a <code>GEMINI_API_KEY</code>), ou LLM local + Edge, sem nenhuma chave.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Transformar posts de blog, artigos e PDFs em versão em áudio.</li>
+<li>Material de estudo ou aula em formato de conversa.</li>
+<li>Gerar muitos episódios automaticamente, a partir de uma lista de links.</li>
+<li>Incluir um gerador de podcast dentro de um produto próprio.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Atividade:</strong> o último commit é de mai/2026. Confira as issues antes de depender dele em produção.</li>
+<li><strong>Custos:</strong> o padrão usa APIs pagas (Gemini e OpenAI TTS). Para custo zero, use LLM local com vozes do Edge, que é um serviço online da Microsoft de uso não oficial.</li>
+<li><strong>Direitos autorais:</strong> transformar conteúdo de terceiros (livros, vídeos, artigos) em podcast para publicar pode violar direitos.</li>
+<li>O README tem um guia de licença para quem quiser usar o Podcastfy dentro de outro software.</li>
+<li>Relacionados no catálogo: o <a href="kokoro.html">Kokoro</a> é um TTS local e leve. O <a href="voicestudio.html">VoiceStudio</a> clona vozes. O <a href="opencreator.html">OpenCreator</a> também gera narração, mas de uma voz só.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/souzatharsis/podcastfy/blob/main/podcastfy.ipynb">Notebook de início rápido</a></li>
+<li><a href="https://github.com/souzatharsis/podcastfy/blob/main/usage/config.md">Configuração e chaves de API</a></li>
+<li><a href="https://github.com/souzatharsis/podcastfy/blob/main/usage/cli.md">CLI</a></li>
+<li><a href="https://github.com/souzatharsis/podcastfy/blob/main/usage/conversation_custom.md">Personalizar a conversa</a></li>
+<li><a href="https://github.com/souzatharsis/podcastfy/blob/main/usage/local_llm.md">LLMs locais</a></li>
+<li><a href="https://github.com/souzatharsis/podcastfy/blob/main/paper/paper.pdf">Artigo (paper)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

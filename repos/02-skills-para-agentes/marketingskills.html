@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketing Skills · Repositórios favoritos</title>
+<meta name="description" content="Mais de 50 skills de marketing para Claude Code, Codex, Cursor e outros agentes: CRO, copywriting, SEO e SEO para IA, anúncios, analytics, e-mails, preço, lançamento, vendas e growth, todas apoiadas num documento de contexto do produto.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Marketing Skills</h1>
+    <p class="lead">Mais de 50 skills de marketing para Claude Code, Codex, Cursor e outros agentes: CRO, copywriting, SEO e SEO para IA, anúncios, analytics, e-mails, preço, lançamento, vendas e growth, todas apoiadas num documento de contexto do produto.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/coreyhaines31/marketingskills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">coreyhaines31/marketingskills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/coreyhaines31/marketingskills">coreyhaines31/marketingskills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://marketing-skills.com">marketing-skills.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (skills em Markdown)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~62k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma biblioteca de skills de marketing criada por Corey Haines, voltada para fundadores e profissionais de marketing técnicos que usam agentes de código. Cada skill é um arquivo Markdown com frameworks e boas práticas de uma área (conversão, copy, SEO, anúncios etc.), e o agente aciona a skill certa quando você pede uma tarefa daquele tipo.</p>
+<p>A base de tudo é a skill <code>product-marketing</code>: ela cria o arquivo <code>.agents/product-marketing.md</code> com produto, público e posicionamento, e todas as outras skills leem esse arquivo antes de agir. As skills também se referenciam entre si (por exemplo, <code>copywriting</code> ↔ <code>cro</code> ↔ <code>ab-testing</code>).</p>
+<p>Segue o padrão <a href="https://agentskills.io">Agent Skills</a>, então funciona em Claude Code, OpenAI Codex, Cursor, Windsurf e outros agentes compatíveis. Também há ZIPs prontos para o Claude na web e para o Perplexity Computer.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Conversão:</strong> <code>cro</code> (páginas e formulários), <code>signup</code>, <code>onboarding</code>, <code>popups</code>, <code>paywalls</code>.</li>
+<li><strong>Conteúdo e copy:</strong> <code>content-strategy</code> (planejamento de conteúdo), <code>copywriting</code>, <code>copy-editing</code>, <code>cold-email</code>, <code>emails</code> (sequências automáticas), <code>social</code>, <code>image</code>, <code>video</code>, <code>sms</code> (inclui WhatsApp).</li>
+<li><strong>SEO e descoberta:</strong> <code>seo-audit</code>, <code>ai-seo</code> (ser citado no ChatGPT, Perplexity e AI Overviews), <code>link-building</code>, <code>programmatic-seo</code>, <code>site-architecture</code>, <code>schema</code>, <code>competitors</code> (páginas &quot;X vs Y&quot;), <code>aso</code> (lojas de apps).</li>
+<li><strong>Mídia paga e medição:</strong> <code>ads</code> (Google, Meta, LinkedIn), <code>ad-creative</code>, <code>analytics</code>, <code>conversion-tracking</code>, <code>attribution</code>, <code>ab-testing</code>.</li>
+<li><strong>Crescimento e retenção:</strong> <code>referrals</code>, <code>free-tools</code>, <code>lead-magnets</code>, <code>co-marketing</code>, <code>community-marketing</code>, <code>influencer-marketing</code>, <code>churn-prevention</code>, <code>events</code>, <code>public-relations</code>.</li>
+<li><strong>Estratégia e vendas:</strong> <code>pricing</code>, <code>offers</code>, <code>launch</code>, <code>marketing-plan</code>, <code>marketing-ideas</code> (140 ideias para SaaS), <code>marketing-psychology</code>, <code>marketing-council</code>, <code>marketing-loops</code>, <code>reverse-engineer-marketing</code>, <code>customer-research</code>, <code>competitor-profiling</code>, <code>prospecting</code>, <code>revops</code>, <code>sales-enablement</code>, <code>directory-submissions</code>.</li>
+<li><strong>Conexão com contas de marketing:</strong> um <a href="https://github.com/coreyhaines31/marketingskills/blob/main/tools/SETUP.md">fluxo guiado</a> para dar ao agente credenciais com escopo e leitura somente.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com Agent Skills (Claude Code, Codex, Cursor, Windsurf etc.).</li>
+<li>Node (<code>npx</code>) para a instalação via CLI.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="cli-recomendado">CLI (recomendado)</h3>
+<pre><code class="language-bash">npx skills add coreyhaines31/marketingskills                       # instala todas
+npx skills add coreyhaines31/marketingskills --skill cro copywriting   # só algumas
+npx skills add coreyhaines31/marketingskills --list                # lista as disponíveis
+</code></pre>
+<p>Se for o próprio agente rodando o comando, passe o agente explicitamente; senão a CLI pode instalar só em <code>.agents/skills/</code>, que o Claude Code não lê:</p>
+<pre><code class="language-bash">npx skills add coreyhaines31/marketingskills -a claude-code
+</code></pre>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add coreyhaines31/marketingskills
+/plugin install marketing-skills
+</code></pre>
+<p>Fora de uma sessão interativa:</p>
+<pre><code class="language-bash">claude plugin marketplace add coreyhaines31/marketingskills
+claude plugin install marketing-skills@marketingskills
+</code></pre>
+<h3 id="codex">Codex</h3>
+<pre><code class="language-bash">codex plugin marketplace add coreyhaines31/marketingskills   # depois, dentro do Codex: /plugins
+codex plugin marketplace upgrade                             # atualiza
+</code></pre>
+<h3 id="outras-formas">Outras formas</h3>
+<ul>
+<li>Clonar e copiar: <code>git clone https://github.com/coreyhaines31/marketingskills.git</code> e <code>cp -r marketingskills/skills/* .agents/skills/</code>.</li>
+<li>Submódulo git ou fork para customizar.</li>
+<li>SkillKit: <code>npx skillkit install coreyhaines31/marketingskills</code>.</li>
+<li>Claude na web: baixe <code>&lt;nome&gt;-claude-web.zip</code> nas <a href="https://github.com/coreyhaines31/marketingskills/releases/latest">Releases</a> e envie em Customize → Skills.</li>
+<li>Perplexity Computer: baixe <code>&lt;nome&gt;-perplexity.zip</code> nas Releases.</li>
+</ul>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça a tarefa em linguagem natural e o agente escolhe a skill:</p>
+<pre><code class="language-text">&quot;Help me optimize this landing page for conversions&quot;   → cro
+&quot;Write homepage copy for my SaaS&quot;                      → copywriting
+&quot;Set up GA4 tracking for signups&quot;                      → analytics
+&quot;Create a 5-email welcome sequence&quot;                    → emails
+</code></pre>
+<p>Ou chame a skill direto:</p>
+<pre><code class="language-text">/product-marketing   # cria o contexto do produto (rode primeiro)
+/cro
+/emails
+/seo-audit
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Revisar landing pages, cadastro e onboarding para aumentar conversão.</li>
+<li>Escrever copy, e-mails, cold emails e posts com frameworks consistentes.</li>
+<li>Auditar SEO, preparar o site para buscas por IA e criar páginas comparativas.</li>
+<li>Planejar lançamento, preço, anúncios e medição de um produto SaaS.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Atualização da v1 para a v2.0:</strong> 17 skills mudaram de nome e <code>page-cro</code> + <code>form-cro</code> viraram <code>cro</code>. As pastas antigas ficam junto das novas e precisam ser removidas à mão; o arquivo de contexto foi de <code>.claude/product-marketing-context.md</code> para <code>.agents/product-marketing.md</code>. O README traz o mapa completo.</li>
+<li><strong>Parceiros pagos:</strong> o projeto é financiado por &quot;Verified Partners&quot; (ferramentas de tracking, SEO, webinars), listados no README com guias de integração. O autor afirma que eles não influenciam as recomendações das skills.</li>
+<li><strong>Credenciais:</strong> ao conectar contas de marketing, use o fluxo com escopo e somente leitura do <code>tools/SETUP.md</code>.</li>
+<li>Foco em SaaS e mercado norte-americano; adapte exemplos e regras (como SMS/WhatsApp e LGPD) para o Brasil.</li>
+<li>Relacionados no catálogo: a <a href="founder-skill.html">Founder Skill</a> valida um negócio antes do lançamento (conselho, painel de compradores, CFO); o <a href="../09-utilitarios-e-apps/open-seo.html">OpenSEO</a> fornece dados de SEO reais via MCP, que estas skills podem usar.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://marketing-skills.com">Site</a></li>
+<li><a href="https://github.com/coreyhaines31/marketingskills/tree/main/skills">Pasta das skills</a></li>
+<li><a href="https://github.com/coreyhaines31/marketingskills/blob/main/tools/SETUP.md">Conexão de ferramentas</a></li>
+<li><a href="https://github.com/coreyhaines31/marketingskills/releases/latest">Releases (ZIPs para Claude web e Perplexity)</a></li>
+<li><a href="https://codingformarketers.com">Coding for Marketers</a> (guia para iniciantes em terminal)</li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

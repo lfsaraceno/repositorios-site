@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenWhispr · Repositórios favoritos</title>
+<meta name="description" content="App de ditado por voz open-source e gratuito, alternativa ao Wispr Flow e ao Granola: aperte um atalho, fale e o texto aparece no cursor; também transcreve reuniões, faz notas e conversa com agentes de IA, com modelos locais ou na nuvem.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>OpenWhispr</h1>
+    <p class="lead">App de ditado por voz open-source e gratuito, alternativa ao Wispr Flow e ao Granola: aperte um atalho, fale e o texto aparece no cursor; também transcreve reuniões, faz notas e conversa com agentes de IA, com modelos locais ou na nuvem.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/OpenWhispr/openwhispr">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">OpenWhispr/openwhispr</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/OpenWhispr/openwhispr">OpenWhispr/openwhispr</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://openwhispr.com">openwhispr.com</a> · <a href="https://docs.openwhispr.com">Docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript/TypeScript (Electron)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~12k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O OpenWhispr transforma sua voz em texto, notas e ações no desktop. Você aperta uma tecla de atalho, fala, e as palavras são coladas onde está o cursor, em qualquer app. Pode usar transcrição totalmente offline com modelos locais (Whisper, NVIDIA Parakeet, Cohere Transcribe e outros), sem o áudio sair do computador, ou provedores na nuvem para mais velocidade. Sem coleta de dados nem telemetria.</p>
+<p>Além do ditado, detecta chamadas do Zoom, Teams e FaceTime e transcreve reuniões com identificação de quem fala, organiza notas com busca semântica e tem um assistente de voz que manda comandos para GPT-5, Claude, Gemini ou modelos locais.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Ditado</strong> com atalho global e colagem automática em qualquer app.</li>
+<li><strong>Ditado com tradução:</strong> fala num idioma e cola em outro.</li>
+<li><strong>Assistente de voz</strong> com atalho próprio: o que você fala vira comando para a IA; texto selecionado é editado no lugar; opcionalmente envia captura de tela como contexto.</li>
+<li><strong>Transcrição de reuniões</strong> com diarização local, impressão digital de voz e integração com Google, Microsoft ou Apple Calendar.</li>
+<li><strong>Notas</strong> com pastas, busca semântica, sincronização e ações de IA; espaços de time e compartilhamento.</li>
+<li><strong>Importação de áudio e vídeo</strong>, inclusive link do YouTube.</li>
+<li>Whisper local com aceleração por GPU (Metal, CUDA e Vulkan).</li>
+<li><strong>API pública e servidor MCP</strong> para conectar o Claude e outros assistentes.</li>
+<li>Controles corporativos: SSO, SCIM, Amazon Bedrock ou Azure OpenAI gerenciados.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>macOS (Apple Silicon ou Intel), Windows ou Linux.</li>
+<li>Para rodar do código: Node.js 24+.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Baixe em <a href="https://github.com/OpenWhispr/openwhispr/releases/latest">Releases</a>:</p>
+<ul>
+<li><strong>Windows:</strong> <code>.exe</code></li>
+<li><strong>macOS:</strong> <code>.dmg</code> (Apple Silicon e Intel)</li>
+<li><strong>Linux:</strong> <code>.AppImage</code>, <code>.deb</code>, <code>.rpm</code> ou <code>.tar.gz</code></li>
+</ul>
+<p>No macOS ou Linux x86_64, também via Homebrew (cask mantido pela comunidade):</p>
+<pre><code class="language-bash">brew install --cask openwhispr
+</code></pre>
+<p>Do código-fonte:</p>
+<pre><code class="language-bash">git clone https://github.com/OpenWhispr/openwhispr.git
+cd openwhispr
+npm install
+npm run dev
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Instale, escolha modelo local ou provedor na nuvem (com sua chave).</li>
+<li>Configure os atalhos de ditado, tradução e assistente.</li>
+<li>Em qualquer app, aperte o atalho e fale; o texto é colado no cursor.</li>
+<li>Para conectar ao Claude, configure o <a href="https://docs.openwhispr.com/integrations/mcp">servidor MCP</a>.</li>
+</ol>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Escrever e-mails, mensagens e prompts falando, inclusive para o Claude Code.</li>
+<li>Transcrever reuniões sem mandar áudio para servidores de terceiros.</li>
+<li>Substituir Wispr Flow ou Granola sem assinatura.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Em Macs Intel, a identificação de falantes ao vivo e a impressão digital de voz não funcionam (o ONNX Runtime deixou de distribuir binários x86_64 para macOS); a transcrição funciona normalmente.</li>
+<li>Ao usar provedores na nuvem, o áudio sai do computador; para dados sensíveis, use modelos locais.</li>
+<li>Gravar reuniões exige consentimento dos participantes.</li>
+<li>Relacionados no catálogo: <a href="../10-midia-e-modelos-ia/whisper.html">Whisper</a> (modelo de transcrição) e <a href="../10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/OpenWhispr/openwhispr#readme">README</a></li>
+<li><a href="https://docs.openwhispr.com/quickstart">Início rápido</a></li>
+<li><a href="https://docs.openwhispr.com/api/overview">API</a></li>
+<li><a href="https://docs.openwhispr.com/integrations/mcp">MCP</a></li>
+<li><a href="https://docs.openwhispr.com/troubleshooting">Solução de problemas</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

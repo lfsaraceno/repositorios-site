@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireless Battery · Repositórios favoritos</title>
+<meta name="description" content="App leve para Windows 10/11 que mostra na barra de tarefas a bateria de mouses, headsets, teclados e controles sem fio (Logitech, Razer, SteelSeries, Corsair, HyperX, PlayStation, Xbox, AirPods, Bluetooth e dezenas de marcas), sem precisar do software do fabricante.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Wireless Battery</h1>
+    <p class="lead">App leve para Windows 10/11 que mostra na barra de tarefas a bateria de mouses, headsets, teclados e controles sem fio (Logitech, Razer, SteelSeries, Corsair, HyperX, PlayStation, Xbox, AirPods, Bluetooth e dezenas de marcas), sem precisar do software do fabricante.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/krisgfx9/Wireless-Device-Battery-Monitor">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">krisgfx9/Wireless-Device-Battery-Monitor</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/krisgfx9/Wireless-Device-Battery-Monitor">krisgfx9/Wireless-Device-Battery-Monitor</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/releases/latest">Releases</a></dd></div>
+<div><dt>Linguagem</dt><dd>C++ (Win32)</dd></div>
+<div><dt>Licença</dt><dd>GPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~3,5k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Wireless Battery mostra o nível de bateria dos seus periféricos sem fio direto na barra de tarefas do Windows, ao lado da área de notificação (algo como <code>🎧 30%  🖱 93%</code>). Ele substitui a necessidade de abrir o G HUB, Synapse, iCUE, SteelSeries GG ou NGenuity só para ver a bateria, e não entra em conflito com eles se estiverem abertos.</p>
+<p>É um app pequeno: cerca de 350 KB, uns 2 MB de RAM, C++/Win32 puro, sem runtime e sem serviço em segundo plano. Instala sem permissão de administrador.</p>
+<p>Cada fabricante tem um &quot;driver&quot; próprio no código, que reconhece o aparelho pelo ID USB e envia <strong>só consultas de leitura</strong> de bateria. Dispositivos desconhecidos nunca recebem comandos. Para o resto, ele usa caminhos genéricos: a bateria que o Windows já conhece de aparelhos Bluetooth, o padrão HID de bateria, a API de controles do Xbox e o <a href="https://github.com/Sapd/HeadsetControl">HeadsetControl</a>, que vem junto.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Muitas marcas:</strong> Logitech (Unifying, Bolt, Lightspeed), Razer, SteelSeries, Corsair, HyperX, Glorious, ASUS ROG, ZOWIE, Keychron, Jabra, JBL, Sony (DualShock 4, DualSense, INZONE), Xbox, 8BitDo, GameSir, Samsung Galaxy Buds, AirPods/Beats e várias marcas chinesas (Attack Shark, Ajazz, Redragon, MCHOSE, VXE, Pulsar e outras).</li>
+<li><strong>Celular:</strong> mostra a bateria de um Android conectado pelo Phone Link da Microsoft.</li>
+<li><strong>Na barra de tarefas:</strong> número vermelho com 15% ou menos, raio azul quando carregando, texto apagado quando o aparelho está dormindo (mostra o último valor).</li>
+<li><strong>Vários monitores:</strong> aparece na barra de cada monitor, útil com jogo em tela cheia.</li>
+<li><strong>Visual:</strong> segue tema claro/escuro e DPI, cores das marcas opcionais, modo empilhado, suporte a barras verticais e a temas transparentes (Windhawk).</li>
+<li><strong>Modo ícones de bandeja:</strong> um ícone por aparelho, com aviso de bateria fraca em 15%.</li>
+<li><strong>Idiomas:</strong> inclui português do Brasil; dá para criar traduções próprias em arquivo de texto.</li>
+<li><strong>Linux (experimental):</strong> versão com GTK4 para parte das marcas.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Windows 10 ou 11.</li>
+<li>Para compilar: MinGW-w64 (por exemplo via MSYS2) e, para gerar o instalador, Inno Setup.</li>
+<li>Linux: g++, make, GTK4 e Cairo, mais uma regra udev para acesso HID.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="windows-instalador">Windows (instalador)</h3>
+<ol>
+<li>Baixe <code>WirelessBattery-Setup-&lt;versão&gt;.exe</code> da <a href="https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/releases/latest">última release</a>.</li>
+<li>Execute e avance. Não precisa de administrador, drivers nem apps do fabricante.</li>
+</ol>
+<p>O instalador cria atalho no menu Iniciar, desinstalador em <em>Configurações → Aplicativos</em> e opção de iniciar com o Windows.</p>
+<h3 id="windows-portatil">Windows (portátil)</h3>
+<p>Baixe <code>WirelessBattery-&lt;versão&gt;-portable.zip</code>, descompacte em qualquer pasta e rode <code>WirelessBattery.exe</code>.</p>
+<h3 id="compilar-do-codigo">Compilar do código</h3>
+<pre><code class="language-bash">pacman -S mingw-w64-x86_64-gcc make   # no MSYS2
+make                                  # ou build.bat num cmd com g++ e windres no PATH
+</code></pre>
+<h3 id="linux-experimental">Linux (experimental)</h3>
+<pre><code class="language-sh">./build-linux.sh
+sudo cp linux/99-wireless-battery.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules &amp;&amp; sudo udevadm trigger
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No dia a dia: passe o mouse para ver detalhes e clique para o menu (esconder aparelho, modo de exibição, <em>Refresh now</em>, <em>Start with Windows</em>, idioma, <em>Exit</em>). Os níveis atualizam a cada 60 segundos e na hora quando um aparelho é conectado ou o PC acorda.</p>
+<pre><code class="language-text">WirelessBattery.exe --list     # lista os aparelhos e a bateria de cada um, e sai
+WirelessBattery.exe --dump     # inventário completo de HID/USB/Bluetooth (salvo em %TEMP%\WirelessBattery-dump.txt)
+WirelessBattery.exe --report   # abre a janela de pedido de suporte para um aparelho
+WirelessBattery.exe --demo     # mostra aparelhos de exemplo de todas as marcas
+WirelessBattery.exe --quit     # fecha a instância em execução
+</code></pre>
+<p>Para o app nunca abrir um aparelho específico, crie o valor de texto <code>IgnoreDevices</code> em <code>HKCU\Software\WirelessBattery</code> com pares <code>VID:PID</code> separados por vírgula (os IDs aparecem no <code>--dump</code>).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Você tem mouse, headset ou controle sem fio e quer ver a bateria sem abrir o software do fabricante.</li>
+<li>Usa periféricos de marcas diferentes e quer tudo num lugar só.</li>
+<li>Joga em tela cheia e quer a bateria visível na barra de outro monitor.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Projeto muito novo e em ritmo acelerado:</strong> criado em 16/nov/2026, já com várias versões por dia. O README tem linhas duplicadas de merges; espere mudanças frequentes.</li>
+<li><strong>Aparelhos não testados:</strong> só uma lista de aparelhos foi testada em hardware real; o resto foi implementado a partir de documentação de protocolo e outros projetos.</li>
+<li><strong>Executável sem assinatura:</strong> o Windows SmartScreen pode avisar &quot;O Windows protegeu o computador&quot;. As releases são compiladas e publicadas pelo GitHub Actions a partir do código do repositório (verificado nas releases), mas se preferir, compile você mesmo.</li>
+<li><strong>Internet:</strong> segundo o README, a única conexão do app é a janela <em>Request support for a device</em>, e só quando você clica em <em>Send</em>. O pedido vai para uma lista pública em krisgfx.com e abre uma issue no GitHub.</li>
+<li><strong>Phone Link:</strong> a bateria do celular vem de um arquivo não documentado do Phone Link e pode parar de funcionar com atualizações dele.</li>
+<li><strong>Licença GPL-3.0:</strong> quem redistribuir versões modificadas precisa liberar o código sob a mesma licença.</li>
+<li><strong>Sem suporte ainda:</strong> a maioria dos mouses e teclados MSI, headsets Razer Kraken, parte dos HyperX Pulsefire e o Xbox Wireless Headset no adaptador (funciona via Bluetooth).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/releases">Releases</a></li>
+<li><a href="https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/blob/main/CONTRIBUTING.md">Como contribuir / adicionar um aparelho</a></li>
+<li><a href="https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/tree/main/src/drivers">Drivers por fabricante</a></li>
+<li><a href="https://github.com/krisgfx9/Wireless-Device-Battery-Monitor/issues">Issues (pedidos de aparelho)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

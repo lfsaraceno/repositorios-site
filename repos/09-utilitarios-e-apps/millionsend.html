@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MillionSend · Repositórios favoritos</title>
+<meta name="description" content="Plataforma open source de envio de e-mails, compatível com a API do Resend: transacional, em massa (broadcasts), contatos, templates, webhooks e SMTP, enviando pela sua própria conta AWS SES (self-hosted com Docker) ou pela nuvem deles.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>MillionSend</h1>
+    <p class="lead">Plataforma open source de envio de e-mails, compatível com a API do Resend: transacional, em massa (broadcasts), contatos, templates, webhooks e SMTP, enviando pela sua própria conta AWS SES (self-hosted com Docker) ou pela nuvem deles.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/MillionSend/millionsend">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">MillionSend/millionsend</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/MillionSend/millionsend">MillionSend/millionsend</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://millionsend.com">millionsend.com</a> · <a href="https://github.com/MillionSend/millionsend/blob/main/SELF_HOSTING.md">SELF_HOSTING.md</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0 (SDKs em MIT)</dd></div>
+<div><dt>Estrelas</dt><dd>~280 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O MillionSend é uma alternativa open source ao Resend. Você roda o painel e a API no seu servidor, e os e-mails saem pela <strong>sua</strong> conta do Amazon SES, que cobra por envio e é bem mais barato que serviços de e-mail em volume. Também existe uma versão hospedada (cloud).</p>
+<p>A API tem os mesmos formatos de requisição e resposta do Resend. Segundo o README, migrar de um para o outro é trocar duas variáveis de ambiente, sem reescrever a integração. Uma CLI copia contatos, segmentos, tópicos, templates, webhooks, domínios e supressões do Resend.</p>
+<p>O self-host roda em dois contêineres: Postgres e um contêiner do app com a API (porta 3001), o worker e o painel web (porta 3000). O painel tem versão em português do Brasil, e o projeto é mantido principalmente por desenvolvedores brasileiros.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>API de e-mails compatível com Resend:</strong> enviar, enviar em lote, consultar e cancelar, com header <code>Idempotency-Key</code> para não duplicar reenvios.</li>
+<li><strong>Broadcasts:</strong> compor, agendar e enviar para todos os contatos, um segmento ou um tópico; dá para cancelar enquanto está agendado.</li>
+<li><strong>Contatos:</strong> status de inscrição, segmentos, tópicos, importação de CSV e criação em lote.</li>
+<li><strong>Templates</strong> reutilizáveis com campos de mesclagem por contato.</li>
+<li><strong>Descadastro em um clique</strong> (RFC 8058), com cabeçalho <code>List-Unsubscribe</code> e página de descadastro hospedada.</li>
+<li><strong>Lista de supressão:</strong> hard bounces e reclamações são bloqueados automaticamente.</li>
+<li><strong>Métricas:</strong> envios por dia, com taxa de bounce e de reclamação comparadas aos limites do SES.</li>
+<li><strong>Webhooks</strong> assinados (padrão Standard Webhooks), com log de entregas.</li>
+<li><strong>Domínios:</strong> verificação de DNS guiada, com DKIM próprio ou gerenciado pelo SES.</li>
+<li><strong>Relay SMTP</strong> na porta 2587, autenticado com chave de API.</li>
+<li><strong>Recebimento de e-mail (beta):</strong> MX próprio, API de recebimento do Resend e webhook <code>email.received</code>.</li>
+<li><strong>Logs de requisições</strong> da API, com segredos ocultados.</li>
+<li><strong>Monitoramento de conteúdo (opcional):</strong> um modelo da TypeSafe avalia os envios. Desligado por padrão no self-host.</li>
+<li><strong>SDKs</strong> em MIT para Node, Python, PHP e Go (pacote <code>millionsend</code>).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Docker com Compose.</li>
+<li>Node 18+ para o assistente de instalação.</li>
+<li>Conta AWS com acesso ao SES na região escolhida.</li>
+<li>Um domínio próprio para envio.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="assistente-sem-clonar">Assistente (sem clonar)</h3>
+<p>Numa pasta vazia:</p>
+<pre><code class="language-sh">mkdir millionsend &amp;&amp; cd millionsend
+npx @millionsend/setup              # --dry-run mostra o plano sem alterar nada
+</code></pre>
+<p>O assistente cria o <code>.env</code> com segredos gerados e, se você quiser, provisiona na AWS o usuário IAM, o tópico SNS de eventos, o configuration set do SES e os buckets S3 de uploads e backups. Depois sobe a imagem pronta com <code>docker compose up -d</code>. Cada etapa pode ser pulada e o assistente pode ser rodado de novo sem problema.</p>
+<p>Painel em http://localhost:3000 e API em http://localhost:3001.</p>
+<h3 id="manual">Manual</h3>
+<pre><code class="language-sh">mkdir millionsend &amp;&amp; cd millionsend
+curl -O https://raw.githubusercontent.com/MillionSend/millionsend/main/deploy/docker-compose.yml
+curl -o .env https://raw.githubusercontent.com/MillionSend/millionsend/main/.env.example
+# preencha o .env (abaixo) e então:
+docker compose up -d
+</code></pre>
+<p>No <code>.env</code>:</p>
+<ul>
+<li><code>MASTER_ENCRYPTION_KEY</code> e <code>BETTER_AUTH_SECRET</code>: gere cada um com <code>openssl rand -base64 32</code>.</li>
+<li><code>APP_BASE_URL</code>: a URL em que você abre o painel. Se não bater, o login falha com &quot;invalid origin&quot;.</li>
+<li><code>AWS_ACCESS_KEY_ID</code> / <code>AWS_SECRET_ACCESS_KEY</code>: as credenciais da AWS.</li>
+<li><code>COMPOSE_PROFILES</code> (opcional): <code>docs</code>, <code>smtp</code>, <code>mx</code> (receber e-mail), <code>clamav</code> (antivírus) e <code>backup</code>.</li>
+</ul>
+<p>As migrações do banco rodam sozinhas ao iniciar. Build a partir do código, deploy com nginx, backups e múltiplas regiões do SES estão no <a href="https://github.com/MillionSend/millionsend/blob/main/SELF_HOSTING.md">SELF_HOSTING.md</a>.</p>
+<h3 id="atualizar">Atualizar</h3>
+<pre><code class="language-sh">docker compose pull &amp;&amp; docker compose run --rm --no-deps millionsend migrate &amp;&amp; docker compose up -d
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-sh">npx @millionsend/setup                            # instala ou abre o menu de próximos passos
+npx @millionsend/cli migrate --from resend        # copia dados do Resend (só lê do Resend; pode repetir antes da troca)
+</code></pre>
+<p>No dia a dia, você usa o painel (domínios, chaves <code>ms_</code>, contatos, broadcasts, templates, métricas). Também pode chamar a API pelos SDKs ou pelo SDK do Resend apontado para a sua instância.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Você já usa Resend e quer pagar só o custo do SES.</li>
+<li>Precisa de e-mail transacional e newsletters/broadcasts no mesmo lugar, no seu servidor.</li>
+<li>Quer painel em português e dados de contatos sob seu controle (LGPD).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença AGPL-3.0:</strong> se você modificar o código e oferecer como serviço pela rede, precisa disponibilizar o código modificado. Os SDKs são MIT. O nome e a marca MillionSend não são cobertos pela AGPL.</li>
+<li><strong>Sandbox do SES:</strong> contas novas da AWS só enviam para destinatários verificados. Para enviar a qualquer pessoa, peça acesso de produção à AWS.</li>
+<li><strong>Segredos:</strong> o <code>.env</code> guarda todas as chaves da instância. Proteja o arquivo (<code>chmod 600</code> no Linux) e deixe-o fora do git e dos backups.</li>
+<li><strong>E-mail em massa e LGPD:</strong> envie só para contatos com consentimento e mantenha o descadastro funcionando. Taxas altas de bounce ou reclamação podem fazer a AWS suspender o SES.</li>
+<li><strong>Projeto novo:</strong> criado em ago/2026, com poucas estrelas, um mantenedor principal e versões quase diárias (v0.30.x em nov/2026).</li>
+<li>Li o README inteiro, mas só o início do SELF_HOSTING.md (1.900 linhas). Proxy reverso, backups, recebimento de e-mail e regiões ficaram de fora desta ficha.</li>
+<li>Relacionado no catálogo: o <a href="mailflare.html">Mailflare</a> é uma caixa de e-mail completa (substitui o Google Workspace). O MillionSend é para <strong>enviar</strong> e-mails a partir de um sistema ou campanha.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/MillionSend/millionsend/blob/main/SELF_HOSTING.md">Guia de self-hosting</a></li>
+<li><a href="https://github.com/MillionSend/millionsend/releases">Releases</a></li>
+<li><a href="https://github.com/orgs/MillionSend/discussions">Discussions</a></li>
+<li><a href="https://github.com/MillionSend/millionsend-node">SDK Node</a> · <a href="https://github.com/MillionSend/millionsend-python">Python</a> · <a href="https://github.com/MillionSend/millionsend-php">PHP</a> · <a href="https://github.com/MillionSend/millionsend-go">Go</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

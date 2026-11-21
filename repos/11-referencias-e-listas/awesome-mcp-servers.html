@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome MCP Servers · Repositórios favoritos</title>
+<meta name="description" content="Lista curada de servidores MCP (Model Context Protocol) open-source, organizada em dezenas de categorias (navegador, bancos de dados, nuvem, desenvolvimento, segurança, finanças, mídia e muitas outras), com legenda de linguagem, escopo local ou nuvem e sistema operacional.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#11-referencias-e-listas"><span aria-hidden="true">📚</span> Referências e listas</a>
+    </nav>
+    <h1>Awesome MCP Servers</h1>
+    <p class="lead">Lista curada de servidores MCP (Model Context Protocol) open-source, organizada em dezenas de categorias (navegador, bancos de dados, nuvem, desenvolvimento, segurança, finanças, mídia e muitas outras), com legenda de linguagem, escopo local ou nuvem e sistema operacional.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/punkpeye/awesome-mcp-servers">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">punkpeye/awesome-mcp-servers</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/punkpeye/awesome-mcp-servers">punkpeye/awesome-mcp-servers</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://glama.ai/mcp/servers">glama.ai/mcp/servers</a> (diretório web sincronizado)</dd></div>
+<div><dt>Linguagem</dt><dd>Markdown</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~98k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O MCP é um protocolo aberto que permite a modelos de IA acessar recursos locais e remotos (arquivos, bancos de dados, APIs) por servidores padronizados. Esta é a maior lista de servidores MCP que você instala e roda por conta própria, de implementações oficiais a experimentais.</p>
+<p>Cada item traz ícones de legenda: 🎖️ implementação oficial; linguagem (🐍 Python, 📇 TypeScript/JavaScript, 🏎️ Go, 🦀 Rust, #️⃣ C#, ☕ Java, 🌊 C/C++, 💎 Ruby); escopo (☁️ serviço na nuvem, 🏠 serviço local, 📟 embarcado); e sistema (🍎 macOS, 🪟 Windows, 🐧 Linux). Há também um diretório web sincronizado, com notas de qualidade por servidor.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<p>Algumas das categorias:</p>
+<ul>
+<li>Aggregators (vários apps num servidor), Browser Automation, Cloud Platforms, Code Execution, Coding Agents, Command Line.</li>
+<li>Communication, Databases, Data Platforms, Developer Tools, Data Science, Data Visualization.</li>
+<li>File Systems, Finance &amp; Fintech, Knowledge &amp; Memory, Legal, Marketing, Monitoring.</li>
+<li>Multimedia, OS Automation, Research, Search &amp; Data Extraction, Security, Social Media.</li>
+<li>Text-to-Speech, Speech-to-Text, Version Control, Workplace &amp; Productivity e outras.</li>
+<li>Seções de clientes MCP, servidores remotos (lista separada), tutoriais, frameworks e dicas.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um cliente MCP (Claude Code, Claude Desktop, Cursor, VS Code etc.).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>A lista não se instala. Escolha um servidor, abra o repositório dele e siga as instruções. No Claude Code, a forma geral é:</p>
+<pre><code class="language-bash">claude mcp add &lt;nome&gt; -- &lt;comando do servidor&gt;
+</code></pre>
+<p>Para servidores hospedados (acessados por URL), veja a lista irmã <a href="https://github.com/punkpeye/awesome-remote-mcp-servers">awesome-remote-mcp-servers</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Procure a categoria (ou use o diretório em <a href="https://glama.ai/mcp/servers">glama.ai/mcp/servers</a>, que tem busca e nota de qualidade).</li>
+<li>Prefira itens com 🎖️ (oficiais) quando houver.</li>
+<li>Confira escopo (🏠 local x ☁️ nuvem) e compatibilidade com seu sistema.</li>
+<li>Leia o README e o código do servidor antes de configurar no cliente.</li>
+</ol>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Encontrar um servidor MCP para integrar o Claude a um banco, API ou ferramenta específica.</li>
+<li>Comparar opções para a mesma integração.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Segurança:</strong> servidores MCP rodam com suas credenciais e podem ler arquivos e executar ações; muitos são experimentais e de autores desconhecidos. Revise o código, dê permissões mínimas e desconfie de conteúdo externo (risco de prompt injection).</li>
+<li>A lista é mantida em parceria com o Glama e tem anúncios.</li>
+<li>O README tem mais de 500 KB; a ficha resume a estrutura, não os servidores individuais.</li>
+<li>Servidores MCP já fichados no catálogo: <a href="../05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a>, <a href="../05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a>, <a href="../05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a>, <a href="../05-ferramentas-para-agentes-ia/context7.html">Context7</a> e <a href="../05-ferramentas-para-agentes-ia/serena.html">Serena</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/punkpeye/awesome-mcp-servers#readme">README</a></li>
+<li><a href="https://glama.ai/mcp/servers">Diretório web (Glama)</a></li>
+<li><a href="https://github.com/punkpeye/awesome-mcp-clients/">Awesome MCP Clients</a></li>
+<li><a href="https://github.com/punkpeye/awesome-remote-mcp-servers">Awesome Remote MCP Servers</a></li>
+<li><a href="https://modelcontextprotocol.io/">Model Context Protocol</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#11-referencias-e-listas">Referências e listas</a></h2>
+    <ul>
+<li><a href="../../repos/11-referencias-e-listas/awesome-brazilian-devblogs.html">Awesome Brazilian Dev Blogs</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-claude-code.html">Awesome Claude Code</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-claude-skills.html">Awesome Claude Skills (ComposioHQ)</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-opus5-5-videos.html">Awesome Opus 5.5 Videos</a></li>
+<li><a href="../../repos/11-referencias-e-listas/brazilian-utils.html">Brazilian Utils</a></li>
+<li><a href="../../repos/11-referencias-e-listas/claude-cookbooks.html">Claude Cookbooks</a></li>
+<li><a href="../../repos/11-referencias-e-listas/leis-brasil.html">Leis do Brasil em Markdown (ctresb/leis)</a></li>
+<li><a href="../../repos/11-referencias-e-listas/public-apis.html">Public APIs</a></li>
+<li><a href="../../repos/11-referencias-e-listas/system-prompts.html">System Prompts and Models of AI Tools</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firecrawl · Repositórios favoritos</title>
+<meta name="description" content="API e ferramenta open-source para agentes de IA buscarem, rasparem e interagirem com a web: converte qualquer site em Markdown ou JSON limpo, rastreia sites inteiros, lê PDFs e DOCX e tem MCP e skill para o Claude Code.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Firecrawl</h1>
+    <p class="lead">API e ferramenta open-source para agentes de IA buscarem, rasparem e interagirem com a web: converte qualquer site em Markdown ou JSON limpo, rastreia sites inteiros, lê PDFs e DOCX e tem MCP e skill para o Claude Code.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/firecrawl/firecrawl">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">firecrawl/firecrawl</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/firecrawl/firecrawl">firecrawl/firecrawl</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://firecrawl.dev">firecrawl.dev</a> · <a href="https://docs.firecrawl.dev">Docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0 (SDKs e alguns componentes em MIT)</dd></div>
+<div><dt>Estrelas</dt><dd>~203k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Firecrawl entrega dados da web prontos para LLM. Você manda uma URL e recebe Markdown limpo, HTML, screenshot ou JSON estruturado; ele cuida de proxies rotativos, páginas pesadas em JavaScript, limites de taxa e conteúdo bloqueado. Também busca na web e devolve o conteúdo completo dos resultados, e interage com páginas (clicar, rolar, digitar) antes de extrair.</p>
+<p>Funciona como serviço hospedado (com chave de API e créditos) ou self-hosted, e se conecta a agentes via skill, CLI ou servidor MCP. O <strong>Alexandria</strong>, só na nuvem, dá ao agente acesso a mais de 550 provedores de dados.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Search:</strong> busca na web com o conteúdo das páginas.</li>
+<li><strong>Scrape:</strong> URL para Markdown, HTML, screenshot ou JSON estruturado.</li>
+<li><strong>Interact:</strong> age na página com prompts ou código depois de raspar.</li>
+<li><strong>Agent:</strong> descreva o que precisa e o agente pesquisa, navega e extrai (com esquema opcional e níveis de esforço <code>low</code>, <code>medium</code>, <code>high</code>).</li>
+<li><strong>Crawl</strong> (site inteiro), <strong>Map</strong> (descobre todas as URLs), <strong>Batch Scrape</strong> (milhares de URLs).</li>
+<li><strong>Parse:</strong> PDF, DOCX e outros documentos para Markdown ou JSON.</li>
+<li><strong>Monitor:</strong> avisa quando o conteúdo de um site muda.</li>
+<li>SDKs para Python, Node.js, Go, Java, Elixir, Rust, Ruby, .NET e PHP; integrações com n8n, Zapier e Lovable.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Chave de API em <a href="https://firecrawl.dev">firecrawl.dev</a> (para o serviço hospedado), ou servidor próprio para self-hosting.</li>
+<li>Node.js para a skill/CLI e o MCP.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="skill-para-agentes-claude-code-antigravity-opencode">Skill para agentes (Claude Code, Antigravity, OpenCode)</h3>
+<pre><code class="language-bash">npx -y firecrawl-cli@latest init --all --browser
+</code></pre>
+<p>Reinicie o agente depois.</p>
+<h3 id="mcp">MCP</h3>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;firecrawl-mcp&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;firecrawl-mcp&quot;],
+      &quot;env&quot;: {
+        &quot;FIRECRAWL_API_KEY&quot;: &quot;fc-YOUR_API_KEY&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="sdks">SDKs</h3>
+<pre><code class="language-bash">pip install firecrawl        # Python
+npm install firecrawl        # Node.js
+</code></pre>
+<h3 id="self-hosting">Self-hosting</h3>
+<p>Siga o <a href="https://docs.firecrawl.dev/contributing/self-host">guia de self-hosting</a>. A versão self-hosted não inclui o Alexandria e alguns recursos da nuvem.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>CLI:</p>
+<pre><code class="language-bash">firecrawl search &quot;firecrawl&quot; --limit 5                 # busca na web
+firecrawl scrape https://firecrawl.dev                 # raspa uma página
+firecrawl https://firecrawl.dev --only-main-content    # só o conteúdo principal
+firecrawl interact exec --prompt &quot;Click the first result&quot;
+</code></pre>
+<p>Python:</p>
+<pre><code class="language-python">from firecrawl import Firecrawl
+
+app = Firecrawl(api_key=&quot;fc-YOUR_API_KEY&quot;)
+doc = app.scrape(&quot;https://firecrawl.dev&quot;, formats=[&quot;markdown&quot;])
+docs = app.crawl(&quot;https://docs.firecrawl.dev&quot;, limit=50)
+result = app.agent(prompt=&quot;Find the pricing plans for Notion&quot;)
+</code></pre>
+<p>Com o MCP ou a skill instalados, peça ao Claude Code: &quot;use o Firecrawl para ler a documentação de X e resumir&quot;.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar ao agente acesso confiável a páginas web, inclusive com muito JavaScript.</li>
+<li>Montar bases de conhecimento (RAG) a partir de sites e documentação.</li>
+<li>Extrair dados estruturados de páginas para planilhas ou sistemas.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Respeite os termos de uso e políticas dos sites</strong> ao raspar; o Firecrawl respeita <code>robots.txt</code> por padrão. Dados pessoais raspados estão sujeitos à LGPD.</li>
+<li><strong>Licença AGPL-3.0</strong> no servidor: oferecer versão modificada como serviço exige publicar o código.</li>
+<li>O serviço hospedado cobra por créditos.</li>
+<li>Alternativas no catálogo para navegação por agente: <a href="playwright-mcp.html">Playwright MCP</a>, <a href="chrome-devtools-mcp.html">Chrome DevTools MCP</a>; para converter arquivos em Markdown: <a href="markitdown.html">MarkItDown</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/firecrawl/firecrawl#readme">README</a></li>
+<li><a href="https://docs.firecrawl.dev">Documentação</a></li>
+<li><a href="https://docs.firecrawl.dev/api-reference/introduction">Referência da API</a></li>
+<li><a href="https://github.com/firecrawl/firecrawl-mcp-server">Firecrawl MCP Server</a></li>
+<li><a href="https://github.com/firecrawl/skills">Catálogo de skills</a></li>
+<li><a href="https://firecrawl.dev/playground">Playground</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

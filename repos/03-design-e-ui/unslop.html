@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unslop · Repositórios favoritos</title>
+<meta name="description" content="Skill para Claude Code, Codex e Antigravity que transforma interface com &quot;cara de IA&quot; (gradiente roxo, brilhos, emojis, copy gritando, espaçamento irregular) num design com personalidade: audita, propõe uma direção a partir do produto e corrige em passadas, como um designer revisando a tela.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Unslop</h1>
+    <p class="lead">Skill para Claude Code, Codex e Antigravity que transforma interface com &quot;cara de IA&quot; (gradiente roxo, brilhos, emojis, copy gritando, espaçamento irregular) num design com personalidade: audita, propõe uma direção a partir do produto e corrige em passadas, como um designer revisando a tela.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/heydamir/unslop">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">heydamir/unslop</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/heydamir/unslop">heydamir/unslop</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://heydamir.design/unslop">heydamir.design/unslop</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (skill em Markdown)</dd></div>
+<div><dt>Licença</dt><dd>CC-BY-4.0</dd></div>
+<div><dt>Estrelas</dt><dd>~18k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma skill do designer Damir Sokolovsky, criador da série &quot;Unslopping&quot; no X. Ela pega telas feitas no &quot;vibe coding&quot;, que todo mundo reconhece como geradas por IA, e as redesenha com caráter próprio.</p>
+<p>Antes de editar qualquer coisa, a skill audita a tela e propõe uma direção, para você ajustar cedo. Se a tela já estiver boa, ela diz isso e sugere só refinamentos. Funciona com Next.js, React, Vue, Svelte, Tailwind ou HTML/CSS puro, em dashboards, apps e landing pages, e até num site no ar, só com o link.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Auditoria:</strong> lista cada sinal de &quot;slop&quot; e onde ele está.</li>
+<li><strong>Direção:</strong> caráter, &quot;mundo&quot; visual, os um ou dois momentos que levam a cor e um detalhe assinatura, tudo tirado do seu produto.</li>
+<li><strong>Passadas em ordem:</strong> espaçamento, cor, ícones, copy, tipografia, layout, detalhes, visuais e movimento.</li>
+<li><strong>Visuais:</strong> mostra o produto em vez de uma bolha brilhante genérica. Quando o hero precisa de uma cena ou objeto, gera a imagem por um serviço (fal, Replicate, OpenAI, Higgsfield), mostrando o prompt e pedindo confirmação antes de cada geração paga.</li>
+<li><strong>Vídeo &quot;story&quot;:</strong> um vídeo quadrado de menos de 10 s da tela se transformando, pronto para postar.</li>
+<li><strong>Site ao vivo:</strong> tira um snapshot de uma URL e trabalha sobre ele.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code, Codex ou Google Antigravity.</li>
+<li>Para snapshot de site ao vivo e vídeo: Playwright com Chromium no projeto.</li>
+<li>Para o vídeo: ffmpeg no PATH.</li>
+<li>Opcional: conta num serviço de geração de imagem, conectado como MCP.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code-plugin">Claude Code (plugin)</h3>
+<pre><code class="language-bash">claude plugin install unslop --marketplace heydamir/unslop
+</code></pre>
+<p>Em versões antigas do Claude Code, sem <code>--marketplace</code>:</p>
+<pre><code class="language-bash">claude plugin marketplace add heydamir/unslop
+claude plugin install unslop@heydamir
+</code></pre>
+<p>Adicione <code>--scope local</code> para um projeto só, ou <code>--scope project</code> para todo o time (e faça commit do <code>.claude/settings.json</code>). Depois abra uma sessão nova ou rode <code>/reload-plugins</code>. Para atualizar: <code>claude plugin update unslop@heydamir</code>.</p>
+<p>Se você copiou a skill antes para <code>~/.claude/skills/</code> ou <code>.claude/skills/</code>, apague a cópia; senão o <code>/unslop</code> continua rodando a versão antiga.</p>
+<h3 id="codex">Codex</h3>
+<pre><code class="language-text">$skill-installer install https://github.com/heydamir/unslop/tree/main/skills/unslop
+</code></pre>
+<p>Ou copie <code>skills/unslop</code> para <code>~/.agents/skills/</code> (ou <code>.agents/skills/</code> do projeto).</p>
+<h3 id="antigravity">Antigravity</h3>
+<p>Copie <code>skills/unslop</code> para <code>~/.gemini/config/skills/</code> (ou <code>.agents/skills/</code> do projeto).</p>
+<h3 id="snapshot-e-video-opcional">Snapshot e vídeo (opcional)</h3>
+<pre><code class="language-bash">npm install -D playwright
+npx playwright install chromium
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/unslop this dashboard
+/unslop the hero of https://example.com
+/unslop my landing page and make the story video so I can post it
+</code></pre>
+<p>Use <code>/unslop:unslop</code> se outra skill já tiver o nome <code>/unslop</code>. No Codex, <code>$unslop</code>. Também dá para pedir com suas palavras. O repositório traz duas telas de exemplo em <code>examples/</code> para testar.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>O app ou a landing page ficou com a cara genérica de site feito por IA.</li>
+<li>Antes de lançar, para dar identidade visual a um MVP.</li>
+<li>Para corrigir uma tela específica sem redesenhar o produto inteiro.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença CC-BY-4.0:</strong> pode usar, alterar e compartilhar, inclusive comercialmente, desde que dê crédito a Damir Sokolovsky e linke o repositório.</li>
+<li><strong>Imagens podem custar:</strong> a geração de visuais usa serviços pagos, sempre com confirmação antes.</li>
+<li>O autor também vende o serviço manual (&quot;Hire the unslopper&quot;).</li>
+<li>Relacionados no catálogo: o <a href="impeccable.html">Impeccable</a> tem um vocabulário de comandos de design e detector de antipadrões. O <a href="taste-skill.html">Taste Skill</a> e o <a href="ui-ux-pro-max-skill.html">UI UX Pro Max</a> orientam o design desde o início. O Unslop é focado em consertar uma tela que já existe.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/heydamir/unslop/tree/main/skills/unslop">SKILL.md</a></li>
+<li><a href="https://github.com/heydamir/unslop/tree/main/examples">Exemplos de telas</a></li>
+<li><a href="https://x.com/heydamir/status/2115063463063998736">Série Unslopping no X</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

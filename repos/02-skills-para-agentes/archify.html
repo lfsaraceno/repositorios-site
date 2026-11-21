@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archify · Repositórios favoritos</title>
+<meta name="description" content="Skill para agentes de IA que transforma uma ideia, um plano ou um repositório em diagrama interativo num único arquivo HTML: arquitetura, fluxos, sequência, ERD, linha do tempo e páginas explicativas, com validação antes da entrega.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Archify</h1>
+    <p class="lead">Skill para agentes de IA que transforma uma ideia, um plano ou um repositório em diagrama interativo num único arquivo HTML: arquitetura, fluxos, sequência, ERD, linha do tempo e páginas explicativas, com validação antes da entrega.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/tt-a1i/archify">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">tt-a1i/archify</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/tt-a1i/archify">tt-a1i/archify</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://archify.si">archify.si</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0 (versões antigas continuam sob MIT)</dd></div>
+<div><dt>Estrelas</dt><dd>~98k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Archify é uma skill para Claude Code, Codex, Cursor e OpenCode. Você descreve um sistema, um processo ou até um roteiro de viagem, e o agente gera um diagrama interativo em HTML. Também pode pedir que ele leia o repositório e desenhe a arquitetura com base no código, com links para os arquivos e linhas de origem.</p>
+<p>Por trás, o agente escreve uma representação intermediária em JSON tipado. Validadores do Archify checam o esquema, o layout, o HTML/SVG, as rotas e o espaço entre rótulos e setas antes de gerar o arquivo final. Se algo falha, o validador devolve em JSON o erro exato e as correções permitidas, e o arquivo anterior que funcionava é preservado.</p>
+<p>O resultado é um HTML autocontido: você abre no navegador, explora os nós, segue caminhos e manda o arquivo para outra pessoa sem instalar nada. Também exporta PNG, WebP, JPG, PDF e cards de compartilhamento.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>10 tipos de diagrama:</strong> arquitetura, workflow, sequência, fluxo de dados, ciclo de vida (estados), ERD, classes, árvore, linha do tempo e waterfall.</li>
+<li><strong>Páginas explicativas (explainer):</strong> responde uma pergunta numa página só, com a conclusão primeiro, um painel por questão, tabelas, passos, gráficos e diagramas, com fontes numeradas.</li>
+<li><strong>Diagrama a partir do código:</strong> nós marcados com <code>SRC n</code> abrem trechos do repositório fixados num commit público.</li>
+<li><strong>Exploração interativa:</strong> focar um nó, rastrear dependências acima e abaixo, traçar a rota entre dois nós, comparar papéis, minimapa, modo apresentação, temas claro/escuro e quatro estilos visuais.</li>
+<li><strong>Architecture Delta:</strong> compara o antes e o depois de uma arquitetura para revisão de design ou PR.</li>
+<li><strong>Iteração por conversa:</strong> &quot;add Redis&quot;, &quot;move auth to the left&quot;, &quot;highlight the rollback path&quot;; o agente altera só o necessário.</li>
+<li><strong>Prévia ao vivo opcional:</strong> observa um JSON e recarrega só quando a nova versão passa em todas as checagens.</li>
+<li><strong>Idiomas da interface:</strong> inglês, chinês simplificado e tradicional, espanhol, coreano e árabe embutidos; outros via catálogo de tradução (o conteúdo do diagrama fica no idioma em que você escreveu).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível: Claude Code, Codex CLI, Cursor ou OpenCode (há integrações da comunidade para Hermes Agent e DeepSeek Harness).</li>
+<li>Node.js para o renderizador e os validadores (a integração com o Hermes pede Node 18 ou mais novo).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="pedindo-ao-agente">Pedindo ao agente</h3>
+<pre><code class="language-text">Install Archify for me by reading https://raw.githubusercontent.com/tt-a1i/archify/main/llms.txt
+</code></pre>
+<h3 id="skills-cli">Skills CLI</h3>
+<pre><code class="language-bash"># Cursor, instalação global e não interativa
+npx -y skills@latest add https://archify.si --skill archify --agent cursor --global --copy --yes
+
+# testar sem instalar (Codex)
+npx skills use tt-a1i/archify@archify --agent codex
+</code></pre>
+<p>O <a href="https://archify.si/start.html?agent=cursor&amp;type=architecture">seletor de agente</a> gera o comando para <code>cursor</code>, <code>codex</code>, <code>claude-code</code> e <code>opencode</code>.</p>
+<h3 id="outros-destinos">Outros destinos</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Onde</th>
+<th>Como</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td><code>~/.claude/skills/</code> ou <code>.claude/skills/</code></td>
+</tr>
+<tr>
+<td>Codex CLI</td>
+<td><code>~/.agents/skills/</code> ou <code>.agents/skills/</code></td>
+</tr>
+<tr>
+<td>OpenCode</td>
+<td><code>~/.config/opencode/skills/</code>, <code>.opencode/skills/</code> ou <code>.agents/skills/</code></td>
+</tr>
+<tr>
+<td>Claude.ai</td>
+<td>enviar o <code>archify.zip</code> em Settings → Capabilities → Skills (depende de Node no sandbox)</td>
+</tr>
+<tr>
+<td>Hermes Agent</td>
+<td><code>hermes skills install skills-sh/tt-a1i/archify/archify -y</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Exemplos de prompt:</p>
+<pre><code class="language-text">Use Archify to draw: Browser -&gt; API -&gt; Redis cache -&gt; PostgreSQL fallback.
+
+Analyze this repository, then use archify to create a high-level runtime architecture diagram.
+Show 8–12 core components, one primary path, external dependencies, and trust boundaries.
+
+Use Archify to answer as one page: our API's P99 went from 80 ms to 600 ms
+while the mean barely moved. What is the likely cause, and how should we investigate?
+</code></pre>
+<p>CLI do repositório (sem dependências):</p>
+<pre><code class="language-bash">cd archify
+node bin/archify.mjs doctor                                     # verifica o ambiente
+node bin/archify.mjs guide &quot;Show an API request with Redis cache miss&quot;   # sugere o tipo de diagrama
+node bin/archify.mjs validate workflow examples/agent-tool-call.workflow.json --quality showcase --json   # valida o JSON
+node bin/archify.mjs preview workflow examples/agent-tool-call.workflow.json /tmp/workflow.html --quality showcase   # prévia ao vivo
+node bin/archify.mjs deliver workflow examples/agent-tool-call.workflow.json /tmp/workflow.html --quality showcase --open --json   # gera e abre
+node archify/bin/archify.mjs compare architecture base.json head.json architecture-delta.html --json   # Architecture Delta
+</code></pre>
+<p>Atalhos no HTML gerado: <code>?</code> guia, <code>/</code> buscar nó, <code>R</code> rota, <code>L</code> comparar papéis, <code>M</code> minimapa, <code>F</code> apresentação, <code>S</code> estilo, <code>T</code> tema, <code>E</code> exportar.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Documentar ou entender a arquitetura de um repositório desconhecido.</li>
+<li>Explicar um fluxo (cache miss, autenticação, CI/CD, incidente) para o time ou num PR.</li>
+<li>Responder uma pergunta técnica com uma página visual compartilhável.</li>
+<li>Planejar coisas fora do código (roteiros, mapas de estudo) em HTML interativo.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Checagem de atualização:</strong> a skill pode consultar um manifesto fixo no site cerca de uma vez por dia só para avisar de versão nova; nunca instala nada sozinha. Para desligar: <code>ARCHIFY_UPDATE_CHECK_DISABLED=1</code>.</li>
+<li><strong>Instalação por <code>llms.txt</code>:</strong> o método recomendado manda o agente ler instruções de uma URL externa e segui-las. Leia o arquivo antes, ou use o comando <code>npx skills</code> explícito.</li>
+<li><strong>Patrocinadores no README:</strong> o README divulga revendedores de API de modelos com preços muito abaixo dos oficiais. Eles não fazem parte do Archify; avalie termos de uso e privacidade antes de usar esse tipo de serviço.</li>
+<li>Fora do escopo atual: importar Mermaid, auto-layout genérico, hospedagem e edição WYSIWYG.</li>
+<li>Diferença para o <a href="../05-ferramentas-para-agentes-ia/graphify.html">Graphify</a>: o Graphify monta um grafo de conhecimento consultável do código para o agente usar; o Archify gera diagramas visuais para pessoas lerem e compartilharem.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://archify.si/gallery.html">Site e galeria</a></li>
+<li><a href="https://archify.si/guide.html">Guia de cenários</a></li>
+<li><a href="https://github.com/tt-a1i/archify/blob/main/archify/SKILL.md">SKILL.md</a></li>
+<li><a href="https://github.com/tt-a1i/archify/blob/main/archify/schemas/README.md">Referência do esquema</a></li>
+<li><a href="https://github.com/tt-a1i/archify/blob/main/CHANGELOG.md">Changelog</a></li>
+<li><a href="https://discord.gg/6xWMjgCeUq">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

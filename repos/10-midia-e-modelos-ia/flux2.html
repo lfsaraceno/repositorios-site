@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FLUX.2 · Repositórios favoritos</title>
+<meta name="description" content="Código oficial de inferência dos modelos abertos FLUX.2 da Black Forest Labs, para gerar e editar imagens com uma ou várias imagens de referência. A família [klein] gera em menos de um segundo e o 4B roda em GPUs com ~8 GB de VRAM.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>FLUX.2</h1>
+    <p class="lead">Código oficial de inferência dos modelos abertos FLUX.2 da Black Forest Labs, para gerar e editar imagens com uma ou várias imagens de referência. A família [klein] gera em menos de um segundo e o 4B roda em GPUs com ~8 GB de VRAM.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/black-forest-labs/flux2">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">black-forest-labs/flux2</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/black-forest-labs/flux2">black-forest-labs/flux2</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://bfl.ai">bfl.ai</a> · <a href="https://huggingface.co/black-forest-labs">Hugging Face</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Código Apache-2.0; pesos 4B Apache-2.0; pesos 9B e [dev] com licença não comercial</dd></div>
+<div><dt>Estrelas</dt><dd>~2,9k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O FLUX.2 é a segunda geração dos modelos de imagem da Black Forest Labs (a empresa dos criadores do Stable Diffusion original). Todos os modelos fazem três coisas: gerar imagem a partir de texto, editar uma imagem e combinar várias imagens de referência numa nova.</p>
+<p>Este repositório tem o código mínimo para rodar os modelos de pesos abertos no seu computador, com uma CLI interativa. Os pesos ficam no Hugging Face e são baixados automaticamente na primeira vez.</p>
+<p>Há duas linhas:</p>
+<ul>
+<li><strong>FLUX.2 [klein]</strong> (jan/2026): a família mais rápida, com 4B e 9B parâmetros. As versões &quot;destiladas&quot; geram em 4 passos, em menos de um segundo em hardware moderno.</li>
+<li><strong>FLUX.2 [dev]</strong> (nov/2025): modelo de 32B parâmetros, a maior qualidade, mas exige GPU de data center (equivalente a H100) ou versões quantizadas.</li>
+</ul>
+<h2 id="principais-recursos">Principais recursos</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Uso indicado</th>
+<th>Licença</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[klein] 4B</td>
+<td>Máxima velocidade, GPU de consumo (~8 GB, RTX 3090/4070 ou superior)</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td>[klein] 9B</td>
+<td>Alta qualidade em texto para imagem</td>
+<td>Não comercial</td>
+</tr>
+<tr>
+<td>[klein] 9B KV</td>
+<td>Melhor relação qualidade/latência; edição com várias referências via cache KV</td>
+<td>Não comercial</td>
+</tr>
+<tr>
+<td>[klein] 4B Base</td>
+<td>Fine-tuning em hardware limitado</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td>[klein] 9B Base</td>
+<td>Pesquisa e treino de LoRA</td>
+<td>Não comercial</td>
+</tr>
+<tr>
+<td>[dev]</td>
+<td>Qualidade máxima, sem pressa</td>
+<td>Não comercial</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Destilado x Base:</strong> destilado (4 passos) para produção e tempo real; Base (50 passos) para fine-tuning e LoRA.</li>
+<li><strong>Prompt upsampling</strong> no [dev]: reescreve o prompt com o Mistral Small local ou com qualquer modelo via OpenRouter.</li>
+<li><strong>Autoencoder</strong> novo, em Apache-2.0.</li>
+<li><strong>Marca d'água invisível</strong> opcional nas imagens geradas.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>GPU NVIDIA com CUDA. O código foi testado em GB200, CUDA 12.9 e Python 3.12.</li>
+<li>[klein] 4B: cerca de 8 GB de VRAM.</li>
+<li>[dev]: GPU equivalente a H100, ou as versões quantizadas do diffusers (o README mostra uma RTX 4090 com codificador de texto remoto).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">python3.12 -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -e . --extra-index-url https://download.pytorch.org/whl/cu129 --no-cache-dir
+</code></pre>
+<p>Opcionalmente, aponte para pesos já baixados com variáveis de ambiente (<code>FLUX2_MODEL_PATH</code>, <code>AE_MODEL_PATH</code>, <code>KLEIN_4B_MODEL_PATH</code>, <code>KLEIN_9B_MODEL_PATH</code> etc.). Sem elas, os pesos são baixados sozinhos.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">PYTHONPATH=src python scripts/cli.py     # sessão interativa: gerar e editar imagens (uma ou várias referências)
+</code></pre>
+<p>Para rodar o [dev] em GPU de consumo com quantização, veja o <a href="https://github.com/black-forest-labs/flux2/blob/main/docs/flux2_dev_hf.md">guia do diffusers</a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gerar e editar imagens localmente, sem pagar por imagem.</li>
+<li>Apps em tempo real ou fluxos interativos de criação ([klein] destilado).</li>
+<li>Treinar LoRAs com o seu estilo ou produto ([klein] Base).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença varia por modelo:</strong> só os modelos <strong>4B</strong> são Apache-2.0 e liberados para uso comercial. Os 9B e o [dev] usam a <em>FLUX Non-Commercial License</em>; para uso comercial, consulte a BFL.</li>
+<li><strong>Exige GPU NVIDIA:</strong> o código oficial é feito para CUDA. O README não documenta Windows; no Windows, a forma prática costuma ser por interfaces como o ComfyUI ou pelo diffusers.</li>
+<li>Este repositório é só a inferência mínima. Não traz interface gráfica.</li>
+<li>Relacionados no catálogo: o <a href="wangp.html">WanGP</a> roda vários modelos de imagem e vídeo com interface e pouca VRAM. O <a href="open-generative-ai.html">Open Generative AI</a> reúne geração de imagem e vídeo.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://huggingface.co/black-forest-labs">Modelos no Hugging Face</a></li>
+<li><a href="https://bfl.ai/blog/flux2-klein-towards-interactive-visual-intelligence">Blog do FLUX.2 [klein]</a></li>
+<li><a href="https://github.com/black-forest-labs/flux2/blob/main/docs/flux2_with_prompt_upsampling.md">Guia de prompt upsampling</a></li>
+<li><a href="https://github.com/black-forest-labs/flux2/blob/main/docs/flux2_klein_kv_cache.md">Cache KV do klein</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Founder Skill · Repositórios favoritos</title>
+<meta name="description" content="Onze skills para Claude que testam um negócio antes do lançamento: conselho com frameworks de Hormozi, Thiel e Jobs, concorrentes, painel com 100 compradores simulados, preço, oferta, CFO, marketing, marca, operações, lançamento e plano de negócios com veredito calculado.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Founder Skill</h1>
+    <p class="lead">Onze skills para Claude que testam um negócio antes do lançamento: conselho com frameworks de Hormozi, Thiel e Jobs, concorrentes, painel com 100 compradores simulados, preço, oferta, CFO, marketing, marca, operações, lançamento e plano de negócios com veredito calculado.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Jakeschincariol/founder-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Jakeschincariol/founder-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Jakeschincariol/founder-skill">Jakeschincariol/founder-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~4,1k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um conjunto de skills que funciona como uma equipe de executivos para quem vai abrir um negócio. Você descreve a ideia, e cada skill faz o papel de um cargo: conselho de administração, pesquisa de concorrência, painel de consumidores, estrategista de preço, arquiteto de oferta, CFO, diretor de marketing, designer de marca, gerente de operações, líder de lançamento e planejador.</p>
+<p>As skills rodam em sequência e compartilham arquivos numa pasta <code>founder/</code> dentro do projeto: cada uma lê o que as anteriores escreveram. No fim, <code>/founder-plan</code> compila um plano de negócios com um veredito calculado a partir dos números (Profitable, Not yet ou Incomplete), não escrito livremente pelo modelo.</p>
+<p>O destaque é o painel de consumidores: ele cria 100 agentes compradores a partir do seu cliente-alvo, cada um com renda, hábitos e objeções próprios, e apura quem compra, quem não compra e por quê. Quatro ferramentas em Python puro (sem rede, sem <code>pip install</code>) fazem as contas de unidade econômica, preço e veredito.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Conselho (<code>/founder-board</code>):</strong> três subagentes aplicam frameworks publicados (<em>$100M Offers</em>, <em>Zero to One</em> e a biografia de Steve Jobs), dão nota, apontam o que mataria a ideia e votam.</li>
+<li><strong>Concorrentes (<code>/founder-competitors</code>):</strong> diretos, indiretos e substitutos, com preços, posicionamento e reclamações dos clientes, tudo com link para a fonte pública.</li>
+<li><strong>Painel de consumidores (<code>/founder-consumer</code>):</strong> 100 compradores simulados por padrão, com as razões nas palavras deles e o que viraria um &quot;não&quot;.</li>
+<li><strong>Preço e oferta:</strong> faixa de preço aceitável pelo método Van Westendorp, comparada com concorrentes e margem; pacote de oferta (bônus, garantia, urgência real) retestado no painel.</li>
+<li><strong>CFO (<code>/founder-cfo</code>):</strong> contribuição por venda, margem real, ponto de equilíbrio por dia, ano 1 mês a mês, caixa necessário, payback e cenários.</li>
+<li><strong>Marketing, marca e operações:</strong> campanha de lançamento de 30 dias com datas, dez ganchos, custo máximo por cliente, nomes com checagens de marca e domínio, fornecedores, rotinas, licenças a verificar e registro de riscos.</li>
+<li><strong>Lançamento e plano:</strong> teste barato no mundo real primeiro, contagem regressiva, roteiro do dia do lançamento e plano de negócios final.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude (Claude Code ou chat).</li>
+<li>Python 3.8 ou mais novo para as ferramentas. Nada para instalar com <code>pip</code>.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="colando-o-link-no-claude">Colando o link no Claude</h3>
+<pre><code class="language-text">https://github.com/Jakeschincariol/founder-skill
+
+install skill
+</code></pre>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add Jakeschincariol/founder-skill
+/plugin install founder-skill@founder-skill
+</code></pre>
+<p>Como plugin, os comandos ficam com prefixo: <code>/founder-skill:founder-board</code> etc.</p>
+<h3 id="copia-manual-comandos-sem-prefixo">Cópia manual (comandos sem prefixo)</h3>
+<pre><code class="language-bash">git clone https://github.com/Jakeschincariol/founder-skill.git
+cp -r founder-skill/skills/founder-* ~/.claude/skills/
+</code></pre>
+<p>No <strong>Windows</strong> (PowerShell), o equivalente da cópia é <code>Copy-Item -Recurse founder-skill\skills\founder-* $HOME\.claude\skills\</code>. Para instalar só num projeto, copie as pastas para <code>.claude/skills/</code> do repositório. Sem Claude Code, dá para colar um <code>SKILL.md</code> no início de um chat, mas sem subagentes nem ferramentas Python.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Ordem recomendada:</p>
+<pre><code class="language-text">board -&gt; competitors -&gt; consumer -&gt; pricing -&gt; offer -&gt; cfo -&gt; marketing -&gt; brand -&gt; ops -&gt; launch -&gt; plan
+</code></pre>
+<pre><code class="language-text">/founder-board          # registra a ideia em founder/idea.md e leva ao conselho
+/founder-competitors    # mapeia concorrentes com preços e reclamações
+/founder-consumer       # roda o painel de 100 compradores simulados
+/founder-consumer --quick   # versão rápida, para uma ideia ainda vaga
+/founder-pricing        # faixa de preço aceitável
+/founder-offer          # monta a oferta e retesta no painel
+/founder-cfo            # unidade econômica e ano 1
+/founder-marketing      # posicionamento e campanha de 30 dias
+/founder-brand          # nome, voz e briefing visual
+/founder-ops            # fornecedores, rotinas, riscos
+/founder-launch         # teste real, contagem regressiva, primeiros 30 dias
+/founder-plan           # compila founder/business-plan.md com o veredito
+</code></pre>
+<p>Ferramentas Python (rodam sem rede):</p>
+<pre><code class="language-bash">python3 skills/founder-cfo/unit_economics.py founder/numbers.json --out founder/cfo.md   # margens, equilíbrio, ano 1
+python3 skills/founder-consumer/panel.py init --customer founder/customer.json --pitch founder/pitch.md   # gera os cartões de comprador
+python3 skills/founder-pricing/van_westendorp.py founder/panel/answers --price 6.50       # faixa de preço aceitável
+python3 skills/founder-plan/compile.py --dir founder                                     # plano e veredito
+python3 -m unittest discover -s tests -v                                                 # testes
+</code></pre>
+<p>O repositório traz um exemplo completo (uma cafeteria de matcha em Toronto) com todos os dados de entrada.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Validar uma ideia de negócio antes de gastar dinheiro com ela.</li>
+<li>Montar a unidade econômica e o ponto de equilíbrio de um negócio físico ou digital.</li>
+<li>Descobrir objeções e segmentos de cliente antes de escrever a oferta.</li>
+<li>Produzir um plano de negócios completo a partir de uma conversa.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Compradores simulados não são clientes.</strong> Modelos de linguagem tendem a concordar, então trate a taxa de compra como teto e confirme com pessoas reais. As respostas do painel nunca devem virar depoimento.</li>
+<li><strong>O conselho aplica frameworks publicados, não é aquelas pessoas.</strong> O projeto não tem vínculo com Hormozi, Thiel ou Jobs.</li>
+<li><strong>Não é consultoria financeira, jurídica ou tributária.</strong> Os números valem o que valem as entradas; confira custos com fornecedores e impostos com um contador. As skills dizem o que verificar (licenças, marcas), mas no Brasil isso passa por um profissional local.</li>
+<li>Exemplos e referências do projeto são em dólar e no contexto norte-americano.</li>
+<li>Para marketing de produto digital em profundidade (CRO, SEO, anúncios, e-mails), as <a href="marketingskills.html">Marketing Skills</a> cobrem muito mais; a Founder Skill foca em validar o negócio antes do lançamento.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Jakeschincariol/founder-skill#readme">README</a></li>
+<li><a href="https://github.com/Jakeschincariol/founder-skill/tree/main/skills">Pasta das skills</a></li>
+<li><a href="https://opusjake.ai">opusjake.ai</a> (autor)</li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

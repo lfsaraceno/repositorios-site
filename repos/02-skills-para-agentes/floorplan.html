@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floorplan · Repositórios favoritos</title>
+<meta name="description" content="Plugin para Claude Code e Codex que lê o código do seu app e desenha um mapa interativo em português simples (partes, arquivos, telas, endpoints e conexões, mesmo entre repositórios), com perguntas ao mapa, checagem de segurança de apps feitos com IA e destaque do que o agente acabou de mudar.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Floorplan</h1>
+    <p class="lead">Plugin para Claude Code e Codex que lê o código do seu app e desenha um mapa interativo em português simples (partes, arquivos, telas, endpoints e conexões, mesmo entre repositórios), com perguntas ao mapa, checagem de segurança de apps feitos com IA e destaque do que o agente acabou de mudar.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/haydenschmitty/floorplan">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">haydenschmitty/floorplan</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/haydenschmitty/floorplan">haydenschmitty/floorplan</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://haydenschmitty.github.io/floorplan-demo/">demo ao vivo</a> · <a href="https://github.com/haydenschmitty/floorplan/blob/main/docs/README.md">docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~4,9k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Floorplan (&quot;planta baixa&quot;) é para quem construiu um app com ajuda de IA, ele funciona, mas não sabe responder &quot;o que acontece quando alguém finaliza a compra?&quot; ou &quot;o que quebra se eu mudar isto?&quot;.</p>
+<p>Você pede um floorplan ao Claude Code ou ao Codex. Scripts em Node (sem dependências) varrem os arquivos, imports, rotas e requisições e ligam cada chamada do frontend ao endpoint do backend que responde. Depois o agente dá nome às partes e descreve cada arquivo em linguagem simples. O resultado é <code>floorplan/index.html</code>, um mapa com zoom que abre no navegador.</p>
+<p>Também funciona antes de existir código: a partir de um PRD ou especificação, gera uma &quot;blueprint&quot; do que seria preciso construir.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Mapa com zoom:</strong> do app inteiro até partes, grupos de arquivos, arquivos e endpoints, mostrando quem usa e o que é usado.</li>
+<li><strong>Linguagem simples:</strong> &quot;recebe pagamentos com cartão no checkout&quot; em vez de &quot;wrapper da API do Stripe&quot;, com uma chave para a visão técnica.</li>
+<li><strong>Conexões reais entre repositórios:</strong> liga requisições do frontend aos endpoints do servidor, mesmo em repos separados.</li>
+<li><strong>Começar por uma tela:</strong> escolha uma página e veja tudo que está por trás dela, até o banco e os serviços externos.</li>
+<li><strong>Pergunte ao mapa:</strong> &quot;como um reembolso chega ao cartão do cliente?&quot; vira uma resposta com um mini-mapa e o passo a passo.</li>
+<li><strong>Health check:</strong> chaves no código ou enviadas ao navegador, tabelas do Supabase abertas, regras do Firebase abertas, webhooks do Stripe que dá para falsificar e endpoints sem login. Cada problema vem com um prompt de correção. É uma checagem, não uma auditoria.</li>
+<li><strong>Trabalho recente:</strong> destaca em verde o que o agente acabou de mudar e por quê.</li>
+<li><strong>Atualização incremental:</strong> relê só o que mudou.</li>
+<li><strong>Extras:</strong> fluxos guiados, tour &quot;Start here&quot;, exportação num único HTML, versão para celular, busca e atalhos.</li>
+<li><strong>Linguagens:</strong> TypeScript, JavaScript, Python, Go, Rust, Java, Kotlin, Swift, C#, PHP e outras, com dezenas de frameworks de backend e de telas (Next.js, Express, FastAPI, Django, Laravel, Supabase Edge Functions etc.).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 18+.</li>
+<li>Claude Code ou Codex, no plano que você já tem (sem chave de API).</li>
+<li>Recomendado: Claude Code CLI, para a barra de perguntas do mapa ler o código real.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code">Claude Code</h3>
+<pre><code class="language-bash">claude plugin marketplace add haydenschmitty/floorplan
+claude plugin install floorplan@floorplan
+</code></pre>
+<p>Abra uma sessão nova.</p>
+<h3 id="codex">Codex</h3>
+<p>No app: <strong>Plugins → Add a marketplace</strong>, informe <code>haydenschmitty/floorplan</code> e instale o <strong>Floorplan</strong>. Ou pelo terminal:</p>
+<pre><code class="language-bash">codex plugin marketplace add haydenschmitty/floorplan
+codex plugin add floorplan@floorplan
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Abra o projeto (ou a pasta que contém frontend e backend) e peça:</p>
+<pre><code class="language-text">Make me a floorplan of this app.
+Update the floorplan.
+Fix the important issues from the floorplan's Health check
+Add a flow showing how a new user signs up
+Export the floorplan so I can send it to the team
+Here's my PRD. Make me a floorplan of what we'd need to build.
+</code></pre>
+<p>No Codex, também dá para digitar <code>$floorplan</code>. Na barra de perguntas do mapa:</p>
+<pre><code class="language-text">What happens when someone places an order?
+If I change the users table, what breaks?
+Which files handle login?
+</code></pre>
+<p>Para renomear partes, peça ao agente ou edite <code>floorplan/architecture.json</code> e <code>floorplan/descriptions/</code>; as edições são mantidas nas atualizações.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Entender um app feito com IA sem ler o código.</li>
+<li>Integrar alguém novo no projeto em minutos.</li>
+<li>Conferir o que o agente mudou depois de cada tarefa.</li>
+<li>Fazer uma checagem rápida dos erros de segurança mais comuns em apps feitos com IA.</li>
+<li>Planejar a arquitetura de um app a partir do PRD.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Não altera o seu código nem faz commit:</strong> cria só a pasta <code>floorplan/</code>, que se ignora no git, e, no Claude Code, se você aceitar, uma seção no <code>CLAUDE.local.md</code>.</li>
+<li><strong>Privacidade:</strong> o mapa e o servidor local rodam na sua máquina. O código é lido pelo agente pela sua conta, como em qualquer tarefa. O único envio do Floorplan é o seu e-mail, e só se você entrar na lista de espera do Floorplan Cloud.</li>
+<li><strong>Seguro de instalar:</strong> sem hooks, sem servidores MCP, sem dependências e sem downloads. Cada release traz checksums dos arquivos.</li>
+<li><strong>Custo:</strong> o primeiro mapa usa o seu plano e leva alguns minutos num app pequeno, mais num grande.</li>
+<li><strong>Health check não substitui auditoria.</strong> Para segurança mais a fundo, use as ferramentas da categoria Segurança do catálogo.</li>
+<li>Relacionados no catálogo: o <a href="archify.html">Archify</a> desenha diagramas bonitos de qualquer coisa, para apresentar. O <a href="../05-ferramentas-para-agentes-ia/graphify.html">Graphify</a> gera um grafo de conhecimento do código. O Floorplan mapeia o app que você construiu, em linguagem simples, com riscos e mudanças recentes.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://haydenschmitty.github.io/floorplan-demo/">Demo ao vivo</a></li>
+<li><a href="https://youtu.be/NTUUzC7L_NQ">Vídeo</a></li>
+<li><a href="https://github.com/haydenschmitty/floorplan/blob/main/docs/getting-started.md">Primeiros passos</a></li>
+<li><a href="https://github.com/haydenschmitty/floorplan/blob/main/docs/using-the-map.md">Usando o mapa</a></li>
+<li><a href="https://github.com/haydenschmitty/floorplan/blob/main/docs/privacy-and-security.md">Privacidade e segurança</a></li>
+<li><a href="https://github.com/haydenschmitty/floorplan/blob/main/docs/is-it-safe.md">É seguro instalar?</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

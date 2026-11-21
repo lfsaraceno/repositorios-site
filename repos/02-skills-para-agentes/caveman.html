@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caveman · Repositórios favoritos</title>
+<meta name="description" content="Skill e proxy que fazem o agente de IA responder curto (&quot;why many token when few do trick&quot;) e ler menos, mantendo código, comandos e erros exatos; inclui compressão de logs e JSON, roteamento automático de modelo e scripts reutilizáveis.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Caveman</h1>
+    <p class="lead">Skill e proxy que fazem o agente de IA responder curto (&quot;why many token when few do trick&quot;) e ler menos, mantendo código, comandos e erros exatos; inclui compressão de logs e JSON, roteamento automático de modelo e scripts reutilizáveis.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/JuliusBrussee/caveman">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">JuliusBrussee/caveman</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/JuliusBrussee/caveman">JuliusBrussee/caveman</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://caveman.so">caveman.so</a> · <a href="https://docs.caveman.so/caveman">Docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>Go</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0 (&quot;Caveman&quot; e o logo são marcas registradas)</dd></div>
+<div><dt>Estrelas</dt><dd>~121k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Começou como piada em abril de 2026: uma skill que faz o agente falar como homem das cavernas, sem cerimônia, mantendo toda a substância técnica. A mesma correção que levaria 63 tokens sai em 20. A voz segue regras do inglês controlado de manuais de aviação (ASD-STE100): resposta primeiro, uma ideia por frase, negações e números nunca omitidos, código e erros copiados exatamente, e frases completas para alertas de segurança e ações irreversíveis. Seus prompts nunca são reescritos.</p>
+<p>Na versão 4.0 virou seis partes (&quot;rocks&quot;), instaladas por um único comando:</p>
+<ol>
+<li><strong>Say less:</strong> a voz curta.</li>
+<li><strong>Read less:</strong> comprime logs, JSON, CSV, YAML e saída de testes antes de o modelo ler (33,2% menos tokens de entrada por sessão no benchmark do autor).</li>
+<li><strong>Auto:</strong> escolhe modelo e esforço para cada pedido (54% mais barato que Opus 5.5 em xhigh, mesma nota, em teste parcial).</li>
+<li><strong>Blocks:</strong> guarda os scripts que o agente escreve e os reaproveita.</li>
+<li><strong>Waste fixes:</strong> mostra onde os tokens vão e mantém o cache de prompt aquecido.</li>
+<li><strong>Browse:</strong> páginas web comprimidas.</li>
+</ol>
+<p>Citado por pesquisa da Adobe e testado pela JetBrains (sem perda de qualidade mensurável).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Níveis <code>/caveman</code>, <code>/ultracave</code> e <code>/megacave</code> (chinês clássico, o mais curto).</li>
+<li><code>/caveman-commit</code> (commit em uma linha), <code>/caveman-review</code> (uma linha por achado), <code>/caveman-compress</code> (encolhe <code>CLAUDE.md</code> com backup), <code>/caveman-stats</code>.</li>
+<li>Subagentes <code>cavecrew</code> (investigar, editar, revisar) e padrões de trabalho (<code>investigate-first</code>, <code>surgical-patch</code>, <code>safe-refactor</code>, <code>verify-and-stop</code> e outros).</li>
+<li>Funciona em Claude Code, Codex, Gemini CLI, OpenCode e mais de 30 agentes.</li>
+<li>Middleware para Vercel AI SDK, LangChain, OpenAI e Anthropic.</li>
+<li>Caveman Cloud (pago) para observabilidade e evals de agentes que você constrói.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 22.13+ para o instalador completo.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="tudo-cli-proxy-skill">Tudo (CLI + proxy + skill)</h3>
+<pre><code class="language-bash">npx @caveman-ai/cli@latest
+</code></pre>
+<p>Detecta seus agentes e logins, mostra o que vai mudar e pede Enter.</p>
+<h3 id="so-a-skill-voz-curta">Só a skill (voz curta)</h3>
+<pre><code class="language-bash">npx skills add JuliusBrussee/caveman -g
+</code></pre>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<pre><code class="language-bash">claude plugin marketplace add JuliusBrussee/caveman &amp;&amp; claude plugin install caveman@caveman
+</code></pre>
+<h3 id="windows-powershell-5-1">Windows (PowerShell 5.1+)</h3>
+<pre><code class="language-powershell">irm https://raw.githubusercontent.com/JuliusBrussee/caveman/v4.1.0/install.ps1 | iex
+</code></pre>
+<p>Desinstalar: <code>npx -y github:JuliusBrussee/caveman -- --uninstall</code>; só a skill: <code>npx skills remove JuliusBrussee/caveman -g</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No agente:</p>
+<pre><code class="language-text">/caveman            # liga a voz curta (stop caveman para voltar)
+/ultracave          # mais curto ainda
+/caveman-review     # revisão compacta
+/caveman-compress CLAUDE.md
+</code></pre>
+<p>No terminal:</p>
+<pre><code class="language-bash">caveman status               # o que está ligado
+caveman off browse           # desliga uma parte (output, input, waste-fixes, routing, scripts, browse)
+caveman claude               # abre o Claude Code com caveman
+caveman learn                # onde os tokens estão indo
+caveman stats                # histórico de tokens
+caveman telemetry off        # desliga a telemetria
+caveman doctor               # diagnóstico
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Respostas mais diretas e baratas no terminal, sem perder detalhe técnico.</li>
+<li>Sessões que leem muitos logs, JSON ou saída de testes.</li>
+<li>Reduzir custo escolhendo modelo por pedido (Auto).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Telemetria da CLI ligada por padrão</strong> (comandos, contagem de tokens, ID de instalação, SO e IP; nunca prompts ou código). Desligue com <code>caveman telemetry off</code> ou <code>DO_NOT_TRACK=1</code>.</li>
+<li><strong>Auto</strong> envia à Caveman Cloud o último pedido (com o que o agente anexa, como <code>CLAUDE.md</code> e arquivos mencionados); no plano gratuito pode ser guardado para melhorar o roteamento. Atenção a dados sensíveis.</li>
+<li><code>/caveman-compress</code> envia o arquivo ao seu provedor de modelo.</li>
+<li>Em planos cobrados por requisição (GitHub Copilot), respostas curtas não economizam.</li>
+<li>Os números de economia são em grande parte do próprio autor; veja <a href="https://github.com/JuliusBrussee/caveman/blob/main/docs/HONEST-NUMBERS.md">HONEST-NUMBERS</a>, onde ele lista os casos em que perde.</li>
+<li>Complementares no catálogo: <a href="../05-ferramentas-para-agentes-ia/rtk.html">RTK</a> (saída de comandos) e <a href="ponytail.html">Ponytail</a> (menos código).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/JuliusBrussee/caveman#readme">README</a></li>
+<li><a href="https://github.com/JuliusBrussee/caveman/blob/main/INSTALL.md">Matriz de instalação</a></li>
+<li><a href="https://github.com/JuliusBrussee/caveman/blob/main/docs/HONEST-NUMBERS.md">Números honestos</a></li>
+<li><a href="https://github.com/JuliusBrussee/caveman/blob/main/SECURITY.md">Segurança e privacidade</a></li>
+<li><a href="https://github.com/caveman-ai/blocks">Blocks</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

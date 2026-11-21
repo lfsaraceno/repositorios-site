@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planning with Files · Repositórios favoritos</title>
+<meta name="description" content="Skill de planejamento persistente em arquivos Markdown (padrão do Manus) para agentes de IA: plano, descobertas e progresso ficam em disco e são reinjetados a cada turno, para o agente retomar a tarefa depois de /clear, compactação ou falha.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Planning with Files</h1>
+    <p class="lead">Skill de planejamento persistente em arquivos Markdown (padrão do Manus) para agentes de IA: plano, descobertas e progresso ficam em disco e são reinjetados a cada turno, para o agente retomar a tarefa depois de /clear, compactação ou falha.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/OthmanAdi/planning-with-files">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">OthmanAdi/planning-with-files</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/OthmanAdi/planning-with-files">OthmanAdi/planning-with-files</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/OthmanAdi/planning-with-files/blob/master/docs/installation.md">docs/installation.md</a></dd></div>
+<div><dt>Linguagem</dt><dd>Shell e Python (hooks) e Markdown</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~28k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>A janela de contexto do agente funciona como memória RAM: volátil e limitada. O sistema de arquivos é o disco: persistente. O Planning with Files aplica a regra &quot;tudo que importa vai para o disco&quot;, o padrão de engenharia de contexto descrito pelo Manus.</p>
+<p>A skill mantém três arquivos no seu projeto:</p>
+<pre><code>your-project/
+├── task_plan.md   ← fases e checkboxes; o ponto de retomada depois de /clear
+├── findings.md    ← notas de pesquisa e decisões, acrescentadas ao longo do trabalho
+└── progress.md    ← log da sessão e resultados de testes
+</code></pre>
+<p>No Claude Code, hooks reinjetam o contexto do plano ativo a cada mensagem e podem segurar o fim da tarefa até o plano estar marcado como completo. No benchmark interno do autor, retomar uma tarefa interrompida levou 5,0 turnos em média com os arquivos, contra 13,3 sem.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Padrão de 3 arquivos em Markdown, ignorados pelo git por padrão.</li>
+<li>Tarefas paralelas em pastas isoladas (<code>.planning/YYYY-MM-DD-slug/</code>).</li>
+<li>Reinjeção do plano a cada turno e recuperação após <code>/clear</code>.</li>
+<li>Portão de conclusão: o agente só para quando o plano diz &quot;complete&quot;.</li>
+<li>Atestação do plano por SHA-256 (hooks recusam plano adulterado).</li>
+<li>Comandos de status, autodiagnóstico, modo meta (<code>/plan-goal</code>) e ciclo (<code>/plan-loop</code>).</li>
+<li>Versões traduzidas (árabe, alemão, espanhol, chinês simplificado e tradicional).</li>
+<li>Plugins nativos para Claude Code, OpenCode, Hermes, Pi e DeepSeek Harness; skill padrão para mais de 60 agentes.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente de programação (Claude Code recomendado para o conjunto completo com hooks).</li>
+<li>Bash; alguns hosts exigem Python 3.10+.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code-plugin-skill-hooks-e-comandos">Claude Code (plugin: skill, hooks e comandos)</h3>
+<pre><code>/plugin marketplace add OthmanAdi/planning-with-files
+/plugin install planning-with-files@planning-with-files
+</code></pre>
+<h3 id="qualquer-agente-agent-skills-so-a-skill">Qualquer agente (Agent Skills, só a skill)</h3>
+<pre><code class="language-bash">npx skills add OthmanAdi/planning-with-files --skill planning-with-files -g
+</code></pre>
+<h3 id="outras-rotas">Outras rotas</h3>
+<pre><code class="language-bash">npm install planning-with-files          # fixa versão no projeto (sem hooks)
+pi install npm:planning-with-files       # Pi Coding Agent
+</code></pre>
+<p>Guias por ferramenta (Cursor, Copilot, Gemini CLI, Codex, Kiro, OpenCode, Hermes e outros) em <a href="https://github.com/OthmanAdi/planning-with-files/tree/master/docs">docs/</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Digite <code>/plan</code> ou peça &quot;plan this task&quot;; a skill também dispara sozinha em tarefas de vários passos.</p>
+<pre><code class="language-text">/planning-with-files:plan          # cria os três arquivos e inicia a sessão (atalho /plan)
+/planning-with-files:pwf           # alias; --autonomous ou --gated
+/planning-with-files:status        # fase atual e totais
+/planning-with-files:plan-doctor   # autodiagnóstico (PASS/WARN/FAIL)
+/planning-with-files:plan-attest   # trava task_plan.md com SHA-256
+/planning-with-files:plan-goal     # roda até o plano ficar completo
+/planning-with-files:plan-loop     # ciclo com /loop, a cada 10 minutos por padrão
+</code></pre>
+<p>Regras principais da skill: criar o plano antes de começar; salvar descobertas a cada 2 operações de leitura ou navegação; registrar todos os erros; nunca repetir uma tentativa que falhou.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Tarefas longas que atravessam várias sessões e compactações de contexto.</li>
+<li>Pesquisas e refatorações grandes em que o agente costuma se perder.</li>
+<li>Retomar trabalho depois de uma queda ou de <code>/clear</code>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Os números de benchmark são do próprio autor (avaliação de fidelidade ao padrão e retomada após limpeza de contexto), com limites declarados.</li>
+<li>A rota npm não registra hooks; para o comportamento completo no Claude Code, use o plugin.</li>
+<li>A ficha cobre instalação, comandos, regras e benchmarks; as seções de recursos para execuções longas e variáveis de ambiente não foram detalhadas.</li>
+<li>Alternativa com banco de dados e dependências entre tarefas: <a href="../05-ferramentas-para-agentes-ia/beads.html">Beads</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/OthmanAdi/planning-with-files#readme">README</a></li>
+<li><a href="https://github.com/OthmanAdi/planning-with-files/blob/master/docs/installation.md">Instalação</a></li>
+<li><a href="https://github.com/OthmanAdi/planning-with-files/blob/master/docs/evals.md">Avaliações</a></li>
+<li><a href="https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus">Context Engineering for AI Agents (Manus)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

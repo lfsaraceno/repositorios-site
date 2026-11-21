@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chatterbox TTS · Repositórios favoritos</title>
+<meta name="description" content="Família de modelos open-source de texto para fala (TTS) com clonagem de voz da Resemble AI, incluindo modelo multilíngue com pacote dedicado a português do Brasil; projeto aposentado e sem manutenção desde ago/2026.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>Chatterbox TTS</h1>
+    <p class="lead">Família de modelos open-source de texto para fala (TTS) com clonagem de voz da Resemble AI, incluindo modelo multilíngue com pacote dedicado a português do Brasil; projeto aposentado e sem manutenção desde ago/2026.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/resemble-ai/chatterbox">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">resemble-ai/chatterbox</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/resemble-ai/chatterbox">resemble-ai/chatterbox</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://resemble-ai.github.io/chatterbox_demopage/">Página de demonstração</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~28k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<blockquote>
+<p><strong>Atenção:</strong> desde agosto de 2026 o Chatterbox é pesquisa aposentada e não recebe mais manutenção. O código segue público como arquivo, sob MIT, sem suporte nem atualizações. A Resemble AI passou a trabalhar com detecção de deepfakes.</p>
+</blockquote>
+<h2 id="o-que-e">O que é</h2>
+<p>O Chatterbox é uma família de modelos de síntese de voz (TTS) que roda localmente em Python. A partir de um trecho de áudio de referência de cerca de 10 segundos, ele clona a voz e gera fala com ela (clonagem zero-shot). Também há conversão de voz (voice conversion).</p>
+<p>A família tem cinco opções: <strong>Turbo</strong> (350M, inglês, baixa latência para agentes de voz), <strong>Nano</strong> (110M, inglês, roda em CPU 3x mais rápido que o tempo real em 8 núcleos), <strong>Multilingual V3</strong> (500M, 23 idiomas, incluindo português), o <strong>Single Language Pack</strong> (ajustes dedicados por idioma, incluindo <strong>português do Brasil</strong>) e o Chatterbox original (500M, inglês, com controles de exagero e CFG).</p>
+<p>Todo áudio gerado leva uma marca d'água neural imperceptível (PerTh), que resiste a compressão MP3 e edição e pode ser detectada depois.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Clonagem de voz zero-shot a partir de um clipe de referência.</li>
+<li><strong>Tags paralinguísticas</strong> no Turbo e no Nano: <code>[cough]</code>, <code>[laugh]</code>, <code>[chuckle]</code> e outras no meio do texto.</li>
+<li><strong>Multilingual V3</strong> em 23 idiomas: árabe, dinamarquês, alemão, grego, inglês, espanhol, finlandês, francês, hebraico, hindi, italiano, japonês, coreano, malaio, holandês, norueguês, polonês, português, russo, sueco, suaíli, turco e chinês.</li>
+<li><strong>Single Language Pack:</strong> modelos dedicados para chinês, espanhol latino-americano, <strong>português do Brasil</strong>, espanhol da Espanha, português de Portugal e hindi.</li>
+<li>Decoder destilado em um passo no Turbo e no Nano (antes eram 10), com menos VRAM.</li>
+<li>Roda em <code>cuda</code>, <code>cpu</code> ou <code>mps</code> (Mac).</li>
+<li>Marca d'água PerTh em todo áudio gerado, com script para extração.</li>
+<li>Avaliações públicas comparando o Turbo com ElevenLabs Turbo v2.5, Cartesia Sonic 3 e VibeVoice 7B.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.11 (testado no Debian 11; dependências fixadas no <code>pyproject.toml</code>).</li>
+<li>GPU NVIDIA recomendada para Turbo e Multilingual; o Nano roda bem em CPU.</li>
+<li>Os pesos são baixados do Hugging Face no primeiro uso.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="via-pip">Via pip</h3>
+<pre><code class="language-shell">pip install chatterbox-tts
+</code></pre>
+<h3 id="a-partir-do-codigo-fonte">A partir do código-fonte</h3>
+<pre><code class="language-shell">conda create -yn chatterbox python=3.11
+conda activate chatterbox
+
+git clone https://github.com/resemble-ai/chatterbox.git
+cd chatterbox
+pip install -e .
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<h3 id="turbo-ingles-com-tags">Turbo (inglês, com tags)</h3>
+<pre><code class="language-python">import torchaudio as ta
+from chatterbox.tts_turbo import ChatterboxTurboTTS
+
+model = ChatterboxTurboTTS.from_pretrained(device=&quot;cuda&quot;)
+text = &quot;Hi there, Sarah here from MochaFone calling you back [chuckle], have you got one minute to chat about the billing issue?&quot;
+wav = model.generate(text, audio_prompt_path=&quot;your_10s_ref_clip.wav&quot;)  # exige clipe de referência
+ta.save(&quot;test-turbo.wav&quot;, wav, model.sr)
+</code></pre>
+<h3 id="nano-cpu">Nano (CPU)</h3>
+<pre><code class="language-python">from chatterbox.tts_turbo import ChatterboxTurboTTS
+
+model = ChatterboxTurboTTS.from_pretrained(device=&quot;cpu&quot;, nano=True)  # mesma classe do Turbo, com nano=True
+</code></pre>
+<h3 id="multilingual-v3-inclui-portugues">Multilingual V3 (inclui português)</h3>
+<pre><code class="language-python">import torchaudio as ta
+from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+
+multilingual_model = ChatterboxMultilingualTTS.from_pretrained(device=&quot;cuda&quot;, t3_model=&quot;v3&quot;)  # omita t3_model para usar o V2
+wav = multilingual_model.generate(&quot;Bonjour, comment ça va?&quot;, language_id=&quot;fr&quot;)  # use language_id=&quot;pt&quot; para português
+ta.save(&quot;test-french.wav&quot;, wav, multilingual_model.sr)
+</code></pre>
+<p>Para clonar outra voz, passe <code>audio_prompt_path=&quot;SEU_ARQUIVO.wav&quot;</code> no <code>generate</code>. Para português do Brasil com mais qualidade, use o modelo dedicado <a href="https://huggingface.co/ResembleAI/Chatterbox-Multilingual-pt-br">ResembleAI/Chatterbox-Multilingual-pt-br</a> (<a href="https://huggingface.co/spaces/ResembleAI/Chatterbox-Multilingual-TTS-pt-br">demo</a>).</p>
+<h3 id="ajustes-chatterbox-original">Ajustes (Chatterbox original)</h3>
+<ul>
+<li>Padrão <code>exaggeration=0.5</code>, <code>cfg_weight=0.5</code> funciona para a maioria dos casos.</li>
+<li>Falante rápido: baixe <code>cfg_weight</code> para ~<code>0.3</code>.</li>
+<li>Fala dramática: <code>cfg_weight</code> ~<code>0.3</code> e <code>exaggeration</code> ~<code>0.7</code> ou mais.</li>
+<li>Se o clipe de referência estiver em outro idioma e o sotaque vazar, use <code>cfg_weight=0</code>.</li>
+</ul>
+<h3 id="verificar-a-marca-d-agua">Verificar a marca d'água</h3>
+<pre><code class="language-python">import perth
+import librosa
+
+watermarked_audio, sr = librosa.load(&quot;SEU_ARQUIVO.wav&quot;, sr=None)
+watermarker = perth.PerthImplicitWatermarker()
+print(watermarker.get_watermark(watermarked_audio, sample_rate=sr))  # 0.0 = sem marca, 1.0 = com marca
+</code></pre>
+<p>O repositório traz exemplos (<code>example_tts.py</code>, <code>example_tts_turbo.py</code>, <code>example_tts_nano.py</code>, <code>example_vc.py</code>, <code>example_for_mac.py</code>) e interfaces Gradio (<code>gradio_tts_app.py</code>, <code>gradio_tts_turbo_app.py</code>, <code>gradio_vc_app.py</code>, <code>multilingual_app.py</code>).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gerar narração em português com voz clonada, localmente e sem pagar API.</li>
+<li>Agentes de voz em inglês com baixa latência (Turbo) ou rodando em CPU/dispositivo (Nano).</li>
+<li>Dublagem e localização de conteúdo em vários idiomas mantendo a mesma voz.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Projeto aposentado e sem manutenção</strong> (ago/2026): sem correções, suporte nem atualizações. O README ainda menciona um serviço pago de TTS, mas o aviso no topo diz que a Resemble AI não vende mais TTS.</li>
+<li><strong>Clonagem de voz e ética:</strong> só clone vozes com autorização da pessoa. Usar a voz de alguém sem consentimento pode configurar fraude e violar a LGPD (voz é dado biométrico, ou seja, dado pessoal sensível). A marca d'água PerTh permite identificar áudio gerado.</li>
+<li>Para uma interface pronta e 100% local com clonagem, dublagem e transcrição, veja o <a href="voicestudio.html">VoiceStudio</a>; para transcrever áudio, o <a href="whisper.html">Whisper</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/resemble-ai/chatterbox#readme">README</a></li>
+<li><a href="https://huggingface.co/spaces/ResembleAI/Chatterbox-Multilingual-TTS">Demo multilíngue no Hugging Face</a></li>
+<li><a href="https://huggingface.co/spaces/ResembleAI/chatterbox-turbo-demo">Demo do Turbo</a></li>
+<li><a href="https://huggingface.co/ResembleAI/Chatterbox-Multilingual-pt-br">Modelo português do Brasil</a></li>
+<li><a href="https://github.com/resemble-ai/perth">PerTh (marca d'água)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

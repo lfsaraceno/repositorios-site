@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenCreator · Repositórios favoritos</title>
+<meta name="description" content="Workspace open source para criadores de conteúdo (antigo KrillinAI), rodando sobre o Codex: tradução e dublagem de vídeo em mais de 120 idiomas, download de vídeos, roteiros, artigos, thumbnails, geração de imagem e vídeo, narração e animação de bonecos de palito, num app de desktop ou web.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>OpenCreator</h1>
+    <p class="lead">Workspace open source para criadores de conteúdo (antigo KrillinAI), rodando sobre o Codex: tradução e dublagem de vídeo em mais de 120 idiomas, download de vídeos, roteiros, artigos, thumbnails, geração de imagem e vídeo, narração e animação de bonecos de palito, num app de desktop ou web.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/krillinai/OpenCreator">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">krillinai/OpenCreator</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/krillinai/OpenCreator">krillinai/OpenCreator</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.open-creator.ai">open-creator.ai</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~14k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O OpenCreator junta num lugar as ferramentas de quem produz vídeo e conteúdo para redes sociais. Começou como KrillinAI, uma ferramenta de tradução e dublagem de vídeo, e virou um workspace completo.</p>
+<p>Em vez de ter um agente próprio, ele usa o <strong>Codex CLI</strong> da OpenAI como motor: modelos, raciocínio, ferramentas, skills e MCP vêm do Codex. Em volta disso há um runtime local (projetos, tarefas, aprovações, agendamentos, memória), uma interface visual e um app de desktop em Electron.</p>
+<p>Dá para trabalhar de dois jeitos que ficam sincronizados: pelas ferramentas visuais (com controles finos de legenda, áudio e configuração) ou conversando com o agente em linguagem natural. Cada revisão cria uma versão nova, sem apagar as anteriores.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Tradução de vídeo:</strong> 123 idiomas de origem e 124 de destino. Transcreve com Whisper (na nuvem ou local), usa LLM para segmentar, alinhar e traduzir, faz legenda bilíngue, dublagem (inclusive com amostra da sua voz) e exporta SRT, áudio ou vídeo em formato horizontal ou vertical.</li>
+<li><strong>Editor de legendas:</strong> forma de onda e linha do tempo ligadas ao vídeo, ajuste de tempo, dividir e juntar falas, localizar e substituir.</li>
+<li><strong>Download de vídeos:</strong> YouTube, Bilibili, X, TikTok, Instagram, Douyin, Facebook, Xiaohongshu, Pinterest e Reddit, com escolha de formato e legendas da plataforma.</li>
+<li><strong>Escrita:</strong> artigos (exporta Markdown, HTML ou PDF), roteiros de vídeo curto por plataforma e duração, e posts para o Xiaohongshu.</li>
+<li><strong>Imagem e vídeo:</strong> thumbnails, imagens (GPT Image, Seedream, Kling, Gemini) e vídeos (Seedance, Kling, Veo), com modelos prontos de criação.</li>
+<li><strong>Narração (TTS):</strong> escolha de voz, ritmo e emoção.</li>
+<li><strong>Animação de bonecos de palito:</strong> transforma texto ou um vídeo do YouTube em animação com narração, storyboard e legendas.</li>
+<li><strong>Em desenvolvimento:</strong> cortes automáticos de vídeos longos e avatar digital.</li>
+<li><strong>Skills incluídas:</strong> CLI do KrillinAI, legendas, TTS, renderização horizontal e vertical, capa e planejamento de pipeline. Aceita skills próprias no formato <code>SKILL.md</code>.</li>
+<li><strong>Agente:</strong> conversas por projeto, tarefas em segundo plano, agendamentos, memória global/projeto/conversa e notificações.</li>
+<li><strong>Interface em 43 idiomas</strong>, com detecção automática do idioma do sistema.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Para o app de desktop: Windows x64 ou macOS (Apple Silicon ou Intel). O Codex CLI vem junto.</li>
+<li>Login no ChatGPT ou chave de API para tarefas com modelo. Dá para configurar outro provedor compatível.</li>
+<li>Para imagem, vídeo, voz e transcrição: chaves dos serviços escolhidos em <em>Settings → AI Services</em>.</li>
+<li>Para rodar a versão web a partir do código: Node.js 22+, pnpm 9.15.0 e Codex CLI instalado e logado.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="app-de-desktop-recomendado">App de desktop (recomendado)</h3>
+<ol>
+<li>Baixe o instalador do <strong>Windows x64</strong> (ou macOS) na <a href="https://github.com/krillinai/OpenCreator/releases/latest">última release</a>.</li>
+<li>Instale e abra. Não precisa de Node nem pnpm.</li>
+<li>Na primeira abertura, ele procura a configuração local do Codex e oferece reaproveitar o login do ChatGPT ou a chave de API (<em>Use local Codex and continue</em>). Também dá para configurar outro provedor ali.</li>
+</ol>
+<h3 id="web-a-partir-do-codigo">Web a partir do código</h3>
+<pre><code class="language-bash">git clone https://github.com/krillinai/OpenCreator.git
+cd OpenCreator
+corepack enable
+pnpm install
+pnpm web:dev          # abre em http://127.0.0.1:19861/
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No app, escolha uma ferramenta no Dashboard ou descreva a tarefa no campo de conversa. Comandos de desenvolvimento:</p>
+<pre><code class="language-bash">pnpm web:dev           # servidor web de desenvolvimento
+pnpm daemon:dev        # só o runtime local (escuta em loopback)
+pnpm desktop:dev       # app de desktop em modo desenvolvimento
+pnpm desktop:dist      # gera o instalador da plataforma atual
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Traduzir e dublar vídeos para publicar em outros idiomas (por exemplo, de inglês para português).</li>
+<li>Produzir conteúdo para várias redes num lugar só: roteiro, imagem, vídeo, narração e legenda.</li>
+<li>Quem já usa o Codex/ChatGPT e quer uma interface visual de criação em cima dele.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Depende do Codex e de serviços pagos:</strong> as tarefas com modelo usam o seu ChatGPT ou API. Imagem, vídeo e voz usam as chaves dos provedores que você configurar, cada um com seu custo.</li>
+<li><strong>Configuração global do Codex:</strong> o OpenCreator usa o <code>$CODEX_HOME</code> ativo. Mudar skills ou MCP por ele altera a configuração do seu Codex.</li>
+<li><strong>Download de vídeos:</strong> alguns sites exigem cookies da plataforma. Baixar conteúdo de terceiros pode violar os termos de uso das plataformas e direitos autorais.</li>
+<li>O foco original é o público chinês (Xiaohongshu, Douyin, Bilibili, modelos chineses), mas a interface e a tradução cobrem português.</li>
+<li>Relacionados no catálogo: o <a href="yt-dlp.html">yt-dlp</a> e o <a href="whisper.html">Whisper</a> são usados por baixo. O <a href="voicestudio.html">VoiceStudio</a> é uma alternativa local para voz e dublagem. O <a href="openmontage.html">OpenMontage</a> produz vídeos conduzido por agente de código.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/krillinai/OpenCreator/releases/latest">Releases</a></li>
+<li><a href="https://github.com/krillinai/OpenCreator/blob/main/docs/opencreator-user-guide-and-troubleshooting.md">Guia do usuário e solução de problemas</a></li>
+<li><a href="https://github.com/krillinai/OpenCreator/blob/main/docs/pt/README.md">README em português</a></li>
+<li><a href="https://github.com/krillinai/OpenCreator/tree/main/skills">Skills incluídas</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

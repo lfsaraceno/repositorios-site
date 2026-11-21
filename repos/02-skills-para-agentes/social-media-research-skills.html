@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Media Research Skills · Repositórios favoritos</title>
+<meta name="description" content="Treze skills para agentes de IA pesquisarem redes sociais com dados públicos: posts fora da curva, mineração de comentários, análise de concorrentes, bibliotecas de anúncios, tendências e influenciadores em TikTok, Instagram, YouTube, Reddit, X, LinkedIn e outras. Usa a API paga do ScrapeCreators.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Social Media Research Skills</h1>
+    <p class="lead">Treze skills para agentes de IA pesquisarem redes sociais com dados públicos: posts fora da curva, mineração de comentários, análise de concorrentes, bibliotecas de anúncios, tendências e influenciadores em TikTok, Instagram, YouTube, Reddit, X, LinkedIn e outras. Usa a API paga do ScrapeCreators.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ScrapeCreators/social-media-research-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ScrapeCreators/social-media-research-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ScrapeCreators/social-media-research-skills">ScrapeCreators/social-media-research-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://scrapecreators.com">scrapecreators.com</a> · <a href="https://docs.scrapecreators.com">docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (skills em Markdown)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~6,7k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um pacote de skills que transforma o agente num pesquisador de redes sociais. Em vez de só chamar endpoints de raspagem, cada skill é um fluxo de pesquisa completo, que termina num entregável útil: uma tabela de posts que performaram acima da média, um relatório de &quot;voz do cliente&quot;, um briefing de concorrentes.</p>
+<p>Os dados vêm da API do <a href="https://scrapecreators.com">ScrapeCreators</a>, que extrai dados públicos de TikTok, Instagram, YouTube, Reddit, X/Twitter, LinkedIn, Facebook, Threads, Bluesky, Pinterest, Rumble e bibliotecas de anúncios. A skill <code>scrapecreators-api</code> é a camada de dados; as outras doze são os fluxos.</p>
+<p>Funciona em Claude Code, Cursor, Codex, Copilot, Gemini CLI, Windsurf e outros agentes do padrão <a href="https://agentskills.io">Agent Skills</a>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong><code>outlier-post-finder</code>:</strong> acha posts, reels, shorts ou vídeos que superaram a média do próprio criador, com padrões e ganchos.</li>
+<li><strong><code>transcript-intelligence</code>:</strong> analisa transcrições de vídeos (resumo, ganchos, afirmações, citações).</li>
+<li><strong><code>comment-mining</code>:</strong> extrai dos comentários perguntas, objeções, dores, ideias de produto e a linguagem exata do público.</li>
+<li><strong><code>competitor-social-research</code>:</strong> compara a estratégia social de concorrentes e acha lacunas.</li>
+<li><strong><code>ad-library-teardown</code>:</strong> analisa anúncios ativos de Meta, Google e LinkedIn (ângulos, ganchos, CTAs, ofertas, ideias de teste).</li>
+<li><strong><code>trend-discovery</code>:</strong> temas, hashtags, sons e formatos em alta num nicho.</li>
+<li><strong><code>influencer-prospecting</code></strong> e <strong><code>audience-research</code>:</strong> lista de influenciadores com nota de encaixe e análise de audiência.</li>
+<li><strong><code>social-listening-brief</code>:</strong> o que estão falando de uma marca, produto ou nicho.</li>
+<li><strong><code>product-demand-research</code>:</strong> valida ideias de produto com sinais de demanda em posts, comentários e Reddit.</li>
+<li><strong><code>creator-profile-teardown</code>:</strong> por que uma conta funciona e o que copiar.</li>
+<li><strong><code>content-repurposing</code>:</strong> transforma vídeos e posts em posts de LinkedIn, threads, roteiros e ideias de newsletter.</li>
+<li><strong>Princípios:</strong> só dados públicos, saídas com link da fonte, desempenho comparado à média do criador e citações literais.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com Agent Skills.</li>
+<li>Node (<code>npx</code>) para instalar.</li>
+<li>Chave de API do ScrapeCreators (serviço pago).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx skills add ScrapeCreators/social-media-research-skills
+</code></pre>
+<p>Configure a chave na variável de ambiente (no PowerShell: <code>$env:SCRAPECREATORS_API_KEY=&quot;...&quot;</code>):</p>
+<pre><code class="language-bash">export SCRAPECREATORS_API_KEY=sk_...
+</code></pre>
+<p>O ScrapeCreators também tem <a href="https://docs.scrapecreators.com/integrations/mcp">integração MCP</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça a pesquisa em linguagem natural. Exemplos do README:</p>
+<pre><code class="language-text">Find the outlier posts for @starterstory on YouTube Shorts from the latest page of videos.
+Analyze the transcripts from these 12 TikToks and pull out the best hooks, claims, and reusable content angles.
+Mine the comments on this viral Instagram Reel. I want objections, questions, buying intent, and exact audience language.
+Compare these five brands on TikTok and Instagram. What formats and topics are working for each one?
+Tear down the active Facebook, Google, and LinkedIn ads for this competitor. Give me hooks, offers, CTAs, and what to test.
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Planejar conteúdo com base no que já funciona no seu nicho.</li>
+<li>Entender objeções e a linguagem do cliente antes de escrever uma oferta ou anúncio.</li>
+<li>Pesquisar concorrentes e os anúncios que eles estão rodando.</li>
+<li>Validar demanda de um produto antes de construir.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Serviço pago:</strong> as skills não funcionam sem a chave do ScrapeCreators, que cobra pelo uso da API. O repositório é, em parte, divulgação do serviço.</li>
+<li><strong>Raspagem e LGPD:</strong> mesmo sendo dados públicos, raspar redes sociais pode violar os termos de uso das plataformas. Listas de influenciadores e comentários contêm dados pessoais; trate-os conforme a LGPD.</li>
+<li>Relacionados no catálogo: as <a href="marketingskills.html">Marketing Skills</a> têm <code>customer-research</code> e <code>competitor-profiling</code> sem depender de API paga. A <a href="founder-skill.html">Founder Skill</a> simula compradores; estas skills trazem dados reais de redes.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/ScrapeCreators/social-media-research-skills/tree/main/skills">Pasta das skills</a></li>
+<li><a href="https://docs.scrapecreators.com">Documentação da API</a></li>
+<li><a href="https://docs.scrapecreators.com/integrations/mcp">Integração MCP</a></li>
+<li><a href="https://docs.scrapecreators.com/integrations/agent-skill">Documentação das Agent Skills</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

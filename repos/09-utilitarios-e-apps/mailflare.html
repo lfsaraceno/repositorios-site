@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mailflare · Repositórios favoritos</title>
+<meta name="description" content="Alternativa self-hosted ao Google Workspace: e-mail com domínio próprio, agenda, Drive, página de agendamento e agentes de IA com MCP, rodando no Cloudflare Workers ou em um contêiner Docker.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Mailflare</h1>
+    <p class="lead">Alternativa self-hosted ao Google Workspace: e-mail com domínio próprio, agenda, Drive, página de agendamento e agentes de IA com MCP, rodando no Cloudflare Workers ou em um contêiner Docker.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/hieunc229/mailflare">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">hieunc229/mailflare</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/hieunc229/mailflare">hieunc229/mailflare</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://mailflare.co">mailflare.co</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~6,5k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Mailflare é uma suíte de colaboração que você hospeda: caixas de e-mail com domínio próprio (pessoais ou compartilhadas), regras de roteamento, agenda com convites, página pública de agendamento (estilo Calendly), Drive para arquivos e um assistente de IA que busca e-mails, rascunha respostas e gerencia eventos.</p>
+<p>Roda de duas formas com o mesmo código: no <strong>Cloudflare Workers</strong> (D1, R2 e filas da Cloudflare, com botão &quot;Deploy to Cloudflare&quot;) ou em <strong>um único contêiner Docker</strong> em qualquer servidor, com SQLite e arquivos locais em volume. Envio e recebimento podem usar Cloudflare Email, Resend, Amazon SES ou qualquer relay SMTP.</p>
+<p>O recebimento pode sair de graça (Cloudflare Email Routing) e o envio também, pelo plano gratuito do Resend (3.000 e-mails/mês) ou do SES. A interface está em 34 idiomas, incluindo português do Brasil.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>E-mail</strong> com domínio próprio, caixas pessoais ou compartilhadas, controle de acesso e aliases.</li>
+<li><strong>Regras de roteamento:</strong> guardar, encaminhar, rejeitar ou classificar e-mails recebidos.</li>
+<li><strong>Agenda</strong> com eventos recorrentes, fusos horários e convites por e-mail; <strong>Booking</strong> com link público para marcar horários livres.</li>
+<li><strong>Drive</strong> para guardar e compartilhar arquivos (R2, Backblaze B2 ou AWS S3).</li>
+<li><strong>Assistente de IA</strong> (Cloudflare Workers AI ou provedor compatível com OpenAI) e <strong>servidor MCP</strong> em <code>/mcp</code> para conectar clientes externos como Claude Code.</li>
+<li><strong>Bancos:</strong> Cloudflare D1 (padrão), PostgreSQL, MySQL, Turso/libSQL ou SQLite local; funciona com Supabase, Neon, PlanetScale e TiDB via <code>DATABASE_URL</code>.</li>
+<li><strong>Admin:</strong> usuários, chaves de API, webhooks, logs de auditoria e backups diários.</li>
+<li><strong>Importação</strong> de IMAP, Gmail Takeout, arquivos <code>.eml</code> e <code>.mbox</code>; PWA com notificações push.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><strong>Cloudflare:</strong> conta Cloudflare com o domínio como zona e um token de API (<code>CF_TOKEN</code>) com as permissões listadas abaixo. O envio pela própria Cloudflare exige o plano Workers Paid (US$ 5/mês); com Resend ou SES não.</li>
+<li><strong>Docker:</strong> servidor com Docker e porta 25 liberada para receber e-mail pelo listener SMTP embutido (várias nuvens bloqueiam a 25; Hetzner e a maioria das VPS não).</li>
+<li><strong>Desenvolvimento local:</strong> Node.js e npm.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="cloudflare-botao">Cloudflare (botão)</h3>
+<ol>
+<li>Clique em <strong>Deploy to Cloudflare</strong> no README. Mantenha o nome do app como <code>mailflare</code>, senão quebra.</li>
+<li>Abra o app em <code>/setup</code> e crie a conta de administrador.</li>
+<li>Adicione um domínio da mesma conta Cloudflare e crie a primeira caixa.</li>
+</ol>
+<p>O <code>CF_TOKEN</code> é obrigatório. Crie um token com escopo:</p>
+<ul>
+<li><strong>All accounts:</strong> Email Sending:Edit, DNS Settings:Edit, Email Routing Addresses:Edit</li>
+<li><strong>All zones:</strong> DNS Settings:Edit, Email Routing Rules:Edit, Zone Settings:Edit, DNS:Edit</li>
+</ul>
+<h3 id="cloudflare-com-agente-de-ia">Cloudflare com agente de IA</h3>
+<p>O README traz um prompt para colar no Claude Code, Codex ou Cursor. O agente lê a documentação, pede o account ID e dois tokens (deploy e <code>CF_TOKEN</code>) por entrada secreta, cria o D1 <code>mailflare</code>, o bucket R2 <code>mailflare-raw</code> e as filas <code>mailflare-inbound</code>, <code>mailflare-outbound</code> e <code>mailflare-agent</code>, roda <code>npm run deploy</code> e define o <code>CF_TOKEN</code> como secret. As migrações remotas ficam por conta da página <code>/setup</code>.</p>
+<h3 id="docker-self-hosted">Docker (self-hosted)</h3>
+<pre><code class="language-bash">git clone https://github.com/hieunc229/mailflare &amp;&amp; cd mailflare
+cp .env.docker.example .env.docker      # configure como receber e enviar e-mail
+docker compose up -d --build
+</code></pre>
+<p>Abra <code>http://seu-host:3000/setup</code>, crie o admin e adicione o domínio. Todos os dados ficam no volume <code>mailflare-data</code> (<code>/data</code> no contêiner). Atrás de proxy reverso, defina <code>APP_URL=https://mail.example.com</code> e encaminhe o WebSocket de <code>/api/realtime</code>.</p>
+<h3 id="sem-docker-node">Sem Docker (Node)</h3>
+<pre><code class="language-bash">npm ci
+npm run build:node
+MAILFLARE_RUNTIME=node NODE_ENV=production DATA_DIR=./data node dist/server.mjs
+</code></pre>
+<p>A porta 25 exige root ou capability; senão use <code>SMTP_INBOUND_PORT=2525</code> com redirecionamento de porta.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<h3 id="desenvolvimento-local">Desenvolvimento local</h3>
+<pre><code class="language-bash">cp .dev.vars.example .dev.vars   # adicione as credenciais Cloudflare aqui
+npm install
+npm run db:migrate:local         # aplica as migrações no banco local
+npm run dev                      # abre em http://localhost:3000
+npm run db:seed                  # carrega dados de exemplo
+npm run build                    # build do Worker
+npm run deploy                   # build e deploy
+npm run lint                     # lint e checagem de tipos
+npm run push:keys                # gera par de chaves VAPID para notificações push
+</code></pre>
+<h3 id="operacao-no-docker">Operação no Docker</h3>
+<pre><code class="language-bash">docker compose logs -f mailflare   # logs
+</code></pre>
+<p>Para atualizar, puxe a nova imagem e recrie o contêiner; as migrações rodam na inicialização. O botão de atualização do app fica desativado no self-hosted.</p>
+<h3 id="variaveis-principais-docker">Variáveis principais (Docker)</h3>
+<ul>
+<li><code>SMTP_URL=smtps://user:pass@host:465</code>: relay de saída (SES, Postmark, Mailgun, Postfix etc.).</li>
+<li><code>MAIL_HOSTNAME</code>: host para onde aponta o MX.</li>
+<li><code>DATABASE_URL</code>: troca o SQLite por PostgreSQL, MySQL ou libSQL.</li>
+<li><code>AI_BASE_URL</code>, <code>AI_API_KEY</code>, <code>AI_MODEL</code>: provedor do assistente (padrão <code>gpt-4o-mini</code>).</li>
+<li><code>RESEND_API_KEY</code> ou <code>AWS_ACCESS_KEY_ID</code>/<code>AWS_SECRET_ACCESS_KEY</code>/<code>AWS_REGION</code>: envio por Resend ou SES.</li>
+</ul>
+<h3 id="mcp-conectar-claude-code-e-outros-clientes">MCP (conectar Claude Code e outros clientes)</h3>
+<ol>
+<li>Em <strong>Settings → API keys</strong>, crie uma chave com <strong>Allow MCP access</strong> e escolha as caixas e ferramentas permitidas (a chave aparece uma vez só).</li>
+<li>Conecte o cliente a <code>https://&lt;sua-origem-mailflare&gt;/mcp</code> (Streamable HTTP) com o cabeçalho <code>Authorization: Bearer &lt;key&gt;</code>.</li>
+</ol>
+<p>Ferramentas incluem <code>list_emails</code>, <code>update_draft</code>, <code>request_send</code> e, com permissão de agenda, <code>get_schedule</code>, <code>find_free_time</code>, <code>create_event</code> etc. O <code>request_send</code> só cria um pedido de revisão: o envio precisa ser confirmado por uma pessoa logada no Mailflare. Para gerenciar domínios e contas, use uma chave separada em <strong>Admin → API keys</strong> (ela não dá acesso ao conteúdo dos e-mails).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Ter e-mail com domínio próprio, agenda e drive sem pagar Google Workspace por usuário.</li>
+<li>Montar caixas compartilhadas (contato@, suporte@) com controle de acesso para uma equipe pequena.</li>
+<li>Dar a um agente de IA acesso controlado a e-mail e agenda via MCP, com revisão humana antes de enviar.</li>
+<li>Migrar e-mails antigos via IMAP, Gmail Takeout ou <code>.mbox</code>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença AGPL-3.0:</strong> se você modificar e oferecer o Mailflare como serviço para terceiros, precisa disponibilizar o código-fonte das modificações.</li>
+<li>Hospedar e-mail próprio exige cuidar de entregabilidade (SPF, DKIM, DMARC; o app mostra os registros) e da segurança do servidor.</li>
+<li>Contas novas do Amazon SES começam em sandbox; é preciso pedir acesso de produção à AWS.</li>
+<li>O <code>CF_TOKEN</code> tem permissões amplas de DNS em todas as zonas; guarde-o como secret e nunca o coloque em commits.</li>
+<li>No Docker, a fila de jobs fica em memória; o e-mail recebido é gravado no volume antes, então reiniciar não perde mensagens.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/hieunc229/mailflare#readme">README</a></li>
+<li><a href="https://github.com/hieunc229/mailflare/blob/main/docs/deployment.md">Guia de deploy</a></li>
+<li><a href="https://github.com/hieunc229/mailflare/blob/main/docs/self-hosting.md">Self-hosting com Docker</a></li>
+<li><a href="https://github.com/hieunc229/mailflare/blob/main/docs/databases.md">Bancos de dados</a></li>
+<li><a href="https://github.com/hieunc229/mailflare/blob/main/docs/providers.md">Provedores de envio e recebimento</a></li>
+<li><a href="https://github.com/hieunc229/mailflare/blob/main/docs/email-assistant-and-mcp.md">Assistente e MCP</a></li>
+<li><a href="https://github.com/hieunc229/mailflare/blob/main/docs/troubleshooting.md">Solução de problemas</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

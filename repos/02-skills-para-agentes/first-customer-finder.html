@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First Customer Finder · Repositórios favoritos</title>
+<meta name="description" content="Skill para Claude Code, claude.ai e Cowork que encontra possíveis primeiros clientes de uma startup a partir de sinais públicos verificados, com perfil de cliente ideal, pontuação, rascunhos de abordagem e relatório HTML.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>First Customer Finder</h1>
+    <p class="lead">Skill para Claude Code, claude.ai e Cowork que encontra possíveis primeiros clientes de uma startup a partir de sinais públicos verificados, com perfil de cliente ideal, pontuação, rascunhos de abordagem e relatório HTML.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/carolinacherry/claude-first-customer-finder-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">carolinacherry/claude-first-customer-finder-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/carolinacherry/claude-first-customer-finder-skill">carolinacherry/claude-first-customer-finder-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>Python (gerador de relatório) e Markdown (skill)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~17 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Você passa a URL da sua startup para o Claude e recebe uma lista curta de possíveis primeiros clientes. Cada um vem ligado a um sinal público real (uma discussão, um post, uma reclamação) que você pode abrir e ler, com pontuação, canal sugerido, rascunho de mensagem e um relatório HTML.</p>
+<p>A skill só pesquisa. Ela define o perfil de cliente ideal (ICP), procura em discussões públicas sinais de dor e de intenção de compra, verifica cada fonte na página original e rascunha aberturas de mensagem. <strong>Nunca envia mensagem nenhuma.</strong></p>
+<p>É uma reescrita independente para Claude da skill original para Codex, a <a href="https://github.com/Kappaemme-git/codex-first-customer-finder-skill">codex-first-customer-finder-skill</a> de Francesco Mistero (~1,3k estrelas). A versão do Claude acrescenta uma etapa de verificação de fontes antes da qualificação, pesquisa em subagentes paralelos e um novo design de relatório.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Análise de ICP primário e adjacente, com critérios de exclusão.</li>
+<li>Pesquisa paralela em cinco frentes: demanda explícita, dor, gambiarras (workarounds), troca de fornecedor e momento.</li>
+<li>Verificação de fontes: todo prospect tem link para a página pública original.</li>
+<li>Pontuação de 0 a 100 ponderada por dor, encaixe, momento, alcance e qualidade da evidência.</li>
+<li>Rascunhos de abordagem personalizados, baseados só na fonte citada.</li>
+<li>Plano de validação manual de sete dias.</li>
+<li>Relatório HTML independente (tema claro/escuro, pronto para impressão).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code, claude.ai ou Cowork (app desktop do Claude).</li>
+<li>Node.js para os instaladores via <code>npx</code>; Python para o gerador de relatório (só biblioteca padrão).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="skills-cli-mais-rapido">Skills CLI (mais rápido)</h3>
+<pre><code class="language-bash">npx skills add carolinacherry/claude-first-customer-finder-skill
+</code></pre>
+<h3 id="instalador-npm">Instalador npm</h3>
+<p>Copia para <code>~/.claude/skills</code> (respeita <code>CLAUDE_CONFIG_DIR</code>; use <code>--skills-dir</code> para outro destino):</p>
+<pre><code class="language-bash">npx --yes claude-first-customer-finder-skill
+</code></pre>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<pre><code>/plugin marketplace add carolinacherry/claude-first-customer-finder-skill
+/plugin install first-customer-finder@carolinacherry
+</code></pre>
+<h3 id="app-desktop-do-claude-cowork">App desktop do Claude / Cowork</h3>
+<p>Baixe <code>first-customer-finder.zip</code> em <a href="https://github.com/carolinacherry/claude-first-customer-finder-skill/releases">Releases</a> e vá em Settings → Skills → Add → Upload a skill.</p>
+<h3 id="manual">Manual</h3>
+<pre><code class="language-bash">git clone https://github.com/carolinacherry/claude-first-customer-finder-skill.git
+node claude-first-customer-finder-skill/scripts/install.js
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Abra uma sessão nova e peça em linguagem natural:</p>
+<pre><code class="language-text">Find ten potential first customers for https://yourstartup.com
+</code></pre>
+<p>Modos (basta mencionar no pedido, ex.: <em>&quot;run it in b2b mode&quot;</em>):</p>
+<ul>
+<li><code>quick</code>: 5 prospects.</li>
+<li><code>standard</code>: 10 prospects (padrão).</li>
+<li><code>deep</code>: 20 prospects e mapa de padrões de dor.</li>
+<li><code>design-partners</code>, <code>b2b</code>, <code>community</code>: focos específicos.</li>
+</ul>
+<p>Para encurtar no meio da execução:</p>
+<pre><code class="language-text">quick mode is fine — wrap up with what's verified
+</code></pre>
+<p>No Claude Code, o relatório HTML é salvo em <code>outputs/</code>; no Cowork e no claude.ai, vem como download.</p>
+<p><strong>Tempo:</strong> uma execução <code>standard</code> leva uns 10 a 15 minutos no Claude Code e 20 a 30 minutos ou mais no Cowork, que pede permissão de acesso a cada domínio novo. No Cowork, escolha <strong>&quot;Allow all for this website&quot;</strong> para cada domínio perguntar só uma vez.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Validar uma ideia ou um produto novo buscando quem já reclama publicamente do problema que você resolve.</li>
+<li>Montar uma lista inicial de design partners ou clientes B2B com evidência, antes de sair prospectando.</li>
+<li>Preparar mensagens de abordagem baseadas em algo que a pessoa realmente escreveu.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Regras de privacidade embutidas: só informação profissional pública e compartilhada de propósito; nada atrás de login ou paywall, nada de data brokers, bases de contatos raspadas ou busca de contato pessoal; nada de segmentação por características sensíveis.</li>
+<li>Os prospects são rotulados como &quot;possíveis clientes com base em sinais públicos&quot;, nunca como interessados. Antes de abordar alguém no Brasil, avalie a base legal pela LGPD (veja <a href="lgpd-skills.html">LGPD Skills</a>).</li>
+<li>Existem outros repositórios com o mesmo nome (<code>RAAAAAGEEEEE/</code> e <code>Shodev7/claude-first-customer-finder-skill</code>), ports menores da mesma skill original. Esta ficha documenta o da carolinacherry, que tem mais estrelas.</li>
+<li>Projeto pequeno e recente.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/carolinacherry/claude-first-customer-finder-skill#readme">README</a></li>
+<li><a href="https://github.com/carolinacherry/claude-first-customer-finder-skill/blob/main/skills/first-customer-finder/SKILL.md">SKILL.md</a></li>
+<li><a href="https://github.com/carolinacherry/claude-first-customer-finder-skill/blob/main/skills/first-customer-finder/references/research-framework.md">Framework de pesquisa e pontuação</a></li>
+<li><a href="https://github.com/carolinacherry/claude-first-customer-finder-skill/releases">Releases</a></li>
+<li><a href="https://github.com/Kappaemme-git/codex-first-customer-finder-skill">Original para Codex (Kappaemme-git)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

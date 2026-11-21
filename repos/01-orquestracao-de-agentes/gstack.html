@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gstack · Repositórios favoritos</title>
+<meta name="description" content="O setup de Claude Code de Garry Tan (CEO da Y Combinator): dezenas de skills que funcionam como um time virtual (CEO, gerente de engenharia, designer, revisor, QA com navegador real, segurança e engenheiro de release) seguindo um sprint de pensar, planejar, construir, revisar, testar e entregar.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>gstack</h1>
+    <p class="lead">O setup de Claude Code de Garry Tan (CEO da Y Combinator): dezenas de skills que funcionam como um time virtual (CEO, gerente de engenharia, designer, revisor, QA com navegador real, segurança e engenheiro de release) seguindo um sprint de pensar, planejar, construir, revisar, testar e entregar.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/garrytan/gstack">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">garrytan/gstack</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/garrytan/gstack">garrytan/gstack</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/garrytan/gstack/blob/main/docs/skills.md">docs/skills.md</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (Bun) e Markdown</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~142k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O gstack transforma o Claude Code (e outros agentes) num time de engenharia virtual, todo em comandos de barra e Markdown. É um processo, não uma coleção solta: as skills seguem a ordem de um sprint (<strong>Think → Plan → Build → Review → Test → Ship → Reflect</strong>) e cada uma alimenta a próxima. O <code>/office-hours</code> escreve um documento de design que o <code>/plan-ceo-review</code> lê; o <code>/plan-eng-review</code> gera um plano de testes que o <code>/qa</code> usa; o <code>/review</code> acha bugs que o <code>/ship</code> confere.</p>
+<p>É pensado para fundadores técnicos, quem está começando no Claude Code (papéis estruturados em vez de prompt em branco) e tech leads que querem revisão, QA e release automatizados em todo PR.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Planejamento:</strong> <code>/office-hours</code> (seis perguntas que reformulam o produto), <code>/plan-ceo-review</code>, <code>/plan-eng-review</code>, <code>/plan-design-review</code>, <code>/plan-devex-review</code>, <code>/autoplan</code> (todas as revisões em sequência) e <code>/spec</code>.</li>
+<li><strong>Design:</strong> <code>/design-consultation</code> (cria um <code>DESIGN.md</code>), <code>/design-shotgun</code> (4 a 6 variações de mockup), <code>/design-html</code>, <code>/design-review</code>, <code>/design-motion</code>.</li>
+<li><strong>Código e testes:</strong> <code>/review</code> (bugs que passam no CI mas quebram em produção), <code>/verify</code>, <code>/test-audit</code>, <code>/qa</code> e <code>/qa-only</code> (navegador real, APIs, CLIs, webhooks).</li>
+<li><strong>Segurança:</strong> <code>/cso</code> (auditoria com OWASP e STRIDE) e travas <code>/careful</code>, <code>/freeze</code>, <code>/guard</code>.</li>
+<li><strong>Entrega:</strong> <code>/ship</code> (testes, revisão e PR), <code>/land-and-deploy</code>, <code>/canary</code>, <code>/benchmark</code>, <code>/document-release</code>.</li>
+<li><strong>Navegador:</strong> <code>/browse</code>, <code>/scrape</code>, <code>/pair-agent</code>, usando o navegador Aside (macOS) ou um Chromium próprio.</li>
+<li><strong>Outros:</strong> <code>/retro</code>, <code>/learn</code> (memória entre sessões), <code>/make-pdf</code>, <code>/diagram</code>, <code>/codex</code> (segunda opinião do Codex), QA em iPhone/iPad.</li>
+<li>Integração com o <a href="gbrain.html">GBrain</a> (base de conhecimento persistente) via <code>/setup-gbrain</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code, Git e <a href="https://bun.sh/">Bun</a> 1.4.2+ (o setup recusa Bun anterior a 1.3.3).</li>
+<li>Node.js no Windows e para o modo time.</li>
+<li>Recomendado no macOS 15+: navegador <a href="https://aside.com">Aside</a>.</li>
+<li><code>/cso</code> exige toolchain nativo; auditorias em contêiner precisam de Docker.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="na-sua-maquina-cole-no-claude-code">Na sua máquina (cole no Claude Code)</h3>
+<pre><code class="language-text">Install gstack: run git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack &amp;&amp; cd ~/.claude/skills/gstack &amp;&amp; ./setup then add a &quot;gstack&quot; section to CLAUDE.md that says to use the /browse skill from gstack for all web browsing and never use mcp__claude-in-chrome__* tools. Then ask the user if they also want to add gstack to the current project so teammates get it.
+</code></pre>
+<h3 id="modo-time-repositorio-compartilhado-com-atualizacao-automatica">Modo time (repositório compartilhado, com atualização automática)</h3>
+<pre><code class="language-bash">(cd ~/.claude/skills/gstack &amp;&amp; ./setup --team) &amp;&amp; ~/.claude/skills/gstack/bin/gstack-team-init required &amp;&amp; git add .claude/ CLAUDE.md &amp;&amp; git commit -m &quot;require gstack for AI-assisted work&quot;
+</code></pre>
+<p>Troque <code>required</code> por <code>optional</code> para só sugerir aos colegas.</p>
+<h3 id="outros-agentes">Outros agentes</h3>
+<pre><code class="language-bash">git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
+cd ~/gstack &amp;&amp; ./setup --host auto      # ou --host codex, opencode, cursor, gemini, copilot, kiro...
+./setup --status
+</code></pre>
+<p>Só o Claude Code tem suporte completo (certificado); os demais são experimentais.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Comece por quatro comandos:</p>
+<pre><code class="language-text">/office-hours                     # descreva o que vai construir; ele questiona e escreve o design doc
+/review                           # numa branch com mudanças: acha e corrige bugs de produção
+/qa https://staging.myapp.com     # abre navegador real, reproduz e corrige bugs
+/ship                             # testes, revisão e abertura do PR
+</code></pre>
+<p>Para o sprint inteiro: <code>/autoplan</code> revisa o plano de ponta a ponta. Atualizar: <code>/gstack-upgrade</code>. Canal de atualizações: <code>~/.claude/skills/gstack/bin/gstack-config set update_channel stable</code> (releases) ou <code>main</code> (todo merge).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Fundadores e devs solo que querem revisão de produto, design, engenharia e QA antes de cada entrega.</li>
+<li>Padronizar o fluxo de PR do time com Claude Code (modo time).</li>
+<li>Começar no Claude Code com papéis claros em vez de prompts soltos.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A instalação <strong>edita o seu <code>CLAUDE.md</code></strong> e pede para não usar as ferramentas do Claude in Chrome; revise antes de aceitar se você usa essa extensão.</li>
+<li>Muitas skills: o contexto inicial cresce; instale só onde fizer sentido.</li>
+<li>O modo time adiciona um hook que verifica atualizações a cada sessão.</li>
+<li>A ficha cobre a primeira parte do README (instalação e lista de skills); a parte sobre GBrain, Capy e detalhes avançados não foi lida inteira.</li>
+<li>Relacionados no catálogo: <a href="gbrain.html">GBrain</a> (mesmo autor), <a href="superpowers.html">Superpowers</a> e <a href="oh-my-claudecode.html">oh-my-claudecode</a> (outras metodologias completas).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/garrytan/gstack#readme">README</a></li>
+<li><a href="https://github.com/garrytan/gstack/blob/main/docs/skills.md">Skills em detalhe</a></li>
+<li><a href="https://github.com/garrytan/gstack/blob/main/docs/install.md">Instalação</a></li>
+<li><a href="https://github.com/garrytan/gstack/blob/main/docs/why-gstack.md">Why gstack</a></li>
+<li><a href="https://github.com/garrytan/gstack/blob/main/docs/uninstall.md">Desinstalar</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/hermes-agent.html">Hermes Agent</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-kanban.html">Vibe Kanban</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

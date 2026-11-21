@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ponytail · Repositórios favoritos</title>
+<meta name="description" content="Skill que faz o agente de IA agir como o dev sênior mais preguiçoso da sala: reaproveita o que já existe e escreve o mínimo de código, sem cortar validação, segurança, tratamento de erro nem acessibilidade; inclui revisão, auditoria e painel de custo.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Ponytail</h1>
+    <p class="lead">Skill que faz o agente de IA agir como o dev sênior mais preguiçoso da sala: reaproveita o que já existe e escreve o mínimo de código, sem cortar validação, segurança, tratamento de erro nem acessibilidade; inclui revisão, auditoria e painel de custo.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/DietrichGebert/ponytail">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">DietrichGebert/ponytail</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/DietrichGebert/ponytail">DietrichGebert/ponytail</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://ponytail.dev">ponytail.dev</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (plugin) e Markdown (prompt)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~193k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Ponytail é um prompt (<code>skills/ponytail/SKILL.md</code>) que coloca no agente o comportamento do veterano que troca 50 linhas por uma. Antes de escrever, ele lê o código afetado e segue uma escada: a funcionalidade precisa existir? já existe no projeto? na biblioteca padrão? numa dependência instalada? cabe numa linha? Só então escreve o mínimo.</p>
+<p>A regra não é &quot;menos tokens&quot;: é escrever só o que a tarefa precisa, sem nunca cortar validação em fronteiras de confiança, tratamento de erro que evita perda de dados, segurança e acessibilidade. Lógica com desvio, loop, parser, dinheiro ou segurança ganha um teste pequeno. Toda resposta termina dizendo o que foi pulado e os riscos.</p>
+<p>No benchmark do autor (39 tarefas no Claude Code, Opus 5.5, 5 execuções cada), a versão 5 gerou 53% menos código, 41% menos tempo, 26% menos custo e 45% menos tokens, com 98% da lógica arriscada acompanhada de teste (contra 68% sem a skill).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Níveis <code>lite</code>, <code>full</code> (padrão) e <code>ultra</code>, ativos em toda sessão.</li>
+<li><code>/ponytail-review</code>: revisão como o dev que é acionado quando quebra: bugs, segurança, carga real, código arriscado sem teste, lentidão e o que cortar.</li>
+<li><code>/ponytail-audit</code>: a mesma checagem no repositório inteiro, priorizada.</li>
+<li><code>/ponytail-debt</code>: junta os comentários <code>shortcut:</code> (atalhos deliberados) num registro de dívida.</li>
+<li><strong>Band</strong> (Claude Code 2.1.290+): faixa acima do prompt com custo, tokens e tempo da tarefa, reaproveitamento de código e status dos testes; <strong>Board</strong> local com histórico por projeto.</li>
+<li>Funciona em Claude Code, Codex, Devin CLI, OpenCode, Gemini, Antigravity, Cursor, Copilot, Windsurf, Cline e outros (via <code>AGENTS.md</code>).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente de programação. A band exige Claude Code 2.1.290+ no terminal ou no app desktop.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code-dois-prompts-separados">Claude Code (dois prompts separados)</h3>
+<pre><code>/plugin marketplace add DietrichGebert/ponytail
+</code></pre>
+<pre><code>/plugin install ponytail@ponytail
+</code></pre>
+<h3 id="codex">Codex</h3>
+<pre><code class="language-bash">codex plugin marketplace add DietrichGebert/ponytail
+codex plugin add ponytail@ponytail
+</code></pre>
+<p>Depois abra <code>/hooks</code> no Codex, confie nos dois hooks e inicie uma nova thread.</p>
+<h3 id="outros-agentes">Outros agentes</h3>
+<p>Copie o <a href="https://github.com/DietrichGebert/ponytail/blob/main/AGENTS.md"><code>AGENTS.md</code></a> para o projeto ou peça ao agente para instalar o <code>SKILL.md</code> como skill. Passo a passo em <a href="https://github.com/DietrichGebert/ponytail/blob/main/INSTALL.md">INSTALL.md</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/ponytail [lite | full | ultra | off]   # muda a intensidade ou desliga
+/ponytail band [on | off]               # mostra/esconde a band (Claude Code)
+/ponytail band import                   # importa sessões antigas para o board
+/ponytail-review                        # revisa o diff atual (ou: uncommitted, staged, branch, link de PR)
+/ponytail-audit                         # audita o repositório inteiro
+/ponytail-debt                          # lista os atalhos deliberados (shortcut:)
+/ponytail-gain                          # mostra o placar do benchmark
+/ponytail-help                          # referência rápida
+</code></pre>
+<p>No Codex, os comandos são skills do plugin: <code>$ponytail:ponytail-review</code>. Nível padrão opcional em <code>~/.config/ponytail/config.json</code> ou na variável <code>PONYTAIL_DEFAULT_MODE</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>O agente instala bibliotecas ou cria abstrações demais para tarefas simples.</li>
+<li>Reduzir custo e tempo de sessões longas mantendo testes nas partes críticas.</li>
+<li>Revisar um PR ou auditar um repositório com foco em risco real.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Instale só do repositório <code>DietrichGebert/ponytail</code> ou do pacote npm <code>@dietrichgebert/ponytail</code>; o projeto nunca distribui <code>.exe</code> ou <code>.dll</code>, e cópias que distribuem não são oficiais.</li>
+<li>A band não aparece no painel de chat do VS Code, em sessões na nuvem nem com <code>claude -p</code>.</li>
+<li>Os dados da band ficam locais, em <code>~/.config/ponytail/band/</code>.</li>
+<li>Os números de economia são do benchmark do próprio autor.</li>
+<li>Proposta parecida, em formato de <code>CLAUDE.md</code>: <a href="karpathy-skills.html">Karpathy Skills</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/DietrichGebert/ponytail#readme">README</a></li>
+<li><a href="https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail/SKILL.md">SKILL.md</a></li>
+<li><a href="https://github.com/DietrichGebert/ponytail/blob/main/INSTALL.md">INSTALL.md</a></li>
+<li><a href="https://github.com/DietrichGebert/ponytail/blob/main/benchmarks/results/2026-10-07-agentic.md">Resultados do benchmark</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

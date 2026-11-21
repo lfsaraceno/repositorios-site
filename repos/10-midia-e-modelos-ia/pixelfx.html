@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelFX · Repositórios favoritos</title>
+<meta name="description" content="Biblioteca com 244 efeitos de pixel art feitos em código (fogo, explosões, magia, clima, UI, itens, golpes), para usar em jogos de navegador ou exportar como sprite sheets para Godot, Unity e outros, mais uma skill do Claude Code que cria efeitos novos como um pixel artist exigente.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>PixelFX</h1>
+    <p class="lead">Biblioteca com 244 efeitos de pixel art feitos em código (fogo, explosões, magia, clima, UI, itens, golpes), para usar em jogos de navegador ou exportar como sprite sheets para Godot, Unity e outros, mais uma skill do Claude Code que cria efeitos novos como um pixel artist exigente.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/patch-gg/pixelfx">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">patch-gg/pixelfx</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/patch-gg/pixelfx">patch-gg/pixelfx</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://patch-gg.github.io/pixelfx/">galeria</a> · <a href="https://github.com/patch-gg/pixelfx/blob/main/docs/CATALOG.md">catálogo</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~8,2k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O PixelFX é uma coleção de efeitos visuais de pixel art para jogos, mantida pela Patch (plataforma de jogos de navegador). Nenhum efeito é imagem: cada um é um pequeno arquivo JavaScript em <code>src/fx/&lt;categoria&gt;/&lt;nome&gt;.js</code>, que desenha o quadro a partir do tempo ou simula partículas, faíscas e luz a 120 Hz.</p>
+<p>Os efeitos que envolvem um personagem são &quot;atuados&quot;: ele se prepara, ataca, congela no impacto e se recupera, e um alvo reage ao golpe. Doze &quot;moves&quot; encadeiam os efeitos em ataques completos.</p>
+<p>O método vem de um artigo de Hugo Duprez (Sprite Fusion) sobre fazer bons efeitos de pixel art com o Claude: o código é argila, confie nos olhos, alimente com referências. A skill incluída aplica esse processo: rascunhar, renderizar, olhar e refinar.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>244 efeitos em 21 categorias:</strong> moves, fogo, explosões, água, gelo, raios, sci-fi, corpo a corpo, impactos, projéteis, surgimento e morte, arcano, sagrado, sombra, status, natureza, clima, UI, itens, transições e criaturas.</li>
+<li><strong>Uso direto em jogos de navegador</strong> (canvas, Phaser, PixiJS, Kaplay, three.js), sem dependências.</li>
+<li><strong>Sprite sheets</strong> em PNG transparente com JSON no estilo Aseprite, que os importadores de Godot, Unity e Phaser leem.</li>
+<li><strong>Paletas:</strong> qualquer efeito aceita uma rampa de cores, então o fogo pode queimar azul sem mexer no código.</li>
+<li><strong>Atuação:</strong> poses, preparação, congelamento no impacto, tremor de tela e reação do alvo, com os tempos como dados para você aplicar no seu personagem.</li>
+<li><strong>Esqueleto 3D</strong> do boneco, para pendurar seus próprios elementos.</li>
+<li><strong>Determinístico:</strong> todo número aleatório vem de uma semente, então o quadro 40 é sempre igual.</li>
+<li><strong>Ferramentas:</strong> criar efeito novo, renderizar (contact sheet, GIF, MP4), checar problemas e rodar a galeria localmente.</li>
+<li><strong>Skill do Claude Code</strong> para achar, usar, exportar e criar efeitos.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js para as ferramentas de linha de comando.</li>
+<li>Claude Code, para a skill.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Biblioteca:</p>
+<pre><code class="language-bash">npm i github:patch-gg/pixelfx
+</code></pre>
+<p>Ou copie <code>src/core</code> e os efeitos que quiser.</p>
+<p>Skill do Claude Code:</p>
+<pre><code class="language-text">/plugin marketplace add patch-gg/pixelfx
+/plugin install pixelfx@pixelfx
+</code></pre>
+<p>Ou copie <code>skills/pixelfx</code> para <code>~/.claude/skills/</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No jogo:</p>
+<pre><code class="language-js">import { createFrame, clearFrame, createFx, composite } from &quot;pixelfx&quot;;
+import * as frostNova from &quot;pixelfx/fx/ice/frost-nova&quot;;
+
+const frame = createFrame(320, 180);
+const fx = createFx(frostNova, { x: 160, y: 140 });   // também: flip, angle, seed, palette, light
+// a cada quadro: fx.update(dt); fx.draw(frame, &quot;back&quot;); ... composite(...)
+</code></pre>
+<p>Troque <code>createFx</code> por <code>createAct</code> para tocar o golpe inteiro, com personagem e alvo.</p>
+<p>Ferramentas:</p>
+<pre><code class="language-bash">node tools/render.mjs ice/frost-nova --sheet     # sprite sheet + JSON para qualquer engine
+node tools/sheets.mjs                            # exporta a biblioteca inteira para sheets/
+node tools/render.mjs fire/torch --gif --opts '{&quot;palette&quot;: [&quot;#102&quot;,&quot;#215&quot;,&quot;#43a&quot;,&quot;#8cf&quot;,&quot;#cff&quot;,&quot;#fff&quot;]}'   # recolorir
+node tools/new.mjs arcane/my-spell               # novo efeito (--loop para efeito em loop)
+node tools/render.mjs arcane/my-spell            # gera a contact sheet para olhar
+node tools/check.mjs arcane/my-spell             # vazamentos, emendas, aleatoriedade sem semente, quadros lentos
+node tools/act.mjs arcane/my-spell               # mostra a atuação em passos de 12 fps
+node tools/serve.mjs                             # galeria local com os seus efeitos
+</code></pre>
+<p>Pedidos à skill (exemplos do README):</p>
+<pre><code class="language-text">&quot;Add a frost nova to my mage's ultimate.&quot;
+&quot;Make five takes on a coin pickup sparkle and show me the best two.&quot;
+&quot;Export the fire and explosions categories as sprite sheets for Godot.&quot;
+&quot;This hit effect feels floaty. Make it punchier.&quot;
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Jogos 2D em pixel art, no navegador ou em engines como Godot e Unity.</li>
+<li>Prototipar efeitos de magia, golpes e UI rapidamente.</li>
+<li>Criar efeitos próprios com o Claude seguindo um processo de revisão visual.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença MIT</strong> para código e efeitos, inclusive uso comercial. A fonte Patch Pixel da galeria não é coberta (veja o <code>NOTICE.md</code>).</li>
+<li>O README também divulga a Patch, plataforma onde dá para publicar jogos de navegador. Publicar lá exige o Patch Desktop aberto num PC Windows.</li>
+<li>Existem portes não oficiais para Godot e Unity e uma tradução chinesa, mantidos por terceiros.</li>
+<li>Relacionados no catálogo: o <a href="../02-skills-para-agentes/teardown.html">Teardown</a> gera simuladores 3D interativos. As <a href="../02-skills-para-agentes/blender-skills.html">Blender Skills</a> cobrem 3D no Blender.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://patch-gg.github.io/pixelfx/">Galeria ao vivo</a></li>
+<li><a href="https://github.com/patch-gg/pixelfx/blob/main/docs/CATALOG.md">Catálogo de efeitos</a></li>
+<li><a href="https://github.com/patch-gg/pixelfx/blob/main/docs/AUTHORING.md">Guia para criar efeitos</a></li>
+<li><a href="https://www.spritefusion.com/blog/how-to-make-good-pixel-art-effects-with-claude">Artigo de Hugo Duprez sobre o método</a></li>
+<li><a href="https://github.com/patch-gg/pixelfx/tree/main/skills/pixelfx">Skill pixelfx</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

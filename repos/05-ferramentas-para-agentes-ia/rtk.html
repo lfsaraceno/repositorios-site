@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RTK · Repositórios favoritos</title>
+<meta name="description" content="Proxy de linha de comando em Rust que comprime a saída de comandos (testes, git, builds, logs) antes de o agente de IA ler, reduzindo até 90% dessa saída e o consumo de tokens, sem mudar o jeito de trabalhar.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>RTK</h1>
+    <p class="lead">Proxy de linha de comando em Rust que comprime a saída de comandos (testes, git, builds, logs) antes de o agente de IA ler, reduzindo até 90% dessa saída e o consumo de tokens, sem mudar o jeito de trabalhar.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/rtk-ai/rtk">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">rtk-ai/rtk</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/rtk-ai/rtk">rtk-ai/rtk</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.rtk-ai.app">rtk-ai.app</a> · <a href="https://www.rtk-ai.app/docs/">Docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0 (motor de pipelines e proxy em BUSL-1.1)</dd></div>
+<div><dt>Estrelas</dt><dd>~87k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Quando o agente roda <code>git status</code> ou <code>npm test</code>, ele lê dezenas ou centenas de linhas de saída que custam tokens. O RTK instala um hook no agente: o comando passa a rodar como <code>rtk git status</code>, e o agente lê um resumo de 3 linhas em vez de 40. Funciona em mais de 100 comandos, leva menos de 25 ms por comando e não exige configuração.</p>
+<p>Três promessas: nunca bloqueia (se um filtro falhar, sai a saída original com o mesmo código de saída), nunca piora (não imprime mais que o comando original) e nada fica escondido (a saída cortada diz onde está a versão completa, e <code>rtk bypass</code> roda sem filtro).</p>
+<p>Para ir além, <strong>pipelines</strong> comprimem também o que o agente lê fora do shell, mandam leituras grandes para um modelo mais barato e limpam o tráfego da API sem quebrar o cache de prompt.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Filtros para Git, GitHub CLI, Cargo, npm/pnpm/vitest/jest/tsc, Python (pytest, ruff, mypy), Go, Ruby, .NET, Gradle/Maven, PHP, Docker, Kubernetes, AWS, Terraform e comandos de arquivo/busca.</li>
+<li>Testes mostram só as falhas com a asserção; <code>git diff</code> com contexto reduzido; linters agrupados por regra.</li>
+<li><code>rtk gain</code>: painel de economia por dia, histórico e exportação JSON.</li>
+<li><code>rtk discover</code>: encontra economias perdidas.</li>
+<li>Pipelines prontos e compartilhados pela comunidade.</li>
+<li><strong>RTK Proxy</strong> (opcional): comprime o tráfego para a API do provedor; <code>rtk claude</code> inicia tudo.</li>
+<li>Suporte a 18 ferramentas: Claude Code, Copilot, Cursor, Gemini CLI, Codex, OpenCode, Windsurf, Cline, Antigravity e outras.</li>
+<li>Telemetria anônima <strong>desligada por padrão</strong>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>macOS, Linux, Windows ou WSL.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">brew install rtk                 # macOS e Linux com Homebrew
+winget install rtk-ai.rtk        # Windows
+curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh   # Linux, macOS ou WSL
+</code></pre>
+<p>Ligue ao agente e reinicie-o:</p>
+<pre><code class="language-bash">rtk init -g                      # Claude Code
+rtk init -g --codex              # Codex (também --copilot, --gemini, --opencode, --agent cursor etc.)
+</code></pre>
+<p>Edição só Apache 2.0 (sem o motor de pipelines): <code>brew install rtk-ai/tap/rtk-oss</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">rtk gain                         # resumo da economia
+rtk gain --graph                 # gráfico dos últimos 30 dias
+rtk gain --daily                 # por dia
+rtk discover                     # oportunidades de economia perdidas
+rtk session                      # adoção do RTK nas sessões recentes
+rtk bypass git log --oneline -20 # roda sem filtro
+rtk pipeline add github:user/repo   # instala um pipeline compartilhado
+rtk claude                       # inicia o proxy e abre o Claude por ele
+rtk telemetry enable             # liga a telemetria (só com consentimento)
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Reduzir custo e consumo de contexto em sessões longas do Claude Code.</li>
+<li>Projetos com testes, builds e logs muito verbosos.</li>
+<li>Medir quanto o agente gasta lendo saída de comandos.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Existe outro projeto chamado &quot;rtk&quot; no crates.io; confira que <code>rtk gain</code> mostra o painel.</li>
+<li>90% menos saída de comando não é 90% menos custo: a saída é só uma parte dos tokens de entrada. As contagens são estimadas (<code>bytes / 4</code>).</li>
+<li><strong>Licença:</strong> o CLI é Apache 2.0; o motor de pipelines e o RTK Proxy são BUSL-1.1 (uso em produção liberado; oferecer RTK ou derivado como produto ou serviço comercial a terceiros exige contato).</li>
+<li>Pipelines podem reescrever comandos e mandar conteúdo para modelos; leia o arquivo antes de instalar.</li>
+<li>RTK Pro (pago) é a camada para empresas: gateway, custos por time, mascaramento de segredos e auditoria.</li>
+<li>Proposta complementar: <a href="../02-skills-para-agentes/caveman.html">Caveman</a> (respostas curtas) e <a href="headroom.html">Headroom</a> (compressão de saídas e arquivos).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/rtk-ai/rtk#readme">README</a></li>
+<li><a href="https://www.rtk-ai.app/docs/getting-started/installation/">Instalação</a></li>
+<li><a href="https://www.rtk-ai.app/docs/resources/what-rtk-covers/">Comandos cobertos</a></li>
+<li><a href="https://www.rtk-ai.app/pipelines/">Pipelines</a></li>
+<li><a href="https://www.rtk-ai.app/docs/resources/telemetry/">Telemetria e privacidade</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

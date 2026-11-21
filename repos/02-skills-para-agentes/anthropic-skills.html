@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anthropic Skills · Repositórios favoritos</title>
+<meta name="description" content="Repositório oficial de Agent Skills da Anthropic: exemplos de skills criativas, técnicas e corporativas, as skills de documentos (docx, pdf, pptx, xlsx) que o Claude usa em produção, a especificação e um modelo para criar as suas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Anthropic Skills</h1>
+    <p class="lead">Repositório oficial de Agent Skills da Anthropic: exemplos de skills criativas, técnicas e corporativas, as skills de documentos (docx, pdf, pptx, xlsx) que o Claude usa em produção, a especificação e um modelo para criar as suas.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/anthropics/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">anthropics/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/anthropics/skills">anthropics/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="http://agentskills.io">agentskills.io</a> · <a href="https://support.claude.com/en/articles/12512176-what-are-skills">O que são skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Maioria Apache 2.0 (por skill; o repositório não declara licença única)</dd></div>
+<div><dt>Estrelas</dt><dd>~197k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Skills são pastas com instruções, scripts e recursos que o Claude carrega quando precisa, para fazer tarefas especializadas de forma repetível. Este é o repositório da Anthropic com exemplos de skills: aplicações criativas (arte, música, design), técnicas (testar apps web, gerar servidores MCP) e corporativas (comunicação, identidade de marca).</p>
+<p>Inclui também as skills de criação e edição de documentos que rodam por trás dos recursos de arquivos do Claude (<code>skills/docx</code>, <code>skills/pdf</code>, <code>skills/pptx</code>, <code>skills/xlsx</code>), publicadas como referência de skills complexas usadas em produção.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><code>./skills</code>: exemplos em Criativo e Design, Desenvolvimento e Técnico, Corporativo e Comunicação, e Documentos.</li>
+<li><code>./spec</code>: especificação do padrão Agent Skills.</li>
+<li><code>./template</code>: modelo para criar uma skill.</li>
+<li>Dois plugins para o Claude Code: <code>document-skills</code> e <code>example-skills</code>.</li>
+<li>Skills parceiras em destaque (ex.: Notion).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code, Claude.ai (planos pagos já têm as skills de exemplo) ou a API do Claude.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code">Claude Code</h3>
+<pre><code>/plugin marketplace add anthropics/skills
+/plugin install document-skills@anthropic-agent-skills
+/plugin install example-skills@anthropic-agent-skills
+</code></pre>
+<p>Ou, depois de adicionar o marketplace: <em>Browse and install plugins</em> → <code>anthropic-agent-skills</code> → <code>document-skills</code> ou <code>example-skills</code> → <em>Install now</em>.</p>
+<h3 id="claude-ai-e-api">Claude.ai e API</h3>
+<p>No Claude.ai, siga <a href="https://support.claude.com/en/articles/12512180-using-skills-in-claude">Using skills in Claude</a> para enviar skills próprias. Na API, veja o <a href="https://docs.claude.com/en/api/skills-guide#creating-a-skill">Skills API Quickstart</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Depois de instalado, basta mencionar a skill:</p>
+<pre><code class="language-text">Use the PDF skill to extract the form fields from path/to/some-file.pdf
+</code></pre>
+<p>Para criar uma skill, crie uma pasta com um <code>SKILL.md</code>:</p>
+<pre><code class="language-markdown">---
+name: my-skill-name
+description: A clear description of what this skill does and when to use it
+---
+
+# My Skill Name
+
+[Add your instructions here that Claude will follow when this skill is active]
+</code></pre>
+<p>Só <code>name</code> (minúsculas, hífens) e <code>description</code> são obrigatórios no frontmatter.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gerar e editar Word, PDF, PowerPoint e Excel no Claude Code com as mesmas skills do Claude.ai.</li>
+<li>Aprender a escrever skills a partir de exemplos oficiais e da especificação.</li>
+<li>Usar como base para skills da sua empresa (marca, fluxos internos).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>As skills são para <strong>demonstração e educação</strong>; o comportamento no Claude pode ser diferente. Teste antes de depender delas.</li>
+<li>O repositório não tem licença única: a maioria das skills é Apache 2.0; confira o arquivo de licença de cada pasta antes de reutilizar.</li>
+<li>Para o diretório oficial de plugins, veja <a href="claude-plugins-official.html">Claude Code Plugins Directory</a>; para instalar skills de vários agentes, o <a href="vercel-skills-cli.html">Skills CLI</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/anthropics/skills#readme">README</a></li>
+<li><a href="https://support.claude.com/en/articles/12512198-creating-custom-skills">Como criar skills</a></li>
+<li><a href="https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">Equipping agents for the real world with Agent Skills</a></li>
+<li><a href="http://agentskills.io">Especificação Agent Skills</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

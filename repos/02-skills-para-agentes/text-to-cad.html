@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text-to-CAD · Repositórios favoritos</title>
+<meta name="description" content="Plugin com skills e servidor MCP para o agente de IA projetar produtos físicos: peças e montagens em CAD (STEP, STL, 3MF, GLB), placas de circuito no KiCad, checagem de fabricação, análise de tensão, desenhos técnicos, renders e envio para impressão 3D e corte.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Text-to-CAD</h1>
+    <p class="lead">Plugin com skills e servidor MCP para o agente de IA projetar produtos físicos: peças e montagens em CAD (STEP, STL, 3MF, GLB), placas de circuito no KiCad, checagem de fabricação, análise de tensão, desenhos técnicos, renders e envio para impressão 3D e corte.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/earthtojake/text-to-cad">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">earthtojake/text-to-cad</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/earthtojake/text-to-cad">earthtojake/text-to-cad</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.texttocad.dev">texttocad.dev</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~27k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Text-to-CAD transforma o seu agente de código num assistente de engenharia mecânica. Você pede uma peça ou uma montagem, e o agente escreve o modelo como um script Python com <a href="https://github.com/gumyr/build123d">build123d</a> e o kernel OpenCASCADE, executa o script para gerar o sólido e mostra o resultado num visualizador de CAD.</p>
+<p>O instalador configura o plugin em todos os apps de agente que encontrar no computador: Claude Code, Claude Desktop, Codex, Cursor, Grok Build e Gemini CLI. Ele também registra o comando <code>cad</code>. Para os agentes sem suporte a plugin (Copilot, Windsurf, Cline, Hermes Agent, OpenCode e outros), ele copia só as skills.</p>
+<p>Além da modelagem, o plugin cobre o caminho até a fabricação: verifica se a peça pode ser usinada, cortada, dobrada, moldada ou impressa; calcula tensões; gera desenho técnico em PDF; e prepara arquivos para serviços como SendCutSend e impressoras Bambu.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Peças e montagens:</strong> modelos em Python (build123d + OpenCASCADE), exportados como STEP, STL, 3MF ou GLB, e perfis/planificações DXF para corte a laser e jato d'água, com juntas e animações para mecanismos.</li>
+<li><strong>Placas de circuito:</strong> esquemáticos e placas no KiCad, com posicionamento, roteamento, checagens ERC e DRC e exportação dos arquivos de fabricação.</li>
+<li><strong>Checagem de fabricação:</strong> avalia usinagem, corte e dobra, moldagem e impressão 3D conforme as regras de cada processo e diz o que mudar.</li>
+<li><strong>Análise de tensão:</strong> resolve com CalculiX a tensão máxima, o fator de segurança e o deslocamento de cada peça, desenhados sobre o modelo.</li>
+<li><strong>Desenhos técnicos:</strong> folhas em PDF cotadas, com vistas, linhas ocultas, marcas de centro, chamadas de furo e carimbo.</li>
+<li><strong>Renders:</strong> imagens fotorrealistas, turntables e vídeos no Blender, com rascunho rápido antes do final.</li>
+<li><strong>Serviços de fabricação:</strong> confere DXF e STEP contra o guia da SendCutSend e fatia impressões no OrcaSlicer, enviando para o Bambu Connect ou Bambu Studio.</li>
+<li><strong>Robótica:</strong> descrições para simulação e planejamento de movimento (URDF para ROS, SRDF para MoveIt, MJCF para MuJoCo).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>O instalador busca ou instala o <a href="https://docs.astral.sh/uv/">uv</a>, que baixa o Python 3.14 para o text-to-cad.</li>
+<li>Pelo menos um agente: Claude Code, Claude Desktop, Codex, Cursor, Grok Build, Gemini CLI ou outro que aceite skills.</li>
+<li>Node (<code>npx</code>) para instalar as skills em agentes sem plugin.</li>
+<li>KiCad, Blender e OrcaSlicer só para as skills que os usam (PCB, render, impressão 3D).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="instalador-todos-os-apps-de-uma-vez">Instalador (todos os apps de uma vez)</h3>
+<p>macOS e Linux:</p>
+<pre><code class="language-bash">curl -fsSL https://texttocad.dev/install.sh | sh
+</code></pre>
+<p><strong>Windows</strong> (PowerShell):</p>
+<pre><code class="language-powershell">irm https://www.texttocad.dev/install.ps1 | iex
+</code></pre>
+<p>No Windows, use o endereço com <code>www</code> (o PowerShell 5.1 não segue o redirecionamento do domínio sem <code>www</code>). Rode a primeira instalação num terminal próprio (Windows Terminal ou PowerShell), não no shell de um app da Microsoft Store como o Claude Desktop. Rodar o mesmo comando de novo atualiza tudo.</p>
+<h3 id="so-no-claude-code">Só no Claude Code</h3>
+<pre><code class="language-bash">claude plugin marketplace add earthtojake/text-to-cad#latest
+claude plugin install text-to-cad@earthtojake
+</code></pre>
+<p>Para atualizar (e depois reiniciar o Claude Code):</p>
+<pre><code class="language-bash">claude plugin marketplace update earthtojake
+claude plugin update text-to-cad@earthtojake
+</code></pre>
+<h3 id="outros-agentes-so-as-skills">Outros agentes (só as skills)</h3>
+<pre><code class="language-bash">npx skills add earthtojake/text-to-cad#latest
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça a peça ou a montagem ao agente; ele escreve o script, gera o modelo e mostra no visualizador. No Claude Code no terminal, o agente devolve um link que abre o modelo no navegador.</p>
+<pre><code class="language-bash">cad doctor            # diagnostica a instalação e diz de onde cada app tira o plugin
+cad doctor --check    # saída para anexar em relatos de bug
+cad plugin            # mostra a pasta do plugin
+cad uninstall         # remove o text-to-cad (pede confirmação)
+</code></pre>
+<p>Skills incluídas: <code>cad</code>, <code>pcb</code>, <code>fea</code>, <code>engineering-drawing</code>, <code>render</code>, <code>print3d</code>, <code>sendcutsend</code> e <code>robot-simulation</code>.</p>
+<p>Exemplos de prompt:</p>
+<pre><code class="language-text">Design a wall bracket for a 30 mm pipe with two M5 mounting holes, export STEP and STL.
+Check if this part can be 3D printed and slice it for my Bambu printer.
+Make a dimensioned drawing of this part as a PDF.
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Projetar peças para impressão 3D, corte a laser, dobra de chapa ou CNC descrevendo em texto.</li>
+<li>Gerar placas de circuito simples no KiCad com checagens antes de encomendar.</li>
+<li>Validar se uma peça aguenta a carga antes de fabricar.</li>
+<li>Produzir desenhos técnicos e renders de apresentação a partir do mesmo modelo.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Windows 11 com Smart App Control:</strong> o kernel CAD (<code>OCP</code>) usa um módulo nativo sem assinatura, então todo comando <code>cad</code> falha com <code>ImportError: DLL load failed while importing OCP</code>. Não há exceção por app: desligue o Smart App Control (só volta reinstalando o Windows) ou rode as skills CAD no WSL. O <code>cad doctor</code> detecta esse caso.</li>
+<li><strong>Telemetria ligada por padrão:</strong> envia estatísticas de uso e relatórios de falha com um ID aleatório, sem arquivos, caminhos ou prompts. A <a href="https://www.texttocad.dev/privacy-policy">política de privacidade</a> explica como desligar.</li>
+<li><strong>Instalação por <code>curl | sh</code> / <code>irm | iex</code>:</strong> o script mexe na configuração de vários apps de agente de uma vez (instala plugin, remove cópias antigas, troca o servidor MCP do Claude Desktop). Leia a <a href="https://github.com/earthtojake/text-to-cad/blob/main/docs/install.md">documentação de instalação</a> se quiser instalar app por app.</li>
+<li>Para arte 3D, personagens e assets de jogo, as <a href="blender-skills.html">Blender Skills</a> são mais adequadas; o Text-to-CAD é CAD paramétrico para engenharia.</li>
+<li>Comunidade: o <a href="https://github.com/amywork777/studio">Studio</a> é um app desktop de CAD open source feito sobre o text-to-cad.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://www.texttocad.dev">Site</a></li>
+<li><a href="https://github.com/earthtojake/text-to-cad/blob/main/docs/install.md">Instalação detalhada</a></li>
+<li><a href="https://github.com/earthtojake/text-to-cad/blob/main/skills/cad/SKILL.md">Skill de CAD</a></li>
+<li><a href="https://github.com/earthtojake/text-to-cad/releases">Releases</a></li>
+<li><a href="https://discord.gg/5FGB9DwJYU">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

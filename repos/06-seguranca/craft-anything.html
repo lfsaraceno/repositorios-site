@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Craft Anything · Repositórios favoritos</title>
+<meta name="description" content="Motor de engenharia reversa em Rust que estuda como qualquer site, app ou jogo funciona e põe um agente de IA (Claude Code) para construir sua própria versão, comparando o resultado com o original até ficar parecido.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>Craft Anything</h1>
+    <p class="lead">Motor de engenharia reversa em Rust que estuda como qualquer site, app ou jogo funciona e põe um agente de IA (Claude Code) para construir sua própria versão, comparando o resultado com o original até ficar parecido.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/storytold/craft-anything">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">storytold/craft-anything</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/storytold/craft-anything">storytold/craft-anything</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://getartcraft.com/apps/craft-anything">getartcraft.com/apps/craft-anything</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust</dd></div>
+<div><dt>Licença</dt><dd>MIT ou Apache 2.0, à escolha (marcas ArtCraft excluídas)</dd></div>
+<div><dt>Estrelas</dt><dd>~35k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Craft Anything aponta para um alvo (site, app desktop, app de celular, jogo ou arquivo), você diz o que quer (&quot;Recreate this website&quot;, &quot;Recreate this game's gameplay in Rust&quot;) e ele trabalha em quatro etapas:</p>
+<ol>
+<li><strong>Study:</strong> inspeciona o original com ferramentas reais: páginas em várias larguras, código, arquivos, comportamento em execução.</li>
+<li><strong>Build:</strong> um agente de programação cria um projeto novo na linguagem, framework ou engine pedida.</li>
+<li><strong>Check:</strong> compara a construção com o original e lista o que ainda não bate.</li>
+<li><strong>Ready:</strong> você abre, joga ou visualiza o resultado, ou pede ajustes e ele refina.</li>
+</ol>
+<p>Por baixo há um motor de engenharia reversa em Rust puro com <strong>320 ferramentas</strong> para binários nativos, .NET, Java, Android, Apple, Electron/JavaScript, sites, firmware, capturas de pacotes, bancos de dados e arquivos de jogos, com decodificadores, disassembler e decompilador próprios (e o Ghidra, se instalado). Cada ferramenta também é um comando de CLI e uma ferramenta MCP, então qualquer agente pode usar o mesmo motor sem o app. Inspecionar não exige IA.</p>
+<p>É do mesmo time do ArtCraft, que mantém uma suíte de apps &quot;Craft&quot; (PhotoCraft, FilmCraft, PdfCraft etc.).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Dois modos de interface:</strong> <em>Simple</em> (descreve o que quer e aperta Start; mostra etapas, cartões de pergunta e aprovação e o grau de semelhança) e <em>Advanced</em> (bancada completa com funções, strings, pseudo-C, disassembly, hex, grafo de chamadas e console do agente).</li>
+<li><strong>Clean room</strong> (padrão): não lê nada de dentro do original (código, arquivos, fonte da página); trabalha só com o que um visitante vê (screenshots, texto visível, layout, cores, fontes).</li>
+<li><strong>Deep:</strong> usa todas as ferramentas, para uso privado: lê código e arquivos do programa, o JavaScript do site e usa o Ghidra quando instalado.</li>
+<li><strong>Checagem real:</strong> sites comparados em três larguras de tela; jogos pelo autoteste; apps pelas execuções.</li>
+<li>Recria jogos em Unity, Unreal ou Godot.</li>
+<li><strong>Agentes:</strong> Claude Code é o principal (usa o seu <code>claude</code> com o seu login); Codex, GitHub Copilot CLI e Grok via ACP; Gemini CLI, Qwen Code, opencode, goose e outros via ACP. Para perguntas e análise: Anthropic, OpenAI, OpenRouter, xAI e servidores locais compatíveis com OpenAI.</li>
+<li>Servidor MCP, plugins (servidores MCP e componentes WASM), visualizador web em WebAssembly.</li>
+<li>Imagens e modelos 3D gerados (opcional, com sua chave fal.ai).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente de programação logado no computador (Claude Code recomendado) para construir.</li>
+<li>Para compilar do código-fonte: Rust <strong>1.97 ou mais novo</strong> (<code>rustup update</code>).</li>
+<li>No Debian/Ubuntu, o app desktop precisa de bibliotecas do sistema (abaixo).</li>
+<li>Opcional: Ghidra para o modo Deep; chave fal.ai para imagens e 3D.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="instaladores-prontos-recomendado">Instaladores prontos (recomendado)</h3>
+<p>Baixe na <a href="https://github.com/storytold/craft-anything/releases/latest">última release</a>. O <code>SHA256SUMS.txt</code> traz o checksum de cada arquivo.</p>
+<ul>
+<li><strong>Windows:</strong> <code>craft-anything-&lt;ver&gt;-windows-x64.msi</code> (também arm64 e x86, e versões portable <code>.zip</code>). Instaladores assinados.</li>
+<li><strong>macOS:</strong> <code>craft-anything-&lt;ver&gt;-macos-universal.dmg</code> (assinado e notarizado). Versões após 0.2.0 já trazem a CLI dentro do app.</li>
+<li><strong>Linux:</strong> AppImage, <code>.deb</code>, <code>.rpm</code>, tarball (x86_64 e aarch64) e Flatpak. O Flatpak não consegue abrir navegador, então não serve para estudar sites.</li>
+<li><strong>FreeBSD:</strong> tarball x86_64.</li>
+</ul>
+<p>No AppImage, a CLI roda com <code>&lt;AppImage&gt; --cli &lt;command&gt;</code> (ex.: <code>&lt;AppImage&gt; --cli mcp</code>).</p>
+<h3 id="a-partir-do-codigo-fonte">A partir do código-fonte</h3>
+<p>No Debian/Ubuntu, antes:</p>
+<pre><code class="language-sh">sudo apt-get install build-essential libxkbcommon-dev libxkbcommon-x11-0 libwayland-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libgtk-3-dev
+</code></pre>
+<p>Depois:</p>
+<pre><code class="language-sh">git clone https://github.com/storytold/craft-anything &amp;&amp; cd craft-anything
+cargo run --release -p craft-anything                # o app desktop
+cargo install --path apps/craft-anything-cli         # a CLI, como `craft-anything-cli`
+craft-anything-cli doctor                            # confere instalação, agentes e engines
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<h3 id="app">App</h3>
+<p>Escolha site, app ou jogo, digite o endereço, escolha <strong>Clean room</strong> ou <strong>Deep</strong>, diga o que quer e aperta <strong>Start</strong>. &quot;Just look inside&quot; abre o alvo só para perguntas, sem construir (no modo Deep). No modo Advanced, Ctrl/Cmd+K lista todas as ferramentas.</p>
+<h3 id="cli">CLI</h3>
+<pre><code class="language-sh">craft-anything-cli commands                                   # todas as ferramentas, por grupo
+craft-anything-cli mcp                                        # serve as ferramentas para qualquer cliente MCP
+craft-anything-cli setup                                      # conecta o Craft Anything aos apps de agente
+craft-anything-cli doctor                                     # diagnóstico
+craft-anything-cli rebuild https://example.com &quot;Recreate this website&quot;            # recria um site
+craft-anything-cli rebuild - &quot;A snake game in Rust&quot; --rounds 1                    # cria do zero, uma rodada
+craft-anything-cli rebuild https://example.com &quot;Make the header blue&quot; --continue-in &quot;&lt;project folder&gt;&quot;   # continua um projeto
+craft-anything-cli rebuild - &quot;Add a contact form&quot; --project-folder &quot;&lt;your folder&gt;&quot; --existing edit       # edita um app existente
+</code></pre>
+<p>Para trocar de modo numa execução: <code>--deep</code> ou <code>--clean-room</code>; de forma permanente: <code>settings_set deep_mode true</code> ou Settings.</p>
+<h3 id="estrutura-de-um-projeto">Estrutura de um projeto</h3>
+<p>Projetos novos vão para <code>Documents/Craft Anything</code>. Cada pasta tem <code>craft.json</code> (pedido, alvo, status, histórico), <code>capture/</code> (o que foi capturado do alvo), <code>app/</code> (o projeto gerado), <code>checks/</code> (comparações com o original), <code>investigation.cany/</code> (evidências) e <code>inbox/</code> (perguntas abertas).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Entender como um site, app ou jogo é construído, com evidência para cada resposta.</li>
+<li>Prototipar rapidamente a partir de uma referência visual (clean room), por exemplo recriar o layout de uma landing page no seu stack.</li>
+<li>Dar a um agente de IA ferramentas de engenharia reversa via MCP para analisar binários, APKs ou apps Electron que você tem direito de examinar.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Alpha inicial.</strong> Funciona hoje: app, CLI, MCP e o fluxo completo com Claude Code. Parcial: construção com chaves de API e outros agentes (implementado, não testado ao vivo), checagens de comportamento de apps e jogos.</li>
+<li><strong>Uso responsável e direitos autorais:</strong> use só em software que é seu ou que você tem permissão para examinar. Não contorna DRM, login nem anti-cheat. Recriar produtos de terceiros pode violar direitos autorais, marcas e termos de uso, mesmo no modo clean room; o agente é instruído a não copiar logos, fotos e textos sem sua confirmação.</li>
+<li><strong>Clean room não é sandbox:</strong> o agente que você roda age como você, com as permissões dele no seu computador.</li>
+<li><strong>Instalar dependências executa código:</strong> o app pede aprovação para cada tipo novo de comando (<code>npm</code>, <code>cargo</code>). Evite &quot;always allow&quot; para <code>npm</code> em projetos cujas dependências você não confia; use <code>npm install --ignore-scripts</code> para pular scripts de instalação.</li>
+<li>Os nomes e logos ArtCraft são marca registrada e não estão cobertos pela licença; forks precisam removê-los.</li>
+<li>Ferramentas relacionadas no catálogo: <a href="ghidra.html">Ghidra</a> (usado no modo Deep) e <a href="rea.html">REA</a>, outro MCP de engenharia reversa para agentes, sem a etapa de reconstrução.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/storytold/craft-anything#readme">README</a> (<a href="https://github.com/storytold/craft-anything/blob/main/README.pt.md">versão em português</a>)</li>
+<li><a href="https://github.com/storytold/craft-anything/releases">Releases</a></li>
+<li><a href="https://github.com/storytold/craft-anything/blob/main/docs/tools.md">Lista de ferramentas</a></li>
+<li><a href="https://github.com/storytold/craft-anything/blob/main/docs/STATUS.md">Status detalhado</a> e <a href="https://github.com/storytold/craft-anything/blob/main/docs/ROADMAP.md">roadmap</a></li>
+<li><a href="https://github.com/storytold/craft-anything/blob/main/docs/claude-code.md">Uso com Claude Code</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/anthropic-cybersecurity-skills.html">Anthropic Cybersecurity Skills</a></li>
+<li><a href="../../repos/06-seguranca/ghidra.html">Ghidra</a></li>
+<li><a href="../../repos/06-seguranca/pentagi.html">PentAGI</a></li>
+<li><a href="../../repos/06-seguranca/phoneintel.html">PhoneIntel</a></li>
+<li><a href="../../repos/06-seguranca/raptor.html">RAPTOR</a></li>
+<li><a href="../../repos/06-seguranca/rea.html">REA (Reverse Engineer Anything)</a></li>
+<li><a href="../../repos/06-seguranca/security-audit-skill.html">Security Audit Skill (Cloudflare)</a></li>
+<li><a href="../../repos/06-seguranca/trailofbits-skills.html">Trail of Bits Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

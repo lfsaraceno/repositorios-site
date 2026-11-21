@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GEO Optimizer · Repositórios favoritos</title>
+<meta name="description" content="Ferramenta open source de GEO/AEO que dá nota de 0 a 100 para o quanto o seu site está pronto para ser citado pelo ChatGPT, Perplexity, Gemini, Claude e AI Overviews do Google, e gera as correções (robots.txt, llms.txt, schema JSON-LD, meta tags). Roda como CLI, MCP, plugin do Claude Code e GitHub Action.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>GEO Optimizer</h1>
+    <p class="lead">Ferramenta open source de GEO/AEO que dá nota de 0 a 100 para o quanto o seu site está pronto para ser citado pelo ChatGPT, Perplexity, Gemini, Claude e AI Overviews do Google, e gera as correções (robots.txt, llms.txt, schema JSON-LD, meta tags). Roda como CLI, MCP, plugin do Claude Code e GitHub Action.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Auriti-Labs/geo-optimizer-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Auriti-Labs/geo-optimizer-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Auriti-Labs/geo-optimizer-skill">Auriti-Labs/geo-optimizer-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://geoready.dev">geoready.dev</a> · <a href="https://geoready.dev/docs/">docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~1,4k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Estar bem no Google não garante que uma IA cite o seu site: um mecanismo de resposta dá uma resposta só e cita poucas fontes. O GEO Optimizer audita os sinais que deixam um site alcançável, legível e citável por esses mecanismos: acesso dos robôs de IA, dados estruturados, conteúdo e arquivos de descoberta.</p>
+<p>Ele dá uma nota, lista o que falta por prioridade e escreve os arquivos de correção. É o motor por trás do GeoReady (geoready.dev), que oferece a mesma auditoria no navegador. O autor, Juan Camilo Auriti, também escreveu um livro sobre o tema, e os pesos da nota se baseiam em artigos científicos (KDD 2024, C-SEO Bench, AutoGEO).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Nota de 0 a 100 em 9 categorias:</strong> prontidão para a IA do Google, robots.txt, schema JSON-LD, conteúdo, marca e entidade, meta tags, llms.txt, sinais de atualização e descoberta por IA.</li>
+<li><strong>27 robôs de IA verificados</strong> (GPTBot, OAI-SearchBot, PerplexityBot, ClaudeBot, Claude-SearchBot, Googlebot, Google-Extended e outros), inclusive se o CDN (Cloudflare, Akamai, Vercel) está bloqueando.</li>
+<li><strong>Citabilidade:</strong> nota separada com 47 checagens de conteúdo.</li>
+<li><strong>Checagens extras:</strong> sinais negativos (excesso de CTA, popups, keyword stuffing), conteúdo que depende de JavaScript, detecção de prompt injection, confiança, prontidão para RAG e WebMCP.</li>
+<li><strong><code>geo fix</code>:</strong> gera robots.txt, llms.txt, schema e meta tags; mostra antes e só grava com <code>--apply</code>.</li>
+<li><strong><code>geo citations</code>:</strong> pergunta a IAs reais se sua marca é mencionada e seu domínio citado (com sua chave de API).</li>
+<li><strong>16 comandos</strong>, 8 formatos de saída (texto, JSON, HTML, PDF, SARIF etc.), 12 ferramentas MCP, API Python e integração com Astro.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.10 a 3.14, ou o <a href="https://docs.astral.sh/uv/">uv</a> para rodar sem instalar.</li>
+<li>Para o plugin do Claude Code: <code>uv</code> no PATH.</li>
+<li>Para <code>geo citations</code>: chave de API de um provedor (Perplexity, OpenAI, Anthropic, Groq, Gemini, MiniMax, DeepSeek ou SerpBase), cobrada pelo provedor.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>Sem instalar:</strong></p>
+<pre><code class="language-bash">uvx --from geo-optimizer-skill geo audit --url https://seusite.com
+</code></pre>
+<p><strong>CLI:</strong></p>
+<pre><code class="language-bash">pip install -U geo-optimizer-skill
+</code></pre>
+<p><strong>Plugin do Claude Code</strong> (instala a skill e o servidor MCP):</p>
+<pre><code class="language-text">/plugin marketplace add Auriti-Labs/geo-optimizer-skill
+/plugin install geo-optimizer@geoready
+</code></pre>
+<p>No Claude Code 2.1.275 ou mais novo, um passo basta: <code>/plugin install geo-optimizer --marketplace Auriti-Labs/geo-optimizer-skill</code>. O plugin não instala a CLI <code>geo</code> que a skill usa; instale com o <code>pip</code> acima.</p>
+<p><strong>Só o MCP:</strong></p>
+<pre><code class="language-bash">pip install &quot;geo-optimizer-skill[mcp]&quot;
+claude mcp add geo-optimizer -- geo-mcp
+</code></pre>
+<p>Depois peça: &quot;audit my site and fix what's missing.&quot;</p>
+<p><strong>Sem terminal:</strong> cole a URL em <a href="https://geoready.dev">geoready.dev</a>, grátis e sem conta.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">geo audit --url https://seusite.com                       # nota 0–100 + correções por prioridade
+geo fix --url https://seusite.com                         # mostra robots.txt, llms.txt, schema e meta (--apply grava)
+geo audit --url https://seusite.com --threshold 70        # sai com erro abaixo de 70 (para CI)
+geo audit --sitemap https://seusite.com/sitemap.xml --max-urls 25
+geo citations --brand &quot;SuaMarca&quot; --domain seusite.com --topic &quot;sua categoria&quot; --runs 5
+geo llms --base-url https://seusite.com --output ./public/llms.txt
+geo schema --type website --name &quot;Seu Site&quot; --url https://seusite.com
+geo access --url https://seusite.com                      # navegador x robô de IA
+geo perception --url https://seusite.com                  # o que uma IA extrairia da página
+geo track --url https://seusite.com --report --output ./geo-track-report.html
+</code></pre>
+<p><strong>GitHub Action</strong> (falha o build se a nota cair):</p>
+<pre><code class="language-yaml">- uses: Auriti-Labs/geo-optimizer-skill@v4.23.0
+  with:
+    url: https://seusite.com
+    min-score: 70
+    format: sarif
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Antes de lançar um site, para ele ser lido e citado por buscas com IA.</li>
+<li>Criar llms.txt, regras de robots.txt para robôs de IA e schema JSON-LD sem escrever à mão.</li>
+<li>Conferir se o Cloudflare ou outro CDN está bloqueando o ChatGPT e o Claude.</li>
+<li>Vigiar a nota a cada deploy no CI.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Não garante citação:</strong> mede sinais de prontidão. Se uma IA vai citar você depende da pergunta, da concorrência e do mecanismo. O próprio README diz isso.</li>
+<li><strong><code>geo fix</code> mostra antes de gravar.</strong> Revise o robots.txt gerado antes de usar <code>--apply</code>, porque ele decide quais robôs acessam o site.</li>
+<li><strong>Privacidade:</strong> a CLI só acessa a URL auditada e os provedores que você configurar. Não tem telemetria.</li>
+<li><strong>Plano pago opcional:</strong> o GeoReady hospedado tem plano grátis e Pro/Agency a partir de US$ 19/mês, com monitoramento e alertas. A CLI é grátis e de uso comercial livre.</li>
+<li><strong>llms.txt</strong> não é fator de ranking comprovado. A ferramenta pontua porque é barato e ajuda as IAs a ler a estrutura do site.</li>
+<li>Relacionados no catálogo: o <a href="claude-seo.html">Claude SEO</a> tem <code>/seo geo</code> dentro de uma auditoria de SEO completa. O <a href="../05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a> traz os dados reais do Google. O <a href="../09-utilitarios-e-apps/open-seo.html">Open SEO</a> faz pesquisa de palavras-chave e backlinks.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://geoready.dev">Auditoria grátis no navegador</a></li>
+<li><a href="https://geoready.dev/docs/">Documentação</a></li>
+<li><a href="https://github.com/Auriti-Labs/geo-optimizer-skill/blob/main/docs/scoring-rubric.md">Regras da nota</a></li>
+<li><a href="https://github.com/Auriti-Labs/geo-optimizer-skill/blob/main/docs/geo-methods.md">Métodos e fontes científicas</a></li>
+<li><a href="https://github.com/Auriti-Labs/geo-optimizer-skill/blob/main/docs/llm-providers.md">Provedores para <code>geo citations</code></a></li>
+<li><a href="https://geoready.dev/geo-readiness-manual/">Manual GEO grátis (160 páginas)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

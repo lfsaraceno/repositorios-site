@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenSEO · Repositórios favoritos</title>
+<meta name="description" content="Alternativa open-source ao Semrush e ao Ahrefs, paga por uso com sua chave da DataForSEO, com servidor MCP e skills para o Claude Code e outros agentes fazerem pesquisa de palavras-chave, rank tracking, backlinks e auditoria de sites.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>OpenSEO</h1>
+    <p class="lead">Alternativa open-source ao Semrush e ao Ahrefs, paga por uso com sua chave da DataForSEO, com servidor MCP e skills para o Claude Code e outros agentes fazerem pesquisa de palavras-chave, rank tracking, backlinks e auditoria de sites.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/every-app/open-seo">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">every-app/open-seo</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/every-app/open-seo">every-app/open-seo</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://openseo.so">openseo.so</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~28k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O OpenSEO é uma ferramenta de SEO para quem acha Semrush e Ahrefs caros ou inchados. Em vez de assinatura, você traz sua chave de API da DataForSEO e paga só pelo que consultar. A interface é simples, com fluxos focados.</p>
+<p>Ele expõe um servidor MCP para que agentes como Claude Code, ChatGPT, Codex, Cursor, OpenClaw e Hermes usem seus dados de SEO diretamente, e traz Agent Skills prontas com fluxos de trabalho de SEO.</p>
+<p>Pode ser usado na versão hospedada (gratuita para testar; assinatura de US$ 10/mês para apoiar) ou self-hosted com Docker ou Cloudflare.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Pesquisa de palavras-chave.</li>
+<li>Rank tracking (acompanhamento de posições).</li>
+<li>Análise de concorrentes.</li>
+<li>Backlinks.</li>
+<li>Auditoria de sites.</li>
+<li>Visibilidade em IA (presença em respostas de IA).</li>
+<li>Servidor MCP e Agent Skills para agentes.</li>
+<li>Contas por e-mail e senha com convites para o time; clientes MCP entram com as mesmas contas.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Chave de API da <a href="https://dataforseo.com/">DataForSEO</a> (ou conta <a href="https://treg.to">treg</a>, que também dá acesso).</li>
+<li>Self-hosting: Docker (inclui Coolify, Portainer, Dokploy) ou conta Cloudflare (funciona no plano gratuito).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="hospedado">Hospedado</h3>
+<p>Crie a conta em <a href="https://openseo.so">openseo.so</a>.</p>
+<h3 id="self-hosted">Self-hosted</h3>
+<ul>
+<li><strong>Docker:</strong> imagem pronta; siga <a href="https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_DOCKER.md"><code>docs/SELF_HOSTING_DOCKER.md</code></a>.</li>
+<li><strong>Cloudflare:</strong> um comando de deploy na sua conta; siga <a href="https://github.com/every-app/open-seo/blob/main/docs/SELF_HOSTING_CLOUDFLARE.md"><code>docs/SELF_HOSTING_CLOUDFLARE.md</code></a>.</li>
+</ul>
+<p>O primeiro visitante cria a conta de administrador. Configure a chave em <a href="https://github.com/every-app/open-seo/blob/main/docs/DATAFORSEO_API_KEY.md"><code>docs/DATAFORSEO_API_KEY.md</code></a>.</p>
+<h3 id="conectar-agentes">Conectar agentes</h3>
+<ul>
+<li><a href="https://openseo.so/docs/mcp">MCP</a></li>
+<li><a href="https://openseo.so/docs/skills/setup">Agent Skills</a></li>
+<li><a href="https://openseo.so/docs/chatgpt">ChatGPT</a> (planos gratuito e pagos)</li>
+<li><a href="https://openseo.so/docs/codex-plugin">Codex</a></li>
+</ul>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Depois de conectar o MCP e as skills, peça ao agente em linguagem natural, por exemplo:</p>
+<pre><code class="language-text">Find low-competition keywords for my project management SaaS and check where my site ranks for them.
+</code></pre>
+<p>Skill para abrir issues bem descritas no projeto:</p>
+<pre><code class="language-sh">npx skills add every-app/open-seo --skill simple-issue-description
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>SEO de sites próprios e de clientes sem pagar assinatura cara de Semrush/Ahrefs.</li>
+<li>Deixar o Claude Code fazer pesquisa de palavras-chave e auditoria com dados reais.</li>
+<li>Agências que querem uma ferramenta self-hosted e personalizável.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Custo variável:</strong> a DataForSEO cobra por requisição; a versão hospedada cobra 28% a mais sobre esse custo.</li>
+<li>Opções avançadas de segurança: Cloudflare Access na frente do deploy, ou Docker sem login atrás de Tailscale ou proxy autenticado.</li>
+<li>Para auditoria de SEO via skill sem servidor, veja <a href="../02-skills-para-agentes/claude-seo.html">Claude SEO</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/every-app/open-seo#readme">README</a></li>
+<li><a href="https://openseo.so/pricing">Preços</a></li>
+<li><a href="https://github.com/every-app/open-seo/blob/main/docs/LOCAL_DEVELOPMENT.md">Desenvolvimento local</a></li>
+<li><a href="https://github.com/every-app/every-app">EveryApp (hospedagem de apps open-source)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 21/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>
