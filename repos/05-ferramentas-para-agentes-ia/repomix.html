@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repomix · Repositórios favoritos</title>
+<meta name="description" content="Empacota um repositório inteiro (local ou remoto) num único arquivo XML, Markdown ou texto pronto para IA, com contagem de tokens, compressão via Tree-sitter, detecção de segredos, servidor MCP e plugins para o Claude Code.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Repomix</h1>
+    <p class="lead">Empacota um repositório inteiro (local ou remoto) num único arquivo XML, Markdown ou texto pronto para IA, com contagem de tokens, compressão via Tree-sitter, detecção de segredos, servidor MCP e plugins para o Claude Code.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/yamadashy/repomix">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">yamadashy/repomix</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/yamadashy/repomix">yamadashy/repomix</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://repomix.com">repomix.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~29k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Repomix junta todos os arquivos de um projeto num só arquivo, num formato fácil para modelos de linguagem entenderem, para você colar no Claude, ChatGPT, Gemini ou outro assistente e pedir revisão, refatoração ou documentação do código inteiro de uma vez.</p>
+<p>Ele respeita <code>.gitignore</code>, <code>.ignore</code> e <code>.repomixignore</code>, conta os tokens por arquivo e no total (para caber no limite de contexto), deixa de fora arquivos que parecem conter credenciais (via Secretlint) e pode comprimir o código mantendo só a estrutura (<code>--compress</code>). Funciona pela linha de comando, pelo site, por extensão de navegador, como servidor MCP e como plugins do Claude Code.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Saída em XML (padrão), Markdown ou texto puro.</li>
+<li>Contagem de tokens por arquivo e do repositório.</li>
+<li>Empacota repositórios remotos (<code>--remote</code>) por URL, atalho <code>user/repo</code>, branch, tag ou commit.</li>
+<li>Filtros por glob (<code>--include</code>, <code>--ignore</code>) e lista de arquivos via stdin.</li>
+<li>Inclui logs e diffs do git como contexto.</li>
+<li>Compressão com Tree-sitter (cerca de 70% menos tokens no plugin MCP).</li>
+<li>Divisão da saída para codebases grandes e níveis de inclusão por arquivo.</li>
+<li>Servidor MCP com modo sandbox; plugins do Claude Code; geração de Agent Skills; GitHub Action; uso como biblioteca.</li>
+<li>Extensões para Chrome/Firefox e extensão comunitária para VS Code.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js (para <code>npx</code> ou <code>npm</code>), ou Docker, ou Homebrew.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx repomix@latest          # roda sem instalar, na pasta do projeto
+npm install -g repomix      # instala global (também yarn, bun ou brew install repomix)
+</code></pre>
+<h3 id="plugins-do-claude-code">Plugins do Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add yamadashy/repomix
+/plugin install repomix-mcp@repomix         # servidor MCP (base recomendada)
+/plugin install repomix-commands@repomix    # comandos de barra
+/plugin install repomix-explorer@repomix    # análise de repositórios com IA
+</code></pre>
+<h3 id="mcp-em-outros-clientes">MCP em outros clientes</h3>
+<pre><code class="language-bash">repomix --mcp                       # inicia como servidor MCP
+repomix --mcp --sandbox             # restringe o acesso à pasta atual
+code --add-mcp '{&quot;name&quot;:&quot;repomix&quot;,&quot;command&quot;:&quot;npx&quot;,&quot;args&quot;:[&quot;-y&quot;,&quot;repomix&quot;,&quot;--mcp&quot;]}'   # VS Code
+</code></pre>
+<h3 id="docker">Docker</h3>
+<pre><code class="language-bash">docker run -v .:/app -it --rm ghcr.io/yamadashy/repomix
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">repomix                                      # empacota o projeto em repomix-output.xml
+repomix path/to/directory                    # só uma pasta
+repomix --include &quot;src/**/*.ts,**/*.md&quot;      # só esses arquivos
+repomix --ignore &quot;**/*.log,tmp/&quot;             # exclui padrões
+repomix --remote yamadashy/repomix           # repositório remoto
+repomix --compress                           # comprime mantendo a estrutura
+repomix --include-logs --include-diffs       # adiciona histórico git
+git ls-files &quot;*.ts&quot; | repomix --stdin        # lista de arquivos via stdin
+repomix --init                               # cria repomix.config.json
+</code></pre>
+<p>No Claude Code com o plugin de comandos:</p>
+<pre><code class="language-text">/repomix-commands:pack-local
+Pack this project as markdown with compression
+
+/repomix-commands:pack-remote yamadashy/repomix
+</code></pre>
+<p>Prompt de exemplo para usar o arquivo gerado:</p>
+<pre><code class="language-text">This file contains all the files in the repository combined into one.
+I want to refactor the code, so please review it first.
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Mandar um projeto inteiro para um chat de IA (Claude.ai, ChatGPT) que não acessa seu disco.</li>
+<li>Analisar rapidamente um repositório de terceiros sem clonar.</li>
+<li>Medir quantos tokens um projeto ocupa antes de usar como contexto.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Segredos:</strong> a checagem do Secretlint vem ligada; não a desligue (<code>--no-security-check</code>) sem necessidade. Revise o arquivo antes de compartilhar.</li>
+<li><strong>Configuração é código:</strong> um <code>repomix.config.*</code> pode executar comandos. Em repositórios clonados, ela não é carregada por padrão; no MCP, use <code>--sandbox</code> ao empacotar código de terceiros.</li>
+<li>Arquivos grandes podem estourar o contexto; use <code>--compress</code>, filtros ou a divisão da saída.</li>
+<li>A ficha cobre as partes principais do README; seções de configuração detalhada, GitHub Actions e uso como biblioteca não foram resumidas.</li>
+<li>Alternativa em Python: <a href="https://github.com/cyclotruc/gitingest">Gitingest</a>. Para mapear a arquitetura em grafo, veja <a href="graphify.html">Graphify</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/yamadashy/repomix#readme">README</a></li>
+<li><a href="https://repomix.com">Site e versão web</a></li>
+<li><a href="https://repomix.com/guide/mcp-server">Guia do servidor MCP</a></li>
+<li><a href="https://repomix.com/guide/security">Guia de segurança</a></li>
+<li><a href="https://chromewebstore.google.com/detail/repomix/fimfamikepjgchehkohedilpdigcpkoa">Extensão Chrome</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

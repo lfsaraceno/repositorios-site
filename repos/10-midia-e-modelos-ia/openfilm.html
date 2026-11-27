@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenFilm · Repositórios favoritos</title>
+<meta name="description" content="Agente de vídeo open-source: faz o Claude Code, o Codex ou outro agente criar vídeos como páginas web e traz o Studio, um editor local no navegador para mudar tudo à mão ou pedindo ao agente.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>OpenFilm</h1>
+    <p class="lead">Agente de vídeo open-source: faz o Claude Code, o Codex ou outro agente criar vídeos como páginas web e traz o Studio, um editor local no navegador para mudar tudo à mão ou pedindo ao agente.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/openfilm/openfilm">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">openfilm/openfilm</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/openfilm/openfilm">openfilm/openfilm</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://openfilm.dev">openfilm.dev</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT (nome e logo são marca registrada)</dd></div>
+<div><dt>Estrelas</dt><dd>~7,9k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O OpenFilm deixa seu agente de programação fazer vídeos e deixa você editá-los. Você pede um filme ao Claude Code ou ao Codex; ele escreve o filme como páginas web, e o <strong>Studio</strong>, um editor local que roda no navegador, mostra o vídeo tomando forma. Depois você muda o que quiser, à mão ou pedindo ao agente.</p>
+<p>A ideia é ser simples:</p>
+<ul>
+<li><strong>Um arquivo HTML.</strong> O <code>film.html</code> junta páginas animadas, vídeos, imagens e sons em trilhas, com estilo em CSS. O agente já conhece a web, então não há formato novo para aprender.</li>
+<li><strong>Uma função.</strong> Cada cena é uma página web que desenha qualquer instante com <code>frame(t)</code>, usando o que o navegador desenha: three.js, WebGL, canvas, SVG, CSS, GSAP, vídeo. Não depende de framework como Remotion ou HyperFrames.</li>
+<li><strong>Um editor de verdade.</strong> Mover, redimensionar e girar elementos dentro de uma página, trocar texto, cor e estilo; posicionar, recortar e cortar clipes na linha do tempo.</li>
+</ul>
+<p>Fazer, editar e renderizar não exige conta, e a biblioteca de músicas, sons, vozes, stickers, transições, efeitos e templates é gratuita. Para gerar voz, música, imagem e vídeo com IA, conecte seus serviços (ElevenLabs, OpenAI, Google, OpenRouter, fal e outros) com suas próprias chaves, ou entre com uma conta OpenFilm para usar sem chaves próprias.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Funciona como skill em qualquer agente de programação (Claude Code, Codex etc.), ou pelo app desktop com chat integrado.</li>
+<li><strong>Studio</strong> no navegador (Chrome ou Edge): edita texto e camadas, clipes, volume, velocidade e legendas; as edições vão para os arquivos do filme, então o agente as enxerga e preserva; versões nomeadas via git.</li>
+<li><strong>Exportação</strong> em MP4 (até 4K, com motion blur), vídeo transparente (.webm/.mov), GIF, áudio e stems, legendas, stills, slides e linha do tempo para <strong>Final Cut Pro, Premiere Pro e DaVinci Resolve</strong>.</li>
+<li><strong>Canvas:</strong> quadro ao lado da edição onde você e o agente organizam notas, imagens, clipes, narração e música, e mandam para a linha do tempo; também vira storyboard.</li>
+<li><strong>Checagem do filme:</strong> o <code>look</code> desenha cada frame duas vezes em ordens embaralhadas e aponta frames instáveis, erros de página, fontes que não carregaram, sons faltando e texto cortado.</li>
+<li><strong>Skills de filme</strong> da comunidade em <a href="https://github.com/openfilm/skills">openfilm/skills</a>, instaláveis pelo Studio ou por link.</li>
+<li>Exemplos prontos em <a href="https://github.com/openfilm/examples">openfilm/examples</a>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 22.2+ e ffmpeg, em macOS, Windows ou Linux.</li>
+<li>git (para as versões salvas do Studio).</li>
+<li>Navegador baseado em Chromium (Chrome, Edge) para o Studio.</li>
+<li>A primeira execução baixa um Chromium headless (~100 MB).</li>
+<li>O app desktop (macOS e Windows) já traz ffmpeg e o navegador headless.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="como-skill-do-agente">Como skill do agente</h3>
+<pre><code class="language-sh">npx skills add openfilm/openfilm
+</code></pre>
+<p>Se o seu agente não tem suporte a skills, diga a ele: &quot;Run <code>npx -y openfilm@latest</code> and follow what it prints.&quot;</p>
+<h3 id="app-desktop-macos-e-windows">App desktop (macOS e Windows)</h3>
+<p>Baixe em <a href="https://openfilm.dev">openfilm.dev</a> ou em <a href="https://github.com/openfilm/openfilm/releases">Releases</a>. É o Studio com um chat ao lado para Claude Code, Codex e outros agentes, ou com o agente próprio usando sua chave.</p>
+<h3 id="cli-global">CLI global</h3>
+<pre><code class="language-sh">npm i -g openfilm
+</code></pre>
+<h3 id="a-partir-do-codigo-fonte">A partir do código-fonte</h3>
+<p>Requer Node 22.18+, pnpm 9 (<code>corepack enable</code>), ffmpeg no PATH e git.</p>
+<pre><code class="language-sh">git clone https://github.com/openfilm/openfilm &amp;&amp; cd openfilm
+pnpm install
+pnpm dev            # Studio a partir do checkout, com um filme de exemplo
+pnpm test
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça ao agente em linguagem natural:</p>
+<pre><code class="language-text">Make a 20-second launch video for my CLI, with music.
+</code></pre>
+<p>Ele abre o filme no Studio e você acompanha. Para partir de um exemplo pronto:</p>
+<pre><code class="language-sh">npx -y openfilm@latest open https://github.com/openfilm/examples/tree/main/one-prompt
+</code></pre>
+<p>Comandos da CLI (o agente roda; você também, com <code>npx -y openfilm@latest &lt;comando&gt;</code> ou após <code>npm i -g openfilm</code>):</p>
+<pre><code class="language-sh">openfilm                          # explica o que é um filme e lista as skills do OpenFilm
+openfilm open   [folder | url]    # abre um filme no Studio: novo, existente, do GitHub ou o último
+openfilm look   [what] [t | a-b]  # confere o filme, uma página ou mídia: contact sheet, um frame ou um intervalo
+openfilm render [a-b]             # gera o MP4; --4k, --blur, --alpha (.webm/.mov), --loudness=-14
+openfilm get    [what]            # mídia: da biblioteca gratuita primeiro, senão de um serviço conectado
+openfilm canvas [apply &lt;steps&gt;]   # lê ou organiza o canvas ao lado da edição
+openfilm skills                   # lista skills; `openfilm skill &lt;name&gt;` mostra uma
+openfilm skill add &lt;link&gt;         # instala uma skill de um link ou pasta
+openfilm doctor                   # diagnóstico do computador para colar numa issue
+</code></pre>
+<p><code>openfilm &lt;comando&gt; --help</code> lista as opções de cada comando. No Studio, ⌘E alterna entre a edição e o canvas.</p>
+<h3 id="estrutura-de-um-filme">Estrutura de um filme</h3>
+<p>Um filme é uma pasta com um <code>film.html</code>. Cada <code>&lt;section&gt;</code> é uma trilha; cada elemento é um clipe:</p>
+<pre><code class="language-html">&lt;section&gt;
+  &lt;iframe src=&quot;title.html#t=0,4&quot;&gt;&lt;/iframe&gt;
+&lt;/section&gt;
+&lt;section&gt;
+  &lt;video src=&quot;assets/footage.mp4#t=12,18&quot; at=&quot;4&quot; speed=&quot;0.5&quot;&gt;&lt;/video&gt;
+&lt;/section&gt;
+&lt;section&gt;
+  &lt;audio src=&quot;assets/music.mp3&quot; volume=&quot;0.6&quot;&gt;&lt;/audio&gt;
+&lt;/section&gt;
+</code></pre>
+<p>Cada página define <code>window.film = { frame(t) { ... } }</code>. A única regra: o mesmo <code>t</code> sempre desenha a mesma imagem, independentemente do que veio antes.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Fazer vídeos de lançamento, demos de produto e motion graphics pedindo ao Claude Code, com a possibilidade de ajustar tudo à mão depois.</li>
+<li>Quando você quer o vídeo do agente editável num editor de verdade, ou exportado para Premiere, DaVinci ou Final Cut.</li>
+<li>Animações com three.js, WebGL ou GSAP sem aprender Remotion ou HyperFrames.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O código é MIT, mas o <strong>nome e o logo OpenFilm são marca registrada</strong>: um fork publicado como produto próprio precisa de outro nome (ver <code>TRADEMARK.md</code>).</li>
+<li>Geração de voz, música, imagem e vídeo por IA usa serviços pagos com suas chaves, ou a conta OpenFilm.</li>
+<li>Projeto recente (criado em out/2026) e em evolução rápida.</li>
+<li>Comparado ao <a href="openmontage.html">OpenMontage</a>, que orquestra pipelines completos de produção (pesquisa, roteiro, geração, edição), o OpenFilm foca no formato de filme em HTML e no editor visual. O <a href="hyperframes.html">HyperFrames</a> é outro motor de vídeo em HTML/GSAP; o OpenFilm dispensa framework e usa só <code>frame(t)</code>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/openfilm/openfilm#readme">README</a></li>
+<li><a href="https://github.com/openfilm/openfilm/blob/main/packages/openfilm/MANUAL.md">MANUAL.md</a> (o que <code>openfilm</code> imprime)</li>
+<li><a href="https://github.com/openfilm/openfilm/blob/main/packages/openfilm/SPEC.md">SPEC.md</a> (formato, para quem constrói player ou editor)</li>
+<li><a href="https://github.com/openfilm/examples">Exemplos</a></li>
+<li><a href="https://github.com/openfilm/skills">Skills da comunidade</a></li>
+<li><a href="https://www.youtube.com/watch?v=Qea7v6dtNM0">Vídeo de lançamento</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/longcat.html">LongCat (Meituan)</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openhiggsfield-story-studio.html">OpenHiggsfield Story Studio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openverse.html">Openverse</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/remotion.html">Remotion</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

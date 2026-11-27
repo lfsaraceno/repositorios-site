@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenMontage · Repositórios favoritos</title>
+<meta name="description" content="Sistema open-source de produção de vídeo conduzido por agente de IA: o Claude Code, Cursor, Codex ou Copilot pesquisa, roteiriza, gera ou busca imagens e vídeos, narra, edita e renderiza o vídeo final a partir de um pedido em linguagem natural.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>OpenMontage</h1>
+    <p class="lead">Sistema open-source de produção de vídeo conduzido por agente de IA: o Claude Code, Cursor, Codex ou Copilot pesquisa, roteiriza, gera ou busca imagens e vídeos, narra, edita e renderiza o vídeo final a partir de um pedido em linguagem natural.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/OpenMontageInc/OpenMontage">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">OpenMontageInc/OpenMontage</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/OpenMontageInc/OpenMontage">OpenMontageInc/OpenMontage</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.openmontage.video/">openmontage.video</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (composição em Node.js com Remotion e HyperFrames)</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~81k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O OpenMontage transforma um assistente de programação com IA em um estúdio de produção de vídeo. Você descreve o vídeo em português ou inglês e o agente faz pesquisa na web, proposta, roteiro, plano de cenas, geração ou busca de mídia, edição e composição final.</p>
+<p>Não existe orquestrador em código: <strong>o próprio agente é o orquestrador</strong>. Ele lê manifestos YAML de pipeline (<code>pipeline_defs/</code>) e &quot;skills de diretor&quot; em Markdown para cada etapa (<code>skills/</code>), chama ferramentas Python com seleção de provedor pontuada, revisa o próprio trabalho, salva checkpoints e pede sua aprovação nas decisões criativas.</p>
+<p>Funciona sem nenhuma chave de API paga: narração com Piper TTS (offline), imagens e vídeos de bancos gratuitos (Pexels, Pixabay, Unsplash) e acervos abertos (Archive.org, NASA, Wikimedia Commons), composição com Remotion ou HyperFrames e pós-produção com FFmpeg. Com chaves de provedores (fal.ai, Kling, Veo, Runway, ElevenLabs, Suno etc.) gera clipes, imagens, vozes e músicas com IA. Os exemplos do README custam de US$ 1,33 a cerca de US$ 5 por vídeo.</p>
+<p>Um diferencial é o caminho de <strong>vídeo com filmagem real</strong>: o pipeline de documentário monta um acervo pesquisável por CLIP a partir de bancos gratuitos e arquivos abertos e edita clipes de movimento de verdade, sem só animar fotos.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Pipelines prontos:</strong> explicativo animado, animação, avatar apresentador, cinematográfico (trailer/teaser), Clip Factory (cortes curtos a partir de vídeo longo), documentário com filmagem real, híbrido, localização e dublagem, podcast para vídeo, demonstração de tela e talking head.</li>
+<li><strong>Partir de um vídeo de referência:</strong> cole um link do YouTube, Short, Reel, TikTok ou um arquivo local e o agente analisa ritmo, cenas e estilo, propõe 2 ou 3 conceitos com estimativa de custo e mostra uma amostra antes da produção.</li>
+<li><strong>Backlot:</strong> storyboard local que se preenche ao vivo durante a produção, com portões de aprovação por cena (takes, prompts, custo por asset) e replay da execução.</li>
+<li><strong>Mais de 100 ferramentas e 60 integrações:</strong> geração de vídeo (Kling, Veo 3.1, Runway, Seedance, MiniMax, WAN, Hunyuan, LTX), imagem (FLUX, Imagen, GPT Image 2, Recraft), voz (ElevenLabs, Google TTS, OpenAI, Piper), música (Suno, ElevenLabs), legendas, upscale, remoção de fundo, lip sync.</li>
+<li><strong>Seleção de provedor pontuada</strong> em 7 dimensões (adequação, qualidade, controle, confiabilidade, custo, latência, continuidade), com log de decisões auditável.</li>
+<li><strong>Portões de qualidade:</strong> validação antes de compor (bloqueia vídeo com cara de slideshow) e autorrevisão após renderizar (ffprobe, amostragem de frames, análise de áudio, checagem de legendas).</li>
+<li><strong>Controle de orçamento:</strong> estimativa antes de gastar, teto total (padrão US$ 10), aprovação por ação acima de US$ 0,50 e modos <code>observe</code>, <code>warn</code> e <code>cap</code>.</li>
+<li><strong>Perfis de saída</strong> para YouTube (incluindo 4K e Shorts), Instagram Reels e Feed, TikTok, LinkedIn e 21:9 cinematográfico.</li>
+<li><strong>Geração local de vídeo com GPU</strong> (WAN 2.1/2.2, Hunyuan, LTX, CogVideo) sem custo de API.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.10+.</li>
+<li>FFmpeg.</li>
+<li>Node.js em versão corrigida das linhas 22.x (22.23.4+), 24.x (24.22.1+) ou 26.x (26.12.1+); o <code>.node-version</code> seleciona 22.23.4.</li>
+<li>Um assistente de IA que leia arquivos e rode código: Claude Code, Cursor, Copilot, Windsurf ou Codex.</li>
+<li>Opcional: GPU para geração local de vídeo; chaves de API para provedores pagos.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="com-make">Com <code>make</code></h3>
+<pre><code class="language-bash">git clone https://github.com/calesthio/OpenMontage.git
+cd OpenMontage
+make setup
+</code></pre>
+<p>O repositório foi transferido para <code>OpenMontageInc/OpenMontage</code>; o link antigo do README redireciona.</p>
+<h3 id="windows-powershell-sem-make">Windows (PowerShell, sem <code>make</code>)</h3>
+<pre><code class="language-powershell">py -3 -m venv .venv; .\.venv\Scripts\Activate.ps1; python -m pip install 'pip&gt;=26.2.2'; python -m pip install -r requirements.txt; cd remotion-composer; npm install; cd ..; python -m pip install piper-tts; Copy-Item .env.example .env
+</code></pre>
+<p>Se o <code>npm install</code> falhar com <code>ERR_INVALID_ARG_TYPE</code>, use <code>npx --yes npm install</code>.</p>
+<h3 id="macos-linux-sem-make">macOS/Linux sem <code>make</code></h3>
+<pre><code class="language-bash">python3 -m venv .venv &amp;&amp; source .venv/bin/activate &amp;&amp; python -m pip install 'pip&gt;=26.2.2' &amp;&amp; python -m pip install -r requirements.txt &amp;&amp; cd remotion-composer &amp;&amp; npm install &amp;&amp; cd .. &amp;&amp; python -m pip install piper-tts &amp;&amp; cp .env.example .env
+</code></pre>
+<h3 id="ambientes-ja-instalados">Ambientes já instalados</h3>
+<p>Atualize pip e certifi por causa do comprometimento da CA intermediária eMudhra e reinicie processos Python longos:</p>
+<pre><code class="language-bash">python -m pip install --upgrade 'pip&gt;=26.2.2' 'certifi&gt;=2026.10.19'
+</code></pre>
+<h3 id="chaves-de-api-opcionais">Chaves de API (opcionais)</h3>
+<p>Edite o <code>.env</code>; cada chave liga mais ferramentas. Exemplos: <code>FAL_KEY</code> (FLUX, Veo, Kling, MiniMax), <code>PEXELS_API_KEY</code>, <code>PIXABAY_API_KEY</code> e <code>UNSPLASH_ACCESS_KEY</code> (gratuitas), <code>ELEVENLABS_API_KEY</code>, <code>OPENAI_API_KEY</code>, <code>GOOGLE_API_KEY</code>, <code>SUNO_API_KEY</code>, <code>RUNWAY_API_KEY</code>, <code>KLING_API_KEY</code>. Lista completa com preços em <code>docs/PROVIDERS.md</code>.</p>
+<h3 id="gpu-local-opcional">GPU local (opcional)</h3>
+<pre><code class="language-bash">make install-gpu
+</code></pre>
+<p>Depois, no <code>.env</code>:</p>
+<pre><code class="language-bash">VIDEO_GEN_LOCAL_ENABLED=true
+VIDEO_GEN_LOCAL_MODEL=wan2.2-ti2v-5b  # ou wan2.1-1.3b, wan2.1-14b, hunyuan-1.5, ltx2-local, cogvideo-5b
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Abra a pasta do projeto no Claude Code (ou outro assistente) e peça o vídeo. Exemplos de prompt do README:</p>
+<pre><code class="language-text">Make a 60-second animated explainer about how neural networks learn
+</code></pre>
+<pre><code class="language-text">Make a 75-second documentary montage about city life in the rain. Use real footage only, no narration, elegiac tone, with music.
+</code></pre>
+<pre><code class="language-text">Here's a YouTube Short I love. Make me something like this, but about quantum computing.
+</code></pre>
+<pre><code class="language-text">Create a cinematic 30-second trailer for a sci-fi concept: humanity receives a warning from 1000 years in the future
+</code></pre>
+<p>Para filmagem real sem custo, peça <strong>documentary montage</strong>, <strong>tone poem</strong> ou <strong>stock-footage collage</strong> e diga explicitamente <strong>use real footage only</strong>.</p>
+<h3 id="backlot-e-utilitarios">Backlot e utilitários</h3>
+<pre><code class="language-bash">python -m backlot open                  # biblioteca com todas as produções no disco
+python -m backlot open &lt;project-id&gt;     # board ao vivo de uma produção
+python scripts/backlot_simulate_run.py  # simula uma produção para ver o board
+make demo                               # renderiza vídeos de demonstração sem chaves
+make test-contracts                     # testes de contrato (sem chaves de API)
+make test                               # todos os testes
+</code></pre>
+<p>O vídeo final fica em <code>projects/&lt;project-name&gt;/renders/final.mp4</code>. Mais prompts testados, com custo esperado, em <code>PROMPT_GALLERY.md</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Produzir vídeos explicativos, documentários curtos ou teasers de produto para YouTube, Reels e TikTok com o Claude Code fazendo o trabalho pesado.</li>
+<li>Recriar o estilo de um vídeo de referência com outro tema, sabendo o custo antes de gerar.</li>
+<li>Fazer vídeos sem gastar com APIs, usando narração offline, bancos gratuitos e acervos abertos.</li>
+<li>Cortar podcasts ou vídeos longos em clipes curtos, ou legendar e dublar conteúdo em outros idiomas.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença AGPL-3.0:</strong> se você modificar e oferecer como serviço a terceiros, precisa publicar o código das modificações.</li>
+<li>Provedores de vídeo e imagem por IA são pagos por uso; o controle de orçamento ajuda, mas confira os preços em <code>docs/PROVIDERS.md</code>.</li>
+<li>Geração local de vídeo exige GPU.</li>
+<li>Usar vídeos de terceiros como referência ou como fonte (YouTube, TikTok, Reels) pode esbarrar em direitos autorais e termos de uso; o material de acervos abertos e bancos gratuitos tem licenças próprias que devem ser respeitadas.</li>
+<li>Suporte a LLM local (Ollama, LM Studio) está anunciado como &quot;em breve&quot;.</li>
+<li>Usa o <a href="hyperframes.html">HyperFrames</a> e o <a href="ffmpeg.html">FFmpeg</a> como motores de composição; para cortes verticais automáticos de um vídeo longo, o <a href="supoclip.html">SupoClip</a> é uma alternativa mais focada.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/OpenMontageInc/OpenMontage#readme">README</a> (<a href="https://github.com/OpenMontageInc/OpenMontage/blob/main/README_pt-BR.md">versão em português</a>)</li>
+<li><a href="https://github.com/OpenMontageInc/OpenMontage/blob/main/docs/PROVIDERS.md">Guia de provedores e preços</a></li>
+<li><a href="https://github.com/OpenMontageInc/OpenMontage/blob/main/PROMPT_GALLERY.md">Galeria de prompts</a></li>
+<li><a href="https://github.com/OpenMontageInc/OpenMontage/blob/main/AGENT_GUIDE.md">AGENT_GUIDE.md</a></li>
+<li><a href="https://www.youtube.com/@OpenMontage">Canal no YouTube</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/longcat.html">LongCat (Meituan)</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openhiggsfield-story-studio.html">OpenHiggsfield Story Studio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openverse.html">Openverse</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/remotion.html">Remotion</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

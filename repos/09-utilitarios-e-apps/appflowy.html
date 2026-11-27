@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AppFlowy · Repositórios favoritos</title>
+<meta name="description" content="Alternativa open-source ao Notion: espaço de trabalho com IA para documentos, wikis, bancos de dados e projetos, com apps para desktop e celular, self-hosting e controle total dos dados.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>AppFlowy</h1>
+    <p class="lead">Alternativa open-source ao Notion: espaço de trabalho com IA para documentos, wikis, bancos de dados e projetos, com apps para desktop e celular, self-hosting e controle total dos dados.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/AppFlowy-IO/AppFlowy">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">AppFlowy-IO/AppFlowy</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/AppFlowy-IO/AppFlowy">AppFlowy-IO/AppFlowy</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://appflowy.com">appflowy.com</a> · <a href="https://docs.appflowy.io">Docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>Dart (Flutter) e Rust</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Estrelas</dt><dd>~79k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O AppFlowy junta projetos, wikis e times num espaço de trabalho colaborativo com IA, no estilo do Notion, mas com prioridade para privacidade e posse dos dados. É feito em Flutter e Rust, com um único código para todas as plataformas, e roda como app nativo.</p>
+<p>A proposta da equipe: oferecer a funcionalidade do Notion com segurança de dados e experiência nativa multiplataforma para pessoas, e blocos de construção e infraestrutura de colaboração para empresas criarem os próprios apps. Eles afirmam não querer superar o Notion em recursos, e sim dar controle de 100% dos dados.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Documentos, wikis e gestão de projetos num só espaço de trabalho.</li>
+<li>Recursos de IA integrados.</li>
+<li>Apps desktop (macOS, Windows, Linux) e celular (iPhone e Android 10+).</li>
+<li>Self-hosting com guia passo a passo até produção.</li>
+<li>Tradução da interface pela comunidade (inclui editor online inlang).</li>
+<li>Valores do projeto: privacidade primeiro, experiência nativa confiável e extensibilidade pela comunidade.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Nada além do sistema operacional para o app; servidor próprio para self-hosting.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<ul>
+<li><strong>Desktop:</strong> baixe em <a href="https://github.com/AppFlowy-IO/AppFlowy/releases">Releases</a> (macOS, Windows e Linux). Também em <a href="https://flathub.org/apps/io.appflowy.AppFlowy">Flathub</a>, <a href="https://snapcraft.io/appflowy">Snapcraft</a> e <a href="https://sourceforge.net/projects/appflowy/">SourceForge</a>.</li>
+<li><strong>Celular:</strong> <a href="https://apps.apple.com/app/appflowy/id6457261352">App Store</a> (iPhone) e <a href="https://play.google.com/store/apps/details?id=io.appflowy.appflowy">Play Store</a> (Android 10+, sem suporte a ARMv7).</li>
+<li><strong>Self-hosting:</strong> <a href="https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production">guia passo a passo</a>.</li>
+<li><strong>Código-fonte:</strong> <a href="https://docs.appflowy.io/docs/documentation/appflowy/from-source">instruções por sistema</a>.</li>
+</ul>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Uso pela interface: crie páginas, bancos de dados e quadros como no Notion, convide o time e use a IA dentro dos documentos.</p>
+<p>Para quem contribui com traduções:</p>
+<pre><code class="language-bash">npx inlang machine translate   # preenche traduções que faltam
+</code></pre>
+<p>Os arquivos de tradução ficam em <code>/frontend/resources/translations</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Substituir o Notion mantendo os dados no seu servidor ou no seu computador.</li>
+<li>Wiki e documentação interna de empresa com exigência de privacidade (LGPD).</li>
+<li>Organizar projetos pessoais com app nativo, inclusive offline.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença AGPL-3.0:</strong> oferecer uma versão modificada como serviço exige publicar o código das modificações.</li>
+<li>O próprio projeto reconhece que ainda não supera o Notion em recursos e design.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/AppFlowy-IO/AppFlowy#readme">README</a></li>
+<li><a href="https://docs.appflowy.io">Documentação</a></li>
+<li><a href="https://docs.appflowy.io/docs/appflowy/roadmap">Roadmap</a></li>
+<li><a href="https://appflowy.com/what-is-new">Novidades</a></li>
+<li><a href="https://forum.appflowy.io/">Fórum</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC (Receita Federal)</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/duplicati.html">Duplicati</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/microsoft-clarity.html">Microsoft Clarity</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/opengym.html">openGym</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rtc-calculadora-offline.html">RTC Calculadora Offline</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/stirling-pdf.html">Stirling PDF</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Animated Shorts · Repositórios favoritos</title>
+<meta name="description" content="Skill do Claude Code para fazer shorts verticais de 55 a 70 s contando uma história, com personagens 2D num mundo 3D colorido (contorno de tinta, cidade pintada, desfoque de lente, câmera deslizando, trilha e efeitos sintetizados), renderizados com three.js dentro do Remotion no seu PC.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Claude Animated Shorts</h1>
+    <p class="lead">Skill do Claude Code para fazer shorts verticais de 55 a 70 s contando uma história, com personagens 2D num mundo 3D colorido (contorno de tinta, cidade pintada, desfoque de lente, câmera deslizando, trilha e efeitos sintetizados), renderizados com three.js dentro do Remotion no seu PC.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/mromidev/claude-animated-shorts">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">mromidev/claude-animated-shorts</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/mromidev/claude-animated-shorts">mromidev/claude-animated-shorts</a></dd></div>
+<div><dt>Site / Docs</dt><dd>— (pipeline completo no <code>SKILL.md</code>)</dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript + Python</dd></div>
+<div><dt>Licença</dt><dd>MIT (os quadros de referência são só para estudo de estilo)</dd></div>
+<div><dt>Estrelas</dt><dd>~4,9k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>A skill gratuita do vídeo &quot;How to Make Viral Animated Shorts Using Claude (Full Workflow)&quot;. Ela faz shorts verticais de 55 a 70 segundos no estilo &quot;personagens 2D num mundo 3D&quot;: personagens chapados de cabeça em forma de feijão com contorno de tinta, uma cidade 3D pintada com linhas pretas, céu saturado, fundo desfocado, câmera deslizando, narração, música de marcha e efeitos sonoros. Tudo é renderizado com three.js dentro do <a href="https://www.remotion.dev/">Remotion</a>, sem gerador de vídeo por IA.</p>
+<p>O exemplo provado é <em>The Bridge That Fell for a Song</em>, um short de 67 s sobre a ponte de Broughton, que caiu em 1831 com 74 soldados marchando em passo. O repositório traz o código-fonte completo desse short como template (mundo, personagens, tinta, desfoque, color grading, roteiro e câmera), o áudio sintetizado em Python e scripts de checagem.</p>
+<p>O <code>SKILL.md</code> (nome interno <code>cartoon-3d-short</code>) guia o Claude em 11 etapas: tema e fatos, roteiro, voz, plano de planos em <code>story.ts</code>, mundo, personagens, pós-produção, som, checagem visual contra as referências, render final e entrega. A comparação com as referências é feita por agentes verificadores, que dão notas por área (cor, luz, tinta, texturas, personagens, profundidade, composição).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Fórmula de roteiro: gancho com o fato absurdo, cenário, escalada, o momento da quebra, a explicação com uma analogia do dia a dia, a consequência e uma reviravolta no final (~3,7 palavras/s).</li>
+<li>Template completo do short da ponte em three.js + Remotion (<code>templates/bridge/</code>).</li>
+<li>Personagens desenhados em Canvas2D com 14 expressões, piscadas, ciclos de caminhada e sombras.</li>
+<li>Pós-produção: contorno de tinta, desfoque de lente por cena, bloom e color grading.</li>
+<li>Som sintetizado em Python: efeitos, trilha de marcha original e mixagem com ducking sob a voz.</li>
+<li>&quot;Bíblia de estilo&quot; e sete relatórios com medidas (movimento, profundidade, texturas, personagens, luz, contorno, grading), tiradas de 20 shorts de referência.</li>
+<li><code>short_qa.py</code>: checa cada quadro do vídeo final (quadros pretos, brancos, congelados, saltos) e o volume.</li>
+<li>Saída final em 2K vertical (1440x2560).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code.</li>
+<li>Um projeto <a href="https://www.remotion.dev/">Remotion</a> com <code>@remotion/three</code>.</li>
+<li>Node, Python 3 e ffmpeg.</li>
+<li>Uma narração própria (<code>voice.wav</code>) e as marcações de tempo por palavra (<code>words.json</code>), de qualquer transcrição com tempo por palavra.</li>
+<li>Muito espaço em disco: ver Observações.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<ol>
+<li>
+<p>Copie a pasta do repositório para <code>~/.claude/skills/cartoon-3d-short/</code> (clonando ou baixando o ZIP):</p>
+<pre><code class="language-bash">git clone https://github.com/mromidev/claude-animated-shorts.git ~/.claude/skills/cartoon-3d-short
+</code></pre>
+<p><strong>Windows:</strong> <code>%USERPROFILE%\.claude\skills\cartoon-3d-short</code>.</p>
+</li>
+<li>
+<p>Tenha um projeto Remotion com <code>@remotion/three</code>. A skill copia <code>templates/bridge/</code> para <code>src/videos/&lt;nome&gt;/</code> desse projeto e registra uma nova composição em <code>src/Root.tsx</code>.</p>
+</li>
+<li>
+<p>Defina <code>REMOTION_TMP</code> (ou <code>TEMP</code>/<code>TMP</code>) apontando para uma pasta num disco grande.</p>
+</li>
+</ol>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No Claude Code:</p>
+<pre><code class="language-text">Use the cartoon short skill and make a short about …
+</code></pre>
+<p>Comandos que o pipeline usa (dentro do projeto Remotion):</p>
+<pre><code class="language-bash">node scripts/bridge-stills.mjs out/&lt;name&gt;/x_ 100,400 0.5                               # stills para checar o visual
+python scripts/sbs_sheet.py out.jpg --ours a b --ref r1 r2                              # lado a lado com as referências
+npx remotion render src/index.ts &lt;Comp&gt; out/&lt;name&gt;/video.mp4 --codec h264 --crf 16 --scale 1.3333   # render final 2K
+python scripts/short_qa.py final.mp4 out/&lt;name&gt;/qa shots.json                          # QA quadro a quadro + volume
+</code></pre>
+<p>O Remotion grava uma faixa de áudio muda: junte o vídeo à mixagem com <code>-map 0:v:0 -map 1:a:0</code> no ffmpeg.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Shorts de curiosidades históricas ou científicas com personagens de desenho, para YouTube Shorts, Reels e TikTok.</li>
+<li>Estudar um fluxo completo de &quot;copiar um visual de referência&quot; com agentes medindo e verificando.</li>
+<li>Ponto de partida para animação 3D estilizada em Remotion.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Disco:</strong> cada bundle do Remotion copia a pasta <code>public/</code> (~1,3 GB) para a pasta temporária e não apaga. No projeto da ponte isso encheu o disco do sistema (60+ GB) e chegou a 110 GB na pasta temporária. Aponte o temp para um disco grande e limpe os <code>remotion-webpack-bundle-*</code> ao terminar.</li>
+<li><strong>Não é plug-and-play:</strong> a skill parte de um projeto Remotion já montado (caminhos como <code>src/videos/bridge/</code>, <code>scripts/</code>, <code>public/</code> com os modelos 3D CC0 da Kenney), que não vem no repositório. Os scripts estão em <code>templates/scripts/</code> e precisam ser copiados para o projeto.</li>
+<li><strong>Regras pessoais do autor embutidas:</strong> o <code>SKILL.md</code> fixa &quot;só inglês&quot;, &quot;sem legendas&quot;, verificação com &quot;Opus max&quot; e entrega via <code>SendUserFile</code>. Ajuste para o seu caso (por exemplo, narração em português).</li>
+<li><strong>Direitos:</strong> os quadros e folhas de contato de referência vêm de um canal de terceiros. O próprio <code>SKILL.md</code> diz que são material de estudo privado e que nunca se deve copiar roteiros, personagens ou planos. Use só para o visual; história, personagens e voz devem ser seus.</li>
+<li>Render 2K a ~4 quadros/s (cerca de 10 min para 67 s). Sem atualizações desde a publicação (nov/2026).</li>
+<li>Relacionados no catálogo: o <a href="../10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a> e o <a href="motionmaxxing.html">Motionmaxxing</a> também renderizam vídeo em código, mas para motion graphics; o <a href="anidoodle.html">Anidoodle</a>, o <a href="claude-animation-base.html">Claude Animation Base</a> e o <a href="javascript-animation-skills.html">JavaScript Animation Skills</a> fazem animação 2D desenhada; o <a href="../10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a> corta vídeos longos em shorts, sem animação.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/mromidev/claude-animated-shorts#readme">README</a></li>
+<li><a href="https://github.com/mromidev/claude-animated-shorts/blob/main/SKILL.md">SKILL.md</a></li>
+<li><a href="https://github.com/mromidev/claude-animated-shorts/blob/main/references/STYLE_BIBLE.md">Bíblia de estilo</a></li>
+<li><a href="https://www.remotion.dev/">Remotion</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Website Cloner Template · Repositórios favoritos</title>
+<meta name="description" content="Template de projeto Next.js com uma skill /clone-website: você dá uma URL ao agente de código e ele recria o site como um app Next.js limpo e editável, comparando com o original até ficar igual.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>AI Website Cloner Template</h1>
+    <p class="lead">Template de projeto Next.js com uma skill <code>/clone-website</code>: você dá uma URL ao agente de código e ele recria o site como um app Next.js limpo e editável, comparando com o original até ficar igual.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/JCodesMore/ai-website-cloner-template">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">JCodesMore/ai-website-cloner-template</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/JCodesMore/ai-website-cloner-template">JCodesMore/ai-website-cloner-template</a></dd></div>
+<div><dt>Site / Docs</dt><dd>— (documentação no README) · <a href="https://youtu.be/O669pVZ_qr0">Vídeo de demonstração</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~40k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>É um repositório-modelo pronto para o agente trabalhar. Ele traz a stack montada (Next.js 16, React 19, shadcn/ui, Tailwind CSS v4) e a skill <code>/clone-website</code>. O autor recomenda o Claude Code com Opus 5.5, mas também funciona com Codex, Cursor e OpenCode.</p>
+<p>A skill segue quatro etapas:</p>
+<ol>
+<li><strong>Mapear:</strong> liga as URLs de origem às rotas locais, preservando o que já existe.</li>
+<li><strong>Observar:</strong> inspeciona o site em desktop e mobile, extrai imagens, fontes e SVGs reais e testa os estados alternativos.</li>
+<li><strong>Construir:</strong> cria componentes editáveis com interações funcionando.</li>
+<li><strong>Comparar:</strong> compara origem e cópia no mesmo tamanho e estado, corrige as diferenças e roda a checagem de produção.</li>
+</ol>
+<p>Tem orientação específica para páginas feitas no Framer e sites animados (cenas fixas, movimento por scroll). A entrega inclui o mapa de rotas, prints de comparação e as lacunas que sobraram.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Recriação de um site inteiro a partir da URL, com um comando.</li>
+<li>Código editável em Next.js + shadcn/ui + Tailwind, não um HTML copiado.</li>
+<li>Comparação visual automática entre original e cópia.</li>
+<li>Uma skill portátil em <code>.agents/skills/clone-website/</code> lida por Codex, Cursor e OpenCode, com uma ponte em <code>.claude/commands/</code> para o Claude Code.</li>
+<li>Docker Compose para rodar o app.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 24 ou mais novo.</li>
+<li>Um agente de código com acesso ao navegador ativado.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Clique em <strong>Use this template</strong> no GitHub para criar o seu repositório, clone-o e rode:</p>
+<pre><code class="language-bash">npm install
+npm run check   # lint + typecheck + build
+</code></pre>
+<p>Ou peça ao agente para fazer isso (texto sugerido no README):</p>
+<pre><code class="language-text">Set up https://github.com/JCodesMore/ai-website-cloner-template
+as a standalone project in a new folder on my computer.
+Ask me where to put it. Clone the repository, remove its origin remote,
+install dependencies, and run npm run check. Leave it ready for me
+to clone a website.
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No Claude Code ou Cursor, com o projeto aberto:</p>
+<pre><code class="language-text">/clone-website https://example.com
+</code></pre>
+<p>Depois, peça os ajustes ao agente. Comandos do projeto:</p>
+<pre><code class="language-bash">npm run dev        # servidor de desenvolvimento
+npm run build      # build de produção
+npm run check      # lint + typecheck + build
+docker compose up dev --build   # modo dev na porta 3001
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Migrar um site <strong>seu</strong> de WordPress, Webflow ou Squarespace para Next.js.</li>
+<li>Recuperar o código de um site seu que está no ar mas perdeu o repositório.</li>
+<li>Estudar como sites de produção fazem layouts, animações e responsividade.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Uso responsável:</strong> o README proíbe phishing e falsificação. Logos, marca e textos pertencem aos donos, e alguns sites proíbem cópia nos termos de uso. Use em sites seus ou como estudo, e confira os termos antes.</li>
+<li>Consome bastante do agente: ele navega, extrai e compara página por página.</li>
+<li>Relacionados no catálogo: o <a href="../02-skills-para-agentes/replica-skill.html">Replica Skill</a> clona a funcionalidade de um app; o <a href="../02-skills-para-agentes/res.html">RES</a> estuda um SaaS e gera uma base de conhecimento.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/JCodesMore/ai-website-cloner-template#readme">README</a></li>
+<li><a href="https://github.com/JCodesMore/ai-website-cloner-template/generate">Criar a partir do template</a></li>
+<li><a href="https://youtu.be/O669pVZ_qr0">Vídeo de demonstração</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/gsap.html">GSAP</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/interface-skills.html">Interface Skills (jakubkrehel/skills)</a></li>
+<li><a href="../../repos/03-design-e-ui/lottie-web.html">Lottie (lottie-web)</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/motion.html">Motion</a></li>
+<li><a href="../../repos/03-design-e-ui/stitch-skills.html">Stitch Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+<li><a href="../../repos/03-design-e-ui/unslop.html">Unslop</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

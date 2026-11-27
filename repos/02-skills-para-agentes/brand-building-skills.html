@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand Building Skills · Repositórios favoritos</title>
+<meta name="description" content="29 skills de construção de marca para Claude Code, Cursor e outros agentes: estratégia, naming, identidade visual, voz, posicionamento, mensagens, auditoria, lançamento, rebranding e canais de marketing (Meta Ads, Google Ads, e-mail, WhatsApp, influenciadores).">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Brand Building Skills</h1>
+    <p class="lead">29 skills de construção de marca para Claude Code, Cursor e outros agentes: estratégia, naming, identidade visual, voz, posicionamento, mensagens, auditoria, lançamento, rebranding e canais de marketing (Meta Ads, Google Ads, e-mail, WhatsApp, influenciadores).</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/arnabbagxd/Brand-building-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">arnabbagxd/Brand-building-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/arnabbagxd/Brand-building-skills">arnabbagxd/Brand-building-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd>— (documentação no README e em cada <code>SKILL.md</code>)</dd></div>
+<div><dt>Linguagem</dt><dd>Shell (skills em Markdown)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~0,9k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma coleção de skills de branding para agentes de IA, feita para estrategistas de marca, donos de agência e fundadores. Cada skill é um arquivo <code>SKILL.md</code> com um fluxo de trabalho de uma área (estratégia, naming, identidade, voz etc.), e o agente aciona a skill certa quando você pede uma tarefa de marca.</p>
+<p>A base é a skill <code>brand-context</code>: ela coleta nome, público, posicionamento, valores e voz da marca e grava tudo em <code>.agents/brand-context.md</code>. Todas as outras skills leem esse arquivo antes de agir, e elas se referenciam entre si (por exemplo, <code>brand-strategy</code> ↔ <code>brand-positioning</code> ↔ <code>brand-messaging</code>, ou <code>brand-audit</code> → <code>rebranding</code> → <code>brand-launch</code>).</p>
+<p>Segue o padrão <a href="https://agentskills.io">Agent Skills</a>, então funciona em Claude Code, Cursor, Windsurf e outros agentes compatíveis. Várias skills geram entregáveis de agência: relatório de estratégia a partir de um questionário, briefing de identidade visual para o designer, manual de marca e plano de lançamento.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Fundação:</strong> <code>brand-context</code> (contexto da marca, lido por todas as outras).</li>
+<li><strong>Estratégia:</strong> <code>brand-strategy</code> (questionário + relatório completo), <code>brand-naming</code> (gera nomes com justificativa ou avalia opções existentes), <code>brand-architecture</code> (marca única, casa de marcas, endossada ou híbrida).</li>
+<li><strong>Identidade:</strong> <code>brand-identity</code> (briefing de logo, cores, tipografia), <code>brand-story</code> (história de origem em três tamanhos), <code>brand-packaging</code> (briefing de embalagem e unboxing).</li>
+<li><strong>Voz e mensagens:</strong> <code>brand-voice</code>, <code>brand-messaging</code> (taglines, proposta de valor, hierarquia de mensagens).</li>
+<li><strong>Público e posicionamento:</strong> <code>target-audience</code> (ICP e personas), <code>brand-positioning</code>, <code>competitor-branding</code> (mapa de como os concorrentes se posicionam).</li>
+<li><strong>Lançamento e transformação:</strong> <code>brand-launch</code>, <code>rebranding</code>.</li>
+<li><strong>Auditoria e padrões:</strong> <code>brand-audit</code> (saúde da marca em 6 dimensões), <code>brand-guidelines</code> (manual de marca), <code>brand-measurement</code> (KPIs de marca).</li>
+<li><strong>Marca pessoal e parcerias:</strong> <code>personal-brand</code> (plano de 90 dias), <code>brand-manifesto</code>, <code>brand-partnerships</code>, <code>b2b-brand-marketing</code>.</li>
+<li><strong>Canais de marketing:</strong> <code>d2c-marketing</code>, <code>meta-ads</code>, <code>google-ads</code>, <code>email-marketing</code>, <code>whatsapp-marketing</code>, <code>ugc-strategy</code>, <code>influencer-marketing</code>, <code>aso</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com Agent Skills (Claude Code, Cursor, Windsurf etc.).</li>
+<li>Node (<code>npx</code>) para a instalação via CLI.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="cli-forma-documentada-no-readme">CLI (forma documentada no README)</h3>
+<pre><code class="language-bash">npx skills add arnabbagxd/brand-building-skills
+</code></pre>
+<p>A CLI é a <a href="vercel-skills-cli.html">Vercel Skills CLI</a>. Segundo o README, as skills vão para <code>.agents/skills/</code>. O Claude Code não lê essa pasta; se for o caso, passe o agente explicitamente com <code>-a claude-code</code> (opção da CLI, ver a ficha dela).</p>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<p>O README só diz para apontar o projeto para o repositório ou copiar a pasta <code>skills/</code>. O repositório traz um <code>.claude-plugin/marketplace.json</code> (marketplace e plugin chamados <code>brand-building-skills</code>, com as 29 skills), então também funciona pelo mecanismo padrão de plugins do Claude Code:</p>
+<pre><code class="language-text">/plugin marketplace add arnabbagxd/Brand-building-skills
+/plugin install brand-building-skills@brand-building-skills
+</code></pre>
+<h3 id="copia-manual">Cópia manual</h3>
+<p>Copie a pasta <code>skills/</code> do repositório para a pasta de skills do seu agente (por exemplo, <code>.claude/skills/</code> no Claude Code).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Comece sempre pelo contexto da marca:</p>
+<pre><code class="language-text">Set brand context for [Brand Name] — [what it does], targeting [audience]
+</code></pre>
+<p>Depois peça a tarefa em linguagem natural; cada skill tem frases-gatilho na descrição:</p>
+<pre><code class="language-text">&quot;I have a new branding client&quot;                 → brand-strategy (apresenta o questionário)
+&quot;Help me name this brand&quot;                      → brand-naming (modo geração)
+&quot;Rank these names: Lumo, Brava, Nexo&quot;          → brand-naming (modo avaliação)
+&quot;Audit our brand&quot;                              → brand-audit
+&quot;Create brand guidelines&quot;                      → brand-guidelines
+</code></pre>
+<p>Ou chame a skill direto pelo nome (<code>/brand-context</code>, <code>/brand-positioning</code>, <code>/brand-launch</code> etc.).</p>
+<p>Fluxos sugeridos no README:</p>
+<pre><code class="language-text"># marca do zero
+brand-context → target-audience → competitor-branding → brand-positioning → brand-strategy
+→ brand-naming → brand-identity → brand-voice → brand-messaging → brand-guidelines → brand-launch
+
+# marca existente
+brand-context → brand-audit → rebranding
+
+# trabalho de agência
+brand-strategy → brand-naming → brand-identity → brand-guidelines
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Montar a estratégia, o nome e a identidade de uma marca nova antes de contratar um designer.</li>
+<li>Entregar a um cliente de agência relatório de estratégia, briefing visual e manual de marca com estrutura padronizada.</li>
+<li>Diagnosticar uma marca existente e planejar um rebranding.</li>
+<li>Criar uma marca pessoal para fundador ou executivo.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Projeto pequeno e recente (criado em jun/2026), de um único autor, sem releases. A versão vem só do <code>VERSIONS.md</code> e do <code>marketplace.json</code> (1.2.0).</li>
+<li>Os textos e os exemplos são em inglês. A skill <code>whatsapp-marketing</code> recomenda plataformas pensando na Índia e em mercados emergentes; as de influenciadores e UGC citam regras da FTC (EUA). Adapte para o Brasil (CONAR, LGPD).</li>
+<li>Relacionados no catálogo: a <a href="marketingskills.html">Marketing Skills</a> tem o mesmo modelo (arquivo de contexto + skills que se referenciam) e cobre mais marketing de SaaS (CRO, SEO, analytics), com sobreposição em <code>aso</code>, anúncios, e-mail e influenciadores. Esta coleção é mais forte em marca (naming, identidade, voz, manual). A <a href="founder-skill.html">Founder Skill</a> tem só uma skill de marca (<code>/founder-brand</code>) dentro de um fluxo de validação de negócio.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/arnabbagxd/Brand-building-skills#readme">README</a></li>
+<li><a href="https://github.com/arnabbagxd/Brand-building-skills/tree/main/skills">Pasta das skills</a></li>
+<li><a href="https://github.com/arnabbagxd/Brand-building-skills/blob/main/VERSIONS.md">Histórico de versões</a></li>
+<li><a href="https://github.com/arnabbagxd/Brand-building-skills/blob/main/CONTRIBUTING.md">Guia de contribuição</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

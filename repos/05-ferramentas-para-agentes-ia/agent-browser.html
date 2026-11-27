@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Browser · Repositórios favoritos</title>
+<meta name="description" content="CLI nativa em Rust da Vercel Labs que dá um navegador ao agente de IA, um comando por vez: o agente lê a página como texto compacto, com uma referência (@e1) para cada elemento, e age sobre essas referências.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Agent Browser</h1>
+    <p class="lead">CLI nativa em Rust da Vercel Labs que dá um navegador ao agente de IA, um comando por vez: o agente lê a página como texto compacto, com uma referência (<code>@e1</code>) para cada elemento, e age sobre essas referências.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/vercel-labs/agent-browser">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">vercel-labs/agent-browser</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/vercel-labs/agent-browser">vercel-labs/agent-browser</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://agent-browser.dev">agent-browser.dev</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~54k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O comando <code>snapshot</code> devolve a página como texto, com uma referência para cada elemento clicável. O agente age sobre uma referência, lê a página de novo para conferir e repete. O navegador fica aberto entre os comandos, então cada passo é uma chamada curta no terminal, o que gasta poucos tokens.</p>
+<p>Um daemon em segundo plano controla o navegador pelo Chrome DevTools Protocol. Por padrão usa o Chrome for Testing, mas também conecta a um Chrome já aberto, usa outros motores (Lightpanda, Obscura, Firefox), o Safari do simulador de iOS ou navegadores na nuvem (Browserbase, Browserless, Browser Use e outros).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Navegar e ler: <code>open</code>, <code>snapshot</code>, <code>read</code>, <code>get</code>.</li>
+<li>Interagir: <code>click</code>, <code>fill</code>, <code>type</code>, <code>press</code>, <code>select</code>, <code>scroll</code>, <code>drag</code>, <code>upload</code>, <code>find</code>.</li>
+<li>Capturar: <code>screenshot</code>, <code>pdf</code>, <code>record</code>, <code>diff</code>.</li>
+<li>Depurar: console, erros, rede, Web Vitals, React, acessibilidade, profiler.</li>
+<li>Sessões e login salvos, cofre de credenciais, lista de domínios permitidos e políticas de ação.</li>
+<li>Um clique falha de verdade (em vez de fingir sucesso) quando o elemento está escondido, desativado ou coberto, por exemplo por um banner de cookies.</li>
+<li>Skills que acompanham a versão da CLI e servidor MCP (<code>agent-browser mcp</code>).</li>
+<li>Binários para macOS, Linux e Windows.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js (para instalar via npm) ou Homebrew.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npm install -g agent-browser
+agent-browser install           # baixa o Chrome for Testing (só na primeira vez)
+</code></pre>
+<p>Sem instalar: <code>npx agent-browser open example.com</code>. No Linux, <code>agent-browser install --with-deps</code> instala também as bibliotecas do sistema.</p>
+<p>Para ensinar o agente a usar:</p>
+<pre><code class="language-bash">npx skills add vercel-labs/agent-browser
+</code></pre>
+<p>Ou adicione ao <code>AGENTS.md</code>: &quot;Use <code>agent-browser</code> for browser automation. Before the first use, run <code>agent-browser skills get core</code> and follow it.&quot;</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">agent-browser open example.com
+agent-browser snapshot -i       # elementos interativos, cada um com uma referência
+agent-browser click @e1         # age sobre uma referência do snapshot
+agent-browser get url           # confere o resultado
+agent-browser close
+</code></pre>
+<p>Depois de navegar ou de a página mudar, tire um snapshot novo antes de usar as referências de novo. Também funciona com seletores CSS, texto e localizadores semânticos:</p>
+<pre><code class="language-bash">agent-browser find role button click --name &quot;Submit&quot;
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar ao agente de código um navegador barato em tokens para testar o próprio app.</li>
+<li>Automatizar tarefas na web (preencher formulários, extrair dados, conferir fluxos).</li>
+<li>Testes de ponta a ponta guiados por agente.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O agente navega com acesso real: use as listas de domínios permitidos e as políticas de ação ao lidar com contas e dados sensíveis.</li>
+<li>Por padrão, o navegador headless fecha após uma hora sem comandos.</li>
+<li>Relacionados no catálogo: o <a href="playwright-cli.html">Playwright CLI</a> e o <a href="playwright-mcp.html">Playwright MCP</a> são as alternativas da Microsoft.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://agent-browser.dev">Documentação</a> · <a href="https://agent-browser.dev/quick-start">Quick start</a> · <a href="https://agent-browser.dev/commands">Comandos</a></li>
+<li><a href="https://agent-browser.dev/security">Segurança</a></li>
+<li><a href="https://github.com/vercel-labs/agent-browser/blob/main/CHANGELOG.md">Changelog</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blender Agent Skills · Repositórios favoritos</title>
+<meta name="description" content="28 skills que ensinam agentes de IA (Claude Code, Codex, Gemini CLI, Copilot, Cursor, OpenCode) a trabalhar no Blender de forma profissional: modelagem, UVs, PBR, baking, rigging, animação, exportação para engines e QA.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Blender Agent Skills</h1>
+    <p class="lead">28 skills que ensinam agentes de IA (Claude Code, Codex, Gemini CLI, Copilot, Cursor, OpenCode) a trabalhar no Blender de forma profissional: modelagem, UVs, PBR, baking, rigging, animação, exportação para engines e QA.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/EL4CTEO/blender-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">EL4CTEO/blender-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/EL4CTEO/blender-skills">EL4CTEO/blender-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://el4cteo.github.io/blender-skills/comparison/">Comparação com e sem skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~2,1k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um pacote de Agent Skills com fluxos de trabalho profissionais do Blender, para agentes de código. Sem as skills, o agente até consegue escrever scripts <code>bpy</code>, mas tende a errar a API do Blender 5.x e a pular etapas que um artista 3D faria (normais ponderadas, densidade de texel, LODs, checagem de z-fighting). As skills trazem essas regras e scripts prontos.</p>
+<p>São 28 skills que cobrem o pipeline 3D completo, feitas para o Blender 5.2 LTS ou mais novo e verificadas no 5.3. Segundo o autor, todo script é testado num Blender real (67 testes headless).</p>
+<p>O agente roda o Blender em segundo plano (headless). Se você tiver um servidor MCP do Blender, ele também pode trabalhar direto na cena aberta.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Ponto de entrada:</strong> <code>blender-core</code> executa código, direciona a tarefa para a skill certa e traz as regras da API 5.x.</li>
+<li><strong>Modelagem:</strong> hard surface (bevels, booleanas, normais ponderadas), escultura orgânica, retopologia e UVs, geometry nodes a partir de JSON simples.</li>
+<li><strong>Materiais e texturas:</strong> PBR correto, desgaste, sujeira, decalques, trim sheets, baking de normal/AO/curvatura e mapas ORM.</li>
+<li><strong>Personagens:</strong> rigging com Rigify, skinning, esqueletos para jogos, 52 blendshapes ARKit e visemas, roupas sem clipping, cabelo e hair cards, animação com retarget de mocap e root motion.</li>
+<li><strong>Cenários e visual:</strong> kits de ambiente (terreno, florestas, módulos de level), iluminação de estúdio e HDRI, horário do dia, clima (chuva, neve, poças, raios), toon/anime e simulações (corpos rígidos, tecido, fluidos).</li>
+<li><strong>Saída:</strong> exportação para Roblox, Unity, Unreal, Godot, web e USD; otimização para jogos (orçamento de polígonos, LODs, draw calls); render em Cycles e EEVEE em lote; edição de vídeo.</li>
+<li><strong>QA de asset:</strong> detecta z-fighting, peças soltas, normais invertidas e problemas de pesos e texturas.</li>
+<li><strong>Automação:</strong> desenvolvimento de extensões do Blender, jobs em lote, conversão de arquivos e playbooks completos de assets.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Blender 5.2 LTS ou mais novo. O autor recomenda o 5.3.0, que é onde todas as skills foram verificadas e que traz exportação KTX2 para web, efeitos de compositor e Gaussian splats.</li>
+<li>Um agente compatível com skills: Claude Code, Codex, OpenCode, Gemini CLI, GitHub Copilot ou Cursor.</li>
+<li>Opcional: um servidor MCP do Blender, para o agente operar a cena aberta.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code-plugin">Claude Code (plugin)</h3>
+<pre><code class="language-text">/plugin marketplace add EL4CTEO/blender-skills
+/plugin install blender-agent-skills@blender-agent-skills
+</code></pre>
+<h3 id="qualquer-agente-instalador">Qualquer agente (instalador)</h3>
+<pre><code class="language-bash">git clone https://github.com/EL4CTEO/blender-skills
+./blender-skills/install/install.sh          # macOS / Linux
+</code></pre>
+<p>No <strong>Windows</strong> (PowerShell):</p>
+<pre><code class="language-powershell">git clone https://github.com/EL4CTEO/blender-skills
+.\blender-skills\install\install.ps1
+</code></pre>
+<p>Por padrão instala em <code>~/.claude/skills</code> e <code>~/.agents/skills</code> (esta última é lida por Codex, OpenCode, Gemini CLI, Copilot e Cursor). Opções do instalador:</p>
+<pre><code class="language-text">--agent claude|codex|opencode|gemini|copilot|cursor|all   # escolhe o agente
+--project DIR                                             # instala só num projeto
+--uninstall                                               # remove
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>As skills são acionadas pelo próprio agente conforme o pedido; comece pela <code>blender-core</code>. Exemplos de prompt do README:</p>
+<pre><code class="language-text">Make a game-ready crate for Unreal with baked normals and LODs.
+Rig this character with Rigify and export it to Unity with a walk cycle.
+Check this model for z-fighting and floating parts, then export it for Roblox.
+Make this street a rainy night with puddles and lightning.
+Give my character a shirt and hair cards, then retarget this Mixamo run onto it.
+</code></pre>
+<p>Para quem desenvolve o pacote:</p>
+<pre><code class="language-bash">python tools/validate_skills.py   # valida a especificação e o orçamento de tokens das skills
+python tools/run_tests.py         # roda os 67 testes headless no Blender (BLENDER_EXE muda o executável)
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gerar assets prontos para jogos (Unreal, Unity, Godot, Roblox) pedindo em linguagem natural.</li>
+<li>Automatizar tarefas repetitivas do Blender: baking, LODs, exportação em lote, conversão de formatos.</li>
+<li>Revisar modelos antes de entregar (QA de z-fighting, normais, pesos).</li>
+<li>Montar cenas e iluminação (clima, horário do dia, turntables) sem dominar todos os menus do Blender.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Exige Blender 5.2+; versões 4.x não são o alvo das skills.</li>
+<li>Projeto pequeno (~2k estrelas) e mantido por um autor só.</li>
+<li>Para modelos mecânicos com medidas exatas (peças para impressão 3D, CNC), o <a href="text-to-cad.html">Text-to-CAD</a> é mais adequado: ele trabalha com CAD paramétrico (STEP), enquanto estas skills trabalham com malhas para arte e jogos. O Text-to-CAD usa o Blender só para renders.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/EL4CTEO/blender-skills#readme">README</a></li>
+<li><a href="https://el4cteo.github.io/blender-skills/comparison/">Comparação com e sem skills</a></li>
+<li><a href="https://github.com/EL4CTEO/blender-skills/tree/main/skills">Pasta das skills</a></li>
+<li><a href="https://github.com/EL4CTEO/blender-skills/blob/main/CHANGELOG.md">CHANGELOG</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

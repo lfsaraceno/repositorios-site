@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome Claude Skills (ComposioHQ) · Repositórios favoritos</title>
+<meta name="description" content="Lista curada pela Composio com mais de mil skills e plugins para Claude.ai, Claude Code e outros agentes (Codex, Cursor, Gemini CLI), organizada por área: documentos, desenvolvimento, dados, marketing, escrita, mídia, produtividade, segurança e automação de apps.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#11-referencias-e-listas"><span aria-hidden="true">📚</span> Referências e listas</a>
+    </nav>
+    <h1>Awesome Claude Skills (ComposioHQ)</h1>
+    <p class="lead">Lista curada pela Composio com mais de mil skills e plugins para Claude.ai, Claude Code e outros agentes (Codex, Cursor, Gemini CLI), organizada por área: documentos, desenvolvimento, dados, marketing, escrita, mídia, produtividade, segurança e automação de apps.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ComposioHQ/awesome-claude-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ComposioHQ/awesome-claude-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ComposioHQ/awesome-claude-skills">ComposioHQ/awesome-claude-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (e Python em algumas skills)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0 (cada skill pode ter licença própria)</dd></div>
+<div><dt>Estrelas</dt><dd>~80k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma lista &quot;awesome&quot; de skills: pacotes de instruções (<code>SKILL.md</code> com nome e descrição, mais scripts e referências opcionais) que ensinam um agente a fazer uma classe de tarefas. O README explica o conceito: no início da sessão o agente vê só o nome e a descrição de cada skill (cerca de 100 tokens); o corpo completo carrega apenas quando a skill é relevante. Skills não são servidores MCP nem ferramentas: o MCP dá acesso, as ferramentas agem e as skills definem o fluxo.</p>
+<p>Além de links para skills de terceiros e da Anthropic, o repositório guarda algumas skills próprias e o plugin <strong>connect-apps</strong>, que liga o Claude a mais de mil apps (e-mail, Slack, issues) pela plataforma da Composio, mantenedora da lista.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<p>Categorias da lista:</p>
+<ul>
+<li><strong>Document Processing:</strong> docx, pdf, pptx, xlsx (da Anthropic), conversor de Markdown para EPUB, pacote para times jurídicos.</li>
+<li><strong>Development &amp; Code Tools:</strong> artifacts-builder, AWS, changelog a partir de commits, automação do Chrome e muitas outras.</li>
+<li><strong>Data &amp; Analysis</strong>, <strong>Business &amp; Marketing</strong>, <strong>Communication &amp; Writing</strong>, <strong>Creative &amp; Media</strong>.</li>
+<li><strong>Productivity &amp; Organization</strong>, <strong>Collaboration &amp; Project Management</strong>, <strong>Security &amp; Systems</strong>, <strong>Assistive Technology</strong>.</li>
+<li><strong>App Automation via Composio:</strong> skills que agem em apps externos.</li>
+<li>Guia de criação de skills com modelo de <code>SKILL.md</code> e boas práticas.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude.ai, Claude Code ou outro agente com suporte a skills.</li>
+<li>Para o connect-apps: chave gratuita da Composio.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>A lista em si não se instala; cada skill tem seu repositório e instruções. Formas gerais:</p>
+<ul>
+<li><strong>Claude.ai:</strong> ícone de skills (🧩) no chat → adicionar do marketplace ou enviar skill própria.</li>
+<li><strong>Claude Code:</strong> copie a pasta da skill para a pasta de skills pessoais (o README indica <code>~/.config/claude-code/skills/</code>; na documentação oficial do Claude Code, skills pessoais ficam em <code>~/.claude/skills/</code>) ou use o <a href="../02-skills-para-agentes/vercel-skills-cli.html">Skills CLI</a> (<code>npx skills add ...</code>) quando a skill indicar.</li>
+</ul>
+<h3 id="plugin-connect-apps">Plugin connect-apps</h3>
+<pre><code class="language-bash">claude --plugin-dir ./connect-apps-plugin
+</code></pre>
+<p>Depois, no Claude Code:</p>
+<pre><code class="language-text">/connect-apps:setup
+</code></pre>
+<p>Cole a chave da Composio quando pedir e reinicie o <code>claude</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Navegue pela categoria que interessa no README.</li>
+<li>Abra o repositório da skill, leia o <code>SKILL.md</code> e instale conforme as instruções dela.</li>
+<li>A skill ativa sozinha quando a tarefa combina com a descrição.</li>
+</ol>
+<p>Modelo mínimo para criar a sua:</p>
+<pre><code class="language-markdown">---
+name: my-skill-name
+description: A clear description of what this skill does and when to use it.
+---
+
+# My Skill Name
+
+## When to Use This Skill
+## Instructions
+## Examples
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Descobrir skills prontas para uma área antes de escrever uma do zero.</li>
+<li>Inspiração e exemplos para criar skills da empresa.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Qualidade variável:</strong> as skills são de autores diversos; leia o <code>SKILL.md</code> e os scripts antes de instalar, porque skills podem executar código.</li>
+<li>A lista é mantida pela Composio e promove os produtos dela (MCP Gateway, connect-apps); o connect-apps envia ações para a plataforma da Composio.</li>
+<li>O exemplo de uso via API no README usa um modelo antigo; consulte a <a href="https://docs.claude.com/en/api/skills-guide">documentação oficial de skills na API</a>.</li>
+<li>A ficha não lista as skills individualmente (são mais de mil).</li>
+<li>Coleções relacionadas no catálogo: <a href="../02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a> (oficial), <a href="../02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills</a> e <a href="awesome-claude-code.html">Awesome Claude Code</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills#readme">README</a></li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
+<li><a href="https://support.claude.com/en/articles/12512198-creating-custom-skills">Como criar skills (Anthropic)</a></li>
+<li><a href="https://composio.dev/toolkits">Apps suportados pela Composio</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#11-referencias-e-listas">Referências e listas</a></h2>
+    <ul>
+<li><a href="../../repos/11-referencias-e-listas/awesome-brazilian-devblogs.html">Awesome Brazilian Dev Blogs</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-claude-code.html">Awesome Claude Code</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-mcp-servers.html">Awesome MCP Servers</a></li>
+<li><a href="../../repos/11-referencias-e-listas/awesome-opus5-5-videos.html">Awesome Opus 5.5 Videos</a></li>
+<li><a href="../../repos/11-referencias-e-listas/brazilian-utils.html">Brazilian Utils</a></li>
+<li><a href="../../repos/11-referencias-e-listas/claude-cookbooks.html">Claude Cookbooks</a></li>
+<li><a href="../../repos/11-referencias-e-listas/leis-brasil.html">Leis do Brasil em Markdown (ctresb/leis)</a></li>
+<li><a href="../../repos/11-referencias-e-listas/public-apis.html">Public APIs</a></li>
+<li><a href="../../repos/11-referencias-e-listas/system-prompts.html">System Prompts and Models of AI Tools</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

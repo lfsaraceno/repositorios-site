@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>openGym · Repositórios favoritos</title>
+<meta name="description" content="App open source de treino na academia e com peso do corpo, que você hospeda ou usa só no celular: planeja rotinas com mais de 5.600 exercícios animados, registra séries com descanso e recordes, mostra os músculos trabalhados e importa do Strong, Hevy e FitNotes. Tem app de iPhone, Apple Watch e Android.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>openGym</h1>
+    <p class="lead">App open source de treino na academia e com peso do corpo, que você hospeda ou usa só no celular: planeja rotinas com mais de 5.600 exercícios animados, registra séries com descanso e recordes, mostra os músculos trabalhados e importa do Strong, Hevy e FitNotes. Tem app de iPhone, Apple Watch e Android.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/DuarteSantos8/openGym">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">DuarteSantos8/openGym</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/DuarteSantos8/openGym">DuarteSantos8/openGym</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://opengym.ch">opengym.ch</a> · <a href="https://opengym.ch/demo/">Demo no navegador</a> · <a href="https://github.com/DuarteSantos8/openGym/blob/main/docs/README.md">Documentação</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript (React 19 + Node)</dd></div>
+<div><dt>Licença</dt><dd>AGPL-3.0 (as imagens e animações dos exercícios têm licença à parte)</dd></div>
+<div><dt>Estrelas</dt><dd>~24k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um app de treino sem assinatura, sem anúncios e sem telemetria. Seus dados ficam numa pasta que você controla. No servidor, sobe com um <code>docker compose up</code>. No celular, funciona sozinho, sem conta, ou conectado ao seu servidor para sincronizar entre aparelhos.</p>
+<p>O autor diz que boa parte do código, dos testes e da documentação é escrita com o Claude Code, com revisão e testes antes de cada versão.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Planejamento:</strong> rotina por dia da semana ou em rodízio (A, B, C), quatro planos prontos (Push/Pull/Legs, Upper/Lower, Full Body, 5×5), supersets, aquecimento, drop sets, exercícios por tempo e cardio.</li>
+<li><strong>Treino guiado:</strong> cargas preenchidas a partir do último treino, cronômetro de descanso, recordes detectados na hora, conta de anilhas por barra e por academia, troca rápida por um exercício reserva.</li>
+<li><strong>Progresso:</strong> regras de progressão (linear, Greyskull LP, dupla e tripla), 1RM estimado, mapa muscular, peso corporal com meta e fotos de antes e depois.</li>
+<li><strong>Dados:</strong> login por passkey, sincronização que junta edições de dois aparelhos, importação do FitNotes, Strong, Hevy e Apple Health, exportação em JSON e CSV.</li>
+<li><strong>Celular e relógio:</strong> apps de iPhone, iPad, Android e Apple Watch, widgets, Apple Health e Health Connect nos dois sentidos, Wear OS em beta.</li>
+<li><strong>Opcionais, desligados por padrão:</strong> coach de IA com a sua chave (Anthropic, OpenAI, Gemini ou Ollama), servidor MCP para perguntar ao assistente sobre seus treinos e webhooks para Home Assistant, n8n e ntfy.</li>
+<li>26 idiomas.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Para hospedar: Docker com Compose.</li>
+<li>Para usar o passkey pelo celular: HTTPS num domínio.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Servidor:</p>
+<pre><code class="language-bash">git clone https://github.com/DuarteSantos8/openGym
+cd openGym
+cp .env.example .env
+docker compose pull
+docker compose up -d
+</code></pre>
+<p>Abra http://localhost:8080 e toque em <strong>Create profile</strong>.</p>
+<p>Celular: <a href="https://apps.apple.com/app/id6822275400">App Store</a> (iPhone, iPad e Apple Watch) ou o APK assinado na <a href="https://github.com/DuarteSantos8/openGym/releases/latest">última release</a>. O APK vem em três tamanhos: Standard (~315 MB), Plus (~424 MB) e HD (~760 MB). No Google Play ainda está em teste fechado.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>As opções ficam no <code>.env</code>. As principais:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Variável</th>
+<th>Para quê</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RP_ID</code> / <code>ORIGIN</code></td>
+<td>Domínio e URL do app (precisam bater para o passkey funcionar)</td>
+</tr>
+<tr>
+<td><code>INVITE_ONLY</code></td>
+<td>Cadastro só com convite</td>
+</tr>
+<tr>
+<td><code>PASSWORD_LOGIN</code></td>
+<td>Libera login com nome e senha além do passkey</td>
+</tr>
+<tr>
+<td><code>FIRST_USER_ADMIN</code></td>
+<td>O primeiro perfil vira administrador</td>
+</tr>
+<tr>
+<td><code>COACH_DISABLED</code></td>
+<td>Desliga o coach de IA na instância toda</td>
+</tr>
+</tbody>
+</table></div>
+<p>Faça backup da pasta <code>./data</code>: ali está tudo.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Registrar seus treinos sem pagar assinatura e sem entregar seus dados a uma empresa.</li>
+<li>Hospedar um app de treino para a família, amigos ou alunos.</li>
+<li>Sair do Strong ou do Hevy levando o histórico.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>AGPL-3.0:</strong> se você rodar uma versão modificada como serviço na rede, precisa disponibilizar o código. Contribuições exigem assinar um CLA.</li>
+<li><strong>As animações dos exercícios não são livres:</strong> pertencem ao Gym visual e só podem ser usadas no openGym. Um fork comercial precisa de licença própria em gymvisual.com.</li>
+<li>Login que não funciona quase sempre é <code>RP_ID</code> ou <code>ORIGIN</code> errado.</li>
+<li>O coach de IA manda seus dados de treino ao provedor que você configurar.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/DuarteSantos8/openGym/blob/main/docs/SELF_HOSTING.md">Guia de self-hosting</a> · <a href="https://github.com/DuarteSantos8/openGym/blob/main/docs/MOBILE.md">Apps de celular</a></li>
+<li><a href="https://github.com/DuarteSantos8/openGym/blob/main/docs/DATA_IMPORTS.md">Importar dados</a> · <a href="https://github.com/DuarteSantos8/openGym/blob/main/docs/AI_COACH.md">Coach de IA</a></li>
+<li><a href="https://github.com/DuarteSantos8/openGym/blob/main/ROADMAP.md">Roadmap</a> · <a href="https://discord.gg/e62jY6fwVb">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC (Receita Federal)</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/duplicati.html">Duplicati</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/microsoft-clarity.html">Microsoft Clarity</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rtc-calculadora-offline.html">RTC Calculadora Offline</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/stirling-pdf.html">Stirling PDF</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

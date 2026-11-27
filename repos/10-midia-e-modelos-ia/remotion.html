@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remotion · Repositórios favoritos</title>
+<meta name="description" content="Framework para criar vídeos com código em React: cada quadro é um componente, renderizado para MP4 localmente, em servidor, no AWS Lambda ou no navegador. Tem skills oficiais para agentes e licença gratuita para pessoas e empresas pequenas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>Remotion</h1>
+    <p class="lead">Framework para criar vídeos com código em React: cada quadro é um componente, renderizado para MP4 localmente, em servidor, no AWS Lambda ou no navegador. Tem skills oficiais para agentes e licença gratuita para pessoas e empresas pequenas.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/remotion-dev/remotion">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">remotion-dev/remotion</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/remotion-dev/remotion">remotion-dev/remotion</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://remotion.dev">remotion.dev</a> · <a href="https://www.remotion.dev/docs">Documentação</a> · <a href="https://www.remotion.dev/api">API</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>Remotion License (gratuita para pessoas, empresas com até 3 funcionários e ONGs; empresas maiores pagam)</dd></div>
+<div><dt>Estrelas</dt><dd>~75k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Remotion permite fazer vídeos escrevendo componentes React. O vídeo vira código: animações, texto, imagens, áudio e efeitos são definidos em função do número do quadro, e o Remotion renderiza tudo para MP4 (ou imagem).</p>
+<p>Serve para três formas de trabalho: com um agente de IA (que escreve o código do vídeo), de forma interativa no Remotion Studio (edição e animação como num editor de vídeo) ou de forma programática (templates com dados, renderização em lote de milhares de vídeos).</p>
+<p>A documentação tem mais de 1.200 páginas e cobre elementos, efeitos, transições, efeitos sonoros, legendas, fontes, correção de cor e formas. Para apps, há o Player (para embutir vídeos editáveis num site) e o Editor Starter.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Vídeos como componentes React, com tudo que a web oferece (CSS, SVG, Canvas, WebGL, three.js via <code>@remotion/three</code>).</li>
+<li>Remotion Studio para pré-visualizar e editar.</li>
+<li>Renderização local, em servidor Node, no AWS Lambda, no Vercel ou no navegador.</li>
+<li>Renderização em lote para vídeos personalizados com dados.</li>
+<li>Legendas, transições, efeitos sonoros, fontes e correção de cor prontos.</li>
+<li>Player para embutir vídeos em apps.</li>
+<li><a href="../02-skills-para-agentes/remotion-skills.html">Skills oficiais para agentes</a> (Claude Code, Codex, Cursor etc.).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx create-video@latest            # cria um projeto novo
+npx create-video@latest --skills   # cria o projeto já com as skills para agentes
+</code></pre>
+<p>Detalhes na <a href="https://www.remotion.dev/docs/">página de instalação</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Dentro de um projeto Remotion:</p>
+<pre><code class="language-bash">npx remotion skills add                                     # instala as skills para agentes
+npx remotion render src/index.ts &lt;Composição&gt; out/video.mp4   # renderiza uma composição
+</code></pre>
+<p>Com as skills instaladas, peça ao agente:</p>
+<pre><code class="language-text">/remotion-create Make a promo video for a record store
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Vídeos de produto, explicativos e motion graphics feitos por um agente de IA.</li>
+<li>Vídeos personalizados em massa (um por cliente, por produto, por dado).</li>
+<li>Apps de edição de vídeo ou geradores de vídeo como serviço.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença:</strong> não é open source tradicional. É grátis (inclusive para uso comercial) para pessoas físicas, empresas com fins lucrativos de até 3 funcionários, ONGs e para avaliação. Acima disso, exige a Company License paga. Também é proibido revender um derivado do Remotion. A licença muda um pouco na versão 5.0.</li>
+<li>Renderizar vídeos longos ou em 2K/4K consome CPU, disco e tempo. Cada bundle copia a pasta <code>public/</code> para a pasta temporária.</li>
+<li>Relacionados no catálogo: as <a href="../02-skills-para-agentes/remotion-skills.html">Remotion Skills</a> são as skills oficiais; o <a href="hyperframes.html">HyperFrames</a> foi inspirado no Remotion, mas usa HTML puro em vez de React, tem licença Apache 2.0 sem cobrança para empresas e traz <code>/remotion-to-hyperframes</code> para migrar projetos; o <a href="../02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a> e o <a href="../02-skills-para-agentes/anidoodle.html">Anidoodle</a> renderizam com o Remotion.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://www.remotion.dev/docs">Documentação</a> · <a href="https://remotion.dev/docs/your-first-video">Seu primeiro vídeo</a></li>
+<li><a href="https://remotion.dev/templates">Templates</a> · <a href="https://remotion.dev/showcase">Showcase</a></li>
+<li><a href="https://github.com/remotion-dev/remotion/blob/main/LICENSE.md">Licença</a> · <a href="https://www.remotion.dev/docs/license/pricing">Preços</a> · <a href="https://www.remotion.dev/docs/license/faq">FAQ da licença</a></li>
+<li><a href="https://www.remotion.dev/docs/agents/skills">Skills para agentes</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/longcat.html">LongCat (Meituan)</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openhiggsfield-story-studio.html">OpenHiggsfield Story Studio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openverse.html">Openverse</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

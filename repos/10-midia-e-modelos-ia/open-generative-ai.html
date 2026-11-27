@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Generative AI · Repositórios favoritos</title>
+<meta name="description" content="Estúdio open-source de geração de imagem, vídeo, áudio e lip sync com centenas de modelos (Flux, Kling, Sora, Veo, Nano Banana e outros) via API da Muapi, com app desktop, versão web e modelos locais; alternativa a Higgsfield, Krea e plataformas de vídeo com IA.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>Open Generative AI</h1>
+    <p class="lead">Estúdio open-source de geração de imagem, vídeo, áudio e lip sync com centenas de modelos (Flux, Kling, Sora, Veo, Nano Banana e outros) via API da Muapi, com app desktop, versão web e modelos locais; alternativa a Higgsfield, Krea e plataformas de vídeo com IA.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Anil-matcha/Open-Generative-AI">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Anil-matcha/Open-Generative-AI</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Anil-matcha/Open-Generative-AI">Anil-matcha/Open-Generative-AI</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://muapi.ai/open-generative-ai">Versão hospedada (Muapi)</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript/TypeScript (Next.js e Electron)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~35k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma interface única para gerar mídia com IA: texto para imagem, imagem para imagem, texto para vídeo, imagem para vídeo e lip sync guiado por áudio. Os modelos de nuvem são acessados pela API da <a href="https://muapi.ai">Muapi.ai</a> (com sua chave, pagando por uso); o app desktop também roda modelos <strong>locais</strong> de imagem (stable-diffusion.cpp) e se conecta a uma instalação do <a href="wangp.html">WanGP</a> para vídeo local.</p>
+<p>Está organizado em estúdios: Imagem, Vídeo, Áudio, AI Clipping, Vibe Motion, Lip Sync, Cinema, Marketing, Workflows, Agentes, Design Agent e Apps. Pode ser usado na versão hospedada, no app desktop ou self-hosted (Next.js ou Docker).</p>
+<p>O projeto se anuncia como &quot;sem filtros de conteúdo&quot;.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Centenas de modelos de imagem e vídeo (Flux, Midjourney, Kling, Sora, Veo, Seedream, Wan 2.2, Nano Banana e outros).</li>
+<li>Até 14 imagens de referência em modelos compatíveis.</li>
+<li><strong>Lip Sync Studio</strong> com 9 modelos dedicados.</li>
+<li><strong>Modelos locais</strong> no app desktop: Z-Image Turbo/Base, Dreamshaper 8, Realistic Vision, Anything v5, SDXL (via sd.cpp, com GPU Metal, CUDA, Vulkan ou ROCm), sem chave de API.</li>
+<li>Integração com WanGP para vídeo local (Wan, Hunyuan, LTX-2) numa máquina com GPU NVIDIA/AMD.</li>
+<li>Workflows, agentes, MCP e CLI na versão hospedada.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>App desktop: macOS (Apple Silicon ou Intel), Windows x64 ou Linux x64.</li>
+<li>Chave da <a href="https://muapi.ai/access-keys">Muapi.ai</a> para modelos na nuvem (dispensável só com modelos locais).</li>
+<li>Do código: Node.js 18+.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="app-desktop">App desktop</h3>
+<p>Baixe em <a href="https://github.com/Anil-matcha/Open-Generative-AI/releases">Releases</a>: <code>.dmg</code> (macOS), <code>Setup .exe</code> (Windows), <code>.AppImage</code> ou <code>.deb</code> (Linux).</p>
+<ul>
+<li><strong>macOS:</strong> o app não é notarizado; depois de copiar para <code>/Applications</code>, rode <code>xattr -cr &quot;/Applications/Open Generative AI.app&quot;</code> e abra com botão direito → Abrir.</li>
+<li><strong>Windows:</strong> o instalador não é assinado; no SmartScreen, clique em <strong>More info</strong> → <strong>Run anyway</strong>.</li>
+<li><strong>Ubuntu 24.04+:</strong> prefira o <code>.deb</code> (traz o perfil AppArmor necessário).</li>
+</ul>
+<h3 id="do-codigo-fonte">Do código-fonte</h3>
+<pre><code class="language-bash">git clone --recurse-submodules https://github.com/Anil-matcha/Open-Generative-AI.git
+cd Open-Generative-AI
+npm run setup          # obrigatório: instala e compila os workspaces
+npm run electron:dev   # app desktop
+npm run dev            # versão web em http://localhost:3000
+</code></pre>
+<h3 id="docker">Docker</h3>
+<pre><code class="language-bash">git clone --recurse-submodules https://github.com/Anil-matcha/Open-Generative-AI.git
+cd Open-Generative-AI
+docker compose up --build    # http://localhost:3001
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Abra o app e informe a chave da Muapi (ou pule para usar só modelos locais).</li>
+<li>Escolha o estúdio (Imagem, Vídeo, Lip Sync...) e o modelo.</li>
+<li>Para modelos locais: <strong>Settings → Local Models</strong>, instale o motor sd.cpp, baixe o modelo e ative o seletor <strong>⚡ Local</strong> no Image Studio.</li>
+</ol>
+<p>Builds desktop: <code>npm run electron:build</code> (macOS), <code>npm run electron:build:win</code>, <code>npm run electron:build:linux</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Testar e comparar muitos modelos de imagem e vídeo numa só interface, pagando por uso.</li>
+<li>Gerar imagens localmente num Mac M-series sem API.</li>
+<li>Base para um estúdio de IA próprio e customizado.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>&quot;Sem filtros de conteúdo&quot;:</strong> a responsabilidade pelo que for gerado é sua. Deepfakes, uso de rosto ou voz de terceiros sem consentimento e conteúdo ilegal podem gerar responsabilização civil e criminal, e violam a LGPD e os termos dos provedores de modelo.</li>
+<li>Os modelos de nuvem passam pela Muapi (serviço pago do mesmo autor); o README tem bastante propaganda do plano white label (a partir de US$ 49/mês).</li>
+<li>Instaladores sem assinatura de código (macOS e Windows): baixe só do repositório oficial.</li>
+<li>O <a href="open-higgsfield.html">OpenHiggsfield AI</a>, já no catálogo, segue proposta parecida.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Anil-matcha/Open-Generative-AI#readme">README</a></li>
+<li><a href="https://github.com/Anil-matcha/Open-Generative-AI/releases">Releases</a></li>
+<li><a href="https://muapi.ai/access-keys">Chaves da Muapi</a></li>
+<li><a href="https://github.com/leejet/stable-diffusion.cpp">stable-diffusion.cpp</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/longcat.html">LongCat (Meituan)</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openhiggsfield-story-studio.html">OpenHiggsfield Story Studio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openverse.html">Openverse</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/remotion.html">Remotion</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

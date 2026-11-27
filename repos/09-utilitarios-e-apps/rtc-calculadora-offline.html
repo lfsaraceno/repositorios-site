@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RTC Calculadora Offline · Repositórios favoritos</title>
+<meta name="description" content="Robô que confere todo dia se a Receita Federal lançou uma versão nova da calculadora offline da reforma tributária (CBS, IBS e Imposto Seletivo) e, se lançou, baixa o pacote e publica aqui como release, com a imagem Docker pronta para rodar.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>RTC Calculadora Offline</h1>
+    <p class="lead">Robô que confere todo dia se a Receita Federal lançou uma versão nova da calculadora offline da reforma tributária (CBS, IBS e Imposto Seletivo) e, se lançou, baixa o pacote e publica aqui como release, com a imagem Docker pronta para rodar.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/nfe/rtc-calculadora-offline">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">nfe/rtc-calculadora-offline</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/nfe/rtc-calculadora-offline">nfe/rtc-calculadora-offline</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://piloto-cbs.tributos.gov.br/servico/calculadora-consumo/calculadora/calculadora-offline">Calculadora offline no portal oficial</a></dd></div>
+<div><dt>Linguagem</dt><dd>Java (código espelhado) e GitHub Actions</dd></div>
+<div><dt>Licença</dt><dd>Não informada no repositório</dd></div>
+<div><dt>Estrelas</dt><dd>~29 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>A Receita Federal distribui a calculadora offline como um pacote para baixar no portal. Este repositório automatiza o acompanhamento: um workflow do GitHub Actions roda todo dia à meia-noite (UTC), pede à API oficial o link do pacote mais recente, baixa e compara o hash com a versão anterior. Se mudou, descompacta o código-fonte, faz o commit e cria uma release.</p>
+<p>Assim você tem o histórico de versões da calculadora no Git e um jeito fácil de baixar sempre a última.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Verificação diária automática, ou manual pela aba <strong>Actions</strong>.</li>
+<li>Código-fonte do backend descompactado na pasta <code>codigo-fonte-backend</code>, com histórico de commits por data.</li>
+<li>Cada versão vira uma release <code>pacote-AAAAMMDD-HHMMSS</code> com a imagem Docker (<code>calculadora.tar.gz</code>), os <code>codigo-fonte-*.zip</code>, <code>scripts-instalacao.zip</code>, <code>versoes.txt</code> e <code>SHA256SUMS.txt</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Docker.</li>
+<li>GitHub CLI (<code>gh</code>) para baixar a release pelo terminal.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Baixar a última imagem e subir a calculadora:</p>
+<pre><code class="language-bash">gh release download --repo nfe/rtc-calculadora-offline --pattern calculadora.tar.gz --clobber
+docker import calculadora.tar.gz calculadora-image
+docker run -t -i --rm -p 8080:8080 -p 8081:8081 -p 8082:8082 -p 80:80 -w /calculadora calculadora-image bash start.sh
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Para acompanhar versões novas, assine as releases do repositório (Watch → Custom → Releases) ou rode o <code>gh release download</code> acima de tempos em tempos.</p>
+<p>Para forçar uma checagem num fork: <strong>Actions → &quot;Download and Update Código Fonte da Calculadora da Reforma Tributária&quot; → Run workflow</strong>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Subir a calculadora oficial completa num servidor com um comando Docker.</li>
+<li>Ver o que mudou entre versões da calculadora (diff do código no Git).</li>
+<li>Automatizar a atualização da calculadora no seu ambiente.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Não é da Receita Federal: é um espelho mantido pela organização <code>nfe</code> no GitHub. Confira o <code>SHA256SUMS.txt</code> e, em caso de dúvida, baixe o pacote no portal oficial.</li>
+<li>O repositório não declara licença.</li>
+<li>Relacionado no catálogo: a <a href="calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC</a> é o código-fonte publicado pela própria Receita no GitHub.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/nfe/rtc-calculadora-offline/releases">Releases</a></li>
+<li><a href="https://piloto-cbs.tributos.gov.br/servico/calculadora-consumo/calculadora/calculadora-offline">Calculadora offline no portal oficial</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC (Receita Federal)</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/duplicati.html">Duplicati</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/microsoft-clarity.html">Microsoft Clarity</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/opengym.html">openGym</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/stirling-pdf.html">Stirling PDF</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

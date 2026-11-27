@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GSAP · Repositórios favoritos</title>
+<meta name="description" content="Biblioteca JavaScript de animação para a web, sem dependências e agora 100% gratuita (inclusive plugins como ScrollTrigger, SplitText e MorphSVG, também para uso comercial): anima CSS, SVG, canvas, React, Vue, WebGL e qualquer objeto JS.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>GSAP</h1>
+    <p class="lead">Biblioteca JavaScript de animação para a web, sem dependências e agora 100% gratuita (inclusive plugins como ScrollTrigger, SplitText e MorphSVG, também para uso comercial): anima CSS, SVG, canvas, React, Vue, WebGL e qualquer objeto JS.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/greensock/GSAP">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">greensock/GSAP</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/greensock/GSAP">greensock/GSAP</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://gsap.com">gsap.com</a> · <a href="https://gsap.com/docs">Documentação</a> · <a href="https://gsap.com/install">Instalação</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>Licença padrão &quot;no charge&quot; da GreenSock (gratuita, inclusive comercial; não é MIT)</dd></div>
+<div><dt>Estrelas</dt><dd>~31k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O GSAP (GreenSock Animation Platform) é uma das bibliotecas de animação mais usadas da web, presente em mais de 12 milhões de sites. Funciona com qualquer framework (ou nenhum) e anima propriedades CSS, atributos, SVG, canvas, cores, textos, caminhos de movimento e objetos JavaScript em geral.</p>
+<p>O ponto forte é o sequenciamento: timelines precisas, controle fino e correção de inconsistências entre navegadores. Com a compra pela Webflow, todo o pacote ficou gratuito, inclusive os plugins que antes eram pagos (Club GSAP).</p>
+<p>É o motor de animação usado por várias ferramentas de vídeo em código, como o <a href="../10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a> e o <a href="../02-skills-para-agentes/motionmaxxing.html">Motionmaxxing</a>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Núcleo sem dependências, com utilitários (<code>interpolate()</code>, <code>mapRange()</code>), easings, snapping e modificadores.</li>
+<li><strong>ScrollTrigger</strong> e <strong>ScrollSmoother:</strong> animações ligadas à rolagem.</li>
+<li><strong>SplitText</strong>, <strong>MorphSVG</strong>, <strong>MotionPath</strong>, <strong>Flip</strong>, <strong>Draggable</strong> e <strong>Observer</strong>, todos gratuitos.</li>
+<li><code>gsap.matchMedia()</code> para animações responsivas e com acessibilidade.</li>
+<li>Pacote <code>@gsap/react</code> com o hook <code>useGSAP()</code>, que cuida da limpeza.</li>
+<li>Arquivos ES modules e UMD; aceito pelas grandes redes de anúncios.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um projeto web (com ou sem bundler).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npm install gsap
+</code></pre>
+<p>Ou por CDN:</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-javascript">import gsap from &quot;gsap&quot;;
+import ScrollTrigger from &quot;gsap/ScrollTrigger&quot;;
+import Flip from &quot;gsap/Flip&quot;;
+import Draggable from &quot;gsap/Draggable&quot;;
+// ou tudo de uma vez:
+import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from &quot;gsap/all&quot;;
+
+gsap.registerPlugin(ScrollTrigger, Draggable, Flip, MotionPathPlugin);   // registre os plugins antes de usar
+</code></pre>
+<p>Para o agente escrever GSAP bem, instale as <a href="../02-skills-para-agentes/gsap-skills.html">GSAP Skills</a> oficiais.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Animações de site com sequência complexa, rolagem e texto animado.</li>
+<li>Motion graphics em HTML que depois vira vídeo (HyperFrames, Motionmaxxing).</li>
+<li>Animações de SVG e morphing.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença:</strong> a licença padrão da GreenSock é gratuita e permite uso comercial, mas não é MIT. Leia em <a href="https://gsap.com/standard-license">gsap.com/standard-license</a>.</li>
+<li>Bugs e dúvidas vão preferencialmente para os <a href="https://gsap.com/community/">fóruns do GSAP</a>.</li>
+<li>Relacionados no catálogo: as <a href="../02-skills-para-agentes/gsap-skills.html">GSAP Skills</a> ensinam o GSAP ao agente; o <a href="motion.html">Motion</a> é a alternativa mais usada em React; o <a href="lottie-web.html">Lottie</a> toca animações exportadas do After Effects.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://gsap.com/get-started/">Começar</a> · <a href="https://gsap.com/docs/">Documentação</a> · <a href="https://gsap.com/cheatsheet">Cheat sheet</a></li>
+<li><a href="https://demos.gsap.com">Demos e templates</a> · <a href="https://gsap.com/docs/v3/Eases">Ease Visualizer</a></li>
+<li><a href="https://gsap.com/react">Guia de React</a></li>
+<li><a href="https://gsap.com/standard-license">Licença</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/ai-website-cloner-template.html">AI Website Cloner Template</a></li>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/interface-skills.html">Interface Skills (jakubkrehel/skills)</a></li>
+<li><a href="../../repos/03-design-e-ui/lottie-web.html">Lottie (lottie-web)</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/motion.html">Motion</a></li>
+<li><a href="../../repos/03-design-e-ui/stitch-skills.html">Stitch Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+<li><a href="../../repos/03-design-e-ui/unslop.html">Unslop</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

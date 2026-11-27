@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LTX-2 · Repositórios favoritos</title>
+<meta name="description" content="Pacote oficial em Python da Lightricks para rodar e treinar (LoRA) o LTX-2, modelo de pesos abertos que gera vídeo com áudio sincronizado a partir de texto, imagem ou áudio, com saída até 4K e HDR.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>LTX-2</h1>
+    <p class="lead">Pacote oficial em Python da Lightricks para rodar e treinar (LoRA) o LTX-2, modelo de pesos abertos que gera vídeo com áudio sincronizado a partir de texto, imagem ou áudio, com saída até 4K e HDR.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Lightricks/LTX-2">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Lightricks/LTX-2</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Lightricks/LTX-2">Lightricks/LTX-2</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://ltx.io">ltx.io</a> · <a href="https://console.ltx.video/playground">Playground</a> · <a href="https://arxiv.org/abs/2601.03233">Paper</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>Código Apache 2.0; modelos sob LTX-2.x Community License (pago para empresas com receita ≥ US$ 10 mi)</dd></div>
+<div><dt>Estrelas</dt><dd>~10k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O LTX-2 é um modelo de base de áudio e vídeo (arquitetura DiT) que gera <strong>vídeo e som sincronizados num único modelo</strong>: falas, ruídos e trilha saem junto com a imagem. A versão recomendada é o <strong>LTX-2.5</strong> (transformer de 22B parâmetros com encoder de texto Gemma 4 12B ajustado); o LTX-2.3 continua suportado.</p>
+<p>Este repositório é um monorepo com três pacotes: <code>ltx-core</code> (implementação do modelo e da inferência), <code>ltx-pipelines</code> (pipelines de alto nível: texto para vídeo, imagem para vídeo, áudio para vídeo, vídeo para vídeo, dublagem, HDR) e <code>ltx-trainer</code> (treino de LoRA, fine-tuning completo e IC-LoRA).</p>
+<p>Roda localmente, mas exige GPU robusta e cerca de 66 GiB só de pesos no pacote básico. Para usar no ComfyUI existe o <a href="https://github.com/Lightricks/ComfyUI-LTXVideo/">ComfyUI-LTXVideo</a>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>DistilledPipeline:</strong> texto/imagem para vídeo mais rápido (8 passos no estágio 1, 4 no estágio 2); o ponto de partida.</li>
+<li><strong>DFR (Diffusion Fidelity Rendering):</strong> qualidade de produção, com keyframes gerados e passe de detalhamento; padrão 1024×1536 a 24 fps, até UHD 4K (<code>--width 3840 --height 2176</code>) e 2x/4x fps com o upscaler temporal.</li>
+<li><strong>A2VidPipelineTwoStage:</strong> vídeo condicionado a um arquivo de áudio.</li>
+<li><strong>DubItPipeline:</strong> dublagem que reescreve a fala mantendo a identidade do falante e o movimento dos lábios.</li>
+<li><strong>RetakePipeline:</strong> regenera só um trecho de tempo de um vídeo existente.</li>
+<li><strong>ICLoraPipeline:</strong> vídeo para vídeo e imagem para vídeo; <strong>HDRICLoraPipeline:</strong> converte SDR em HDR (BT.2020/HLG e sequência EXR ACEScct).</li>
+<li><strong>HDR/EXR nativo</strong> com <code>--hdr {SRGB_LINEAR,ACESCG,ACESCCT,ACES2065_1}</code>.</li>
+<li><strong>Treino</strong> de LoRA, IC-LoRA e fine-tuning completo com o <code>ltx-trainer</code>.</li>
+<li>Otimizações: quantização FP8, offload para CPU ou disco, FlashAttention 3/4, aprimoramento automático de prompt (<code>enhance_prompt</code>).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>GPU NVIDIA com bastante VRAM (o README não fixa um mínimo; com pouca memória use FP8 e offload).</li>
+<li><a href="https://docs.astral.sh/uv/">uv</a> para instalar as dependências.</li>
+<li>Conta no Hugging Face com os termos do modelo aceitos e um token <strong>Read</strong> (tokens fine-grained precisam do escopo &quot;read gated repos&quot;).</li>
+<li>~66 GiB de disco para os pesos básicos do LTX-2.5.</li>
+<li>Windows e macOS funcionam: o extra <code>natten</code> (só Linux + CUDA) é ignorado automaticamente e o decoder usa Triton ou implementação eager.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="1-clonar-e-instalar">1. Clonar e instalar</h3>
+<pre><code class="language-bash">git clone https://github.com/Lightricks/LTX-2.git
+cd LTX-2
+uv sync --extra natten
+</code></pre>
+<h3 id="2-baixar-os-modelos-66-gib">2. Baixar os modelos (~66 GiB)</h3>
+<pre><code class="language-bash">hf auth login
+hf download Lightricks/LTX-2.5 \
+    diffusion_models/ltx-2.5-22b-distilled-transformer-bf16.safetensors \
+    text_encoders/gemma4-12b-with-proj-ltx-2.5-bf16.safetensors \
+    vae/ltx-2.5-video-vae-bf16.safetensors \
+    vae/ltx-2.5-audio-vae-bf16.safetensors \
+    latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors \
+    --local-dir models/ltx-2.5
+</code></pre>
+<p>Erro 401/403: aceite os termos do modelo no Hugging Face e entre com um token Read.</p>
+<h3 id="3-opcional-ic-lora-de-detalhamento-para-o-dfr">3. (Opcional) IC-LoRA de detalhamento para o DFR</h3>
+<pre><code class="language-bash">hf download Lightricks/LTX-2.5-22b-IC-LoRA-Pixel-Spatial-Upscaler \
+    ltx-2.5-22b-ic-lora-pixel-spatial-upscaler-x2-1.0.safetensors \
+    --local-dir models/ltx-2.5/loras
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<h3 id="gerar-video-rapido-distilledpipeline">Gerar vídeo rápido (DistilledPipeline)</h3>
+<pre><code class="language-bash">uv run python -m ltx_pipelines.distilled \
+    --transformer-path       models/ltx-2.5/diffusion_models/ltx-2.5-22b-distilled-transformer-bf16.safetensors \
+    --text-encoder-path      models/ltx-2.5/text_encoders/gemma4-12b-with-proj-ltx-2.5-bf16.safetensors \
+    --video-vae-path         models/ltx-2.5/vae/ltx-2.5-video-vae-bf16.safetensors \
+    --audio-vae-path         models/ltx-2.5/vae/ltx-2.5-audio-vae-bf16.safetensors \
+    --spatial-upsampler-path models/ltx-2.5/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors \
+    --num-frames 121 \
+    --seed 42 \
+    --output-path output.mp4 \
+    --prompt &quot;&lt;descrição detalhada da cena&gt;&quot;
+</code></pre>
+<h3 id="qualidade-de-producao-dfr">Qualidade de produção (DFR)</h3>
+<p>Mesmo comando com o módulo <code>ltx_pipelines.dfr_pipeline</code> e o argumento extra <code>--detailing-lora models/ltx-2.5/loras/ltx-2.5-22b-ic-lora-pixel-spatial-upscaler-x2-1.0.safetensors</code>. Não use o transformer completo (dev) no DFR.</p>
+<h3 id="pouca-vram">Pouca VRAM</h3>
+<pre><code class="language-bash">--quantization fp8-cast --offload cpu     # ou --offload disk
+</code></pre>
+<p>Em GPUs Hopper ou mais novas com FP8 nativo e checkpoints FP8: <code>--quantization fp8-scaled-mm</code>.</p>
+<h3 id="ajuda-de-qualquer-pipeline">Ajuda de qualquer pipeline</h3>
+<pre><code class="language-bash">python -m ltx_pipelines.ti2vid_two_stages --help
+</code></pre>
+<h3 id="como-escrever-o-prompt">Como escrever o prompt</h3>
+<p>Um parágrafo único, em ordem cronológica, com até 200 palavras, como um diretor de fotografia descrevendo a cena: ação principal numa frase; detalhes de movimento e gestos; aparência de personagens e objetos; ambiente; ângulo e movimento de câmera; luz e cores; mudanças ou eventos repentinos. Inclua falas e sons, já que o modelo gera áudio. Guia oficial: <a href="https://ltx.io/blog/prompting-guide-for-ltx-2">https://ltx.io/blog/prompting-guide-for-ltx-2</a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gerar vídeos curtos com fala e som sincronizados localmente, sem pagar por API de vídeo.</li>
+<li>Pipelines de pós-produção: dublagem com sincronia labial, refazer trechos de um vídeo, converter SDR para HDR.</li>
+<li>Treinar LoRAs de estilo, personagem ou controle (IC-LoRA) sobre o LTX-2.</li>
+<li>Integrar geração de vídeo a um fluxo próprio em Python ou ao ComfyUI.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Licença dos modelos:</strong> o código é Apache 2.0, mas os <strong>pesos</strong> seguem a LTX-2.x Community License (2.5) ou a LTX-2 Community License (2.3). Empresas (contando grupo econômico) com <strong>receita anual a partir de US$ 10 milhões</strong> precisam de licença paga para qualquer uso que não seja estritamente não comercial (contato: licensing@ltx.io). Pessoas físicas em projetos pessoais e empresas menores podem usar, respeitando as restrições de uso do anexo da licença.</li>
+<li><strong>Hardware pesado:</strong> transformer de 22B mais encoder de 12B; espere precisar de GPU de alta memória ou de quantização FP8 e offload.</li>
+<li>O LTX-2.3 usa checkpoints monolíticos e encoder Gemma 3 baixado à parte (licença do Google); arquivos e LoRAs não são intercambiáveis entre 2.3 e 2.5.</li>
+<li>Para uma interface web pronta com pouca VRAM, que roda LTX-2/2.3/2.5 entre outros modelos, veja o <a href="wangp.html">WanGP</a>. O <a href="openmontage.html">OpenMontage</a> usa o LTX como um dos provedores locais de vídeo.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Lightricks/LTX-2#readme">README</a></li>
+<li><a href="https://huggingface.co/Lightricks/LTX-2.5">Modelos LTX-2.5 no Hugging Face</a></li>
+<li><a href="https://github.com/Lightricks/LTX-2/blob/main/packages/ltx-pipelines/README.md">Documentação dos pipelines</a></li>
+<li><a href="https://github.com/Lightricks/LTX-2/blob/main/packages/ltx-trainer/README.md">Documentação do trainer</a></li>
+<li><a href="https://github.com/Lightricks/ComfyUI-LTXVideo/">ComfyUI-LTXVideo</a></li>
+<li><a href="https://github.com/Lightricks/LTX-2/blob/main/LICENSE-2_x">Licença LTX-2.x</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/longcat.html">LongCat (Meituan)</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openhiggsfield-story-studio.html">OpenHiggsfield Story Studio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openverse.html">Openverse</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/remotion.html">Remotion</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

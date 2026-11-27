@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code Router (CCR) · Repositórios favoritos</title>
+<meta name="description" content="Gateway local de modelos para agentes de programação: dá ao Claude Code, Codex, OpenCode e outros um endpoint único e deixa você escolher provedores e modelos (OpenRouter, DeepSeek, Gemini, Kimi etc.), com regras de roteamento, fallback, rotação de chaves e logs de custo.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Claude Code Router (CCR)</h1>
+    <p class="lead">Gateway local de modelos para agentes de programação: dá ao Claude Code, Codex, OpenCode e outros um endpoint único e deixa você escolher provedores e modelos (OpenRouter, DeepSeek, Gemini, Kimi etc.), com regras de roteamento, fallback, rotação de chaves e logs de custo.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/musistudio/claude-code-router">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">musistudio/claude-code-router</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/musistudio/claude-code-router">musistudio/claude-code-router</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://ccrdesk.top/">ccrdesk.top</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~38k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O CCR fica entre os agentes e os provedores de modelo. Cada agente (Claude Code, Claude Design, Codex, Grok CLI, Kimi CLI, Kilo Code, OpenCode, Pi, ZCode, WorkBuddy) aponta para um endpoint local estável (<code>http://127.0.0.1:3456</code>), e você gerencia por trás, num só lugar, provedores, modelos, contas, regras de roteamento e ferramentas.</p>
+<p>Na prática, permite usar o Claude Code com modelos de outros provedores, trocar de modelo sem mexer na configuração de cada agente, manter as requisições rodando com retentativas e modelos reserva, e ver o que aconteceu em cada chamada (modelo resolvido, latência, tokens, custo estimado).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Perfis prontos para os principais agentes, aplicados pela interface.</li>
+<li>Protocolos OpenAI (Chat/Responses), Anthropic Messages e Gemini; provedores OpenRouter, DeepSeek, SiliconFlow, Moonshot, Kimi Code, Mistral, Z.AI, Bailian e endpoints compatíveis.</li>
+<li>Roteamento por condições (cabeçalhos, corpo), prefixos, reescritas, retentativas e fallback ordenado.</li>
+<li>Pool de credenciais e rotação de chaves.</li>
+<li><strong>Fusion:</strong> adiciona visão, busca na web e ferramentas MCP a modelos que não têm; <strong>ToolHub</strong> e automação de navegador embutida.</li>
+<li>Chaves de cliente próprias com expiração e cotas de requisições, tokens e imagens.</li>
+<li>Observabilidade: logs de requisição e resposta, rota resolvida, latência, tokens, custo, tool calls.</li>
+<li><strong>AgentClaw:</strong> acessar agentes por Slack, Discord, Telegram e outros mensageiros.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>App desktop: macOS, Windows ou Linux.</li>
+<li>CLI: Node.js 22+.</li>
+<li>Chaves de API dos provedores que quiser usar.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="app-desktop-recomendado">App desktop (recomendado)</h3>
+<p>Baixe em <a href="https://github.com/musistudio/claude-code-router/releases">Releases</a> (Windows <code>.exe</code>, Linux <code>.AppImage</code>, macOS <code>.dmg</code> para Apple Silicon e Intel) e abra.</p>
+<h3 id="cli-sem-electron">CLI (sem Electron)</h3>
+<pre><code class="language-sh">npm install -g @musistudio/claude-code-router
+ccr ui    # abre a interface em http://127.0.0.1:3458
+</code></pre>
+<h3 id="docker">Docker</h3>
+<pre><code class="language-sh">npm run docker:compose:up
+</code></pre>
+<p>Leia o <a href="https://ccrdesk.top/en/guides/docker/">guia de Docker</a> antes de expor o CCR remotamente.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li><strong>Providers → Add Provider:</strong> escolha um preset ou endpoint, coloque a chave, o protocolo e os modelos.</li>
+<li><strong>Server → Start:</strong> o gateway sobe em <code>http://127.0.0.1:3456</code>.</li>
+<li><strong>Agent Config:</strong> escolha o agente (ex.: Claude Code), o modelo e aplique o perfil.</li>
+<li>Use o agente normalmente; confira em <strong>Logs</strong> o provedor, modelo, tokens, latência e erros.</li>
+<li>Em <strong>Routing</strong>, adicione condições, retentativas, reescritas e modelos reserva.</li>
+</ol>
+<p>Referência da CLI: <a href="https://ccrdesk.top/en/guides/cli/">ccrdesk.top/en/guides/cli</a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Rodar o Claude Code com modelos mais baratos (DeepSeek, Kimi, GLM) ou via OpenRouter.</li>
+<li>Ter fallback automático quando um provedor cai ou estoura limite.</li>
+<li>Controlar custo e uso de vários agentes e chaves num só painel.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Usar o Claude Code com outros modelos pode ter comportamento diferente do esperado e deve respeitar os termos de uso de cada provedor.</li>
+<li>Expor o gateway na rede exige autenticação; ele concentra suas chaves de API.</li>
+<li>Alternativas no catálogo: <a href="omniroute.html">OmniRoute</a> e <a href="free-claude-code.html">Free Claude Code</a>; para trocar configurações entre agentes num app desktop, <a href="cc-switch.html">CC Switch</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/musistudio/claude-code-router#readme">README</a></li>
+<li><a href="https://ccrdesk.top/en/guides/install/">Instalação</a></li>
+<li><a href="https://ccrdesk.top/en/guides/provider/">Provedores</a></li>
+<li><a href="https://ccrdesk.top/en/configuration/">Roteamento e configuração</a></li>
+<li><a href="https://ccrdesk.top/en/troubleshooting/">Solução de problemas</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

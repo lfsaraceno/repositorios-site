@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motion · Repositórios favoritos</title>
+<meta name="description" content="Biblioteca de animação open source para React, JavaScript e Vue (o antigo Framer Motion): springs, gestos, transições de layout, efeitos ligados à rolagem e timelines, com skill e MCP gratuitos para agentes de IA.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Motion</h1>
+    <p class="lead">Biblioteca de animação open source para React, JavaScript e Vue (o antigo Framer Motion): springs, gestos, transições de layout, efeitos ligados à rolagem e timelines, com skill e MCP gratuitos para agentes de IA.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/motiondivision/motion">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">motiondivision/motion</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/motiondivision/motion">motiondivision/motion</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://motion.dev">motion.dev</a> · <a href="https://motion.dev/examples">Exemplos</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT (o Motion+ é pago)</dd></div>
+<div><dt>Estrelas</dt><dd>~36k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Motion é uma biblioteca de animação para interfaces web, com pacotes próprios para React, JavaScript puro e Vue. É o novo nome do <strong>Framer Motion</strong>: em React, importa-se de <code>motion/react</code> em vez de <code>framer-motion</code>.</p>
+<p>Usa um motor híbrido, que combina JavaScript com as APIs nativas do navegador para animações a 120 fps aceleradas pela GPU. Vem com gestos, springs, transições de layout, efeitos ligados à rolagem e timelines. É o motor de animação dos sites feitos no Framer.</p>
+<p>Para agentes de IA, tem uma skill <code>/motion</code> gratuita, um servidor MCP com a documentação e um <code>llms.txt</code>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>API simples em React (<code>&lt;motion.div animate={{ x: 100 }} /&gt;</code>), JavaScript (<code>animate()</code>) e Vue (<code>motion-v</code>).</li>
+<li>Springs, gestos (hover, tap, drag), transições de layout e animações de entrada e saída.</li>
+<li>Animações ligadas à rolagem e timelines.</li>
+<li>TypeScript, tree-shaking e pacote pequeno.</li>
+<li>Mais de 450 exemplos oficiais, 110 com tutorial passo a passo.</li>
+<li>Skill <code>/motion</code> (MIT) e MCP <code>https://mcp.motion.dev</code>, gratuitos e sem conta.</li>
+<li>Motion Studio: editor visual de keyframes, easing e springs numa timeline, que aplica o resultado no código.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um projeto React, JavaScript ou Vue com npm.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npm install motion      # React / JavaScript
+npm install motion-v    # Vue
+</code></pre>
+<p>Para agentes (instala a skill <code>/motion</code> e configura os servidores MCP no Claude Code, Cursor, Amp, OpenCode, Gemini CLI e Copilot):</p>
+<pre><code class="language-bash">npx motion-ai
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>React:</p>
+<pre><code class="language-jsx">import { motion } from &quot;motion/react&quot;
+
+function Component() {
+    return &lt;motion.div animate={{ x: 100 }} /&gt;
+}
+</code></pre>
+<p>JavaScript:</p>
+<pre><code class="language-javascript">import { animate } from &quot;motion&quot;
+animate(&quot;#box&quot;, { x: 100 })
+</code></pre>
+<p>No agente, depois do <code>npx motion-ai</code>, peça a animação normalmente ou chame <code>/motion</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Animações de interface em React (modais, listas, layout que muda, gestos).</li>
+<li>Microinterações com springs naturais.</li>
+<li>Projetos que já usavam Framer Motion (troque o import para <code>motion/react</code>).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A biblioteca é MIT. O <strong>Motion+</strong> é pago (licença pessoal vitalícia ou plano anual por assento) e dá exemplos premium, APIs extras, editor de transições e recursos de IA a mais. As páginas pagas aparecem marcadas no <code>llms.txt</code>.</li>
+<li>Relacionados no catálogo: o <a href="gsap.html">GSAP</a> é mais forte em sequências longas e fora do React; o <a href="../02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a> ensina os princípios de tempo e easing; as <a href="emil-kowalski-skills.html">Emil Kowalski Skills</a> cobrem animação de interface com bom gosto.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://motion.dev/docs/react">Documentação para React</a> · <a href="https://motion.dev/docs/quick-start">JavaScript</a> · <a href="https://motion.dev/docs/vue">Vue</a></li>
+<li><a href="https://motion.dev/examples">Exemplos</a></li>
+<li><a href="https://github.com/motiondivision/ai-kit">AI Kit (skill e MCP)</a> · <a href="https://motion.dev/llms.txt">llms.txt</a></li>
+<li><a href="https://motion.dev/studio">Motion Studio</a> · <a href="https://motion.dev/plus">Motion+</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/ai-website-cloner-template.html">AI Website Cloner Template</a></li>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/gsap.html">GSAP</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/interface-skills.html">Interface Skills (jakubkrehel/skills)</a></li>
+<li><a href="../../repos/03-design-e-ui/lottie-web.html">Lottie (lottie-web)</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/stitch-skills.html">Stitch Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+<li><a href="../../repos/03-design-e-ui/unslop.html">Unslop</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

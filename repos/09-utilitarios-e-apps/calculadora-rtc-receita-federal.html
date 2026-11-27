@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Tributos RTC (Receita Federal) · Repositórios favoritos</title>
+<meta name="description" content="Código aberto da calculadora oficial da Reforma Tributária do Consumo (LC 214/2025), publicado pela Receita Federal com o SERPRO: APIs que calculam CBS, IBS e Imposto Seletivo no regime geral e no Simples Nacional, consultam as tabelas oficiais, geram e validam o XML da nota e um serviço que gera o DANFSe em PDF.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Calculadora de Tributos RTC (Receita Federal)</h1>
+    <p class="lead">Código aberto da calculadora oficial da Reforma Tributária do Consumo (LC 214/2025), publicado pela Receita Federal com o SERPRO: APIs que calculam CBS, IBS e Imposto Seletivo no regime geral e no Simples Nacional, consultam as tabelas oficiais, geram e validam o XML da nota e um serviço que gera o DANFSe em PDF.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ReceitaFederal">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ReceitaFederal</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ReceitaFederal">ReceitaFederal</a> (organização com 3 repositórios)</dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://piloto-cbs.tributos.gov.br/servico/calculadora-consumo/calculadora/calculadora-offline">Calculadora offline no portal oficial</a></dd></div>
+<div><dt>Linguagem</dt><dd>Java (calculadoras) e Go (DANFSe)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~1,1k no regime regular, ~830 no Simples Nacional e ~660 no DANFSe (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>A Receita Federal publicou no GitHub o código da sua calculadora de tributos da reforma tributária do consumo. O mesmo motor de cálculo que roda no simulador online pode rodar na sua máquina ou no servidor da sua empresa e ser chamado pelo ERP por API.</p>
+<p>Os documentos de governança dizem que o projeto é mantido pela Receita Federal do Brasil (RFB) e desenvolvido em parceria com o SERPRO. As mudanças são publicadas em versões, com CHANGELOG e ROADMAP.</p>
+<p>São três repositórios:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Repositório</th>
+<th>O que faz</th>
+<th>Porta padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ReceitaFederal/calculadora-rtc-regime-regular">calculadora-rtc-regime-regular</a></td>
+<td>CBS, IBS e Imposto Seletivo no regime geral, tabelas oficiais, geração e validação do XML</td>
+<td>8080</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ReceitaFederal/calculadora-rtc-simples-nacional">calculadora-rtc-simples-nacional</a></td>
+<td>CBS e IBS no Simples Nacional e consulta das atividades do Simples</td>
+<td>8082</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ReceitaFederal/calculadora-rtc-gerador-danfse">calculadora-rtc-gerador-danfse</a></td>
+<td>Gera o DANFSe (PDF) a partir do XML de uma NFS-e</td>
+<td>8080</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Cálculo:</strong> <code>POST /regime-geral</code> falha na operação inteira no primeiro erro. A versão com observabilidade (<code>/observabilidade/regime-geral</code>) mostra os erros item a item, sem parar os outros.</li>
+<li><strong>Base de cálculo unificada</strong> da NF-e/NFC-e e da NFS-e.</li>
+<li><strong>XML:</strong> gera o grupo de tributação a partir do resultado do cálculo e valida grupo ou nota contra o XSD.</li>
+<li><strong>Dados abertos:</strong> CST, classificações tributárias (cClassTrib), fundamentações legais, NCM, NBS e alíquotas de referência da União, dos estados e dos municípios.</li>
+<li><strong>Simples Nacional:</strong> cálculo com observabilidade e consulta das atividades vigentes numa data.</li>
+<li><strong>DANFSe:</strong> PDF da NFS-e por <code>POST /api/danfse</code>, com opções de situação da nota (válida, substituída ou cancelada) e de esconder o canhoto. Não grava o XML nem o PDF nos logs.</li>
+<li>Swagger com todos os endpoints e exemplos.</li>
+<li>Banco SQLite embutido, aberto só para leitura.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Calculadoras: Java 25 ou mais novo e Git. O Maven vem pelo wrapper (<code>mvnw</code>), que baixa o necessário na primeira execução.</li>
+<li>DANFSe: Go 1.27 ou mais novo, ou Docker. O <a href="https://taskfile.dev/">Task</a> é opcional.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Calculadora do regime geral. O banco precisa ser gerado antes; sem ele, a aplicação não inicia:</p>
+<pre><code class="language-bash">git clone https://github.com/ReceitaFederal/calculadora-rtc-regime-regular.git
+cd calculadora-rtc-regime-regular
+mkdir -p ./calculadora/db
+./mvnw flyway:migrate -Dflyway.configFiles=./flyway/flyway-pro.conf --batch-mode --errors
+./mvnw spring-boot:run -Dspring-boot.run.profiles=offline
+</code></pre>
+<p>No Windows, use <code>mvnw.cmd</code> e coloque o <code>-D...</code> entre aspas: <code>mvnw.cmd spring-boot:run &quot;-Dspring-boot.run.profiles=offline&quot;</code>.</p>
+<p>Para gerar o JAR:</p>
+<pre><code class="language-bash">./mvnw clean package
+java -Dspring.profiles.active=offline -jar target/api-regime-geral.jar
+</code></pre>
+<p>O Simples Nacional segue os mesmos passos, mas usa a pasta <code>flyway/</code> copiada do repositório do regime regular para gerar o banco. O JAR é <code>target/api-simples-nacional.jar</code>.</p>
+<p>DANFSe:</p>
+<pre><code class="language-bash">git clone https://github.com/ReceitaFederal/calculadora-rtc-gerador-danfse.git
+cd calculadora-rtc-gerador-danfse
+go run ./cmd/danfse                         # ou: task run
+docker build -t danfse-go . &amp;&amp; docker run -p 8080:8080 danfse-go:latest
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ul>
+<li>Regime geral: <code>http://localhost:8080/api/calculadora</code>, Swagger em <code>http://localhost:8080/api/swagger-ui.html</code>.</li>
+<li>Simples Nacional: <code>http://localhost:8082/api</code>, Swagger em <code>http://localhost:8082/api/swagger-ui.html</code>.</li>
+</ul>
+<p>Gerar o PDF de uma NFS-e:</p>
+<pre><code class="language-bash">curl -X POST &quot;http://localhost:8080/api/danfse?canhoto=false&quot; \
+  -H &quot;Content-Type: application/xml&quot; \
+  --data-binary @/caminho/para/documento.xml \
+  -o danfse.pdf
+</code></pre>
+<p>Os exemplos de chamada da calculadora estão em <a href="https://github.com/ReceitaFederal/calculadora-rtc-regime-regular/blob/main/docs/exemplos.md">docs/exemplos.md</a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Calcular CBS, IBS e IS no seu ERP ou sistema de notas com o motor oficial, sem reimplementar as regras.</li>
+<li>Testar a emissão de notas no novo modelo antes da transição.</li>
+<li>Consultar NCM, NBS, cClassTrib e alíquotas de referência por API.</li>
+<li>Gerar o DANFSe de uma NFS-e no seu próprio servidor.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A organização no GitHub não tem o selo de verificada. Os sinais de que é oficial são os documentos de governança (RFB e SERPRO) e os commits feitos com e-mails do domínio serpro.gov.br. Confira pelo portal oficial antes de depender dela em produção.</li>
+<li>O DANFSe e o regime geral usam a mesma porta padrão (8080). Para rodar os dois juntos, mude a do DANFSe com <code>SERVER_PORT=8081</code>.</li>
+<li>As regras da reforma ainda mudam. Acompanhe o CHANGELOG e atualize o banco de dados a cada versão nova.</li>
+<li>Relacionado no catálogo: a <a href="rtc-calculadora-offline.html">RTC Calculadora Offline</a> espelha, todo dia, o pacote fechado que o portal oficial distribui.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://piloto-cbs.tributos.gov.br/servico/calculadora-consumo/calculadora/calculadora-offline">Calculadora offline no portal oficial</a></li>
+<li><a href="https://github.com/ReceitaFederal/calculadora-rtc-regime-regular/blob/main/docs/exemplos.md">Exemplos de uso da API</a></li>
+<li><a href="https://github.com/ReceitaFederal/calculadora-rtc-regime-regular/blob/main/GOVERNANCE.md">Governança</a> · <a href="https://github.com/ReceitaFederal/calculadora-rtc-regime-regular/blob/main/ROADMAP.md">Roadmap</a> · <a href="https://github.com/ReceitaFederal/calculadora-rtc-regime-regular/blob/main/CHANGELOG.md">Changelog</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/duplicati.html">Duplicati</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/microsoft-clarity.html">Microsoft Clarity</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/opengym.html">openGym</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rtc-calculadora-offline.html">RTC Calculadora Offline</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/stirling-pdf.html">Stirling PDF</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

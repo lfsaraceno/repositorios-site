@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenHiggsfield Story Studio · Repositórios favoritos</title>
+<meta name="description" content="Estúdio auto-hospedável que transforma um personagem e uma história de um minuto em um curta: você escolhe entre 50 personagens ou envia o seu, revisa seis cenas e a estimativa de custo e gera os clipes com a sua própria conta no fal ou no Higgsfield, recebendo um MP4 montado.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>OpenHiggsfield Story Studio</h1>
+    <p class="lead">Estúdio auto-hospedável que transforma um personagem e uma história de um minuto em um curta: você escolhe entre 50 personagens ou envia o seu, revisa seis cenas e a estimativa de custo e gera os clipes com a sua própria conta no fal ou no Higgsfield, recebendo um MP4 montado.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/thehiggsfieldai/OpenHiggsfield">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">thehiggsfieldai/OpenHiggsfield</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/thehiggsfieldai/OpenHiggsfield">thehiggsfieldai/OpenHiggsfield</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://openhiggsfield.com">openhiggsfield.com</a> · <a href="https://thehiggsfield.ai">Versão hospedada</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (Node.js)</dd></div>
+<div><dt>Licença</dt><dd>MIT (com ressalva sobre a origem da interface, veja Observações)</dd></div>
+<div><dt>Estrelas</dt><dd>~180 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um &quot;estúdio de personagem para filme&quot;. O fluxo é guiado: personagem, roteiro de um minuto, seis cenas com direção de narração, estimativa de custo e, depois da sua aprovação, a geração de cada cena no provedor que você conectou. No fim, o FFmpeg junta os clipes num MP4.</p>
+<p>Não roda modelos localmente: a geração é feita e cobrada pelo provedor (fal ou Higgsfield) com as suas credenciais. O projeto diz não ter ligação com o Higgsfield.ai.</p>
+<p>É um projeto diferente do <a href="open-higgsfield.html">OpenHiggsfield AI</a>, que é um estúdio de prompt único com 38 modelos.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Galeria de 50 personagens e envio de imagem própria.</li>
+<li>Rascunhos privados, roteiro por cena, direção de narração e estimativa de custo antes de gerar.</li>
+<li>Conexão com fal e Higgsfield, com as credenciais criptografadas no servidor.</li>
+<li>Progresso por cena, prévia dos clipes e MP4 final montado.</li>
+<li>Contas e workspaces isolados, login por link mágico no e-mail (via Resend) e Google opcional.</li>
+<li>Tema claro e escuro, interface responsiva.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Docker com Compose, ou Node.js 24+ e FFmpeg no PATH.</li>
+<li>Conta e chave no fal ou no Higgsfield (a geração é paga).</li>
+<li>Para uso público: HTTPS e uma chave do Resend para enviar os e-mails de login.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">git clone https://github.com/thehiggsfieldai/OpenHiggsfield.git
+cd OpenHiggsfield
+cp .env.example .env
+# Gere o segredo de autenticação:
+node -e &quot;console.log(require('node:crypto').randomBytes(48).toString('hex'))&quot;
+# No .env, defina BETTER_AUTH_SECRET, PUBLIC_ORIGIN, RESEND_API_KEY e EMAIL_FROM.
+# Use SIGNUP_EMAILS para convidados ou ALLOW_SIGNUP=true para cadastro aberto.
+docker compose up --build -d
+</code></pre>
+<p>Abra http://localhost:3000, entre e conecte o provedor em <strong>Connections</strong>. O <code>compose.yaml</code> publica a porta só em <code>127.0.0.1</code>, com contêiner somente leitura e 1 GB de memória.</p>
+<p>Desenvolvimento local:</p>
+<pre><code class="language-bash">npm ci
+npm ci --prefix apps/story-studio
+npm run dev
+# Em outro terminal:
+npm --prefix apps/story-studio run dev
+</code></pre>
+<p>Abra http://127.0.0.1:5193. A tela de e-mail oferece um link de login de teste, que só funciona em localhost.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">npm run build
+npm test
+node scripts/test-story-studio.mjs
+node scripts/test-story-films.mjs --fal --recommended
+</code></pre>
+<p>Os testes de provedor usam requisições simuladas e não compram gerações.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Fazer curtas com um personagem fixo para redes sociais, com custo estimado antes de gerar.</li>
+<li>Hospedar um estúdio de vídeo com IA para uma equipe, cada um com o seu workspace.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Origem da interface:</strong> o <code>UPSTREAM.json</code> diz que a interface veio do projeto <code>ilkerzg/storycast</code>, que não tem licença publicada. A permissão para redistribuir como MIT está registrada como &quot;não verificada de forma independente&quot;. Confirme antes de usar comercialmente.</li>
+<li><strong>Nome parecido com o da marca:</strong> a conta foi criada em set/2026, tem um único repositório e usa os domínios <code>thehiggsfield.ai</code> e <code>openhiggsfield.com</code>, mas diz não ter relação com o Higgsfield.ai. Ao colar a sua chave do Higgsfield, prefira a instância que você mesmo hospeda.</li>
+<li>As chaves ficam criptografadas em repouso, não de ponta a ponta. Faça backup do volume de dados, que inclui a chave de criptografia.</li>
+<li>Apagar um rascunho não apaga os filmes já gerados.</li>
+<li>A publicação em galeria pública e os links de compartilhamento ainda não estão completos. A estimativa de custo não é a fatura final do provedor.</li>
+<li>Os personagens incluídos não trazem direito sobre nomes, marcas ou rostos de terceiros.</li>
+<li>Pouca atividade: o último commit é de set/2026.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://openhiggsfield.com">Site do projeto</a></li>
+<li><a href="https://github.com/thehiggsfieldai/OpenHiggsfield#readme">README</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/longcat.html">LongCat (Meituan)</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openverse.html">Openverse</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/remotion.html">Remotion</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

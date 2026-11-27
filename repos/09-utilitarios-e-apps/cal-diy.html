@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cal.diy · Repositórios favoritos</title>
+<meta name="description" content="Edição comunitária e 100% MIT do Cal.com: plataforma de agendamento self-hosted (estilo Calendly) sem os recursos empresariais e sem chave de licença, recomendada para uso pessoal.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Cal.diy</h1>
+    <p class="lead">Edição comunitária e 100% MIT do Cal.com: plataforma de agendamento self-hosted (estilo Calendly) sem os recursos empresariais e sem chave de licença, recomendada para uso pessoal.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/calcom/cal.diy">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">calcom/cal.diy</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/calcom/cal.diy">calcom/cal.diy</a></dd></div>
+<div><dt>Site / Docs</dt><dd>— (só self-hosted)</dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (Next.js, tRPC, Prisma)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~50k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Cal.diy é um fork do <a href="https://cal.com">Cal.com</a> com todo o código empresarial e comercial removido. Você publica seus horários disponíveis e as pessoas marcam reuniões num link, com integração a calendários e videochamada (Daily.co).</p>
+<p>Diferenças em relação ao Cal.com: não tem Times, Organizações, Insights, Workflows, SSO/SAML nem outros recursos da edição Enterprise; não exige conta nem chave de licença; o código inteiro é MIT, sem divisão &quot;open core&quot;; e é mantido pela comunidade. Não existe versão hospedada: você roda na sua infraestrutura.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Páginas de agendamento com tipos de evento e disponibilidade.</li>
+<li>Integração com calendários (configurável depois em Settings &gt; Integrations).</li>
+<li>Videochamada via Daily.co.</li>
+<li>Imagem Docker oficial (inclusive ARM).</li>
+<li>Assistente de configuração no primeiro acesso.</li>
+<li>Notificações push (chaves VAPID).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 18+, PostgreSQL 13+ e Yarn (para rodar do código).</li>
+<li>Ou Docker e Docker Compose.</li>
+<li>Conhecimento de administração de servidor, banco de dados e segurança.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="docker-compose-recomendado">Docker Compose (recomendado)</h3>
+<pre><code class="language-bash">git clone --recursive https://github.com/calcom/cal.diy.git
+cd cal.diy
+cp .env.example .env
+openssl rand -base64 32    # valor para NEXTAUTH_SECRET
+openssl rand -base64 24    # valor para CALENDSO_ENCRYPTION_KEY
+npx web-push generate-vapid-keys   # NEXT_PUBLIC_VAPID_PUBLIC_KEY e VAPID_PRIVATE_KEY
+docker compose up -d       # Postgres + app + Prisma Studio
+</code></pre>
+<p>Abra <code>http://localhost:3000</code>; o assistente cria o primeiro usuário. Se o passo &quot;Connect your Calendar&quot; travar, vá direto a <code>/event-types</code>. Imagem no Docker Hub: <a href="https://hub.docker.com/r/calcom/cal.diy">calcom/cal.diy</a> (em ARM, use a tag <code>{version}-arm</code>).</p>
+<h3 id="desenvolvimento-local">Desenvolvimento local</h3>
+<pre><code class="language-sh">git clone https://github.com/calcom/cal.diy.git
+cd cal.diy
+yarn
+yarn dx      # sobe Postgres local com usuários de teste (requer Docker)
+</code></pre>
+<p>No Windows, clone pelo Git Bash como administrador com <code>git clone -c core.symlinks=true https://github.com/calcom/cal.diy.git</code> e troque o symlink <code>packages/prisma/.env</code> por uma cópia real (<code>rm packages/prisma/.env &amp;&amp; cp .env packages/prisma/.env</code>).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">yarn dev                                     # modo desenvolvimento
+yarn build &amp;&amp; yarn start                     # build de produção
+yarn workspace @calcom/prisma db-deploy      # migrações em produção
+yarn db-studio                               # Prisma Studio (ver/editar o banco)
+docker compose down &amp;&amp; docker compose pull   # atualizar a versão Docker
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Ter um &quot;Calendly&quot; próprio, sem mensalidade, para uso pessoal.</li>
+<li>Estudar ou customizar uma plataforma de agendamento completa e MIT.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>O próprio projeto avisa:</strong> uso por sua conta e risco, recomendado para uso <strong>pessoal e não produtivo</strong>. Para uso comercial e empresarial, eles indicam o Cal.com.</li>
+<li>Troque obrigatoriamente os segredos padrão (<code>NEXTAUTH_SECRET</code>, <code>CALENDSO_ENCRYPTION_KEY</code>) antes de expor na internet.</li>
+<li>Os usuários de teste do <code>yarn dx</code> (ex.: <code>admin@example.com</code>) são só para desenvolvimento; nunca use em produção.</li>
+<li>A ficha cobre o README até a seção de Docker; a lista de integrações e variáveis de ambiente não foi detalhada aqui.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/calcom/cal.diy#readme">README</a></li>
+<li><a href="https://hub.docker.com/r/calcom/cal.diy">Imagem Docker</a></li>
+<li><a href="https://github.com/calcom/cal.diy/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
+<li><a href="https://cal.com">Cal.com (versão comercial)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC (Receita Federal)</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/duplicati.html">Duplicati</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/microsoft-clarity.html">Microsoft Clarity</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/opengym.html">openGym</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rtc-calculadora-offline.html">RTC Calculadora Offline</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/stirling-pdf.html">Stirling PDF</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

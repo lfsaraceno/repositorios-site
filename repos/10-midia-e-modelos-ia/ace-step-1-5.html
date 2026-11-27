@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACE-Step 1.5 · Repositórios favoritos</title>
+<meta name="description" content="Modelo aberto de geração de música que roda local com menos de 4 GB de VRAM: músicas completas com letra em mais de 50 idiomas, de 10 segundos a 10 minutos, em menos de 10 s numa RTX 3090. Faz cover, edição de trechos, separação de faixas, acompanhamento para voz e treino de LoRA com o seu estilo.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>ACE-Step 1.5</h1>
+    <p class="lead">Modelo aberto de geração de música que roda local com menos de 4 GB de VRAM: músicas completas com letra em mais de 50 idiomas, de 10 segundos a 10 minutos, em menos de 10 s numa RTX 3090. Faz cover, edição de trechos, separação de faixas, acompanhamento para voz e treino de LoRA com o seu estilo.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ace-step/ACE-Step-1.5">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ace-step/ACE-Step-1.5</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ace-step/ACE-Step-1.5">ace-step/ACE-Step-1.5</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://acemusic.ai">acemusic.ai</a> · <a href="https://huggingface.co/ACE-Step">Hugging Face</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~15k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O ACE-Step 1.5 é um modelo de música open source que, segundo os autores, tem qualidade entre o Suno v4.5 e o Suno v5, rodando no seu computador. Ele combina duas partes:</p>
+<ul>
+<li>um <strong>modelo de linguagem</strong> (baseado no Qwen3) que funciona como planejador: transforma um pedido simples num &quot;projeto&quot; da música, com metadados, letra e descrição;</li>
+<li>um <strong>Diffusion Transformer (DiT)</strong> que gera o áudio a partir desse projeto.</li>
+</ul>
+<p>Vem com interface web (Gradio), API REST, API Python, CLI e um plugin VST3 para usar dentro de DAWs. Os modelos são baixados sozinhos na primeira execução.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Rápido:</strong> menos de 2 s por música numa A100 e menos de 10 s numa RTX 3090.</li>
+<li><strong>Duração flexível:</strong> de 10 segundos a 10 minutos, até 8 músicas de uma vez.</li>
+<li><strong>Mais de 1.000 instrumentos e estilos</strong>, com descrição fina de timbre.</li>
+<li><strong>Letra em mais de 50 idiomas</strong>, com marcação de estrutura e estilo.</li>
+<li><strong>Áudio de referência</strong> para guiar o estilo.</li>
+<li><strong>Cover</strong> a partir de um áudio existente.</li>
+<li><strong>Repaint:</strong> edita e regenera só um trecho.</li>
+<li><strong>Separação de faixas (stems)</strong> e <strong>multitrack</strong> (adicionar camadas, como no Suno Studio).</li>
+<li><strong>Vocal2BGM:</strong> cria o acompanhamento para uma voz gravada.</li>
+<li><strong>Controle de metadados:</strong> duração, BPM, tom, escala e compasso.</li>
+<li><strong>Modo simples:</strong> música completa a partir de uma descrição curta, com reescrita automática de tags e letra.</li>
+<li><strong>Entende áudio:</strong> extrai BPM, tom, compasso e descrição de uma música.</li>
+<li><strong>Letra sincronizada (LRC)</strong> e nota automática de qualidade.</li>
+<li><strong>Treino de LoRA:</strong> com 8 músicas, em cerca de 1 hora numa 3090 (12 GB), direto na interface.</li>
+<li><strong>Modelos XL (4B)</strong> desde abr/2026, com mais qualidade (precisam de 12 GB+ de VRAM).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.11 ou 3.12 e o gerenciador <code>uv</code>.</li>
+<li>GPU recomendada: NVIDIA (CUDA). Também funciona com AMD (ROCm), Intel, Apple Silicon (MPS/MLX) e CPU.</li>
+<li>VRAM: com 6 GB ou menos, roda só o DiT 2B turbo; com 8 a 16 GB, o 2B com o modelo de linguagem; com 24 GB ou mais, o XL com a melhor qualidade. A interface escolhe a configuração conforme a sua GPU.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="windows-pacote-portatil">Windows (pacote portátil)</h3>
+<p>Baixe o <a href="https://files.acemusic.ai/acemusic/win/ACE-Step-1.5.7z">pacote portátil para Windows</a>, com as dependências já instaladas, e siga o <a href="https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/INSTALL.md#-windows-portable-package">guia de instalação</a>.</p>
+<h3 id="a-partir-do-codigo">A partir do código</h3>
+<pre><code class="language-bash"># 1. instalar o uv
+curl -LsSf https://astral.sh/uv/install.sh | sh                                    # macOS / Linux
+powershell -ExecutionPolicy ByPass -c &quot;irm https://astral.sh/uv/install.ps1 | iex&quot;  # Windows
+
+# 2. clonar e instalar
+git clone https://github.com/ACE-Step/ACE-Step-1.5.git
+cd ACE-Step-1.5
+uv sync
+
+# 3. iniciar
+uv run acestep          # interface Gradio em http://localhost:7860
+uv run acestep-api      # API REST em http://localhost:8001
+</code></pre>
+<p>No <strong>Windows</strong> também há scripts prontos: <code>start_gradio_ui.bat</code> e <code>start_api_server.bat</code> (CUDA) ou as versões <code>_rocm.bat</code> (AMD; ROCm no Windows exige Python 3.12).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Personalize modelos e porta num <code>.env</code> (copie de <code>.env.example</code>):</p>
+<pre><code class="language-bash">ACESTEP_CONFIG_PATH=acestep-v15-turbo        # modelo DiT
+ACESTEP_LM_MODEL_PATH=acestep-5Hz-lm-1.7B    # modelo de linguagem
+PORT=7860
+LANGUAGE=en
+</code></pre>
+<pre><code class="language-bash">python profile_inference.py                   # mede o tempo de cada etapa na sua máquina
+python profile_inference.py --mode benchmark  # compara configurações
+</code></pre>
+<p>Na interface, escreva a descrição (estilo, instrumentos, clima) e, se quiser, a letra com marcações de estrutura. O <a href="https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/Tutorial.md">tutorial</a> explica como controlar o resultado.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Trilha sonora original para vídeos, podcasts e jogos, sem pagar assinatura.</li>
+<li>Testar ideias de música e letra rapidamente.</li>
+<li>Criar acompanhamento para uma voz gravada ou fazer covers.</li>
+<li>Treinar um modelo com o estilo de uma banda ou produtora (com os direitos das músicas usadas).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Direitos autorais:</strong> o próprio projeto alerta para o risco de semelhança com obras protegidas. Verifique a originalidade, informe o uso de IA e tenha permissão para usar estilos ou músicas protegidos, principalmente em covers e no treino de LoRA.</li>
+<li><strong>Sites falsos:</strong> o README avisa que existem domínios falsos do projeto e pede para não pagar nada neles. O README promove o acemusic.ai, mas também diz que o único site oficial é o GitHub Pages do projeto. Na dúvida, use só os links do repositório.</li>
+<li>A comparação com o Suno é dos próprios autores.</li>
+<li>Os modelos XL são mais pesados: com menos de 20 GB de VRAM, precisam de offload para a CPU.</li>
+<li>Relacionado no catálogo: o <a href="kokoro.html">Kokoro</a> gera voz falada; o ACE-Step gera música cantada e instrumental.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/INSTALL.md">Guia de instalação</a></li>
+<li><a href="https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/Tutorial.md">Tutorial</a></li>
+<li><a href="https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/LoRA_Training_Tutorial.md">Treino de LoRA</a></li>
+<li><a href="https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/GPU_COMPATIBILITY.md">Compatibilidade de GPU</a></li>
+<li><a href="https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/API.md">API REST</a></li>
+<li><a href="https://github.com/ace-step/acestep.vst3">Plugin VST3</a></li>
+<li><a href="https://github.com/ace-step/awesome-ace-step">Awesome ACE-Step</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/longcat.html">LongCat (Meituan)</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openhiggsfield-story-studio.html">OpenHiggsfield Story Studio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openverse.html">Openverse</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/remotion.html">Remotion</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

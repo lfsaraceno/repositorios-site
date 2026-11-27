@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub MCP Server · Repositórios favoritos</title>
+<meta name="description" content="Servidor MCP oficial do GitHub: deixa agentes de IA lerem repositórios e código, gerenciarem issues e PRs, acompanharem GitHub Actions, alertas de segurança e Dependabot, por linguagem natural, como servidor remoto hospedado ou local via Docker.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>GitHub MCP Server</h1>
+    <p class="lead">Servidor MCP oficial do GitHub: deixa agentes de IA lerem repositórios e código, gerenciarem issues e PRs, acompanharem GitHub Actions, alertas de segurança e Dependabot, por linguagem natural, como servidor remoto hospedado ou local via Docker.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/github/github-mcp-server">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">github/github-mcp-server</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/github/github-mcp-server">github/github-mcp-server</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md">Documentação do servidor remoto</a></dd></div>
+<div><dt>Linguagem</dt><dd>Go</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~35k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O servidor conecta ferramentas de IA (Claude Code, Claude Desktop, Codex, Cursor, VS Code com Copilot, Windsurf, Zed e outras) à plataforma GitHub. Com ele, o agente navega e pesquisa código, analisa commits, cria e atualiza issues e PRs, faz triagem de bugs, revisa mudanças, acompanha execuções de workflows, lê alertas de segurança e Dependabot e gerencia notificações e discussões.</p>
+<p>Há duas formas de usar: o <strong>servidor remoto</strong>, hospedado pelo GitHub em <code>https://api.githubcopilot.com/mcp/</code> (o jeito mais fácil, com OAuth ou token), e o <strong>servidor local</strong>, via Docker (<code>ghcr.io/github/github-mcp-server</code>) ou binário. As ferramentas são agrupadas em <strong>toolsets</strong> que você liga e desliga para reduzir o contexto.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Toolsets: <code>context</code>, <code>repos</code>, <code>issues</code>, <code>pull_requests</code>, <code>users</code> (padrão), além de <code>actions</code>, <code>code_security</code>, <code>dependabot</code>, <code>secret_protection</code>, <code>security_advisories</code>, <code>discussions</code>, <code>notifications</code>, <code>projects</code>, <code>gists</code>, <code>git</code>, <code>labels</code>, <code>orgs</code>, <code>governance</code>, <code>copilot</code> e outros.</li>
+<li>Seleção fina com <code>--toolsets</code> e <code>--tools</code>; <code>all</code> liga tudo.</li>
+<li><strong>Modo somente leitura</strong> (<code>--read-only</code>).</li>
+<li><strong>Modo lockdown:</strong> filtra conteúdo de autores sem permissão de push em repositórios públicos, para reduzir risco de prompt injection.</li>
+<li><strong>MCP Skills</strong> (opcionais, <code>--features=skills</code>): fluxos prontos como triagem de backlog, revisão de PR, preparação de release, triagem de falha de workflow e de alertas de segurança.</li>
+<li>Modo insiders com recursos experimentais.</li>
+<li>Suporte a GitHub Enterprise Server e Enterprise Cloud (ghe.com).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Remoto: cliente MCP com suporte a servidor remoto (VS Code 1.101+, Claude Desktop, Cursor, Windsurf etc.).</li>
+<li>Local: Docker em execução (ou o binário compilado).</li>
+<li>Autenticação por OAuth ou por um <a href="https://github.com/settings/personal-access-tokens/new">Personal Access Token</a> com as permissões mínimas necessárias.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code-remoto-com-token">Claude Code (remoto, com token)</h3>
+<pre><code class="language-bash">claude mcp add-json github '{&quot;type&quot;:&quot;http&quot;,&quot;url&quot;:&quot;https://api.githubcopilot.com/mcp&quot;,&quot;headers&quot;:{&quot;Authorization&quot;:&quot;Bearer YOUR_GITHUB_PAT&quot;}}'
+</code></pre>
+<p>No Windows, se o <code>add-json</code> der <code>Invalid input</code>, use o formato <code>claude mcp add --transport http ...</code> descrito no <a href="https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/install-claude.md">guia do Claude</a>.</p>
+<h3 id="claude-code-local-docker">Claude Code (local, Docker)</h3>
+<pre><code class="language-bash">claude mcp add github -e GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
+</code></pre>
+<h3 id="vs-code-remoto-oauth">VS Code (remoto, OAuth)</h3>
+<pre><code class="language-json">{
+  &quot;servers&quot;: {
+    &quot;github&quot;: {
+      &quot;type&quot;: &quot;http&quot;,
+      &quot;url&quot;: &quot;https://api.githubcopilot.com/mcp/&quot;
+    }
+  }
+}
+</code></pre>
+<p>Guias para Copilot CLI, Codex, Cursor, OpenCode, Windsurf e Zed na pasta <a href="https://github.com/github/github-mcp-server/tree/main/docs/installation-guides">docs/installation-guides</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Configuração do servidor local:</p>
+<pre><code class="language-bash">github-mcp-server --toolsets repos,issues,pull_requests,actions,code_security   # só esses grupos
+github-mcp-server --tools get_file_contents,issue_read,create_pull_request      # só essas ferramentas
+GITHUB_TOOLSETS=&quot;default,stargazers&quot; ./github-mcp-server                         # padrão + extra
+./github-mcp-server --read-only                                                  # sem escrita
+./github-mcp-server --lockdown-mode                                              # filtra conteúdo não confiável
+</code></pre>
+<p>No Docker, use as variáveis <code>GITHUB_TOOLSETS</code>, <code>GITHUB_TOOLS</code>, <code>GITHUB_READ_ONLY=1</code> e <code>GITHUB_LOCKDOWN_MODE=1</code>.</p>
+<p>Exemplos de pedido ao agente:</p>
+<pre><code class="language-text">List the open issues labeled bug in this repo and suggest which to fix first.
+Why did the last GitHub Actions run on main fail?
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Triagem de issues, revisão de PRs e diagnóstico de falhas de CI pelo agente.</li>
+<li>Acompanhar alertas do Dependabot e de varredura de código.</li>
+<li>Agentes que trabalham em vários repositórios sem clonar.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Token com permissão mínima:</strong> dê só os escopos necessários, use tokens separados por projeto, rotacione e nunca commite (<code>.env</code> no <code>.gitignore</code>).</li>
+<li><strong>Prompt injection:</strong> issues e comentários de repositórios públicos podem conter instruções maliciosas; considere <code>--lockdown-mode</code> e <code>--read-only</code>. O lockdown é um filtro de melhor esforço, não um limite de autorização.</li>
+<li>Ligar menos toolsets ajuda o modelo a escolher a ferramenta certa e economiza contexto.</li>
+<li>A ficha não lista cada ferramenta individual (a lista completa está no README).</li>
+<li>Alternativa sem MCP: a CLI <code>gh</code>, que o Claude Code já usa bem.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/github/github-mcp-server#readme">README</a></li>
+<li><a href="https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/install-claude.md">Instalação no Claude</a></li>
+<li><a href="https://github.com/github/github-mcp-server/blob/main/docs/server-configuration.md">Configuração do servidor</a></li>
+<li><a href="https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md">Servidor remoto</a></li>
+<li><a href="https://github.com/github/github-mcp-server/blob/main/docs/oauth-login.md">Login OAuth local</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

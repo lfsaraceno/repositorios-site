@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stitch Skills · Repositórios favoritos</title>
+<meta name="description" content="Skills e plugins do Google Labs para o Google Stitch (gerador de interfaces com IA): gerar e editar telas, extrair e aplicar DESIGN.md, converter designs em React, React Native e shadcn/ui e montar sites de várias páginas a partir de um prompt.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Stitch Skills</h1>
+    <p class="lead">Skills e plugins do Google Labs para o Google Stitch (gerador de interfaces com IA): gerar e editar telas, extrair e aplicar DESIGN.md, converter designs em React, React Native e shadcn/ui e montar sites de várias páginas a partir de um prompt.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/google-labs-code/stitch-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">google-labs-code/stitch-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/google-labs-code/stitch-skills">google-labs-code/stitch-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://stitch.withgoogle.com">stitch.withgoogle.com</a> · <a href="https://stitch.withgoogle.com/docs/mcp/setup/">Configuração do MCP</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~12,9k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Stitch é a ferramenta do Google que gera telas de interface a partir de texto ou imagem. Estas skills ligam o agente de código ao Stitch pelo servidor MCP dele, nos dois sentidos: do código para o design e do design para o código.</p>
+<p>Seguem o padrão aberto Agent Skills e funcionam no Codex, Antigravity, Gemini CLI, Claude Code, Cursor e OpenCode (este com instalação manual). São organizadas em três plugins.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<p><strong><code>stitch-design</code></strong></p>
+<ul>
+<li>Gerar telas novas, editar telas e criar variantes (<code>generate-design</code>).</li>
+<li>Converter código frontend existente em design no Stitch (<code>code-to-design</code>).</li>
+<li>Extrair um <code>DESIGN.md</code> do código (<code>extract-design-md</code>) e aplicar design systems às telas (<code>manage-design-system</code>).</li>
+<li>Extrair HTML estático de um app rodando e enviar arquivos ao Stitch.</li>
+</ul>
+<p><strong><code>stitch-build</code></strong></p>
+<ul>
+<li>Converter telas em componentes React (<code>react-components</code>) ou React Native.</li>
+<li>Dashboards React + Vite (<code>react-vite-dashboard</code>).</li>
+<li>Orientação para shadcn/ui.</li>
+<li>Vídeos de apresentação do projeto com Remotion.</li>
+</ul>
+<p><strong><code>stitch-utilities</code></strong></p>
+<ul>
+<li>Melhorar prompts vagos de UI (<code>enhance-prompt</code>).</li>
+<li>Gerar <code>DESIGN.md</code> (<code>design-md</code>) e um <code>DESIGN.md</code> premium sem cara genérica (<code>taste-design</code>).</li>
+<li>Montar o <code>SITE.md</code> do projeto (<code>site-md</code>) e gerar sites de várias páginas com validação (<code>stitch-loop</code>).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Servidor <strong>Stitch MCP</strong> configurado e rodando no agente, com as credenciais do <a href="https://stitch.withgoogle.com/docs/mcp/setup/">guia de configuração</a>.</li>
+<li>Node (<code>npx</code>) para a instalação.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Claude Code (instala no projeto atual):</p>
+<pre><code class="language-bash">npx plugins add google-labs-code/stitch-skills --scope project --target claude-code
+</code></pre>
+<p>Cursor:</p>
+<pre><code class="language-bash">npx plugins add google-labs-code/stitch-skills --scope workspace --target cursor
+</code></pre>
+<p>Codex:</p>
+<pre><code class="language-bash">codex plugin marketplace add google-labs-code/stitch-skills --ref main
+</code></pre>
+<p>Depois, instale os plugins <code>stitch-design</code>, <code>stitch-build</code> e <code>stitch-utilities</code> que quiser.</p>
+<p>Skills avulsas:</p>
+<pre><code class="language-bash">npx skills add google-labs-code/stitch-skills
+</code></pre>
+<p>As skills dependem umas das outras: na instalação avulsa, inclua as dependências.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Exemplos de pedidos (do README):</p>
+<pre><code class="language-text">&quot;Make a browse tab for a mobile app for romance and date night ideas.&quot;
+&quot;Scan /src and extract the design system into .stitch/DESIGN.md.&quot;
+&quot;Convert all screens in Stitch project projects/123 to React components.&quot;
+&quot;Build a 5-page portfolio website with Stitch.&quot;
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gerar e iterar telas no Stitch e trazer o resultado como código React.</li>
+<li>Levar um app existente para o Stitch e redesenhar em cima dele.</li>
+<li>Padronizar o design system de um projeto num <code>DESIGN.md</code>.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Sem o Stitch MCP configurado, as skills não funcionam.</li>
+<li>O README avisa que não é um produto oficialmente suportado pelo Google.</li>
+<li>No OpenCode, as skills com nome <code>stitch::…</code> precisam ser renomeadas para kebab-case.</li>
+<li>Relacionados no catálogo: o <a href="awesome-design-md.html">Awesome DESIGN.md</a> reúne arquivos <code>DESIGN.md</code> de sites conhecidos; o <a href="taste-skill.html">Taste Skill</a> também dá direção de arte ao agente para evitar o visual genérico.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/google-labs-code/stitch-skills#readme">README</a></li>
+<li><a href="https://stitch.withgoogle.com">Google Stitch</a> · <a href="https://stitch.withgoogle.com/docs/mcp/setup/">Configuração do MCP</a></li>
+<li><a href="https://agentskills.io">Agent Skills (padrão aberto)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/ai-website-cloner-template.html">AI Website Cloner Template</a></li>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/gsap.html">GSAP</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/interface-skills.html">Interface Skills (jakubkrehel/skills)</a></li>
+<li><a href="../../repos/03-design-e-ui/lottie-web.html">Lottie (lottie-web)</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/motion.html">Motion</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+<li><a href="../../repos/03-design-e-ui/unslop.html">Unslop</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

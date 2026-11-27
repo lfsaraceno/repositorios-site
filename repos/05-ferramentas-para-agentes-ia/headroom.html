@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Headroom · Repositórios favoritos</title>
+<meta name="description" content="Comprime tudo o que o agente de IA lê (saídas de ferramentas, logs, JSON, arquivos, trechos de RAG e histórico) antes de chegar ao modelo, localmente e de forma reversível; funciona como biblioteca, proxy, wrapper de agentes e servidor MCP.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Headroom</h1>
+    <p class="lead">Comprime tudo o que o agente de IA lê (saídas de ferramentas, logs, JSON, arquivos, trechos de RAG e histórico) antes de chegar ao modelo, localmente e de forma reversível; funciona como biblioteca, proxy, wrapper de agentes e servidor MCP.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/headroomlabs-ai/headroom">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">headroomlabs-ai/headroom</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/headroomlabs-ai/headroom">headroomlabs-ai/headroom</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://docs.headroomlabs.ai/docs">docs.headroomlabs.ai</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (núcleo em Rust)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~80k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Headroom (<code>headroom-ai</code> no PyPI e npm) fica entre o agente e o provedor de modelo e encolhe o contexto: detecta o tipo de conteúdo e aplica o compressor certo (JSON, código por AST, texto com um modelo próprio, imagens). Os originais ficam guardados localmente, e o modelo pode pedir o texto completo quando precisar. Nada do conteúdo é enviado a terceiros para ser comprimido.</p>
+<p>Nos cenários medidos pelo projeto, a economia de tokens de entrada foi de 21% a 57%, passando de 90% em arrays JSON e linhas de log repetitivos, e quase nada em texto corrido. A compressão leva menos de 1 ms e preserva o cache de prompt do provedor.</p>
+<p>Para agentes como o Claude Code, basta <code>headroom wrap claude</code>: ele sobe um proxy local e abre o agente configurado para passar por ele.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Biblioteca:</strong> <code>compress(messages)</code> em Python ou TypeScript.</li>
+<li><strong>Proxy:</strong> <code>headroom proxy --port 8787</code>, sem mudar código.</li>
+<li><strong>Wrap de agentes:</strong> Claude Code, Codex, Grok CLI, Copilot, Cursor (manual), Aider, OpenCode, Cline, Continue, Goose, OpenHands e outros; desfaz com <code>headroom unwrap</code>.</li>
+<li><strong>MCP:</strong> ferramentas <code>headroom_compress</code>, <code>headroom_retrieve</code>, <code>headroom_stats</code>.</li>
+<li><strong>Memória entre agentes</strong> (Claude, Codex, Gemini, Grok) com deduplicação.</li>
+<li><strong><code>headroom learn</code>:</strong> analisa sessões que falharam e escreve correções em <code>CLAUDE.local.md</code>, <code>CLAUDE.md</code> ou <code>AGENTS.md</code>.</li>
+<li><strong>Redução de tokens de saída</strong> (opcional): pede respostas mais enxutas sem quebrar o cache.</li>
+<li>Integrações com LangChain, LiteLLM, Vercel AI SDK, Agno, Strands e SDKs da Anthropic e OpenAI.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.11+ (para a CLI e o proxy). Recomenda-se <code>uv</code> com Python 3.13.</li>
+<li>Rodas nativas para macOS Apple Silicon, Linux e Windows; em Mac Intel, use Docker.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">uv tool install --python 3.13 &quot;headroom-ai[all]&quot;   # CLI isolada (recomendado)
+pip install &quot;headroom-ai[all]&quot;                     # CLI e proxy via pip
+npm install headroom-ai                            # só o SDK TypeScript (sem CLI)
+docker pull ghcr.io/headroomlabs-ai/headroom:latest
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">headroom wrap claude                    # abre o Claude Code passando pelo Headroom
+headroom wrap claude --code-memory serena   # também instala o Serena para navegação de código
+headroom deploy                         # instalação persistente local + configuração de agentes
+headroom proxy --port 8787              # proxy para qualquer cliente compatível com OpenAI
+headroom doctor                         # verifica se o roteamento funciona
+headroom dashboard                      # economia ao vivo
+headroom savings                        # economia no seu tráfego real
+headroom learn --verbosity --apply      # aprende o nível de concisão das suas sessões
+headroom mcp install                    # instala o servidor MCP
+headroom unwrap claude                  # desfaz o wrap
+headroom update                         # atualiza
+</code></pre>
+<p>Em código Python:</p>
+<pre><code class="language-python">from headroom import compress
+
+result = compress(messages, model=&quot;gpt-4o&quot;)
+print(f&quot;Saved {result.tokens_saved} tokens ({result.compression_ratio:.0%})&quot;)
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Agentes que leem muita saída de ferramentas, logs ou JSON (incidentes, triagem de issues, exploração de código).</li>
+<li>Apps próprios que mandam resultados de busca, linhas de banco ou históricos longos para o modelo.</li>
+<li>Compartilhar memória entre Claude Code, Codex e outros agentes.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Telemetria anônima ligada por padrão</strong> (taxas de compressão, contadores, IDs de modelo, SO; nunca prompts ou código). Desligue com <code>HEADROOM_TELEMETRY=off</code>, <code>DO_NOT_TRACK=1</code> ou <code>HEADROOM_OFFLINE=1</code>.</li>
+<li>Pouco ganho em prompts curtos e texto corrido.</li>
+<li>Ao usar provedores compatíveis com OpenAI de terceiros (DeepSeek, OpenRouter), passe <code>--openai-api-url</code>, senão a chave vai para a OpenAI.</li>
+<li>Em redes corporativas com inspeção SSL, veja o guia de <a href="https://docs.headroomlabs.ai/docs/corporate-networks">redes corporativas</a>.</li>
+<li>Complementares no catálogo: <a href="rtk.html">RTK</a> (saída de comandos), <a href="../02-skills-para-agentes/caveman.html">Caveman</a> (respostas curtas) e <a href="serena.html">Serena</a> (navegação semântica, recomendada pelo projeto).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/headroomlabs-ai/headroom#readme">README</a></li>
+<li><a href="https://docs.headroomlabs.ai/docs/quickstart">Início rápido</a></li>
+<li><a href="https://docs.headroomlabs.ai/docs/proxy">Proxy</a></li>
+<li><a href="https://docs.headroomlabs.ai/docs/benchmarks">Benchmarks</a></li>
+<li><a href="https://docs.headroomlabs.ai/docs/limitations">Limitações</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

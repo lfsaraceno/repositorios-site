@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remotion Skills · Repositórios favoritos</title>
+<meta name="description" content="Skills oficiais do Remotion para agentes de IA (Claude Code, Codex, Cursor e outros): criar projetos e composições, escrever o código do vídeo, abrir o Studio, renderizar, legendas, mapas animados, apps de vídeo e consulta à documentação.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Remotion Skills</h1>
+    <p class="lead">Skills oficiais do Remotion para agentes de IA (Claude Code, Codex, Cursor e outros): criar projetos e composições, escrever o código do vídeo, abrir o Studio, renderizar, legendas, mapas animados, apps de vídeo e consulta à documentação.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/remotion-dev/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">remotion-dev/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/remotion-dev/skills">remotion-dev/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.remotion.dev/docs/ai/skills">Remotion Agent Skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (skills) + TypeScript (scripts)</dd></div>
+<div><dt>Licença</dt><dd>Sem licença declarada no repositório</dd></div>
+<div><dt>Estrelas</dt><dd>~7,9k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O conjunto de skills que a equipe do <a href="../10-midia-e-modelos-ia/remotion.html">Remotion</a> mantém para ensinar agentes de IA a trabalhar em projetos Remotion. Seguem o padrão <a href="https://agentskills.io/home">Agent Skills</a> e funcionam em Claude Code, Codex, Cursor, Kimi Code, OpenCode e outros.</p>
+<p>Há uma skill geral (<code>remotion-best-practices</code>), que engloba todas, e skills específicas por tarefa. O repositório é gerado a partir do monorepo do Remotion, então acompanha as versões da biblioteca.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><code>/remotion-best-practices</code>: engloba todas as outras; use quando não souber qual escolher.</li>
+<li><code>/remotion-create</code>: cria um projeto ou composição nova.</li>
+<li><code>/remotion-markup</code>: boas práticas de código (composições, animações, layout, tipografia, mídia, efeitos, áudio, fontes, tempo).</li>
+<li><code>/remotion-studio</code>: abre o Studio para pré-visualizar.</li>
+<li><code>/remotion-render</code>: renderiza vídeo ou still, ou exporta uma timeline OpenTimelineIO editável.</li>
+<li><code>/remotion-maps</code>: animações de mapa (rotas, marcadores, Mapbox, MapLibre, GeoJSON, voos 3D com CesiumJS).</li>
+<li><code>/remotion-captions</code>: legendas.</li>
+<li><code>/remotion-saas</code>: arquitetura de apps e produtos com Remotion.</li>
+<li><code>/remotion-interactivity</code>: deixa o código editável no Studio.</li>
+<li><code>/remotion-docs</code>: busca na documentação e traz qualquer página em Markdown.</li>
+<li><code>/remotion-license</code>, <code>/remotion-upgrade</code>, <code>/remotion-multimedia</code> (Mediabunny).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com Agent Skills.</li>
+<li>Node.js; um projeto Remotion para usar de fato.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Num projeto Remotion:</p>
+<pre><code class="language-bash">npx remotion skills add
+</code></pre>
+<p>Sem Remotion instalado, pela <a href="vercel-skills-cli.html">Vercel Skills CLI</a> ou pela GitHub CLI:</p>
+<pre><code class="language-bash">npx skills add remotion-dev/skills
+gh skill install remotion-dev/skills
+</code></pre>
+<p>Ao criar um projeto novo, já instalando as skills:</p>
+<pre><code class="language-bash">npx create-video@latest --skills
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/remotion-create Make a promo video for a record store
+/remotion-markup Create an animated title card using Inter.
+/remotion-maps Animate a route from Los Angeles to New York and make the camera follow it.
+/remotion-docs How to set up Remotion Lambda?
+/remotion-studio
+/remotion-render
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Fazer vídeos em Remotion com um agente, com o código seguindo as práticas oficiais.</li>
+<li>Consultar a API atual do Remotion sem depender do que o modelo lembra.</li>
+<li>Animações de mapa e legendas em vídeos.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O repositório não tem arquivo de licença. O uso do Remotion em si segue a <a href="../10-midia-e-modelos-ia/remotion.html">Remotion License</a> (paga para empresas acima de 3 funcionários).</li>
+<li>Relacionados no catálogo: o <a href="../10-midia-e-modelos-ia/remotion.html">Remotion</a> é a biblioteca; o <a href="../10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a> é a alternativa em HTML com skills próprias; o <a href="motion-design-skill.html">Motion Design Skill</a> ensina princípios de tempo e easing que valem para qualquer ferramenta.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/remotion-dev/skills#readme">README</a></li>
+<li><a href="https://www.remotion.dev/docs/ai/skills">Documentação das skills</a></li>
+<li><a href="https://github.com/remotion-dev/skills/tree/main/skills">Pasta das skills</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

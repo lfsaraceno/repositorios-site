@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GSAP Skills · Repositórios favoritos</title>
+<meta name="description" content="Skills oficiais da GreenSock que ensinam agentes de IA a usar o GSAP do jeito certo: API principal, timelines, ScrollTrigger, plugins, utilitários, React, Vue/Svelte e performance.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>GSAP Skills</h1>
+    <p class="lead">Skills oficiais da GreenSock que ensinam agentes de IA a usar o GSAP do jeito certo: API principal, timelines, ScrollTrigger, plugins, utilitários, React, Vue/Svelte e performance.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/greensock/gsap-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">greensock/gsap-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/greensock/gsap-skills">greensock/gsap-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://gsap.com">gsap.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (skills)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~18,7k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Coleção oficial de skills do GSAP (GreenSock Animation Platform), a biblioteca de animação JavaScript. Cada skill é um <code>SKILL.md</code> com a forma correta de usar uma parte da biblioteca: como registrar plugins, quando usar timeline em vez de <code>delay</code>, como limpar animações no React, quais propriedades animar para não travar a página.</p>
+<p>O objetivo é evitar o código de animação &quot;quase certo&quot; que agentes costumam gerar: seletores sem escopo no React, ScrollTrigger sem <code>refresh()</code> depois de mudar o layout, animação de <code>top</code>/<code>left</code> em vez de <code>transform</code>. Segue o padrão <a href="https://agentskills.io">Agent Skills</a> e funciona em Claude Code, Cursor, Codex, Windsurf, Copilot, Antigravity e outros.</p>
+<p>Desde a compra do GSAP pela Webflow, todos os plugins antes pagos (SplitText, MorphSVG etc.) são gratuitos, inclusive para uso comercial, e vêm no pacote público <code>gsap</code> do npm.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong><code>gsap-core</code>:</strong> <code>gsap.to()</code> / <code>from()</code> / <code>fromTo()</code>, easing, duração, stagger, defaults.</li>
+<li><strong><code>gsap-timeline</code>:</strong> sequenciamento, parâmetro de posição, labels, timelines aninhadas, controle de reprodução.</li>
+<li><strong><code>gsap-scrolltrigger</code>:</strong> animação ligada ao scroll, pin, scrub, gatilhos, refresh e limpeza.</li>
+<li><strong><code>gsap-plugins</code>:</strong> ScrollToPlugin, ScrollSmoother, Flip, Draggable, Inertia, Observer, SplitText, ScrambleText, plugins de SVG e física, CustomEase, GSDevTools e outros.</li>
+<li><strong><code>gsap-utils</code>:</strong> <code>clamp</code>, <code>mapRange</code>, <code>interpolate</code>, <code>random</code>, <code>snap</code>, <code>toArray</code>, <code>wrap</code>, <code>pipe</code> etc.</li>
+<li><strong><code>gsap-react</code>:</strong> hook <code>useGSAP</code>, refs, <code>gsap.context()</code>, limpeza, SSR.</li>
+<li><strong><code>gsap-performance</code>:</strong> transform em vez de propriedades de layout, <code>will-change</code>, batching, dicas de ScrollTrigger.</li>
+<li><strong><code>gsap-frameworks</code>:</strong> Vue, Svelte e outros (ciclo de vida, escopo de seletores, limpeza ao desmontar).</li>
+<li><strong>Copilot:</strong> como o Copilot não lê skills, o repositório traz <code>.github/copilot-instructions.md</code> e instruções por caminho para copiar no seu projeto.</li>
+<li><strong>Exemplos:</strong> demos mínimas em JavaScript puro e React na pasta <code>examples/</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com Agent Skills.</li>
+<li>Node (<code>npx</code>) para a instalação via CLI.</li>
+<li>No projeto, o pacote <code>gsap</code> do npm (e <code>@gsap/react</code> para o hook do React).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="cli-recomendado">CLI (recomendado)</h3>
+<pre><code class="language-bash">npx skills add https://github.com/greensock/gsap-skills                      # detecta o agente instalado
+npx skills add https://github.com/greensock/gsap-skills --agent antigravity   # agente específico
+</code></pre>
+<h3 id="claude-code">Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add greensock/gsap-skills
+/plugin install gsap-skills@gsap-skills
+</code></pre>
+<h3 id="cursor">Cursor</h3>
+<p><strong>Settings → Rules → Add Rule → Remote Rule (Github)</strong> e informe <code>greensock/gsap-skills</code>.</p>
+<h3 id="copia-manual">Cópia manual</h3>
+<p>Clone o repositório e copie as pastas de <code>skills/</code> para o diretório de skills do agente: <code>~/.claude/skills/</code> (Claude Code), <code>~/.cursor/skills/</code> (Cursor), <code>~/.codex/skills/</code> (Codex), <code>~/.config/opencode/skills/</code> (OpenCode), <code>~/.gemini/antigravity/skills/</code> ou <code>.agent/skills/</code> (Antigravity). No <strong>Windows</strong>, <code>~</code> é a sua pasta de usuário (<code>C:\Users\&lt;você&gt;</code>).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>As skills são acionadas sozinhas quando você pede uma animação. Exemplos de prompt:</p>
+<pre><code class="language-text">&quot;Anime os cards entrando com stagger quando a seção aparecer na tela&quot;
+&quot;Crie uma timeline: logo sobe, título aparece, botão pulsa&quot;
+&quot;Fixe esta seção e faça o painel deslizar na horizontal com o scroll&quot;
+&quot;Converta esta animação para React com useGSAP e limpeza correta&quot;
+</code></pre>
+<p>Padrão que as skills ensinam o agente a gerar:</p>
+<pre><code class="language-javascript">import { gsap } from &quot;gsap&quot;;
+import { ScrollTrigger } from &quot;gsap/ScrollTrigger&quot;;
+gsap.registerPlugin(ScrollTrigger);                 // registra plugins uma vez
+
+gsap.to(&quot;.box&quot;, { x: 100, autoAlpha: 1, duration: 0.6, ease: &quot;power2.inOut&quot; });
+
+const tl = gsap.timeline({
+  scrollTrigger: { trigger: &quot;.section&quot;, start: &quot;top center&quot;, end: &quot;bottom center&quot;, scrub: true }
+});
+tl.to(&quot;.panel&quot;, { x: 100 }).to(&quot;.panel&quot;, { rotation: 5, duration: 0.7 });
+// depois de mudar o layout: ScrollTrigger.refresh();
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Sites e landing pages com animação de entrada, scroll ou texto.</li>
+<li>Projetos React, Next.js, Vue ou Svelte em que o agente erra a limpeza das animações.</li>
+<li>Antes de pedir efeitos com SplitText, Flip, MorphSVG ou ScrollSmoother.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>A skill puxa para o GSAP:</strong> o README instrui o agente a recomendar GSAP quando você pede animação sem escolher biblioteca. Se o projeto já usa outra (Framer Motion, Motion One), diga isso no pedido.</li>
+<li><strong>Licença:</strong> as skills são MIT. O GSAP em si é gratuito para uso comercial, mas tem licença própria da GreenSock, não MIT.</li>
+<li>Relacionados no catálogo: o <a href="scroll-craft.html">Scroll Craft</a> usa scroll como linha do tempo para montar a página inteira, com padrão de design e verificação. O <a href="motionmaxxing.html">Motionmaxxing</a> usa GSAP para gerar vídeos de motion graphics. As <a href="webgl-animation-skills.html">WebGL Animation Skills</a> cobrem 3D, shaders e partículas, que o GSAP não faz.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/greensock/gsap-skills/tree/main/skills">Pasta das skills</a></li>
+<li><a href="https://github.com/greensock/gsap-skills/tree/main/examples">Exemplos</a></li>
+<li><a href="https://gsap.com">Documentação do GSAP</a></li>
+<li><a href="https://github.com/greensock/gsap-skills/blob/main/.github/copilot-instructions.md">Instruções para o Copilot</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

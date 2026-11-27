@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI YouTube Shorts Generator · Repositórios favoritos</title>
+<meta name="description" content="Alternativa open source ao Opus Clip, Vidyo.ai e Klap: transforma um vídeo longo do YouTube (ou um arquivo local) em cortes verticais 9:16 com nota de viralização, gancho e motivo de cada corte, usando Whisper para transcrever e um LLM para escolher os melhores trechos.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>AI YouTube Shorts Generator</h1>
+    <p class="lead">Alternativa open source ao Opus Clip, Vidyo.ai e Klap: transforma um vídeo longo do YouTube (ou um arquivo local) em cortes verticais 9:16 com nota de viralização, gancho e motivo de cada corte, usando Whisper para transcrever e um LLM para escolher os melhores trechos.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Anil-matcha/AI-Youtube-Shorts-Generator</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator">Anil-matcha/AI-Youtube-Shorts-Generator</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.vadoo.tv/ai-youtube-shorts-generator">vadoo.tv</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~6,3k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma ferramenta de linha de comando (e biblioteca Python) que faz o que os serviços pagos de &quot;cortes com IA&quot; fazem, sem assinatura, sem limite de minutos e sem marca d'água. Você passa a URL de um vídeo longo e recebe os N melhores trechos já recortados na vertical.</p>
+<p>O pipeline:</p>
+<ol>
+<li>baixa o vídeo;</li>
+<li>transcreve com Whisper, com marcação de tempo;</li>
+<li>o LLM classifica o tipo de vídeo (podcast, entrevista, tutorial, vlog) para ajustar a análise;</li>
+<li>vídeos com mais de 30 minutos são divididos em blocos de 20 minutos com sobreposição;</li>
+<li>o LLM avalia a transcrição com critérios de viralização (ganchos, picos emocionais, opiniões fortes, revelações, conflito, frases de efeito, valor prático) e dá nota de 0 a 100;</li>
+<li>trechos sobrepostos são unidos, mantendo o de maior nota;</li>
+<li>os melhores são recortados na proporção pedida.</li>
+</ol>
+<p>Tem dois modos: <strong>API</strong> (padrão, usa o serviço pago MuAPI para tudo) e <strong>local</strong> (yt-dlp, faster-whisper, ffmpeg e OpenCV no seu computador; só a etapa do LLM vai para a OpenAI ou o Gemini).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Nota, título, gancho e motivo</strong> para cada corte.</li>
+<li><strong>Recorte vertical inteligente:</strong> no modo local, rastreia rostos com OpenCV e suaviza o movimento.</li>
+<li><strong>Qualquer proporção:</strong> 9:16, 1:1 ou outra.</li>
+<li><strong>Vídeos longos</strong> divididos automaticamente, sem perder trechos na divisão.</li>
+<li><strong>Arquivos locais</strong> no modo local (caminho ou <code>file://</code>), sem passar pelo YouTube.</li>
+<li><strong>Cache:</strong> reaproveita a transcrição (<code>.srt</code>) e o download já feitos.</li>
+<li><strong>Lote</strong> com <code>xargs</code> sobre uma lista de URLs.</li>
+<li><strong>Saída em JSON</strong> com transcrição, todos os candidatos e os cortes finais.</li>
+<li><strong>Critérios editáveis</strong> em <code>shorts_generator/highlights.py</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.10+.</li>
+<li>Modo API: chave do MuAPI (pago por uso).</li>
+<li>Modo local: <code>ffmpeg</code> no PATH e chave da OpenAI ou do Gemini. GPU NVIDIA opcional para o Whisper.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">git clone https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator.git
+cd AI-Youtube-Shorts-Generator
+python3.10 -m venv venv
+source venv/bin/activate                    # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+pip install -r requirements-local.txt       # só para o --mode local
+</code></pre>
+<p>O README clona pelo nome antigo do repositório (<code>SamurAIGPT/AI-Youtube-Shorts-Generator</code>), que o GitHub redireciona.</p>
+<p>Crie um <code>.env</code> na raiz. Para o modo local:</p>
+<pre><code class="language-bash">LLM_PROVIDER=openai          # openai ou gemini
+OPENAI_API_KEY=...           # ou GEMINI_API_KEY
+LOCAL_WHISPER_MODEL=base     # tiny / base / small / medium / large-v3
+LOCAL_WHISPER_DEVICE=auto    # auto / cpu / cuda
+LOCAL_OUTPUT_DIR=output
+</code></pre>
+<p>Para o modo API, basta <code>MUAPI_API_KEY</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">python main.py &quot;https://www.youtube.com/watch?v=VIDEO_ID&quot;                    # modo API (padrão), 3 cortes
+python main.py &quot;https://www.youtube.com/watch?v=VIDEO_ID&quot; --mode local       # tudo local, menos o LLM
+python main.py &quot;C:/Videos/live.mp4&quot; --mode local --num-clips 5 --language pt # arquivo local, 5 cortes, em português
+python main.py &quot;&lt;url&gt;&quot; --aspect-ratio 1:1 --format 1080 --output-json result.json
+xargs -a urls.txt -I{} python main.py &quot;{}&quot;                                   # lote (Linux/macOS/Git Bash)
+</code></pre>
+<p>No modo local, os cortes saem em <code>./output/short_01.mp4</code>, <code>short_02.mp4</code> etc.</p>
+<p>Como biblioteca:</p>
+<pre><code class="language-python">from shorts_generator import generate_shorts
+result = generate_shorts(&quot;live.mp4&quot;, num_clips=5, aspect_ratio=&quot;9:16&quot;, mode=&quot;local&quot;)
+for short in result[&quot;shorts&quot;]:
+    print(short[&quot;score&quot;], short[&quot;title&quot;], short[&quot;clip_url&quot;])
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Cortar podcasts, lives, aulas e entrevistas para TikTok, Reels e Shorts.</li>
+<li>Agências que processam muitos vídeos e não querem pagar por minuto.</li>
+<li>Integrar cortes automáticos num sistema próprio (biblioteca Python e saída JSON).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>O padrão é pago:</strong> o modo API usa o MuAPI, do mesmo grupo do autor, e o README promove a API de cortes deles. Para custo mínimo, use <code>--mode local</code> (você paga só a chamada ao LLM).</li>
+<li><strong>Sem legendas animadas:</strong> a ferramenta recorta, mas não adiciona legenda queimada no vídeo nem título na tela.</li>
+<li><strong>Direitos autorais:</strong> cortar vídeos de terceiros do YouTube para republicar pode violar direitos e os termos da plataforma. Use com conteúdo próprio ou autorizado.</li>
+<li>Relacionados no catálogo: o <a href="supoclip.html">SupoClip</a> faz o mesmo com interface web, rosto centralizado e legendas sincronizadas por palavra. O <a href="short-video-factory.html">Short Video Factory</a> monta vídeos novos a partir de clipes. O <a href="yt-dlp.html">yt-dlp</a> e o <a href="whisper.html">Whisper</a> são usados no modo local.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator/blob/main/shorts_generator/highlights.py">Critérios de viralização (highlights.py)</a></li>
+<li><a href="https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator/blob/main/.env.example">.env de exemplo</a></li>
+<li><a href="https://github.com/Anil-matcha/awesome-generative-ai-apps">Awesome Generative AI Apps (outros apps do autor)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/longcat.html">LongCat (Meituan)</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openhiggsfield-story-studio.html">OpenHiggsfield Story Studio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openverse.html">Openverse</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/remotion.html">Remotion</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

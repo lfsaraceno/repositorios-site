@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anidoodle · Repositórios favoritos</title>
+<meta name="description" content="Plugin para Claude Code, Codex e Grok Build que desenha arte e animação em código, em 32 estilos: ilustrações, timelapses do desenho, filmes com trilha composta em código, explicativos, vídeos de lançamento e arte interativa para sites.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Anidoodle</h1>
+    <p class="lead">Plugin para Claude Code, Codex e Grok Build que desenha arte e animação em código, em 32 estilos: ilustrações, timelapses do desenho, filmes com trilha composta em código, explicativos, vídeos de lançamento e arte interativa para sites.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/alexgreensh/anidoodle">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">alexgreensh/anidoodle</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/alexgreensh/anidoodle">alexgreensh/anidoodle</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://alexgreenshpun.com">alexgreenshpun.com</a> · referências em <code>skills/anidoodle/references/</code></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript / JavaScript</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~2k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Anidoodle é uma skill/plugin que faz o agente criar arte desenhada à mão escrevendo código. Cada traço é uma função e cada trilha sonora é escrita como dados, então o mesmo código redesenha a mesma imagem em qualquer máquina e tamanho.</p>
+<p>São 32 estilos (lápis e aquarela, nanquim, giz, colagem de papel, risografia, pixel art, xilogravura/ukiyo-e, rubber-hose dos anos 1930, bordado, tijolinhos de brinquedo etc.). Cada estilo vem com um filme do próprio desenho sendo feito, na ordem em que um artista daquele meio trabalharia.</p>
+<p>Vai além da ilustração: gera curtas e explicativos com trilha composta em código (21 estilos musicais), filmes de lançamento de produto a partir de um template, arte interativa para sites (um mascote que segue o cursor, por exemplo) e aulas de desenho com timelapse legendado.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>32 estilos de traço, cada um com o filme do desenho sendo feito.</li>
+<li>Música composta em código: 21 vocabulários (lo-fi, house, synthwave, orquestral, jazz, folk, piano solo), com pacote opcional de instrumentos gravados.</li>
+<li>Kit de efeitos sonoros sincronizados ao quadro exato.</li>
+<li>Kit de vídeo de lançamento: 16:9, 1:1, 4:5 e 9:16, legendas .srt/.vtt e checagem de áudio e de texto cortado.</li>
+<li>Ilustrações interativas para sites (<code>&lt;ani-doodle&gt;</code>, sem framework, com suporte a movimento reduzido e teclado).</li>
+<li>Copia o estilo de uma imagem sua, recria fotos em qualquer estilo e mantém um personagem igual entre cenas.</li>
+<li>Exporta PNG, MP4 com trilha, GIF, WebM e PNG animado com transparência, e um HTML único que toca offline.</li>
+<li>Quatro backends de render: <code>playwright</code>, <code>html-player</code>, <code>remotion</code> e <code>hyperframes</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code, Codex, Grok Build ou outro agente que leia skills.</li>
+<li>Node 20+.</li>
+<li>Chromium do Playwright (<code>npx playwright-core install chromium</code>).</li>
+<li>ffmpeg para tudo que se move.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code">Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add alexgreensh/anidoodle
+/plugin install anidoodle@alexgreensh-anidoodle
+</code></pre>
+<h3 id="codex">Codex</h3>
+<pre><code class="language-bash">codex plugin marketplace add alexgreensh/anidoodle
+</code></pre>
+<p>Depois, no Codex: <code>/plugins</code> e instale o anidoodle.</p>
+<h3 id="grok-build">Grok Build</h3>
+<pre><code class="language-bash">grok plugin marketplace add alexgreensh/anidoodle
+grok plugin install anidoodle --trust
+</code></pre>
+<h3 id="outros-agentes">Outros agentes</h3>
+<p>Copie a pasta <code>skills/anidoodle/</code> (tem o <code>SKILL.md</code>) para a pasta de skills do agente.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça em linguagem natural:</p>
+<pre><code class="language-text">draw a pencil &amp; watercolour pear for our recipes page
+a risograph lighthouse for our careers page, 1600×900
+a chalkboard explainer of how our pricing tiers stack up
+</code></pre>
+<p>Para usar o motor direto:</p>
+<pre><code class="language-bash">node &lt;anidoodle&gt;/engine/tools/scaffold.mjs ~/art --still hero --film intro --format 9x16 --duration 60   # cria o projeto
+cd ~/art &amp;&amp; npm install &amp;&amp; npx playwright-core install chromium
+node tools/still.mjs  hero  --out out/hero.png --scale 2   # ilustração pronta, em tamanho de impressão
+node tools/render.mjs intro --out out/intro.gif            # loop; também .mp4 com trilha ou .webm com alfa
+node tools/emit.mjs   intro --out out/intro.html           # a peça inteira num HTML offline
+node tools/gate.mjs   hero                                 # checa determinismo, contrato e trechos parados
+node tools/verify-export.mjs intro --file out/intro.mp4   # decodifica e confere o arquivo final
+node tools/music.mjs check score.ts#myScore                # confere tom, volume, equilíbrio e originalidade da trilha
+node tools/launch.mjs new myLaunch                         # cria o roteiro de um filme de lançamento
+</code></pre>
+<p>Pacote opcional de instrumentos gravados (373 MB):</p>
+<pre><code class="language-bash">node &lt;skill&gt;/engine/tools/soundfetch.mjs list      # o que está instalado
+node &lt;skill&gt;/engine/tools/soundfetch.mjs get all   # baixa, confere o hash e descompacta
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Ilustrações de site (hero, ícones, estados vazios, 404) num estilo só, com cara de feitas à mão.</li>
+<li>Vídeo de lançamento de produto com trilha original.</li>
+<li>Explicativos e infográficos animados.</li>
+<li>Mascote interativo ou ilustração que se desenha ao rolar a página.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><code>grok plugin install --trust</code> libera o plugin a rodar comandos; sem a flag, o Grok mostra o que ele pode executar e para.</li>
+<li>Arquivos de vídeo grandes e o pacote de sons (373 MB) são opcionais; sem ele, a trilha toca com instrumentos sintetizados.</li>
+<li>Relacionados no catálogo: o <a href="../10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a> é um dos backends de render; a <a href="claude-drawing-skill.html">Claude Drawing Skill</a> faz ilustração em código em Python (83 estilos) sem música nem vídeo completo; o <a href="motionmaxxing.html">Motionmaxxing</a> é focado em motion graphics de marca, não em desenho à mão.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/alexgreensh/anidoodle#readme">README</a></li>
+<li><a href="https://github.com/alexgreensh/anidoodle/releases">Releases</a></li>
+<li><a href="https://github.com/alexgreensh/anidoodle/blob/main/skills/anidoodle/references/workflows/launch-video.md">Guia de vídeo de lançamento</a></li>
+<li><a href="https://github.com/alexgreensh/anidoodle/blob/main/skills/anidoodle/references/styles.md">Estilos</a> · <a href="https://github.com/alexgreensh/anidoodle/blob/main/skills/anidoodle/references/music/README.md">Música</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

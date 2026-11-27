@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search Console MCP · Repositórios favoritos</title>
+<meta name="description" content="Servidor MCP que dá ao Claude (e a outros agentes) acesso aos dados reais do seu site no Google Search Console, Bing Webmaster Tools, Google Analytics 4 e AdSense, com análises prontas: quedas de tráfego, palavras quase no topo, canibalização, saúde do site e indexação.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Search Console MCP</h1>
+    <p class="lead">Servidor MCP que dá ao Claude (e a outros agentes) acesso aos dados reais do seu site no Google Search Console, Bing Webmaster Tools, Google Analytics 4 e AdSense, com análises prontas: quedas de tráfego, palavras quase no topo, canibalização, saúde do site e indexação.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/saurabhsharma2u/search-console-mcp">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">saurabhsharma2u/search-console-mcp</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/saurabhsharma2u/search-console-mcp">saurabhsharma2u/search-console-mcp</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://searchconsolemcp.saurabh.app/">searchconsolemcp.saurabh.app</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~330 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Os dados de um site ficam espalhados em vários painéis: Search Console, Bing, GA4 e AdSense. Responder &quot;minha receita caiu por queda de tráfego ou de RPM?&quot; costuma exigir exportar CSVs e cruzar planilhas à mão.</p>
+<p>O Search Console MCP põe essas fontes atrás de um só conjunto de ferramentas que o agente chama direto. As análises (canibalização, anomalias, atribuição de queda) são feitas no servidor, antes de os dados chegarem ao contexto do Claude. Você pergunta em linguagem natural e o agente responde com os números do seu site.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Fontes:</strong> Google Search Console, Bing Webmaster Tools, Google Analytics 4 e Google AdSense.</li>
+<li><strong>Análises:</strong> comparação de períodos, causa de queda de tráfego, detecção de anomalias, Google x Bing.</li>
+<li><strong>Auditorias de SEO (<code>seo_audit</code>):</strong> quick wins, palavras na &quot;zona de ataque&quot; (posições 8 a 15), canibalização, consultas perdidas, marca x não marca.</li>
+<li><strong>Saúde do site (<code>site_health_check</code>)</strong> e <strong>PageSpeed/Core Web Vitals (<code>pagespeed_analyze</code>)</strong>.</li>
+<li><strong>Inspeção de URL e indexação:</strong> status, cota e envio por API do Google/Bing ou IndexNow.</li>
+<li><strong>Sitemaps:</strong> listar, enviar e remover.</li>
+<li><strong>Consultas de IA (<code>genai_query_insights</code>):</strong> marca consultas com cara de pergunta para IA. É heurística própria, não dado oficial do Google ou do Bing.</li>
+<li><strong>Várias contas:</strong> mais de 20 contas, e o servidor descobre sozinho qual conta é dona de cada site.</li>
+<li><strong>CLI:</strong> todas as ferramentas também rodam no terminal, com saída em JSON, CSV ou tabela.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js (roda com <code>npx</code>).</li>
+<li>Um site verificado no Google Search Console, com a conta Google que tem acesso.</li>
+<li>Opcional: chave da API do Bing Webmaster Tools; conta de serviço do Google Cloud para o GA4.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx search-console-mcp setup
+</code></pre>
+<p>O comando abre o navegador, autoriza sua conta Google e guarda as credenciais. Depois adicione ao cliente MCP (Claude Desktop, Cursor, Antigravity etc.):</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;search-console&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;search-console-mcp&quot;]
+    }
+  }
+}
+</code></pre>
+<p>No Claude Code, o equivalente é <code>claude mcp add search-console -- npx search-console-mcp</code> (forma padrão do Claude Code; o README só mostra o JSON).</p>
+<p>Reinicie o cliente.</p>
+<p><strong>Outras fontes:</strong></p>
+<pre><code class="language-bash">npx search-console-mcp setup --engine=ga4        # Google Analytics 4 (conta de serviço)
+npx search-console-mcp setup --engine=adsense    # AdSense (OAuth só leitura)
+</code></pre>
+<p>Para o Bing, defina a variável <code>BING_API_KEY</code> com a chave gerada nas configurações do Bing Webmaster Tools.</p>
+<p><strong>Conta de serviço</strong> (servidores e automação): crie a conta no Google Cloud, gere a chave JSON, adicione o e-mail da conta como usuário no Search Console e aponte <code>GOOGLE_APPLICATION_CREDENTIALS</code> para o arquivo.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Perguntas do README para colar no agente:</p>
+<pre><code class="language-text">My traffic dropped this week vs. last. Find exactly when it started and which pages are responsible.
+Find keywords for example.com ranking positions 8–15 with 1,000+ impressions — my best quick wins.
+Check for keyword cannibalization — are two of my pages competing for the same query?
+Compare Google vs Bing performance for the last 30 days (compare_engines) — where is Bing winning?
+</code></pre>
+<p>Gerenciar contas e rodar ferramentas pelo terminal:</p>
+<pre><code class="language-bash">npx search-console-mcp accounts list
+npx search-console-mcp accounts add-site --account=voce@empresa.com --site=example.com
+npx search-console-mcp run --help
+npx search-console-mcp run seo_audit --siteUrl=https://example.com --type=quick_wins
+npx search-console-mcp run sites_list --engine=all --format=table
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Descobrir por que o tráfego orgânico caiu e em quais páginas.</li>
+<li>Achar palavras-chave que estão quase na primeira página para priorizar conteúdo.</li>
+<li>Relatórios de SEO de vários sites ou clientes sem abrir cada painel.</li>
+<li>Dar ao Claude dados reais antes de pedir uma estratégia de SEO.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Só leitura por padrão:</strong> enviar ou apagar sitemaps e gerenciar sites pede uma autorização de escrita separada, oferecida na primeira vez que a ferramenta for usada.</li>
+<li><strong>Credenciais:</strong> ficam no cofre do sistema (no Windows, o Gerenciador de Credenciais). Sem cofre, vão para um arquivo criptografado com uma chave da máquina.</li>
+<li><strong>Use o modo stdio</strong> (o padrão). O modo SSE está obsoleto e vai sair na próxima versão.</li>
+<li>Projeto de um desenvolvedor só, com poucas estrelas. Ainda assim, recebe correções frequentes (v2.1.4).</li>
+<li>Relacionados no catálogo: o <a href="../02-skills-para-agentes/claude-seo.html">Claude SEO</a> também lê o Search Console e faz auditoria completa. O <a href="../09-utilitarios-e-apps/open-seo.html">Open SEO</a> pesquisa palavras-chave e backlinks. O <a href="../02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a> prepara o site para ser citado por IAs.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://searchconsolemcp.saurabh.app/">Documentação</a></li>
+<li><a href="https://searchconsolemcp.saurabh.app/getting-started/multi-account">Várias contas</a></li>
+<li><a href="https://searchconsolemcp.saurabh.app/concepts/backward-compatibility">Compatibilidade com nomes antigos de ferramentas</a></li>
+<li><a href="https://searchconsolemcp.saurabh.app/tools/seo-intelligence">Ferramentas de inteligência de SEO</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

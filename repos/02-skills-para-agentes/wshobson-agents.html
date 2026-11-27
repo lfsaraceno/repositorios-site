@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wshobson Agents · Repositórios favoritos</title>
+<meta name="description" content="Coleção de 94 plugins com 202 subagentes, 185 skills e 105 comandos para Claude Code, Codex CLI, Cursor, OpenCode, Antigravity CLI, GitHub Copilot e Pi, cobrindo Python, JavaScript, revisão de código, testes, infraestrutura e segurança.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>wshobson Agents</h1>
+    <p class="lead">Coleção de 94 plugins com 202 subagentes, 185 skills e 105 comandos para Claude Code, Codex CLI, Cursor, OpenCode, Antigravity CLI, GitHub Copilot e Pi, cobrindo Python, JavaScript, revisão de código, testes, infraestrutura e segurança.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/wshobson/agents">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">wshobson/agents</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/wshobson/agents">wshobson/agents</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/wshobson/agents/blob/main/docs/plugins.md">Catálogo de plugins</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (geradores) e Markdown (conteúdo)</dd></div>
+<div><dt>Licença</dt><dd>MIT (plugins externos têm licença própria)</dd></div>
+<div><dt>Estrelas</dt><dd>~43k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um marketplace de plugins escrito uma vez, em Markdown no formato de plugin do Claude Code, e convertido por adaptadores para o formato de cada ferramenta de agente (Codex, Cursor, OpenCode, Antigravity, Copilot, Pi). O CI regenera e valida tudo para cada ferramenta.</p>
+<p>Cada plugin agrupa subagentes especialistas, skills (conhecimento carregado quando relevante) e comandos (fluxos nomeados, como scaffolding ou varredura de segurança). Por exemplo, <code>python-development</code> traz 3 agentes, 16 skills e um comando de scaffolding. Você instala só os plugins que usa.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>94 plugins (92 locais e 2 externos), 202 agentes, 185 skills e 105 comandos.</li>
+<li>Plugins de destaque: <code>python-development</code> (Django, FastAPI, testes, empacotamento), <code>javascript-typescript</code>, <code>developer-essentials</code> (code review, debug, Git, testes) e <code>security-scanning</code>.</li>
+<li>Agentes com alias de modelo (<code>opus</code>, <code>sonnet</code>, <code>haiku</code>, <code>fable</code>, <code>inherit</code>) mapeados para os modelos de cada ferramenta.</li>
+<li>Instalação de skills avulsas via <code>gh skill</code> ou <code>npx skills</code>, sem os agentes e comandos.</li>
+<li><code>plugin-eval</code>: checagem estática de skills sem chamar modelo (camadas de juiz LLM são experimentais).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code, Codex CLI ou Cursor (via marketplace) ou OpenCode, Antigravity CLI, Copilot ou Pi (via clone).</li>
+<li>Para instalar via clone: <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a> e Python 3.12+.</li>
+<li>Para skills avulsas: GitHub CLI 2.90+ (<code>gh skill</code>) ou Node.js (<code>npx skills</code>).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="claude-code">Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add wshobson/agents
+/plugin install python-development@claude-code-workflows
+</code></pre>
+<h3 id="codex-cli">Codex CLI</h3>
+<pre><code class="language-bash">codex plugin marketplace add wshobson/agents
+codex plugin add python-development@claude-code-workflows
+</code></pre>
+<h3 id="so-uma-skill">Só uma skill</h3>
+<pre><code class="language-bash">gh skill install wshobson/agents python-testing-patterns
+npx skills add wshobson/agents --skill python-testing-patterns
+</code></pre>
+<h3 id="opencode-antigravity-cli-copilot-e-pi">OpenCode, Antigravity CLI, Copilot e Pi</h3>
+<pre><code class="language-bash">gh repo clone wshobson/agents ~/agents
+cd ~/agents
+make install-opencode      # ou install-antigravity, install-copilot, install-pi
+</code></pre>
+<p>No Pi, os agentes exigem a extensão <code>subagent</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Depois de instalar um plugin, peça ao Claude para usar os agentes dele na tarefa, ou rode os comandos com o prefixo do plugin:</p>
+<pre><code class="language-text">/python-development:python-scaffold Create a FastAPI service with tests
+</code></pre>
+<p>Para quem contribui:</p>
+<pre><code class="language-bash">make generate-all          # gera os artefatos de cada ferramenta
+make validate STRICT=1     # valida estrutura e artefatos
+uv run --project plugins/plugin-eval plugin-eval score plugins/python-development/skills/python-testing-patterns --depth quick
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Ter subagentes especialistas prontos (backend, testes, segurança, infra) sem escrever do zero.</li>
+<li>Padronizar o mesmo conjunto de agentes entre Claude Code, Codex e Cursor no time.</li>
+<li>Pegar só uma skill específica de um domínio.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Instale apenas os plugins necessários: muitos plugins ativos ocupam contexto e deixam a escolha de agentes mais confusa.</li>
+<li>As notas do <code>plugin-eval</code> com juiz LLM são experimentais e, com <code>ANTHROPIC_API_KEY</code> definida, cobram na sua conta da API.</li>
+<li>O plugin externo Pensyve é do mantenedor; o Pensyve Cloud foi encerrado em 1º/out/2026 e só funciona self-hosted.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/wshobson/agents#readme">README</a></li>
+<li><a href="https://github.com/wshobson/agents/blob/main/docs/plugins.md">Catálogo de plugins</a></li>
+<li><a href="https://github.com/wshobson/agents/blob/main/docs/usage.md">Guia de uso</a></li>
+<li><a href="https://github.com/wshobson/agents/blob/main/docs/harnesses.md">Matriz de compatibilidade por ferramenta</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

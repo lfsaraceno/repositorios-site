@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scroll Craft · Repositórios favoritos</title>
+<meta name="description" content="Skill para Codex, Claude Code e outros agentes que constrói sites imersivos guiados pelo scroll, com padrão de design rígido (tipografia, contraste, uma &quot;jogada&quot; exclusiva por site) e verificação automática em navegador headless.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Scroll Craft</h1>
+    <p class="lead">Skill para Codex, Claude Code e outros agentes que constrói sites imersivos guiados pelo scroll, com padrão de design rígido (tipografia, contraste, uma &quot;jogada&quot; exclusiva por site) e verificação automática em navegador headless.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/nateherkai/scroll-craft">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">nateherkai/scroll-craft</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/nateherkai/scroll-craft">nateherkai/scroll-craft</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~5,2k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma skill de Nate Herk para fazer landing pages em que o scroll é a linha do tempo: vídeo avança quadro a quadro com a roda do mouse, seções ficam fixas enquanto o conteúdo muda, faixas deslizam para o lado, títulos se montam linha por linha e a cor de fundo muda ao longo da página.</p>
+<p>O autor parte de um diagnóstico: página feita por IA costuma ser ou certinha e esquecível, ou cheia de efeito com texto ilegível. A skill trata interação e acabamento como um trabalho só. Ela traz o procedimento (<code>SKILL.md</code>), referências de design, um motor pronto (<code>scrollcraft.js</code> + <code>.css</code>) e scripts que encodam vídeo e verificam o resultado.</p>
+<p>A versão 0.3.0 inclui o processo por trás de dez sites aprovados pelo autor (AI Automation Society, PERKFORM, Glaido, Serein, NOEMA e outros), usados como exemplos de trabalho.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Oito &quot;gramáticas&quot; de página</strong> que se excluem: one-shot filmado, editorial em capítulos, superfície ao vivo, mundo contínuo, pôster tipográfico, galeria, palco dividido e cortes ritmados.</li>
+<li><strong>Jogada exclusiva obrigatória:</strong> cada site inventa uma interação que só existe nele.</li>
+<li><strong>Registro de impressões digitais:</strong> um site novo precisa diferir dos anteriores em pelo menos 4 de 6 dimensões (gramática, navegação, hero, forma dos atos, final, jogada). Assim você não repete a mesma página.</li>
+<li><strong>Curva de sensação e um pico só:</strong> antes de construir, define a emoção de cada ato. O pico recebe o orçamento de assets e o maior espaço de scroll.</li>
+<li><strong>Piso de design:</strong> no máximo duas famílias de fonte, medida de 45 a 75 caracteres, escala de espaçamento de 4px, cor com seis papéis e um acento, sem preto puro.</li>
+<li><strong>Lista de recusas:</strong> grades de cards idênticas, contadores <code>01 / 06</code>, indicadores de scroll, texto com gradiente, travessões, estatísticas inventadas, dashboards falsos, gradiente roxo de IA.</li>
+<li><strong>Guia de marca manda:</strong> se você passar um brand kit, as regras dele vencem as da skill.</li>
+<li><strong>Verificação automática:</strong> um navegador headless percorre a página em cada posição de scroll e aponta scroll morto, texto que nunca chega à opacidade total, contraste medido linha a linha sobre o quadro mais claro e vídeos que não decodificaram. No fim gera uma folha de contato com capturas.</li>
+<li><strong>Assets próprios ou gerados:</strong> funciona só com suas fotos e vídeos, sem custo. Opcionalmente gera imagem e vídeo pela API do kie.ai (paga).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente que leia instruções, edite arquivos, rode comandos e inspecione navegador (Claude Code, Codex etc.).</li>
+<li>Node 18 ou mais novo.</li>
+<li>ffmpeg <strong>completo</strong> (versões reduzidas sem o filtro <code>scale</code> causam erros enganosos); a variável <code>SCROLLCRAFT_FFMPEG</code> aponta outro executável.</li>
+<li><code>playwright-core</code> instalado na pasta do build e o Chrome, para a verificação.</li>
+<li>Opcional: <code>KIE_AI_API_KEY</code> (kie.ai), só para gerar imagens e vídeos.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<pre><code class="language-text">/plugin marketplace add nateherkai/scroll-craft
+/plugin install nateherk-design
+</code></pre>
+<p>Se aparecer <code>Run /reload-plugins to activate.</code>, rode <code>/reload-plugins</code>.</p>
+<h3 id="codex-e-outros-agentes">Codex e outros agentes</h3>
+<p>Clone o repositório e copie a pasta inteira <code>plugins/nateherk-design/skills/scroll-craft/</code> (com references, scripts, templates e engine):</p>
+<ul>
+<li><strong>Codex:</strong> para <code>.agents/skills/</code> do projeto.</li>
+<li><strong>Outros agentes com skills:</strong> para o diretório de skills do agente.</li>
+<li><strong>Qualquer agente com acesso a arquivos:</strong> deixe o repositório no workspace e peça para ler o <code>SKILL.md</code> (prompt abaixo).</li>
+</ul>
+<h3 id="primeira-execucao">Primeira execução</h3>
+<p>Na raiz do repositório (ou na pasta <code>scripts/</code> onde a skill foi instalada):</p>
+<pre><code class="language-bash">node plugins/nateherk-design/skills/scroll-craft/scripts/doctor.mjs                 # checa ffmpeg, muxer WebP e playwright-core
+node plugins/nateherk-design/skills/scroll-craft/scripts/workspace.mjs --ensure     # cria o workspace e o registro
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">/nateherk-design:scroll-craft      # chama a skill direto no Claude Code
+</code></pre>
+<p>Ou descreva o site que quer. Para agentes sem suporte a skills:</p>
+<pre><code class="language-text">Read plugins/nateherk-design/skills/scroll-craft/SKILL.md and use it to build
+my website. Follow the referenced design and verification workflow.
+</code></pre>
+<p>Os builds ficam em <code>&lt;workspace&gt;/builds/&lt;nome&gt;/</code> e o registro em <code>&lt;workspace&gt;/FINGERPRINTS.md</code>. O workspace é resolvido nesta ordem: variável <code>SCROLLCRAFT_HOME</code>, arquivo <code>.scrollcraft.json</code> (<code>{ &quot;workspace&quot;: &quot;caminho&quot; }</code>) mais próximo, ou <code>&lt;raiz do projeto&gt;/scrollcraft</code>.</p>
+<p>Para mexer na skill sem instalar: <code>claude --plugin-dir ./plugins/nateherk-design</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Landing page de lançamento, produto, portfólio ou marca que precisa impressionar.</li>
+<li>Quando os sites gerados por IA estão saindo todos iguais.</li>
+<li>Quando você tem vídeo ou fotos do produto e quer uma página que &quot;conte&quot; o produto com o scroll.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Feito e testado no Windows:</strong> o autor só rodou no Windows; o Mac nunca foi testado. <code>SCROLLCRAFT_FFMPEG</code> e <code>SCROLLCRAFT_CHROME</code> corrigem a busca dos executáveis.</li>
+<li><strong>Geração de assets custa:</strong> pelo <code>.env.example</code>, a tabela do kie.ai é de 28 créditos por imagem e 160 por clipe de 5 s. Uma página de seis atos fica perto de 520 créditos, e um &quot;mundo contínuo&quot; de dez trechos perto de 2.000. Com assets próprios, custo zero.</li>
+<li><strong>Opinativa de propósito:</strong> recusa layouts e paletas comuns e questiona seu pico. Não serve para quem quer uma página padrão.</li>
+<li><strong>O motor não é editado por projeto:</strong> você personaliza com seis cores, duas fontes e HTML próprio, usando a variável CSS <code>--sc-p</code> que o motor publica.</li>
+<li>Os exemplos aprovados descrevem comportamento de design; assets de clientes não vêm no repositório.</li>
+<li>Relacionados no catálogo: as <a href="gsap-skills.html">GSAP Skills</a> ensinam a biblioteca de animação em si, para qualquer projeto. As <a href="webgl-animation-skills.html">WebGL Animation Skills</a> cobrem 3D e shaders.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/nateherkai/scroll-craft/blob/main/plugins/nateherk-design/skills/scroll-craft/SKILL.md">SKILL.md</a></li>
+<li><a href="https://github.com/nateherkai/scroll-craft/blob/main/plugins/nateherk-design/skills/scroll-craft/references/approved-collection.md">Exemplos aprovados e fluxo de produção</a></li>
+<li><a href="https://github.com/nateherkai/scroll-craft/blob/main/plugins/nateherk-design/skills/scroll-craft/CHANGELOG.md">CHANGELOG</a> (o que quebrou em cada build e a regra que surgiu)</li>
+<li><a href="https://github.com/nateherkai/scroll-craft/blob/main/EXAMPLES.md">EXAMPLES.md</a> (registro de exemplo do autor)</li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

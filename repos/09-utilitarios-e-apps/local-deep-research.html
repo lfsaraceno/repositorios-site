@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local Deep Research · Repositórios favoritos</title>
+<meta name="description" content="Assistente de pesquisa profunda com IA que roda local: pesquisa na web, em bases acadêmicas (arXiv, PubMed) e nos seus documentos e entrega relatórios com citações. Funciona com modelos locais (Ollama, LM Studio, llama.cpp) ou na nuvem, guarda tudo criptografado e tem servidor MCP para o Claude.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Local Deep Research</h1>
+    <p class="lead">Assistente de pesquisa profunda com IA que roda local: pesquisa na web, em bases acadêmicas (arXiv, PubMed) e nos seus documentos e entrega relatórios com citações. Funciona com modelos locais (Ollama, LM Studio, llama.cpp) ou na nuvem, guarda tudo criptografado e tem servidor MCP para o Claude.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/LearningCircuit/local-deep-research">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">LearningCircuit/local-deep-research</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/LearningCircuit/local-deep-research">LearningCircuit/local-deep-research</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://github.com/LearningCircuit/local-deep-research/tree/main/docs">docs</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~9,6k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Local Deep Research (LDR) é uma alternativa aberta ao &quot;Deep Research&quot; do ChatGPT e do Gemini. Você faz uma pergunta complexa, e ele pesquisa sozinho em vários buscadores, lê as fontes e escreve um relatório com citações.</p>
+<p>A estratégia principal (<code>langgraph-agent</code>) deixa o modelo decidir o que buscar, em quais motores especializados e quando sintetizar. Com ela, o projeto relata cerca de 95% no benchmark SimpleQA usando o Qwen3.6-27B numa única RTX 3090, tudo local.</p>
+<p>As fontes encontradas podem ser baixadas para uma biblioteca própria e criptografada. O LDR extrai o texto, indexa, e nas próximas pesquisas busca nos seus documentos e na web ao mesmo tempo.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Modos de pesquisa:</strong> resumo rápido (30 s a 3 min), pesquisa detalhada, relatório com seções e sumário, e análise de documentos.</li>
+<li><strong>Modo chat:</strong> conversa com pesquisa em várias rodadas, acumulando contexto.</li>
+<li><strong>Buscadores gratuitos:</strong> arXiv, PubMed, Semantic Scholar, Wikipedia, SearXNG, GitHub, Elasticsearch, Wayback Machine, The Guardian e Wikinews.</li>
+<li><strong>Buscadores pagos:</strong> Tavily, Google (SerpAPI ou Programmable Search) e Brave Search.</li>
+<li><strong>Seus documentos:</strong> arquivos locais, Paperless-ngx, Elasticsearch e qualquer retriever do LangChain (FAISS, Chroma, Pinecone, Weaviate).</li>
+<li><strong>Qualidade de periódicos:</strong> pontua a reputação de mais de 212 mil fontes acadêmicas e detecta periódicos predatórios.</li>
+<li><strong>Assinaturas:</strong> resumos automáticos diários ou semanais sobre temas que você acompanha.</li>
+<li><strong>Privacidade:</strong> banco SQLCipher (AES-256) separado por usuário, com chave derivada da senha. Sem telemetria.</li>
+<li><strong>Controle de saída (egress):</strong> modos <em>Public only</em>, <em>Private only</em> (só fontes locais e modelo local), <em>Strict</em> e <em>Adaptive</em>.</li>
+<li><strong>Integrações:</strong> API Python, API HTTP, servidor MCP, painel de custos e métricas, exportação em PDF e Markdown.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Docker (recomendado) ou Python com <code>pip</code>.</li>
+<li>Um modelo: Ollama, LM Studio, llama.cpp ou qualquer endpoint compatível com OpenAI; ou modelos na nuvem (OpenAI, Claude, Gemini, OpenRouter).</li>
+<li>SearXNG para busca na web (opcional, mas recomendado).</li>
+<li>CPU com AVX (Intel Sandy Bridge / AMD Bulldozer ou mais novo).</li>
+<li>GPU NVIDIA opcional, para rodar o modelo local mais rápido.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="docker-compose-todas-as-plataformas-incluindo-windows">Docker Compose (todas as plataformas, incluindo Windows)</h3>
+<pre><code class="language-bash">curl -O https://raw.githubusercontent.com/LearningCircuit/local-deep-research/main/docker-compose.yml &amp;&amp; docker compose up -d
+</code></pre>
+<p>Com GPU NVIDIA (Linux):</p>
+<pre><code class="language-bash">curl -O https://raw.githubusercontent.com/LearningCircuit/local-deep-research/main/docker-compose.yml &amp;&amp; \
+curl -O https://raw.githubusercontent.com/LearningCircuit/local-deep-research/main/docker-compose.gpu.override.yml &amp;&amp; \
+docker compose -f docker-compose.yml -f docker-compose.gpu.override.yml up -d
+</code></pre>
+<p>Abra http://localhost:5000 depois de uns 30 segundos.</p>
+<h3 id="docker-run-linux">Docker run (Linux)</h3>
+<p>O README mostra três contêineres (Ollama, SearXNG e LDR) com <code>--network host</code>. No <strong>Windows/Mac</strong> com Docker Desktop, isso só funciona com <em>Enable host networking</em> ligado (versão 4.34+); senão, use o Compose acima.</p>
+<h3 id="pip">pip</h3>
+<pre><code class="language-bash">pip install local-deep-research
+python -m local_deep_research.web.app     # interface em http://localhost:5000
+</code></pre>
+<p>Precisa do Ollama (ou outro endpoint) e do SearXNG rodando à parte. No <strong>Windows</strong>, exportar PDF exige o Pango instalado.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>API Python:</p>
+<pre><code class="language-python">from local_deep_research.api import quick_query
+summary = quick_query(&quot;username&quot;, &quot;password&quot;, &quot;What is quantum computing?&quot;)
+</code></pre>
+<p>Servidor MCP para o Claude Code (em <code>.mcp.json</code> do projeto):</p>
+<pre><code class="language-bash">pip install &quot;local-deep-research[mcp]&quot;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;local-deep-research&quot;: {
+      &quot;command&quot;: &quot;ldr-mcp&quot;,
+      &quot;env&quot;: {
+        &quot;LDR_LLM_PROVIDER&quot;: &quot;ollama&quot;,
+        &quot;LDR_LLM_OLLAMA_URL&quot;: &quot;http://localhost:11434&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p>Ferramentas do MCP:</p>
+<pre><code class="language-text">search                 # resultados brutos de um buscador (arxiv, pubmed, wikipedia...), sem custo de LLM
+quick_research         # resumo rápido (1-5 min)
+detailed_research      # análise completa (5-15 min)
+generate_report        # relatório em Markdown (10-30 min)
+analyze_documents      # busca nas suas coleções locais
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Pesquisas com fontes citadas sem mandar suas perguntas para um serviço de terceiros.</li>
+<li>Pesquisa acadêmica e técnica (artigos, PubMed, arXiv).</li>
+<li>Montar uma base de conhecimento própria que cresce a cada pesquisa.</li>
+<li>Dar ao Claude Code uma ferramenta de pesquisa profunda via MCP.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>&quot;Local&quot; tem limites:</strong> buscas na web saem para a internet (o SearXNG repassa as consultas aos buscadores). Um endpoint local que repassa para um modelo na nuvem não é detectado como remoto. Para ficar só no seu computador, use o modo <em>Private only</em> com fontes e modelo locais. Mesmo assim, o controle de saída é uma proteção de melhor esforço; para um bloqueio real, filtre no firewall.</li>
+<li><strong>MCP só local:</strong> o servidor MCP não tem autenticação. Não exponha na rede.</li>
+<li><strong>Atualização para a versão 2.0:</strong> faça backup antes. Depois de migrar, não dá para voltar direto à v1.10.7. O guia de upgrade explica.</li>
+<li>Desde a 1.6.3, não há modelo padrão: escolha um em <em>Settings → LLM</em>.</li>
+<li>Os benchmarks são da comunidade, com amostras pequenas.</li>
+<li>Relacionados no catálogo: o <a href="../01-orquestracao-de-agentes/hermes-agent.html">Hermes Agent</a> é um agente geral; o LDR é especializado em pesquisa com citações.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/LearningCircuit/local-deep-research/blob/main/docs/installation.md">Guia de instalação</a></li>
+<li><a href="https://github.com/LearningCircuit/local-deep-research/blob/main/docs/faq.md">FAQ (inclui Windows/WSL2)</a></li>
+<li><a href="https://github.com/LearningCircuit/local-deep-research/blob/main/docs/mcp-server.md">Servidor MCP</a></li>
+<li><a href="https://github.com/LearningCircuit/local-deep-research/blob/main/docs/search-engines.md">Buscadores</a></li>
+<li><a href="https://huggingface.co/datasets/local-deep-research/ldr-benchmarks">Benchmarks no Hugging Face</a></li>
+<li><a href="https://github.com/LearningCircuit/local-deep-research/blob/main/docs/deployment/upgrading.md">Guia de upgrade</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC (Receita Federal)</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/duplicati.html">Duplicati</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/microsoft-clarity.html">Microsoft Clarity</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/opengym.html">openGym</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rtc-calculadora-offline.html">RTC Calculadora Offline</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/stirling-pdf.html">Stirling PDF</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

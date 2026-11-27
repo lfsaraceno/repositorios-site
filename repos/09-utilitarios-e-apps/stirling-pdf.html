@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stirling PDF · Repositórios favoritos</title>
+<meta name="description" content="Plataforma de PDF open source com mais de 50 ferramentas: editar texto, juntar, dividir, assinar, tarjar, converter, OCR e comprimir. Roda como app de desktop, no navegador ou no seu servidor com API REST e servidor MCP, sem mandar os documentos para fora.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Stirling PDF</h1>
+    <p class="lead">Plataforma de PDF open source com mais de 50 ferramentas: editar texto, juntar, dividir, assinar, tarjar, converter, OCR e comprimir. Roda como app de desktop, no navegador ou no seu servidor com API REST e servidor MCP, sem mandar os documentos para fora.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Stirling-Tools/Stirling-PDF">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Stirling-Tools/Stirling-PDF</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Stirling-Tools/Stirling-PDF">Stirling-Tools/Stirling-PDF</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://stirling.com">stirling.com</a> · <a href="https://docs.stirlingpdf.com">Documentação</a> · <a href="https://registry.scalar.com/@stirlingpdf/apis/stirling-pdf-processing-api/">API</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript (interface) e Java (servidor)</dd></div>
+<div><dt>Licença</dt><dd>Open core: MIT, exceto as pastas proprietárias (<code>app/proprietary/</code>, <code>engine/</code> e outras), que exigem licença paga para uso em produção</dd></div>
+<div><dt>Estrelas</dt><dd>~98k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um &quot;canivete suíço&quot; de PDF que você hospeda. No servidor, abre no navegador e atende a equipe toda, com login. No desktop, as ferramentas básicas rodam no próprio computador; OCR e conversões de Office pedem o seu servidor ou a nuvem paga da Stirling.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Edição:</strong> editor de texto e imagens do PDF, editor de páginas (girar, reordenar, apagar, inserir), juntar, dividir, cortar, numerar páginas, marca d'água e carimbo com QR code.</li>
+<li><strong>Conversão:</strong> PDF para Word, PowerPoint, HTML, Markdown, PDF/A, EPUB e imagem, e de Office, HTML, e-mail e e-books para PDF.</li>
+<li><strong>OCR</strong> para tornar escaneados pesquisáveis, com idiomas extras.</li>
+<li><strong>Segurança:</strong> tarja definitiva, senha e permissões, limpeza de JavaScript e anexos, assinatura desenhada ou com certificado digital, carimbo de tempo RFC 3161 e validação de assinaturas.</li>
+<li><strong>Verificação:</strong> comparar dois PDFs, ver todos os metadados e checar acessibilidade (PDF/UA).</li>
+<li><strong>Automação:</strong> pipelines sem código na interface, pastas monitoradas e API REST para quase todas as ferramentas.</li>
+<li><strong>Servidor MCP</strong> (desligado por padrão) para agentes de IA usarem as ferramentas.</li>
+<li>Login com SSO OAuth2/OIDC, interface em mais de 40 idiomas, imagens para <code>amd64</code> e <code>arm64</code>.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Para o servidor: Docker, com uns 4 GB de RAM para a imagem padrão.</li>
+<li>Para o desktop: Windows 10 ou 11, macOS 10.15+ ou Linux x86_64.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Servidor com Docker Compose (<code>docker-compose.yml</code>):</p>
+<pre><code class="language-yaml">services:
+  stirling-pdf:
+    image: docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest
+    container_name: stirling-pdf
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./stirling-data/configs:/configs
+      - ./stirling-data/logs:/logs
+      - ./stirling-data/customFiles:/customFiles
+      - ./stirling-data/pipeline:/pipeline
+      - ./stirling-data/storage:/storage
+      - ./stirling-data/tessdata:/usr/share/tessdata
+    mem_limit: 4g
+    restart: unless-stopped
+</code></pre>
+<pre><code class="language-bash">docker compose up -d
+</code></pre>
+<p>Abra http://localhost:8080 e siga o assistente de configuração. Imagens: <code>latest</code> (padrão, com LibreOffice, OCR e conversões), <code>latest-fat</code> (inclui o motor de IA, 6 GB) e <code>latest-ultra-lite</code> (só o básico, sem login, 2 GB). Também saem no Docker Hub (<code>stirlingtools/stirling-pdf</code>) e no GHCR.</p>
+<p>Desktop:</p>
+<pre><code class="language-powershell">winget install StirlingTools.StirlingPDF
+</code></pre>
+<pre><code class="language-bash">brew tap stirling-tools/stirling-pdf
+brew install --cask stirling-pdf
+</code></pre>
+<p>No Linux, há <code>.deb</code>, <code>.rpm</code>, AppImage e o pacote <code>stirling-pdf-desktop</code> no AUR. No primeiro uso, escolha <strong>Continue without signing in</strong> para trabalhar só no computador.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>API REST, com a chave criada em <strong>Settings → Preferences → API Keys</strong>:</p>
+<pre><code class="language-bash">curl -X POST &quot;$STIRLING_URL/api/v1/misc/compress-pdf&quot; \
+  -H &quot;X-API-KEY: $STIRLING_API_KEY&quot; \
+  -F &quot;fileInput=@document.pdf&quot; \
+  -F &quot;optimizeLevel=5&quot; \
+  -o compressed.pdf
+
+curl -X POST &quot;$STIRLING_URL/api/v1/convert/pdf/word&quot; \
+  -H &quot;X-API-KEY: $STIRLING_API_KEY&quot; \
+  -F &quot;fileInput=@document.pdf&quot; \
+  -F &quot;outputFormat=docx&quot; \
+  -o document.docx
+</code></pre>
+<p>Para n8n, Make ou Zapier, use a ação genérica de HTTP: <code>POST</code>, corpo <code>multipart/form-data</code>, arquivo em <code>fileInput</code> e a chave no cabeçalho <code>X-API-KEY</code>.</p>
+<p>Ligar o MCP no servidor (<code>MCP_ENABLED=true</code> e <code>MCP_AUTH_MODE=apikey</code>) e conectar o Claude Code pelo <code>.mcp.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;stirling-pdf&quot;: {
+      &quot;type&quot;: &quot;http&quot;,
+      &quot;url&quot;: &quot;https://seu-servidor/mcp&quot;,
+      &quot;headers&quot;: { &quot;X-API-KEY&quot;: &quot;sua-chave-stirling&quot; }
+    }
+  }
+}
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar à equipe um editor de PDF completo sem pagar Adobe e sem subir documentos sigilosos para sites de terceiros.</li>
+<li>Tarjar, assinar com certificado ou converter contratos e documentos internos.</li>
+<li>Automatizar OCR, compressão e conversão de PDFs por API, pipelines ou pastas monitoradas.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Troque a senha inicial.</strong> Num servidor novo, o primeiro acesso entra como <code>admin</code> / <code>stirling</code>. O assistente obriga a trocar, mas não exponha o servidor na internet antes disso. Para já subir com outra senha, use <code>SECURITY_INITIALLOGIN_USERNAME</code> e <code>SECURITY_INITIALLOGIN_PASSWORD</code>.</li>
+<li><strong>Limites do plano gratuito no servidor:</strong> 5 usuários e 1.000 unidades por mês de automação, IA e chamadas de API. Passou disso, a API responde <code>402</code>. Usar as ferramentas na interface não conta. Banco externo, cluster, SAML e auditoria são dos planos pagos (Team e Enterprise).</li>
+<li>Pode enviar dados anônimos de uso (PostHog e Scarf), nunca o conteúdo dos documentos. O assistente pergunta; para desligar, defina <code>SYSTEM_ENABLEANALYTICS=false</code>.</li>
+<li>No desktop em modo Stirling Cloud, as ferramentas que o computador não roda vão para a nuvem da Stirling. Para documentos sigilosos, use o modo Local Only ou o seu servidor.</li>
+<li>Monte sempre os volumes <code>/configs</code> e <code>/storage</code>: ali ficam as configurações, o banco e os arquivos salvos.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://docs.stirlingpdf.com/Server/Install/Docker">Instalação com Docker</a> · <a href="https://docs.stirlingpdf.com/Desktop/Install">App de desktop</a></li>
+<li><a href="https://docs.stirlingpdf.com/Tools/">Todas as ferramentas</a> · <a href="https://docs.stirlingpdf.com/Developers/API">API REST</a></li>
+<li><a href="https://docs.stirlingpdf.com/Server/Licensing/Plans-and-Licences">Planos e licenças</a> · <a href="https://docs.stirlingpdf.com/Server/Automation/MCP-Server">Servidor MCP</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC (Receita Federal)</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/duplicati.html">Duplicati</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/microsoft-clarity.html">Microsoft Clarity</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/opengym.html">openGym</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rtc-calculadora-offline.html">RTC Calculadora Offline</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

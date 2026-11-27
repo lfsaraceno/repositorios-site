@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Clarity · Repositórios favoritos</title>
+<meta name="description" content="Biblioteca open source de analytics comportamental da Microsoft (a mesma que roda no Clarity hospedado): grava sessões e reproduz exatamente o que o visitante viu e fez no site, com foco em privacidade e desempenho; tem servidor MCP oficial para consultar os dados em linguagem natural.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Microsoft Clarity</h1>
+    <p class="lead">Biblioteca open source de analytics comportamental da Microsoft (a mesma que roda no Clarity hospedado): grava sessões e reproduz exatamente o que o visitante viu e fez no site, com foco em privacidade e desempenho; tem servidor MCP oficial para consultar os dados em linguagem natural.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/microsoft/clarity">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">microsoft/clarity</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/microsoft/clarity">microsoft/clarity</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://clarity.microsoft.com">clarity.microsoft.com</a> · <a href="https://clarity.microsoft.com/demo/projects/view/3t0wlogvdz/impressions?date=Last%203%20days">Demo ao vivo</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~2,8k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Clarity mostra como as pessoas usam o seu site em qualquer dispositivo e navegador: onde clicam, até onde rolam, onde travam. Ajuda a ver onde uma página ou funcionalidade falha e onde funciona, para melhorar conversão e retenção.</p>
+<p>Este repositório é o código aberto por trás do serviço hospedado da Microsoft em <a href="https://clarity.microsoft.com">clarity.microsoft.com</a>. Para a maioria dos sites, o caminho é usar o serviço hospedado; o código serve para quem quer entender, contribuir ou montar a própria solução.</p>
+<p>O projeto tem quatro pacotes:</p>
+<ul>
+<li><strong>clarity-js:</strong> o script que vai no site e registra interações e mudanças de layout.</li>
+<li><strong>clarity-decode:</strong> roda no servidor e decodifica os dados recebidos.</li>
+<li><strong>clarity-visualize:</strong> transforma os dados em replay da sessão, fiel ao pixel.</li>
+<li><strong>clarity-devtools:</strong> extensão para navegadores Chromium que faz capturas ao vivo de qualquer site.</li>
+</ul>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Gravação e replay de sessões.</li>
+<li>Conteúdo sensível mascarado por padrão antes do envio, com opções extras de mascaramento.</li>
+<li>Script leve, pensado para não pesar no site.</li>
+<li><strong>Servidor MCP oficial</strong> (<a href="https://github.com/microsoft/clarity-mcp-server">microsoft/clarity-mcp-server</a>) para consultar no agente:
+<ul>
+<li>métricas do painel (tráfego, navegadores, países);</li>
+<li>listas de gravações filtradas (mobile, erros de JavaScript, mais cliques);</li>
+<li>dados de <strong>AI Visibility</strong>: citações do seu domínio em respostas de IA, atividade de robôs de IA (exige CDN conectada) e relatórios por tema;</li>
+<li>a documentação do Clarity.</li>
+</ul>
+</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Para o serviço: uma conta no <a href="https://clarity.microsoft.com">Clarity</a> e acesso ao código do site para colocar o script.</li>
+<li>Para o MCP: Node.js 16 ou mais novo e acesso de admin ou membro a pelo menos um projeto do Clarity.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p><strong>No site:</strong> crie o projeto em <a href="https://clarity.microsoft.com">clarity.microsoft.com</a> e cole o script que o painel gera.</p>
+<p><strong>Servidor MCP</strong> (Claude Code, Claude Desktop, VS Code e outros clientes MCP):</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;microsoft-clarity&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;--prefer-online&quot;, &quot;@microsoft/clarity-mcp-server@latest&quot;]
+    }
+  }
+}
+</code></pre>
+<p>No Claude Desktop também dá para instalar pela galeria: <strong>File → Settings → Customize → Connectors</strong>, procure <strong>Microsoft Clarity</strong>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Com o MCP ativo, peça ao agente para <strong>entrar no Microsoft Clarity</strong>. O servidor abre a página de login no navegador e, depois, você escolhe o projeto padrão. Exemplos de perguntas (do README):</p>
+<pre><code class="language-text">How many Clarity sessions did we get in the past 7 days?
+List the most recent Clarity sessions from mobile devices.
+Get Clarity recordings where users encountered JavaScript errors.
+Which AI queries cite my domain most often this month?
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Entender por que uma landing page não converte: onde as pessoas param de rolar e o que ignoram.</li>
+<li>Achar bugs de interface vendo gravações de sessões com erro.</li>
+<li>Medir se o seu site está sendo citado por buscas e assistentes de IA.</li>
+<li>Deixar o agente analisar os dados do site junto com o código.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>LGPD:</strong> gravar sessões coleta dados de comportamento. Informe na política de privacidade e no aviso de cookies, e revise o mascaramento de campos sensíveis.</li>
+<li>O MCP antes usava token da Data Export API; esse modo está sendo descontinuado em favor do login OAuth.</li>
+<li>Relacionados no catálogo: o <a href="../05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a> traz os dados do Google; o <a href="../02-skills-para-agentes/claude-seo.html">Claude SEO</a> audita SEO.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://clarity.microsoft.com">Clarity</a> · <a href="https://clarity.microsoft.com/privacy">Política de privacidade</a></li>
+<li><a href="https://github.com/microsoft/clarity-mcp-server">Servidor MCP</a></li>
+<li><a href="https://github.com/microsoft/clarity/blob/master/CONTRIBUTING.md">Como contribuir</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC (Receita Federal)</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/duplicati.html">Duplicati</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/opengym.html">openGym</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rtc-calculadora-offline.html">RTC Calculadora Offline</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/stirling-pdf.html">Stirling PDF</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

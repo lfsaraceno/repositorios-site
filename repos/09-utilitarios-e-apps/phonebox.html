@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhoneBox · Repositórios favoritos</title>
+<meta name="description" content="Transforma um celular Android antigo num painel de mesa e deck de controle por toque para Windows, Linux e macOS: métricas do PC, cotas e sessões de Claude Code e Codex, música, atalhos e automação, por USB ou Wi-Fi, sem conta e sem nuvem.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>PhoneBox</h1>
+    <p class="lead">Transforma um celular Android antigo num painel de mesa e deck de controle por toque para Windows, Linux e macOS: métricas do PC, cotas e sessões de Claude Code e Codex, música, atalhos e automação, por USB ou Wi-Fi, sem conta e sem nuvem.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/ersinkoc/phonebox">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">ersinkoc/phonebox</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/ersinkoc/phonebox">ersinkoc/phonebox</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://ersinkoc.github.io/phonebox/">Demo ao vivo</a> · <a href="https://github.com/ersinkoc/phonebox/blob/main/docs/GUIDE.md">Guia do usuário</a></dd></div>
+<div><dt>Linguagem</dt><dd>C# (agente em .NET 10) e Kotlin (app Android com WebView)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~4,4k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O PhoneBox junta um app Android em tela cheia com um pequeno agente que roda no computador. O celular vira uma tela extra fixa na mesa, com widgets que mostram dados do PC e botões que disparam ações nele, no estilo de um Stream Deck.</p>
+<p>O painel é montado num editor visual que abre no navegador (<code>http://127.0.0.1:8765</code>): 126 widgets, 30 templates, várias páginas numa grade de 12 × 6, retrato ou paisagem, e prévia ao vivo. Dá para ligar vários celulares, cada um com seu layout, ou alternar um celular entre computadores pareados.</p>
+<p>Um uso que chama atenção é o de IA para código: o painel mostra cotas e horários de reset do Claude, do Codex e do Antigravity, as sessões locais do Claude Code, do Codex e do OpenCode (inclusive dentro do WSL), e pode responder pedidos de permissão desses agentes com <strong>Allow</strong> e <strong>Deny</strong> direto no celular.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Monitor do PC:</strong> CPU, GPU, RAM, discos, rede e ping, com gráficos e controle de processos.</li>
+<li><strong>IA para código:</strong> cotas e previsão de consumo do Claude, Codex e Antigravity; sessões do Claude Code, Codex e OpenCode com modelo, tempo e tokens; revisões e CI do GitHub. Integração opcional com o CodexBar para custos.</li>
+<li><strong>Permissões de agentes no celular:</strong> um hook <code>PermissionRequest</code> no Claude Code e no Codex leva o pedido para o celular. O OpenCode não precisa de hook e também oferece <strong>Always allow</strong>.</li>
+<li><strong>Control Deck:</strong> atalhos de apps e URLs, combinações de teclas, macros, áudio por aplicativo, microfone, mídia, OBS e controles do sistema.</li>
+<li><strong>Dia a dia:</strong> música tocando, rádio online, relógios, clima, calendários, notas, checklists, pomodoro, timers e porta-retratos (pasta local ou álbum do Immich).</li>
+<li><strong>Automação:</strong> valores e notificações por webhook, controles do Home Assistant e regras que reagem ao que acontece no computador.</li>
+<li><strong>Conexão:</strong> USB (via <code>adb reverse</code>) ou Wi-Fi com pareamento por QR code, HTTPS e certificado fixado; Tailscale para acessar de fora.</li>
+<li><strong>Telas OLED:</strong> o painel se move alguns pixels a cada 2 minutos e escurece sem toque, para evitar marca na tela.</li>
+<li><strong>13 idiomas</strong>, incluindo português.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Celular <strong>Android 5.0 ou mais novo</strong> (o autor recomenda Android 6+). Não há versão para iOS.</li>
+<li>Computador com <strong>Windows 10/11 x64</strong>, <strong>Linux x64 ou ARM64 (glibc)</strong> ou <strong>macOS</strong> (Apple silicon ou Intel). Windows ARM e Linux musl (Alpine) não têm build.</li>
+<li>Para USB: cabo de dados e <strong>depuração USB</strong> ligada no celular. Para Wi-Fi só, nada disso é preciso.</li>
+<li>O agente já vem com o .NET; não é preciso instalar o runtime.</li>
+<li>Alguns widgets dependem de ferramentas no computador: <code>nvidia-smi</code> para GPU NVIDIA, <code>playerctl</code> e <code>wpctl</code>/<code>pactl</code> no Linux, <code>nowplaying-cli</code> no macOS, LibreHardwareMonitor para sensores extras no Windows.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="1-agente-no-computador">1. Agente no computador</h3>
+<p><strong>Windows 10/11</strong> (PowerShell normal):</p>
+<pre><code class="language-powershell">irm https://raw.githubusercontent.com/ersinkoc/phonebox/main/setup.ps1 | iex
+</code></pre>
+<p><strong>Linux ou macOS</strong> (como seu usuário, sem <code>sudo</code>):</p>
+<pre><code class="language-sh">curl -fsSL https://raw.githubusercontent.com/ersinkoc/phonebox/main/setup.sh | bash
+</code></pre>
+<p>O setup baixa a última versão, confere o SHA-256, oferece as dependências que faltam e o início automático com o sistema, e abre as configurações em <code>http://127.0.0.1:8765</code>. Pelo USB, ele também instala o app no celular. Rodar o setup de novo atualiza ou repara sem perder configurações e pareamentos.</p>
+<p><strong>Scoop (Windows):</strong></p>
+<pre><code class="language-powershell">scoop bucket add phonebox https://github.com/ersinkoc/phonebox
+scoop install main/adb phonebox/phonebox
+</code></pre>
+<p>Também dá para baixar o zip do agente e o APK manualmente na <a href="https://github.com/ersinkoc/phonebox/releases/latest">página de releases</a>, ou compilar do código-fonte (<a href="https://github.com/ersinkoc/phonebox/blob/main/docs/SETUP.md">guia de instalação</a>).</p>
+<h3 id="2-conectar-o-celular">2. Conectar o celular</h3>
+<ul>
+<li><strong>USB:</strong> ative <strong>Opções do desenvolvedor → Depuração USB</strong>, conecte o cabo e aceite a autorização no celular. Deixe o setup instalar o app ou use <strong>Settings → General → Install the phone app</strong>.</li>
+<li><strong>Só Wi-Fi:</strong> instale o APK da página de releases. Nas configurações, ligue <strong>General → Wi-Fi &amp; Tailscale → Let the phone connect without the USB cable</strong>, clique em <strong>Save</strong> e depois em <strong>Restart to apply</strong>. Escolha <strong>Pair a phone over Wi-Fi</strong>, leia o QR code e confirme o código de verificação.</li>
+</ul>
+<p>Para ter troca automática entre USB e Wi-Fi, ative o Wi-Fi e conecte o celular pelo USB uma vez.</p>
+<h3 id="3-montar-o-painel">3. Montar o painel</h3>
+<p>Abra <code>http://127.0.0.1:8765</code> (no Windows, também pelo ícone da bandeja). Em <strong>Pages</strong>, escolha um template (Home, System, AI quotas, Sessions, Music, Planner, Automation ou Control Deck), arraste e redimensione os widgets e clique em <strong>Save</strong>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-text">http://127.0.0.1:8765      # configurações e editor de páginas (só no próprio PC)
+</code></pre>
+<ul>
+<li>No celular, troque de página deslizando, tocando nos pontos ou com as teclas de volume.</li>
+<li><strong>Permissões do Claude Code:</strong> ligue <strong>Settings › General › Claude Code permission prompts</strong> e clique em <em>Install hook</em>. O PhoneBox adiciona um hook <code>PermissionRequest</code> em <code>~/.claude/settings.json</code> e guarda um backup em <code>settings.json.phonebox.bak</code>. Se o celular não responder a tempo, o Claude Code pergunta no terminal como sempre. Há opção de só mandar para o celular quando você está longe do teclado há um minuto.</li>
+<li><strong>Permissões do Codex:</strong> mesma tela; o hook vai para <code>~/.codex/hooks.json</code> e precisa ser aprovado uma vez em <code>/hooks</code> numa nova sessão do Codex.</li>
+<li><strong>OpenCode:</strong> ligue o switch <strong>Ask on the phone</strong> (ou <code>&quot;phoneApprovals&quot;: true</code> na seção <code>opencode</code> do <code>config.json</code>).</li>
+<li>As configurações ficam em <code>%APPDATA%\PhoneBox\config.json</code> (Linux: <code>~/.config/PhoneBox</code>, macOS: <code>~/Library/Application Support/PhoneBox</code>).</li>
+</ul>
+<p>Para testar o painel e o editor sem celular, com dados simulados (precisa do código-fonte e Python 3):</p>
+<pre><code class="language-sh">python tools/demo-server.py   # abre em http://127.0.0.1:8790/panel/ e /settings/
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar uso a um celular Android parado na gaveta como monitor de sistema ou relógio de mesa.</li>
+<li>Acompanhar cotas e sessões do Claude Code e do Codex sem trocar de janela, e aprovar permissões pelo celular.</li>
+<li>Ter um deck de atalhos e controle de mídia/OBS sem comprar um Stream Deck.</li>
+<li>Comparação: o <a href="scrcpy.html">scrcpy</a> faz o contrário, espelhando o celular no computador. O <a href="twindesk.html">TwinDesk</a> une PC e celular numa só mesa (mouse, arquivos, segunda tela). O PhoneBox usa o celular como painel dedicado do PC.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Projeto muito novo:</strong> criado em novembro de 2026 e ainda na versão 0.9.x, com releases quase diárias. Espere mudanças.</li>
+<li><strong>Agente do Windows sem assinatura:</strong> a assinatura pela SignPath Foundation está pendente, e o SmartScreen ou o antivírus podem avisar ou bloquear. O app Android é assinado com a chave do próprio projeto.</li>
+<li><strong>Instalação por <code>irm | iex</code> e <code>curl | bash</code>:</strong> executa um script da internet direto. Leia o <a href="https://github.com/ersinkoc/phonebox/blob/main/setup.ps1">setup.ps1</a> ou o <a href="https://github.com/ersinkoc/phonebox/blob/main/setup.sh">setup.sh</a> antes, ou use o download manual.</li>
+<li><strong>Depuração USB:</strong> autorize só em computadores de confiança, porque dá acesso amplo ao celular.</li>
+<li><strong>APK fora das lojas:</strong> o app só existe nas releases do GitHub, sem Play Store; por Wi-Fi, as atualizações do app são manuais.</li>
+<li><strong>Hooks de permissão:</strong> o <em>Install hook</em> altera o <code>~/.claude/settings.json</code> e o <code>~/.codex/hooks.json</code>. Ele guarda backup, mas confira o arquivo se você já tem hooks próprios.</li>
+<li><strong>Privacidade:</strong> sem telemetria nem conta. Widgets opcionais (clima, cotas, GitHub) e a checagem de atualização acessam serviços externos; o <a href="https://github.com/ersinkoc/phonebox/blob/main/PRIVACY.md">PRIVACY.md</a> lista as conexões e como desligar cada uma.</li>
+<li><strong>Add-ons da comunidade</strong> não são revisados pelo projeto e podem mudar as configurações pela API local (<code>PUT /api/settings</code>). Leia o que fazem antes de instalar.</li>
+<li>Os widgets dependem do hardware, das ferramentas instaladas e das permissões do sistema; nem todo recurso funciona igual nos três sistemas.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/ersinkoc/phonebox#readme">README</a> · <a href="https://github.com/ersinkoc/phonebox/blob/main/docs/README.pt.md">README em português</a></li>
+<li><a href="https://ersinkoc.github.io/phonebox/">Demo ao vivo</a></li>
+<li><a href="https://github.com/ersinkoc/phonebox/releases/latest">Releases</a></li>
+<li><a href="https://github.com/ersinkoc/phonebox/blob/main/docs/SETUP.md">Instalação e conexões</a> · <a href="https://github.com/ersinkoc/phonebox/blob/main/docs/GUIDE.md">Guia do usuário</a></li>
+<li><a href="https://github.com/ersinkoc/phonebox/blob/main/docs/CONTROL-DECK.md">Control Deck</a> · <a href="https://github.com/ersinkoc/phonebox/blob/main/docs/APPEARANCE.md">Aparência</a></li>
+<li><a href="https://github.com/ersinkoc/phonebox/blob/main/CHANGELOG.md">Changelog</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC (Receita Federal)</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/duplicati.html">Duplicati</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/microsoft-clarity.html">Microsoft Clarity</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/opengym.html">openGym</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rtc-calculadora-offline.html">RTC Calculadora Offline</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/stirling-pdf.html">Stirling PDF</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

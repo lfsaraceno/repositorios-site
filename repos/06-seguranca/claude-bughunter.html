@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude BugHunter · Repositórios favoritos</title>
+<meta name="description" content="Pacote de 84 skills e 15 comandos para o Claude Code fazer bug bounty e red team externo: recon, 58 skills de caça por tipo de vulnerabilidade (baseadas em 681 relatórios públicos do HackerOne), ataques a plataformas corporativas, validação e relatório. Só para alvos autorizados.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#06-seguranca"><span aria-hidden="true">🛡️</span> Segurança</a>
+    </nav>
+    <h1>Claude BugHunter</h1>
+    <p class="lead">Pacote de 84 skills e 15 comandos para o Claude Code fazer bug bounty e red team externo: recon, 58 skills de caça por tipo de vulnerabilidade (baseadas em 681 relatórios públicos do HackerOne), ataques a plataformas corporativas, validação e relatório. Só para alvos autorizados.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/elementalsouls/Claude-BugHunter">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">elementalsouls/Claude-BugHunter</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/elementalsouls/Claude-BugHunter">elementalsouls/Claude-BugHunter</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://elementalsouls.github.io/Claude-BugHunter">Site</a> · <a href="https://github.com/elementalsouls/Claude-BugHunter/blob/main/docs/skills.md">Catálogo de skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT (código) e CC BY 4.0 (metodologia e documentação)</dd></div>
+<div><dt>Estrelas</dt><dd>~23k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O pacote transforma o Claude Code num caçador de bugs com método. Você descreve em linguagem natural o que está testando e as skills certas carregam sozinhas.</p>
+<p>São quatro camadas:</p>
+<ul>
+<li><strong>Pensar:</strong> metodologia de bug bounty e mentalidade de red team.</li>
+<li><strong>Caçar em apps web:</strong> 58 skills <code>hunt-*</code> com padrões de detecção, payloads e encadeamentos por classe de falha (XSS, SQLi, SSRF, IDOR, OAuth, JWT, upload, GraphQL e outras).</li>
+<li><strong>Atacar o perímetro:</strong> cadeias atuais contra plataformas corporativas expostas na internet (M365/Entra, Okta, vCenter, VPNs SSL, SharePoint, IAM de nuvem).</li>
+<li><strong>Entregar:</strong> validação com um portão de 7 perguntas, severidade conforme cada plataforma, relatório e limpeza de evidências (remove cookies e dados pessoais dos prints).</li>
+</ul>
+<p>O fluxo é: recon → mapear e priorizar → caçar → validar → relatar, com o escopo checado em código.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>84 skills: 58 de caça, 10 de plataformas corporativas, 7 de relatório e validação, 5 de recon e OSINT e 4 de metodologia.</li>
+<li>15 comandos, como <code>/hunt</code>, <code>/recon</code> e <code>/report</code>.</li>
+<li>Modelos de relatório para HackerOne, Bugcrowd, Intigriti e Immunefi, e entregável de red team para cliente.</li>
+<li>MCP do HackerOne: busca de duplicatas, escopo e estatísticas dos programas.</li>
+<li>CLI <code>cbh</code> para orquestrar recon, classificação, triagem e relatório.</li>
+<li>Integração opcional com o MCP do Burp Suite.</li>
+<li>Funciona também no OpenCode, Codex CLI, Hermes Agent e Antigravity.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code (ou outro agente compatível).</li>
+<li>Ferramentas de recon que as skills usam, como as da ProjectDiscovery (subfinder, httpx, nuclei) e, opcionalmente, o Burp Suite.</li>
+<li>Conta no HackerOne é opcional (só para programas privados e seus relatórios).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Plugin (recomendado), dentro do Claude Code:</p>
+<pre><code class="language-text">/plugin marketplace add elementalsouls/Claude-BugHunter
+/plugin install claude-bughunter@elementalsouls
+</code></pre>
+<p>A instalação pede usuário e token da API do HackerOne. Deixe em branco se não precisar.</p>
+<p>Cópia (traz também o organizador de projetos <code>hunt</code>):</p>
+<pre><code class="language-bash">git clone https://github.com/elementalsouls/Claude-BugHunter.git
+cd Claude-BugHunter
+bash scripts/install.sh          # macOS / Linux
+pwsh ./scripts/install.ps1       # Windows
+</code></pre>
+<p>CLI <code>cbh</code> separada:</p>
+<pre><code class="language-bash">pipx install git+https://github.com/elementalsouls/Claude-BugHunter
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Descreva o alvo e o escopo:</p>
+<pre><code class="language-text">Testing acme.com — an in-scope HackerOne target. Run recon and rank the surface.
+</code></pre>
+<p>Ou comece com <code>/hunt</code>, que já declara o contexto do trabalho (autorizado, com escopo definido).</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Programas de bug bounty em que você está inscrito.</li>
+<li>Pentests e red teams externos com contrato e escopo por escrito.</li>
+<li>Testar a superfície externa da sua própria empresa.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Autorização:</strong> use só em ativos seus ou com autorização por escrito (escopo de bug bounty, contrato de pentest, CTF). Atacar sistemas de terceiros sem permissão é crime.</li>
+<li>O pacote deixa de fora, de propósito: ataques internos a Active Directory, C2, pós-exploração, persistência e evasão de antivírus.</li>
+<li>As salvaguardas de cibersegurança da Anthropic podem bloquear ou redirecionar pedidos ofensivos, mesmo autorizados. Para trabalho ofensivo autorizado, o README indica o programa CVP da Anthropic.</li>
+<li>Parte das skills vem de outros projetos (claude-bug-bounty); veja o <code>NOTICE</code>.</li>
+<li>Relacionados no catálogo: a <a href="security-audit-skill.html">Security Audit Skill</a> da Cloudflare revisa código; o <a href="pentagi.html">PentAGI</a> é um agente de pentest autônomo.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/elementalsouls/Claude-BugHunter/blob/main/INSTALL.md">Instalação</a> · <a href="https://github.com/elementalsouls/Claude-BugHunter/blob/main/USAGE.md">Uso</a></li>
+<li><a href="https://github.com/elementalsouls/Claude-BugHunter/blob/main/docs/skills.md">Catálogo de skills</a></li>
+<li><a href="https://github.com/elementalsouls/Claude-BugHunter/blob/main/SECURITY.md">Política de segurança e uso autorizado</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#06-seguranca">Segurança</a></h2>
+    <ul>
+<li><a href="../../repos/06-seguranca/anthropic-cybersecurity-skills.html">Anthropic Cybersecurity Skills</a></li>
+<li><a href="../../repos/06-seguranca/craft-anything.html">Craft Anything</a></li>
+<li><a href="../../repos/06-seguranca/ghidra.html">Ghidra</a></li>
+<li><a href="../../repos/06-seguranca/pentagi.html">PentAGI</a></li>
+<li><a href="../../repos/06-seguranca/phoneintel.html">PhoneIntel</a></li>
+<li><a href="../../repos/06-seguranca/raptor.html">RAPTOR</a></li>
+<li><a href="../../repos/06-seguranca/rea.html">REA (Reverse Engineer Anything)</a></li>
+<li><a href="../../repos/06-seguranca/security-audit-skill.html">Security Audit Skill (Cloudflare)</a></li>
+<li><a href="../../repos/06-seguranca/trailofbits-skills.html">Trail of Bits Skills</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

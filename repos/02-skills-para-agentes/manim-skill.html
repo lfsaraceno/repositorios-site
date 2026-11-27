@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manim Skill · Repositórios favoritos</title>
+<meta name="description" content="Duas skills de boas práticas para agentes criarem animações matemáticas e de aula no estilo 3Blue1Brown, com Manim Community Edition e ManimGL, com exemplos de código testados.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Manim Skill</h1>
+    <p class="lead">Duas skills de boas práticas para agentes criarem animações matemáticas e de aula no estilo 3Blue1Brown, com Manim Community Edition e ManimGL, com exemplos de código testados.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/adithya-s-k/manim_skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">adithya-s-k/manim_skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/adithya-s-k/manim_skill">adithya-s-k/manim_skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://skills.sh/adithya-s-k/manim_skill">skills.sh/adithya-s-k/manim_skill</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT (o Manim tem licença própria)</dd></div>
+<div><dt>Estrelas</dt><dd>~1,4k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma coleção de boas práticas, padrões e exemplos para o agente escrever animações com o <strong>Manim</strong>, o motor de animação matemática criado por Grant Sanderson para o canal 3Blue1Brown. São duas skills, uma para cada versão do Manim:</p>
+<ul>
+<li><strong><code>manimce-best-practices</code>:</strong> Manim Community Edition (<code>manim</code>, <code>from manim import *</code>), mantido pela comunidade, estável e bem documentado.</li>
+<li><strong><code>manimgl-best-practices</code>:</strong> ManimGL (<code>manimgl</code>, <code>from manimlib import *</code>), a versão original do 3Blue1Brown, com renderização OpenGL, 3D e modo interativo.</li>
+</ul>
+<p>As duas versões são incompatíveis entre si, e o repositório explica as diferenças. Cada regra traz exemplos de código testados por uma suíte de testes própria.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Regras por tema: cenas, animações, objetos (mobjects), cores, texto e LaTeX, câmera, 3D e modo interativo.</li>
+<li>Exemplos de código testados automaticamente.</li>
+<li>Tabela de diferenças entre Manim Community e ManimGL.</li>
+<li>Ativação automática quando o código importa <code>manim</code> ou <code>manimlib</code>.</li>
+<li>Seção de solução de problemas (LaTeX, vídeo que não toca, versões em conflito).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.7+.</li>
+<li>FFmpeg.</li>
+<li>LaTeX (TeX Live, MiKTeX ou MacTeX), para fórmulas.</li>
+<li>O Manim em si: <code>pip install manim</code> ou <code>pip install manimgl</code>.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="as-skills">As skills</h3>
+<pre><code class="language-bash">npx skills add adithya-s-k/manim_skill                                         # as duas
+npx skills add adithya-s-k/manim_skill/skills/manimce-best-practices           # só Manim Community
+npx skills add adithya-s-k/manim_skill/skills/manimgl-best-practices           # só ManimGL
+</code></pre>
+<h3 id="o-manim">O Manim</h3>
+<pre><code class="language-bash">pip install manim       # Manim Community Edition
+pip install manimgl     # ManimGL
+manim --version         # confere a instalação
+</code></pre>
+<p><strong>Windows:</strong> instale o FFmpeg (por exemplo, <code>winget install --id Gyan.FFmpeg -e</code>) e o <a href="https://miktex.org/download">MiKTeX</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça ao agente uma animação; a skill entra quando o código usa o Manim:</p>
+<pre><code class="language-text">Make a 3Blue1Brown-style animation showing the Pythagorean theorem proof
+</code></pre>
+<p>Renderizar uma cena:</p>
+<pre><code class="language-bash">manim -pql scene.py BasicExample            # Manim Community: -p abre a prévia, -ql qualidade baixa (-qm, -qh)
+manimgl scene.py BasicExample --write_file  # ManimGL: salva o vídeo
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Vídeos de matemática, física e computação com fórmulas e gráficos animados.</li>
+<li>Explicar um artigo científico ou um algoritmo visualmente.</li>
+<li>Material de aula e vídeos educativos.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O repositório não recebe atualizações desde jan/2026, mas o Manim muda pouco nas APIs cobertas.</li>
+<li>O LaTeX completo é pesado (o <code>texlive-full</code> passa de vários GB). Sem ele, fórmulas não renderizam.</li>
+<li>Há outras skills de Manim, como <a href="https://github.com/Yusuke710/manim-skill">Yusuke710/manim-skill</a> e <a href="https://github.com/iart-ai/manim-skills">iart-ai/manim-skills</a>.</li>
+<li>Relacionados no catálogo: o <a href="huashu-art-motion.html">Huashu Art Motion</a> tem uma gramática &quot;3Blue1Brown&quot; sem Manim, feita em Canvas; o <a href="whiteboard-video-skill.html">Whiteboard Video</a> faz explicativos de quadro branco narrados.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/adithya-s-k/manim_skill#readme">README</a></li>
+<li><a href="https://docs.manim.community/">Documentação do Manim Community</a></li>
+<li><a href="https://3b1b.github.io/manim/">Documentação do ManimGL</a></li>
+<li><a href="https://www.youtube.com/@3blue1brown">3Blue1Brown</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

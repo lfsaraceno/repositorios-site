@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duplicati · Repositórios favoritos</title>
+<meta name="description" content="Backup gratuito e open source para Windows, macOS e Linux: guarda cópias criptografadas (AES-256), incrementais e comprimidas em S3, Backblaze B2, Google Drive, OneDrive, Dropbox, SFTP, WebDAV e dezenas de outros destinos, com agendador, interface web, linha de comando e servidor MCP para agentes de IA.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#09-utilitarios-e-apps"><span aria-hidden="true">🧰</span> Utilitários e apps</a>
+    </nav>
+    <h1>Duplicati</h1>
+    <p class="lead">Backup gratuito e open source para Windows, macOS e Linux: guarda cópias criptografadas (AES-256), incrementais e comprimidas em S3, Backblaze B2, Google Drive, OneDrive, Dropbox, SFTP, WebDAV e dezenas de outros destinos, com agendador, interface web, linha de comando e servidor MCP para agentes de IA.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/duplicati/duplicati">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">duplicati/duplicati</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/duplicati/duplicati">duplicati/duplicati</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://duplicati.com">duplicati.com</a> · <a href="https://duplicati.com/download">Download</a> · <a href="https://docs.duplicati.com">Manual</a></dd></div>
+<div><dt>Linguagem</dt><dd>C# (.NET)</dd></div>
+<div><dt>Licença</dt><dd>MIT no núcleo; a pasta <code>proprietary/</code> tem licença comercial da Duplicati Inc</dd></div>
+<div><dt>Estrelas</dt><dd>~15k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um cliente de backup que criptografa os arquivos no seu computador antes de enviar. Só o primeiro backup leva tudo; os seguintes mandam apenas o que mudou. Com uma senha forte, os arquivos ficam protegidos mesmo num servidor público.</p>
+<p>Vem em três pacotes:</p>
+<ul>
+<li><strong>GUI:</strong> ícone na bandeja, servidor com interface web e linha de comando. Para um computador de casa.</li>
+<li><strong>CLI:</strong> servidor e linha de comando, sem desktop. Para servidores.</li>
+<li><strong>Agent:</strong> controle remoto pelo Duplicati Console, só no plano Enterprise.</li>
+</ul>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Criptografia AES-256 ou GPG antes do envio.</li>
+<li>Backups incrementais e comprimidos, com agendamento embutido e regras de retenção.</li>
+<li>Mais de 30 destinos: Amazon S3 e compatíveis, Backblaze B2, IDrive e2, Azure, Google Cloud e Drive, OneDrive, Dropbox, Box, MEGA, Storj, SFTP, FTP, WebDAV, SMB, rclone e outros.</li>
+<li>Copia arquivos abertos ou travados com VSS no Windows e LVM no Linux.</li>
+<li>Filtros por pasta e tipo de arquivo, limite de banda e limite de envio por execução.</li>
+<li>Relatórios por e-mail, HTTP, Telegram e XMPP.</li>
+<li>Ferramentas de recuperação para destinos danificados e para copiar um backup de um destino para outro.</li>
+<li><strong>Servidor MCP (experimental):</strong> um agente como o Claude Code lista os backups, roda um backup antes de mexer em arquivos e restaura se algo der errado.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Windows, macOS ou Linux (x64, ARM64 e ARMv7), ou Docker.</li>
+<li>Uma conta ou servidor de destino para guardar os backups.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Baixe o pacote em <a href="https://duplicati.com/download">duplicati.com/download</a> ou na <a href="https://github.com/duplicati/duplicati/releases">página de releases</a>: <code>.msi</code> no Windows, <code>.dmg</code>/<code>.pkg</code> no macOS e <code>.deb</code>, <code>.rpm</code> ou AppImage no Linux. As releases são assinadas com GPG (chave <code>3DAC703D</code>).</p>
+<p>Docker (imagem oficial <code>duplicati/duplicati</code>, dados em <code>/data</code>, porta 8200):</p>
+<pre><code class="language-yaml">services:
+  duplicati:
+    image: duplicati/duplicati:latest
+    ports:
+      - &quot;8200:8200&quot;
+    volumes:
+      - ./data:/data
+    environment:
+      SETTINGS_ENCRYPTION_KEY: &quot;&lt;chave de criptografia das configurações&gt;&quot;
+      DUPLICATI__WEBSERVICE_PASSWORD: &quot;&lt;senha da interface&gt;&quot;
+</code></pre>
+<p>Para não deixar as senhas no arquivo, a documentação mostra como usar Docker secrets com um arquivo de pré-carga ou um provedor de segredos.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>A interface web abre em <code>http://localhost:8200</code>. Pela linha de comando (<code>duplicati-cli</code> no Linux e macOS, <code>Duplicati.CommandLine.exe</code> no Windows):</p>
+<pre><code class="language-bash">duplicati-cli backup &lt;url do destino&gt; &lt;pasta de origem&gt; --passphrase=&lt;senha&gt; --exclude=*.iso
+duplicati-cli restore &lt;url do destino&gt; &lt;arquivo&gt;
+duplicati-cli find &lt;url do destino&gt; &lt;arquivo&gt;
+duplicati-cli repair &lt;url do destino&gt;
+duplicati-cli help
+</code></pre>
+<p>Ligar o MCP e conectar o Claude Code (o token é criado em <strong>Settings &gt; MCP access tokens</strong> ou pelo <code>duplicati-server-util issue-mcp-token</code>):</p>
+<pre><code class="language-bash">duplicati-server --webservice-enable-mcp-server=true
+claude mcp add --transport http duplicati http://localhost:8200/mcp --header &quot;Authorization: Bearer &lt;token&gt;&quot;
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Backup automático e criptografado de computadores e servidores para uma nuvem barata (B2, S3, Drive).</li>
+<li>Backup de servidores e VPS sem interface gráfica.</li>
+<li>Dar a um agente de IA um ponto de restauração antes de ele alterar arquivos.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Guarde a senha do backup fora do computador.</strong> Sem ela, não há como recuperar os arquivos.</li>
+<li>O servidor web atende só no próprio computador e só por IP. Para acessar de outra máquina, ligue o acesso remoto e use HTTPS. Rodando como administrador, esse servidor tem os mesmos privilégios.</li>
+<li>Desde a versão 2.3.1.0, a pasta de dados precisa de permissões restritas, senão o Duplicati não inicia. No Docker, a variável <code>DUPLICATI__ALLOW_INSECURE_DATAFOLDER=true</code> desliga essa checagem.</li>
+<li>Envia telemetria anônima por padrão. Para desligar tudo, defina <code>USAGEREPORTER_Duplicati_LEVEL=none</code> antes de iniciar.</li>
+<li>O restore pelo MCP reescreve os arquivos do backup, mas não apaga os arquivos criados depois. Não é um rollback completo da pasta.</li>
+<li>Recursos como backup de Microsoft 365 e Google Workspace ficam na pasta <code>proprietary/</code> e exigem assinatura para uso em produção.</li>
+<li>Relacionado no catálogo: o <a href="../08-deploy-e-infra/setup-orion.html">SetupOrion</a> instala o Duplicati numa VPS.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://docs.duplicati.com">Manual</a> · <a href="https://forum.duplicati.com">Fórum</a></li>
+<li><a href="https://docs.duplicati.com/backup-destinations/destination-overview">Destinos suportados</a></li>
+<li><a href="https://docs.duplicati.com/detailed-descriptions/platform-specific-guides/using-duplicati-from-docker">Docker</a> · <a href="https://docs.duplicati.com/detailed-descriptions/automation-and-integration/using-duplicati-with-ai-agents-mcp">Uso com agentes de IA (MCP)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#09-utilitarios-e-apps">Utilitários e apps</a></h2>
+    <ul>
+<li><a href="../../repos/09-utilitarios-e-apps/9drive.html">9Drive</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/anyps5.html">AnyPS5</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/appflowy.html">AppFlowy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cal-diy.html">Cal.diy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/calculadora-rtc-receita-federal.html">Calculadora de Tributos RTC (Receita Federal)</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/cap.html">Cap</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/doaide-debloat.html">DoAide Debloat</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/fleetbase.html">Fleetbase</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/ipvio-stream.html">IPVIO Stream</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/local-deep-research.html">Local Deep Research</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/mailflare.html">Mailflare</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/meshcentral.html">MeshCentral</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/microsoft-clarity.html">Microsoft Clarity</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/millionsend.html">MillionSend</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/opengym.html">openGym</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openproject.html">OpenProject</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/open-seo.html">OpenSEO</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/openwhispr.html">OpenWhispr</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/phonebox.html">PhoneBox</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rtc-calculadora-offline.html">RTC Calculadora Offline</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/rustdesk.html">RustDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/scrcpy.html">scrcpy</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/social-media-agent.html">Social Media Agent</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/stirling-pdf.html">Stirling PDF</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/twindesk.html">TwinDesk</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/wireless-battery.html">Wireless Battery</a></li>
+<li><a href="../../repos/09-utilitarios-e-apps/xtool.html">xtool</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

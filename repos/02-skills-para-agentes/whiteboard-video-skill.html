@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Whiteboard Video · Repositórios favoritos</title>
+<meta name="description" content="Skill do Claude Code que transforma um tema em vídeo explicativo de quadro branco: um marcador desenha cada cena no ritmo da narração, com legendas e MP4 em 1080p renderizado localmente.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Whiteboard Video</h1>
+    <p class="lead">Skill do Claude Code que transforma um tema em vídeo explicativo de quadro branco: um marcador desenha cada cena no ritmo da narração, com legendas e MP4 em 1080p renderizado localmente.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Matteoikarieth96/whiteboard-video-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Matteoikarieth96/whiteboard-video-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Matteoikarieth96/whiteboard-video-skill">Matteoikarieth96/whiteboard-video-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd>— (documentação no README e em <code>references/drawing-api.md</code>)</dd></div>
+<div><dt>Linguagem</dt><dd>HTML / JavaScript + Python</dd></div>
+<div><dt>Licença</dt><dd>MIT (fonte Caveat sob SIL OFL)</dd></div>
+<div><dt>Estrelas</dt><dd>28 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma skill para o Claude Code que produz vídeos explicativos no estilo &quot;quadro branco&quot;: um marcador desenha cada cena traço por traço, sincronizado com a narração, o quadro desliza para a próxima ideia e as legendas correm na parte de baixo.</p>
+<p>O fluxo tem quatro etapas: a skill pergunta tema, público, duração, formato e idioma; escreve o roteiro cena a cena, com os fatos de cada afirmação conferidos em duas fontes, e espera sua aprovação; deixa você escolher a voz ouvindo a mesma frase em várias opções; e por fim desenha as cenas em SVG, gera prévias e renderiza o MP4.</p>
+<p>Tudo roda na sua máquina: um Chrome sem interface desenha os quadros e o <a href="../10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a> monta o vídeo, em qualidade de master para upload (x264 CRF 10, BT.709, AAC 320k).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Roteiro com checagem de fatos em duas fontes, aprovado por você antes de desenhar.</li>
+<li>Desenho sincronizado com cada frase da narração (&quot;desenhe a moeda na metade da segunda frase&quot;).</li>
+<li>Vozes: macOS Premium (grátis), ElevenLabs, OpenAI TTS ou gravações próprias.</li>
+<li>Comparação de vozes antes de escolher.</li>
+<li>Saída em 1080p, 16:9 ou 9:16 (vertical), com legendas embutidas.</li>
+<li>API de desenho pequena (<code>T</code> para texto, <code>P</code> para caminhos, linhas, setas, círculos, ícones).</li>
+<li>Pode ser usada sem o Claude, pelos scripts.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code.</li>
+<li>Node 18+, Python 3.9+, ffmpeg e Google Chrome (ou Chromium/Edge).</li>
+<li>Opcional: <code>ELEVENLABS_API_KEY</code> ou <code>OPENAI_API_KEY</code> no <code>.env</code> do projeto, para vozes dessas plataformas.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">git clone https://github.com/Matteoikarieth96/whiteboard-video-skill ~/.claude/skills/whiteboard-video
+cd ~/.claude/skills/whiteboard-video/scripts &amp;&amp; npm install
+brew install ffmpeg   # macOS; em outros sistemas, use o gerenciador de pacotes
+</code></pre>
+<p><strong>Windows:</strong> clone em <code>%USERPROFILE%\.claude\skills\whiteboard-video</code> e instale o ffmpeg com <code>winget install --id Gyan.FFmpeg -e</code>. O script <code>new_project.sh</code> é shell: rode pelo Git Bash.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No Claude Code, peça em linguagem natural:</p>
+<pre><code class="language-text">Make a 60-second whiteboard video explaining how interest rates affect mortgages, for first-time buyers.
+</code></pre>
+<p>Sem o Claude, pelos scripts:</p>
+<pre><code class="language-bash">S=~/.claude/skills/whiteboard-video/scripts
+$S/new_project.sh my-video              # cria o projeto (ou --vertical para 1080x1920)
+# edite my-video/script.json (o que é dito) e my-video/scenes.js (o que é desenhado)
+python3 $S/make_audio.py my-video       # gera a narração e o tempo exato de cada frase
+node $S/render.js my-video sheet        # um PNG por cena + previews/sheet.png com todas
+node $S/render.js my-video full         # renderiza my-video/out/my-video.mp4
+</code></pre>
+<p>Comparar vozes antes de escolher:</p>
+<pre><code class="language-bash">python3 $S/make_audio.py my-video --samples &quot;A sentence from your script.&quot; \
+  --voices &quot;say:Ava (Premium):185&quot; &quot;say:Samantha:190&quot;
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Explicar um conceito (finanças, produto, notícia) num vídeo curto narrado.</li>
+<li>Transformar um artigo, roteiro ou apresentação em vídeo de quadro branco.</li>
+<li>Fazer versões verticais para Reels, Shorts e TikTok.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Projeto pequeno e recente (criado em set/2026), de um único autor.</li>
+<li>As vozes grátis (<code>say</code>) só existem no macOS. No Windows e no Linux, use ElevenLabs, OpenAI TTS ou suas próprias gravações (um arquivo de áudio por frase em <code>audio/</code>).</li>
+<li>As chaves de API ficam num <code>.env</code> local, ignorado pelo git.</li>
+<li>Há outra skill de quadro branco mais popular, a <a href="https://github.com/gnipbao/codex-whiteboard-video-skill">gnipbao/codex-whiteboard-video-skill</a>, mas ela é feita para o Codex.</li>
+<li>Relacionados no catálogo: o <a href="huashu-art-motion.html">Huashu Art Motion</a> tem uma gramática de &quot;quadro branco&quot; entre seus estilos de vídeo explicativo; o <a href="anidoodle.html">Anidoodle</a> também gera explicativos desenhados, em 32 estilos.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/Matteoikarieth96/whiteboard-video-skill#readme">README</a></li>
+<li><a href="https://github.com/Matteoikarieth96/whiteboard-video-skill/blob/main/docs/demo.mp4">Demo com som</a></li>
+<li><a href="https://github.com/Matteoikarieth96/whiteboard-video-skill/tree/main/examples">Exemplos</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

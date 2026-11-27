@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interface Skills (jakubkrehel/skills) · Repositórios favoritos</title>
+<meta name="description" content="16 skills de Jakub Krehel (revista Interfaces) para construir interfaces melhores: revisão completa, polimento, animação, tipografia, cores, acessibilidade, layout e texto de interface, com valores exatos e um relatório priorizado.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Interface Skills (jakubkrehel/skills)</h1>
+    <p class="lead">16 skills de Jakub Krehel (revista Interfaces) para construir interfaces melhores: revisão completa, polimento, animação, tipografia, cores, acessibilidade, layout e texto de interface, com valores exatos e um relatório priorizado.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/jakubkrehel/skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">jakubkrehel/skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/jakubkrehel/skills">jakubkrehel/skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://interfaces.dev/">interfaces.dev</a> · <a href="https://jakub.kr/">jakub.kr</a></dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (skills)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~12,7k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Coleção de skills de design engineering que cobrem os temas que o autor escreve no site pessoal e na revista Interfaces. Em vez de conselhos genéricos, elas trazem valores concretos: raio de borda, alinhamento ótico, sombras, duração e easing de animação, escala tipográfica, contraste.</p>
+<p>Algumas revisam (uma tela, um fluxo ou um PR) e outras constroem (a partir de Figma, de imagem ou de variantes).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><code>better-interface</code>: revisa a interface em acessibilidade, layout, texto, tipografia, cor, polimento e animação, e devolve um relatório priorizado.</li>
+<li><code>better-ui</code>: polimento de superfícies e ícones (raio, alinhamento ótico, sombras, estados).</li>
+<li><code>better-motion</code>: decide o que animar e como (duração, easing, entradas, saídas, layout compartilhado, drag).</li>
+<li><code>better-typography</code>, <code>better-colors</code> e <code>better-layout</code>: escala de texto, paletas e tokens semânticos com contraste, agrupamento e estrutura responsiva.</li>
+<li><code>better-accessibility</code>: teclado, foco, ARIA, formulários e zoom conforme WCAG 2.2.</li>
+<li><code>better-writing</code>: textos de interface (rótulos, erros, estados vazios, confirmações).</li>
+<li><code>interface-review</code>: revisa um branch, PR ou mudança não commitada atrás de regressões de interface.</li>
+<li><code>explain-interface</code>: explica como um site, efeito ou animação foi feito, a partir de URL ou print.</li>
+<li><code>build-design</code>: constrói a UI a partir de um arquivo Figma ou imagem, usando os tokens e componentes do projeto.</li>
+<li><code>break</code>, <code>state-machine</code> e <code>variant</code>: testam um componente em todos os cenários, mostram todos os estados e geram variantes para comparar.</li>
+<li><code>afk</code> e <code>upskill</code>: trabalham no projeto enquanto você está fora e sugerem skills e automações a partir das suas sessões.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com skills (Claude Code, Codex, Cursor etc.).</li>
+<li>Node (<code>npx</code>) para a instalação.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx skills add jakubkrehel/skills
+</code></pre>
+<p>No Claude Code, se a CLI instalar só em <code>.agents/skills/</code>, passe o agente com <code>-a claude-code</code> (opção da <a href="../02-skills-para-agentes/vercel-skills-cli.html">Vercel Skills CLI</a>).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>As skills de revisão e construção carregam sozinhas conforme o pedido. As marcadas como &quot;user-invoked&quot; no README (<code>interface-review</code>, <code>explain-interface</code>, <code>break</code>, <code>state-machine</code>, <code>variant</code>, <code>afk</code>, <code>upskill</code>) são chamadas por você, pelo nome.</p>
+<pre><code class="language-text">&quot;Revise esta tela com o better-interface&quot;
+/interface-review
+/explain-interface https://site-que-voce-admira.com
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Revisão final de uma página ou app antes de publicar.</li>
+<li>Polimento de detalhes (sombras, raios, tipografia, microanimações).</li>
+<li>Revisar PRs de frontend atrás de regressões visuais e de acessibilidade.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>O README é curto; os detalhes de cada skill ficam no <code>SKILL.md</code> correspondente.</li>
+<li>Relacionados no catálogo: as <a href="emil-kowalski-skills.html">Emil Kowalski Skills</a> seguem a mesma linha de design engineering; o <a href="impeccable.html">Impeccable</a> também revisa e dá polimento a interfaces.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/jakubkrehel/skills#readme">README</a></li>
+<li><a href="https://github.com/jakubkrehel/skills/tree/main/skills">Pasta das skills</a></li>
+<li><a href="https://interfaces.dev/">Interfaces</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/ai-website-cloner-template.html">AI Website Cloner Template</a></li>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/gsap.html">GSAP</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/lottie-web.html">Lottie (lottie-web)</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/motion.html">Motion</a></li>
+<li><a href="../../repos/03-design-e-ui/stitch-skills.html">Stitch Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+<li><a href="../../repos/03-design-e-ui/unslop.html">Unslop</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

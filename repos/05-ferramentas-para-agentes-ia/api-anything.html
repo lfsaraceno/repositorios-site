@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API Anything · Repositórios favoritos</title>
+<meta name="description" content="Transforma sites sem API em operações JSON que o agente chama por MCP, CLI, TypeScript, Python ou HTTP: aprende a requisição pelo tráfego do próprio site, usa HTTP simples quando dá e se conserta quando o site muda. Já vem com 114 sites e 323 operações de leitura.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>API Anything</h1>
+    <p class="lead">Transforma sites sem API em operações JSON que o agente chama por MCP, CLI, TypeScript, Python ou HTTP: aprende a requisição pelo tráfego do próprio site, usa HTTP simples quando dá e se conserta quando o site muda. Já vem com 114 sites e 323 operações de leitura.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/goodnight000/api-anything">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">goodnight000/api-anything</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/goodnight000/api-anything">goodnight000/api-anything</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://api-anything-registry.forth-site.workers.dev">Catálogo compartilhado</a> · <a href="https://github.com/goodnight000/api-anything/blob/main/docs/QUICKSTART.md">Quickstart</a> · <a href="https://github.com/goodnight000/api-anything/blob/main/docs/REFERENCE.md">Referência</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~3,8k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O API Anything dá ao agente uma &quot;API&quot; para sites que não têm uma: buscar a nota de um livro no Goodreads, voos no Google Flights ou menções a um projeto no Hacker News, sem pilotar um navegador a cada consulta.</p>
+<p>Funciona em três etapas. <strong>Aprender:</strong> um navegador sem interface carrega a página com dois valores de exemplo; o que muda vira parâmetro, o resto é guardado igual, e os cookies viram referências. Não usa LLM nessa etapa. <strong>Chamar:</strong> a operação é enviada por <code>fetch</code> do Node (tier 1); se o site bloquear, a requisição sai de dentro de uma página do navegador (tier 2); em último caso, roda a página e lê a resposta (tier 3). <strong>Consertar:</strong> quando a resposta deixa de bater, tenta uma versão atualizada do catálogo ou reaprende, e só salva se o replay der certo.</p>
+<p>Existe um catálogo compartilhado em que as instalações publicam operações aprendidas em páginas públicas (sem cookies nem tokens). Outras instalações verificam cada operação antes de ela entrar no ar. As chamadas sempre rodam na sua máquina; o catálogo não faz proxy.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>114 sites e 323 operações de leitura prontas, que funcionam sem o catálogo.</li>
+<li>Servidor MCP com <code>find_sites</code>, <code>list_operations</code>, <code>call_operation</code>, <code>learn_site</code>, <code>login</code> e outras ferramentas.</li>
+<li>Uso por MCP, CLI (inclusive lotes em JSONL), TypeScript, Python e servidor HTTP local com REST e OpenAPI.</li>
+<li>Respostas enxutas: <code>--fields</code> escolhe os campos, e <code>get_result</code> recupera o resto localmente sem chamar o site de novo.</li>
+<li>Monitoramento: <code>--changes</code> mostra o que é novo, sumiu ou mudou; <code>--max-age</code> reaproveita uma resposta recente.</li>
+<li>Sessões locais: <code>login</code> importa cookies do navegador que você escolher, criptografados (DPAPI no Windows).</li>
+<li>Escritas desligadas por padrão, enviadas uma vez só e confirmadas por uma leitura. Nenhuma operação de escrita vem pronta.</li>
+<li>Classificação de erro com motivo e próximo passo (<code>rate</code>, <code>blocked</code>, <code>retryAfterMs</code> etc.).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node 22.13 ou mais novo.</li>
+<li>Um navegador Chromium (Chrome, Edge, Brave, Chromium, Vivaldi, Arc) para aprender sites novos e para os tiers 2 e 3. As operações compartilhadas em HTTP simples funcionam sem navegador.</li>
+<li>Não precisa de conta nem de chave de API.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="testar-sem-instalar">Testar sem instalar</h3>
+<pre><code class="language-bash">npx -y api-anything call hacker-news search query=sqlite --fields title,url --max-tier 1
+</code></pre>
+<h3 id="conectar-ao-agente-recomendado">Conectar ao agente (recomendado)</h3>
+<pre><code class="language-bash">npx -y api-anything setup                                   # pergunta o cliente e a opção de compartilhar
+npx -y api-anything setup --agents claude-code --no-share   # Claude Code, sem compartilhar o que aprender
+npx -y api-anything setup --agents claude-code --no-share --local-only   # nada vai para o catálogo, nem buscas
+npx -y api-anything setup --dry-run                         # mostra o que mudaria antes de mudar
+</code></pre>
+<p>Clientes suportados: <code>claude-code</code>, <code>codex</code>, <code>cursor</code>, <code>claude-desktop</code>, <code>gemini</code> e <code>vscode</code> (Hermes com <code>--agents hermes</code>). O setup conecta o servidor MCP, instala a skill quando o agente aceita, procura um Chromium e faz backup de cada arquivo de configuração antes de editar. Reinicie o agente depois.</p>
+<h3 id="instalacao-global-e-configuracao-manual">Instalação global e configuração manual</h3>
+<pre><code class="language-bash">npm install -g api-anything
+claude mcp add --scope user api-anything -- api-anything mcp   # Claude Code
+codex mcp add api-anything -- api-anything mcp                 # Codex
+api-anything mcp --print-config                                # entrada pronta para outros clientes
+</code></pre>
+<h3 id="plugin-do-claude-code">Plugin do Claude Code</h3>
+<p>Instala só o servidor MCP e a skill, sem os outros passos do setup:</p>
+<pre><code class="language-text">/plugin marketplace add goodnight000/api-anything
+/plugin install api-anything@api-anything
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Depois de conectado, pergunte ao agente em linguagem natural:</p>
+<pre><code class="language-text">What does Goodreads rate Piranesi?
+</code></pre>
+<p>Pela CLI:</p>
+<pre><code class="language-bash">api-anything call hacker-news search query=sqlite                # chama uma operação pronta
+api-anything learn 'https://lobste.rs/domains/{domain}' \
+  --args domain=github.com --args2 domain=arxiv.org --args3 domain=youtube.com   # ensina um site novo (2 exemplos + 1 de checagem)
+api-anything login linkedin                                       # importa a sessão do navegador para um site com login
+api-anything mcp --sites goodreads,hacker-news                    # expõe cada operação como ferramenta própria
+api-anything serve                                                # servidor HTTP local (REST, OpenAPI, MCP)
+</code></pre>
+<p>Exemplo do repositório que junta menções a um projeto em cinco sites:</p>
+<pre><code class="language-bash">npm ci
+node examples/mentions.mjs duckdb --json
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar ao agente acesso rápido e barato a sites sem API, em vez de navegar página por página.</li>
+<li>Monitorar preços, menções ou listas que mudam com o tempo.</li>
+<li>Montar scripts e apps que consultam sites como se fossem APIs JSON.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Termos de uso:</strong> muitos sites proíbem acesso automatizado. O README avisa que a responsabilidade é sua. Não resolve CAPTCHA: o que não passa volta como <code>blocked</code> (o Reddit bloqueia HTTP simples em muitas redes).</li>
+<li><strong>Privacidade e LGPD:</strong> as buscas no catálogo enviam as palavras, o domínio ou a URL. Com o compartilhamento ligado, operações aprendidas em páginas públicas, consertos e relatórios (versão, resultado, tier, tempo; nunca seus argumentos ou dados) vão para o catálogo. Operações aprendidas com login só são compartilhadas com sua autorização. Para não enviar nada, use <code>--no-share --local-only</code> (ou <code>API_ANYTHING_LOCAL_ONLY=1</code>).</li>
+<li><strong>Escritas:</strong> ficam desligadas até você liberar (<code>--allow-writes</code>). Cuidado ao liberar em sites com sua conta logada.</li>
+<li><strong>Sem cofre do sistema</strong> (container, CI), defina <code>API_ANYTHING_KEY</code> com uma senha e guarde-a: sem ela, as sessões criptografadas ficam ilegíveis.</li>
+<li>Projeto novo (criado em set/2026) e catálogo ainda pequeno. Uma operação que funciona para outros pode falhar na sua região ou rede.</li>
+<li>Relacionados no catálogo: o <a href="firecrawl.html">Firecrawl</a> extrai conteúdo de páginas para LLMs, enquanto o API Anything reaproveita as requisições internas do site como operações; o <a href="playwright-mcp.html">Playwright MCP</a> e o <a href="playwright-cli.html">Playwright CLI</a> pilotam o navegador a cada ação, e o API Anything só usa navegador quando precisa.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/goodnight000/api-anything#readme">README</a></li>
+<li><a href="https://github.com/goodnight000/api-anything/blob/main/INSTALL.md">Instruções de instalação para agentes</a></li>
+<li><a href="https://github.com/goodnight000/api-anything/blob/main/docs/REFERENCE.md">Referência (CLI, segurança, sites prontos, limites)</a></li>
+<li><a href="https://github.com/goodnight000/api-anything/blob/main/docs/PYTHON.md">Python</a> · <a href="https://github.com/goodnight000/api-anything/blob/main/docs/SERVE.md">Servidor HTTP</a> · <a href="https://github.com/goodnight000/api-anything/blob/main/docs/INTEGRATIONS.md">Integrações</a></li>
+<li><a href="https://github.com/goodnight000/api-anything/blob/main/docs/DESIGN.md">Design</a> · <a href="https://github.com/goodnight000/api-anything/blob/main/docs/REGISTRY.md">Catálogo</a></li>
+<li><a href="https://www.npmjs.com/package/api-anything">Pacote no npm</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

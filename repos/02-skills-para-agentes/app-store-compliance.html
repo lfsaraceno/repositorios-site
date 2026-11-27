@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App Store Compliance · Repositórios favoritos</title>
+<meta name="description" content="Guia e verificador para evitar rejeição na App Store e no Google Play: 124 padrões de rejeição com a diretriz e a correção, checagem do privacy manifest e do formulário Data safety, 115 prazos de leis (EU AI Act, DSA, COPPA, leis de idade) e uma skill com hook que barra o envio quando há risco crítico.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>App Store Compliance</h1>
+    <p class="lead">Guia e verificador para evitar rejeição na App Store e no Google Play: 124 padrões de rejeição com a diretriz e a correção, checagem do privacy manifest e do formulário Data safety, 115 prazos de leis (EU AI Act, DSA, COPPA, leis de idade) e uma skill com hook que barra o envio quando há risco crítico.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/mjmirza/app-store-compliance">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">mjmirza/app-store-compliance</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/mjmirza/app-store-compliance">mjmirza/app-store-compliance</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://mjmirza.github.io/app-store-compliance/">Site</a> · <a href="https://github.com/mjmirza/app-store-compliance/blob/main/docs/PRE-SUBMISSION-CHECKLIST.md">Checklist</a></dd></div>
+<div><dt>Linguagem</dt><dd>Shell e Python</dd></div>
+<div><dt>Licença</dt><dd>OpenRoots Agent License 2.3 (grátis até US$ 20 milhões de receita anual; ver Observações)</dd></div>
+<div><dt>Estrelas</dt><dd>~6,4k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma rejeição custa uma semana: você envia, espera a revisão, recebe uma linha de motivo, adivinha a correção e envia de novo. Este projeto faz a checagem antes do envio.</p>
+<p>O guard (<code>app-store-compliance-guard.sh</code>) varre o projeto iOS ou Android e lista os riscos, os críticos primeiro, com o arquivo e a linha. No fim dá um veredito:</p>
+<ul>
+<li><code>BLOCKED.</code>: há risco crítico. Corrija cada linha <code>[CRITICAL]</code> seguindo a linha <code>fix.</code> e rode de novo.</li>
+<li><code>CLEAR.</code>: nenhum risco crítico no código. Não é aprovação; faltam as checagens que um scan não vê (conta, listagem, notas para o revisor).</li>
+<li><code>NOT CHECKED.</code>: não achou projeto iOS ou Android na pasta.</li>
+</ul>
+<p>O autor dá prioridade às duas causas que mais reprovam hoje: uma conta de demonstração que funciona com o backend no ar, e uma declaração de privacidade que bate com o que o app faz de verdade, incluindo cada SDK.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>124 padrões de rejeição em <code>data/rejection-patterns.json</code>, cada um com a diretriz da Apple ou a política do Google e a correção.</li>
+<li>Guard que roda sozinho ou como hook: dispara antes de <code>fastlane</code>, <code>eas submit</code>, <code>gradle bundleRelease</code> e <code>xcrun altool</code> e barra o envio se houver risco crítico.</li>
+<li>Skill de auditoria completa e o comando <code>/app-store-audit</code> (Claude Code, Gemini CLI e OpenCode).</li>
+<li>Instalador para Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Copilot, Grok, Qwen Code, Kimi Code, Factory Droid, Auggie e Windsurf.</li>
+<li>115 prazos regulatórios por região (UE, EUA, Reino Unido, Austrália e outros), conferidos a cada execução do guard.</li>
+<li>Auditoria da listagem na loja (<code>metadata-audit.py</code>), de acessibilidade, de prontidão de release e monitores das mudanças de regras da Apple, do Google e de leis.</li>
+<li>Checklist em linguagem simples para quem não programa, playbook de recurso para app já rejeitado e modelo de notas para o revisor.</li>
+<li>Cobre também Flutter, React Native, Expo, Capacitor, Unity, .NET MAUI e Kotlin Multiplatform.</li>
+<li>As fontes citadas são verificadas por script (<code>verify-citations.py</code>), que detecta links inventados que respondem 200.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>git e bash (no Windows, Git Bash).</li>
+<li>python3 para os outros agentes além do Claude Code e para os scripts de auditoria e monitoramento.</li>
+<li>node só para a verificação do plugin do OpenCode.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Checagem única, sem instalar nada e sem alterar o app:</p>
+<pre><code class="language-bash">git clone https://github.com/mjmirza/app-store-compliance ~/repositories/app-store-compliance
+bash ~/repositories/app-store-compliance/agent-os/hooks/app-store-compliance-guard.sh &quot;/path/to/your/app&quot;
+</code></pre>
+<p>No agente de código (hook, skill e comando antes de todo envio):</p>
+<pre><code class="language-bash">bash ~/repositories/app-store-compliance/scripts/install.sh              # Claude Code
+bash ~/repositories/app-store-compliance/scripts/install.sh --tool all   # todos os agentes encontrados
+</code></pre>
+<p>Depois, reinicie o Claude Code. No Codex, rode <code>/hooks</code> e aprove o hook novo. A instalação termina com <code>Install verified.</code> só depois de testar que o hook barra um envio.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">install.sh --dry-run     # mostra o que seria escrito, sem escrever
+install.sh doctor        # confere a instalação e prova que o hook bloqueia
+install.sh uninstall     # remove guard, comando e hook (mantém seus outros hooks)
+git -C ~/repositories/app-store-compliance pull   # atualizar as regras
+</code></pre>
+<p>Outras checagens, rodadas na pasta do playbook:</p>
+<pre><code class="language-bash">cd ~/repositories/app-store-compliance
+python3 scripts/release-audit.py /path/to/your/app --metadata ./metadata   # gera RELEASE-READINESS-REPORT.md
+python3 scripts/accessibility-audit.py /path/to/your/app
+python3 scripts/deadline-checker.py --brief # prazos legais dos próximos 90 dias
+python3 scripts/monitor.py --project /path/to/your/app   # mudanças da Apple pelo feed oficial
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Antes de enviar um app iOS ou Android, principalmente um feito com IA às pressas.</li>
+<li>Depois de uma rejeição, para achar a causa e montar o recurso.</li>
+<li>Para deixar o agente de código impedido de enviar um app que seria rejeitado.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Não garante aprovação.</strong> O scan não vê se a conta de desenvolvedor está ativa, se os contratos estão aceitos nem o que foi declarado no App Store Connect ou no Play Console. Faça essas partes pelo checklist.</li>
+<li><strong>Licença:</strong> grátis para pessoas, ONGs, escolas, governo e empresas com até US$ 20 milhões de receita anual. Acima disso, royalty de 0,5% sobre o que passar do limite, com teto de US$ 250 mil por ano. Revender o playbook como produto exige acordo à parte, e treinar IA com o repositório exige outra licença. Versões até 24/08/2026 continuam MIT (código) e CC BY 4.0 (conteúdo).</li>
+<li>O hook entra na configuração do agente (por exemplo <code>~/.claude/settings.json</code>), e o instalador faz backup do arquivo antes. Confira com <code>--dry-run</code>.</li>
+<li>Os monitores, exceto o <code>monitor.py</code>, usam anúncios de exemplo, a menos que você passe <code>--live</code>. Trate essa saída como exemplo, não como notícia.</li>
+<li>O README sugere um prompt para o agente instalar tudo; ele pede para o agente mostrar os links para dar estrela, mas nunca agir na sua conta do GitHub.</li>
+<li>Para lei brasileira, use junto as <a href="lgpd-skills.html">LGPD Skills</a>. Para a página na loja (ASO), o <a href="marketingskills.html">Marketing Skills</a> tem a skill <code>aso</code>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/mjmirza/app-store-compliance/blob/main/docs/PRE-SUBMISSION-CHECKLIST.md">Checklist antes do envio</a> · <a href="https://github.com/mjmirza/app-store-compliance/blob/main/docs/MISTAKE-PATTERNS.md#the-appeal-playbook">Playbook de recurso</a></li>
+<li><a href="https://github.com/mjmirza/app-store-compliance/blob/main/docs/WHAT-THE-SCAN-PROVES.md">O que o scan prova</a> · <a href="https://github.com/mjmirza/app-store-compliance/blob/main/docs/FAQ.md">FAQ</a></li>
+<li><a href="https://github.com/mjmirza/app-store-compliance/blob/main/docs/APPLE.md">Rejeições da Apple</a> · <a href="https://github.com/mjmirza/app-store-compliance/blob/main/docs/GOOGLE-PLAY.md">Rejeições do Google Play</a></li>
+<li><a href="https://openroots.org/licenses/ora/2.3">Licença OpenRoots ORA 2.3</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

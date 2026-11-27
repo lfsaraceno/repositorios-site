@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>earshot · Repositórios favoritos</title>
+<meta name="description" content="Efeitos sonoros para agentes de código: você pede em palavras (&quot;um som de sucesso suave&quot;, &quot;passos no cascalho&quot;) e o earshot renderiza o som em código a partir de um catálogo de 922 sons, roda só na CPU, sem modelo que gera áudio, e o som gerado é seu para qualquer uso.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>earshot</h1>
+    <p class="lead">Efeitos sonoros para agentes de código: você pede em palavras (&quot;um som de sucesso suave&quot;, &quot;passos no cascalho&quot;) e o earshot renderiza o som em código a partir de um catálogo de 922 sons, roda só na CPU, sem modelo que gera áudio, e o som gerado é seu para qualquer uso.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/Leonxlnx/earshot">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">Leonxlnx/earshot</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/Leonxlnx/earshot">Leonxlnx/earshot</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://leonxlnx.github.io/earshot-site/">Site com todos os sons</a> · <a href="https://github.com/Leonxlnx/earshot/tree/main/docs">Documentação</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT (os sons gerados são livres, inclusive para uso comercial e sem crédito)</dd></div>
+<div><dt>Estrelas</dt><dd>~5,9k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um agente de código não ouve. O earshot faz esse papel: escolhe no catálogo o som que melhor responde ao pedido e renderiza uma versão nova dele. Quando o catálogo não tem o som, ele avisa e o <code>earshot build</code> monta o som com partes gravadas.</p>
+<p>Os sons realistas vêm de 692 gravações em domínio público, guardadas como números (não há arquivo de áudio no repositório). Com um extra opcional, o earshot também &quot;escuta&quot;: descreve um arquivo de áudio, diz se combina com uma descrição e acha o melhor trecho numa gravação longa.</p>
+<p>É do mesmo autor da <a href="../03-design-e-ui/taste-skill.html">Taste Skill</a>.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong><code>make</code>:</strong> 922 sons em 384 famílias, entre eles sons de interface, ruídos do dia a dia, ambientes em loop, jogos, 8-bit, bateria, efeitos de cinema e motion e três loops curtos de música.</li>
+<li><strong>Conjuntos prontos:</strong> <code>ui</code> (17 sons de interface), <code>game</code> (22), <code>arcade</code> (16) e <code>film</code> (17), com <code>manifest.json</code> e sprite para a web.</li>
+<li><strong><code>build</code>:</strong> monta um som que falta a partir de partes descritas em palavras e ajusta o resultado ouvindo com um modelo. Vem com 99 receitas.</li>
+<li><strong>Escuta (extra <code>listen</code>):</strong> descrever, comparar, ranquear, achar trechos, dizer se é gravação real ou som sintetizado e analisar a trilha de um vídeo.</li>
+<li><strong>Cinema:</strong> banco de 252 efeitos em código, kits por papel (<code>launch</code>, <code>calm</code>, <code>crisp</code>, <code>minimal</code>) e o <code>fit</code>, que transforma uma gravação em código.</li>
+<li>Saída em wav, flac, ogg, webm, mp3 e m4a, com volume já ajustado.</li>
+<li>Servidor MCP com 20 ferramentas, plugin do Claude Code com 2 comandos e 2 skills.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Python 3.10 ou mais novo. Só CPU.</li>
+<li>FFmpeg no PATH só para gravar ogg, mp3, m4a e webm e para ler vídeo.</li>
+<li>Extra <code>listen</code>: cerca de 1,1 GB de download (2,2 GB em disco) com os dois modelos de escuta.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx skills add Leonxlnx/earshot                                     # skills
+pip install &quot;earshot @ git+https://github.com/Leonxlnx/earshot&quot;     # ferramenta
+pip install &quot;earshot[listen,mcp] @ git+https://github.com/Leonxlnx/earshot&quot;   # com escuta e MCP
+</code></pre>
+<p>Instale pelo GitHub: o nome <code>earshot</code> no PyPI é de outro projeto.</p>
+<p>Plugin no Claude Code (precisa do earshot com o extra <code>mcp</code> instalado antes):</p>
+<pre><code class="language-text">/plugin marketplace add Leonxlnx/earshot
+/plugin install earshot@earshot
+</code></pre>
+<p>Ou só o MCP:</p>
+<pre><code class="language-bash">claude mcp add earshot --scope user -e EARSHOT_THREADS=3 -- earshot mcp
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">earshot make &quot;a soft success sound&quot; -o success.wav
+earshot make &quot;a campfire&quot; -o fire.ogg --dur 24
+earshot make --set ui -o public/sounds --format webm,mp3 --sprite sprite
+earshot build &quot;a stampede of horses&quot; -o stampede.wav --part &quot;hundreds of hoofbeats, for 6 s, getting louder&quot;
+earshot sounds --search door      # lista o catálogo
+earshot doctor                    # o que está instalado
+</code></pre>
+<p>No Claude Code: <code>/earshot:make &lt;palavras&gt;</code> e <code>/earshot:make-set ui|game|arcade|film [tema]</code>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar sons de clique, sucesso, erro e notificação a um app ou site.</li>
+<li>Sonorizar jogos, vídeos de lançamento e motion graphics feitos em código.</li>
+<li>Conferir por medição e escuta se um áudio tem o que você queria.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Peça em <strong>inglês</strong>. Além dele, só entende palavras comuns de som em alemão.</li>
+<li>Não faz fala, canto nem melodias.</li>
+<li>O próprio autor diz que vários sons novos foram medidos, mas ainda não avaliados por uma pessoa. O <code>build</code> funciona bem para texturas e pulsos (fogueira, enxame) e mal para chuva em superfícies novas, veículos e vozes.</li>
+<li>O <code>llm</code> é opcional, manda o áudio ao Gemini e exige a sua chave e o seu consentimento (<code>--yes-upload</code>).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://leonxlnx.github.io/earshot-site/">Site com os 922 sons</a></li>
+<li><a href="https://github.com/Leonxlnx/earshot/blob/main/docs/MAKE.md">Fazer sons (MAKE)</a> · <a href="https://github.com/Leonxlnx/earshot/blob/main/docs/BUILD.md">Montar o que falta (BUILD)</a></li>
+<li><a href="https://github.com/Leonxlnx/earshot/blob/main/docs/LIMITS.md">Limites</a> · <a href="https://github.com/Leonxlnx/earshot/blob/main/docs/VALIDATION.md">Validação</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

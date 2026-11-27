@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LongCat (Meituan) · Repositórios favoritos</title>
+<meta name="description" content="Família de modelos abertos da Meituan, com pesos liberados para uso comercial (MIT ou Apache-2.0): geração de vídeo longo e avatares falantes (LongCat-Video), imagem e edição com texto bem escrito (LongCat-Image), fala com clonagem de voz (LongCat-AudioDiT), modelos de linguagem gigantes para código e agentes (LongCat-2.0 e Flash) e um harness de pesquisa profunda.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>LongCat (Meituan)</h1>
+    <p class="lead">Família de modelos abertos da Meituan, com pesos liberados para uso comercial (MIT ou Apache-2.0): geração de vídeo longo e avatares falantes (LongCat-Video), imagem e edição com texto bem escrito (LongCat-Image), fala com clonagem de voz (LongCat-AudioDiT), modelos de linguagem gigantes para código e agentes (LongCat-2.0 e Flash) e um harness de pesquisa profunda.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/meituan-longcat">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">meituan-longcat</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/meituan-longcat">meituan-longcat</a> (organização) · <a href="https://github.com/meituan-longcat/LongCat-Video">LongCat-Video</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://longcat.chat">longcat.chat</a> · <a href="https://huggingface.co/meituan-longcat">Hugging Face</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>MIT na maioria (código e pesos); LongCat-Image e o <code>dNaViT</code> do LongCat-Next são Apache-2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~9,8k no LongCat-Video, o maior repositório (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>A organização reúne os modelos da equipe LongCat, da Meituan, com pesos no Hugging Face e no ModelScope e relatório técnico de cada um. Os mais úteis fora da pesquisa:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Repositório</th>
+<th>O que faz</th>
+<th>Estrelas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/meituan-longcat/LongCat-Video">LongCat-Video</a></td>
+<td>Vídeo de 13,6B parâmetros: texto para vídeo, imagem para vídeo e continuação de vídeo, em 720p a 30 fps, com vídeos de minutos sem perder a cor. Inclui o <strong>LongCat-Video-Avatar</strong> (1.6 em nov/2026), que anima uma pessoa a partir de um áudio, com sincronia labial</td>
+<td>~9,8k</td>
+</tr>
+<tr>
+<td><a href="https://github.com/meituan-longcat/LongCat-Image">LongCat-Image</a></td>
+<td>Imagem de 6B parâmetros, chinês e inglês, foco em fotorrealismo e texto dentro da imagem. Tem versão de edição e uma Edit-Turbo 10 vezes mais rápida. Funciona no Diffusers e no ComfyUI</td>
+<td>~730</td>
+</tr>
+<tr>
+<td><a href="https://github.com/meituan-longcat/LongCat-AudioDiT">LongCat-AudioDiT</a></td>
+<td>Texto para fala por difusão, com clonagem de voz a partir de uma amostra curta. Versões de 1B e 3,5B, avaliadas em chinês e inglês</td>
+<td>~600</td>
+</tr>
+<tr>
+<td><a href="https://github.com/meituan-longcat/LongCat-2.0">LongCat-2.0</a></td>
+<td>Modelo de linguagem MoE de 1,6 trilhão de parâmetros (~48B ativos), contexto de 1M tokens, voltado a código e agentes; os autores citam integração com Claude Code, OpenClaw e Hermes</td>
+<td>~575</td>
+</tr>
+<tr>
+<td><a href="https://github.com/meituan-longcat/LongCat-Flash-Chat">LongCat-Flash-Chat</a></td>
+<td>Modelo MoE de 560B (~27B ativos) sem raciocínio, forte em tarefas de agente. Há variantes Thinking, Omni (áudio e vídeo em tempo real) e Prover (provas em Lean 4)</td>
+<td>~1,4k</td>
+</tr>
+<tr>
+<td><a href="https://github.com/meituan-longcat/LongCat-Next">LongCat-Next</a></td>
+<td>Modelo multimodal nativo (texto, imagem e áudio como tokens) de 3B ativos</td>
+<td>~495</td>
+</tr>
+<tr>
+<td><a href="https://github.com/meituan-longcat/LongCat-DeepResearch">LongCat-DeepResearch</a></td>
+<td>Harness multiagente de pesquisa profunda: planeja, pesquisa cada seção em separado e revisa o relatório. Só biblioteca padrão do Python; você liga o seu modelo e a sua busca</td>
+<td>~30</td>
+</tr>
+</tbody>
+</table></div>
+<p>O resto da organização são benchmarks (WBench, VitaBench, AMO-Bench, UNO-Bench e outros) e forks de bibliotecas de inferência.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Pesos abertos sob MIT ou Apache-2.0, com uso comercial permitido.</li>
+<li>Vídeo longo por continuação e geração interativa, com suporte a várias GPUs.</li>
+<li>Avatar falante guiado por áudio, com um ou vários personagens.</li>
+<li>Edição de imagem por instrução e texto renderizado com precisão.</li>
+<li>Clonagem de voz zero-shot.</li>
+<li>LLMs servidos por SGLang e vLLM.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>GPU NVIDIA com CUDA. Os modelos de mídia pedem muita memória de vídeo: o README do LongCat-Image fala em ~17 GB mesmo descarregando parte para a CPU.</li>
+<li>Python 3.10 e conda (Video e Image).</li>
+<li>Os LLMs (2.0, Flash) exigem clusters de várias GPUs.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>LongCat-Video:</p>
+<pre><code class="language-bash">git clone --single-branch --branch main https://github.com/meituan-longcat/LongCat-Video
+cd LongCat-Video
+conda create -n longcat-video python=3.10
+conda activate longcat-video
+pip install torch==2.6.0+cu124 torchvision==0.21.0+cu124 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+pip install ninja psutil packaging
+pip install flash_attn==2.7.4.post1
+pip install -r requirements.txt
+pip install &quot;huggingface_hub[cli]&quot;
+huggingface-cli download meituan-longcat/LongCat-Video --local-dir ./weights/LongCat-Video
+</code></pre>
+<p>Para o Avatar, instale também <code>librosa</code>, <code>ffmpeg</code> e o <code>requirements_avatar.txt</code>, e baixe <code>meituan-longcat/LongCat-Video-Avatar-1.6</code>.</p>
+<p>LongCat-Image:</p>
+<pre><code class="language-bash">conda create -n longcat-image python=3.10
+conda activate longcat-image
+pip install -r infer_requirements.txt
+pip install -U diffusers
+</code></pre>
+<p>LongCat-AudioDiT: <code>pip install -r requirements.txt</code> dentro do repositório.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash"># Vídeo a partir de texto (uma GPU)
+torchrun run_demo_text_to_video.py --checkpoint_dir=./weights/LongCat-Video --enable_compile
+# Imagem para vídeo e vídeo longo
+torchrun run_demo_image_to_video.py --checkpoint_dir=./weights/LongCat-Video --enable_compile
+torchrun run_demo_long_video.py --checkpoint_dir=./weights/LongCat-Video --enable_compile
+# Interface web do LongCat-Video
+streamlit run ./run_streamlit.py --server.fileWatcherType none --server.headless=false
+
+# Fala e clonagem de voz (LongCat-AudioDiT)
+python inference.py --text &quot;Hello world&quot; --output_audio output.wav --model_dir meituan-longcat/LongCat-AudioDiT-1B
+python inference.py --text &quot;Texto novo&quot; --prompt_text &quot;Transcrição da amostra&quot; --prompt_audio amostra.wav \
+  --output_audio output.wav --model_dir meituan-longcat/LongCat-AudioDiT-1B --guidance_method apg
+</code></pre>
+<p>No LongCat-Image, ponha entre aspas o texto que deve aparecer na imagem. Sem as aspas, o modelo não ativa a codificação por caractere e erra o texto.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Gerar vídeos longos ou avatares falantes com modelo aberto e liberado para uso comercial.</li>
+<li>Criar imagens com texto legível, como posters e banners.</li>
+<li>Clonar uma voz para narração em inglês ou chinês.</li>
+<li>Estudar ou servir LLMs MoE de ponta, se você tem infraestrutura para isso.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Não é para GPU pequena.</strong> Nenhum dos modelos de mídia roda bem com pouca memória de vídeo; para máquinas modestas, o <a href="wangp.html">WanGP</a>, feito para pouca VRAM, já roda o LongCat.</li>
+<li>O AudioDiT foi avaliado só em chinês e inglês; o README não cita português. Para narração em PT-BR, o <a href="voicestudio.html">VoiceStudio</a> e o <a href="kokoro.html">Kokoro</a> estão no catálogo.</li>
+<li>Clonagem de voz e avatar a partir do áudio de outra pessoa só com autorização dela.</li>
+<li>A licença dos modelos MIT não dá direito às marcas nem às patentes da Meituan.</li>
+<li>Os modelos de linguagem também podem ser usados no site <a href="https://longcat.chat">longcat.chat</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://huggingface.co/meituan-longcat">Modelos no Hugging Face</a></li>
+<li><a href="https://arxiv.org/abs/2510.22200">Relatório do LongCat-Video</a> · <a href="https://meigen-ai.github.io/LongCat-Video-Avatar-1.6-Page/">Página do Avatar 1.6</a></li>
+<li><a href="https://aria-k-alethia.github.io/LongCat-AudioDiT-demo">Demonstrações do AudioDiT</a></li>
+<li><a href="https://longcat.chat/blog/longcat-2.0/">Blog do LongCat-2.0</a> · <a href="https://docs.sglang.io/cookbook/autoregressive/Meituan/LongCat-2.0">SGLang para o LongCat-2.0</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openhiggsfield-story-studio.html">OpenHiggsfield Story Studio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openverse.html">Openverse</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/remotion.html">Remotion</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vibe Kanban · Repositórios favoritos</title>
+<meta name="description" content="Quadro kanban para planejar tarefas e rodar agentes de programação (Claude Code, Codex, Gemini CLI e outros) em workspaces isolados, revisar diffs e abrir PRs; projeto em descontinuação (sunsetting).">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#01-orquestracao-de-agentes"><span aria-hidden="true">🤖</span> Orquestração de agentes</a>
+    </nav>
+    <h1>Vibe Kanban</h1>
+    <p class="lead">Quadro kanban para planejar tarefas e rodar agentes de programação (Claude Code, Codex, Gemini CLI e outros) em workspaces isolados, revisar diffs e abrir PRs; projeto em descontinuação (sunsetting).</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/BloopAI/vibe-kanban">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">BloopAI/vibe-kanban</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/BloopAI/vibe-kanban">BloopAI/vibe-kanban</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.vibekanban.com/">vibekanban.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>Rust (backend) e TypeScript (web)</dd></div>
+<div><dt>Licença</dt><dd>Apache 2.0</dd></div>
+<div><dt>Estrelas</dt><dd>~29k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<blockquote>
+<p><strong>Atenção:</strong> o Vibe Kanban está sendo descontinuado. Leia o <a href="https://www.vibekanban.com/blog/shutdown">anúncio</a> antes de adotar.</p>
+</blockquote>
+<h2 id="o-que-e">O que é</h2>
+<p>A ideia é que, com agentes escrevendo o código, o engenheiro passa a maior parte do tempo planejando e revisando. O Vibe Kanban acelera essas duas partes: você planeja em issues num quadro kanban (sozinho ou com o time) e, na hora de executar, cria workspaces onde um agente trabalha com branch, terminal e servidor de desenvolvimento próprios.</p>
+<p>Depois você revisa o diff com comentários inline que voltam para o agente, vê o app num navegador embutido e abre o PR.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Issues em quadro kanban: criar, priorizar e atribuir.</li>
+<li>Workspace por tarefa com branch git (worktree), terminal e dev server.</li>
+<li>Revisão de diff com comentários inline enviados ao agente.</li>
+<li>Navegador embutido com devtools, modo de inspeção e emulação de dispositivos.</li>
+<li>Mais de 10 agentes: Claude Code, Codex, Gemini CLI, GitHub Copilot, Amp, Cursor, OpenCode, Droid, CCR e Qwen Code.</li>
+<li>PRs com descrição gerada por IA e merge.</li>
+<li>Self-hosting da versão cloud com Docker.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js (para <code>npx</code>).</li>
+<li>Um agente de programação já autenticado no computador.</li>
+<li>Para desenvolver: Rust estável, Node.js 20+ e pnpm 8+.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx vibe-kanban
+</code></pre>
+<p>Self-hosting: <a href="https://vibekanban.com/docs/self-hosting/deploy-docker">guia com Docker</a>. Atrás de proxy reverso ou domínio próprio, defina <code>VK_ALLOWED_ORIGINS=https://vk.example.com</code> (senão as chamadas à API dão 403).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<ol>
+<li>Rode <code>npx vibe-kanban</code> e abra a interface.</li>
+<li>Crie issues no quadro descrevendo o trabalho.</li>
+<li>Inicie um workspace escolhendo o agente; ele trabalha na própria branch.</li>
+<li>Revise o diff, comente, visualize o app e abra o PR.</li>
+</ol>
+<p>Desenvolvimento a partir do código:</p>
+<pre><code class="language-bash">pnpm i
+pnpm run dev    # backend e web app, com banco em branco
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Rodar vários agentes em paralelo, cada um na sua branch, sem conflitos.</li>
+<li>Organizar o trabalho de agentes num quadro visível para o time.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Descontinuado (sunsetting):</strong> prefira alternativas mantidas para uso de longo prazo.</li>
+<li>Analytics PostHog ficam desligados se as variáveis <code>POSTHOG_*</code> estiverem vazias no build.</li>
+<li>Alternativas no catálogo para orquestrar agentes: <a href="oh-my-claudecode.html">oh-my-claudecode</a>, <a href="paperclip.html">Paperclip</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/BloopAI/vibe-kanban#readme">README</a></li>
+<li><a href="https://vibekanban.com/docs">Documentação</a></li>
+<li><a href="https://vibekanban.com/docs/supported-coding-agents">Agentes suportados</a></li>
+<li><a href="https://www.vibekanban.com/blog/shutdown">Anúncio de descontinuação</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#01-orquestracao-de-agentes">Orquestração de agentes</a></h2>
+    <ul>
+<li><a href="../../repos/01-orquestracao-de-agentes/ag-kit.html">AG Kit (Antigravity Kit)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/agency-agents.html">Agency Agents (The Agency)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ecc.html">ECC (Everything Claude Code)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gbrain.html">GBrain</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/gstack.html">gstack</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/harness2.html">Harness² (Harness2)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/hermes-agent.html">Hermes Agent</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/mirofish.html">MiroFish</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-antigravity.html">Oh My Antigravity (OMA)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/oh-my-claudecode.html">oh-my-claudecode (OMC)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/paperclip.html">Paperclip</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/ruflo.html">Ruflo (ex-Claude Flow)</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/superpowers.html">Superpowers</a></li>
+<li><a href="../../repos/01-orquestracao-de-agentes/vibe-coding-toolkit.html">Vibe Coding Toolkit</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

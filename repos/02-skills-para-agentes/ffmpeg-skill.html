@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FFmpeg Skill · Repositórios favoritos</title>
+<meta name="description" content="Editor de vídeo local para agentes de código: 42 ferramentas sobre o FFmpeg (cortar, juntar, tirar silêncio, estabilizar, reduzir ruído, legendas, reenquadrar para 9:16, loudness, exportar para Reels e YouTube) que o agente usa e depois confere o próprio resultado; sem nuvem e sem chave de API.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>FFmpeg Skill</h1>
+    <p class="lead">Editor de vídeo local para agentes de código: 42 ferramentas sobre o FFmpeg (cortar, juntar, tirar silêncio, estabilizar, reduzir ruído, legendas, reenquadrar para 9:16, loudness, exportar para Reels e YouTube) que o agente usa e depois confere o próprio resultado; sem nuvem e sem chave de API.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/kajisho5/ffmpeg-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">kajisho5/ffmpeg-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/kajisho5/ffmpeg-skill">kajisho5/ffmpeg-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://kajisho5.github.io/ffmpeg-skill/">Site</a> · <a href="https://www.npmjs.com/package/ffmpeg-skill">npm</a> · <a href="https://github.com/kajisho5/ffmpeg-skill/blob/main/docs/demos.md">Demos</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (biblioteca padrão)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~11k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um agente que &quot;sabe FFmpeg&quot; ainda chuta: supõe a taxa de quadros, escolhe um codec que o formato não aceita, recodifica o que só precisava ser copiado e diz &quot;pronto&quot; sem abrir o resultado. Esta skill tira o chute.</p>
+<p>O agente segue um fluxo fixo: <strong>medir o arquivo → editar (sem perda quando possível) → checar → verificar</strong>. Cada operação é um script com argumentos tipados; nada passa por shell. No fim, o resultado é medido de novo e, quando a imagem mudou, o agente vê uma folha de contato.</p>
+<p>Funciona offline, no seu computador, com vídeos que você não quer enviar para a nuvem.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Edição:</strong> cortes (inclusive com precisão de quadro), junção com transições, remoção de silêncio (cortes secos), ajuste de duração e de proporção (9:16 por corte, barras ou fundo desfocado), estabilização, redução de ruído, endireitar horizonte, câmera lenta, loop, B-roll.</li>
+<li><strong>Áudio:</strong> limpeza de voz, compressor, música com ducking, sincronização entre gravações e loudness EBU R128 (−14 LUFS).</li>
+<li><strong>Imagem:</strong> legendas queimadas (inclusive estilo karaokê e transcrição local opcional), logos, marca d'água, picture-in-picture, chroma key, lower-thirds, HDR para SDR e LUTs.</li>
+<li><strong>Entrega:</strong> presets para YouTube, Shorts, Reels, TikTok, LinkedIn, X e ProRes, e checagem PASS/WARN/FAIL contra as regras de cada plataforma.</li>
+<li>Projeto inteiro descrito em <code>project.json</code>, processamento em lote e multicâmera.</li>
+<li>Página de revisão local em HTML para apontar o que mudar.</li>
+<li>Servidor MCP (12 ferramentas principais por padrão, 42 com <code>FFMPEG_SKILL_MCP_FULL=1</code>).</li>
+<li>Protege os originais: nunca grava por cima de um arquivo de entrada.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>FFmpeg 6.1 ou mais novo.</li>
+<li>Python 3.10 ou mais novo (só biblioteca padrão).</li>
+<li>Node 16 ou mais novo (só para o instalador <code>npx</code>).</li>
+<li>Opcional: um motor de transcrição local (<code>pip install faster-whisper</code>) para gerar legendas pela fala.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Tudo de uma vez (instala a skill nos agentes encontrados, instala o FFmpeg se faltar e roda o diagnóstico):</p>
+<pre><code class="language-bash">npx ffmpeg-skill setup
+</code></pre>
+<p>No Windows, o instalador usa <code>winget install --id Gyan.FFmpeg -e</code> e avisa antes de rodar. Use <code>--no-ffmpeg</code> para não mexer no gerenciador de pacotes.</p>
+<p>Passo a passo:</p>
+<pre><code class="language-bash">npx ffmpeg-skill            # instala para o Claude Code (--cursor, --codex ou --all)
+npx ffmpeg-skill doctor     # confere ffmpeg, ffprobe e os componentes necessários
+</code></pre>
+<p>Para atualizar, rode <code>npx ffmpeg-skill</code> de novo.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Peça ao agente em linguagem natural:</p>
+<pre><code class="language-text">&quot;Take interview.mp4, keep 0:45–1:20 and 5:00–5:25, and make it a 60-second Reel.&quot;
+</code></pre>
+<p>O agente roda as ferramentas, por exemplo <code>probe.py</code>, <code>cut.py</code>, <code>fit.py --aspect 9:16 --fit crop</code>, <code>export.py --preset reels</code> e <code>check.py --platform reels</code>, e informa duração, tamanho e áudio medidos.</p>
+<p>Página de revisão:</p>
+<pre><code class="language-bash">npx ffmpeg-skill review project.json --result run.json
+</code></pre>
+<p>MCP (ajuste o caminho; no Windows, troque <code>python3</code> por <code>python</code> se o servidor não subir):</p>
+<pre><code class="language-json">{&quot;mcpServers&quot;: {&quot;ffmpeg-skill&quot;: {&quot;command&quot;: &quot;python3&quot;, &quot;args&quot;: [&quot;/Users/you/.claude/skills/ffmpeg-skill/mcp/server.py&quot;]}}}
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Cortar entrevistas, podcasts e lives em Reels e Shorts.</li>
+<li>Consertar vídeo de celular: tremido, granulado, escuro, áudio baixo.</li>
+<li>Padronizar entregas para cada rede social sem decorar parâmetros do FFmpeg.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Um FFmpeg sem alguns filtros (por exemplo, sem libvidstab ou sem <code>subtitles</code>) faz o <code>doctor</code> acusar falta. As outras ferramentas continuam funcionando.</li>
+<li>A lista completa de 42 ferramentas no MCP ocupa cerca de 48 mil tokens; o padrão de 12 ocupa cerca de 18 mil.</li>
+<li>O autor tem outras skills que usam esta como base (cor, áudio, motion graphics, Remotion sobre vídeo real).</li>
+<li>Relacionados no catálogo: o <a href="claude-animated-shorts.html">Claude Animated Shorts</a> e o <a href="../10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a> criam vídeos do zero; o <a href="../10-midia-e-modelos-ia/supoclip.html">SupoClip</a> corta vídeos longos em clipes verticais.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://kajisho5.github.io/ffmpeg-skill/">Site</a> · <a href="https://github.com/kajisho5/ffmpeg-skill/blob/main/docs/demos.md">Demos com os comandos</a></li>
+<li><a href="https://github.com/kajisho5/ffmpeg-skill/blob/main/references/scripts.md">Referência das ferramentas</a></li>
+<li><a href="https://www.npmjs.com/package/ffmpeg-skill">Pacote npm</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

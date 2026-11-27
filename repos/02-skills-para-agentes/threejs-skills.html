@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three.js Skills · Repositórios favoritos</title>
+<meta name="description" content="13 skills para o Claude Code escrever three.js atual (r186), React Three Fiber 9 e gltf-transform sem usar APIs antigas: cena, geometria, materiais, luz, texturas, animação, loaders, shaders, pós-processamento, interação, desempenho e pipeline de assets.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Three.js Skills</h1>
+    <p class="lead">13 skills para o Claude Code escrever three.js atual (r186), React Three Fiber 9 e gltf-transform sem usar APIs antigas: cena, geometria, materiais, luz, texturas, animação, loaders, shaders, pós-processamento, interação, desempenho e pipeline de assets.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/cloudai-x/threejs-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">cloudai-x/threejs-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/cloudai-x/threejs-skills">cloudai-x/threejs-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd>— (documentação no README e em cada <code>SKILL.md</code>)</dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (skills)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~4,4k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Claude conhece three.js pelo treino, que mistura muitas versões. Entre a r160 e a r186 muita coisa mudou: <code>RGBELoader</code> virou <code>HDRLoader</code>, <code>Clock</code> deu lugar a <code>Timer</code>, <code>PostProcessing</code> virou <code>RenderPipeline</code>, o WebGL 1 saiu, e a documentação agora recomenda <code>WebGPURenderer</code> com TSL para shaders e materiais próprios.</p>
+<p>Estas skills dão ao agente a API atual, exemplos que funcionam e uma lista de &quot;erros comuns&quot; com os padrões antigos que os modelos ainda usam. Elas miram three.js r186 (<code>three@0.186</code>), React Three Fiber 9.8 com drei 10.7 e gltf-transform 4.5.</p>
+<p>Cada skill tem um início rápido executável, as seções do tema, uma seção de WebGPU e TSL e a lista de erros comuns. Os imports, classes, comandos e flags foram conferidos contra os pacotes publicados.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><code>threejs-fundamentals</code>: cena, câmeras, renderer, loop de animação, hierarquia e transformações.</li>
+<li><code>threejs-geometry</code>: formas, BufferGeometry, merge, instancing, BatchedMesh, pontos e linhas.</li>
+<li><code>threejs-materials</code> e <code>threejs-shaders</code>: tipos de material, PBR, blending, ShaderMaterial, TSL e node materials.</li>
+<li><code>threejs-lighting</code> e <code>threejs-textures</code>: luzes com unidades físicas, sombras, HDR, espaços de cor, render targets.</li>
+<li><code>threejs-animation</code>: keyframes, animation mixer, animação esquelética e morph.</li>
+<li><code>threejs-loaders</code> e <code>threejs-asset-pipeline</code>: glTF com Draco, meshopt e KTX2, e compressão com gltf-transform.</li>
+<li><code>threejs-postprocessing</code>, <code>threejs-interaction</code> e <code>threejs-performance</code>: efeitos, raycasting, controles, draw calls e memória de GPU.</li>
+<li><code>threejs-react-three-fiber</code>: R3F 9 com um conjunto verificado de helpers do drei.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code (ou outro agente compatível com skills).</li>
+<li>Node (<code>npx</code>) para a instalação via CLI.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx skills add cloudai-x/threejs-skills
+</code></pre>
+<p>Ou manualmente:</p>
+<pre><code class="language-bash">git clone https://github.com/CloudAI-X/threejs-skills.git
+mkdir -p ~/.claude/skills &amp;&amp; cp -r threejs-skills/skills/* ~/.claude/skills/   # todos os projetos
+mkdir -p .claude/skills &amp;&amp; cp -r threejs-skills/skills/* .claude/skills/       # só um projeto (na raiz dele)
+</code></pre>
+<p><strong>Windows:</strong> copie <code>threejs-skills\skills\*</code> para <code>%USERPROFILE%\.claude\skills\</code>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>As skills carregam sozinhas conforme o pedido:</p>
+<pre><code class="language-text">&quot;Create a 3D scene with orbit controls&quot;     → threejs-fundamentals, threejs-interaction
+&quot;Add lights and shadows&quot;                     → threejs-lighting
+&quot;Load this glTF model&quot;                       → threejs-loaders
+&quot;Write a custom shader for a water effect&quot;   → threejs-shaders, threejs-postprocessing
+&quot;This scene is slow, make it faster&quot;         → threejs-performance
+&quot;Build the scene with React&quot;                 → threejs-react-three-fiber
+&quot;Shrink this glTF before shipping&quot;           → threejs-asset-pipeline
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Qualquer projeto three.js ou React Three Fiber feito com agente, para evitar código de versões antigas.</li>
+<li>Cenas 3D em sites, configuradores de produto e visualizações.</li>
+<li>Animações 3D renderizadas em vídeo (three.js dentro do Remotion ou do HyperFrames).</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>As skills são atreladas à r186. Em versões bem mais novas do three.js, algumas partes podem ficar desatualizadas; o autor pede issues com o nome da skill, a linha e a versão.</li>
+<li>Relacionados no catálogo: o <a href="webgl-animation-skills.html">WebGL Animation Skills</a> foca em animação 3D (cenas, shaders GLSL, partículas), enquanto estas cobrem a API do three.js de forma ampla; o <a href="claude-animated-shorts.html">Claude Animated Shorts</a> usa three.js dentro do <a href="../10-midia-e-modelos-ia/remotion.html">Remotion</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/cloudai-x/threejs-skills#readme">README</a></li>
+<li><a href="https://github.com/cloudai-x/threejs-skills/tree/main/skills">Pasta das skills</a></li>
+<li><a href="https://threejs.org/">three.js</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

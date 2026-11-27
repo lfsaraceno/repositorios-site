@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motion Design Skill · Repositórios favoritos</title>
+<meta name="description" content="Skill da LottieFiles que ensina o agente a pensar como diretor de motion design: tempo, easing, coreografia e os 12 princípios da Disney adaptados para interface, antes de escrever o código da animação.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>Motion Design Skill</h1>
+    <p class="lead">Skill da LottieFiles que ensina o agente a pensar como diretor de motion design: tempo, easing, coreografia e os 12 princípios da Disney adaptados para interface, antes de escrever o código da animação.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/LottieFiles/motion-design-skill">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">LottieFiles/motion-design-skill</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/LottieFiles/motion-design-skill">LottieFiles/motion-design-skill</a></dd></div>
+<div><dt>Site / Docs</dt><dd>— (documentação no README e na pasta <code>skills/motion-design/</code>)</dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (skill)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~3,6k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Uma skill de princípios de motion design, mantida pela LottieFiles. Não gera vídeo nem traz código pronto: ensina o agente a escolher a duração, a curva de aceleração (easing), a ordem dos elementos e a intenção emocional de cada movimento antes de escrever a animação.</p>
+<p>Funciona com qualquer sistema de animação: CSS, Framer Motion, GSAP, Lottie, Spring etc. O <code>SKILL.md</code> traz um checklist de 8 passos, arquétipos de &quot;personalidade&quot; de movimento, tabelas de duração e easing e regras de qualidade. As pastas de apoio aprofundam a filosofia, trazem receitas e tabelas de consulta.</p>
+<p>Para exportar arquivos renderizados (MP4, GIF, WebM, dotLottie, Lottie JSON), o README indica conectar o Creator MCP, serviço da LottieFiles.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Checklist de 8 passos e tabelas de duração e easing.</li>
+<li>12 princípios da Disney adaptados para interface.</li>
+<li>Quatro arquétipos de personalidade de movimento, para definir a identidade de movimento da marca.</li>
+<li>Mapeamento de emoção para movimento e estrutura narrativa curta.</li>
+<li>Receitas de entrada/saída, feedback de estado (sucesso, erro, carregando, hover), movimento ambiente e coreografia de vários elementos.</li>
+<li>Checklist de qualidade e solução de problemas comuns de animação.</li>
+<li>Adaptação a contexto: plataforma, acessibilidade e desempenho.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com Agent Skills (Claude Code, Cursor, Codex, GitHub Copilot etc.).</li>
+<li>Node (<code>npx</code>) para a instalação via CLI.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx skills add LottieFiles/motion-design-skill
+</code></pre>
+<p>A CLI é a <a href="vercel-skills-cli.html">Vercel Skills CLI</a>. No Claude Code, se as skills forem parar só em <code>.agents/skills/</code>, passe <code>-a claude-code</code>.</p>
+<h3 id="opcional-creator-mcp-exportar-arquivos">Opcional: Creator MCP (exportar arquivos)</h3>
+<pre><code class="language-bash">claude mcp add --transport http --scope user creator-mcp https://creator.mcp.lottiefiles.com/mcp   # Claude Code
+codex mcp add creator-mcp --url https://creator.mcp.lottiefiles.com/mcp                           # Codex
+</code></pre>
+<p>No Cursor, em <code>~/.cursor/mcp.json</code>:</p>
+<pre><code class="language-json">{&quot;mcpServers&quot;:{&quot;creator-mcp&quot;:{&quot;url&quot;:&quot;https://creator.mcp.lottiefiles.com/mcp&quot;}}}
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>A skill (<code>motion-design</code>) ativa sozinha quando você trabalha com animações, transições, microinterações, estados de carregamento ou efeitos de rolagem. Exemplos de prompt:</p>
+<pre><code class="language-text">Add a playful entrance animation to these card components
+Create a loading → success → error state transition for this form submit button
+Choreograph the entrance sequence for this dashboard — hero chart first, then stats cards, then sidebar
+Review my animation code and suggest improvements based on motion design principles
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Dar ritmo e intenção às animações de uma interface (botões, cards, modais, transições de página).</li>
+<li>Definir a identidade de movimento de uma marca.</li>
+<li>Revisar animações existentes que parecem &quot;erradas&quot; sem saber por quê.</li>
+<li>Complementar skills que geram vídeo, como base de princípios.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>É só conhecimento: não renderiza nada. Para gerar arquivos, use o Creator MCP (serviço externo da LottieFiles) ou outra skill de vídeo.</li>
+<li>Há outras skills com nome parecido, como <a href="https://github.com/kylezantos/design-motion-principles">kylezantos/design-motion-principles</a> e <a href="https://github.com/iart-ai/motion-design-skills">iart-ai/motion-design-skills</a>.</li>
+<li>Relacionados no catálogo: o <a href="motionmaxxing.html">Motionmaxxing</a> gera vídeos de motion graphics completos; o <a href="../03-design-e-ui/impeccable.html">Impeccable</a> também cuida de animação de interface, dentro de um vocabulário de design mais amplo.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/LottieFiles/motion-design-skill#readme">README</a></li>
+<li><a href="https://github.com/LottieFiles/motion-design-skill/tree/main/skills/motion-design">Pasta da skill</a></li>
+<li><a href="https://docs.lottiefiles.com/en/creator-mcp">Creator MCP</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

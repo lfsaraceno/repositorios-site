@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serena · Repositórios favoritos</title>
+<meta name="description" content="Servidor MCP que dá ao agente de IA ferramentas de IDE: busca, edição, refatoração e depuração de código no nível de símbolos (classes, funções, referências), com suporte a mais de 40 linguagens via language servers ou via plugin JetBrains.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Serena</h1>
+    <p class="lead">Servidor MCP que dá ao agente de IA ferramentas de IDE: busca, edição, refatoração e depuração de código no nível de símbolos (classes, funções, referências), com suporte a mais de 40 linguagens via language servers ou via plugin JetBrains.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/oraios/serena">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">oraios/serena</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/oraios/serena">oraios/serena</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://oraios.github.io/serena">oraios.github.io/serena</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python</dd></div>
+<div><dt>Licença</dt><dd>GPL-3.0-or-later (componente SolidLSP em MIT)</dd></div>
+<div><dt>Estrelas</dt><dd>~31k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Agentes de programação costumam navegar no código por números de linha e busca de texto, o que é lento e frágil em projetos grandes. O Serena entrega ferramentas no estilo de uma IDE, que trabalham com <strong>símbolos</strong> e suas relações: achar uma função, listar quem a referencia, renomear em todos os arquivos, substituir o corpo de um método.</p>
+<p>Ele se conecta a qualquer cliente via MCP (Claude Code, Codex, OpenCode, Gemini CLI, Cursor, IDEs JetBrains, Claude Desktop e outros). O entendimento do código vem de duas fontes, à sua escolha: <strong>language servers</strong> (LSP, gratuito, padrão) ou o <strong>plugin Serena para JetBrains</strong> (pago, com teste grátis), que usa a análise da sua IDE.</p>
+<p>A versão 2 trouxe uma interface de agente baseada em REPL (execução de código).</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong>Busca:</strong> achar símbolo, visão geral do arquivo, referências, declaração, implementações, diagnósticos; com JetBrains, também hierarquia de tipos e busca em dependências.</li>
+<li><strong>Refatoração:</strong> renomear símbolos (LSP) ou símbolos, arquivos e pastas, mover, inline e remoção de código não usado (JetBrains).</li>
+<li><strong>Edição simbólica:</strong> substituir corpo de símbolo, inserir antes/depois, exclusão segura.</li>
+<li><strong>Depuração interativa</strong> com breakpoints e inspeção de variáveis (só JetBrains).</li>
+<li><strong>Memória</strong> de projeto para fluxos longos, que pode ser desligada.</li>
+<li>Mais de 40 linguagens via LSP: Python, TypeScript, Java, C#, Go, Rust, PHP, Ruby, Kotlin, Dart, Elixir e outras.</li>
+<li>Configuração em camadas via YAML (global, por projeto, por cliente, modos).</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li><a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a> (único pré-requisito).</li>
+<li>Algumas linguagens exigem dependências extras do language server.</li>
+<li>Opcional: IDE JetBrains com o plugin Serena (pago).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">uv tool install -p 3.13 serena-agent    # instala o comando serena
+serena init                             # inicializa com o backend de language servers
+serena init -b JetBrains                # alternativa: backend JetBrains
+</code></pre>
+<p>Depois configure o comando de inicialização no seu cliente MCP seguindo o <a href="https://oraios.github.io/serena/02-usage/030_clients.html">guia de clientes</a> (Claude Code, Codex, Claude Desktop, IDEs).</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Com o MCP conectado, o agente passa a ter as ferramentas do Serena. Peça normalmente:</p>
+<pre><code class="language-text">Rename the class UserService to AccountService across the whole project and update all references.
+</code></pre>
+<pre><code class="language-text">Find every caller of calculate_tax and show me the call sites.
+</code></pre>
+<p>No Claude Code e no Codex, as ferramentas básicas do Serena (leitura de arquivo, shell, regex) ficam desligadas por padrão, porque o agente já as tem.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Projetos grandes ou monorepos onde o agente se perde com busca de texto.</li>
+<li>Refatorações entre vários arquivos (renomear, mover) com segurança.</li>
+<li>Economizar tokens lendo só os símbolos necessários em vez de arquivos inteiros.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Não instale via marketplace de MCP ou de plugins:</strong> segundo o projeto, os comandos lá estão desatualizados. Use o <code>uv</code> como acima.</li>
+<li><strong>Licença GPL-3.0-or-later</strong> para a aplicação; distribuições que combinam com o SolidLSP (MIT) ficam sob GPL.</li>
+<li>O plugin JetBrains é pago; Rider e CLion não são suportados.</li>
+<li>Para mapear a arquitetura do código em grafo, veja <a href="graphify.html">Graphify</a>.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/oraios/serena#readme">README</a></li>
+<li><a href="https://oraios.github.io/serena/02-usage/000_intro.html">Guia do usuário</a></li>
+<li><a href="https://oraios.github.io/serena/01-about/035_tools.html">Ferramentas</a></li>
+<li><a href="https://oraios.github.io/serena/01-about/020_programming-languages.html">Linguagens suportadas</a></li>
+<li><a href="https://www.youtube.com/watch?v=5QN7gN1KYLA">Vídeo de introdução (5 min)</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

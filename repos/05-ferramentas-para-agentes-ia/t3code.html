@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T3 Code · Repositórios favoritos</title>
+<meta name="description" content="App open source que roda os agentes de código na sua máquina (Claude Code, Codex, Cursor, OpenCode, Antigravity e outros) numa interface única, rápida, no desktop, na web e no celular: comece uma tarefa no computador e aprove o próximo passo pelo telefone.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>T3 Code</h1>
+    <p class="lead">App open source que roda os agentes de código na sua máquina (Claude Code, Codex, Cursor, OpenCode, Antigravity e outros) numa interface única, rápida, no desktop, na web e no celular: comece uma tarefa no computador e aprove o próximo passo pelo telefone.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/pingdotgg/t3code">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">pingdotgg/t3code</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/pingdotgg/t3code">pingdotgg/t3code</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://t3.codes">t3.codes</a> · <a href="https://github.com/pingdotgg/t3code/blob/main/docs/README.md">Documentação</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT (só o código; nome e marca são protegidos)</dd></div>
+<div><dt>Estrelas</dt><dd>~79k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O T3 Code não vende tokens: ele comanda os agentes em que você já está logado, usando as suas assinaturas. Funciona com Claude Code, Codex, Cursor, OpenCode, Grok Build, Antigravity, Kiro, Pi, Muse Code, fx e qualquer agente compatível com ACP.</p>
+<p>Um servidor roda na sua máquina e todos os clientes (desktop, web e apps de iOS e Android) mostram as mesmas conversas. Os criadores dizem que se inspiraram no app do Codex, no Conductor, no Claude Desktop e no Cursor, e que desempenho é prioridade.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Todos os agentes num lugar só. Dá para trocar de modelo no meio da conversa e passar uma tarefa do Claude para o Codex.</li>
+<li>Desktop, web e celular sincronizados.</li>
+<li>Acesso remoto pela rede local, Tailscale ou T3 Connect.</li>
+<li>Git integrado: cada conversa pode ter seu próprio worktree. Você revisa o diff e faz commit, push e pull request com um botão.</li>
+<li>Modos de permissão para aprovar ações.</li>
+<li>Conexão de agentes externos via MCP.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Pelo menos um agente instalado e logado, por exemplo Claude Code (<code>claude auth login</code>) ou Codex CLI (<code>codex login</code>).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Desktop: baixe em <a href="https://t3.codes/download">t3.codes/download</a> ou use um gerenciador de pacotes:</p>
+<pre><code class="language-bash">winget install T3Tools.T3Code        # Windows (ou: scoop install extras/t3code)
+brew install --cask t3-code          # macOS
+yay -S t3code-bin                    # Arch Linux
+</code></pre>
+<p>Linha de comando (instala o comando <code>t3</code>, que sobe o servidor e abre o app web):</p>
+<pre><code class="language-bash">curl -fsSL https://t3.codes/install.sh | sh
+</code></pre>
+<p>No Windows (PowerShell): <code>irm https://t3.codes/install.ps1 | iex</code>. Para testar sem instalar: <code>npx t3@latest</code>.</p>
+<p>Celular: baixe na <a href="https://apps.apple.com/us/app/t3-code-remote-claude-more/id6787819824">App Store</a> ou no <a href="https://play.google.com/store/apps/details?id=com.t3tools.t3code">Google Play</a> e siga o guia de <a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md">acesso remoto</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">t3    # sobe o servidor e abre o app web
+</code></pre>
+<p>No app, abra uma conversa, escolha o agente e o projeto e acompanhe pelo desktop ou pelo celular.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Usar vários agentes de código sem trocar de janela.</li>
+<li>Deixar o agente trabalhando no computador e aprovar os passos pelo celular.</li>
+<li>Trabalhar em várias tarefas em paralelo, cada uma no seu worktree.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Os scripts <code>curl … | sh</code> e <code>irm … | iex</code> rodam código direto da internet. Se preferir, baixe e leia o script antes, ou use o winget.</li>
+<li>O acesso remoto expõe os agentes da sua máquina a outros dispositivos: siga o guia de acesso remoto e prefira Tailscale ou T3 Connect a abrir portas.</li>
+<li>Forks precisam usar outro nome e outra marca; o README diz que o uso indevido da marca T3 Code será processado.</li>
+<li>O time tem pouca capacidade de revisão: novas funcionalidades precisam de discussão aprovada antes do PR.</li>
+<li>Relacionados no catálogo: o <a href="../01-orquestracao-de-agentes/paperclip.html">Paperclip</a> gerencia equipes de agentes como uma empresa.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/install.md">Instalação e primeiro uso</a></li>
+<li><a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md">Acesso remoto</a> · <a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md">Modos de permissão</a></li>
+<li><a href="https://github.com/pingdotgg/t3code/blob/main/docs/user/faq.md">FAQ</a> · <a href="https://discord.gg/jn4EGJjrvv">Discord</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

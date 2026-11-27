@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Context7 · Repositórios favoritos</title>
+<meta name="description" content="Entrega ao agente de IA documentação atualizada e específica da versão de bibliotecas e frameworks, via CLI com skill ou servidor MCP, para evitar código desatualizado e APIs inventadas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Context7</h1>
+    <p class="lead">Entrega ao agente de IA documentação atualizada e específica da versão de bibliotecas e frameworks, via CLI com skill ou servidor MCP, para evitar código desatualizado e APIs inventadas.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/upstash/context7">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">upstash/context7</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/upstash/context7">upstash/context7</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://context7.com">context7.com</a></dd></div>
+<div><dt>Linguagem</dt><dd>TypeScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~65k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Modelos de linguagem aprendem com dados de meses ou anos atrás: geram exemplos antigos, inventam APIs que não existem e respondem sobre versões velhas de pacotes. O Context7, da Upstash, busca a documentação e os exemplos de código atuais direto da fonte e os coloca no contexto do agente.</p>
+<p>Funciona de dois jeitos: <strong>CLI + Skills</strong> (uma skill orienta o agente a buscar docs com o comando <code>ctx7</code>, sem MCP) ou <strong>MCP</strong> (registra o servidor Context7 para o agente chamar as ferramentas de documentação). Basta acrescentar &quot;use context7&quot; ao pedido, ou deixar uma regra para isso.</p>
+<p>Este repositório tem o código do servidor MCP; a API, o parser e o crawler são privados.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Documentação atualizada e por versão de milhares de bibliotecas (indexadas pela comunidade).</li>
+<li>Configuração com um comando para Claude Code, Cursor e OpenCode, via OAuth.</li>
+<li>Ferramentas MCP <code>resolve-library-id</code> e <code>query-docs</code>; comandos CLI <code>ctx7 library</code> e <code>ctx7 docs</code>.</li>
+<li>IDs de biblioteca (<code>/supabase/supabase</code>, <code>/vercel/next.js</code>) para pular a etapa de busca.</li>
+<li>Servidor remoto em <code>https://mcp.context7.com/mcp</code> para mais de 30 clientes MCP.</li>
+<li>SDK TypeScript, ferramentas para o Vercel AI SDK e extensão para pi.dev.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Node.js 22.13 ou mais novo para a CLI <code>ctx7</code>.</li>
+<li>Chave de API gratuita (recomendada, para limites maiores) em <a href="https://context7.com/dashboard?tab=settings">context7.com/dashboard</a>.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx ctx7 setup              # autentica via OAuth, gera chave e instala a skill (escolha CLI + Skills ou MCP)
+npx ctx7 setup --claude     # direciona para o Claude Code (também --cursor, --opencode)
+npx ctx7 remove             # desfaz a configuração
+</code></pre>
+<p><strong>Manual (qualquer cliente MCP):</strong> URL <code>https://mcp.context7.com/mcp</code> com o cabeçalho <code>Authorization: Bearer YOUR_API_KEY</code>. Instruções por cliente: <a href="https://context7.com/docs/resources/all-clients">context7.com/docs/resources/all-clients</a>.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>Prompts:</p>
+<pre><code class="language-txt">Configure a Cloudflare Worker script to cache JSON API responses for five minutes. use context7
+Implement basic authentication with Supabase. use library /supabase/supabase for API and docs.
+How do I set up a Next.js 16 proxy? use context7
+</code></pre>
+<p>CLI:</p>
+<pre><code class="language-bash">ctx7 library &lt;name&gt; &lt;query&gt;     # busca a biblioteca e retorna os IDs
+ctx7 docs &lt;libraryId&gt; &lt;query&gt;   # traz a documentação (ex.: /vercel/next.js)
+</code></pre>
+<p>Regra para o <code>CLAUDE.md</code> (se não usou o <code>ctx7 setup</code>):</p>
+<pre><code class="language-txt">Always use Context7 when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Trabalhar com bibliotecas que mudam rápido (Next.js, Supabase, frameworks de IA) sem receber código de versões antigas.</li>
+<li>Configurar ferramentas e APIs com a documentação oficial atual no contexto.</li>
+<li>Reduzir APIs inventadas em projetos com dependências novas.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>A documentação indexada é contribuída pela comunidade; a Upstash não garante precisão nem segurança de todo conteúdo.</li>
+<li>O backend é um serviço da Upstash; o uso envia suas consultas para lá.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/upstash/context7#readme">README</a></li>
+<li><a href="https://context7.com/docs/clients/cli">Referência da CLI</a></li>
+<li><a href="https://context7.com/docs/resources/all-clients">Clientes MCP</a></li>
+<li><a href="https://context7.com/docs/adding-libraries">Adicionar uma biblioteca</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-hud.html">Claude HUD</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

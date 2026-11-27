@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude HUD · Repositórios favoritos</title>
+<meta name="description" content="Plugin do Claude Code que mostra na status line o uso de contexto, limites de uso, ferramentas ativas, subagentes rodando e progresso das tarefas, sempre visível abaixo da caixa de entrada.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#05-ferramentas-para-agentes-ia"><span aria-hidden="true">🛠️</span> Ferramentas para agentes de IA</a>
+    </nav>
+    <h1>Claude HUD</h1>
+    <p class="lead">Plugin do Claude Code que mostra na status line o uso de contexto, limites de uso, ferramentas ativas, subagentes rodando e progresso das tarefas, sempre visível abaixo da caixa de entrada.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/jarrodwatts/claude-hud">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">jarrodwatts/claude-hud</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/jarrodwatts/claude-hud">jarrodwatts/claude-hud</a></dd></div>
+<div><dt>Site / Docs</dt><dd>—</dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~29k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Claude HUD transforma a status line do Claude Code num painel. Por padrão são duas linhas: modelo, provedor (Bedrock, Vertex, MiniMax), pasta e branch git; e barras de contexto usado (verde, amarelo, vermelho) e de limite de uso da assinatura, com o tempo até reiniciar.</p>
+<pre><code>[Opus] │ my-project git:(main*)
+Context █████░░░░░ 45% │ Usage ██░░░░░░░░ 25% (resets in 1h 30m)
+</code></pre>
+<p>Linhas opcionais mostram ferramentas em uso, subagentes e tarefas, entre cerca de cem opções.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Barra de contexto e de limite de uso com tempo para reset.</li>
+<li>Linhas opcionais de ferramentas (<code>Edit</code>, <code>Read ×3</code>), agentes (<code>explore [haiku]</code>) e todos (<code>2/5</code>).</li>
+<li>Configuração por conversa: peça ao Claude ou use <code>/hud</code> (&quot;use the compact layout&quot;, &quot;the HUD is blank&quot;); mostra prévia antes de salvar e desfaz a última mudança.</li>
+<li>Relatório de bug com dados mascarados, que você lê antes de enviar.</li>
+<li>Processo Node isolado pelo modelo de permissões: não inicia programas, não lê credenciais e não acessa a rede.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Claude Code v2.1.260 ou mais novo.</li>
+<li>Node.js 22.18 ou mais novo (o <code>/hud</code> ajuda a encontrar ou instalar).</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Dentro do Claude Code:</p>
+<pre><code>/plugin marketplace add jarrodwatts/claude-hud
+/plugin install claude-hud
+/reload-plugins
+/hud
+</code></pre>
+<p>Pelo terminal:</p>
+<pre><code class="language-bash">claude plugin marketplace add jarrodwatts/claude-hud
+claude plugin install claude-hud@claude-hud
+</code></pre>
+<p>Depois rode <code>/reload-plugins</code> e <code>/hud</code> numa sessão.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code>/hud     # confere a instalação, aponta a status line para o HUD, altera opções e desfaz mudanças
+</code></pre>
+<pre><code class="language-bash">claude plugin marketplace update claude-hud          # atualiza o marketplace
+claude plugin update claude-hud@claude-hud           # atualiza o plugin (depois /reload-plugins)
+</code></pre>
+<ul>
+<li>Configuração em <code>~/.claude/plugins/claude-hud/config.json</code>.</li>
+<li>Desligar numa sessão: inicie o Claude Code com <code>CLAUDE_HUD_DISABLE=1</code>.</li>
+<li>Atualização automática: <code>/plugin</code> → <strong>Marketplaces</strong> → <strong>claude-hud</strong> → <strong>Enable auto-update</strong>.</li>
+</ul>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Acompanhar o quanto do contexto já foi usado antes de compactar ou abrir nova sessão.</li>
+<li>Ver quanto falta do limite de uso da assinatura.</li>
+<li>Acompanhar subagentes e ferramentas em tarefas longas.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><code>--extra-cmd</code> roda um comando de shell a cada atualização: só funciona com <code>CLAUDE_HUD_ALLOW_EXTRA_CMD=1</code> e equivale a execução de código arbitrário; nunca use comando de fonte não confiável.</li>
+<li>O HUD substitui a status line atual (pede confirmação antes).</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/jarrodwatts/claude-hud#readme">README</a></li>
+<li><a href="https://github.com/jarrodwatts/claude-hud/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#05-ferramentas-para-agentes-ia">Ferramentas para agentes de IA</a></h2>
+    <ul>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/agent-browser.html">Agent Browser</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/api-anything.html">API Anything</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/beads.html">Beads (bd)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/cc-switch.html">CC Switch</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/chrome-devtools-mcp.html">Chrome DevTools MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-code-router.html">Claude Code Router (CCR)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/claude-mem.html">Claude-Mem</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/context7.html">Context7</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/dspy.html">DSPy</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/firecrawl.html">Firecrawl</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/free-claude-code.html">Free Claude Code (FCC)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/github-mcp-server.html">GitHub MCP Server</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/graphify.html">Graphify</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/headroom.html">Headroom</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/kiln.html">Kiln</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/markitdown.html">MarkItDown</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/omniroute.html">OmniRoute</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/pdf-oxide.html">PDFOxide (pdf_oxide)</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-cli.html">Playwright CLI</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/playwright-mcp.html">Playwright MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/repomix.html">Repomix</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/rtk.html">RTK</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/search-console-mcp.html">Search Console MCP</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/serena.html">Serena</a></li>
+<li><a href="../../repos/05-ferramentas-para-agentes-ia/t3code.html">T3 Code</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

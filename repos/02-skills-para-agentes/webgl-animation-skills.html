@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebGL Animation Skills · Repositórios favoritos</title>
+<meta name="description" content="Três skills da iart.ai para agentes de IA criarem animação 3D na web: cenas Three.js e React Three Fiber, shaders GLSL e sistemas de partículas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>WebGL Animation Skills</h1>
+    <p class="lead">Três skills da iart.ai para agentes de IA criarem animação 3D na web: cenas Three.js e React Three Fiber, shaders GLSL e sistemas de partículas.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/iart-ai/webgl-animation-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">iart-ai/webgl-animation-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/iart-ai/webgl-animation-skills">iart-ai/webgl-animation-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.iart.ai/skills">iart.ai/skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>Markdown (skills) + HTML</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>62 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um pacote pequeno de skills focado em movimento 3D e na GPU, fora do caminho comum de animação 2D/Lottie. Ele ensina o agente a escrever shaders, montar e animar cenas Three.js e criar efeitos de partículas sem vazar memória da GPU.</p>
+<p>Faz parte de uma coleção de 19 pacotes de skills de animação e vídeo da iart.ai (TikTok, YouTube, e-commerce, mapas, tipografia cinética, Manim e outros), todos open source. O pacote também serve de vitrine para o produto pago da empresa, um agente de motion graphics.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong><code>shader-glsl</code>:</strong> fragment shaders com gradientes, ruído/fbm, SDFs, domain warping, transições de imagem e ligação com <code>ShaderMaterial</code> do Three.js.</li>
+<li><strong><code>threejs-animation</code>:</strong> cenas, movimentos de câmera, clipes GLTF, instancing, 3D ligado ao scroll, React Three Fiber e descarte correto de recursos da GPU.</li>
+<li><strong><code>particle-system</code>:</strong> confete, neve, fumaça, faíscas, flow fields, curl noise, redes de pontos conectados e shaders de <code>Points</code> na GPU.</li>
+<li><strong>Scripts de apoio</strong> (<code>contact-sheet.sh</code>, <code>probe-mp4.sh</code>, <code>seek-shot.sh</code>) para inspecionar vídeos gerados.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com Agent Skills (Claude Code, Cursor, Codex e outros).</li>
+<li>Node (<code>npx</code>) para a instalação via CLI.</li>
+<li>Os scripts de apoio são shell (<code>.sh</code>): no <strong>Windows</strong>, rode no Git Bash ou no WSL.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx skills add iart-ai/webgl-animation-skills
+</code></pre>
+<p>Como plugin do Claude Code:</p>
+<pre><code class="language-text">/plugin marketplace add iart-ai/webgl-animation-skills
+/plugin install webgl-animation-skills
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>As skills são acionadas quando o pedido envolve shader, cena 3D ou partículas. Exemplos do README:</p>
+<pre><code class="language-text">&quot;Write a GLSL fragment shader for an animated aurora gradient background and wire it into Three.js.&quot;
+&quot;Animate this GLTF model in React Three Fiber and crossfade between idle and walk clips.&quot;
+&quot;Build a connected-dot constellation background that stays fast with 2000 particles.&quot;
+</code></pre>
+<p>Outros pacotes da coleção seguem o mesmo padrão de instalação, por exemplo:</p>
+<pre><code class="language-bash">npx skills add iart-ai/web-animation-skills          # animação web para frontend
+npx skills add iart-ai/kinetic-typography-skills     # texto animado
+npx skills add iart-ai/data-animation-skills         # animação de dados
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Fundos animados com shader ou partículas em landing pages.</li>
+<li>Animar modelos GLTF ou cenas em Three.js / React Three Fiber.</li>
+<li>Investigar travamentos ou vazamento de memória em páginas WebGL.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Projeto pequeno e comercial:</strong> poucas estrelas e só três skills. O README direciona para o iart.ai, produto pago da empresa, com links de rastreamento.</li>
+<li>Relacionados no catálogo: as <a href="gsap-skills.html">GSAP Skills</a> cobrem animação 2D e de scroll no DOM. O <a href="scroll-craft.html">Scroll Craft</a> monta páginas imersivas completas. O <a href="teardown.html">Teardown</a> gera simuladores 3D de máquinas, e a <a href="blender-skills.html">Blender Skills</a> trabalha 3D fora do navegador.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/iart-ai/webgl-animation-skills/tree/main/skills">Pasta das skills</a></li>
+<li><a href="https://github.com/iart-ai/motion-skills">Hub com todos os pacotes</a></li>
+<li><a href="https://www.iart.ai/skills">Catálogo de skills da iart.ai</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/javascript-animation-skills.html">JavaScript Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

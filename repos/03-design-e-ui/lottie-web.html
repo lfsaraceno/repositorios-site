@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lottie (lottie-web) · Repositórios favoritos</title>
+<meta name="description" content="Player da Airbnb que toca na web animações do After Effects exportadas como JSON pelo plugin Bodymovin, em SVG, canvas ou HTML; há versões para Android, iOS, React Native e Windows.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#03-design-e-ui"><span aria-hidden="true">🎨</span> Design e UI</a>
+    </nav>
+    <h1>Lottie (lottie-web)</h1>
+    <p class="lead">Player da Airbnb que toca na web animações do After Effects exportadas como JSON pelo plugin Bodymovin, em SVG, canvas ou HTML; há versões para Android, iOS, React Native e Windows.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/airbnb/lottie-web">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">airbnb/lottie-web</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/airbnb/lottie-web">airbnb/lottie-web</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://airbnb.io/lottie/">airbnb.io/lottie</a> · <a href="https://github.com/airbnb/lottie-web/wiki">Wiki</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~33k (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Lottie resolve um problema antigo: o designer cria a animação no Adobe After Effects e ela vai para o site ou app sem que um programador precise refazê-la à mão. A animação é exportada como JSON pelo plugin <strong>Bodymovin</strong> e o player a renderiza em tempo real, vetorial e leve.</p>
+<p>Este repositório tem o plugin do After Effects e o player web (<code>lottie-web</code>). Os players para <a href="https://github.com/airbnb/lottie-android">Android</a>, <a href="https://github.com/airbnb/lottie-ios">iOS</a>, <a href="https://github.com/airbnb/lottie-react-native">React Native</a> e <a href="https://aka.ms/lottie">Windows</a> ficam em repositórios próprios.</p>
+<p>Também dá para usar arquivos Lottie prontos (por exemplo, de bibliotecas como a LottieFiles), sem passar pelo After Effects.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Renderização em <code>svg</code>, <code>canvas</code> ou <code>html</code>.</li>
+<li>Controle completo: play, pause, stop, velocidade, direção, ir para um quadro, tocar trechos (<code>playSegments</code>).</li>
+<li>Eventos (<code>complete</code>, <code>loopComplete</code>, <code>enterFrame</code>, <code>data_ready</code> etc.).</li>
+<li>Carregamento por JS (<code>lottie.loadAnimation</code>) ou só com atributos HTML (<code>class=&quot;lottie&quot;</code>).</li>
+<li>Título e descrição acessíveis no SVG.</li>
+<li>Suporte do After Effects: precomps, formas, sólidos, imagens, nulls, textos, máscaras, time remapping e parte das expressões.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Para criar animações: Adobe After Effects (CC 2014 ou mais novo) com o plugin Bodymovin.</li>
+<li>Para tocar: só o player JavaScript.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<h3 id="player-web">Player web</h3>
+<pre><code class="language-bash">npm install lottie-web
+</code></pre>
+<p>Ou o script do <a href="https://cdnjs.com/libraries/bodymovin">cdnjs</a>.</p>
+<h3 id="plugin-do-after-effects">Plugin do After Effects</h3>
+<p>Baixe pelo <a href="https://aescripts.com/bodymovin/">aescripts</a> (recomendado) ou pela <a href="https://exchange.adobe.com/creativecloud.details.12557.html">Adobe Exchange</a>. Depois, em <strong>Edit &gt; Preferences &gt; Scripting &amp; Expressions</strong>, marque &quot;Allow Scripts to Write Files and Access Network&quot;.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>No After Effects: <strong>Window &gt; Extensions &gt; bodymovin</strong>, escolha a composição e a pasta de destino e clique em <strong>Render</strong>.</p>
+<p>Na página:</p>
+<pre><code class="language-js">lottie.loadAnimation({
+  container: element, // o elemento DOM que vai conter a animação
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'data.json' // caminho para o JSON da animação
+});
+</code></pre>
+<p>Sem JavaScript:</p>
+<pre><code class="language-html">&lt;div class=&quot;lottie&quot; data-animation-path=&quot;animation/&quot; data-anim-loop=&quot;true&quot; data-name=&quot;ninja&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Ícones animados, ilustrações e estados de carregamento em sites e apps.</li>
+<li>Levar animações do After Effects para web e mobile com arquivo pequeno.</li>
+<li>Usar animações prontas de bibliotecas Lottie.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Pouca atividade: o último commit é de set/2025. Para recursos novos, a LottieFiles mantém o ecossistema dotLottie.</li>
+<li>Não suporta sequências de imagens, vídeo nem áudio, nem esticar camadas negativamente.</li>
+<li>Comprima com gzip o JSON e o player em produção.</li>
+<li>No Safari, máscaras podem sumir: chame <code>lottie.setLocationHref()</code> antes de criar a animação.</li>
+<li>Relacionados no catálogo: o <a href="../02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a> é da LottieFiles e exporta Lottie pelo Creator MCP; o <a href="gsap.html">GSAP</a> e o <a href="motion.html">Motion</a> animam em código, sem After Effects.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://airbnb.io/lottie/">Documentação</a></li>
+<li><a href="https://codepen.io/collection/nVYWZR/">Exemplos no CodePen</a></li>
+<li><a href="https://github.com/airbnb/lottie-web/wiki/Composition-Settings">Configurações de composição</a></li>
+<li><a href="https://github.com/airbnb/lottie-android">Lottie para Android</a> · <a href="https://github.com/airbnb/lottie-ios">iOS</a> · <a href="https://github.com/airbnb/lottie-react-native">React Native</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#03-design-e-ui">Design e UI</a></h2>
+    <ul>
+<li><a href="../../repos/03-design-e-ui/ai-website-cloner-template.html">AI Website Cloner Template</a></li>
+<li><a href="../../repos/03-design-e-ui/anatomy.html">Anatomy</a></li>
+<li><a href="../../repos/03-design-e-ui/awesome-design-md.html">Awesome DESIGN.md</a></li>
+<li><a href="../../repos/03-design-e-ui/emil-kowalski-skills.html">Emil Kowalski Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/gsap.html">GSAP</a></li>
+<li><a href="../../repos/03-design-e-ui/hallmark.html">Hallmark</a></li>
+<li><a href="../../repos/03-design-e-ui/imagegen-skills.html">Imagegen Skills (Image to Code)</a></li>
+<li><a href="../../repos/03-design-e-ui/impeccable.html">Impeccable</a></li>
+<li><a href="../../repos/03-design-e-ui/interface-skills.html">Interface Skills (jakubkrehel/skills)</a></li>
+<li><a href="../../repos/03-design-e-ui/magic-mcp.html">Magic MCP (agora 21st MCP)</a></li>
+<li><a href="../../repos/03-design-e-ui/motion.html">Motion</a></li>
+<li><a href="../../repos/03-design-e-ui/stitch-skills.html">Stitch Skills</a></li>
+<li><a href="../../repos/03-design-e-ui/taste-skill.html">Taste Skill</a></li>
+<li><a href="../../repos/03-design-e-ui/ui-ux-pro-max-skill.html">UI UX Pro Max</a></li>
+<li><a href="../../repos/03-design-e-ui/unslop.html">Unslop</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

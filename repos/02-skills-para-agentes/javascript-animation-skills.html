@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JavaScript Animation Skills · Repositórios favoritos</title>
+<meta name="description" content="Duas skills da iart.ai para o agente fazer curtas animados inteiramente em JavaScript num canvas, sem imagens prontas nem chaves de API, com trilha sonora sintetizada em Web Audio e render para MP4.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#02-skills-para-agentes"><span aria-hidden="true">🧩</span> Skills para agentes</a>
+    </nav>
+    <h1>JavaScript Animation Skills</h1>
+    <p class="lead">Duas skills da iart.ai para o agente fazer curtas animados inteiramente em JavaScript num canvas, sem imagens prontas nem chaves de API, com trilha sonora sintetizada em Web Audio e render para MP4.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/iart-ai/javascript-animation-skills">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">iart-ai/javascript-animation-skills</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/iart-ai/javascript-animation-skills">iart-ai/javascript-animation-skills</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://www.iart.ai/skills#javascript-animation-skills">iart.ai/skills</a></dd></div>
+<div><dt>Linguagem</dt><dd>JavaScript</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>79 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>Um pacote de skills para o agente criar curtas animados em que cada quadro é desenhado por código num canvas HTML: nenhuma imagem, fonte ou biblioteca externa. A própria página sintetiza a música e os efeitos sonoros com Web Audio. O exemplo principal é um único HTML de 81 KB.</p>
+<p>O agente escolhe um visual a partir do tema, escreve na página uma grade de batidas, uma lista de planos e a marcação de cena como dados, e tudo (imagem, câmera e trilha) lê esses dados, então o som cai em cada ação. Um navegador sem interface gera o MP4 quadro a quadro, e o áudio é renderizado e juntado ao vídeo.</p>
+<p>Antes de entregar, o agente confere o próprio trabalho: ausência de arquivos externos, sincronia de áudio e vídeo (cortes na batida, sem saltos de volume), texto sem colisões e uma revisão de direção numa folha de contato a 2 quadros por segundo.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li><strong><code>javascript-animation</code>:</strong> histórias, explicativos, loops e livros ilustrados a partir de fotos suas, com biblioteca de desenho (tinta à mão, livro ilustrado, impressão em cor especial, gravura de linha única, palavras como formas).</li>
+<li><strong><code>soundtrack</code>:</strong> música escrita em código para cada filme, com mapa de tempo que põe cada corte na batida e checagem de sincronia que reprova o render.</li>
+<li>Render determinístico para MP4 e folhas de contato.</li>
+<li>Auditoria de &quot;zero assets&quot;.</li>
+<li>Funciona também com música gerada por IA ou sua.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Um agente compatível com skills (Claude Code, Cursor, Codex etc.).</li>
+<li>Node 18+, <code>npm i playwright-core</code>, ffmpeg e Chrome (ou <code>npx playwright install chromium</code>).</li>
+<li>Modelo forte com visão: foi testado só com o Claude Opus 5.5, e a autocorreção precisa olhar imagens.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<pre><code class="language-bash">npx skills add iart-ai/javascript-animation-skills
+</code></pre>
+<p>Ou como plugin do Claude Code:</p>
+<pre><code class="language-text">/plugin marketplace add iart-ai/javascript-animation-skills
+/plugin install javascript-animation-skills
+</code></pre>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<p>A skill ativa com pedidos como &quot;draw every frame of this in JavaScript&quot;, &quot;make it with no image assets&quot; ou &quot;make a hand-drawn animated explainer&quot;. Exemplos:</p>
+<pre><code class="language-text">Make a 40-second hand-drawn explainer on why babies love black-and-white cards. Every frame in code.
+Animate a short wordless story about a paper boat on its first rainy day, picture-book style, with a music-box soundtrack.
+Here are photos of my dog. Make a 30-second animated day-in-the-life of her.
+</code></pre>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Curtas e explicativos animados sem depender de gerador de imagem ou vídeo.</li>
+<li>Vídeos com trilha sincronizada às ações, feita em código.</li>
+<li>Animações leves que rodam num único arquivo HTML.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li>Modelos mais fracos que o Opus 5.5 não foram testados; o README avisa que os desenhos saem mais toscos.</li>
+<li>Faz parte de uma coleção de 19 pacotes da iart.ai, que também vende um agente de motion completo em iart.ai. As skills são gratuitas.</li>
+<li>Relacionados no catálogo: o <a href="webgl-animation-skills.html">WebGL Animation Skills</a> é da mesma coleção, para 3D; o <a href="anidoodle.html">Anidoodle</a> segue a mesma ideia com mais estilos e ferramentas; o <a href="claude-animation-base.html">Claude Animation Base</a> é um kit de personagem em p5.js.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://github.com/iart-ai/javascript-animation-skills#readme">README</a></li>
+<li><a href="https://github.com/iart-ai/javascript-animation-skills/tree/main/examples/gallery">Galeria</a></li>
+<li><a href="https://github.com/iart-ai/motion-skills">Hub de skills da iart.ai</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#02-skills-para-agentes">Skills para agentes</a></h2>
+    <ul>
+<li><a href="../../repos/02-skills-para-agentes/agentic-awesome-skills.html">Agentic Awesome Skills (AAS Core)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anidoodle.html">Anidoodle</a></li>
+<li><a href="../../repos/02-skills-para-agentes/anthropic-skills.html">Anthropic Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/antigravity-skills.html">Antigravity Skill Vault</a></li>
+<li><a href="../../repos/02-skills-para-agentes/app-store-compliance.html">App Store Compliance</a></li>
+<li><a href="../../repos/02-skills-para-agentes/archify.html">Archify</a></li>
+<li><a href="../../repos/02-skills-para-agentes/awesome-genmedia-skills.html">Awesome Genmedia Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/blender-skills.html">Blender Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/brand-building-skills.html">Brand Building Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/caveman.html">Caveman</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animated-shorts.html">Claude Animated Shorts</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-animation-base.html">Claude Animation Base</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-plugins-official.html">Claude Code Plugins Directory (oficial)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-drawing-skill.html">Claude Drawing Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/claude-seo.html">Claude SEO</a></li>
+<li><a href="../../repos/02-skills-para-agentes/cloudflare-skills.html">Cloudflare Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/diagram-design.html">Diagram Design</a></li>
+<li><a href="../../repos/02-skills-para-agentes/earshot.html">earshot</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ffmpeg-skill.html">FFmpeg Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/first-customer-finder.html">First Customer Finder</a></li>
+<li><a href="../../repos/02-skills-para-agentes/floorplan.html">Floorplan</a></li>
+<li><a href="../../repos/02-skills-para-agentes/founder-skill.html">Founder Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/frontend-slides.html">Frontend Slides</a></li>
+<li><a href="../../repos/02-skills-para-agentes/geo-optimizer.html">GEO Optimizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/gsap-skills.html">GSAP Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/huashu-art-motion.html">Huashu Art Motion</a></li>
+<li><a href="../../repos/02-skills-para-agentes/humanizer.html">Humanizer</a></li>
+<li><a href="../../repos/02-skills-para-agentes/i-have-adhd.html">i-have-adhd</a></li>
+<li><a href="../../repos/02-skills-para-agentes/instagram-agent-skill.html">Instagram Agent Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/karpathy-skills.html">Karpathy Skills (Karpathy-Inspired Claude Code Guidelines)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/lgpd-skills.html">LGPD Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/line-art-animation.html">Line Art Animation</a></li>
+<li><a href="../../repos/02-skills-para-agentes/manim-skill.html">Manim Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/marketingskills.html">Marketing Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motion-design-skill.html">Motion Design Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/motionmaxxing.html">motionmaxxing</a></li>
+<li><a href="../../repos/02-skills-para-agentes/opendata-skills.html">OpenData Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/planning-with-files.html">Planning with Files</a></li>
+<li><a href="../../repos/02-skills-para-agentes/ponytail.html">Ponytail</a></li>
+<li><a href="../../repos/02-skills-para-agentes/prompt-master.html">Prompt Master</a></li>
+<li><a href="../../repos/02-skills-para-agentes/proxmox-skill.html">Proxmox Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/remotion-skills.html">Remotion Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/replica-skill.html">Replica Skill</a></li>
+<li><a href="../../repos/02-skills-para-agentes/res.html">RES (Reverse Engineering SaaS)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-craft.html">Scroll Craft</a></li>
+<li><a href="../../repos/02-skills-para-agentes/scroll-world.html">Scroll World</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-skills-cli.html">Skills CLI (npx skills) + find-skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/patricio0312rev-skills.html">Skills Collection (patricio0312rev)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/mattpocock-skills.html">Skills For Real Engineers (mattpocock/skills)</a></li>
+<li><a href="../../repos/02-skills-para-agentes/social-media-research-skills.html">Social Media Research Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/teardown.html">Teardown</a></li>
+<li><a href="../../repos/02-skills-para-agentes/text-to-cad.html">Text-to-CAD</a></li>
+<li><a href="../../repos/02-skills-para-agentes/threejs-skills.html">Three.js Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/vercel-agent-skills.html">Vercel Agent Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/webgl-animation-skills.html">WebGL Animation Skills</a></li>
+<li><a href="../../repos/02-skills-para-agentes/whiteboard-video-skill.html">Whiteboard Video</a></li>
+<li><a href="../../repos/02-skills-para-agentes/wshobson-agents.html">wshobson Agents</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>

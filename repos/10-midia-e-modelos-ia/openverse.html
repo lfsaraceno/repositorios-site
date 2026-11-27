@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Openverse · Repositórios favoritos</title>
+<meta name="description" content="Buscador de imagens e áudios com licença aberta (Creative Commons e domínio público), mantido pelo WordPress, com API gratuita que devolve o link, o autor, a licença e o texto de crédito pronto de cada arquivo.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a3461f'/%3E%3Cpath d='M9 10h14M9 16h14M9 22h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../app.js" defer></script>
+</head>
+<body class="page-ficha">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../../index.html">Repositórios favoritos</a>
+    <form class="search" role="search" action="../../index.html">
+      <label class="visually-hidden" for="q">Buscar projetos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar projetos…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+  </div>
+</header>
+<main id="conteudo" class="layout-ficha">
+  <div class="ficha-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="../../index.html">Catálogo</a><span aria-hidden="true">/</span><a href="../../index.html#10-midia-e-modelos-ia"><span aria-hidden="true">🎬</span> Mídia e modelos de IA</a>
+    </nav>
+    <h1>Openverse</h1>
+    <p class="lead">Buscador de imagens e áudios com licença aberta (Creative Commons e domínio público), mantido pelo WordPress, com API gratuita que devolve o link, o autor, a licença e o texto de crédito pronto de cada arquivo.</p>
+    <div class="head-actions"><a class="btn btn-primary" href="https://github.com/WordPress/openverse">Abrir no GitHub<span aria-hidden="true"> ↗</span></a><span class="item-repo">WordPress/openverse</span></div>
+  </div>
+  <aside class="ficha-aside">
+    <dl class="meta">
+<div><dt>Repositório</dt><dd><a href="https://github.com/WordPress/openverse">WordPress/openverse</a></dd></div>
+<div><dt>Site / Docs</dt><dd><a href="https://openverse.org">openverse.org</a> · <a href="https://api.openverse.org/v1/">API</a> · <a href="https://docs.openverse.org">Documentação</a></dd></div>
+<div><dt>Linguagem</dt><dd>Python (catálogo e API) e Vue/Nuxt (site)</dd></div>
+<div><dt>Licença</dt><dd>MIT</dd></div>
+<div><dt>Estrelas</dt><dd>~815 (nov/2026)</dd></div>
+    </dl>
+    <nav class="toc" aria-label="Nesta página">
+      <h2>Nesta página</h2>
+      <ul>
+<li><a href="#o-que-e">O que é</a></li>
+<li><a href="#principais-recursos">Principais recursos</a></li>
+<li><a href="#pre-requisitos">Pré-requisitos</a></li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#comandos-e-uso">Comandos e uso</a></li>
+<li><a href="#quando-usar">Quando usar</a></li>
+<li><a href="#observacoes">Observações</a></li>
+<li><a href="#links-uteis">Links úteis</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="prose">
+<h2 id="o-que-e">O que é</h2>
+<p>O Openverse, antigo CC Search da Creative Commons, junta num só buscador imagens e áudios com licença aberta de vários acervos, como Flickr, Wikimedia Commons e Freesound. Cada resultado traz a licença e o texto de atribuição, então dá para usar o arquivo e creditar do jeito certo.</p>
+<p>O repositório é o monorepo de tudo que roda o serviço: o catálogo (Apache Airflow), que coleta os metadados; o servidor de ingestão; a API REST em Django; e o site em Vue e Nuxt.</p>
+<h2 id="principais-recursos">Principais recursos</h2>
+<ul>
+<li>Busca de imagens e de áudio com filtro por licença.</li>
+<li>API pública: busca em <code>/v1/images/</code> e <code>/v1/audio/</code>, com resultados em JSON.</li>
+<li>Cada resultado traz URL do arquivo, página de origem, autor, licença com versão e link, e o texto de atribuição pronto.</li>
+<li>Código aberto do serviço inteiro, para estudar ou hospedar.</li>
+</ul>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Nenhum para usar o site ou a API.</li>
+<li>Para rodar o projeto localmente, siga o guia de contribuição.</li>
+</ul>
+<h2 id="instalacao">Instalação</h2>
+<p>Não precisa instalar nada para usar: acesse <a href="https://openverse.org">openverse.org</a> ou chame a API.</p>
+<h2 id="comandos-e-uso">Comandos e uso</h2>
+<pre><code class="language-bash">curl &quot;https://api.openverse.org/v1/images/?q=gym&amp;page_size=5&quot;
+curl &quot;https://api.openverse.org/v1/audio/?q=rain&amp;page_size=5&quot;
+</code></pre>
+<p>Cada item traz <code>url</code>, <code>creator</code>, <code>license</code>, <code>license_version</code>, <code>license_url</code> e <code>attribution</code>. Os filtros e limites de uso estão na <a href="https://api.openverse.org/v1/">documentação da API</a>.</p>
+<h2 id="quando-usar">Quando usar</h2>
+<ul>
+<li>Achar fotos e sons para sites, posts e vídeos sem violar direitos autorais.</li>
+<li>Dar a um agente uma fonte de imagens reais com licença clara.</li>
+<li>Montar créditos de imagens automaticamente.</li>
+</ul>
+<h2 id="observacoes">Observações</h2>
+<ul>
+<li><strong>Confira a licença de cada arquivo.</strong> Nem tudo pode ser usado comercialmente: há resultados <code>by-nc</code> (não comercial) e <code>by-nd</code> (sem modificação). Para uso comercial, prefira CC0, domínio público, CC BY e CC BY-SA.</li>
+<li>O Openverse indexa, mas não verifica se quem publicou tinha o direito de licenciar o arquivo.</li>
+<li>Relacionado no catálogo: a <a href="../03-design-e-ui/taste-skill.html">Taste Skill</a> busca fotos reais no Openverse e em outros acervos.</li>
+</ul>
+<h2 id="links-uteis">Links úteis</h2>
+<ul>
+<li><a href="https://openverse.org">openverse.org</a></li>
+<li><a href="https://api.openverse.org/v1/">Documentação da API</a></li>
+<li><a href="https://docs.openverse.org">Documentação do projeto</a> · <a href="https://docs.openverse.org/general/contributing.html">Guia de contribuição</a></li>
+</ul>
+
+  </article>
+  <nav class="siblings" aria-labelledby="outros">
+    <h2 id="outros">Outros em <a href="../../index.html#10-midia-e-modelos-ia">Mídia e modelos de IA</a></h2>
+    <ul>
+<li><a href="../../repos/10-midia-e-modelos-ia/ace-step-1-5.html">ACE-Step 1.5</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ai-youtube-shorts-generator.html">AI YouTube Shorts Generator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/artcraft.html">ArtCraft</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/chatterbox.html">Chatterbox TTS</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ffmpeg.html">FFmpeg</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/flux2.html">FLUX.2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/hyperframes.html">HyperFrames</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/kokoro.html">Kokoro</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/longcat.html">LongCat (Meituan)</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/ltx-2.html">LTX-2</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-generative-ai.html">Open Generative AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencreator.html">OpenCreator</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/opencut.html">OpenCut</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openfilm.html">OpenFilm</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/open-higgsfield.html">OpenHiggsfield AI</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openhiggsfield-story-studio.html">OpenHiggsfield Story Studio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/openmontage.html">OpenMontage</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/personaplex.html">PersonaPlex</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/pixelfx.html">PixelFX</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/podcastfy.html">Podcastfy</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/remotion.html">Remotion</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/short-video-factory.html">Short Video Factory</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/soup.html">Soup</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/supoclip.html">SupoClip</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/uniface.html">UniFace</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/voicestudio.html">VoiceStudio</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/wangp.html">WanGP</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/whisper.html">Whisper</a></li>
+<li><a href="../../repos/10-midia-e-modelos-ia/yt-dlp.html">yt-dlp</a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="footer">
+  <p>Catálogo pessoal, gerado a partir das fichas em <code>repos/</code> · atualizado em 27/11/2026. Estrelas e versões refletem a data de coleta de cada ficha.</p>
+</footer>
+</body>
+</html>
